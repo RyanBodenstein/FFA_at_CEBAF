@@ -1,0 +1,31 @@
+#!/bin/bash
+
+# start at RRF8E00A
+# 4.990398e+03
+#
+wrks=$1
+: ${wrks:="Optics"}
+echo "importing 1/4 cryo to bsydump 4th pass"
+elegant ihbsyd4.ele >/dev/null
+sddsprocess -redefine=col,Y,"Y 0.022 -" ihbsyd4.flr ihbsyd4.flr
+importCED ihbsyd4 >/dev/null
+sddsprocess -filter=col,s,5.136954e+03,1e10 dipoles.sdds dipoles4.sdds 
+sddsprocess -filter=col,s,5.136954e+03,1e10 MONITORS.sdds monitors4.sdds 
+sddsprocess -filter=col,s,5.136954e+03,1e10 quads.sdds quads4.sdds 
+sddsprocess -filter=col,s,5.136954e+03,1e10 kickers.sdds kickers4.sdds 
+echo "importing dipoles"
+/cs/dvlhome/apps/c/CED/dvl/src/12GeV/loadSDDS.pl -wrkspc=$wrks \
+ -proplist=s,L,betax,alphax,betay,alphay,etax,etay,etapx,etapy,psix,psiy,pCentral,HGAP,E1,E2,ANGLE,K1,sigmax,sigmay,ecx,ecy,ModelX,ModelY,ModelZ,theta,phi,psi\
+ -startpass=4 -extract -sdds=dipoles4.sdds
+echo "importing monitors"
+/cs/dvlhome/apps/c/CED/dvl/src/12GeV/loadSDDS.pl -wrkspc=$wrks \
+ -proplist=s,L,betax,alphax,betay,alphay,etax,etay,etapx,etapy,psix,psiy,pCentral,sigmax,sigmay,ecx,ecy,ModelX,ModelY,ModelZ,phi,theta,psi\
+ -startpass=4 -sdds=monitors4.sdds
+echo "importing quads"
+/cs/dvlhome/apps/c/CED/dvl/src/12GeV/loadSDDS.pl -wrkspc=$wrks \
+ -proplist=s,L,betax,alphax,betay,alphay,etax,etay,etapx,etapy,psix,psiy,pCentral,K1,sigmax,sigmay,ecx,ecy,Tilt,theta,phi,psi,ModelX,ModelY,ModelZ\
+ -startpass=4 -sdds=quads4.sdds
+echo "importing kickers"
+/cs/dvlhome/apps/c/CED/dvl/src/12GeV/loadSDDS.pl -wrkspc=$wrks \
+ -proplist=s,L,betax,alphax,betay,alphay,etax,etay,etapx,KICK,etapy,psix,psiy,pCentral,sigmax,sigmay,ecx,ecy,ModelX,ModelY,ModelZ,phi,theta,psi\
+ -startpass=4 -sdds=kickers4.sdds

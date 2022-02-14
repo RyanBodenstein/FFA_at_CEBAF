@@ -1,0 +1,18 @@
+#!/bin/bash
+# still need to add the static properties like floor coords and such.
+# ModelX, ModelY,ModelZ, Model_Pitch, Model_Yaw, Model_Roll
+# add  HGAP, Length, Tilt for dipole
+# add Length, Tilt for quads. Eventually add Radius when we have it modeled  (the bore)
+# maybe reset the K1 to zero or calculate it for linac and reinjection
+# quads at each pass.
+#
+# these are for importing all the way to Hall D.
+# we have to do that for the other lines as well.
+# it should be must faster since they are shorter.
+#
+# cavities
+wrks=$1
+: ${wrks:="Optics"}
+/cs/dvlhome/apps/c/CED/dvl/src/12GeV/loadSDDS.pl -wrkspc=$wrks\
+ -proplist=s,L,VOLT,FREQ,ModelPhase,betax,alphax,betay,alphay,etax,etay,etapx,etapy,psix,psiy,pCentral,sigmax,sigmay,ecx,ecy,ModelX,ModelY,ModelZ,Model_Yaw,Model_Pitch,Model_Roll\
+ -sdds=cavities.sdds

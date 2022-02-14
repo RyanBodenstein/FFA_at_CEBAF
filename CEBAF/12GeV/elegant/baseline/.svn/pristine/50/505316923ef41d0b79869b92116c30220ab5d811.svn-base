@@ -1,0 +1,117 @@
+! this command file is used to produce a new extraction.
+! values are calculated from the spreadsheet and loaded in 
+! Running this command file will optimize for the 
+! match and the vertical extraction.
+! it is designed to place the inflexion point at the first C00V 
+! corrector in order to maximize aperture.
+!
+&change_particle mass_ratio=0.5110034 &end
+&run_setup
+	lattice="BSYAtestit.lte",
+	use_beamline="BSYAOPT",
+	p_central_mev=11022.9999907555,
+	final="%s.fin"
+	parameters="%s.parms"
+        centroid=%s.cen
+&end
+! loaded from the previously calculated match for the recirculation.
+! we use ARCAMATCH.ele for this. It produces ARCMATCHEDS.lte which 
+! we evaluate with ARCAMATCHEDS.ele. Finally, the sdds file is made 
+! by invoking the following sdds command:
+! sddsprocess -pipe=out -match=col,ElementName="MQ?AS[01][023456789]*",ElementParameter=K1,\& ARCAMATCHEDS.parms |\
+!   sddsconvert -pipe=in -ascii newarcas.sdds
+!  
+&load_parameters
+ filename=newarcas.sdds
+ change_defined_values=1
+&end
+&twiss_output
+	filename="%s.twi",
+	matched=0,radiation_integrals=1,
+	beta_x=68.8147, alpha_x=1.40062,
+	beta_y=45.4806, alpha_y=-0.845969
+&end
+!
+! new extraction values 
+! calculated from spreadsheet extractionoptimization-newinstall.xlsx
+!  type the cell values here. 
+!`
+&alter_elements name=MQNAE01 item=K1 value=-0.343688 &end ! C20
+&alter_elements name=MQNAE02 item=K1 value=+0.292441 &end ! C21
+&alter_elements name=MQNAE03 item=K1 value=-0.271970 &end ! C22
+&alter_elements name=MQNAE01 item=ANGLE value=-3.1140e-4 &end ! C17
+&alter_elements name=MQNAE02 item=ANGLE value=+1.0228e-3 &end ! C18
+&alter_elements name=MQNAE03 item=ANGLE value=-2.4110e-3 &end ! C19
+&alter_elements name=MBDAS10H item=ANGLE value=-5.2620e-5 &end ! C6
+&alter_elements name=RRFAE00A item=ANGLE value=-3.9465e-5 &end ! C7
+&alter_elements name=RRFAE00B item=ANGLE value=-3.9465e-5 &end ! C8
+&alter_elements name=RRFAE00C item=ANGLE value=-3.9465e-5 &end ! C9
+&alter_elements name=RRFAE00D item=ANGLE value=-3.9465e-5 &end ! C10
+&alter_elements name=MYAAT01 item=ANGLE value=-9.38e-4 &end ! C11
+&alter_elements name=MYAAT01A item=ANGLE value=-9.38e-4 &end ! C11
+&alter_elements name=MYRAT02 item=ANGLE value=-3.9e-2 &end ! C12
+&alter_elements name=MYRAT02 item=L value=2.000373373 &end ! H11
+&alter_elements name=MJGAT03 item=L value=2.004078265 &end ! I36
+&alter_elements name=MJGAT03A item=L value=2.000653597 &end ! I37
+&alter_elements name=MJHAT04 item=L value=2.00045892 &end  ! I38
+&alter_elements name=MJGAT03 item=ANGLE value=3.994387e-2 &end ! G28
+&alter_elements name=MJGAT03A item=ANGLE value=3.994387e-2 &end ! G28 
+&alter_elements name=MJHAT04 item=ANGLE value=-3.710170e-2 &end ! H32
+!
+! vertical extraction at lambertson
+! preload with some sensible value.
+!
+&alter_elements name=RRFAT04A item=KICK value=6.2e-5 &end
+&alter_elements name=RRFAT04B item=KICK value=6.2e-5 &end
+&alter_elements name=RRFAT05A item=KICK value=6.2e-5 &end
+&alter_elements name=RRFAT05B item=KICK value=6.2e-5 &end
+&alter_elements name=MBD1C00V item=KICK value=-2.45e-4  &end
+&alter_elements name=MBD1C00AV item=KICK value=-2.45e-4 &end
+!
+&run_control n_steps=1
+&end
+&optimization_setup 
+ tolerance=1e-16
+ n_restarts=32
+ balance_terms=0
+ restart_worst_term_factor=4
+&end
+!&optimization_variable name=RRFAT04A item=KICK lower_limit=-70e-6 upper_limit=70e-6 &end
+&optimization_variable name=MQKAT01 item=K1 lower_limit=-1.16 upper_limit=1.16 &end
+&optimization_variable name=MQKAT02 item=K1 lower_limit=-1.16 upper_limit=1.16 &end
+&optimization_variable name=MQKAT03 item=K1 lower_limit=-1.16 upper_limit=1.16 &end
+&optimization_variable name=MQKAT04 item=K1 lower_limit=-1.16 upper_limit=1.16 &end
+&optimization_variable name=MQKAT05 item=K1 lower_limit=-1.16 upper_limit=1.16 &end
+!&optimization_variable name=MQNAT06 item=K1 lower_limit=-0.39 upper_limit=0.39 &end
+!&optimization_covariable name=RRFAT04B item=KICK equation="RRFAT04A.KICK" &end
+!&optimization_covariable name=RRFAT05A item=KICK equation="RRFAT04A.KICK" &end
+!&optimization_covariable name=RRFAT05B item=KICK equation="RRFAT04A.KICK" &end
+!&optimization_variable name=MQNAT07 item=K1 lower_limit=-0.39 upper_limit=0.39 &end
+!&optimization_variable name=MQNAT08 item=K1 lower_limit=-0.39 upper_limit=0.39 &end
+!&optimization_covariable name=MQNAT08A item=K1 equation="MQNAT08.K1" &end
+!&optimization_variable name=MQNAT09 item=K1 lower_limit=-0.29 upper_limit=0.29 &end
+!&optimization_term term="Cy 22e-3 1e-4 sene" weight=100 &end
+&optimization_term term="TMATCH#1.betax 20 0.1 sene " &end
+&optimization_term term="TMATCH#1.betay 20 0.1 sene " &end
+&optimization_term term="TMATCH#1.alphax 0 0.02 sene " &end
+&optimization_term term="TMATCH#1.alphay 0 0.02 sene" &end
+!&optimization_term term="max.betax 400 100 segt" &end
+!&optimization_term term="max.betay 400 100 segt" &end
+&floor_coordinates
+	filename="%s.flr",
+	 X0=-80.6,Y0=100,Z0=-91.51785,
+	 theta0=-3.14159265358979,phi0=0
+&end
+&bunched_beam
+	n_particles_per_bunch=1,
+	emit_x=1.71e-10, emit_y=5.32e-10,
+	beta_x=68.8147, alpha_x=1.40062,
+	beta_y=45.4806, alpha_y=-0.845969
+	sigma_dp=0.00032,sigma_s=0.0,
+	distribution_type[0] = 3*"gaussian",
+	distribution_cutoff[0] = 3*3,
+	enforce_rms_values[0]=1,1,1
+&end
+&optimize &end
+&save_lattice filename="BSYArematched.lte" &end
+!&track &end

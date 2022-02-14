@@ -1,0 +1,63 @@
+!
+! after having matched the spreader with the new 
+! extraction, use this file to do the recombiner
+! rematch.
+!
+&run_setup
+	lattice="ARCAMATCHEDS.lte",
+	use_beamline="ARCA",
+	p_central_mev=11022.9999907555,
+	final="%s.fin"
+	parameters="%s.parms"
+&end
+!
+!
+!
+
+&twiss_output
+	filename="%s.twi",
+	matched=0,radiation_integrals=1,
+	beta_x=68.7976, alpha_x=1.40041,
+	beta_y=45.4908, alpha_y=-0.846251
+&end
+&run_control n_steps=1 &end
+&optimization_setup 
+ tolerance=1e-32
+ n_restarts=32
+ balance_terms=0
+ n_passes=5
+ restart_worst_term_factor=4
+&end
+&optimization_variable name=MQRAR01 item=K1 &end
+&optimization_variable name=MQRAR02 item=K1 &end
+&optimization_variable name=MQRAR03 item=K1 &end
+&optimization_variable name=MQRAR04 item=K1 &end
+&optimization_variable name=MQKAR05 item=K1 &end
+&optimization_variable name=MQKAR06 item=K1 &end
+&optimization_variable name=MQRAR07 item=K1 &end
+&optimization_variable name=MQAAR08 item=K1 &end
+&optimization_variable name=MQAAR09 item=K1 &end
+&optimization_covariable name=MQRAR02A item=K1 equation="MQRAR02.K1" &end
+&optimization_covariable name=MQRAR03A item=K1 equation="MQRAR03.K1" &end
+&optimization_covariable name=MQRAR04A item=K1 equation="MQRAR04.K1" &end
+&optimization_term term="betax 132.225 1 sene " &end
+&optimization_term term="betay 275.045 25 sene " &end
+&optimization_term term="alphax -0.640167 0.1 sene " &end
+&optimization_term term="alphay 1.26344 0.3 sene" &end
+&floor_coordinates
+	filename="%s.flr",
+	 X0=-80.6,Y0=100,Z0=-91.51784593486,
+	 theta0=-3.14159265358979,phi0=0
+&end
+&bunched_beam
+	n_particles_per_bunch=1,
+	emit_x=1.79e-12, emit_y=5.32e-12,
+        use_twiss_command_values=1
+	sigma_dp=0.00032,sigma_s=0.0,
+	distribution_type[0] = 3*"gaussian",
+	distribution_cutoff[0] = 3*3,
+	enforce_rms_values[0]=1,1,1
+&end
+&optimize &end
+&save_lattice filename=ARCArematched.lte &end
+!&track &end

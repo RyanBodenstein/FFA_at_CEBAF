@@ -1,0 +1,139 @@
+#!/bin/bash
+#
+#  prepare SDDS files suitable for loadSDDS to import into the CED.
+#
+# first shift the s coordinate by 13.49157 (we start at D0 in front of 0L01) 
+# that is the front face of the 1/4 cryomodule.
+#
+elegant ihd.ele
+sddsprocess $1.twi -redefine=col,s,"s 13.49157 +" proc.twi
+sddsprocess $1.cen -redefine=col,s,"s 13.49157 +" proc.cen
+sddsprocess $1.sig -redefine=col,s,"s 13.49157 +" proc.sig
+sddsprocess $1.flr -redefine=col,s,"s 13.49157 +" proc.flr
+
+#===========================================================================
+# beam parameters
+# Sx,Sy, ex,ey, s, twiss,P
+# thats defined for all the elements regardless of their type.
+# do the renaming here in the sddsprocess pipe
+#  Sx -> sigmax
+#  Sy -> sigmay
+#  etaxp -> etapx
+#  etayp ->etapy
+#  ex->emitx
+#  ey->emity
+#===========================================================================
+sddsxref proc.twi proc.cen proc.sig proc.flr -pipe=out -match=ElementName  |\
+ sddsprocess -pipe=in -define=col,etapx,"etaxp" -define=col,etapy,"etayp" \
+ -define=col,P,"pCentral",units="m$be$nc"\
+ -define=col,sigmax,"Sx",units=m -define=col,sigmay,"Sy",units=m\
+ -define=col,ModelX,"X",units=m -define=col,ModelY,"Y",units=m -define=col,ModelZ,"Z",units=m\
+ -define=col,Model_Yaw,"theta 3.1415926 / 180.0 *",units="deg"\
+ -define=col,Model_Pitch,"phi 3.1415926 / 180.0 *",units="deg"\
+ -define=col,Model_Roll,"psi 3.1415926 / 180.0 *",units="deg"\
+ resBEAM.sdds
+#==========================================================================
+# element parameters
+# L, TILT, etc..
+#  add columns:
+# ModelLength from L
+#
+#===========================================================================
+# first parameters that are global to all elements.
+sddsprocess $1.parms -match=col,ElementParameter=TILT -define=col,Tilt,"ParameterValue",units=rad -pipe=out |\
+ sddsxref -nowarnings resBEAM.sdds -pipe=in -match=ElementName res2TILT.sdds
+sddsprocess $1.parms -match=col,ElementParameter=L  \
+ -define=col,L,"ParameterValue",units=m\
+ -define=col,Length,"ParameterValue",units=m\
+ -define=col,ModelLength,"ParameterValue",units=m -pipe=out |\
+ sddsxref resBEAM.sdds -pipe=in -match=ElementName res2L.sdds
+sddsprocess $1.parms -match=col,ElementParameter=K2  -define=col,K2,"ParameterValue",units="m^-3" -pipe=out |\
+ sddsxref resBEAM.sdds -pipe=in -match=ElementName res2K2.sdds
+sddsprocess $1.parms -match=col,ElementParameter=K1  -define=col,K1,"ParameterValue",units="m^-2" -pipe=out |\
+ sddsxref resBEAM.sdds -pipe=in -match=ElementName res2K1.sdds
+sddsprocess $1.parms -match=col,ElementParameter=KS  -define=col,KS,"ParameterValue",units="m^-1" -pipe=out |\
+ sddsxref resBEAM.sdds -pipe=in -match=ElementName res2KS.sdds
+#
+# monitors
+sddsprocess $1.parms -match=col,ElementParameter=L -match=col,ElementType=MONI -pipe=out| sddsxref -nowarnings -match=ElementName -pipe=in res2TILT.sdds resBEAM.sdds res2L.sdds MONITORS.sdds 
+# kickers
+sddsprocess $1.parms -match=col,ElementParameter=KICK -define=col,KICK,"ParameterValue"\
+ -match=col,ElementType=KICK resKICKkick.sdds
+sddsprocess $1.parms -match=col,ElementParameter=TILT -define=col,Tilt,"ParameterValue"\
+ -match=col,ElementType=KICK resTILTkick.sdds
+sddsxref -nowarnings -match=ElementName resBEAM.sdds res2L.sdds resKICKkick.sdds 
+#
+#
+#
+# specific ones for dipoles
+#
+echo "about to process dipoles"
+sddsprocess $1.parms -match=col,ElementParameter=ANGLE -define=col,ANGLE,"ParameterValue",units=rad -pipe=out |\
+ sddsxref resBEAM.sdds -pipe=in -match=ElementName res2ANGLE.sdds
+sddsprocess $1.parms -match=col,ElementParameter=E1 -define=col,E1,"ParameterValue",units=rad -pipe=out |\
+ sddsxref resBEAM.sdds -pipe=in -match=ElementName res2E1.sdds
+sddsprocess $1.parms -match=col,ElementParameter=E2 -define=col,E2,"ParameterValue",units=rad -pipe=out |\
+ sddsxref resBEAM.sdds -pipe=in -match=ElementName res2E2.sdds
+sddsprocess $1.parms -match=col,ElementParameter=HGAP -define=col,HGAP,"ParameterValue",units=m -pipe=out |\
+ sddsxref resBEAM.sdds -pipe=in -match=ElementName res2HGAP.sdds
+# single file with all dipoles
+echo "about to xref dipole files"
+sddsxref -nowarnings -match=ElementName res2ANGLE.sdds res2E1.sdds res2E2.sdds res2HGAP.sdds res2K1.sdds res2L.sdds res2TILT.sdds dipoles.sdds
+#
+# quads in linac have BORE and B defined 
+#
+echo "about to process linac quads"
+sddsprocess $1.parms -match=col,ElementParameter=BORE -define=col,BORE,"ParameterValue",units=m -pipe=out |\
+ sddsprocess -pipe -filter=col,BORE,0.0,0.0,! |\
+ sddsxref resBEAM.sdds res2TILT.sdds -pipe=in -match=ElementName res2BORE.sdds
+echo "retrieving B field"
+sddsprocess $1.parms -match=col,ElementParameter=B -define=col,B,"ParameterValue",units=T res2B.sdds
+# -define=col,K1,"B pCentral / 0.511 / 1E6 / 2.99792458E8 *" res2B.sdds
+# make it a single file.
+sddsxref -nowarnings res2BORE.sdds res2B.sdds res2L.sdds res2TILT.sdds -match=ElementName -pipe=out |\
+  sddsprocess -pipe=in -define=col,K1,"B pCentral / 0.511 / 1E6 / 2.99792458E8 *",units="m^-2" quadsLINACRECIRC.sdds
+sddsprocess -match=col,ElementName="MQN*" quadsLINACRECIRC.sdds quadsRECIRC.sdds
+sddsprocess -match=col,ElementName="MQN",! quadsLINACRECIRC.sdds quadsLINAC.sdds
+# todo: separate the reinjection from the linacs.
+echo "processing regular quads"
+# other quads with B  and BORE undefined
+# single file with quads
+# remove linac and recirculation quads that have B and BORE defined.
+sddsprocess -nowarnings $1.parms -match=col,ElementParameter=BORE -define=col,BORE,"ParameterValue",units=m -pipe=out |\
+ sddsprocess -pipe=in -filter=col,BORE,0.0,0.0 resNotB.sdds
+echo "regular step 1"
+#
+sddsprocess -nowarnings resBEAM.sdds -match=col,ElementType=KQUAD -pipe=out |\
+ sddsxref -nowarnings -pipe=in res2K1.sdds res2TILT.sdds res2L.sdds resNotB.sdds -match=ElementName  quads.sdds
+echo "regular step 2 (solenoids)"
+#
+sddsprocess -nowarnings resBEAM.sdds -match=col,ElementType=SOLE -pipe=out |\
+ sddsxref -nowarnings -pipe=in res2KS.sdds res2L.sdds -match=ElementName  solenoids.sdds
+echo "regular step 3"
+#
+# processing sextupoles
+#
+echo "processing sextupoles"
+sddsprocess -nowarnings resBEAM.sdds -match=col,ElementType=SEXT -pipe=out |\
+ sddsxref -nowarnings -pipe=in res2K2.sdds res2TILT.sdds res2L.sdds -match=ElementName  sextupoles.sdds
+
+#
+# specific for cavities
+#
+echo "processing cavities"
+sddsprocess $1.parms -match=col,ElementParameter=VOLT -define=col,VOLT,"ParameterValue",units="Volt" -pipe=out |\
+ sddsxref resBEAM.sdds -pipe=in -match=ElementName res2VOLT.sdds
+sddsprocess $1.parms -match=col,ElementParameter=PHASE -define=col,ModelPhase,"ParameterValue",units="deg" -pipe=out |\
+ sddsxref resBEAM.sdds -pipe=in -match=ElementName res2PHASE.sdds
+sddsprocess $1.parms -match=col,ElementParameter=FREQ -define=col,FREQ,"ParameterValue",units="Hz" -pipe=out |\
+ sddsxref resBEAM.sdds -pipe=in -match=ElementName res2FREQ.sdds
+# single file with all cavities.
+sddsxref -nowarnings -match=ElementName resBEAM.sdds res2L.sdds res2VOLT.sdds res2FREQ.sdds res2PHASE.sdds cavitiesp.sdds
+sddsprocess -define=col,ModelGSET,"VOLT Length / 1E6 /" cavitiesp.sdds cavities.sdds
+#
+# specific for kickers.
+#
+echo "processing kickers"
+sddsprocess $1.parms -match=col,ElementParameter=KICK -define=col,KICK,"ParameterValue",units="rad" -pipe=out |\
+ sddsxref -nowarnings resBEAM.sdds res2L.sdds -pipe=in -match=ElementName kickers.sdds
+

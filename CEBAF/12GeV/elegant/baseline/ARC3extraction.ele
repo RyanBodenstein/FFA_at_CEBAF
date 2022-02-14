@@ -1,0 +1,50 @@
+&run_setup
+	lattice="iter1.lte",
+	use_beamline="EXTRACTION3",
+	p_central_mev=3393,
+	final="%s.fin"
+	parameters="%s.parms"
+&end
+&run_control n_steps=1
+&end
+
+!&alter_elements name=MBW3E01 item=HGAP value=0 &end
+!&alter_elements name=MCV3E02 item=HGAP value=0 &end
+!&alter_elements name=MQA3S10 item=K1 value=0.2 &end
+!&alter_elements name=MQB3E01 item=K1 value=-0.2 &end
+!&alter_elements name=MQB3E02 item=K1 value=0.4 &end
+!&alter_elements name=MQB3E03 item=K1 value=-0.2 &end
+!&alter_elements name=MQA3A01 item=K1 value=0.2 &end
+!&alter_elements name=MBW3E01 item=NONLINEAR value=0 &end
+!&alter_elements name=MCV3E02 item=NONLINEAR value=0 &end
+!&alter_elements name=MBW3E03 item=NONLINEAR value=0 &end
+&twiss_output
+	filename="%s.twi",
+	matched=1,radiation_integrals=1,
+        output_at_each_step=1
+&end
+&optimization_setup log_file=%s.terms 
+  method="simplex"
+! method="randomwalk"
+ balance_terms=1
+ n_restarts=30
+ n_passes=5
+ tolerance=1e-32
+ restart_worst_term_factor=4
+&end
+&optimization_variable name=MQA3S10 item=K1 &end
+&optimization_variable name=MQB3E01 item=K1 &end
+!&optimization_variable name=MQB3E02 item=K1 &end
+!&optimization_variable name=MQB3E03 item=K1 &end
+!&optimization_variable name=MQA3A01 item=K1 &end
+&optimization_covariable name=MQB3E02 item=K1 equation="MQA3S10.K1 2.0 *" &end
+&optimization_covariable name=MQB3E03 item=K1 equation="MQB3E01.K1 " &end
+&optimization_covariable name=MQA3A01 item=K1 equation="MQA3S10.K1" &end
+&optimization_term term="nux 0.5 1e-3 sene" &end
+&optimization_term term="nuy 0.5 1e-3 sene" &end
+&optimization_term term="max.betax 90.0 5 segt" &end
+&optimization_term term="max.betay 160.0 8 segt" &end
+&bunched_beam
+&end
+&optimize &end
+&save_lattice filename=extract3.lte &end

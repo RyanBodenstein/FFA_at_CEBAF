@@ -1,0 +1,42 @@
+#!/bin/bash
+#
+# check quadrupole ranges
+#
+sddsprocess  $1.parms ihdK1.sdds -match=column,ElementType=KQUAD -match=column,ElementParameter='K1' \
+ -define=column,K1,"ParameterValue"
+sddsprocess  $1.twi ihdP.sdds -match=column,ElementType=KQUAD \
+ -define=column,P,"pCentral0"
+#
+# then we compute the Gradient (in kG/CM).
+#
+ sddsxref ihdP.sdds ihdK1.sdds  -pipe=out -match=ElementName|
+   sddsprocess -pipe=in ihdGRAD.sdds -delete=column,"*" \
+  -retain=column,"ElementName" -retain=column,"K1" -retain=column,"P"\
+  -define=column,G,"P 511009 * 2.99792458e8 / K1 * 10 /",units="kG/cm"
+#
+# make lists of quads that are past their maximum range.
+#
+# limits in GAUSS and kG/cm                
+# QJ 589     7.5           0.078
+# QD 3200    15            0.21
+# QB 14019   15            0.93
+# QC 22500   30            0.75
+# QA 96400   30            3.21 (10 Amps number)
+# QA 78000   30            2.60 (8 Amps number)
+# QL 28300   15  (QB+)     1.88
+# QN 45000   30   (QC+)    1.5
+# QQ 73500   120  (QBQC)   0.61
+# QK 128000  30    (QA+)   4.27
+# QP 83500   30            2.78 
+# QV 168600  60            2.8 
+# QR 189000  35.5          5.32
+sddsprocess -match=column,ElementName=MQJ* -filter=column,G,-0.078,0.078,! ihdGRAD.sdds MQJbad.sdds
+sddsprocess -match=column,ElementName=MQD* -filter=column,G,-0.21,0.21,! ihdGRAD.sdds MQDbad.sdds
+sddsprocess -match=column,ElementName=MQB[3579B]L*,! -match=column,ElementName=MQB* -filter=column,G,-0.93,0.93,! ihdGRAD.sdds MQBbad.sdds
+sddsprocess -match=column,ElementName=MQC* -filter=column,G,-0.75,0.75,! ihdGRAD.sdds MQCbad.sdds
+sddsprocess -match=column,ElementName=MQA* -filter=column,G,-2.6,2.6,! ihdGRAD.sdds MQAbad.sdds
+sddsprocess -match=column,ElementName=MQL* -filter=column,G,-1.88,1.88,! ihdGRAD.sdds MQLbad.sdds
+sddsprocess -match=column,ElementName=MQN* -filter=column,G,-1.5,1.5,! ihdGRAD.sdds MQNbad.sdds
+sddsprocess -match=column,ElementName=MQK* -filter=column,G,-4.27,4.27,! ihdGRAD.sdds MQKbad.sdds
+sddsprocess -match=column,ElementName=MQP* -filter=column,G,-2.78,2.78,! ihdGRAD.sdds MQPbad.sdds
+sddsprocess -match=column,ElementName=MQR* -filter=column,G,-5.320,5.320,! ihdGRAD.sdds MQRbad.sdds

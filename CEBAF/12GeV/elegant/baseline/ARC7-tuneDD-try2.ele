@@ -1,0 +1,102 @@
+&change_particle mass_ratio=0.5110034 &end
+&divide_elements name=MQK7A03 divisions=2 &end
+&divide_elements name=MQK7A07 divisions=2 &end
+&run_setup
+	lattice="ARC7designv2.lte",
+	use_beamline="CELL1",
+	p_central_mev=7753,
+	final="%s.fin"
+	parameters="%s-cell.parms"
+&end
+
+&alter_elements name=MJA7* item=K1 value=3.8e-4 &end
+!&alter_elements name=MBC7A01H item=ANGLE value=0.0 &end
+&insert_elements name=MQK7A03 element_def="M1: MARKER, FITPOINT=1" &end
+&insert_elements name=MQK7A07 element_def="M2: MARKER, FITPOINT=1" &end
+&twiss_output
+	filename="%s-cell.twi",
+	matched=1,radiation_integrals=1,
+        output_at_each_step=1
+&end
+&run_control n_steps=1
+&end
+&optimization_setup 
+  tolerance=1e-32 method="simplex" 
+!  tolerance=1e-32 method="randomwalk" 
+  n_restarts=20 
+  restart_worst_term_factor=3 
+  term_log_file=%s.terms
+&end
+&optimization_variable name=MQA7A01 item=K1 &end
+&optimization_variable name=MQA7A02 item=K1 &end
+&optimization_variable name=MQK7A03 item=K1 &end
+&optimization_variable name=MQA7A04 item=K1 &end
+&optimization_variable name=MQA7A05 item=K1 &end
+&optimization_covariable name=MQA7A09 item=K1 equation="MQA7A01.K1" &end
+&optimization_covariable name=MQA7A08 item=K1 equation="MQA7A02.K1" &end
+&optimization_covariable name=MQK7A07 item=K1 equation="MQK7A03.K1" &end
+&optimization_covariable name=MQA7A06 item=K1 equation="MQA7A04.K1" &end
+&optimization_term term="nux 1.25 1e-5 sene" &end
+&optimization_term term="nuy 0.75 1e-5 sene" &end
+! pi phase advance between A03 and A07
+&optimization_term term="M2#1.nux M1#1.nux - 0.5 1e-5 sene" &end
+&optimization_term term="etax 0.0 1e-6 sene" &end
+!&optimization_term term="max.betax 60.0 5.0 segt" &end
+&optimization_term term="R56 1.718e-2 1e-6 sene" &end
+
+&bunched_beam
+&end
+&optimize &end
+&save_lattice filename=cell.lte output_seq=1 &end
+!&stop
+!
+! rerun to get new twiss.
+!
+&run_setup
+	lattice="cell.lte",
+	use_beamline="CELL1",
+	p_central_mev=6662.99998300489,
+&end
+&twiss_output
+	filename="%s-cell.twi",
+	matched=1,radiation_integrals=1,
+        output_before_tune_correction=1,
+        output_at_each_step=1
+&end
+&run_control n_steps=1 &end
+&bunched_beam &end
+&track &end
+!
+! construct the full arc
+!
+&run_setup
+	lattice="ARC7designv2.lte",
+	use_beamline="ARCFODO",
+	p_central_mev=7753,
+	final="%s.fin"
+	parameters="%s.parms"
+        sigma=%s-full.sig
+&end
+&load_parameters
+ filename="ARC7-tuneDD-try2-cell.parms"
+ change_defined_values=1
+ allow_missing_elements=1
+&end
+&alter_elements name=MJA7* item=K1 value=3.8e-4 &end
+&twiss_output
+ filename="%s-full.twi"
+ matched=0
+ beta_x= "{sdds2stream -col=betax ARC7-tuneDD-try2-cell.twi|head -1}"
+ beta_y= "{sdds2stream -col=betay ARC7-tuneDD-try2-cell.twi|head -1}"
+ alpha_x= "{sdds2stream -col=alphax ARC7-tuneDD-try2-cell.twi|head -1}"
+ alpha_y= "{sdds2stream -col=alphay ARC7-tuneDD-try2-cell.twi|head -1}"
+ output_at_each_step=1
+&end
+&matrix_output
+ SDDS_output="ARC7fromA01try2.sdds"
+! start_from=MQA7A01
+&end
+&run_control n_steps=1 &end
+&bunched_beam emit_x=5.53e-10, emit_y=2.71e-10,n_particles_per_bunch=1024 use_twiss_command_values=1 &end
+/bin/bash: :$: command not found
+&save_lattice filename="finalARC7.lte" &output_seq=1 &end

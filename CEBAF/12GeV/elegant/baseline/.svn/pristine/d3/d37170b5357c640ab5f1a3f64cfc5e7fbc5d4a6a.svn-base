@@ -1,0 +1,17 @@
+#!/bin/bash
+#
+# genrate a table for spin calculator
+# we need to output
+# name, s, bend angle, momentum and tilt
+#
+sddsprocess  $1.parms TILT.sdds -match=column,ElementType=CSBEND -match=column,ElementParameter='TILT' \
+ -define=column,TILT,"ParameterValue"
+sddsprocess  $1.parms ANGLE.sdds -match=column,ElementType=CSBEND -match=column,ElementParameter='ANGLE' \
+ -define=column,ANGLE,"ParameterValue"
+sddsprocess  $1.cen P.sdds -match=column,ElementType=CSBEND \
+ -define=column,PMEV,"pCentral 0.511 *"
+
+sddsxref TILT.sdds ANGLE.sdds P.sdds -pipe=out -match=ElementName|
+ sddsprocess -pipe=in spin.sdds -delete=column,"*"\
+ -retain=column,"ElementName" -retain=column,"PMEV" -retain=column,"TILT" \
+ -retain=column,"ANGLE" -retain=col,s 

@@ -1,0 +1,58 @@
+&change_particle mass_ratio=0.5110034 &end
+&run_setup
+	lattice="BSY8.lte",
+	use_beamline="BSY8",
+	p_central_mev=8842.99998783553,
+	final="%s.fin"
+	parameters="%s.parms"
+&end
+&load_parameters
+ filename="ARC8.parms"
+ exclude_item_pattern=L
+ change_defined_values=1
+ allow_missing_elements=1
+ include_item_pattern=K1
+ verbose=1
+&end
+&twiss_output
+	filename="%s.twi",
+	matched=0,radiation_integrals=1,
+	beta_x=45.6708, alpha_x=1.09149,
+	beta_y=40.2407, alpha_y=-0.916835
+&end
+&run_control n_steps=1
+&end
+&floor_coordinates
+	filename="%s.flr",
+	 X0=-80.6,Y0=100,Z0=-91.51785,
+	 theta0=-3.14159265358979,phi0=0
+&end
+&optimization_setup 
+ tolerance=1e-32
+ n_restarts=20
+ restart_worst_term_factor=4
+&end
+&optimization_variable name=MQK8T01 item=K1 lower_limit=-1.447 upper_limit=1.447 &end
+&optimization_variable name=MQK8T02 item=K1 lower_limit=-1.447 upper_limit=1.447 &end
+&optimization_variable name=MQA8T03 item=K1 lower_limit=-0.881 upper_limit=0.881 &end
+&optimization_variable name=MQA8T04 item=K1 lower_limit=-0.881 upper_limit=0.881 &end
+&optimization_variable name=MQA8T05 item=K1 lower_limit=-0.881 upper_limit=0.881 &end
+&optimization_variable name=MQK8T06 item=K1 lower_limit=-1.447 upper_limit=1.447 &end
+&optimization_variable name=MQK8T08 item=K1 lower_limit=-1.447 upper_limit=1.447 &end
+&optimization_term term="betax 20 0.1 sene " &end
+&optimization_term term="betay 20 0.1 sene " &end
+&optimization_term term="alphax 0 0.01 sene " &end
+&optimization_term term="alphay 0 0.01 sene " &end
+!&optimization_term term="max.betay 400 100 segt" &end
+&bunched_beam
+	n_particles_per_bunch=1,
+	emit_x=7.1e-10, emit_y=3.5e-12,
+	use_twiss_command_values=1
+	sigma_dp=0.000122,sigma_s=0.0,
+	distribution_type[0] = 3*"gaussian",
+	distribution_cutoff[0] = 3*3,
+	enforce_rms_values[0]=1,1,1
+&end
+&optimize &end
+!&track &end
+&save_lattice filename="BSY8o.lte" &end

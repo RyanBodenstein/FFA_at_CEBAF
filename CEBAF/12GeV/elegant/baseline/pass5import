@@ -1,0 +1,48 @@
+#!/bin/bash
+# start at RRFAE00A
+# 6.301314e+03 
+#
+echo "importing 1/4 cryo to Hall A 5 pass"
+wrks=$1
+: ${wrks:="Optics"}
+#
+# process the floor file to add the correct Y value with the lambertson.
+#
+elegant iha5.ele >/dev/null
+sddsprocess -filter=col,s,0,6.287097e3 iha5.flr t0c00.flr
+sddsprocess -filter=col,s,6.287097,1e10 iha5.flr -define=col,DY,"0.022" ha5offset.flr
+sddsxref iha5.flr  ha5offset.flr -equate=s -editnames=col,Y,ei/%ld/ -pipe=out|\
+ sddsprocess -pipe=in -redefine=col,Y,"Y DY +" toha5.flr
+sddscombine -merge -overWrite t0c00.flr toha5.flr iha5p.flr
+# 
+cp iha5.parms iha5p.parms
+cp iha5.cen iha5p.cen
+cp iha5.sig iha5p.sig
+cp iha5.twi iha5p.twi
+importCED iha5p >/dev/null
+echo "generating pass specific decks"
+#start in front of RRFAE00A
+sddsprocess -filter=col,s,6.3000e+03,1e10 dipoles.sdds dipoles5.sdds 
+sddsprocess -filter=col,s,6.3000e+03,1e10 MONITORS.sdds monitors5.sdds 
+sddsprocess -filter=col,s,6.3000e+03,1e10 quads.sdds quads5.sdds 
+sddsprocess -filter=col,s,6.3000e+03,1e10 kickers.sdds kickers5.sdds 
+echo "importing dipoles"
+/cs/dvlhome/apps/c/CED/dvl/src/12GeV/loadSDDS.pl -wrkspc=$wrks \
+ -proplist=s,L,betax,alphax,betay,alphay,etax,etay,etapx,etapy,psix,psiy,pCentral,HGAP,E1,E2,ANGLE,K1,sigmax,sigmay,ecx,ecy,ModelX,ModelY,ModelZ,theta,phi,psi\
+ -startpass=5 -extract -sdds=dipoles5.sdds
+cp loadsdds.err loadsdds_ha5dip.err
+echo "importing monitors"
+/cs/dvlhome/apps/c/CED/dvl/src/12GeV/loadSDDS.pl -wrkspc=$wrks \
+ -proplist=s,L,betax,alphax,betay,alphay,etax,etay,etapx,etapy,psix,psiy,pCentral,sigmax,sigmay,ecx,ecy,ModelX,ModelY,ModelZ,phi,theta,psi\
+ -startpass=5 -sdds=monitors5.sdds
+cp loadsdds.err loadsdds_ha5mon.err
+echo "importing quads"
+/cs/dvlhome/apps/c/CED/dvl/src/12GeV/loadSDDS.pl -wrkspc=$wrks \
+ -proplist=s,L,betax,alphax,betay,alphay,etax,etay,etapx,etapy,psix,psiy,pCentral,K1,sigmax,sigmay,ecx,ecy,Tilt,theta,phi,psi,ModelX,ModelY,ModelZ\
+ -startpass=5 -sdds=quads5.sdds
+cp loadsdds.err loadsdds_ha5quad.err
+echo "importing kickers"
+/cs/dvlhome/apps/c/CED/dvl/src/12GeV/loadSDDS.pl -wrkspc=$wrks \
+ -proplist=s,L,betax,alphax,betay,alphay,etax,etay,etapx,KICK,etapy,psix,psiy,pCentral,sigmax,sigmay,ecx,ecy,ModelX,ModelY,ModelZ,phi,theta,psi\
+ -startpass=5 -sdds=kickers5.sdds
+cp loadsdds.err loadsdds_ha5kick.err

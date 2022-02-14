@@ -1,0 +1,48 @@
+&divide_elements name=MQA7A11 divisions=2 &end
+&run_setup
+	lattice="daarc7.lte",
+	use_beamline="ARC7",
+	p_central_mev=7753,
+	final="%s.fin"
+	parameters="%s.parms"
+        sigma=%s.sig
+&end
+! set it to the average
+&alter_elements name= MQA7A01 item=K1 value=0.4348634028006966, &end
+&alter_elements name= MQR7S02 item=K1 value=1.424216022092385, &end
+&alter_elements name= MQA7S04 item=K1 value=-0.3084276253611155, &end
+&alter_elements name= MQR7S05 item=K1 value=0.7884193634033821, &end
+&alter_elements name= MQK7S06 item=K1 value=-0.8699356124211018, &end
+&alter_elements name= MQA7S07 item=K1 value=0.7554437397405651, &end
+&alter_elements name= MQR7S08 item=K1 value=-0.6467284690593347, &end
+&alter_elements name= MQK7S09 item=K1 value=0.6398942991861346, &end
+&alter_elements name= MQK7S10 item=K1 value=0.2859386446597544, &end
+&twiss_output
+	filename="%s.twi",
+	matched=0,radiation_integrals=1,
+        beta_x=164.215, alpha_x=3.3546,
+        beta_y=132.149, alpha_y=-1.2274
+&end
+&floor_coordinates
+        filename="%s.flr",
+         X0=80.6,Y0=100,Z0=90.55103,
+         theta0=0,phi0=0
+         magnet_centers=1
+&end
+&run_control n_steps=1
+&end
+&matrix_output 
+ SDDS_output="daarc7.mat"
+ start_from=MQA7A01
+&end
+&bunched_beam
+	n_particles_per_bunch=1024,
+	emit_x=2.6e-10, emit_y=2.1e-10,
+        use_twiss_command_values=1
+	sigma_dp=6e-05,sigma_s=0.0,
+	distribution_type[0] = 3*"gaussian",
+	distribution_cutoff[0] = 3*3,
+	enforce_rms_values[0]=1,1,1
+&end
+&track
+&end

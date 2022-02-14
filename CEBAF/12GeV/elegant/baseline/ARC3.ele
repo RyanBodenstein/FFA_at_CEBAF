@@ -1,0 +1,33 @@
+&change_particle mass_ratio=0.5110034 &end
+&run_setup
+	lattice="ARC3.lte",
+	use_beamline="ARC3",
+	p_central_mev=3392.99996752012,
+	final="%s.fin"
+	parameters="%s.parms"
+&end
+&twiss_output
+	filename="%s.twi",
+	matched=0,radiation_integrals=1,
+	beta_x=83.3326, alpha_x=2.04173,
+	beta_y=39.9695, alpha_y=-1.31236
+&end
+&run_control n_steps=1
+&end
+&floor_coordinates
+	filename="%s.flr",
+	 X0=80.6,Y0=100,Z0=90.55103,
+	 theta0=0,phi0=0
+&end
+&bunched_beam
+	n_particles_per_bunch=1,
+	emit_x=2e-09, emit_y=2e-09,
+	beta_x=83.3326, alpha_x=2.04173,
+	beta_y=39.9695, alpha_y=-1.31236
+	sigma_dp=2e-05,sigma_s=0.0,
+	distribution_type[0] = 3*"gaussian",
+	distribution_cutoff[0] = 3*3,
+	enforce_rms_values[0]=1,1,1
+&end
+&track
+&end

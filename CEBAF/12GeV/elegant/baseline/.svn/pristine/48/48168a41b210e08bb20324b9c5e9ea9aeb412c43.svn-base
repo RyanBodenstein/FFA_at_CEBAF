@@ -1,0 +1,199 @@
+&run_setup
+	lattice="../iha5nodup.lte",
+	use_beamline="INJ",
+	p_central_mev=6.27924163615229,
+!        parameters="rematch.parms"
+	final="%s.fin"
+        default_order=3
+        concat_order=2
+        always_change_p0=0
+&end
+! keep first zone at T= 22.5 MeV (0L03)
+! scale second zone. thats for 1090 per linac.
+&alter_elements name=R04[12345678]* item=VOLT multiplicative=1 value=1  verbose=0 &end
+!
+&optimization_setup restart_worst_term_factor=5  n_evaluations=5000 tolerance=1e-30 n_restarts=3 &end
+&optimization_variable name=MQJ0L04 item=K1 &end
+&optimization_variable name=MQJ0L05 item=K1 &end
+&optimization_variable name=MQD0L06 item=K1 &end
+&optimization_variable name=MQB0L07 item=K1 &end
+&optimization_variable name=MQB0L08 item=K1 &end
+&optimization_variable name=MQB0L09 item=K1 &end
+&optimization_variable name=MQB0L10 item=K1 &end
+
+&optimization_term term="betax 18.2383 0.1 sene" &end
+&optimization_term term="alphax -3.56082 1e-2 sene" &end
+&optimization_term term="betay 7.35244 0.1 sene" &end
+&optimization_term term="alphay 1.35926 1e-2 sene" &end
+
+&twiss_output
+        concat_order=2
+	filename="%s.twi",
+        matched=0,radiation_integrals=1,
+	beta_x=2.997926428896469, alpha_x=-0.5359458777507575,
+	beta_y=2.744088102614352, alpha_y=-0.36807740722565
+&end
+&run_control n_steps=1 &end
+&bunched_beam
+        n_particles_per_bunch=1,
+        use_twiss_command_values=1
+&end
+!&optimize &end
+!&stop
+&run_setup
+        lattice="../iha5nodup.lte",
+        use_beamline="IHA5",
+        p_central_mev=6.27924163615229,
+        final="%s.fin"
+        parameters="%s.parms"
+        centroid=%s.cen
+        always_change_p0=1
+        sigma=%s.sig
+&end
+
+&alter_elements
+ name=*
+ type=CSBEND
+ item=N_KICKS
+ value=30
+&end
+&alter_elements
+ name=*
+ type=KQUAD
+ item=N_KICKS
+ value=30
+&end
+!
+! we load the result of the match
+!
+&load_parameters
+ filename=rematch.parms
+ change_defined_values=1
+ allow_missing_elements=1
+ verbose=0
+&end
+!
+! scale the linacs.
+! thats for 1090 per linac.
+! get this number by running the script scalelinacs <linacgain>.
+! and replace value=1.0 by it.
+!
+! that script will also make the files needed to setup the linac and reinjection quads.
+!
+&alter_elements name=R1[23456789ABCDEFGHIJKLMNOPQ]* item=VOLT multiplicative=1 value=1.0 verbose=0 &end
+&alter_elements name=R2[23456789ABCDEFGHIJKLMNOPQ]* item=VOLT multiplicative=1 value=1.0 verbose=0 &end
+!======================================================
+! scale the quads in the linac to the proper gradient.
+! scalelinacs script will produce these sdds files to load.
+!
+! load the linac gradients and quads.
+!
+&load_parameters
+ allow_missing_elements=1
+ change_defined_values=1
+ filename=$LEM
+ verbose=0
+&end
+!
+! load the matches
+!
+&load_parameters
+ allow_missing_elements=1
+ change_defined_values=1
+ include_item_pattern=K1
+ include_name_pattern="MQ*1[S|E]*"
+ filename="ARC1MATCH.parms"
+ verbose=1
+&end
+
+&load_parameters
+ allow_missing_elements=1
+ change_defined_values=1
+ include_item_pattern=K1
+ include_name_pattern="MQ*2S*"
+ filename="ARC2MATCH.parms"
+ verbose=1
+&end
+&load_parameters
+ allow_missing_elements=1
+ change_defined_values=1
+ include_item_pattern=K1
+ include_name_pattern="MQ*3[S|E]*"
+ filename="ARC3MATCH.parms"
+ verbose=1
+&end
+&load_parameters
+ allow_missing_elements=1
+ change_defined_values=1
+ include_item_pattern=K1
+ include_name_pattern="MQ*4S*"
+ filename="ARC4MATCH.parms"
+ verbose=1
+&end
+&load_parameters
+ allow_missing_elements=1
+ change_defined_values=1
+ include_item_pattern=K1
+ include_name_pattern="MQ*5[S|E]*"
+ filename="ARC5MATCH.parms"
+ verbose=1
+&end
+&load_parameters
+ allow_missing_elements=1
+ change_defined_values=1
+ include_item_pattern=K1
+ include_name_pattern="MQ*6S*"
+ filename="ARC6MATCH.parms"
+ verbose=1
+&end
+&load_parameters
+ allow_missing_elements=1
+ change_defined_values=1
+ include_item_pattern=K1
+ include_name_pattern="MQ*7[S|E]*"
+ filename="ARC7MATCH.parms"
+ verbose=1
+&end
+&load_parameters
+ allow_missing_elements=1
+ change_defined_values=1
+ include_item_pattern=K1
+ include_name_pattern="MQ*8S*"
+ filename="ARC8MATCH.parms"
+ verbose=1
+&end
+
+&load_parameters
+ allow_missing_elements=1
+ change_defined_values=1
+ filename="../REINJq.sdds"
+ include_item_pattern=B
+ include_name_pattern="MQ*"
+ verbose=0
+&end
+&twiss_output
+	filename="%s.twi",
+	matched=0,radiation_integrals=1,
+	beta_x=2.997926428896469, alpha_x=-0.5359458777507575,
+	beta_y=2.744088102614352, alpha_y=-0.36807740722565
+&end
+&run_control n_steps=1
+&end
+&floor_coordinates
+	filename="%s.flr",
+	 X0=80.6,Y0=100,Z0=-249.21407,
+	 theta0=0,phi0=0
+&end
+&bunched_beam
+	n_particles_per_bunch=1,
+       ! emit_x=2e-9,emit_y=2e-9
+	emit_nx=7.5e-7, emit_ny=7.5e-7,
+	beta_x=2.997926428896469, alpha_x=-0.5359458777507575,
+	beta_y=2.744088102614352, alpha_y=-0.36807740722565
+	sigma_dp=1e-3,sigma_s=70e-6,
+	distribution_type[0] = 3*"gaussian",
+	distribution_cutoff[0] = 3*3,
+	enforce_rms_values[0]=1,1,1
+&end
+&track
+&end

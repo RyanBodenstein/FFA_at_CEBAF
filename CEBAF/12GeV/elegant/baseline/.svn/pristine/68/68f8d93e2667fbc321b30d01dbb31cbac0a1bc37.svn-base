@@ -1,0 +1,36 @@
+#!/usr/bin/perl
+# this script calculates the proper quadrupole scaling for a new linac profile.
+# 
+my $gain=$ARGV[0];
+my $ratio=$gain/1090;
+my $ratioN=$gain/1090;
+#
+my $startNL=123.0/1090.0*$gain;
+my $startSL=$startNL+$gain;
+my $endSL=$startSL+$gain;
+print "start NL is $startNL\n";
+print "start SL is $startSL\n";
+print "start reinj is $endSL\n";
+# # when calculating the scaling of the linacs, we use 990 for NL
+# because we turned 1L26 off.
+# #
+print "scalingN is ",$gain/990,"\n";
+print "scalingS is ",$gain/1090,"\n";
+system("elegant NL.ele >/dev/null");
+system("elegant SL.ele >/dev/null");
+system("elegant REINJ3.ele >/dev/null");
+my $cmd1s="sddsprocess -define=column,sc,\"$startSL 0.511 / pCentral 1213 0.511 / - $ratio * + pCentral / \" SL.cen SLscale.sdds";
+my $cmd2s="sddsprocess -define=column,sc,\"$startNL 0.511 / pCentral 123 0.511 / - $ratioN * + pCentral / \" NL.cen NLscale.sdds";
+my $cmd3s="sddsprocess -define=column,sc,\"$endSL 0.511 / pCentral 2303 0.511 / - $ratio * + pCentral / \" REINJ3.cen REINJscale.sdds";
+system($cmd1s);
+system($cmd2s);
+system($cmd3s);
+system("sddsprocess -match=column,ElementParameter=B NL.parms NLB.parms");
+system("sddsprocess -match=column,ElementParameter=B SL.parms SLB.parms");
+system("sddsprocess -match=column,ElementParameter=B REINJ3.parms REINJB.parms");
+system("sddsxref NLB.parms NLscale.sdds -match=ElementName -pipe=out|sddsprocess -pipe=in -define=column,Bnew,\"ParameterValue sc *\" NLQuads.sdds");
+system("sddsxref SLB.parms SLscale.sdds -match=ElementName -pipe=out|sddsprocess -pipe=in -define=column,Bnew,\"ParameterValue sc *\" SLQuads.sdds");
+system("sddsxref REINJB.parms REINJscale.sdds -match=ElementName -pipe=out|sddsprocess -pipe=in -define=column,Bnew,\"ParameterValue sc *\" REINJQuads.sdds");
+system("sddsprocess -redefine=column,ParameterValue,\"Bnew\" SLQuads.sdds SLq.sdds");
+system("sddsprocess -redefine=column,ParameterValue,\"Bnew\" NLQuads.sdds  NLq.sdds");
+system("sddsprocess -redefine=column,ParameterValue,\"Bnew\" REINJQuads.sdds REINJq.sdds")

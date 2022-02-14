@@ -1,0 +1,55 @@
+&run_setup
+	lattice="finalARC3.lte",
+	use_beamline="ARC3FODO",
+	p_central_mev=3393,
+	final="%s.fin"
+	parameters="%s.parms"
+&end
+&run_control n_steps=1
+&end
+&link_control verbosity=1 &end
+&link_elements target=MQA3A17 item=K1 source=MQA3A01 mode="dynamic", equation="K1" &end
+&link_elements target=MQA3A25 item=K1 source=MQA3A01 mode="dynamic", equation="K1" &end
+&link_elements target=MQA3R01 item=K1 source=MQA3A01 mode="dynamic", equation="K1" &end
+&link_elements target=MQA3A10 item=K1 source=MQA3A02 mode="dynamic", equation="K1" &end
+&link_elements target=MQA3A16 item=K1 source=MQA3A02 mode="dynamic", equation="K1" &end
+&link_elements target=MQA3A18 item=K1 source=MQA3A02 mode="dynamic", equation="K1" &end
+&link_elements target=MQA3A24 item=K1 source=MQA3A02 mode="dynamic", equation="K1" &end
+&link_elements target=MQA3A26 item=K1 source=MQA3A02 mode="dynamic", equation="K1" &end
+&link_elements target=MQA3A32 item=K1 source=MQA3A02 mode="dynamic", equation="K1" &end
+&link_elements target=MQA3A11 item=K1 source=MQA3A03 mode="dynamic", equation="K1" &end
+&link_elements target=MQA3A15 item=K1 source=MQA3A03 mode="dynamic", equation="K1" &end
+&link_elements target=MQA3A19 item=K1 source=MQA3A03 mode="dynamic", equation="K1" &end
+&link_elements target=MQA3A23 item=K1 source=MQA3A03 mode="dynamic", equation="K1" &end
+&link_elements target=MQA3A27 item=K1 source=MQA3A03 mode="dynamic", equation="K1" &end
+&link_elements target=MQA3A31 item=K1 source=MQA3A03 mode="dynamic", equation="K1" &end
+&link_elements target=MQA3A12 item=K1 source=MQA3A04 mode="dynamic", equation="K1" &end
+&link_elements target=MQA3A14 item=K1 source=MQA3A04 mode="dynamic", equation="K1" &end
+&link_elements target=MQA3A20 item=K1 source=MQA3A04 mode="dynamic", equation="K1" &end
+&link_elements target=MQA3A22 item=K1 source=MQA3A04 mode="dynamic", equation="K1" &end
+&link_elements target=MQA3A28 item=K1 source=MQA3A04 mode="dynamic", equation="K1" &end
+&link_elements target=MQA3A30 item=K1 source=MQA3A04 mode="dynamic", equation="K1" &end
+&link_elements target=MQA3A13 item=K1 source=MQA3A05 mode="dynamic", equation="K1" &end
+&link_elements target=MQA3A21 item=K1 source=MQA3A05 mode="dynamic", equation="K1" &end
+&link_elements target=MQA3A29 item=K1 source=MQA3A05 mode="dynamic", equation="K1" &end
+&twiss_output
+	filename="%s.twi",
+	matched=0,radiation_integrals=1,
+ beta_x= "{sdds2stream -col=betax ARC3-tuneDD-try2-cell.twi|head -1}"
+ beta_y= "{sdds2stream -col=betay ARC3-tuneDD-try2-cell.twi|head -1}"
+ alpha_x= "{sdds2stream -col=alphax ARC3-tuneDD-try2-cell.twi|head -1}"
+ alpha_y= "{sdds2stream -col=alphay ARC3-tuneDD-try2-cell.twi|head -1}"
+        output_at_each_step=1
+&end
+&floor_coordinates
+        filename="%s.flr",
+         X0=-80.6,Y0=100,Z0=-91.51785,
+         theta0=-3.14159265358979,phi0=0
+&end
+&matrix_output
+ SDDS_output=%s.mat
+ output_at_each_step=1
+&end
+&bunched_beam
+&end
+&track &end

@@ -1,0 +1,71 @@
+!
+! match into ARCA fodo using spreader quads
+! starting twiss from iERApass.twi
+!
+&change_particle mass_ratio=0.5110034 &end
+&run_setup
+	lattice="../ARCA.lte",
+	use_beamline="ARCA",
+	p_central_mev=11022.9999907555,
+	final="%s.fin"
+	parameters="%s.parms"
+&end
+!
+! load the matching target from the ARC8 design file
+! at the IPM8A01 bpm.
+!
+&rpn_load
+ tag=SMATCH
+ filename=../ARCA.twi,
+ match_column=ElementName,
+ match_column_value=IPMAA01
+ matching_row_number=0
+&end
+
+&insert_elements name=IPMAA01 element_def="ARCAM: MARKER,FITPOINT=1"  &end
+&twiss_output
+	filename="%s.twi",
+	matched=0,radiation_integrals=1,
+        beta_x="{sddsprocess -match=col,ElementName=D326 -filter=col,s,6240,6245 iha5lemmedstep8NL.twi -pipe=out |sdds2stream -pipe=in -col=betax}",
+        alpha_x="{sddsprocess -match=col,ElementName=D326 -filter=col,s,6240,6245 iha5lemmedstep8NL.twi -pipe=out |sdds2stream -pipe=in -col=alphax}",
+        beta_y="{sddsprocess -match=col,ElementName=D326 -filter=col,s,6240,6245  iha5lemmedstep8NL.twi -pipe=out |sdds2stream -pipe=in -col=betay}",
+        alpha_y="{sddsprocess -match=col,ElementName=D326 -filter=col,s,6240,6245 iha5lemmedstep8NL.twi -pipe=out |sdds2stream -pipe=in -col=alphay}",
+&end
+&run_control n_steps=1
+&end
+&optimization_setup tolerance=1e-16 n_restarts=6 &end
+&optimization_variable name=MQKAS02 item=K1 &end
+&optimization_variable name=MQAAS03 item=K1 &end
+&optimization_variable name=MQRAS04 item=K1 &end
+&optimization_variable name=MQAAS05 item=K1 &end
+&optimization_variable name=MQKAS06 item=K1 &end
+&optimization_variable name=MQRAS07 item=K1 &end
+&optimization_variable name=MQKAS08 item=K1 &end
+&optimization_variable name=MQRAS09 item=K1 &end
+&optimization_variable name=MQKAS10 item=K1 &end
+&optimization_variable name=MQPAA01 item=K1 &end
+&optimization_covariable name=MQKAS08A item=K1 equation="MQKAS08.K1" &end
+&optimization_covariable name=MQKAS10A item=K1 equation="MQKAS10.K1" &end
+
+&optimization_term term="ARCAM#1.betax SMATCH.betax 2 sene" &end
+&optimization_term term="ARCAM#1.alphax SMATCH.alphax 0.2 sene" &end
+&optimization_term term="ARCAM#1.betay SMATCH.betay 2.5 sene" &end
+&optimization_term term="ARCAM#1.alphay SMATCH.alphay 0.2 sene" &end
+
+&floor_coordinates
+	filename="%s.flr",
+	 X0=-80.6,Y0=100,Z0=-91.51784593486,
+	 theta0=-3.14159265358979,phi0=0
+&end
+&bunched_beam
+	n_particles_per_bunch=1,
+	emit_x=1.79e-12, emit_y=5.32e-12,
+	use_twiss_command_values=1
+	sigma_dp=0.00032,sigma_s=0.0,
+	distribution_type[0] = 3*"gaussian",
+	distribution_cutoff[0] = 3*3,
+	enforce_rms_values[0]=1,1,1
+&end
+!&track &end
+&optimize &end
+&save_lattice filename="ARCAMATCHEDS.lte" &end

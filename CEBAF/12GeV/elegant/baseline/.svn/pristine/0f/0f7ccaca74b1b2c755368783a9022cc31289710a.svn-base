@@ -1,0 +1,16 @@
+R01XXLEME
+R02XXLEME are the fudges in part per thousands.
+right now its -12 and -16
+
+ rescale NL/SL to get enough acceleration to do 1090 ?
+1) match with 2S quads.
+ 1.1 input is in front of MXR2S01 read off from the iha5lemmedNL.twi
+ 1.2 match tgt is from the design ARC2.twi at IPM2A01
+2) apply match to iha5lemmedNL.ele with a load_parameters
+ 2.1 rerun iha5lemmedNL.ele
+3) match with 3S quads.
+etc..
+etc..
+at each step, document the transverse match to see how far one has to go to fix
+ everything.
+

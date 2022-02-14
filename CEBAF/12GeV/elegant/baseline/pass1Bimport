@@ -1,0 +1,28 @@
+#!/bin/bash
+# start at RRF2E00A
+# 
+# 1.056404e+03 
+wrks=$1
+: ${wrks:="Optics"}
+echo "importing 1/4 cryo to Hall B 1st pass in $wrks"
+importCED ihb1 >/dev/null
+sddsprocess -filter=col,s,1.056404e+03,1e10 dipoles.sdds dipoles1.sdds 
+sddsprocess -filter=col,s,1.056404e+03,1e10 MONITORS.sdds monitors1.sdds 
+sddsprocess -filter=col,s,1.056404e+03,1e10 quads.sdds quads1.sdds 
+sddsprocess -filter=col,s,1.056404e+03,1e10 kickers.sdds kickers1.sdds 
+echo "importing dipoles"
+/cs/dvlhome/apps/c/CED/dvl/src/12GeV/loadSDDS.pl -wrkspc=$wrks \
+ -proplist=s,L,betax,alphax,betay,alphay,etax,etay,etapx,etapy,psix,psiy,pCentral,HGAP,E1,E2,ANGLE,K1,sigmax,sigmay,ecx,ecy,ModelX,ModelY,ModelZ,theta,phi,psi\
+ -startpass=1 -extract -sdds=dipoles1.sdds
+echo "importing monitors"
+/cs/dvlhome/apps/c/CED/dvl/src/12GeV/loadSDDS.pl -wrkspc=$wrks \
+ -proplist=s,L,betax,alphax,betay,alphay,etax,etay,etapx,etapy,psix,psiy,pCentral,sigmax,sigmay,ecx,ecy,ModelX,ModelY,ModelZ,phi,theta,psi\
+ -startpass=1 -sdds=monitors1.sdds
+echo "importing quads"
+/cs/dvlhome/apps/c/CED/dvl/src/12GeV/loadSDDS.pl -wrkspc=$wrks \
+ -proplist=s,L,betax,alphax,betay,alphay,etax,etay,etapx,etapy,psix,psiy,pCentral,K1,sigmax,sigmay,ecx,ecy,Tilt,theta,phi,psi,ModelX,ModelY,ModelZ\
+ -startpass=1 -sdds=quads1.sdds
+echo "importing kickers"
+/cs/dvlhome/apps/c/CED/dvl/src/12GeV/loadSDDS.pl -wrkspc=$wrks \
+ -proplist=s,L,betax,alphax,betay,alphay,etax,etay,etapx,KICK,etapy,psix,psiy,pCentral,sigmax,sigmay,ecx,ecy,ModelX,ModelY,ModelZ,phi,theta,psi\
+ -startpass=1 -sdds=kickers1.sdds

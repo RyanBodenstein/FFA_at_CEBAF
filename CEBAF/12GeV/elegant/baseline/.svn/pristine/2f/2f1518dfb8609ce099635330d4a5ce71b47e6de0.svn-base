@@ -1,0 +1,70 @@
+&run_setup
+	p_central_mev=0.386987892159813,
+	always_change_p0=1,
+	centroid=%s.cen,
+	parameters=%s.parms,
+	use_beamline=PREINJ,
+	rootname=PREINJ,
+	final=%s.fin,
+	lattice=PREINJ.lte,
+	sigma=%s.sig,
+&end
+
+! &insert_elements name="GUN", element_def="DCATHODE: DRIF, L=0.19" &end
+! &alter_elements name=MDR1I02, item=ANGLE, value=0 &end
+
+! ! These come from Alicia's GPT simulation from 2021-05-06,
+! ! assuming eta,eta'=0, 130kV, 19cm downstream of the cathode
+&twiss_output
+	beta_x=8.7768967843330e-01,
+	alpha_x=-2.6706298321203e+00,
+	beta_y=7.8253373177497e-01,
+	alpha_y=-2.2696728570786e+00,
+	eta_x=0,
+	etap_x=0,
+	eta_y=0,
+	etap_y=0,
+	radiation_integrals=0,
+	matched=0,
+	filename=%s.twi
+&end
+
+&run_control
+	n_steps=1,
+&end
+
+&matrix_output
+	output_at_each_step=1,
+	full_matrix_only=0,
+	SDDS_output=%s.matr,
+	SDDS_output_order=1,
+&end
+
+! ! Put the center of MDR1I02 at X=80.60
+&floor_coordinates
+ 	X0=80.99549775467135,
+	Y0=100,
+ 	Z0=-262.7533397321492
+	theta0=-0.2617993877991494,
+	phi0=0,
+	psi0=0,
+	magnet_centers=1,
+	filename=%s.flr,
+&end
+
+! ! These also come from Alicia's GPT simulation from 2021-05-06,
+! ! 130kV, 19cm downstream of the cathode
+&bunched_beam
+	emit_x=1.094229534846014E-7,
+	emit_y=1.104166716692539E-7,
+    sigma_dp=1.602531468165476E-5,
+ 	sigma_s=1.9379973403755e-11,
+	enforce_rms_values[0]=1,1,1,
+	distribution_type[0]=3*"gaussian",
+	use_twiss_command_values=1,
+	n_particles_per_bunch=1024
+	distribution_cutoff[0]=3*3,
+&end
+
+&track
+&end

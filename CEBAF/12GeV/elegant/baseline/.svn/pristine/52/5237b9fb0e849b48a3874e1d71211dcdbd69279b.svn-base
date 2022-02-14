@@ -1,0 +1,98 @@
+&change_particle mass_ratio=0.5110034 &end
+&divide_elements name=MQK8A03 divisions=2 &end
+&divide_elements name=MQK8A07 divisions=2 &end
+&run_setup
+	lattice="ARC8designv2.lte",
+	use_beamline="CELL81",
+	p_central_mev=8843,
+	final="%s.fin"
+	parameters="%s-cell.parms"
+&end
+
+&alter_elements name=MJA8* item=K1 value=3.8e-4 &end
+&alter_elements name=MBC8A01H item=ANGLE value=0.0 &end
+&insert_elements name=MQK8A03 element_def="M1: MARKER, FITPOINT=1" &end
+&insert_elements name=MQK8A07 element_def="M2: MARKER, FITPOINT=1" &end
+&twiss_output
+	filename="%s-cell.twi",
+	matched=1,radiation_integrals=1,
+        output_at_each_step=1
+&end
+&run_control n_steps=1
+&end
+&optimization_setup 
+  tolerance=1e-32 method="simplex" 
+!  tolerance=1e-32 method="randomwalk" 
+  n_restarts=20 
+  restart_worst_term_factor=3 
+  term_log_file=%s.terms
+&end
+&alter_elements name=MQA8A01 item=K1 value=0.6 &end
+&optimization_variable name=MQA8A01 item=K1 &end
+&optimization_variable name=MQA8A02 item=K1 &end
+&optimization_variable name=MQK8A03 item=K1 &end
+&optimization_variable name=MQA8A04 item=K1 &end
+&optimization_variable name=MQA8A05 item=K1 &end
+&optimization_covariable name=MQA8A09 item=K1 equation="MQA8A01.K1" &end
+&optimization_covariable name=MQA8A08 item=K1 equation="MQA8A02.K1" &end
+&optimization_covariable name=MQK8A07 item=K1 equation="MQK8A03.K1" &end
+&optimization_covariable name=MQA8A06 item=K1 equation="MQA8A04.K1" &end
+&optimization_term term="nux 1.25 1e-3 sene" &end
+&optimization_term term="nuy 0.75 1e-3 sene" &end
+! pi phase advance between A03 and A07
+&optimization_term term="M2#1.nux M1#1.nux - 0.5 1e-5 sene" &end
+&optimization_term term="etax 0.0 1e-3 sene" &end
+!&optimization_term term="max.betax 60.0 5.0 segt" &end
+&optimization_term term="R56 1.418e-2 1e-6 sene" &end
+&bunched_beam
+&end
+&optimize &end
+&save_lattice filename=cell.lte output_seq=1 &end
+!&stop
+!
+! rerun to get new twiss.
+!
+&run_setup
+	lattice="cell.lte",
+	use_beamline="CELL81",
+	p_central_mev=8843,
+&end
+&twiss_output
+	filename="%s-cell.twi",
+	matched=1,radiation_integrals=1,
+        output_before_tune_correction=1,
+        output_at_each_step=1
+&end
+&run_control n_steps=1 &end
+&bunched_beam &end
+&track &end
+!
+! construct the full arc
+!
+&run_setup
+	lattice="ARC8designv2.lte",
+	use_beamline="FODOARC8",
+	p_central_mev=8843,
+	final="%s.fin"
+	parameters="%s.parms"
+        sigma=%s-full.sig
+&end
+&load_parameters
+ filename="ARC8-tuneDD-try2-cell.parms"
+ change_defined_values=1
+ allow_missing_elements=1
+&end
+&alter_elements name=MJA8* item=K1 value=3.8e-4 &end
+&twiss_output
+ filename="%s-full.twi"
+ matched=0
+ beta_x= "{sdds2stream -col=betax ARC8-tuneDD-try2-cell.twi|head -1}"
+ beta_y= "{sdds2stream -col=betay ARC8-tuneDD-try2-cell.twi|head -1}"
+ alpha_x= "{sdds2stream -col=alphax ARC8-tuneDD-try2-cell.twi|head -1}"
+ alpha_y= "{sdds2stream -col=alphay ARC8-tuneDD-try2-cell.twi|head -1}"
+ output_at_each_step=1
+&end
+&run_control n_steps=1 &end
+&bunched_beam emit_x=5.53e-10, emit_y=2.71e-10,n_particles_per_bunch=1024 use_twiss_command_values=1 &end
+&track &end
+&save_lattice filename="finalARC8.lte" &output_seq=1 &end

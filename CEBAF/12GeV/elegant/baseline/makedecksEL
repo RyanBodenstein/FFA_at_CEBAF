@@ -1,0 +1,184 @@
+#!/bin/bash
+#==========================================================================
+# generation of the ELEGANT decks from the reference ELEGANT decks.
+#==========================================================================
+#
+#some monitor elements should really be MARK elements.
+#
+cat INJ.lte REINJ3.lte REINJ5.lte REINJ7.lte REINJ9.lte REINJB.lte NL.lte ARC1.lte SL.lte ARC2.lte  ARC3.lte ARC4.lte \
+ARC5.lte ARC6.lte ARC7.lte  ARC8.lte ARC9.lte \
+ARCA.lte HALLD.lte >ihdtemp.lte
+#
+# lattice for a cebaf ring 
+#
+
+cat INJ.lte REINJ3.lte ARC1LD.lte ARC2LD.lte NL.lte SL.lte >ring.lte
+
+#
+# beamlines to do recombiner matches through the linacs
+#
+cat ARC1.lte SL.lte >a1sl.lte
+cat ARC2.lte REINJ3.lte NL.lte >a2nl.lte
+cat ARC3.lte SL.lte >a3sl.lte
+cat ARC4.lte REINJ5.lte NL.lte >a4nl.lte
+cat ARC5.lte SL.lte >a5sl.lte
+cat ARC6.lte REINJ7.lte NL.lte >a6nl.lte
+cat ARC7.lte SL.lte >a7sl.lte
+cat ARC8.lte REINJ9.lte NL.lte >a8nl.lte
+cat ARC9.lte SL.lte >a9sl.lte
+cat ARCA.lte REINJB.lte NL.lte >a9nl.lte
+#
+#
+#
+# only include the definitions once.
+#
+# make one beamline per pass and per hall. thats a total of 16 beamlines.
+#
+cat REINJ3.lte REINJ5.lte REINJ7.lte REINJ9.lte REINJB.lte NL.lte ARC1.lte SL.lte ARC2.lte  ARC3.lte ARC4.lte \
+ARC5.lte ARC6.lte ARC7.lte  ARC8.lte ARC9.lte \
+ARCA.lte >l1lbtemp.lte
+#
+cat INJ.lte REINJ3.lte REINJ5.lte REINJ7.lte REINJ9.lte REINJB.lte NL.lte ARC1.lte SL.lte ARC2.lte  ARC3.lte ARC4.lte \
+ARC5.lte ARC6.lte ARC7.lte  ARC8.lte ARC9.lte \
+ARCA.lte >ilbtemp.lte
+#generate the halla beamlines.
+cat INJ.lte NL.lte ARC1.lte SL.lte BSY2.lte HALLA1.lte >iha1nodup.lte 
+cat INJ.lte NL.lte ARC1.lte SL.lte ARC2.lte REINJ3.lte ARC3.lte BSY4.lte HALLA1.lte >iha2temp.lte 
+cat INJ.lte NL.lte ARC1.lte SL.lte ARC2.lte REINJ3.lte REINJ5.lte REINJ7.lte ARC3.lte ARC4.lte ARC5.lte BSY6.lte HALLA1.lte >iha3temp.lte 
+cat INJ.lte NL.lte ARC1.lte SL.lte ARC2.lte REINJ3.lte REINJ5.lte REINJ7.lte REINJ9.lte ARC3.lte ARC4.lte ARC5.lte ARC6.lte \
+ ARC7.lte BSY8.lte HALLA1.lte >iha4temp.lte 
+cat INJ.lte REINJ3.lte REINJ5.lte REINJ7.lte REINJ9.lte REINJB.lte NL.lte ARC1.lte SL.lte ARC2.lte  ARC3.lte ARC4.lte \
+ARC5.lte ARC6.lte ARC7.lte  ARC8.lte ARC9.lte \
+BSYA.lte HALLA5.lte >ihatemp.lte
+#generate the hallb beamlines.
+cat INJ.lte NL.lte ARC1.lte SL.lte BSY2.lte HALLB.lte >ihb1nodup.lte 
+cat INJ.lte NL.lte ARC1.lte SL.lte ARC2.lte REINJ3.lte ARC3.lte BSY4.lte HALLB.lte >ihb2temp.lte 
+cat INJ.lte NL.lte ARC1.lte SL.lte ARC2.lte REINJ3.lte REINJ5.lte REINJ7.lte ARC3.lte ARC4.lte ARC5.lte BSY6.lte HALLB.lte >ihb3temp.lte 
+cat INJ.lte NL.lte ARC1.lte SL.lte ARC2.lte REINJ3.lte REINJ5.lte REINJ7.lte REINJ9.lte ARC3.lte ARC4.lte ARC5.lte ARC6.lte \
+ ARC7.lte BSY8.lte HALLB.lte >ihb4temp.lte 
+cat INJ.lte REINJ3.lte REINJ5.lte REINJ7.lte REINJ9.lte REINJB.lte NL.lte ARC1.lte SL.lte ARC2.lte  ARC3.lte ARC4.lte \
+ARC5.lte ARC6.lte ARC7.lte  ARC8.lte ARC9.lte \
+BSYA.lte HALLB.lte >ihbtemp.lte
+#generate the hallc beamlines.
+cat INJ.lte NL.lte ARC1.lte SL.lte BSY2.lte HALLC1.lte >ihc1nodup.lte 
+cat INJ.lte NL.lte ARC1.lte SL.lte ARC2.lte REINJ3.lte ARC3.lte BSY4.lte HALLC2.lte >ihc2temp.lte 
+cat INJ.lte NL.lte ARC1.lte SL.lte ARC2.lte REINJ3.lte REINJ5.lte REINJ7.lte ARC3.lte ARC4.lte ARC5.lte BSY6.lte HALLC3.lte >ihc3temp.lte 
+cat INJ.lte NL.lte ARC1.lte SL.lte ARC2.lte REINJ3.lte REINJ5.lte REINJ7.lte REINJ9.lte ARC3.lte ARC4.lte ARC5.lte ARC6.lte \
+ ARC7.lte BSY8.lte HALLC4.lte >ihc4temp.lte 
+cat INJ.lte REINJ3.lte REINJ5.lte REINJ7.lte REINJ9.lte REINJB.lte NL.lte ARC1.lte SL.lte ARC2.lte  ARC3.lte ARC4.lte \
+ARC5.lte ARC6.lte ARC7.lte  ARC8.lte ARC9.lte \
+BSYA.lte HALLC5.lte >ihctemp.lte
+#
+# generate the bsy dump lines
+cat INJ.lte NL.lte ARC1.lte SL.lte BSY2.lte BSYDUMP.lte >ihbsyd1nodup.lte 
+cat INJ.lte NL.lte ARC1.lte SL.lte ARC2.lte REINJ3.lte ARC3.lte BSY4.lte BSYDUMP.lte >ihbsyd2temp.lte 
+cat INJ.lte NL.lte ARC1.lte SL.lte ARC2.lte REINJ3.lte REINJ5.lte REINJ7.lte ARC3.lte ARC4.lte ARC5.lte BSY6.lte BSYDUMP.lte >ihbsyd3temp.lte 
+cat INJ.lte NL.lte ARC1.lte SL.lte ARC2.lte REINJ3.lte REINJ5.lte REINJ7.lte REINJ9.lte ARC3.lte ARC4.lte ARC5.lte ARC6.lte \
+ ARC7.lte BSY8.lte BSYDUMP.lte >ihbsyd4temp.lte 
+cat INJ.lte REINJ3.lte REINJ5.lte REINJ7.lte REINJ9.lte REINJB.lte NL.lte ARC1.lte SL.lte ARC2.lte  ARC3.lte ARC4.lte \
+ARC5.lte ARC6.lte ARC7.lte  ARC8.lte ARC9.lte \
+BSYA.lte BSYDUMP.lte >ihbsyd5temp.lte
+
+#
+cat INJ.lte NL.lte ARC1.lte SL.lte ARC2.lte REINJ3.lte ARC3.lte ARC4.lte REINJ5.lte ARC5.lte ARC6.lte REINJ7.lte  ARC7.lte \
+ ARC8.lte ARC9.lte REINJ9.lte REINJB.lte ARCA.lte HALLD.lte > l1a2temp.lte
+#
+cat INJ.lte NL.lte ARC1LD.lte SL.lte ARC2LD.lte >ia2temp.lte
+#####################################################################################
+# remove extraneous definitions for the multipass quads in the reinjection chicane.
+#####################################################################################
+awk '/^MQN1L00/ && !x[MQN1L00]++ || !/^MQN1L00/' l1lbtemp.lte >l1lbtemp1.lte
+awk '/^MQN1L01/ && !x[MQN1L01]++ || !/^MQN1L01/' l1lbtemp1.lte >l1lbnodup.lte
+
+awk '/^MQN1L00/ && !x[MQN1L00]++ || !/^MQN1L00/' ilbtemp.lte >ilbtemp1.lte
+
+#
+awk '/^MQN1L00/ && !x[MQN1L00]++ || !/^MQN1L00/' ihdtemp.lte >ihdtemp1.lte
+awk '/^MQN1L01/ && !x[MQN1L01]++ || !/^MQN1L01/' ihdtemp1.lte >ihdnodup.lte
+# HALLA lines
+awk '/^MQN1L00/ && !x[MQN1L00]++ || !/^MQN1L00/' iha2temp.lte >iha2temp1.lte
+awk '/^MQN1L01/ && !x[MQN1L01]++ || !/^MQN1L01/' iha2temp1.lte >iha2nodup.lte
+awk '/^MQN1L00/ && !x[MQN1L00]++ || !/^MQN1L00/' iha3temp.lte >iha3temp1.lte
+awk '/^MQN1L01/ && !x[MQN1L01]++ || !/^MQN1L01/' iha3temp1.lte >iha3nodup.lte
+awk '/^MQN1L00/ && !x[MQN1L00]++ || !/^MQN1L00/' iha4temp.lte >iha4temp1.lte
+awk '/^MQN1L01/ && !x[MQN1L01]++ || !/^MQN1L01/' iha4temp1.lte >iha4nodup.lte
+awk '/^MQN1L00/ && !x[MQN1L00]++ || !/^MQN1L00/' ihatemp.lte >ihatemp1.lte
+awk '/^MQN1L01/ && !x[MQN1L01]++ || !/^MQN1L01/' ihatemp1.lte >iha5nodup.lte
+# HALLB lines
+awk '/^MQN1L00/ && !x[MQN1L00]++ || !/^MQN1L00/' ihb2temp.lte >ihb2temp1.lte
+awk '/^MQN1L01/ && !x[MQN1L01]++ || !/^MQN1L01/' ihb2temp1.lte >ihb2nodup.lte
+awk '/^MQN1L00/ && !x[MQN1L00]++ || !/^MQN1L00/' ihb3temp.lte >ihb3temp1.lte
+awk '/^MQN1L01/ && !x[MQN1L01]++ || !/^MQN1L01/' ihb3temp1.lte >ihb3nodup.lte
+awk '/^MQN1L00/ && !x[MQN1L00]++ || !/^MQN1L00/' ihb4temp.lte >ihb4temp1.lte
+awk '/^MQN1L01/ && !x[MQN1L01]++ || !/^MQN1L01/' ihb4temp1.lte >ihb4nodup.lte
+awk '/^MQN1L00/ && !x[MQN1L00]++ || !/^MQN1L00/' ihbtemp.lte >ihbtemp1.lte
+awk '/^MQN1L01/ && !x[MQN1L01]++ || !/^MQN1L01/' ihbtemp1.lte >ihb5nodup.lte
+# HALLC lines
+awk '/^MQN1L00/ && !x[MQN1L00]++ || !/^MQN1L00/' ihc2temp.lte >ihc2temp1.lte
+awk '/^MQN1L01/ && !x[MQN1L01]++ || !/^MQN1L01/' ihc2temp1.lte >ihc2nodup.lte
+awk '/^MQN1L00/ && !x[MQN1L00]++ || !/^MQN1L00/' ihc3temp.lte >ihc3temp1.lte
+awk '/^MQN1L01/ && !x[MQN1L01]++ || !/^MQN1L01/' ihc3temp1.lte >ihc3nodup.lte
+awk '/^MQN1L00/ && !x[MQN1L00]++ || !/^MQN1L00/' ihc4temp.lte >ihc4temp1.lte
+awk '/^MQN1L01/ && !x[MQN1L01]++ || !/^MQN1L01/' ihc4temp1.lte >ihc4nodup.lte
+awk '/^MQN1L00/ && !x[MQN1L00]++ || !/^MQN1L00/' ihctemp.lte >ihctemp1.lte
+awk '/^MQN1L01/ && !x[MQN1L01]++ || !/^MQN1L01/' ihctemp1.lte >ihc5nodup.lte
+# BSYDUMP lines
+awk '/^MQN1L00/ && !x[MQN1L00]++ || !/^MQN1L00/' ihbsyd2temp.lte >ihbsyd2temp1.lte
+awk '/^MQN1L01/ && !x[MQN1L01]++ || !/^MQN1L01/' ihbsyd2temp1.lte >ihbsyd2nodup.lte
+awk '/^MQN1L00/ && !x[MQN1L00]++ || !/^MQN1L00/' ihbsyd3temp.lte >ihbsyd3temp1.lte
+awk '/^MQN1L01/ && !x[MQN1L01]++ || !/^MQN1L01/' ihbsyd3temp1.lte >ihbsyd3nodup.lte
+awk '/^MQN1L00/ && !x[MQN1L00]++ || !/^MQN1L00/' ihbsyd4temp.lte >ihbsyd4temp1.lte
+awk '/^MQN1L01/ && !x[MQN1L01]++ || !/^MQN1L01/' ihbsyd4temp1.lte >ihbsyd4nodup.lte
+awk '/^MQN1L00/ && !x[MQN1L00]++ || !/^MQN1L00/' ihbsyd5temp.lte >ihbsyd5temp1.lte
+awk '/^MQN1L01/ && !x[MQN1L01]++ || !/^MQN1L01/' ihbsyd5temp1.lte >ihbsyd5nodup.lte
+#
+awk '/^MQN1L00/ && !x[MQN1L00]++ || !/^MQN1L00/' l1a2temp.lte >l1a2temp1.lte
+awk '/^MQN1L01/ && !x[MQN1L01]++ || !/^MQN1L01/' l1a2temp1.lte >l1a2nodup.lte
+
+awk '/^MQN1L00/ && !x[MQN1L00]++ || !/^MQN1L00/' ia2temp.lte >ia2temp1.lte
+awk '/^MQN1L01/ && !x[MQN1L01]++ || !/^MQN1L01/' ia2temp1.lte >ia2nodup.lte
+#
+#
+#
+# append the definition for the global beamline in each deck.
+echo "RING: LINE=(NL,ARC1,SL,ARC2,REINJ3)">>ring.lte;
+# do HALLA :
+echo "IHA1: LINE=(INJ,NL,ARC1,SL,BSY2,HALLA)" >>iha1nodup.lte
+echo "IHA2: LINE=(INJ,NL,ARC1,SL, ARC2,REINJ3,NL,ARC3,SL,BSY4,HALLA)" >>iha2nodup.lte
+echo "IHA3: LINE=(INJ,NL,ARC1,SL, ARC2,REINJ3,NL,ARC3,SL,ARC4,REINJ5,NL,ARC5,SL,BSY6,HALLA)" >>iha3nodup.lte
+echo "IHA4: LINE=(INJ,NL,ARC1,SL, ARC2,REINJ3,NL,ARC3,SL,ARC4,REINJ5,NL,ARC5,SL,ARC6,REINJ7,NL,ARC7,SL,BSY8,HALLA)" >>iha4nodup.lte
+echo "IHA5: LINE=(INJ,NL,ARC1,SL,ARC2,REINJ3,NL,ARC3,SL,ARC4,REINJ5,NL,ARC5,SL,ARC6,REINJ7,NL,ARC7,SL,ARC8,REINJ9,NL,ARC9,SL,BSYA,HALLA)" >>iha5nodup.lte
+# do HALLB: 
+echo "IHB1: LINE=(INJ,NL,ARC1,SL,BSY2,HALLB)" >>ihb1nodup.lte
+echo "IHB2: LINE=(INJ,NL,ARC1,SL, ARC2,REINJ3,NL,ARC3,SL,BSY4,HALLB)" >>ihb2nodup.lte
+echo "IHB3: LINE=(INJ,NL,ARC1,SL, ARC2,REINJ3,NL,ARC3,SL,ARC4,REINJ5,NL,ARC5,SL,BSY6,HALLB)" >>ihb3nodup.lte
+echo "IHB4: LINE=(INJ,NL,ARC1,SL, ARC2,REINJ3,NL,ARC3,SL,ARC4,REINJ5,NL,ARC5,SL,ARC6,REINJ7,NL,ARC7,SL,BSY8,HALLB)" >>ihb4nodup.lte
+echo "IHB5: LINE=(INJ,NL,ARC1,SL,ARC2,REINJ3,NL,ARC3,SL,ARC4,REINJ5,NL,ARC5,SL,ARC6,REINJ7,NL,ARC7,SL,ARC8,REINJ9,NL,ARC9,SL,BSYA,HALLB)" >>ihb5nodup.lte
+# do HALLC:
+echo "IHC1: LINE=(INJ,NL,ARC1,SL,BSY2,HALLC)" >>ihc1nodup.lte
+echo "IHC2: LINE=(INJ,NL,ARC1,SL, ARC2,REINJ3,NL,ARC3,SL,BSY4,HALLC)" >>ihc2nodup.lte
+echo "IHC3: LINE=(INJ,NL,ARC1,SL, ARC2,REINJ3,NL,ARC3,SL,ARC4,REINJ5,NL,ARC5,SL,BSY6,HALLC)" >>ihc3nodup.lte
+echo "IHC4: LINE=(INJ,NL,ARC1,SL, ARC2,REINJ3,NL,ARC3,SL,ARC4,REINJ5,NL,ARC5,SL,ARC6,REINJ7,NL,ARC7,SL,BSY8,HALLC)" >>ihc4nodup.lte
+echo "IHC5: LINE=(INJ,NL,ARC1,SL,ARC2,REINJ3,NL,ARC3,SL,ARC4,REINJ5,NL,ARC5,SL,ARC6,REINJ7,NL,ARC7,SL,ARC8,REINJ9,NL,ARC9,SL,BSYA,HALLC)" >>ihc5nodup.lte
+# do BSYDUMP:
+echo "IHBSYD1: LINE=(INJ,NL,ARC1,SL,BSY2,BSYDUMP)" >>ihbsyd1nodup.lte
+echo "IHBSYD2: LINE=(INJ,NL,ARC1,SL, ARC2,REINJ3,NL,ARC3,SL,BSY4,BSYDUMP)" >>ihbsyd2nodup.lte
+echo "IHBSYD3: LINE=(INJ,NL,ARC1,SL, ARC2,REINJ3,NL,ARC3,SL,ARC4,REINJ5,NL,ARC5,SL,BSY6,BSYDUMP)" >>ihbsyd3nodup.lte
+echo "IHBSYD4: LINE=(INJ,NL,ARC1,SL, ARC2,REINJ3,NL,ARC3,SL,ARC4,REINJ5,NL,ARC5,SL,ARC6,REINJ7,NL,ARC7,SL,BSY8,BSYDUMP)" >>ihbsyd4nodup.lte
+echo "IHBSYD5: LINE=(INJ,NL,ARC1,SL,ARC2,REINJ3,NL,ARC3,SL,ARC4,REINJ5,NL,ARC5,SL,ARC6,REINJ7,NL,ARC7,SL,ARC8,REINJ9,NL,ARC9,SL,BSYA,BSYDUMP)" >>ihbsyd5nodup.lte
+# do HALLD:
+echo "IHD: LINE=(INJ,NL,ARC1,SL,ARC2,REINJ3,NL,ARC3,SL,ARC4,REINJ5,NL,ARC5,SL,ARC6,REINJ7,NL,ARC7,SL,ARC8,REINJ9,NL,ARC9,SL,ARCA,REINJB,NL,HALLD)" >>ihdnodup.lte
+echo "ILB: LINE=(INJ,NL,ARC1,SL,ARC2,REINJ3,NL,ARC3,SL,ARC4,REINJ5,NL,ARC5,SL,ARC6,REINJ7,NL,ARC7,SL,ARC8,REINJ9,NL,ARC9,SL,ARCA,REINJB,NL)" >>ilbnodup.lte
+# special optics for gradient cal with low dispersion ARC1 and ARC2
+echo "IA2: LINE=(INJ,NL,ARC1,SL,ARC2,REINJ3)" >>ia2nodup.lte
+# recombiner matching lattices
+echo "A1SL: LINE=(ARC1,SL)" >>a1sl.lte
+echo "A2NL: LINE=(ARC2,REINJ3,NL)" >>a2nl.lte
+echo "A3SL: LINE=(ARC3,SL)" >>a3sl.lte
+echo "A4NL: LINE=(ARC4,REINJ5,SL)" >>a4nl.lte
+echo "A5SL: LINE=(ARC5,SL)" >>a5sl.lte
+echo "A6NL: LINE=(ARC6,REINJ7,NL)">>a6nl.lte
+echo "A7SL: LINE=(ARC7,SL)">>a7sl.lte
+echo "A8NL: LINE=(ARC8,REINJ9,NL)">>a8nl.lte
+echo "A9SL: LINE=(ARC9,SL)">>a9sl.lte
+echo "AANL: LINE=(ARCA,REINJB,NL)">>aanl.lte

@@ -1,0 +1,28 @@
+&run_setup
+	lattice="ARC7extract.lte",
+	use_beamline="EXTRACTION",
+	p_central_mev=7753,
+	final="%s.fin",
+	parameters="%s.parms"
+&end
+&load_parameters 
+ filename=ARC7extraction.parms
+ allow_missing_elements=1
+ change_defined_values=1
+&end
+&run_control n_steps=1
+&end
+&link_control verbosity=1 &end
+&link_elements target=MQN7E03 source=MQN7E01 item=K1 equation="K1" mode="static" &end
+&link_elements target=MQA7A01 source=MQK7S10 item=K1 equation="K1" mode="static" &end
+&twiss_output
+	filename="%s.twi",
+	matched=1,radiation_integrals=1,
+        output_at_each_step=1
+&end
+&matrix_output
+ SDDS_output=ARC7extractcell.mat
+&end
+&bunched_beam
+&end
+&track &end

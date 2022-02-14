@@ -1,0 +1,61 @@
+&change_particle mass_ratio=0.5110034 &end
+&run_setup
+	lattice="BSY6.lte",
+	use_beamline="BSY6",
+	p_central_mev=6662.99998300489,
+	final="%s.fin"
+        sigma=%s.sig
+	parameters="%s.parms"
+&end
+&load_parameters 
+ filename="daarc6.parms"
+ exclude_item_pattern=L
+ change_defined_values=1
+ allow_missing_elements=1
+ include_item_pattern=K1
+ verbose=1
+&end
+&twiss_output
+	filename="%s.twi",
+	matched=0,radiation_integrals=1,
+	beta_x=34.9407, alpha_x=1.29898,
+	beta_y=27.8356, alpha_y=-0.748794
+&end
+&run_control n_steps=1
+&end
+&floor_coordinates
+	filename="%s.flr",
+	 X0=-80.6,Y0=100,Z0=-91.51785,
+	 theta0=-3.14159265358979,phi0=0
+&end
+&optimization_setup 
+ tolerance=1e-16
+ n_restarts=6
+ restart_worst_term_factor=4
+&end
+&optimization_variable name=MQA6T01 item=K1 lower_limit=-1.444 upper_limit=1.444 &end
+&optimization_variable name=MQA6T02 item=K1 lower_limit=-1.444 upper_limit=1.444 &end
+&optimization_variable name=MQA6T03 item=K1 lower_limit=-1.444 upper_limit=1.444 &end
+&optimization_variable name=MQA6T04 item=K1 lower_limit=-1.444 upper_limit=1.444 &end
+&optimization_variable name=MQA6T05 item=K1 lower_limit=-1.444 upper_limit=1.444 &end
+&optimization_variable name=MQA6T06 item=K1 lower_limit=-1.444 upper_limit=1.444 &end
+&optimization_variable name=MQK6T08 item=K1 lower_limit=-1.921 upper_limit=1.921 &end
+&optimization_term term="betax 20 0.1 sene " &end
+&optimization_term term="betay 20 0.1 sene " &end
+&optimization_term term="alphax 0 0.01 sene " &end
+&optimization_term term="alphay 0 0.01 sene " &end
+!&optimization_term term="max.betay 400 100 segt" &end
+
+&bunched_beam
+	n_particles_per_bunch=1024,
+	emit_x=0.25e-9, emit_y=0.2e-9,
+	beta_x=34.9407, alpha_x=1.29898,
+	beta_y=27.8356, alpha_y=-0.748794
+	sigma_dp=6e-05,sigma_s=0.0,
+	distribution_type[0] = 3*"gaussian",
+	distribution_cutoff[0] = 3*3,
+	enforce_rms_values[0]=1,1,1
+&end
+&optimize &end
+!&track &end
+&save_lattice filename="BSY6o.lte" &end

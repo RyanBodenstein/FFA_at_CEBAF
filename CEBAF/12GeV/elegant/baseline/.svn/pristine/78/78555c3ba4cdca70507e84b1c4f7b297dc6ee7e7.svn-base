@@ -1,0 +1,12 @@
+#!/bin/bash
+#
+# generate beamlines with ced2elegant in order to check that
+# the import was successfull.
+wrks=$1
+: ${wrks:="Optics"}
+ced2elegant --start_pass=1 --start_element=ITV0L01 --end_pass=5 --end_element=IBD1H05 --lattice=iha5test --workspace=$wrks --noverify
+ced2elegant --start_pass=1 --start_element=ITV0L01 --end_pass=4 --end_element=IBD1H05 --lattice=iha4test --workspace=$wrks --noverify
+ced2elegant --start_pass=1 --start_element=ITV0L01 --end_pass=3 --end_element=IBD1H05 --lattice=iha3test --workspace=$wrks --noverify
+ced2elegant --start_pass=1 --start_element=ITV0L01 --end_pass=2 --end_element=IBD1H05 --lattice=iha2test --workspace=$wrks --noverify
+ced2elegant --start_pass=1 --start_element=ITV0L01 --end_pass=1 --end_element=IBD1H05 --lattice=iha1test --workspace=$wrks --noverify
+ced2elegant --start_pass=1 --start_element=ITV0L01 --end_pass=6 --end_element=IBDAD00 --lattice=ihdtest --workspace=$wrks --noverify

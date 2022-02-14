@@ -1,0 +1,41 @@
+&change_particle mass_ratio=0.5110034 &end
+&run_setup
+	lattice="ARC4designv2.lte",
+	use_beamline="EXTRACTION4",
+	p_central_mev=4483,
+	final="%s.fin"
+	parameters="%s.parms"
+&end
+&load_parameters
+ filename=ARC4extraction.parms
+ allow_missing_elements=1
+ change_defined_values=1
+&end
+&alter_elements multiplicative=1 item=K1 value=-1.0 name=MQA4S10 &end
+&alter_elements multiplicative=1 item=K1 value=-1.0 name=MQB4E01 &end
+&alter_elements multiplicative=1 item=K1 value=-1.0 name=MQL4E02 &end
+&alter_elements multiplicative=1 item=K1 value=-1.0 name=MQL4E03 &end
+&alter_elements multiplicative=1 item=K1 value=-1.0 name=MQA4A01 &end
+
+&run_control n_steps=1
+&end
+&floor_coordinates
+	filename="%s.flr",
+	 X0=-80.6,Y0=100,Z0=-91.51785,
+         magnet_centers=1
+	 theta0=-3.14159265358979,phi0=0
+&end
+!&link_control verbosity=1 &end
+!&link_elements target=MQL4E03 source=MQB4E01 item=K1 equation="K1" mode="static" &end
+!&link_elements target=MQA4A01 source=MQA4S10 item=K1 equation="K1" mode="static" &end
+&twiss_output
+	filename="%s.twi",
+	matched=1,radiation_integrals=1,
+        output_at_each_step=1
+&end
+&matrix_output
+ SDDS_output=extractcell.mat
+&end
+&bunched_beam
+&end
+&track &end

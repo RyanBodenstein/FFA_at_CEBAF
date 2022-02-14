@@ -1,0 +1,61 @@
+#!/bin/bash
+# start at lambertson
+# shift Y coord to be at 99.978 
+#
+wrks=$1
+: ${wrks:="Optics"}
+echo "importing  Hall C 2nd pass"
+#
+# it is at 99.978 which is 2.2 cm below HALLB 
+#
+# restrict to first pass HALLC
+# when we import HALLA, we import the BSY with it.
+# for B, and C we can skip the BSY import.
+# only works on fresh ihc file otherwise we may 
+# add up offset more than once so explicitely run elegant.
+# cutoff is right in front of lambertson
+#
+elegant ihc2.ele >/dev/null
+sddsprocess -filter=col,s,2.476976e+03,1e10 ihc2.twi ihc2.twi
+sddsprocess -filter=col,s,2.476976e+03,1e10 ihc2.cen ihc2.cen
+sddsprocess -filter=col,s,2.476976e+03,1e10 ihc2.flr ihc2.flr
+sddsprocess -filter=col,s,2.476976e+03,1e10 ihc2.sig ihc2.sig
+sddsprocess -redefine=col,Y,"Y 0.022 -" ihc2.flr ihc2.flr
+#
+importCED ihc2 >/dev/null
+cp dipoles.sdds dipoles2.sdds
+cp MONITORS.sdds monitors2.sdds
+cp kickers.sdds kickers2.sdds
+cp quads.sdds quads2.sdds
+cp sextupoles.sdds sextupoles2.sdds
+cp solenoids.sdds solenoids2.sdds
+echo "importing solenoids"
+/cs/dvlhome/apps/c/CED/dvl/src/12GeV/loadSDDS.pl -wrkspc=$wrks \
+ -proplist=s,L,betax,alphax,betay,alphay,etax,etay,etapx,etapy,psix,psiy,pCentral,KS,sigmax,sigmay,ecx,ecy,theta,phi,psi,X,Y,Z\
+ -startpass=2 -sdds=solenoids2.sdds
+cp loadsdds.err loadsdds_hc2sol.err
+echo "importing dipoles"
+/cs/dvlhome/apps/c/CED/dvl/src/12GeV/loadSDDS.pl -wrkspc=$wrks \
+ -proplist=s,L,betax,alphax,betay,alphay,etax,etay,etapx,etapy,psix,psiy,pCentral,HGAP,E1,E2,ANGLE,K1,sigmax,sigmay,ecx,ecy,ModelX,ModelY,ModelZ,theta,phi,psi\
+ -startpass=2 -extract -sdds=dipoles2.sdds
+cp loadsdds.err loadsdds_hc2dip.err
+echo "importing monitors"
+/cs/dvlhome/apps/c/CED/dvl/src/12GeV/loadSDDS.pl -wrkspc=$wrks \
+ -proplist=s,L,betax,alphax,betay,alphay,etax,etay,etapx,etapy,psix,psiy,pCentral,sigmax,sigmay,ecx,ecy,ModelX,ModelY,ModelZ,phi,theta,psi\
+ -startpass=2 -sdds=monitors2.sdds
+cp loadsdds.err loadsdds_hc2mon.err
+echo "importing quads"
+/cs/dvlhome/apps/c/CED/dvl/src/12GeV/loadSDDS.pl -wrkspc=$wrks \
+ -proplist=s,L,betax,alphax,betay,alphay,etax,etay,etapx,etapy,psix,psiy,pCentral,K1,sigmax,sigmay,ecx,ecy,Tilt,theta,phi,psi,ModelX,ModelY,ModelZ\
+ -startpass=2 -sdds=quads2.sdds
+cp loadsdds.err loadsdds_hc2quad.err
+echo "importing kickers"
+/cs/dvlhome/apps/c/CED/dvl/src/12GeV/loadSDDS.pl -wrkspc=$wrks \
+ -proplist=s,L,betax,alphax,betay,alphay,etax,etay,etapx,KICK,etapy,psix,psiy,pCentral,sigmax,sigmay,ecx,ecy,ModelX,ModelY,ModelZ,phi,theta,psi\
+ -startpass=2 -sdds=kickers2.sdds
+cp loadsdds.err loadsdds_hc2kick.err
+echo "importing sextupoles"
+/cs/dvlhome/apps/c/CED/dvl/src/12GeV/loadSDDS.pl -wrkspc=$wrks \
+ -proplist=s,L,betax,alphax,betay,alphay,etax,etay,etapx,etapy,psix,psiy,pCentral,K2,sigmax,sigmay,ecx,ecy,Tilt,theta,phi,psi,ModelX,ModelY,ModelZ\
+ -startpass=2 -sdds=sextupoles2.sdds
+cp loadsdds.err loadsdds_hc2sext.err

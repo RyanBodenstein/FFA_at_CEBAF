@@ -1,0 +1,28 @@
+&change_particle mass_ratio=0.5110034 &end
+&run_setup
+	lattice="daarc4.lte",
+	use_beamline="ARC4",
+	p_central_mev=4482.99997347645,
+	final="%s.fin"
+	parameters="%s.parms"
+&end
+&twiss_output
+	filename="%s.twi",
+	matched=0,radiation_integrals=1,
+	beta_x=25.3776, alpha_x=1.32482,
+	beta_y=15.3976, alpha_y=-0.7667659999999999
+&end
+&run_control n_steps=1
+&end
+&bunched_beam
+	n_particles_per_bunch=1,
+	emit_x=0, emit_y=2.14e-10,
+	beta_x=25.3776, alpha_x=1.32482,
+	beta_y=15.3976, alpha_y=-0.7667659999999999
+	sigma_dp=6e-05,sigma_s=0.0,
+	distribution_type[0] = 3*"gaussian",
+	distribution_cutoff[0] = 3*3,
+	enforce_rms_values[0]=1,1,1
+&end
+&track
+&end

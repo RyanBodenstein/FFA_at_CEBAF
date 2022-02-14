@@ -1,0 +1,77 @@
+&change_particle mass_ratio=0.5110034 &end
+&run_setup
+	lattice="../ARC2.lte",
+	use_beamline="ARC2",
+	p_central_mev=2302.99994590834,
+	final="%s.fin"
+	parameters="%s.parms"
+&end
+!
+! load the matching target from the ARC2 design file
+! at the IPM2A01 bpm.
+!
+&rpn_load
+ tag=SMATCH
+ filename=../ARC2.twi,
+ match_column=ElementName,
+ match_column_value=IPM2A01
+ matching_row_number=0
+&end
+&insert_elements name=IPM2A01 element_def="ARC2M: MARKER,FITPOINT=1"  &end
+!
+! read the input twiss from iha5lemmedNL.ele
+! select it for first pass. D326 is the drift in the end of the SL right before the
+! entrance to the MXR2S01  spreader.
+!
+&twiss_output
+	filename="%s.twi",
+	matched=0,radiation_integrals=1, 
+        beta_x="{sddsprocess -match=col,ElementName=D326 -filter=col,s,990,1010 iha5lemmedstep0NL.twi -pipe=out |sdds2stream -pipe=in -col=betax}",
+        alpha_x="{sddsprocess -match=col,ElementName=D326 -filter=col,s,990,1010 iha5lemmedstep0NL.twi -pipe=out |sdds2stream -pipe=in -col=alphax}",
+        beta_y="{sddsprocess -match=col,ElementName=D326 -filter=col,s,990,1010  iha5lemmedstep0NL.twi -pipe=out |sdds2stream -pipe=in -col=betay}",
+        alpha_y="{sddsprocess -match=col,ElementName=D326 -filter=col,s,990,1010 iha5lemmedstep0NL.twi -pipe=out |sdds2stream -pipe=in -col=alphay}",
+&end
+&run_control n_steps=1
+&end
+&floor_coordinates
+	filename="%s.flr",
+	 X0=-80.6,Y0=100,Z0=-91.51785,
+	 theta0=3.14159265358979,phi0=0
+&end
+&optimization_setup 
+ tolerance=1e-16
+ restart_worst_term_factor=4
+ n_restarts=15
+&end
+&optimization_variable name=MQA2S02 item=K1 &end
+&optimization_variable name=MQA2S04 item=K1 &end
+&optimization_variable name=MQN2S05 item=K1 &end
+&optimization_variable name=MQC2S06 item=K1 &end
+&optimization_variable name=MQC2S07 item=K1 &end
+&optimization_variable name=MQC2S08 item=K1 &end
+&optimization_variable name=MQC2S09 item=K1 &end
+&optimization_variable name=MQC2S10 item=K1 &end
+
+!
+! this match target can be read off ARC2 at the 
+! IPM2A01 bpm
+!tay
+&optimization_term term="ARC2M#1.betax SMATCH.betax 3 sene" &end
+&optimization_term term="ARC2M#1.alphax SMATCH.alphax 1e-2 sene" &end
+&optimization_term term="ARC2M#1.betay SMATCH.betay 0.1 sene" &end
+&optimization_term term="ARC2M#1.alphay SMATCH.alphay  2e-3 sene" &end
+!&optimization_term term="max.betax 600 60 sene" &end
+!&optimization_term term="max.betay 400 60 sene" &end
+
+&bunched_beam
+	n_particles_per_bunch=1,
+	emit_x=2.2e-10, emit_y=2.218859802776e-10,
+        use_twiss_command_values=1
+	sigma_dp=0.0001,sigma_s=0.0,
+	distribution_type[0] = 3*"gaussian",
+	distribution_cutoff[0] = 3*3,
+	enforce_rms_values[0]=1,1,1
+&end 
+!&track &end
+&optimize &end
+&save_lattice filename="ARC2MATCHEDS.lte" &end

@@ -1,0 +1,211 @@
+&change_particle mass_ratio=0.5110034 &end
+!&divide_elements name=* type=KQUAD divisions=2 &end
+&run_setup
+	lattice="ARC3designv2.lte",
+	use_beamline="ARC3",
+	p_central_mev=3393,
+	final="%s.fin"
+	parameters="%s-zeroYd.parms"
+&end
+&load_parameters
+ filename="extract3.parms"
+ allow_missing_elements=1
+ exclude_name_pattern=MQA3A01
+ include_item_pattern=K1
+ change_defined_values=1
+&end
+&load_parameters
+ filename="finalARC3.parms"
+ allow_missing_elements=1
+ change_defined_values=1
+&end
+&alter_elements name=MJD* item=K1 value=1.17e-3 &end
+&insert_elements name=ITV3S04 element_def="MD: MARK, FITPOINT=1" &end
+&twiss_output
+        filename="%s.twi",
+        matched=0,radiation_integrals=1,
+        beta_x=83.3326, alpha_x=2.04173,
+        beta_y=39.9695, alpha_y=-1.31236
+        output_at_each_step=1
+&end
+!
+! zero the vertical dispersion in spreader.
+!
+&optimization_setup tolerance=1e-32 n_restarts=20 log_file=%s-sd.terms &end
+&optimization_variable name=MQA3S01 item=K1 &end
+&optimization_variable name=MQA3S03 item=K1 &end
+&optimization_term term="MD#1.etay 0.0 1e-3 sene" &end
+&optimization_term term="MD#1.etayp 0.0 1e-6 sene" &end
+&run_control n_steps=1 &end
+&bunched_beam
+&end
+&optimize  &end
+!
+! remarch the spreader to the arc.
+!
+&run_setup
+        lattice="ARC3designv2.lte",
+        use_beamline="ARC3",
+        p_central_mev=3393,
+        final="%s.fin"
+        parameters="%s.parms"
+&end
+&load_parameters
+ filename="realARC3-zeroYd.parms"
+ allow_missing_elements=1
+ change_defined_values=1
+&end
+&insert_elements name=MQA3A01 element_def="M1: MARK, FITPOINT=1" &end
+&insert_elements name=MBC3A01H element_def="MS: MARK, FITPOINT=1" &end
+&twiss_output
+        filename="%s.twi",
+        matched=0,radiation_integrals=1,
+        beta_x=83.3326, alpha_x=2.04173,
+        beta_y=39.9695, alpha_y=-1.31236
+        output_at_each_step=1
+&end
+&run_control n_steps=1 &end
+&link_control verbosity=1 &end
+&link_elements target=MQA3A17 item=K1 source=MQA3A09 mode="dynamic", equation="K1" &end
+&link_elements target=MQA3A25 item=K1 source=MQA3A09 mode="dynamic", equation="K1" &end
+&link_elements target=MQA3R01 item=K1 source=MQA3A09 mode="dynamic", equation="K1" &end
+&link_elements target=MQA3A10 item=K1 source=MQA3A02 mode="dynamic", equation="K1" &end
+&link_elements target=MQA3A16 item=K1 source=MQA3A02 mode="dynamic", equation="K1" &end
+&link_elements target=MQA3A18 item=K1 source=MQA3A02 mode="dynamic", equation="K1" &end
+&link_elements target=MQA3A24 item=K1 source=MQA3A02 mode="dynamic", equation="K1" &end
+&link_elements target=MQA3A26 item=K1 source=MQA3A02 mode="dynamic", equation="K1" &end
+&link_elements target=MQA3A32 item=K1 source=MQA3A02 mode="dynamic", equation="K1" &end
+&link_elements target=MQA3A11 item=K1 source=MQA3A03 mode="dynamic", equation="K1" &end
+&link_elements target=MQA3A15 item=K1 source=MQA3A03 mode="dynamic", equation="K1" &end
+&link_elements target=MQA3A19 item=K1 source=MQA3A03 mode="dynamic", equation="K1" &end
+&link_elements target=MQA3A23 item=K1 source=MQA3A03 mode="dynamic", equation="K1" &end
+&link_elements target=MQA3A27 item=K1 source=MQA3A03 mode="dynamic", equation="K1" &end
+&link_elements target=MQA3A31 item=K1 source=MQA3A03 mode="dynamic", equation="K1" &end
+&link_elements target=MQA3A12 item=K1 source=MQA3A04 mode="dynamic", equation="K1" &end
+&link_elements target=MQA3A14 item=K1 source=MQA3A04 mode="dynamic", equation="K1" &end
+&link_elements target=MQA3A20 item=K1 source=MQA3A04 mode="dynamic", equation="K1" &end
+&link_elements target=MQA3A22 item=K1 source=MQA3A04 mode="dynamic", equation="K1" &end
+&link_elements target=MQA3A28 item=K1 source=MQA3A04 mode="dynamic", equation="K1" &end
+&link_elements target=MQA3A30 item=K1 source=MQA3A04 mode="dynamic", equation="K1" &end
+&link_elements target=MQA3A13 item=K1 source=MQA3A05 mode="dynamic", equation="K1" &end
+&link_elements target=MQA3A21 item=K1 source=MQA3A05 mode="dynamic", equation="K1" &end
+&link_elements target=MQA3A29 item=K1 source=MQA3A05 mode="dynamic", equation="K1" &end
+!&insert_elements name=MQA3S10 element_def="MS: MARK, FITPOINT=1" &end
+!&insert_elements name=MQA3A01 element_def="MS: MARK, FITPOINT=1" &end
+
+!
+! rematch the spreader to teh new lattice.
+!
+&alter_elements name=MQA3S04 item=K1 value=-0.4 &end
+&alter_elements name=MQA3S05 item=K1 value=0.4 &end
+&alter_elements name=MQA3S06 item=K1 value=-0.4 &end
+&alter_elements name=MQA3S07 item=K1 value=0.4 &end
+&alter_elements name=MQA3S08 item=K1 value=-0.4 &end
+&alter_elements name=MQA3S09 item=K1 value=0.4 &end
+&alter_elements name=MQA3S10 item=K1 value=-0.4 &end
+&alter_elements name=MQA3A01 item=K1 value=0.4 &end
+&optimization_setup tolerance=1e-32 n_restarts=20 log_file=%s-s.terms &end
+&optimization_variable name=MQA3S04 item=K1 &end
+&optimization_variable name=MQA3S05 item=K1 &end
+&optimization_variable name=MQA3S06 item=K1 &end
+&optimization_variable name=MQA3S07 item=K1 &end
+&optimization_variable name=MQA3S08 item=K1 &end
+&optimization_variable name=MQA3S09 item=K1 &end
+&optimization_variable name=MQA3S10 item=K1 &end
+&optimization_variable name=MQA3A01 item=K1 &end
+&optimization_term term="MS#1.betax {sdds2stream -col=betax ARC3-tuneDD-try2-cell.twi|head -4|tail -1} 1e-3 sene" &end
+&optimization_term term="MS#1.betay {sdds2stream -col=betay ARC3-tuneDD-try2-cell.twi|head -4|tail -1} 1e-3 sene" &end
+&optimization_term term="MS#1.alphax {sdds2stream -col=alphax ARC3-tuneDD-try2-cell.twi|head -4|tail -1}  1e-4 sene" &end
+&optimization_term term="MS#1.alphay {sdds2stream -col=alphay ARC3-tuneDD-try2-cell.twi|head -4|tail -1}  1e-4 sene" &end
+!&optimization_term term="max.betax 300 30 segt" &end
+&bunched_beam
+&end
+&optimize  &end
+!&stop
+!
+!  now, do the recombiner.
+!
+&run_setup
+        lattice="ARC3designv2.lte",
+        use_beamline="ARC3",
+        p_central_mev=3393,
+        final="%s.fin"
+        parameters="%s-s2.parms"
+&end
+&load_parameters
+ filename="realARC3.parms"
+ allow_missing_elements=1
+ change_defined_values=1
+&end
+! 
+! A01 is set to the average of the extraction FODO (0.285) and 
+! ARC FODO (0.6047) .
+! this provides a smooth transition into the FODO
+!
+!&alter_elements name=MQA3A01 item=K1 value=0.450 &end
+&alter_elements name=MQA3R01 item=K1 value=0.450 &end
+&alter_elements name=MQA3R02 item=K1 value=-0.450 &end
+&alter_elements name=MQA3R03 item=K1 value=0.450 &end
+&alter_elements name=MQA3R04 item=K1 value=-0.450 &end
+&alter_elements name=MQA3R05 item=K1 value=0.450 &end
+&alter_elements name=MQA3R06 item=K1 value=-0.450 &end
+&twiss_output
+        filename="%s.twi",
+        matched=0,radiation_integrals=1,
+        beta_x=83.3326, alpha_x=2.04173,
+        beta_y=39.9695, alpha_y=-1.31236
+        !beta_x=25.3776, alpha_x=1.32482,
+        !beta_y=15.3976, alpha_y=-0.7667659999999999
+        output_at_each_step=1
+&end
+
+&optimization_setup tolerance=1e-32 n_restarts=20 restart_worst_term_factor=3 log_file=%s.terms &end
+&optimization_variable name=MQA3R01 item=K1 &end
+&optimization_variable name=MQA3R02 item=K1 &end
+&optimization_variable name=MQA3R03 item=K1 &end
+&optimization_variable name=MQA3R04 item=K1 &end
+&optimization_variable name=MQA3R05 item=K1 &end
+&optimization_variable name=MQA3R06 item=K1 &end
+!
+! match to front of reinjection
+!
+ this provides a smooth transition into the FODO
+&optimization_term term="betax {sdds2stream -col=betax ARC3.twi|tail -1} 0.1 sene" &end
+&optimization_term term="betay {sdds2stream -col=betay ARC3.twi|tail -1} 0.1 sene" &end
+&optimization_term term="alphax {sdds2stream -col=alphax ARC3.twi|tail -1}  1e-3 sene" &end
+&optimization_term term="alphay {sdds2stream -col=alphay ARC3.twi|tail -1}  1e-3 sene" &end
+&run_control n_steps=1 &end
+&bunched_beam
+&end
+&optimize  &end
+!
+!
+! re-run final lattice
+!
+&run_setup
+	lattice="ARC3designv2.lte",
+	use_beamline="ARC3",
+	p_central_mev=3393,
+	final="%s.fin"
+&end
+&load_parameters
+ filename="realARC3-s2.parms"
+ allow_missing_elements=1
+ change_defined_values=1
+&end
+&insert_elements name=MQA3A01 element_def="M1: MARK, FITPOINT=1" &end
+&twiss_output
+	filename="%s.twi",
+	matched=0,radiation_integrals=1,
+        beta_x=83.3326, alpha_x=2.04173,
+        beta_y=39.9695, alpha_y=-1.31236
+        output_at_each_step=1
+&end
+&matrix_output
+ SDDS_output=%s.mat
+ start_from=M1
+&end
+&run_control n_steps=1 &end
+&bunched_beam &end
+&track &end
+&save_lattice filename="daarc3.lte" &end

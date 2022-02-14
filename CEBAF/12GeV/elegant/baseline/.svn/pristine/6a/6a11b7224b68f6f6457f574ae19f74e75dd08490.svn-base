@@ -1,0 +1,87 @@
+A set of scripts has been written to import the decks into the CED.
+
+After going through the steps described in the README file to generate
+ all the possible beamlines,one has to do the following:
+
+0) set the linac energy running scalelinacs <value>
+
+edit ihd.ele to get the proper scale factors in it.
+and set the lemi profile.
+
+the lemi profile is obtained via running lemi at command line for the desired target kinetic energy.
+e.g
+
+lemi -e 121 -bc 150 -la 2 -o setupfor121
+
+would setup for 121 kinetic with 150 microamps max current and 2 mev allowance for locks.
+ the output file 'setupfor121' will contain the gsets for the 0L03 and 0L04 zone.
+
+
+
+run makecmdfiles which will propagate that to all the command files.
+
+using ihd.ele, comment out the optimize and stop and the params in the first part of the file. run the ihd.ele, it will match the injector chicane and produce rematch.params.
+
+go back comment out the params and the optimization again. subsequent runs will skip that match and use the params file to setup the main machine.
+
+
+1) run elegant on the beamlines:
+
+ elegant ihd.ele
+ elegant iha1.ele
+ ..
+ ..
+ elegant iha5.ele
+
+same thing for hallc and b decks once we get them.
+
+First, import the main ring (1/4 cryo to Hall D):
+ req csuedvl
+./importCED ihd 
+
+will generate files that are designed to be imported into the CED. 
+
+all the import scripts can be invoked with a CED workspace. The default is Optics.
+doing ./runloadQUADS MyCED  would populate the MyCED workspace..
+
+We then run:
+
+./runloadQUADS
+./runloadDipoles
+./runloadCAVS
+./runloadMONI
+./runloadKICK
+
+Each of these will take several minutes to complete.
+
+import the extracted lines along with the Hall A line:
+
+./pass1import
+./pass2import
+./pass3import
+./pass4import
+./pass5import
+
+then import HALLB and HALLC. these scripts start importing past the lambertson.
+they adjust the Y flr coordinate appropriately. (100-0.022 for hall c, 100 for hall B)
+
+pass1HALLBimport
+pass2HALLBimport
+...
+pass5HALLBimport
+pass1HALLCimport
+...
+...
+pass5HALLCimport
+
+pass1bsydump
+pass2bsydump
+pass3bsydump
+pass4bsydump
+pass5bsydump
+
+All of this will only work if you have the privilege to write the
+Optics workspace of the CED.
+
+
+

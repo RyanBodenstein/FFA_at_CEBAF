@@ -1,0 +1,191 @@
+&change_particle mass_ratio=0.5110034 &end
+!&divide_elements name=* type=KQUAD divisions=2 &end
+&run_setup
+	lattice="ARC4designv2.lte",
+	use_beamline="ARC4",
+	p_central_mev=4483,
+	final="%s.fin"
+	parameters="%s.parms"
+&end
+&load_parameters
+ filename="extract4.parms"
+ allow_missing_elements=1
+ exclude_name_pattern=MQA4A01
+ include_item_pattern=K1
+ change_defined_values=1
+&end
+&load_parameters
+ filename="finalARC4.parms"
+ allow_missing_elements=1
+ change_defined_values=1
+&end
+&alter_elements name=MJC* item=K1 value=3.8e-4 &end
+!&alter_elements name=MBC4A01H item=ANGLE value=0.0 &end
+&insert_elements name=ITV4A01 element_def="MS: MARK, FITPOINT=1" &end
+&run_control n_steps=1
+&end
+!
+&link_control verbosity=1 &end
+&link_elements target=MQA4A17 item=K1 source=MQA4A09 mode="dynamic", equation="K1" &end
+&link_elements target=MQA4A25 item=K1 source=MQA4A09 mode="dynamic", equation="K1" &end
+&link_elements target=MQA4R01 item=K1 source=MQA4A09 mode="dynamic", equation="K1" &end
+&link_elements target=MQA4A10 item=K1 source=MQA4A02 mode="dynamic", equation="K1" &end
+&link_elements target=MQA4A16 item=K1 source=MQA4A02 mode="dynamic", equation="K1" &end
+&link_elements target=MQA4A18 item=K1 source=MQA4A02 mode="dynamic", equation="K1" &end
+&link_elements target=MQA4A24 item=K1 source=MQA4A02 mode="dynamic", equation="K1" &end
+&link_elements target=MQA4A26 item=K1 source=MQA4A02 mode="dynamic", equation="K1" &end
+&link_elements target=MQA4A32 item=K1 source=MQA4A02 mode="dynamic", equation="K1" &end
+&link_elements target=MQA4A11 item=K1 source=MQA4A03 mode="dynamic", equation="K1" &end
+&link_elements target=MQA4A15 item=K1 source=MQA4A03 mode="dynamic", equation="K1" &end
+&link_elements target=MQA4A19 item=K1 source=MQA4A03 mode="dynamic", equation="K1" &end
+&link_elements target=MQA4A23 item=K1 source=MQA4A03 mode="dynamic", equation="K1" &end
+&link_elements target=MQA4A27 item=K1 source=MQA4A03 mode="dynamic", equation="K1" &end
+&link_elements target=MQA4A31 item=K1 source=MQA4A03 mode="dynamic", equation="K1" &end
+&link_elements target=MQA4A12 item=K1 source=MQA4A04 mode="dynamic", equation="K1" &end
+&link_elements target=MQA4A14 item=K1 source=MQA4A04 mode="dynamic", equation="K1" &end
+&link_elements target=MQA4A20 item=K1 source=MQA4A04 mode="dynamic", equation="K1" &end
+&link_elements target=MQA4A22 item=K1 source=MQA4A04 mode="dynamic", equation="K1" &end
+&link_elements target=MQA4A28 item=K1 source=MQA4A04 mode="dynamic", equation="K1" &end
+&link_elements target=MQA4A30 item=K1 source=MQA4A04 mode="dynamic", equation="K1" &end
+&link_elements target=MQA4A13 item=K1 source=MQA4A05 mode="dynamic", equation="K1" &end
+&link_elements target=MQA4A21 item=K1 source=MQA4A05 mode="dynamic", equation="K1" &end
+&link_elements target=MQA4A29 item=K1 source=MQA4A05 mode="dynamic", equation="K1" &end
+!&insert_elements name=MQA4S10 element_def="MS: MARK, FITPOINT=1" &end
+!&insert_elements name=MQA4A01 element_def="MS: MARK, FITPOINT=1" &end
+
+
+&twiss_output
+	filename="%s.twi",
+	matched=0,radiation_integrals=1,
+        beta_x=25.3776, alpha_x=1.32482,
+        beta_y=15.3976, alpha_y=-0.7667659999999999
+        output_at_each_step=1
+&end
+!
+! rematch the spreader to teh new lattice.
+!
+!MQA4S02:KQUAD,  L=0.3, K1=1.511696289542352, TILT=0, ISR=1, SYNCH_RAD=1
+!MQA4S04:KQUAD,  L=0.3, K1=-0.4889392999956571, TILT=0, ISR=1, SYNCH_RAD=1
+!MQA4S05:KQUAD,  L=0.3, K1=0.8269256401358224, TILT=0, ISR=1, SYNCH_RAD=1
+!MQA4S06:KQUAD,  L=0.3, K1=-0.965775758377491, TILT=0, ISR=1, SYNCH_RAD=1
+!MQA4S07:KQUAD,  L=0.3, K1=0.5433262530733018, TILT=0, ISR=1, SYNCH_RAD=1
+!MQA4S08:KQUAD,  L=0.3, K1=-0.09998208936152353, TILT=0, ISR=1, SYNCH_RAD=1
+!MQA4S09:KQUAD,  L=0.3, K1=-0.08322086212471595, TILT=0, ISR=1, SYNCH_RAD=1
+!MQA4S10:KQUAD,  L=0.15, K1=0.01104760291708195, TILT=0, ISR=1, SYNCH_RAD=1
+&alter_elements name=MQA4S02 item=K1 value=1.51169289 &end
+&alter_elements name=MQA4S04 item=K1 value=-0.4889329 &end
+&alter_elements name=MQA4S05 item=K1 value=0.82692 &end
+&alter_elements name=MQA4S06 item=K1 value=-0.96577 &end
+&alter_elements name=MQA4S07 item=K1 value=0.54332 &end
+&alter_elements name=MQA4S08 item=K1 value=0.09998 &end
+&alter_elements name=MQA4S09 item=K1 value=0.083221 &end
+&alter_elements name=MQA4S10 item=K1 value=0.01104 &end
+&alter_elements name=MQA4A01 item=K1 value=0.495 &end
+&optimization_setup tolerance=1e-32 
+balance_terms=1
+restart_worst_term_factor=4
+n_restarts=20 
+log_file=%s-s.terms
+&end
+&optimization_variable name=MQA4S02 item=K1 &end
+&optimization_variable name=MQA4S04 item=K1 &end
+&optimization_variable name=MQA4S05 item=K1 &end
+&optimization_variable name=MQA4S06 item=K1 &end
+&optimization_variable name=MQA4S07 item=K1 &end
+&optimization_variable name=MQA4S08 item=K1 &end
+&optimization_variable name=MQA4S09 item=K1 &end
+!&optimization_variable name=MQA4A01 item=K1 &end
+!&optimization_term term="max.betax 300 100 segt" &end
+&optimization_term term="MS#1.betax {sdds2stream -col=betax ARC4-tuneDD-try2-cell.twi|head -8|tail -1} 0.1 sene" &end
+&optimization_term term="MS#1.betay {sdds2stream -col=betay ARC4-tuneDD-try2-cell.twi|head -8|tail -1} 0.1 sene" &end
+&optimization_term term="MS#1.alphax {sdds2stream -col=alphax ARC4-tuneDD-try2-cell.twi|head -8|tail -1}  1e-2 sene" &end
+&optimization_term term="MS#1.alphay {sdds2stream -col=alphay ARC4-tuneDD-try2-cell.twi|head -8|tail -1}  1e-2 sene" &end
+&bunched_beam
+&end
+&optimize  &end
+!&stop
+!
+!  now, do the recombiner.
+!
+&run_setup
+        lattice="ARC4designv2.lte",
+        use_beamline="ARC4",
+        p_central_mev=4483,
+        final="%s.fin"
+        parameters="%s-s2.parms"
+&end
+&load_parameters
+ filename="realARC4.parms"
+ allow_missing_elements=1
+ change_defined_values=1
+&end
+! 
+! A01 is set to the average of the extraction FODO (0.285) and 
+! ARC FODO (0.6047) .
+! this provides a smooth transition into the FODO
+!
+!&alter_elements name=MQA4A01 item=K1 value=0.450 &end
+&alter_elements name=MQA4R01 item=K1 value=0.450 &end
+&alter_elements name=MQA4R02 item=K1 value=-0.450 &end
+&alter_elements name=MQK4R03 item=K1 value=0.450 &end
+&alter_elements name=MQK4R04 item=K1 value=-0.450 &end
+&alter_elements name=MQA4R05 item=K1 value=0.450 &end
+&alter_elements name=MQK4R06 item=K1 value=-0.450 &end
+&twiss_output
+        filename="%s.twi",
+        matched=0,radiation_integrals=1,
+        beta_x=25.3776, alpha_x=1.32482,
+        beta_y=15.3976, alpha_y=-0.7667659999999999
+        output_at_each_step=1
+&end
+
+&optimization_setup tolerance=1e-32 n_restarts=20 restart_worst_term_factor=3 log_file=%s.terms &end
+&optimization_variable name=MQA4R01 item=K1 &end
+&optimization_variable name=MQA4R02 item=K1 &end
+&optimization_variable name=MQK4R03 item=K1 &end
+&optimization_variable name=MQK4R04 item=K1 &end
+&optimization_variable name=MQA4R05 item=K1 &end
+&optimization_variable name=MQK4R06 item=K1 &end
+!
+! match to front of reinjection
+!
+ this provides a smooth transition into the FODO
+&optimization_term term="betax {sdds2stream -col=betax REINJ5.twi|head -1} 0.1 sene" &end
+&optimization_term term="betay {sdds2stream -col=betay REINJ5.twi|head -1} 0.1 sene" &end
+&optimization_term term="alphax {sdds2stream -col=alphax REINJ5.twi|head -1}  1e-3 sene" &end
+&optimization_term term="alphay {sdds2stream -col=alphay REINJ5.twi|head -1}  1e-3 sene" &end
+&run_control n_steps=1 &end
+&bunched_beam
+&end
+&optimize  &end
+!
+!
+! re-run final lattice
+!
+&run_setup
+	lattice="ARC4designv2.lte",
+	use_beamline="ARC4",
+	p_central_mev=4483,
+	final="%s.fin"
+&end
+&load_parameters
+ filename="realARC4-s2.parms"
+ allow_missing_elements=1
+ change_defined_values=1
+&end
+&insert_elements name=MQA4A01 element_def="M1: MARK, FITPOINT=1" &end
+&twiss_output
+	filename="%s.twi",
+	matched=0,radiation_integrals=1,
+        beta_x=25.3776, alpha_x=1.32482,
+        beta_y=15.3976, alpha_y=-0.7667659999999999
+        output_at_each_step=1
+&end
+&matrix_output
+ SDDS_output=%s.mat
+ start_from=M1
+&end
+&run_control n_steps=1 &end
+&bunched_beam &end
+&track &end
+&save_lattice filename="daarc4.lte" &end

@@ -1,0 +1,36 @@
+
+&change_particle mass_ratio=0.5110034 &end
+&run_setup
+	lattice="INJnew.lte",
+	use_beamline="INJ",
+	p_central_mev=6.27924163615229,
+	final="%s.fin"
+	parameters="%s.parms"
+        centroid=%s.cen
+&end
+&twiss_output
+	filename="%s.twi",
+	matched=0,radiation_integrals=1,
+	beta_x=2.997926428896, alpha_x=-0.5359458777508,
+	beta_y=2.744088102614, alpha_y=-0.3680774072256
+&end
+&run_control n_steps=1
+&end
+&floor_coordinates
+	filename="%s.flr",
+	 X0=80.6,Y0=100,Z0=-249.21407,
+	 theta0=0,phi0=0
+         magnet_centers=1
+&end
+&bunched_beam
+	n_particles_per_bunch=1,
+	emit_x=8.137979546096e-08, emit_y=8.137979546096e-08,
+	beta_x=2.997926428896, alpha_x=-0.5359458777508,
+	beta_y=2.744088102614, alpha_y=-0.3680774072256
+	sigma_dp=0.0001,sigma_s=0.0,
+	distribution_type[0] = 3*"gaussian",
+	distribution_cutoff[0] = 3*3,
+	enforce_rms_values[0]=1,1,1
+&end
+&track
+&end

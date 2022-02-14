@@ -1,0 +1,32 @@
+#!/bin/bash
+#
+wrks=$1
+: ${wrks:="Optics"}
+echo "importing Hall B 5 pass"
+elegant ihb5.ele>/dev/null
+importCED ihb5 >/dev/null
+echo "generating pass specific decks"
+sddsprocess -filter=col,s,6.409617e+03,1e10 dipoles.sdds dipoles5.sdds 
+sddsprocess -filter=col,s,6.409617e+03,1e10 MONITORS.sdds monitors5.sdds 
+sddsprocess -filter=col,s,6.409617e+03,1e10 quads.sdds quads5.sdds 
+sddsprocess -filter=col,s,6.409617e+03,1e10 kickers.sdds kickers5.sdds 
+echo "importing dipoles"
+/cs/dvlhome/apps/c/CED/dvl/src/12GeV/loadSDDS.pl -wrkspc=$wrks \
+ -proplist=s,L,betax,alphax,betay,alphay,etax,etay,etapx,etapy,psix,psiy,pCentral,HGAP,E1,E2,ANGLE,K1,sigmax,sigmay,ecx,ecy,ModelX,ModelY,ModelZ,theta,phi,psi\
+ -startpass=5 -extract -sdds=dipoles5.sdds
+cp loadsdds.err loadsdds_hb5dip.err
+echo "importing monitors"
+/cs/dvlhome/apps/c/CED/dvl/src/12GeV/loadSDDS.pl -wrkspc=$wrks \
+ -proplist=s,L,betax,alphax,betay,alphay,etax,etay,etapx,etapy,psix,psiy,pCentral,sigmax,sigmay,ecx,ecy,ModelX,ModelY,ModelZ,phi,theta,psi\
+ -startpass=5 -sdds=monitors5.sdds
+cp loadsdds.err loadsdds_hb5mon.err
+echo "importing quads"
+/cs/dvlhome/apps/c/CED/dvl/src/12GeV/loadSDDS.pl -wrkspc=$wrks \
+ -proplist=s,L,betax,alphax,betay,alphay,etax,etay,etapx,etapy,psix,psiy,pCentral,K1,sigmax,sigmay,ecx,ecy,Tilt,theta,phi,psi,ModelX,ModelY,ModelZ\
+ -startpass=5 -sdds=quads5.sdds
+cp loadsdds.err loadsdds_hb5quad.err
+echo "importing kickers"
+/cs/dvlhome/apps/c/CED/dvl/src/12GeV/loadSDDS.pl -wrkspc=$wrks \
+ -proplist=s,L,betax,alphax,betay,alphay,etax,etay,etapx,KICK,etapy,psix,psiy,pCentral,sigmax,sigmay,ecx,ecy,ModelX,ModelY,ModelZ,phi,theta,psi\
+ -startpass=5 -sdds=kickers5.sdds
+cp loadsdds.err loadsdds_hb5kick.err

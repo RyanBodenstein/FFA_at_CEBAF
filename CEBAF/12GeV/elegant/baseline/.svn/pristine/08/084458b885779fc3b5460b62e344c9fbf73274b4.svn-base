@@ -1,0 +1,185 @@
+&change_particle mass_ratio=0.5110034 &end
+!&divide_elements name=* type=KQUAD divisions=2 &end
+&run_setup
+	lattice="ARC6designv2.lte",
+	use_beamline="ARC6",
+	p_central_mev=6662.99998300489,
+	final="%s.fin"
+	parameters="%s.parms"
+&end
+!&load_parameters
+! filename="extract.parms"
+! allow_missing_elements=1
+! exclude_name_pattern=MQA6A01
+! include_item_pattern=K1
+! change_defined_values=1
+!&end
+&load_parameters
+ filename="finalARC6.parms"
+ allow_missing_elements=1
+ change_defined_values=1
+&end
+&alter_elements name=MJC* item=K1 value=5.5e-4 &end
+!&alter_elements name=MBC6A01H item=ANGLE value=0.0 &end
+&insert_elements name=MQA6A01 element_def="M1: MARK, FITPOINT=1" &end
+!&insert_elements name=MQA6S10 element_def="MS: MARK, FITPOINT=1" &end
+&insert_elements name=ITV6A01 element_def="MS: MARK, FITPOINT=1" &end
+&run_control n_steps=1
+&end
+&floor_coordinates
+	filename="%s.flr",
+	 X0=-80.6,Y0=100,Z0=-91.51785,
+	 theta0=-3.14159265358979,phi0=0
+        magnet_centers=1
+&end
+&link_control verbosity=1 &end
+&link_elements target=MQA6A17 item=K1 source=MQA6A09 mode="static", equation="K1" &end
+&link_elements target=MQA6A25 item=K1 source=MQA6A09 mode="static", equation="K1" &end
+&link_elements target=MQK6R01 item=K1 source=MQA6A09 mode="static", equation="K1" &end
+&link_elements target=MQA6A10 item=K1 source=MQA6A02 mode="static", equation="K1" &end
+&link_elements target=MQA6A16 item=K1 source=MQA6A02 mode="static", equation="K1" &end
+&link_elements target=MQA6A18 item=K1 source=MQA6A02 mode="static", equation="K1" &end
+&link_elements target=MQA6A24 item=K1 source=MQA6A02 mode="static", equation="K1" &end
+&link_elements target=MQA6A26 item=K1 source=MQA6A02 mode="static", equation="K1" &end
+&link_elements target=MQA6A32 item=K1 source=MQA6A02 mode="static", equation="K1" &end
+&link_elements target=MQA6A11 item=K1 source=MQA6A03 mode="static", equation="K1" &end
+&link_elements target=MQA6A15 item=K1 source=MQA6A03 mode="static", equation="K1" &end
+&link_elements target=MQA6A19 item=K1 source=MQA6A03 mode="static", equation="K1" &end
+&link_elements target=MQA6A23 item=K1 source=MQA6A03 mode="static", equation="K1" &end
+&link_elements target=MQA6A27 item=K1 source=MQA6A03 mode="static", equation="K1" &end
+&link_elements target=MQA6A31 item=K1 source=MQA6A03 mode="static", equation="K1" &end
+&link_elements target=MQA6A12 item=K1 source=MQA6A04 mode="static", equation="K1" &end
+&link_elements target=MQA6A14 item=K1 source=MQA6A04 mode="static", equation="K1" &end
+&link_elements target=MQA6A20 item=K1 source=MQA6A04 mode="static", equation="K1" &end
+&link_elements target=MQA6A22 item=K1 source=MQA6A04 mode="static", equation="K1" &end
+&link_elements target=MQA6A28 item=K1 source=MQA6A04 mode="static", equation="K1" &end
+&link_elements target=MQA6A30 item=K1 source=MQA6A04 mode="static", equation="K1" &end
+&link_elements target=MQA6A13 item=K1 source=MQA6A05 mode="static", equation="K1" &end
+&link_elements target=MQA6A21 item=K1 source=MQA6A05 mode="static", equation="K1" &end
+&link_elements target=MQA6A29 item=K1 source=MQA6A05 mode="static", equation="K1" &end
+!&link_elements target=MQA6S10 item=K1 source=MQN6E02 mode="static", equation="K1" &end
+!&link_elements target=MQC6E01 item=K1 source=MQN6E03 mode="static", equation="K1" &end
+!&insert_elements name=MQA6A01 element_def="MS: MARK, FITPOINT=1" &end
+
+
+&twiss_output
+	filename="%s.twi",
+	matched=0,radiation_integrals=1,
+        beta_x=34.9407, alpha_x=1.29898,
+        beta_y=27.8356, alpha_y=-0.748794
+        output_at_each_step=1
+&end
+!
+! rematch the spreader to teh new lattice.
+!
+&alter_elements name=MQK6S02 item=K1 value=1.627035 &end
+&alter_elements name=MQK6S04 item=K1 value=1.25662353 &end
+&alter_elements name=MQK6S05 item=K1 value=-1.3851297 &end
+&alter_elements name=MQA6S06 item=K1 value=0.37164109 &end
+&alter_elements name=MQA6S07 item=K1 value=-0.436766 &end
+&alter_elements name=MQA6S08 item=K1 value=0.50851694 &end
+&alter_elements name=MQA6S09 item=K1 value=-0.00849 &end
+&alter_elements name=MQA6A01 item=K1 value=0.5006939 &end
+&optimization_setup tolerance=1e-32 n_restarts=20 log_file=%s-s.terms &end
+&optimization_variable name=MQK6S02 item=K1 &end
+&optimization_variable name=MQK6S04 item=K1 &end
+&optimization_variable name=MQK6S05 item=K1 &end
+&optimization_variable name=MQA6S06 item=K1 &end
+&optimization_variable name=MQA6S07 item=K1 &end
+&optimization_variable name=MQA6S08 item=K1 &end
+&optimization_variable name=MQA6S09 item=K1 &end
+!&optimization_variable name=MQA6S10 item=K1 &end
+&optimization_variable name=MQA6A01 item=K1 &end
+&optimization_term term="MS#1.betax {sdds2stream -col=betax ARC6-tuneDD-try2-cell.twi|head -8|tail -1} 1 sene" &end
+&optimization_term term="MS#1.betay {sdds2stream -col=betay ARC6-tuneDD-try2-cell.twi|head -8|tail -1} 1e-1 sene" &end
+&optimization_term term="MS#1.alphax {sdds2stream -col=alphax ARC6-tuneDD-try2-cell.twi|head -8|tail -1}  1e-1 sene" &end
+&optimization_term term="MS#1.alphay {sdds2stream -col=alphay ARC6-tuneDD-try2-cell.twi|head -8| tail -1}  1e-2 sene" &end
+!&optimization_term term="M1#1.nux MS#1.nux - 1.25 1e-3 sene" &end
+!&optimization_term term="M1#1.nuy MS#1.nuy - 0.75 1e-3 sene" &end
+&optimization_term term="max.betax 300.0 10 segt" &end
+&bunched_beam
+&end
+&optimize  &end
+!
+!  now, do the recombiner.
+!
+&run_setup
+        lattice="ARC6designv2.lte",
+        use_beamline="ARC6",
+        p_central_mev=6662.99998300489,
+        final="%s.fin"
+        parameters="%s-s2.parms"
+&end
+&load_parameters
+ filename="realARC6.parms"
+ allow_missing_elements=1
+ change_defined_values=1
+&end
+! 
+! A01 is set to the average of the extraction FODO (0.286) and 
+! ARC FODO (0.594) .
+! this provides a smooth transition into the FODO
+!
+!&alter_elements name=MQA6A01 item=K1 value=0.442 &end
+&twiss_output
+        filename="%s.twi",
+        matched=0,radiation_integrals=1,
+        beta_x=34.9407, alpha_x=1.29898,
+        beta_y=27.8356, alpha_y=-0.748794
+        output_at_each_step=1
+&end
+
+&optimization_setup tolerance=1e-32 n_restarts=20 restart_worst_term_factor=2 log_file=%s.terms &end
+&optimization_variable name=MQK6R01 item=K1 &end
+&optimization_variable name=MQK6R02 item=K1 &end
+&optimization_variable name=MQK6R03 item=K1 &end
+&optimization_variable name=MQR6R04 item=K1 &end
+&optimization_variable name=MQK6R05 item=K1 &end
+&optimization_variable name=MQA6R06 item=K1 &end
+!
+! match to front of reinjection
+!
+ this provides a smooth transition into the FODO
+&optimization_term term="betax {sdds2stream -col=betax REINJ7.twi|head -1} 5 sene" &end
+&optimization_term term="betay {sdds2stream -col=betay REINJ7.twi|head -1} 5 sene" &end
+&optimization_term term="alphax {sdds2stream -col=alphax REINJ7.twi|head -1}  1e-1 sene" &end
+&optimization_term term="alphay {sdds2stream -col=alphay REINJ7.twi|head -1}  1e-1 sene" &end
+&run_control n_steps=1 &end
+&bunched_beam
+&end
+&optimize  &end
+!
+!
+! re-run final lattice
+!
+&run_setup
+	lattice="ARC6designv2.lte",
+	use_beamline="ARC6",
+	p_central_mev=6662.99998300489,
+	final="%s.fin"
+&end
+&load_parameters
+ filename="realARC6-s2.parms"
+ allow_missing_elements=1
+ change_defined_values=1
+&end
+!&alter_elements name=MJC* item=K1 value=5.5e-4 &end
+!&alter_elements name=MQA6A01 item=K1 value=0.442 &end
+&insert_elements name=MQA6A01 element_def="M1: MARK, FITPOINT=1" &end
+!&alter_elements name=MBC6A01H item=ANGLE value=0.0 &end
+!&alter_elements name=RRF* item=ANGLE value=0.0 &end
+&twiss_output
+	filename="%s.twi",
+	matched=0,radiation_integrals=1,
+        beta_x=34.9407, alpha_x=1.29898,
+        beta_y=27.8356, alpha_y=-0.748794
+        output_at_each_step=1
+&end
+&matrix_output
+ SDDS_output=%s.mat
+ start_from=M1
+&end
+&run_control n_steps=1 &end
+&bunched_beam &end
+&track &end
+&save_lattice filename="daarc6.lte" &end

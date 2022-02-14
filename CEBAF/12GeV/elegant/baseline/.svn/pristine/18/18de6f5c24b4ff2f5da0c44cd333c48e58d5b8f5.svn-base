@@ -1,0 +1,51 @@
+#!/bin/bash
+# start at RRF6E00A
+#  3.679513e+03 
+#
+wrks=$1
+: ${wrks:="Optics"}
+echo "importing 1/4 cryo to Hall A 3rd pass"
+#
+# process the floor file to add the correct Y value with the lambertson.
+#
+
+#
+# process the floor file to add the correct Y value with the lambertson.
+#
+elegant iha3.ele >/dev/null
+sddsprocess -filter=col,s,0,3.791757e3 iha3.flr t0c00.flr
+sddsprocess -filter=col,s,3.791757e3,1e10 iha3.flr -define=col,DY,"0.022" ha3offset.flr
+sddsxref iha3.flr  ha3offset.flr -equate=s -editnames=col,Y,ei/%ld/ -pipe=out|\
+ sddsprocess -pipe=in -redefine=col,Y,"Y DY +" toha3.flr
+sddscombine -merge -overWrite t0c00.flr toha3.flr iha3p.flr
+# 
+cp iha3.parms iha3p.parms
+cp iha3.cen iha3p.cen
+cp iha3.sig iha3p.sig
+cp iha3.twi iha3p.twi
+importCED iha3p >/dev/null
+
+sddsprocess -filter=col,s,3.679023e+03,1e10 dipoles.sdds dipoles3.sdds 
+sddsprocess -filter=col,s,3.679023e+03,1e10 MONITORS.sdds monitors3.sdds 
+sddsprocess -filter=col,s,3.679023e+03,1e10 quads.sdds quads3.sdds 
+sddsprocess -filter=col,s,3.679023e+03,1e10 kickers.sdds kickers3.sdds 
+ echo "importing dipoles"
+/cs/dvlhome/apps/c/CED/dvl/src/12GeV/loadSDDS.pl -wrkspc=$wrks \
+ -proplist=s,L,betax,alphax,betay,alphay,etax,etay,etapx,etapy,psix,psiy,pCentral,HGAP,E1,E2,ANGLE,K1,sigmax,sigmay,ecx,ecy,ModelX,ModelY,ModelZ,theta,phi,psi\
+ -startpass=3 -extract -sdds=dipoles3.sdds
+cp loadsdds.err loadsdds_ha3dip.err
+echo "importing monitors"
+/cs/dvlhome/apps/c/CED/dvl/src/12GeV/loadSDDS.pl -wrkspc=$wrks \
+ -proplist=s,L,betax,alphax,betay,alphay,etax,etay,etapx,etapy,psix,psiy,pCentral,sigmax,sigmay,ecx,ecy,ModelX,ModelY,ModelZ,phi,theta,psi\
+ -startpass=3 -sdds=monitors3.sdds
+cp loadsdds.err loadsdds_ha3mon.err
+echo "importing quads"
+/cs/dvlhome/apps/c/CED/dvl/src/12GeV/loadSDDS.pl -wrkspc=$wrks \
+ -proplist=s,L,betax,alphax,betay,alphay,etax,etay,etapx,etapy,psix,psiy,pCentral,K1,sigmax,sigmay,ecx,ecy,Tilt,theta,phi,psi,ModelX,ModelY,ModelZ\
+ -startpass=3 -sdds=quads3.sdds
+cp loadsdds.err loadsdds_ha3quad.err
+echo "importing kickers"
+/cs/dvlhome/apps/c/CED/dvl/src/12GeV/loadSDDS.pl -wrkspc=$wrks \
+ -proplist=s,L,betax,alphax,betay,alphay,etax,etay,etapx,KICK,etapy,psix,psiy,pCentral,sigmax,sigmay,ecx,ecy,ModelX,ModelY,ModelZ,phi,theta,psi\
+ -startpass=3 -sdds=kickers3.sdds
+cp loadsdds.err loadsdds_ha3kick.err

@@ -1,0 +1,37 @@
+&change_particle mass_ratio=0.5110034 &end
+&run_setup
+	lattice="hallaemit.lte",
+	use_beamline="HALLA",
+	p_central_mev=11022.9999915556,
+	final="%s.fin"
+	parameters="%s.parms"
+&end
+&insert_elements name=IPM1C04,element_def="M1: MARKER, FITPOINT=1" &end
+&twiss_output
+	filename="%s.twi",
+	matched=0,radiation_integrals=1,
+	beta_x=20, alpha_x=0,
+	beta_y=20, alpha_y=0
+&end
+&run_control n_steps=1
+&end
+&optimization_setup 
+  tolerance=1e-16
+&end
+
+&optimization_variable name=MQK1C02 item=K1 &end
+&optimization_term term="M1#1.etax sqr" &end
+
+&bunched_beam
+	n_particles_per_bunch=1,
+	emit_x=0, emit_y=1e-09,
+	beta_x=20, alpha_x=0,
+	beta_y=20, alpha_y=0
+	sigma_dp=0,sigma_s=0.0,
+	distribution_type[0] = 3*"gaussian",
+	distribution_cutoff[0] = 3*3,
+	enforce_rms_values[0]=1,1,1
+&end
+&optimize &end
+!&track &end
+&save_lattice filename="hallaemitzerod.lte" &end

@@ -1,0 +1,51 @@
+cp ihd.ele iha1.ele
+sed -E 's#(ihd|IHD)#iha1#g' <iha1.ele >tmp.ele
+mv tmp.ele iha1.ele
+cp ihd.ele iha2.ele
+sed -E 's#(ihd|IHD)#iha2#g' <iha2.ele >tmp.ele
+mv tmp.ele iha2.ele
+cp ihd.ele iha3.ele
+sed -E 's#(ihd|IHD)#iha3#g' <iha3.ele >tmp.ele
+mv tmp.ele iha3.ele
+cp ihd.ele iha4.ele
+sed -E 's#(ihd|IHD)#iha4#g' <iha4.ele >tmp.ele
+mv tmp.ele iha4.ele
+cp ihd.ele iha5.ele
+sed -E 's#(ihd|IHD)#iha5#g' <iha5.ele >tmp.ele
+mv tmp.ele iha5.ele
+#
+cp ihd.ele ihb1.ele
+sed -E 's#(ihd|IHD)#ihb1#g' <ihb1.ele >tmp.ele
+mv tmp.ele ihb1.ele
+cp ihd.ele ihb2.ele
+sed -E 's#(ihd|IHD)#ihb2#g' <ihb2.ele >tmp.ele
+mv tmp.ele ihb2.ele
+cp ihd.ele ihb3.ele
+sed -E 's#(ihd|IHD)#ihb3#g' <ihb3.ele >tmp.ele
+mv tmp.ele ihb3.ele
+cp ihd.ele ihb4.ele
+sed -E 's#(ihd|IHD)#ihb4#g' <ihb4.ele >tmp.ele
+mv tmp.ele ihb4.ele
+cp ihd.ele ihb5.ele
+sed -E 's#(ihd|IHD)#ihb5#g' <ihb5.ele >tmp.ele
+mv tmp.ele ihb5.ele
+#
+cp ihd.ele ihc1.ele
+sed -E 's#(ihd|IHD)#ihc1#g' <ihc1.ele >tmp.ele
+mv tmp.ele ihc1.ele
+cp ihd.ele ihc2.ele
+sed -E 's#(ihd|IHD)#ihc2#g' <ihc2.ele >tmp.ele
+mv tmp.ele ihc2.ele
+cp ihd.ele ihc3.ele
+sed -E 's#(ihd|IHD)#ihc3#g' <ihc3.ele >tmp.ele
+mv tmp.ele ihc3.ele
+cp ihd.ele ihc4.ele
+sed -E 's#(ihd|IHD)#ihc4#g' <ihc4.ele >tmp.ele
+mv tmp.ele ihc4.ele
+cp ihd.ele ihc5.ele
+sed -E 's#(ihd|IHD)#ihc5#g' <ihc5.ele >tmp.ele
+mv tmp.ele ihc5.ele
+#
+#cp ihd.ele ihbsy1d.ele
+#sed -E 's#(ihd|IHD)#ihbsyd#g' <ihbsyd1.ele >tmp.ele
+#mv tmp.ele ihbsyd1.ele

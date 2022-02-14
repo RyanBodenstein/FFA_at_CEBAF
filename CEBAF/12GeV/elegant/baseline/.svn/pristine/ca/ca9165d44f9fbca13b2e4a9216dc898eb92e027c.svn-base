@@ -1,0 +1,34 @@
+#!/bin/bash
+# start at RRF4E00A
+# 
+#2.368245e+03 
+wrks=$1
+: ${wrks:="Optics"}
+echo "importing 1/4 cryo to bsydump 2nd pass"
+elegant ihbsyd2.ele >/dev/null
+sddsprocess -redefine=col,Y,"Y 0.022 -" ihbsyd2.flr ihbsyd2.flr
+importCED ihbsyd2 >/dev/null
+sddsprocess -filter=col,s,2.514883e+03,1e10 dipoles.sdds dipoles2.sdds 
+sddsprocess -filter=col,s,2.514883e+03,1e10 MONITORS.sdds monitors2.sdds 
+sddsprocess -filter=col,s,2.514883e+03,1e10 quads.sdds quads2.sdds 
+sddsprocess -filter=col,s,2.514883e+03,1e10 kickers.sdds kickers2.sdds 
+echo "importing dipoles"
+/cs/dvlhome/apps/c/CED/dvl/src/12GeV/loadSDDS.pl -wrkspc=$wrks \
+ -proplist=s,L,betax,alphax,betay,alphay,etax,etay,etapx,etapy,psix,psiy,pCentral,HGAP,E1,E2,ANGLE,K1,sigmax,sigmay,ecx,ecy,ModelX,ModelY,ModelZ,theta,phi,psi\
+ -startpass=2 -extract -sdds=dipoles2.sdds
+cp loadsdds.err loadsdds_dip.err
+echo "importing monitors"
+/cs/dvlhome/apps/c/CED/dvl/src/12GeV/loadSDDS.pl -wrkspc=$wrks \
+ -proplist=s,L,betax,alphax,betay,alphay,etax,etay,etapx,etapy,psix,psiy,pCentral,sigmax,sigmay,ecx,ecy,ModelX,ModelY,ModelZ,phi,theta,psi\
+ -startpass=2 -sdds=monitors2.sdds
+cp loadsdds.err loadsdds_mon.err
+echo "importing quads"
+/cs/dvlhome/apps/c/CED/dvl/src/12GeV/loadSDDS.pl -wrkspc=$wrks \
+ -proplist=s,L,betax,alphax,betay,alphay,etax,etay,etapx,etapy,psix,psiy,pCentral,K1,sigmax,sigmay,ecx,ecy,Tilt,theta,phi,psi,ModelX,ModelY,ModelZ\
+ -startpass=2 -sdds=quads2.sdds
+cp loadsdds.err loadsdds_quads.err
+echo "importing kickers"
+/cs/dvlhome/apps/c/CED/dvl/src/12GeV/loadSDDS.pl -wrkspc=$wrks \
+ -proplist=s,L,betax,alphax,betay,alphay,etax,etay,etapx,KICK,etapy,psix,psiy,pCentral,sigmax,sigmay,ecx,ecy,ModelX,ModelY,ModelZ,phi,theta,psi\
+ -startpass=2 -sdds=kickers2.sdds
+cp loadsdds.err loadsdds_kick.err

@@ -1,0 +1,24 @@
+#!/bin/bash
+# still need to add the static properties like floor coords and such.
+# ModelX, ModelY,ModelZ, Model_Pitch, Model_Yaw, Model_Roll
+# add  HGAP, Length, Tilt for dipole
+# add Length, Tilt for quads. Eventually add Radius when we have it modeled  (the bore)
+# maybe reset the K1 to zero or calculate it for linac and reinjection
+# quads at each pass.
+#
+# these are for importing all the way to Hall D.
+# we have to do that for the other lines as well.
+# it should be must faster since they are shorter.
+#
+#quads
+wrks=$1
+: ${wrks:="Optics"}
+/cs/dvlhome/apps/c/CED/dvl/src/12GeV/loadSDDS.pl -wrkspc=$wrks \
+ -proplist=s,L,betax,alphax,betay,alphay,etax,etay,etapx,etapy,psix,psiy,pCentral,K1,sigmax,sigmay,ecx,ecy,Tilt,theta,phi,psi,ModelX,ModelY,ModelZ\
+ -sdds=quads.sdds
+# linac and reinjection quads
+/cs/dvlhome/apps/c/CED/dvl/src/12GeV/loadSDDS.pl -wrkspc=$wrks -startpass=2 \
+ -proplist=s,L,betax,alphax,betay,alphay,etax,etay,etapx,etapy,psix,psiy,pCentral,K1,B,BORE,sigmax,sigmay,ecx,ecy,Tilt,theta,phi,psi,ModelX,ModelY,ModelZ\
+ -sdds=quadsRECIRC.sdds
+/cs/dvlhome/apps/c/CED/dvl/src/12GeV/loadSDDS.pl -wrkspc=$wrks \
+ -proplist=s,L,betax,alphax,betay,alphay,etax,etay,etapx,etapy,psix,psiy,pCentral,K1,B,BORE,sigmax,sigmay,ecx,ecy,Tilt,ModelX,ModelY,ModelZ,theta,phi,psi -sdds=quadsLINAC.sdds

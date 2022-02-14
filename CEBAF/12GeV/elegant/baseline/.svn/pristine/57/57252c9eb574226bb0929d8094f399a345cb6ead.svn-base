@@ -1,0 +1,47 @@
+#!/bin/bash
+# start at RRF4E00A
+# 
+#2.368245e+03 
+wrks=$1
+: ${wrks:="Optics"}
+echo "importing 1/4 cryo to Hall A 2nd pass"
+#
+# process the floor file to add the correct Y value with the lambertson.
+#
+elegant iha2.ele >/dev/null
+sddsprocess -filter=col,s,0,2.482958e3 iha2.flr t0c00.flr
+sddsprocess -filter=col,s,2.482958e3,1e10 iha2.flr -define=col,DY,"0.022" ha2offset.flr
+sddsxref iha2.flr  ha2offset.flr -equate=s -editnames=col,Y,ei/%ld/ -pipe=out|\
+ sddsprocess -pipe=in -redefine=col,Y,"Y DY +" toha2.flr
+sddscombine -merge -overWrite t0c00.flr toha2.flr iha2p.flr
+# 
+cp iha2.parms iha2p.parms
+cp iha2.cen iha2p.cen
+cp iha2.sig iha2p.sig
+cp iha2.twi iha2p.twi
+importCED iha2p >/dev/null
+# start in front of RRF4E00A
+sddsprocess -filter=col,s,2.36754e+03,1e10 dipoles.sdds dipoles2.sdds 
+sddsprocess -filter=col,s,2.36754e+03,1e10 MONITORS.sdds monitors2.sdds 
+sddsprocess -filter=col,s,2.36754e+03,1e10 quads.sdds quads2.sdds 
+sddsprocess -filter=col,s,2.36754e+03,1e10 kickers.sdds kickers2.sdds 
+echo "importing dipoles"
+/cs/dvlhome/apps/c/CED/dvl/src/12GeV/loadSDDS.pl -wrkspc=$wrks \
+ -proplist=s,L,betax,alphax,betay,alphay,etax,etay,etapx,etapy,psix,psiy,pCentral,HGAP,E1,E2,ANGLE,K1,sigmax,sigmay,ecx,ecy,ModelX,ModelY,ModelZ,theta,phi,psi\
+ -startpass=2 -extract -sdds=dipoles2.sdds
+cp loadsdds.err loadsdds_dip.err
+echo "importing monitors"
+/cs/dvlhome/apps/c/CED/dvl/src/12GeV/loadSDDS.pl -wrkspc=$wrks \
+ -proplist=s,L,betax,alphax,betay,alphay,etax,etay,etapx,etapy,psix,psiy,pCentral,sigmax,sigmay,ecx,ecy,ModelX,ModelY,ModelZ,phi,theta,psi\
+ -startpass=2 -sdds=monitors2.sdds
+cp loadsdds.err loadsdds_mon.err
+echo "importing quads"
+/cs/dvlhome/apps/c/CED/dvl/src/12GeV/loadSDDS.pl -wrkspc=$wrks \
+ -proplist=s,L,betax,alphax,betay,alphay,etax,etay,etapx,etapy,psix,psiy,pCentral,K1,sigmax,sigmay,ecx,ecy,Tilt,theta,phi,psi,ModelX,ModelY,ModelZ\
+ -startpass=2 -sdds=quads2.sdds
+cp loadsdds.err loadsdds_quads.err
+echo "importing kickers"
+/cs/dvlhome/apps/c/CED/dvl/src/12GeV/loadSDDS.pl -wrkspc=$wrks \
+ -proplist=s,L,betax,alphax,betay,alphay,etax,etay,etapx,KICK,etapy,psix,psiy,pCentral,sigmax,sigmay,ecx,ecy,ModelX,ModelY,ModelZ,phi,theta,psi\
+ -startpass=2 -sdds=kickers2.sdds
+cp loadsdds.err loadsdds_kick.err

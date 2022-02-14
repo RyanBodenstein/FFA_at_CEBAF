@@ -1,0 +1,106 @@
+&change_particle mass_ratio=0.5110034 &end
+&divide_elements name=MQA3A03 divisions=2 &end
+&divide_elements name=MQA3A07 divisions=2 &end
+&run_setup
+	lattice="ARC3designv2.lte",
+	use_beamline="CELL13",
+	p_central_mev=3393,
+	final="%s.fin"
+	parameters="%s-cell.parms"
+&end
+
+&alter_elements name=MJD3* item=K1 value=1.17e-3 &end
+&insert_elements name=MQA3A03 element_def="M1: MARKER, FITPOINT=1" &end
+&insert_elements name=MQA3A07 element_def="M2: MARKER, FITPOINT=1" &end
+&twiss_output
+	filename="%s-cell.twi",
+	matched=1,radiation_integrals=1,
+        output_at_each_step=1
+&end
+&run_control n_steps=1
+&end
+&optimization_setup 
+  tolerance=1e-32 method="simplex" 
+!  tolerance=1e-32 method="randomwalk" 
+  n_restarts=20 
+  restart_worst_term_factor=3 
+  term_log_file=%s.terms
+&end
+&alter_elements name=MQA3A01 item=K1 value=0.43 &end
+&alter_elements name=MQA3A02 item=K1 value=-0.57 &end
+&alter_elements name=MQA3A03 item=K1 value=1.05 &end
+&alter_elements name=MQA3A05 item=K1 value=0.61 &end
+&alter_elements name=MQA3A09 item=K1 value=0.43 &end
+&optimization_variable name=MQA3A01 item=K1 &end
+&optimization_variable name=MQA3A02 item=K1 &end
+&optimization_variable name=MQA3A03 item=K1 &end
+&optimization_variable name=MQA3A04 item=K1 &end
+&optimization_variable name=MQA3A05 item=K1 &end
+&optimization_covariable name=MQA3A09 item=K1 equation="MQA3A01.K1" &end
+&optimization_covariable name=MQA3A08 item=K1 equation="MQA3A02.K1" &end
+&optimization_covariable name=MQA3A07 item=K1 equation="MQA3A03.K1" &end
+&optimization_covariable name=MQA3A06 item=K1 equation="MQA3A04.K1" &end
+&optimization_term term="nux 1.25 1e-5 sene" &end
+&optimization_term term="nuy 0.75 1e-5 sene" &end
+! pi phase advance between A03 and A07
+&optimization_term term="M2#1.nux M1#1.nux - 0.5 1e-5 sene" &end
+!&optimization_term term="R56 4.5848e-2 1e-4 sene" &end
+&optimization_term term="etax 0.0 1e-6 sene" &end
+!&optimization_term term="max.betax 60.0 5.0 segt" &end
+&optimization_term term="R56 0.11787595 1e-5 sene" &end
+&bunched_beam
+&end
+&optimize &end
+&save_lattice filename=cell.lte output_seq=1 &end
+!&stop
+!
+! rerun to get new twiss.
+!
+&run_setup
+	lattice="cell.lte",
+	use_beamline="CELL13",
+	p_central_mev=3393,
+&end
+&twiss_output
+	filename="%s-cell.twi",
+	matched=1,radiation_integrals=1,
+        output_before_tune_correction=1,
+        output_at_each_step=1
+&end
+&run_control n_steps=1 &end
+&bunched_beam &end
+&track &end
+!
+! construct the full arc
+!
+&run_setup
+	lattice="ARC3designv2.lte",
+	use_beamline="ARC3FODO",
+	p_central_mev=3393,
+	final="%s.fin"
+	parameters="%s.parms"
+        sigma=%s-full.sig
+&end
+&load_parameters
+ filename="ARC3-tuneDD-try2-cell.parms"
+ change_defined_values=1
+ allow_missing_elements=1
+&end
+&alter_elements name=MJD3* item=K1 value=1.178e-3 &end
+&twiss_output
+ filename="%s-full.twi"
+ matched=0
+ beta_x= "{sdds2stream -col=betax ARC3-tuneDD-try2-cell.twi|head -1}"
+ beta_y= "{sdds2stream -col=betay ARC3-tuneDD-try2-cell.twi|head -1}"
+ alpha_x= "{sdds2stream -col=alphax ARC3-tuneDD-try2-cell.twi|head -1}"
+ alpha_y= "{sdds2stream -col=alphay ARC3-tuneDD-try2-cell.twi|head -1}"
+ output_at_each_step=1
+&end
+&matrix_output
+ SDDS_output="fromA01try2.sdds"
+! start_from=MQA3A01
+&end
+&run_control n_steps=1 &end
+&bunched_beam emit_x=1.69e-10, emit_y=2.14e-10,n_particles_per_bunch=1024 use_twiss_command_values=1 &end
+&track &end
+&save_lattice filename="finalARC3.lte" &output_seq=1 &end

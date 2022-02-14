@@ -1,0 +1,184 @@
+&change_particle mass_ratio=0.5110034 &end
+!&divide_elements name=* type=KQUAD divisions=2 &end
+&run_setup
+	lattice="ARC8designv2.lte",
+	use_beamline="ARC8",
+	p_central_mev=8843,
+	final="%s.fin"
+	parameters="%s.parms"
+&end
+&load_parameters
+ filename="finalARC8.parms"
+ allow_missing_elements=1
+ change_defined_values=1
+&end
+&alter_elements name=MJA* item=K1 value=3.8e-4 &end
+&alter_elements name=MBC8A01H item=ANGLE value=0.0 &end
+&insert_elements name=MQA8A01 element_def="M1: MARK, FITPOINT=1" &end
+&run_control n_steps=1
+&end
+&floor_coordinates
+	filename="%s.flr",
+	 X0=-80.6,Y0=100,Z0=-91.51785,
+	 theta0=-3.14159265358979,phi0=0
+        magnet_centers=1
+&end
+&link_control verbosity=1 &end
+&link_elements target=MQA8A17 item=K1 source=MQA8A09 mode="static", equation="K1" &end
+&link_elements target=MQA8A25 item=K1 source=MQA8A09 mode="static", equation="K1" &end
+&link_elements target=MQA8R01 item=K1 source=MQA8A09 mode="static", equation="K1" &end
+&link_elements target=MQA8R01A item=K1 source=MQA8A09 mode="static", equation="K1" &end
+&link_elements target=MQA8A10 item=K1 source=MQA8A02 mode="static", equation="K1" &end
+&link_elements target=MQA8A16 item=K1 source=MQA8A02 mode="static", equation="K1" &end
+&link_elements target=MQA8A18 item=K1 source=MQA8A02 mode="static", equation="K1" &end
+&link_elements target=MQA8A24 item=K1 source=MQA8A02 mode="static", equation="K1" &end
+&link_elements target=MQA8A26 item=K1 source=MQA8A02 mode="static", equation="K1" &end
+&link_elements target=MQA8A32 item=K1 source=MQA8A02 mode="static", equation="K1" &end
+&link_elements target=MQK8A11 item=K1 source=MQK8A03 mode="static", equation="K1" &end
+&link_elements target=MQK8A15 item=K1 source=MQK8A03 mode="static", equation="K1" &end
+&link_elements target=MQK8A19 item=K1 source=MQK8A03 mode="static", equation="K1" &end
+&link_elements target=MQK8A23 item=K1 source=MQK8A03 mode="static", equation="K1" &end
+&link_elements target=MQK8A27 item=K1 source=MQK8A03 mode="static", equation="K1" &end
+&link_elements target=MQK8A31 item=K1 source=MQK8A03 mode="static", equation="K1" &end
+&link_elements target=MQA8A12 item=K1 source=MQA8A04 mode="static", equation="K1" &end
+&link_elements target=MQA8A14 item=K1 source=MQA8A04 mode="static", equation="K1" &end
+&link_elements target=MQA8A20 item=K1 source=MQA8A04 mode="static", equation="K1" &end
+&link_elements target=MQA8A22 item=K1 source=MQA8A04 mode="static", equation="K1" &end
+&link_elements target=MQA8A28 item=K1 source=MQA8A04 mode="static", equation="K1" &end
+&link_elements target=MQA8A30 item=K1 source=MQA8A04 mode="static", equation="K1" &end
+&link_elements target=MQA8A13 item=K1 source=MQA8A05 mode="static", equation="K1" &end
+&link_elements target=MQA8A21 item=K1 source=MQA8A05 mode="static", equation="K1" &end
+&link_elements target=MQA8A29 item=K1 source=MQA8A05 mode="static", equation="K1" &end
+&insert_elements name=ITV8A01 element_def="MS: MARK, FITPOINT=1" &end
+&twiss_output
+        filename="%s.twi",
+        matched=0,radiation_integrals=1,
+        beta_x=45.6708, alpha_x=1.09149,
+        beta_y=40.2407, alpha_y=-0.916835
+&end
+! rematch the spreader to teh new lattice.
+!
+&alter_elements name=MQA8S04 item=K1 value=-0.599 &end
+&alter_elements name=MQA8S04A item=K1 value=-0.599 &end
+&alter_elements name=MQA8S05 item=K1 value=0.599 &end
+&alter_elements name=MQA8S05A item=K1 value=0.599 &end
+&alter_elements name=MQA8S06 item=K1 value=-0.599 &end
+&alter_elements name=MQA8S06A item=K1 value=-0.599 &end
+&alter_elements name=MQK8S07 item=K1 value=0.599 &end
+&alter_elements name=MQK8S07A item=K1 value=0.599 &end
+&alter_elements name=MQK8S08 item=K1 value=-0.599 &end
+&alter_elements name=MQK8S08A item=K1 value=-0.599 &end
+&alter_elements name=MQK8S09 item=K1 value=0.599 &end
+&alter_elements name=MQK8S09A item=K1 value=0.599 &end
+&alter_elements name=MQA8A01 item=K1 value=0.599 &end
+
+&optimization_setup tolerance=1e-32 n_restarts=20 log_file=%s-s.terms &end
+&optimization_variable name=MQR8S02 item=K1 &end
+&optimization_variable name=MQA8S04 item=K1 &end
+&optimization_variable name=MQA8S05 item=K1 &end
+&optimization_variable name=MQA8S06 item=K1 &end
+&optimization_variable name=MQK8S07 item=K1 &end
+&optimization_variable name=MQK8S08 item=K1 &end
+&optimization_variable name=MQK8S09 item=K1 &end
+&optimization_variable name=MQA8A01 item=K1 &end
+&optimization_covariable name=MQA8S04A item=K1 equation="MQA8S04.K1" &end
+&optimization_covariable name=MQA8S05A item=K1 equation="MQA8S05.K1" &end
+&optimization_covariable name=MQA8S06A item=K1 equation="MQA8S06.K1" &end
+&optimization_covariable name=MQK8S07A item=K1 equation="MQK8S07.K1" &end
+&optimization_covariable name=MQK8S08A item=K1 equation="MQK8S08.K1" &end
+&optimization_covariable name=MQK8S09A item=K1 equation="MQK8S09.K1" &end
+!&optimization_variable name=MQK8S10 item=K1 &end
+&optimization_term term="MS#1.betax {sdds2stream -col=betax finalARC8.twi|head -8 |tail -1} 1e-3 sene" &end
+&optimization_term term="MS#1.betay {sdds2stream -col=betay finalARC8.twi|head -8|tail -1} 1e-3 sene" &end
+&optimization_term term="MS#1.alphax {sdds2stream -col=alphax finalARC8.twi|head -8|tail -1}  1e-4 sene" &end
+&optimization_term term="MS#1.alphay {sdds2stream -col=alphay finalARC8.twi|head -8|tail -1}  1e-4 sene" &end
+&bunched_beam
+&end
+&optimize  &end
+&stop
+!
+!  now, do the recombiner.
+!
+&run_setup
+        lattice="ARC8designv2.lte",
+        use_beamline="ARC8",
+        p_central_mev=8843,
+        final="%s.fin"
+        parameters="%s-s2.parms"
+&end
+&load_parameters
+ filename="realARC8.parms"
+ allow_missing_elements=1
+ change_defined_values=1
+&end
+! 
+! A01 is set to the average of the extraction FODO (0.286) and 
+! ARC FODO (0.580) .
+! this provides a smooth transition into the FODO
+!
+&alter_elements name=MQA8A01 item=K1 value=0.433 &end
+&twiss_output
+        filename="%s.twi",
+        matched=0,radiation_integrals=1,
+        beta_x=45.6708, alpha_x=1.09149,
+        beta_y=40.2407, alpha_y=-0.916835
+&end
+&optimization_setup tolerance=1e-32 n_restarts=20 restart_worst_term_factor=2 log_file=%s.terms &end
+&optimization_variable name=MQA8R01 item=K1 &end
+&optimization_variable name=MQR8R02 item=K1 &end
+&optimization_variable name=MQR8R03 item=K1 &end
+&optimization_variable name=MQK8R04 item=K1 &end
+&optimization_variable name=MQA8R05 item=K1 &end
+&optimization_variable name=MQA8R06 item=K1 &end
+&optimization_covariable name=MQA8R01A item=K1 equation="MQA8R01.K1" &end
+&optimization_covariable name=MQR8R02A item=K1 equation="MQR8R02.K1" &end
+&optimization_covariable name=MQR8R03A item=K1 equation="MQR8R03.K1" &end
+&optimization_covariable name=MQK8R04A item=K1 equation="MQK8R04.K1" &end
+&optimization_covariable name=MQA8R05A item=K1 equation="MQA8R05.K1" &end
+&optimization_covariable name=MQA8R06A item=K1 equation="MQA8R06.K1" &end
+!
+! match to front of SL
+!
+ this provides a smooth transition into the FODO
+!&optimization_term term="betax 100 5 sene" &end
+!&optimization_term term="betay 60.0 5 sene" &end
+!&optimization_term term="alphax -1.0 1e-2 sene" &end
+!&optimization_term term="alphay 1.0 1e-2 sene" &end
+&optimization_term term="betax {sdds2stream -col=betax ARC8.twi|tail -1} 1 sene" &end
+&optimization_term term="betay {sdds2stream -col=betay ARC8.twi|tail -1} 1 sene" &end
+&optimization_term term="alphax {sdds2stream -col=alphax ARC8.twi|tail -1}  1e-3 sene" &end
+&optimization_term term="alphay {sdds2stream -col=alphay ARC8.twi|tail -1}  1e-3 sene" &end
+&run_control n_steps=1 &end
+&bunched_beam
+&end
+&optimize  &end
+!
+!
+! re-run final lattice
+!
+&run_setup
+	lattice="ARC8designv2.lte",
+	use_beamline="ARC8",
+	p_central_mev=8843,
+	final="%s.fin"
+&end
+&load_parameters
+ filename="realARC8-s2.parms"
+ allow_missing_elements=1
+ change_defined_values=1
+&end
+&insert_elements name=MQA8A01 element_def="M1: MARK, FITPOINT=1" &end
+&twiss_output
+        filename="%s.twi",
+        matched=0,radiation_integrals=1,
+        beta_x=45.6708, alpha_x=1.09149,
+        beta_y=40.2407, alpha_y=-0.916835
+&end
+&matrix_output
+ SDDS_output=%s.mat
+ start_from=M1
+&end
+&run_control n_steps=1 &end
+&bunched_beam &end
+&track &end
+&save_lattice filename="daarc8.lte" &end

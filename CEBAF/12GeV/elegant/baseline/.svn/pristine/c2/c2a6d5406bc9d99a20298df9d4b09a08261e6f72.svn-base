@@ -1,0 +1,42 @@
+&run_setup
+	lattice="ARC7designv2.lte",
+	use_beamline="EXTRACTION1",
+	p_central_mev=6662.99998300489,
+	final="%s.fin"
+	parameters="%s.parms"
+&end
+&run_control n_steps=1
+&end
+&alter_elements name=MQK7S10 item=K1 value=0.285 &end
+&alter_elements name=MQN7E01 item=K1 value=-0.285 &end
+&alter_elements name=MQC7E02 item=K1 value=0.285 &end
+&alter_elements name=MBY7E01 item=HGAP value=0 &end
+&alter_elements name=MBZ7E02 item=HGAP value=0 &end
+&alter_elements name=MBY7E03 item=HGAP value=0 &end
+&alter_elements name=MBY7E01 item=NONLINEAR value=0 &end
+&alter_elements name=MBZ7E02 item=NONLINEAR value=0 &end
+&alter_elements name=MBY7E03 item=NONLINEAR value=0 &end
+&twiss_output
+	filename="%s.twi",
+	matched=1,radiation_integrals=1,
+        output_at_each_step=1
+&end
+&optimization_setup log_file=%s.terms 
+  restart_worst_term_factor=3
+  method="simplex"
+! method="randomwalk"
+ n_restarts=30
+ tolerance=1e-32
+&end
+&optimization_variable name=MQK7S10 item=K1 &end
+&optimization_variable name=MQN7E01 item=K1 &end
+!&optimization_covariable name=MQN7E01 item=K1 equation="MQK7S10.K1 -1.0 *" &end
+&optimization_covariable name=MQC7E02 item=K1 equation="MQK7S10.K1" &end
+!
+&optimization_term term="nux 0.25 1e-5 sene" &end
+&optimization_term term="nuy 0.25 1e-5 sene" &end
+!&optimization_term term="etax sqr" &end
+&bunched_beam
+&end
+&optimize &end
+&save_lattice filename=ARC7extract.lte &end

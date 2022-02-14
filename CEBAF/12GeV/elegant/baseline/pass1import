@@ -1,0 +1,50 @@
+#!/bin/bash
+# start at RRF2E00A
+# this script has to be run after the import to hall D has been done.
+# the ihd file defines all the spreaders.
+# we only import starting at the front of the extraction cavity
+#
+# 1.042213e+03 
+wrks=$1
+: ${wrks:="Optics"}
+echo "importing 1/4 cryo to Hall A 1st pass in $wrks"
+#
+# process the floor file to add the correct Y value with the lambertson.
+#
+elegant iha1.ele >/dev/null
+sddsprocess -filter=col,s,0,1.168775e3 iha1.flr t0c00.flr
+sddsprocess -filter=col,s,1.168775e3,1e10 iha1.flr -define=col,DY,"0.022" ha1offset.flr
+sddsxref iha1.flr  ha1offset.flr -equate=s -editnames=col,Y,ei/%ld/ -pipe=out|\
+ sddsprocess -pipe=in -redefine=col,Y,"Y DY +" toha1.flr
+sddscombine -merge -overWrite t0c00.flr toha1.flr iha1p.flr
+# 
+cp iha1.parms iha1p.parms
+cp iha1.cen iha1p.cen
+cp iha1.sig iha1p.sig
+cp iha1.twi iha1p.twi
+importCED iha1p >/dev/null
+# start in front of RRF2E00A.
+sddsprocess -filter=col,s,1.0556e+03,1e10 dipoles.sdds dipoles1.sdds 
+sddsprocess -filter=col,s,1.0556e+03,1e10 MONITORS.sdds monitors1.sdds 
+sddsprocess -filter=col,s,1.0556e+03,1e10 quads.sdds quads1.sdds 
+sddsprocess -filter=col,s,1.0556e+03,1e10 kickers.sdds kickers1.sdds 
+echo "importing dipoles"
+/cs/dvlhome/apps/c/CED/dvl/src/12GeV/loadSDDS.pl -wrkspc=$wrks \
+ -proplist=s,L,betax,alphax,betay,alphay,etax,etay,etapx,etapy,psix,psiy,pCentral,HGAP,E1,E2,ANGLE,K1,sigmax,sigmay,ecx,ecy,ModelX,ModelY,ModelZ,theta,phi,psi\
+ -startpass=1 -extract -sdds=dipoles1.sdds
+cp loadsdds.err loadsdds_ha1dip.err
+echo "importing monitors"
+/cs/dvlhome/apps/c/CED/dvl/src/12GeV/loadSDDS.pl -wrkspc=$wrks \
+ -proplist=s,L,betax,alphax,betay,alphay,etax,etay,etapx,etapy,psix,psiy,pCentral,sigmax,sigmay,ecx,ecy,ModelX,ModelY,ModelZ,phi,theta,psi\
+ -startpass=1 -sdds=monitors1.sdds
+cp loadsdds.err loadsdds_ha1mon.err
+echo "importing quads"
+/cs/dvlhome/apps/c/CED/dvl/src/12GeV/loadSDDS.pl -wrkspc=$wrks \
+ -proplist=s,L,betax,alphax,betay,alphay,etax,etay,etapx,etapy,psix,psiy,pCentral,K1,sigmax,sigmay,ecx,ecy,Tilt,theta,phi,psi,ModelX,ModelY,ModelZ\
+ -startpass=1 -sdds=quads1.sdds
+cp loadsdds.err loadsdds_ha1quad.err
+echo "importing kickers"
+/cs/dvlhome/apps/c/CED/dvl/src/12GeV/loadSDDS.pl -wrkspc=$wrks \
+ -proplist=s,L,betax,alphax,betay,alphay,etax,etay,etapx,KICK,etapy,psix,psiy,pCentral,sigmax,sigmay,ecx,ecy,ModelX,ModelY,ModelZ,phi,theta,psi\
+ -startpass=1 -sdds=kickers1.sdds
+cp loadsdds.err loadsdds_ha1kick.err

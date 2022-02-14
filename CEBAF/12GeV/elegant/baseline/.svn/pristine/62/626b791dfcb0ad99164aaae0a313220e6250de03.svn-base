@@ -1,0 +1,74 @@
+!
+! match into ARCA fodo using spreader quads
+!
+&change_particle mass_ratio=0.5110034 &end
+&run_setup
+	lattice="ARCA.lte",
+	use_beamline="ARCA",
+	p_central_mev=11022.9999907555,
+	final="%s.fin"
+	parameters="%s.parms"
+&end
+&insert_elements name=ITVAA01 element_def="ARCAM: MARKER, FITPOINT=1" &end
+&insert_elements name=ITVAE02 element_def="E02M: MARKER, FITPOINT=1" &end
+!
+! values below come from the extractionoptimization-newinstall
+! spreadsheet. cell# is indicated.
+!
+&alter_elements name=MBDAA01H item=ANGLE value=9.67e-5 &end ! H24
+&alter_elements name=MBDAS10H item=ANGLE value=-5.2620e-5 &end ! C6
+&alter_elements name=RRFAE00A item=ANGLE value=3.9465e-5 &end ! D7
+&alter_elements name=RRFAE00B item=ANGLE value=3.9465e-5 &end ! D8 
+&alter_elements name=RRFAE00C item=ANGLE value=3.9465e-5 &end ! D9
+&alter_elements name=RRFAE00D item=ANGLE value=3.9465e-5 &end ! D10
+&alter_elements name=MQNAE01 item=ANGLE value=+1.3796e-4 &end ! D17
+&alter_elements name=MQNAE02 item=ANGLE value=-4.7054e-4 &end ! D18
+&alter_elements name=MQNAE03 item=ANGLE value=+1.30614e-4 &end ! D19
+&alter_elements name=MQNAE01 item=K1 value=-0.343688 &end ! C20
+&alter_elements name=MQNAE02 item=K1 value=+0.292440 &end ! C21
+&alter_elements name=MQNAE03 item=K1 value=-0.271970 &end ! C22
+&twiss_output
+	filename="%s.twi",
+	matched=0,radiation_integrals=1,
+	beta_x=68.2976 alpha_x=1.40041
+	beta_y=45.4998 alpha_y=-0.84625
+&end
+&run_control n_steps=1
+&end
+&optimization_setup tolerance=1e-16 n_restarts=6 &end
+&optimization_variable name=MQKAS02 item=K1 &end
+&optimization_variable name=MQAAS03 item=K1 &end
+&optimization_variable name=MQRAS04 item=K1 &end
+&optimization_variable name=MQAAS05 item=K1 &end
+&optimization_variable name=MQKAS06 item=K1 &end
+&optimization_variable name=MQRAS07 item=K1 &end
+&optimization_variable name=MQKAS08 item=K1 &end
+&optimization_variable name=MQRAS09 item=K1 &end
+&optimization_variable name=MQKAS10 item=K1 &end
+&optimization_variable name=MQPAA01 item=K1 &end
+&optimization_covariable name=MQKAS08A item=K1 equation="MQKAS08.K1" &end
+&optimization_covariable name=MQKAS10A item=K1 equation="MQKAS10.K1" &end
+
+&optimization_term term="ARCAM#1.betax 47.8098 0.5 sene" &end
+&optimization_term term="ARCAM#1.alphax 4.62636 0.1 sene" &end
+&optimization_term term="ARCAM#1.betay 4.63088 0.5 sene" &end
+&optimization_term term="ARCAM#1.alphay -0.64617 0.1 sene" &end
+&optimization_term term="E02M#1.Sx 300.0e-6 50e-6 segt" &end
+
+&floor_coordinates
+	filename="%s.flr",
+	 X0=-80.6,Y0=100,Z0=-91.51784593486,
+	 theta0=-3.14159265358979,phi0=0
+&end
+&bunched_beam
+	n_particles_per_bunch=256,
+	emit_x=2.5e-9, emit_y=1e-9,
+	use_twiss_command_values=1
+	sigma_dp=0.00032,sigma_s=0.0,
+	distribution_type[0] = 3*"gaussian",
+	distribution_cutoff[0] = 3*3,
+	enforce_rms_values[0]=1,1,1
+&end
+!&track &end
+&optimize &end
+&save_lattice filename="ARCAMATCHEDS.lte" &end

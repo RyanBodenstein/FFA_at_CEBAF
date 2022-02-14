@@ -1,0 +1,72 @@
+&change_particle mass_ratio=0.5110034 &end
+&run_setup
+	lattice="../ARC3.lte",
+	use_beamline="ARC3",
+	p_central_mev=3392.99996752012,
+	final="%s.fin"
+	parameters="%s.parms"
+&end
+!
+! load the matching target from the ARC3 design file
+! at the IPM3A01 bpm.
+!
+&rpn_load
+ tag=SMATCH
+ filename=../ARC3.twi,
+ match_column=ElementName,
+ match_column_value=IPM3A01
+ matching_row_number=0
+&end
+&insert_elements name=IPM3A01 element_def="ARC3M: MARKER,FITPOINT=1"  &end
+!
+! read the input twiss from iha5lemmedNL.ele
+! select it for first pass. D128 is the drift in the end of the SL right before the
+! entrance to the MXR2S01  spreader.
+!
+&twiss_output
+	filename="%s.twi",
+	matched=0,radiation_integrals=1, 
+        beta_x="{sddsprocess -match=col,ElementName=D128 -filter=col,s,1650,1660 iha5lemmedstep1NL.twi -pipe=out |sdds2stream -pipe=in -col=betax}",
+        alpha_x="{sddsprocess -match=col,ElementName=D128 -filter=col,s,1650,1660 iha5lemmedstep1NL.twi -pipe=out |sdds2stream -pipe=in -col=alphax}",
+        beta_y="{sddsprocess -match=col,ElementName=D128 -filter=col,s,1650,1660  iha5lemmedstep1NL.twi -pipe=out |sdds2stream -pipe=in -col=betay}",
+        alpha_y="{sddsprocess -match=col,ElementName=D128 -filter=col,s,1650,1660 iha5lemmedstep1NL.twi -pipe=out |sdds2stream -pipe=in -col=alphay}",
+&end
+&run_control n_steps=1
+&end
+&floor_coordinates
+	filename="%s.flr",
+	 X0=80.6,Y0=100,Z0=90.55103,
+	 theta0=0,phi0=0
+&end
+&optimization_setup tolerance=1e-16 restart_worst_term_factor=4 n_restarts=20 &end
+&optimization_variable name=MQA3S02 item=K1 &end
+&optimization_variable name=MQA3S04 item=K1 &end
+&optimization_variable name=MQA3S05 item=K1 &end
+&optimization_variable name=MQA3S06 item=K1 &end
+&optimization_variable name=MQA3S07 item=K1 &end
+&optimization_variable name=MQA3S08 item=K1 &end
+&optimization_variable name=MQA3S09 item=K1 &end
+&optimization_variable name=MQA3A01 item=K1 &end
+&optimization_variable name=MQB3E01 item=K1 &end
+&optimization_variable name=MQB3E02 item=K1 &end
+&optimization_variable name=MQB3E03 item=K1 &end
+&optimization_variable name=MQA3S10 item=K1 &end
+
+&optimization_term term="ARC3M#1.betax SMATCH.betax 2 sene" &end
+&optimization_term term="ARC3M#1.alphax SMATCH.alphax 0.2 sene" &end
+&optimization_term term="ARC3M#1.betay SMATCH.betay 0.02 sene" &end
+&optimization_term term="ARC3M#1.alphay SMATCH.alphay 0.05 sene" &end
+&optimization_term term="max.betax 600 200 segt" &end
+&optimization_term term="max.betay 600 200 segt" &end
+&bunched_beam
+	n_particles_per_bunch=1,
+	emit_x=2e-09, emit_y=2e-09,
+        use_twiss_command_values=1
+	sigma_dp=2e-05,sigma_s=0.0,
+	distribution_type[0] = 3*"gaussian",
+	distribution_cutoff[0] = 3*3,
+	enforce_rms_values[0]=1,1,1
+&end
+&optimize &end
+!&track &end
+&save_lattice filename="ARC3MATCHEDS.lte" output_seq=1 &end
