@@ -1,0 +1,66 @@
+! File: A2441.bmad
+! Translation of Stephen Brooks cell
+! Some kinda learning way
+
+
+
+! Lattice parameters %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+parameter[geometry] = open                      ! not a periodic lattice
+parameter[particle] = electron                  ! This is for CEBAF, after all
+
+
+
+! Starting parameters %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+! Reference energy
+beginning[e_tot] = 11.55e9                      ! Reference energy is 11.55 GeV
+
+! Twiss parameters 'cus we need 'em for now
+beginning[beta_a] = 10.                         ! m  a-mode beta function
+beginning[beta_b] = 10.                         ! m  b-mode beta function
+
+
+
+! Lattice elements %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+! These names are (more or less) adopted from Stephen's file
+! I'm making the combined function magnets RBEND magnets, which 
+! allows us to set up to a sextupole moment and fringe fields.
+
+! MAGNETS
+
+! Focusing magnet
+BF1: rbend, L = 2.42249, angle = -0.0350268,
+    ! magnet type, length, bending angle in radians
+    ! dipole strength K0 = -0.0175134002598247,
+     K1 = -22.297 !, fringe = 
+    ! quadrupole moment, fringe field
+
+! Defocusing magnet
+BD1: rbend, L = 0.59529,  angle = -0.0052798,
+    ! magnet type, length, bending angle in radians
+    ! dipole strength: K0 = -0.341709940275209,  
+     K1 = 70.045 !, fringe = 
+    ! quadrupole moment, fringe field
+
+
+! DRIFT
+O: drift, L = 0.11547
+
+
+! MATCH
+m: match, beta_a0 = 10, beta_b0 = 10,
+   beta_a1 = 10, beta_b1 = 10
+
+
+
+! SETUP %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+! BF-O-BD-O cell
+frodo: line = (BF1, O, BD1, O)
+! repeat it three times
+rep: line = (frodo, m, frodo, m, frodo)
+
+! Use the repeating lattice
+use, rep
