@@ -1,0 +1,394 @@
+$Einj=5.01268;  =>     5.01268
+$E=123;  =>  2303
+$T=$E-$Me;  =>     122.488994
+$EmitN=1e-4;  =>      0.0001
+$Emit=$Me/sqrt($E*$E-$Me*$Me)*$EmitN;  =>1.13610656e-06
+#     
+# 
+# Taken from file H:\OPTIM_FILES\Linac_2004\Extend\OutMatchE_pass6.opt
+OptiM
+#
+Energy[MeV]= 5572.4890 Mass[MeV]=0.511006
+Emittance:ex[cm]=$Emit   ey[cm]=$Emit   DP/P=0.0001
+Initial:BetaX[cm]=     4778.81 BetaY[cm]=     5031.35
+AlfaX=   -0.844006 AlfaY=    1.098530
+DispX[cm]=    0.0000 DispY[cm]=    0.0000
+DispPrX=  0.000000 DispPrY=  0.000000
+X[cm]=      -8060.000000 Y[cm]=      10000.000000 Z[cm]=      15675.342000 S[cm]=       3276.026100
+tetaX[deg]= 179.999900 tetaY[deg]=  0.000000
+#
+begin lattice.Number of periods=1
+#
+oD30076 qMQB2L01 oD30103 iIPM2L01 oD30104 iITV2L01 oD30105 iITV2L02 oD30106 kMAT2L02V 
+oD30107 iIPM2L02 oD30108 qMQB2L02 oD30109 aR221 oD30058 aR222 oD30110 aR223 
+oD30058 aR224 oD30110 aR225 oD30058 aR226 oD30110 aR227 oD30058 aR228 
+oD30111 kMAT2L03H oD30112 iIPM2L03 oD30113 QMQSsl oD30051 qMQB2L03 oD30109 aR231 
+oD30058 aR232 oD30110 aR233 oD30058 aR234 oD30110 aR235 oD30058 aR236 
+oD30110 aR237 oD30058 aR238 oD30114 kMAT2L04V oD30107 iIPM2L04 oD30113 QMQSsl 
+oD30051 qMQB2L04 oD30109 aR241 oD30058 aR242 oD30110 aR243 oD30058 aR244 
+oD30110 aR245 oD30058 aR246 oD30110 aR247 oD30058 aR248 oD30111 kMAT2L05H 
+oD30112 iIPM2L05 oD30113 QMQSsl oD30051 qMQB2L05 oD30109 aR251 oD30058 aR252 
+oD30110 aR253 oD30058 aR254 oD30110 aR255 oD30058 aR256 oD30110 aR257 
+oD30058 aR258 oD30115 iITV2L06 oD30106 kMAT2L06V oD30107 iIPM2L06 oD30113 QMQSsl 
+oD30051 qMQB2L06 oD30109 aR261 oD30058 aR262 oD30110 aR263 oD30058 aR264 
+oD30110 aR265 oD30058 aR266 oD30110 aR267 oD30058 aR268 oD30111 kMAT2L07H 
+oD30112 iIPM2L07 oD30113 QMQSsl oD30051 qMQB2L07 oD30109 aR271 oD30058 aR272 
+oD30110 aR273 oD30058 aR274 oD30110 aR275 oD30058 aR276 oD30110 aR277 
+oD30058 aR278 oD30114 kMAT2L08V oD30107 iIPM2L08 oD30113 QMQSsl oD30051 qMQB2L08 
+oD30109 aR281 oD30058 aR282 oD30110 aR283 oD30058 aR284 oD30110 aR285 
+oD30058 aR286 oD30110 aR287 oD30058 aR288 oD30111 kMAT2L09H oD30112 iIPM2L09 
+oD30113 QMQSsl oD30051 qMQB2L09 oD30109 aR291 oD30058 aR292 oD30110 aR293 
+oD30058 aR294 oD30110 aR295 oD30058 aR296 oD30110 aR297 oD30058 aR298 
+oD30115 iITV2L10 oD30106 kMAT2L10V oD30107 iIPM2L10 oD30113 QMQSsl oD30051 qMQB2L10 
+oD30109 aR2A1 oD30058 aR2A2 oD30110 aR2A3 oD30058 aR2A4 oD30110 aR2A5 
+oD30058 aR2A6 oD30110 aR2A7 oD30058 aR2A8 oD30111 kMAT2L11H oD30112 iIPM2L11 
+oD30113 QMQSsl oD30051 qMQB2L11 oD30109 aR2B1 oD30058 aR2B2 oD30110 aR2B3 
+oD30058 aR2B4 oD30110 aR2B5 oD30058 aR2B6 oD30110 aR2B7 oD30058 aR2B8 
+oD30111 kMAT2L12V oD30112 iIPM2L12 oD30113 QMQSsl oD30051 qMQB2L12 oD30109 aR2C1 
+oD30058 aR2C2 oD30110 aR2C3 oD30058 aR2C4 oD30110 aR2C5 oD30058 aR2C6 
+oD30110 aR2C7 oD30058 aR2C8 oD30111 kMAT2L13H oD30112 iIPM2L13 oD30113 QMQSsl 
+oD30051 qMQB2L13 oD30109 aR2D1 oD30058 aR2D2 oD30110 aR2D3 oD30058 aR2D4 
+oD30110 aR2D5 oD30058 aR2D6 oD30110 aR2D7 oD30058 aR2D8 oD30115 iITV2L14 
+oD30106 kMAT2L14V oD30107 iIPM2L14 oD30113 QMQSsl oD30051 qMQB2L14 oD30109 aR2E1 
+oD30058 aR2E2 oD30110 aR2E3 oD30058 aR2E4 oD30110 aR2E5 oD30058 aR2E6 
+oD30110 aR2E7 oD30058 aR2E8 oD30111 kMAT2L15H oD30112 iIPM2L15 oD30113 QMQSsl 
+oD30051 qMQB2L15 oD30109 aR2F1 oD30058 aR2F2 oD30110 aR2F3 oD30058 aR2F4 
+oD30110 aR2F5 oD30058 aR2F6 oD30110 aR2F7 oD30058 aR2F8 oD30114 kMAT2L16V 
+oD30107 iIPM2L16 oD30113 QMQSsl oD30051 qMQB2L16 oD30109 aR2G1 oD30058 aR2G2 
+oD30110 aR2G3 oD30058 aR2G4 oD30110 aR2G5 oD30058 aR2G6 oD30110 aR2G7 
+oD30058 aR2G8 oD30111 kMAT2L17H oD30112 iIPM2L17 oD30113 QMQSsl oD30051 qMQB2L17 
+oD30109 aR2H1 oD30058 aR2H2 oD30110 aR2H3 oD30058 aR2H4 oD30110 aR2H5 
+oD30058 aR2H6 oD30110 aR2H7 oD30058 aR2H8 oD30115 iITV2L18 oD30106 kMAT2L18V 
+oD30107 iIPM2L18 oD30113 QMQSsl oD30051 qMQB2L18 oD30109 aR2I1 oD30058 aR2I2 
+oD30110 aR2I3 oD30058 aR2I4 oD30110 aR2I5 oD30058 aR2I6 oD30110 aR2I7 
+oD30058 aR2I8 oD30111 kMAT2L19H oD30112 iIPM2L19 oD30113 QMQSsl oD30051 qMQB2L19 
+oD30109 aR2J1 oD30058 aR2J2 oD30110 aR2J3 oD30058 aR2J4 oD30110 aR2J5 
+oD30058 aR2J6 oD30110 aR2J7 oD30058 aR2J8 oD30111 kMAT2L20V oD30112 iIPM2L20 
+oD30113 QMQSsl oD30051 qMQB2L20 oD30109 aR2K1 oD30058 aR2K2 oD30110 aR2K3 
+oD30058 aR2K4 oD30110 aR2K5 oD30058 aR2K6 oD30110 aR2K7 oD30058 aR2K8 
+oD30111 kMAT2L21H oD30112 iIPM2L21 oD30113 QMQSsl oD30051 qMQB2L21 oD30109 aR2L1 
+oD30058 aR2L2 oD30110 aR2L3 oD30058 aR2L4 oD30110 aR2L5 oD30058 aR2L6 
+oD30110 aR2L7 oD30058 aR2L8 oD30115 iITV2L22 oD30116 kMAT2L22V oD30112 iIPM2L22 
+oD30108 qMQB2L22 oD30109 aR2M1 oD30058 aR2M2 oD30110 aR2M3 oD30058 aR2M4 
+oD30110 aR2M5 oD30058 aR2M6 oD30110 aR2M7 oD30058 aR2M8 oD30111 kMAT2L23H 
+oD30112 iIPM2L23 oD30108 qMQB2L23 oD30109 aR2N1 oD30058 aR2N2 oD30110 aR2N3 
+oD30058 aR2N4 oD30110 aR2N5 oD30058 aR2N6 oD30110 aR2N7 oD30058 aR2N8 
+oD30111 kMAT2L24V oD30112 iIPM2L24 oD30108 qMQB2L24 oD30109 aR2O1 oD30058 aR2O2 
+oD30110 aR2O3 oD30058 aR2O4 oD30110 aR2O5 oD30058 aR2O6 oD30110 aR2O7 
+oD30058 aR2O8 oD30111 kMAT2L25H oD30112 iIPM2L25 oD30108 qMQB2L25 oD30109 aR2P1 
+oD30058 aR2P2 oD30110 aR2P3 oD30058 aR2P4 oD30110 aR2P5 oD30058 aR2P6 
+oD30110 aR2P7 oD30058 aR2P8 oD30115 iITV2L26 oD30116 kMAT2L26V oD30112 iIPM2L26 
+oD30108 qMQB2L26 oD30117 aR2Q1 oD30058 aR2Q2 oD30110 aR2Q3 oD30058 aR2Q4 
+oD30110 aR2Q5 oD30058 aR2Q6 oD30110 aR2Q7 oD30058 aR2Q8 oD30111 iIPM2L27 
+oD30108 qMQB2L27 oD30118 
+end lattice
+begin list: dL=1.  dB=.1  dG=0.01  dS=0.01
+qMQB2L01   L[cm]=15   G[kG/cm]=0.48923   Tilt[deg]=0
+qMQB2L02   L[cm]=15   G[kG/cm]=-0.48923   Tilt[deg]=0
+aR221   L[cm]=50   Ncell=5   Eff_L[cm]=7   A[MeV]=3.6875   Phase[deg]=0   WaveL[cm]=20
+aR222   L[cm]=50   Ncell=5   Eff_L[cm]=7   A[MeV]=3.6875   Phase[deg]=0   WaveL[cm]=20
+aR223   L[cm]=50   Ncell=5   Eff_L[cm]=7   A[MeV]=3.6875   Phase[deg]=0   WaveL[cm]=20
+aR224   L[cm]=50   Ncell=5   Eff_L[cm]=7   A[MeV]=3.6875   Phase[deg]=0   WaveL[cm]=20
+aR225   L[cm]=50   Ncell=5   Eff_L[cm]=7   A[MeV]=3.6875   Phase[deg]=0   WaveL[cm]=20
+aR226   L[cm]=50   Ncell=5   Eff_L[cm]=7   A[MeV]=3.6875   Phase[deg]=0   WaveL[cm]=20
+aR227   L[cm]=50   Ncell=5   Eff_L[cm]=7   A[MeV]=3.6875   Phase[deg]=0   WaveL[cm]=20
+aR228   L[cm]=50   Ncell=5   Eff_L[cm]=7   A[MeV]=3.6875   Phase[deg]=0   WaveL[cm]=20
+qMQB2L03   L[cm]=15   G[kG/cm]=0.501128   Tilt[deg]=0
+aR231   L[cm]=50   Ncell=5   Eff_L[cm]=7   A[MeV]=3.6875   Phase[deg]=0   WaveL[cm]=20
+aR232   L[cm]=50   Ncell=5   Eff_L[cm]=7   A[MeV]=3.6875   Phase[deg]=0   WaveL[cm]=20
+aR233   L[cm]=50   Ncell=5   Eff_L[cm]=7   A[MeV]=3.6875   Phase[deg]=0   WaveL[cm]=20
+aR234   L[cm]=50   Ncell=5   Eff_L[cm]=7   A[MeV]=3.6875   Phase[deg]=0   WaveL[cm]=20
+aR235   L[cm]=50   Ncell=5   Eff_L[cm]=7   A[MeV]=3.6875   Phase[deg]=0   WaveL[cm]=20
+aR236   L[cm]=50   Ncell=5   Eff_L[cm]=7   A[MeV]=3.6875   Phase[deg]=0   WaveL[cm]=20
+aR237   L[cm]=50   Ncell=5   Eff_L[cm]=7   A[MeV]=3.6875   Phase[deg]=0   WaveL[cm]=20
+aR238   L[cm]=50   Ncell=5   Eff_L[cm]=7   A[MeV]=3.6875   Phase[deg]=0   WaveL[cm]=20
+qMQB2L04   L[cm]=15   G[kG/cm]=-0.513026   Tilt[deg]=0
+aR241   L[cm]=50   Ncell=5   Eff_L[cm]=7   A[MeV]=3.6875   Phase[deg]=0   WaveL[cm]=20
+aR242   L[cm]=50   Ncell=5   Eff_L[cm]=7   A[MeV]=3.6875   Phase[deg]=0   WaveL[cm]=20
+aR243   L[cm]=50   Ncell=5   Eff_L[cm]=7   A[MeV]=3.6875   Phase[deg]=0   WaveL[cm]=20
+aR244   L[cm]=50   Ncell=5   Eff_L[cm]=7   A[MeV]=3.6875   Phase[deg]=0   WaveL[cm]=20
+aR245   L[cm]=50   Ncell=5   Eff_L[cm]=7   A[MeV]=3.6875   Phase[deg]=0   WaveL[cm]=20
+aR246   L[cm]=50   Ncell=5   Eff_L[cm]=7   A[MeV]=3.6875   Phase[deg]=0   WaveL[cm]=20
+aR247   L[cm]=50   Ncell=5   Eff_L[cm]=7   A[MeV]=3.6875   Phase[deg]=0   WaveL[cm]=20
+aR248   L[cm]=50   Ncell=5   Eff_L[cm]=7   A[MeV]=3.6875   Phase[deg]=0   WaveL[cm]=20
+qMQB2L05   L[cm]=15   G[kG/cm]=0.524924   Tilt[deg]=0
+aR251   L[cm]=50   Ncell=5   Eff_L[cm]=7   A[MeV]=3.6875   Phase[deg]=0   WaveL[cm]=20
+aR252   L[cm]=50   Ncell=5   Eff_L[cm]=7   A[MeV]=3.6875   Phase[deg]=0   WaveL[cm]=20
+aR253   L[cm]=50   Ncell=5   Eff_L[cm]=7   A[MeV]=3.6875   Phase[deg]=0   WaveL[cm]=20
+aR254   L[cm]=50   Ncell=5   Eff_L[cm]=7   A[MeV]=3.6875   Phase[deg]=0   WaveL[cm]=20
+aR255   L[cm]=50   Ncell=5   Eff_L[cm]=7   A[MeV]=3.6875   Phase[deg]=0   WaveL[cm]=20
+aR256   L[cm]=50   Ncell=5   Eff_L[cm]=7   A[MeV]=3.6875   Phase[deg]=0   WaveL[cm]=20
+aR257   L[cm]=50   Ncell=5   Eff_L[cm]=7   A[MeV]=3.6875   Phase[deg]=0   WaveL[cm]=20
+aR258   L[cm]=50   Ncell=5   Eff_L[cm]=7   A[MeV]=3.6875   Phase[deg]=0   WaveL[cm]=20
+qMQB2L06   L[cm]=15   G[kG/cm]=-0.536822   Tilt[deg]=0
+aR261   L[cm]=50   Ncell=5   Eff_L[cm]=7   A[MeV]=3.6875   Phase[deg]=0   WaveL[cm]=20
+aR262   L[cm]=50   Ncell=5   Eff_L[cm]=7   A[MeV]=3.6875   Phase[deg]=0   WaveL[cm]=20
+aR263   L[cm]=50   Ncell=5   Eff_L[cm]=7   A[MeV]=3.6875   Phase[deg]=0   WaveL[cm]=20
+aR264   L[cm]=50   Ncell=5   Eff_L[cm]=7   A[MeV]=3.6875   Phase[deg]=0   WaveL[cm]=20
+aR265   L[cm]=50   Ncell=5   Eff_L[cm]=7   A[MeV]=3.6875   Phase[deg]=0   WaveL[cm]=20
+aR266   L[cm]=50   Ncell=5   Eff_L[cm]=7   A[MeV]=3.6875   Phase[deg]=0   WaveL[cm]=20
+aR267   L[cm]=50   Ncell=5   Eff_L[cm]=7   A[MeV]=3.6875   Phase[deg]=0   WaveL[cm]=20
+aR268   L[cm]=50   Ncell=5   Eff_L[cm]=7   A[MeV]=3.6875   Phase[deg]=0   WaveL[cm]=20
+qMQB2L07   L[cm]=15   G[kG/cm]=0.54872   Tilt[deg]=0
+aR271   L[cm]=50   Ncell=5   Eff_L[cm]=7   A[MeV]=3.6875   Phase[deg]=0   WaveL[cm]=20
+aR272   L[cm]=50   Ncell=5   Eff_L[cm]=7   A[MeV]=3.6875   Phase[deg]=0   WaveL[cm]=20
+aR273   L[cm]=50   Ncell=5   Eff_L[cm]=7   A[MeV]=3.6875   Phase[deg]=0   WaveL[cm]=20
+aR274   L[cm]=50   Ncell=5   Eff_L[cm]=7   A[MeV]=3.6875   Phase[deg]=0   WaveL[cm]=20
+aR275   L[cm]=50   Ncell=5   Eff_L[cm]=7   A[MeV]=3.6875   Phase[deg]=0   WaveL[cm]=20
+aR276   L[cm]=50   Ncell=5   Eff_L[cm]=7   A[MeV]=3.6875   Phase[deg]=0   WaveL[cm]=20
+aR277   L[cm]=50   Ncell=5   Eff_L[cm]=7   A[MeV]=3.6875   Phase[deg]=0   WaveL[cm]=20
+aR278   L[cm]=50   Ncell=5   Eff_L[cm]=7   A[MeV]=3.6875   Phase[deg]=0   WaveL[cm]=20
+qMQB2L08   L[cm]=15   G[kG/cm]=-0.560618   Tilt[deg]=0
+aR281   L[cm]=50   Ncell=5   Eff_L[cm]=7   A[MeV]=3.6875   Phase[deg]=0   WaveL[cm]=20
+aR282   L[cm]=50   Ncell=5   Eff_L[cm]=7   A[MeV]=3.6875   Phase[deg]=0   WaveL[cm]=20
+aR283   L[cm]=50   Ncell=5   Eff_L[cm]=7   A[MeV]=3.6875   Phase[deg]=0   WaveL[cm]=20
+aR284   L[cm]=50   Ncell=5   Eff_L[cm]=7   A[MeV]=3.6875   Phase[deg]=0   WaveL[cm]=20
+aR285   L[cm]=50   Ncell=5   Eff_L[cm]=7   A[MeV]=3.6875   Phase[deg]=0   WaveL[cm]=20
+aR286   L[cm]=50   Ncell=5   Eff_L[cm]=7   A[MeV]=3.6875   Phase[deg]=0   WaveL[cm]=20
+aR287   L[cm]=50   Ncell=5   Eff_L[cm]=7   A[MeV]=3.6875   Phase[deg]=0   WaveL[cm]=20
+aR288   L[cm]=50   Ncell=5   Eff_L[cm]=7   A[MeV]=3.6875   Phase[deg]=0   WaveL[cm]=20
+qMQB2L09   L[cm]=15   G[kG/cm]=0.572516   Tilt[deg]=0
+aR291   L[cm]=50   Ncell=5   Eff_L[cm]=7   A[MeV]=3.6875   Phase[deg]=0   WaveL[cm]=20
+aR292   L[cm]=50   Ncell=5   Eff_L[cm]=7   A[MeV]=3.6875   Phase[deg]=0   WaveL[cm]=20
+aR293   L[cm]=50   Ncell=5   Eff_L[cm]=7   A[MeV]=3.6875   Phase[deg]=0   WaveL[cm]=20
+aR294   L[cm]=50   Ncell=5   Eff_L[cm]=7   A[MeV]=3.6875   Phase[deg]=0   WaveL[cm]=20
+aR295   L[cm]=50   Ncell=5   Eff_L[cm]=7   A[MeV]=3.6875   Phase[deg]=0   WaveL[cm]=20
+aR296   L[cm]=50   Ncell=5   Eff_L[cm]=7   A[MeV]=3.6875   Phase[deg]=0   WaveL[cm]=20
+aR297   L[cm]=50   Ncell=5   Eff_L[cm]=7   A[MeV]=3.6875   Phase[deg]=0   WaveL[cm]=20
+aR298   L[cm]=50   Ncell=5   Eff_L[cm]=7   A[MeV]=3.6875   Phase[deg]=0   WaveL[cm]=20
+qMQB2L10   L[cm]=15   G[kG/cm]=-0.584414   Tilt[deg]=0
+aR2A1   L[cm]=50   Ncell=5   Eff_L[cm]=7   A[MeV]=3.6875   Phase[deg]=0   WaveL[cm]=20
+aR2A2   L[cm]=50   Ncell=5   Eff_L[cm]=7   A[MeV]=3.6875   Phase[deg]=0   WaveL[cm]=20
+aR2A3   L[cm]=50   Ncell=5   Eff_L[cm]=7   A[MeV]=3.6875   Phase[deg]=0   WaveL[cm]=20
+aR2A4   L[cm]=50   Ncell=5   Eff_L[cm]=7   A[MeV]=3.6875   Phase[deg]=0   WaveL[cm]=20
+aR2A5   L[cm]=50   Ncell=5   Eff_L[cm]=7   A[MeV]=3.6875   Phase[deg]=0   WaveL[cm]=20
+aR2A6   L[cm]=50   Ncell=5   Eff_L[cm]=7   A[MeV]=3.6875   Phase[deg]=0   WaveL[cm]=20
+aR2A7   L[cm]=50   Ncell=5   Eff_L[cm]=7   A[MeV]=3.6875   Phase[deg]=0   WaveL[cm]=20
+aR2A8   L[cm]=50   Ncell=5   Eff_L[cm]=7   A[MeV]=3.6875   Phase[deg]=0   WaveL[cm]=20
+qMQB2L11   L[cm]=15   G[kG/cm]=0.596312   Tilt[deg]=0
+aR2B1   L[cm]=50   Ncell=5   Eff_L[cm]=7   A[MeV]=3.6875   Phase[deg]=0   WaveL[cm]=20
+aR2B2   L[cm]=50   Ncell=5   Eff_L[cm]=7   A[MeV]=3.6875   Phase[deg]=0   WaveL[cm]=20
+aR2B3   L[cm]=50   Ncell=5   Eff_L[cm]=7   A[MeV]=3.6875   Phase[deg]=0   WaveL[cm]=20
+aR2B4   L[cm]=50   Ncell=5   Eff_L[cm]=7   A[MeV]=3.6875   Phase[deg]=0   WaveL[cm]=20
+aR2B5   L[cm]=50   Ncell=5   Eff_L[cm]=7   A[MeV]=3.6875   Phase[deg]=0   WaveL[cm]=20
+aR2B6   L[cm]=50   Ncell=5   Eff_L[cm]=7   A[MeV]=3.6875   Phase[deg]=0   WaveL[cm]=20
+aR2B7   L[cm]=50   Ncell=5   Eff_L[cm]=7   A[MeV]=3.6875   Phase[deg]=0   WaveL[cm]=20
+aR2B8   L[cm]=50   Ncell=5   Eff_L[cm]=7   A[MeV]=3.6875   Phase[deg]=0   WaveL[cm]=20
+qMQB2L12   L[cm]=15   G[kG/cm]=-0.60821   Tilt[deg]=0
+aR2C1   L[cm]=50   Ncell=5   Eff_L[cm]=7   A[MeV]=3.6875   Phase[deg]=0   WaveL[cm]=20
+aR2C2   L[cm]=50   Ncell=5   Eff_L[cm]=7   A[MeV]=3.6875   Phase[deg]=0   WaveL[cm]=20
+aR2C3   L[cm]=50   Ncell=5   Eff_L[cm]=7   A[MeV]=3.6875   Phase[deg]=0   WaveL[cm]=20
+aR2C4   L[cm]=50   Ncell=5   Eff_L[cm]=7   A[MeV]=3.6875   Phase[deg]=0   WaveL[cm]=20
+aR2C5   L[cm]=50   Ncell=5   Eff_L[cm]=7   A[MeV]=3.6875   Phase[deg]=0   WaveL[cm]=20
+aR2C6   L[cm]=50   Ncell=5   Eff_L[cm]=7   A[MeV]=3.6875   Phase[deg]=0   WaveL[cm]=20
+aR2C7   L[cm]=50   Ncell=5   Eff_L[cm]=7   A[MeV]=3.6875   Phase[deg]=0   WaveL[cm]=20
+aR2C8   L[cm]=50   Ncell=5   Eff_L[cm]=7   A[MeV]=3.6875   Phase[deg]=0   WaveL[cm]=20
+qMQB2L13   L[cm]=15   G[kG/cm]=0.620108   Tilt[deg]=0
+aR2D1   L[cm]=50   Ncell=5   Eff_L[cm]=7   A[MeV]=3.6875   Phase[deg]=0   WaveL[cm]=20
+aR2D2   L[cm]=50   Ncell=5   Eff_L[cm]=7   A[MeV]=3.6875   Phase[deg]=0   WaveL[cm]=20
+aR2D3   L[cm]=50   Ncell=5   Eff_L[cm]=7   A[MeV]=3.6875   Phase[deg]=0   WaveL[cm]=20
+aR2D4   L[cm]=50   Ncell=5   Eff_L[cm]=7   A[MeV]=3.6875   Phase[deg]=0   WaveL[cm]=20
+aR2D5   L[cm]=50   Ncell=5   Eff_L[cm]=7   A[MeV]=3.6875   Phase[deg]=0   WaveL[cm]=20
+aR2D6   L[cm]=50   Ncell=5   Eff_L[cm]=7   A[MeV]=3.6875   Phase[deg]=0   WaveL[cm]=20
+aR2D7   L[cm]=50   Ncell=5   Eff_L[cm]=7   A[MeV]=3.6875   Phase[deg]=0   WaveL[cm]=20
+aR2D8   L[cm]=50   Ncell=5   Eff_L[cm]=7   A[MeV]=3.6875   Phase[deg]=0   WaveL[cm]=20
+qMQB2L14   L[cm]=15   G[kG/cm]=-0.632006   Tilt[deg]=0
+aR2E1   L[cm]=50   Ncell=5   Eff_L[cm]=7   A[MeV]=3.6875   Phase[deg]=0   WaveL[cm]=20
+aR2E2   L[cm]=50   Ncell=5   Eff_L[cm]=7   A[MeV]=3.6875   Phase[deg]=0   WaveL[cm]=20
+aR2E3   L[cm]=50   Ncell=5   Eff_L[cm]=7   A[MeV]=3.6875   Phase[deg]=0   WaveL[cm]=20
+aR2E4   L[cm]=50   Ncell=5   Eff_L[cm]=7   A[MeV]=3.6875   Phase[deg]=0   WaveL[cm]=20
+aR2E5   L[cm]=50   Ncell=5   Eff_L[cm]=7   A[MeV]=3.6875   Phase[deg]=0   WaveL[cm]=20
+aR2E6   L[cm]=50   Ncell=5   Eff_L[cm]=7   A[MeV]=3.6875   Phase[deg]=0   WaveL[cm]=20
+aR2E7   L[cm]=50   Ncell=5   Eff_L[cm]=7   A[MeV]=3.6875   Phase[deg]=0   WaveL[cm]=20
+aR2E8   L[cm]=50   Ncell=5   Eff_L[cm]=7   A[MeV]=3.6875   Phase[deg]=0   WaveL[cm]=20
+qMQB2L15   L[cm]=15   G[kG/cm]=0.643904   Tilt[deg]=0
+aR2F1   L[cm]=50   Ncell=5   Eff_L[cm]=7   A[MeV]=3.6875   Phase[deg]=0   WaveL[cm]=20
+aR2F2   L[cm]=50   Ncell=5   Eff_L[cm]=7   A[MeV]=3.6875   Phase[deg]=0   WaveL[cm]=20
+aR2F3   L[cm]=50   Ncell=5   Eff_L[cm]=7   A[MeV]=3.6875   Phase[deg]=0   WaveL[cm]=20
+aR2F4   L[cm]=50   Ncell=5   Eff_L[cm]=7   A[MeV]=3.6875   Phase[deg]=0   WaveL[cm]=20
+aR2F5   L[cm]=50   Ncell=5   Eff_L[cm]=7   A[MeV]=3.6875   Phase[deg]=0   WaveL[cm]=20
+aR2F6   L[cm]=50   Ncell=5   Eff_L[cm]=7   A[MeV]=3.6875   Phase[deg]=0   WaveL[cm]=20
+aR2F7   L[cm]=50   Ncell=5   Eff_L[cm]=7   A[MeV]=3.6875   Phase[deg]=0   WaveL[cm]=20
+aR2F8   L[cm]=50   Ncell=5   Eff_L[cm]=7   A[MeV]=3.6875   Phase[deg]=0   WaveL[cm]=20
+qMQB2L16   L[cm]=15   G[kG/cm]=-0.655802   Tilt[deg]=0
+aR2G1   L[cm]=50   Ncell=5   Eff_L[cm]=7   A[MeV]=3.6875   Phase[deg]=0   WaveL[cm]=20
+aR2G2   L[cm]=50   Ncell=5   Eff_L[cm]=7   A[MeV]=3.6875   Phase[deg]=0   WaveL[cm]=20
+aR2G3   L[cm]=50   Ncell=5   Eff_L[cm]=7   A[MeV]=3.6875   Phase[deg]=0   WaveL[cm]=20
+aR2G4   L[cm]=50   Ncell=5   Eff_L[cm]=7   A[MeV]=3.6875   Phase[deg]=0   WaveL[cm]=20
+aR2G5   L[cm]=50   Ncell=5   Eff_L[cm]=7   A[MeV]=3.6875   Phase[deg]=0   WaveL[cm]=20
+aR2G6   L[cm]=50   Ncell=5   Eff_L[cm]=7   A[MeV]=3.6875   Phase[deg]=0   WaveL[cm]=20
+aR2G7   L[cm]=50   Ncell=5   Eff_L[cm]=7   A[MeV]=3.6875   Phase[deg]=0   WaveL[cm]=20
+aR2G8   L[cm]=50   Ncell=5   Eff_L[cm]=7   A[MeV]=3.6875   Phase[deg]=0   WaveL[cm]=20
+qMQB2L17   L[cm]=15   G[kG/cm]=0.6677   Tilt[deg]=0
+aR2H1   L[cm]=50   Ncell=5   Eff_L[cm]=7   A[MeV]=3.6875   Phase[deg]=0   WaveL[cm]=20
+aR2H2   L[cm]=50   Ncell=5   Eff_L[cm]=7   A[MeV]=3.6875   Phase[deg]=0   WaveL[cm]=20
+aR2H3   L[cm]=50   Ncell=5   Eff_L[cm]=7   A[MeV]=3.6875   Phase[deg]=0   WaveL[cm]=20
+aR2H4   L[cm]=50   Ncell=5   Eff_L[cm]=7   A[MeV]=3.6875   Phase[deg]=0   WaveL[cm]=20
+aR2H5   L[cm]=50   Ncell=5   Eff_L[cm]=7   A[MeV]=3.6875   Phase[deg]=0   WaveL[cm]=20
+aR2H6   L[cm]=50   Ncell=5   Eff_L[cm]=7   A[MeV]=3.6875   Phase[deg]=0   WaveL[cm]=20
+aR2H7   L[cm]=50   Ncell=5   Eff_L[cm]=7   A[MeV]=3.6875   Phase[deg]=0   WaveL[cm]=20
+aR2H8   L[cm]=50   Ncell=5   Eff_L[cm]=7   A[MeV]=3.6875   Phase[deg]=0   WaveL[cm]=20
+qMQB2L18   L[cm]=15   G[kG/cm]=-0.679598   Tilt[deg]=0
+aR2I1   L[cm]=50   Ncell=5   Eff_L[cm]=7   A[MeV]=3.6875   Phase[deg]=0   WaveL[cm]=20
+aR2I2   L[cm]=50   Ncell=5   Eff_L[cm]=7   A[MeV]=3.6875   Phase[deg]=0   WaveL[cm]=20
+aR2I3   L[cm]=50   Ncell=5   Eff_L[cm]=7   A[MeV]=3.6875   Phase[deg]=0   WaveL[cm]=20
+aR2I4   L[cm]=50   Ncell=5   Eff_L[cm]=7   A[MeV]=3.6875   Phase[deg]=0   WaveL[cm]=20
+aR2I5   L[cm]=50   Ncell=5   Eff_L[cm]=7   A[MeV]=3.6875   Phase[deg]=0   WaveL[cm]=20
+aR2I6   L[cm]=50   Ncell=5   Eff_L[cm]=7   A[MeV]=3.6875   Phase[deg]=0   WaveL[cm]=20
+aR2I7   L[cm]=50   Ncell=5   Eff_L[cm]=7   A[MeV]=3.6875   Phase[deg]=0   WaveL[cm]=20
+aR2I8   L[cm]=50   Ncell=5   Eff_L[cm]=7   A[MeV]=3.6875   Phase[deg]=0   WaveL[cm]=20
+qMQB2L19   L[cm]=15   G[kG/cm]=0.691496   Tilt[deg]=0
+aR2J1   L[cm]=50   Ncell=5   Eff_L[cm]=7   A[MeV]=3.6875   Phase[deg]=0   WaveL[cm]=20
+aR2J2   L[cm]=50   Ncell=5   Eff_L[cm]=7   A[MeV]=3.6875   Phase[deg]=0   WaveL[cm]=20
+aR2J3   L[cm]=50   Ncell=5   Eff_L[cm]=7   A[MeV]=3.6875   Phase[deg]=0   WaveL[cm]=20
+aR2J4   L[cm]=50   Ncell=5   Eff_L[cm]=7   A[MeV]=3.6875   Phase[deg]=0   WaveL[cm]=20
+aR2J5   L[cm]=50   Ncell=5   Eff_L[cm]=7   A[MeV]=3.6875   Phase[deg]=0   WaveL[cm]=20
+aR2J6   L[cm]=50   Ncell=5   Eff_L[cm]=7   A[MeV]=3.6875   Phase[deg]=0   WaveL[cm]=20
+aR2J7   L[cm]=50   Ncell=5   Eff_L[cm]=7   A[MeV]=3.6875   Phase[deg]=0   WaveL[cm]=20
+aR2J8   L[cm]=50   Ncell=5   Eff_L[cm]=7   A[MeV]=3.6875   Phase[deg]=0   WaveL[cm]=20
+qMQB2L20   L[cm]=15   G[kG/cm]=-0.703394   Tilt[deg]=0
+aR2K1   L[cm]=50   Ncell=5   Eff_L[cm]=7   A[MeV]=3.6875   Phase[deg]=0   WaveL[cm]=20
+aR2K2   L[cm]=50   Ncell=5   Eff_L[cm]=7   A[MeV]=3.6875   Phase[deg]=0   WaveL[cm]=20
+aR2K3   L[cm]=50   Ncell=5   Eff_L[cm]=7   A[MeV]=3.6875   Phase[deg]=0   WaveL[cm]=20
+aR2K4   L[cm]=50   Ncell=5   Eff_L[cm]=7   A[MeV]=3.6875   Phase[deg]=0   WaveL[cm]=20
+aR2K5   L[cm]=50   Ncell=5   Eff_L[cm]=7   A[MeV]=3.6875   Phase[deg]=0   WaveL[cm]=20
+aR2K6   L[cm]=50   Ncell=5   Eff_L[cm]=7   A[MeV]=3.6875   Phase[deg]=0   WaveL[cm]=20
+aR2K7   L[cm]=50   Ncell=5   Eff_L[cm]=7   A[MeV]=3.6875   Phase[deg]=0   WaveL[cm]=20
+aR2K8   L[cm]=50   Ncell=5   Eff_L[cm]=7   A[MeV]=3.6875   Phase[deg]=0   WaveL[cm]=20
+qMQB2L21   L[cm]=15   G[kG/cm]=0.715292   Tilt[deg]=0
+aR2L1   L[cm]=50   Ncell=5   Eff_L[cm]=7   A[MeV]=3.6875   Phase[deg]=0   WaveL[cm]=20
+aR2L2   L[cm]=50   Ncell=5   Eff_L[cm]=7   A[MeV]=3.6875   Phase[deg]=0   WaveL[cm]=20
+aR2L3   L[cm]=50   Ncell=5   Eff_L[cm]=7   A[MeV]=3.6875   Phase[deg]=0   WaveL[cm]=20
+aR2L4   L[cm]=50   Ncell=5   Eff_L[cm]=7   A[MeV]=3.6875   Phase[deg]=0   WaveL[cm]=20
+aR2L5   L[cm]=50   Ncell=5   Eff_L[cm]=7   A[MeV]=3.6875   Phase[deg]=0   WaveL[cm]=20
+aR2L6   L[cm]=50   Ncell=5   Eff_L[cm]=7   A[MeV]=3.6875   Phase[deg]=0   WaveL[cm]=20
+aR2L7   L[cm]=50   Ncell=5   Eff_L[cm]=7   A[MeV]=3.6875   Phase[deg]=0   WaveL[cm]=20
+aR2L8   L[cm]=50   Ncell=5   Eff_L[cm]=7   A[MeV]=3.6875   Phase[deg]=0   WaveL[cm]=20
+qMQB2L22   L[cm]=15   G[kG/cm]=-0.72719   Tilt[deg]=0
+aR2M1   L[cm]=50   Ncell=7   Eff_L[cm]=7   A[MeV]=12.5   Phase[deg]=0   WaveL[cm]=20
+aR2M2   L[cm]=50   Ncell=7   Eff_L[cm]=7   A[MeV]=12.5   Phase[deg]=0   WaveL[cm]=20
+aR2M3   L[cm]=50   Ncell=7   Eff_L[cm]=7   A[MeV]=12.5   Phase[deg]=0   WaveL[cm]=20
+aR2M4   L[cm]=50   Ncell=7   Eff_L[cm]=7   A[MeV]=12.5   Phase[deg]=0   WaveL[cm]=20
+aR2M5   L[cm]=50   Ncell=7   Eff_L[cm]=7   A[MeV]=12.5   Phase[deg]=0   WaveL[cm]=20
+aR2M6   L[cm]=50   Ncell=7   Eff_L[cm]=7   A[MeV]=12.5   Phase[deg]=0   WaveL[cm]=20
+aR2M7   L[cm]=50   Ncell=7   Eff_L[cm]=7   A[MeV]=12.5   Phase[deg]=0   WaveL[cm]=20
+aR2M8   L[cm]=50   Ncell=7   Eff_L[cm]=7   A[MeV]=12.5   Phase[deg]=0   WaveL[cm]=20
+qMQB2L23   L[cm]=15   G[kG/cm]=0.767522   Tilt[deg]=0
+aR2N1   L[cm]=50   Ncell=7   Eff_L[cm]=7   A[MeV]=12.5   Phase[deg]=0   WaveL[cm]=20
+aR2N2   L[cm]=50   Ncell=7   Eff_L[cm]=7   A[MeV]=12.5   Phase[deg]=0   WaveL[cm]=20
+aR2N3   L[cm]=50   Ncell=7   Eff_L[cm]=7   A[MeV]=12.5   Phase[deg]=0   WaveL[cm]=20
+aR2N4   L[cm]=50   Ncell=7   Eff_L[cm]=7   A[MeV]=12.5   Phase[deg]=0   WaveL[cm]=20
+aR2N5   L[cm]=50   Ncell=7   Eff_L[cm]=7   A[MeV]=12.5   Phase[deg]=0   WaveL[cm]=20
+aR2N6   L[cm]=50   Ncell=7   Eff_L[cm]=7   A[MeV]=12.5   Phase[deg]=0   WaveL[cm]=20
+aR2N7   L[cm]=50   Ncell=7   Eff_L[cm]=7   A[MeV]=12.5   Phase[deg]=0   WaveL[cm]=20
+aR2N8   L[cm]=50   Ncell=7   Eff_L[cm]=7   A[MeV]=12.5   Phase[deg]=0   WaveL[cm]=20
+qMQB2L24   L[cm]=15   G[kG/cm]=-0.807855   Tilt[deg]=0
+aR2O1   L[cm]=50   Ncell=7   Eff_L[cm]=7   A[MeV]=12.5   Phase[deg]=0   WaveL[cm]=20
+aR2O2   L[cm]=50   Ncell=7   Eff_L[cm]=7   A[MeV]=12.5   Phase[deg]=0   WaveL[cm]=20
+aR2O3   L[cm]=50   Ncell=7   Eff_L[cm]=7   A[MeV]=12.5   Phase[deg]=0   WaveL[cm]=20
+aR2O4   L[cm]=50   Ncell=7   Eff_L[cm]=7   A[MeV]=12.5   Phase[deg]=0   WaveL[cm]=20
+aR2O5   L[cm]=50   Ncell=7   Eff_L[cm]=7   A[MeV]=12.5   Phase[deg]=0   WaveL[cm]=20
+aR2O6   L[cm]=50   Ncell=7   Eff_L[cm]=7   A[MeV]=12.5   Phase[deg]=0   WaveL[cm]=20
+aR2O7   L[cm]=50   Ncell=7   Eff_L[cm]=7   A[MeV]=12.5   Phase[deg]=0   WaveL[cm]=20
+aR2O8   L[cm]=50   Ncell=7   Eff_L[cm]=7   A[MeV]=12.5   Phase[deg]=0   WaveL[cm]=20
+qMQB2L25   L[cm]=15   G[kG/cm]=0.848187   Tilt[deg]=0
+aR2P1   L[cm]=50   Ncell=7   Eff_L[cm]=7   A[MeV]=12.5   Phase[deg]=0   WaveL[cm]=20
+aR2P2   L[cm]=50   Ncell=7   Eff_L[cm]=7   A[MeV]=12.5   Phase[deg]=0   WaveL[cm]=20
+aR2P3   L[cm]=50   Ncell=7   Eff_L[cm]=7   A[MeV]=12.5   Phase[deg]=0   WaveL[cm]=20
+aR2P4   L[cm]=50   Ncell=7   Eff_L[cm]=7   A[MeV]=12.5   Phase[deg]=0   WaveL[cm]=20
+aR2P5   L[cm]=50   Ncell=7   Eff_L[cm]=7   A[MeV]=12.5   Phase[deg]=0   WaveL[cm]=20
+aR2P6   L[cm]=50   Ncell=7   Eff_L[cm]=7   A[MeV]=12.5   Phase[deg]=0   WaveL[cm]=20
+aR2P7   L[cm]=50   Ncell=7   Eff_L[cm]=7   A[MeV]=12.5   Phase[deg]=0   WaveL[cm]=20
+aR2P8   L[cm]=50   Ncell=7   Eff_L[cm]=7   A[MeV]=12.5   Phase[deg]=0   WaveL[cm]=20
+qMQB2L26   L[cm]=15   G[kG/cm]=-0.888519   Tilt[deg]=0
+aR2Q1   L[cm]=50   Ncell=7   Eff_L[cm]=7   A[MeV]=12.5   Phase[deg]=0   WaveL[cm]=20
+aR2Q2   L[cm]=50   Ncell=7   Eff_L[cm]=7   A[MeV]=12.5   Phase[deg]=0   WaveL[cm]=20
+aR2Q3   L[cm]=50   Ncell=7   Eff_L[cm]=7   A[MeV]=12.5   Phase[deg]=0   WaveL[cm]=20
+aR2Q4   L[cm]=50   Ncell=7   Eff_L[cm]=7   A[MeV]=12.5   Phase[deg]=0   WaveL[cm]=20
+aR2Q5   L[cm]=50   Ncell=7   Eff_L[cm]=7   A[MeV]=12.5   Phase[deg]=0   WaveL[cm]=20
+aR2Q6   L[cm]=50   Ncell=7   Eff_L[cm]=7   A[MeV]=12.5   Phase[deg]=0   WaveL[cm]=20
+aR2Q7   L[cm]=50   Ncell=7   Eff_L[cm]=7   A[MeV]=12.5   Phase[deg]=0   WaveL[cm]=20
+aR2Q8   L[cm]=50   Ncell=7   Eff_L[cm]=7   A[MeV]=12.5   Phase[deg]=0   WaveL[cm]=20
+qMQB2L27   L[cm]=15   G[kG/cm]=0.949467   Tilt[deg]=0
+QMQSsl  L[cm]=7       
+kMAT2L02V  	L[cm]=1e-06      	B[kG]=0   	Tilt[deg]=90
+kMAT2L03H  	L[cm]=1e-06      	B[kG]=0   	Tilt[deg]=0
+kMAT2L04V  	L[cm]=1e-06      	B[kG]=0   	Tilt[deg]=90
+kMAT2L05H  	L[cm]=1e-06      	B[kG]=0   	Tilt[deg]=0
+kMAT2L06V  	L[cm]=1e-06      	B[kG]=0   	Tilt[deg]=90
+kMAT2L07H  	L[cm]=1e-06      	B[kG]=0   	Tilt[deg]=0
+kMAT2L08V  	L[cm]=1e-06      	B[kG]=0   	Tilt[deg]=90
+kMAT2L09H  	L[cm]=1e-06      	B[kG]=0   	Tilt[deg]=0
+kMAT2L10V  	L[cm]=1e-06      	B[kG]=0   	Tilt[deg]=90
+kMAT2L11H  	L[cm]=1e-06      	B[kG]=0   	Tilt[deg]=0
+kMAT2L12V  	L[cm]=1e-06      	B[kG]=0   	Tilt[deg]=90
+kMAT2L13H  	L[cm]=1e-06      	B[kG]=0   	Tilt[deg]=0
+kMAT2L14V  	L[cm]=1e-06      	B[kG]=0   	Tilt[deg]=90
+kMAT2L15H  	L[cm]=1e-06      	B[kG]=0   	Tilt[deg]=0
+kMAT2L16V  	L[cm]=1e-06      	B[kG]=0   	Tilt[deg]=90
+kMAT2L17H  	L[cm]=1e-06      	B[kG]=0   	Tilt[deg]=0
+kMAT2L18V  	L[cm]=1e-06      	B[kG]=0   	Tilt[deg]=90
+kMAT2L19H  	L[cm]=1e-06      	B[kG]=0   	Tilt[deg]=0
+kMAT2L20V  	L[cm]=1e-06      	B[kG]=0   	Tilt[deg]=90
+kMAT2L21H  	L[cm]=1e-06      	B[kG]=0   	Tilt[deg]=0
+kMAT2L22V  	L[cm]=1e-06      	B[kG]=0   	Tilt[deg]=90
+kMAT2L23H  	L[cm]=1e-06      	B[kG]=0   	Tilt[deg]=0
+kMAT2L24V  	L[cm]=1e-06      	B[kG]=0   	Tilt[deg]=90
+kMAT2L25H  	L[cm]=1e-06      	B[kG]=0   	Tilt[deg]=0
+kMAT2L26V  	L[cm]=1e-06      	B[kG]=0   	Tilt[deg]=90
+iITV2L01   	L[cm]=0        
+iITV2L02   	L[cm]=0        
+iITV2L06   	L[cm]=0        
+iITV2L10   	L[cm]=0        
+iITV2L14   	L[cm]=0        
+iITV2L18   	L[cm]=0        
+iITV2L22   	L[cm]=0        
+iITV2L26   	L[cm]=0        
+iIPM2L01   	L[cm]=0        
+iIPM2L02   	L[cm]=0        
+iIPM2L03   	L[cm]=0        
+iIPM2L04   	L[cm]=0        
+iIPM2L05   	L[cm]=0        
+iIPM2L06   	L[cm]=0        
+iIPM2L07   	L[cm]=0        
+iIPM2L08   	L[cm]=0        
+iIPM2L09   	L[cm]=0        
+iIPM2L10   	L[cm]=0        
+iIPM2L11   	L[cm]=0        
+iIPM2L12   	L[cm]=0        
+iIPM2L13   	L[cm]=0        
+iIPM2L14   	L[cm]=0        
+iIPM2L15   	L[cm]=0        
+iIPM2L16   	L[cm]=0        
+iIPM2L17   	L[cm]=0        
+iIPM2L18   	L[cm]=0        
+iIPM2L19   	L[cm]=0        
+iIPM2L20   	L[cm]=0        
+iIPM2L21   	L[cm]=0        
+iIPM2L22   	L[cm]=0        
+iIPM2L23   	L[cm]=0        
+iIPM2L24   	L[cm]=0        
+iIPM2L25   	L[cm]=0        
+iIPM2L26   	L[cm]=0        
+iIPM2L27   	L[cm]=0        
+oD30051 	 L[cm]=10       
+oD30058 	 L[cm]=25       
+oD30076 	 L[cm]=30       
+oD30103 	 L[cm]=17.2695  
+oD30104 	 L[cm]=61.2618  
+oD30105 	 L[cm]=375.395  
+oD30106 	 L[cm]=33.7266  
+oD30107 	 L[cm]=17.9766  
+oD30108 	 L[cm]=18.6953  
+oD30109 	 L[cm]=110.906  
+oD30110 	 L[cm]=66.0625  
+oD30111 	 L[cm]=77.2656  
+oD30112 	 L[cm]=39.9454  
+oD30113 	 L[cm]=1.6953   
+oD30114 	 L[cm]=99.2344  
+oD30115 	 L[cm]=65.5078  
+oD30116 	 L[cm]=11.7578  
+oD30117 	 L[cm]=150.852  
+oD30118 	 L[cm]=243.56   
+end list
+
