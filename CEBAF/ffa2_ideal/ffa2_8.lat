@@ -1,0 +1,103 @@
+parameter[geometry] = closed        
+
+parameter[p0c]                      = 1.8499999992943E10
+parameter[particle]                 = Electron
+parameter[absolute_time_tracking]    = F
+bmad_com[auto_bookkeeper] = F
+
+beginning[beta_a]    = 2.0105677687204
+beginning[alpha_a]   = -1.4701663820196
+beginning[eta_x]     = 0.066323939156116
+beginning[etap_x]    = 0.030775540357
+beginning[beta_b]    = 8.2460419143443
+beginning[alpha_b]   = 4.3379749996094
+particle_start[x]  = 0.023024127831061
+particle_start[px] = 0.017999279705306
+particle_start[pz] = 0.28108108127201
+
+
+!-------------------------------------------------------
+
+ang_bf = 0.0282919900228071
+len_bf = 2.38269760837842
+fld_bf = -0.732732732732733
+grd_bf = -32.8078078078078
+
+ang_bd = 0.0210733759567303
+len_bd = 1.31330817709767
+fld_bd = -0.990189900342083
+grd_bd = 43.3933933933934
+
+lo = 0.14142135623731
+
+ 
+!beginning[theta_position] = 0.5*(ang_bf+ang_bd)
+
+
+
+sag_bf = 0.5*len_bf*sinc(0.25*ang_bf)*sin(0.25*ang_bf)
+dz_bf = 0.5*len_bf*(1-sinc(0.5*ang_bf))
+dl_bf = dz_bf/cos(0.5*ang_bf)
+dx_bf = dz_bf*tan(0.5*ang_bf)
+
+sag_bd = 0.5*len_bd*sinc(0.25*ang_bd)*sin(0.25*ang_bd)
+dz_bd = 0.5*len_bd*(1-sinc(0.5*ang_bd))
+dl_bd = dz_bd/cos(0.5*ang_bd)
+dx_bd = dz_bd*tan(0.5*ang_bd)
+
+o0f: drift, l=0.5*lo-dl_bf
+ofd: drift, l=lo-dl_bf-dl_bd
+od0: drift, l=0.5*lo-dl_bd
+
+pr_bf: patch, x_pitch=-0.5*ang_bf
+pr_bd: patch, x_pitch=-0.5*ang_bd
+pt_bf_ent: patch, x_offset=sag_bf/1.5+dx_bf
+pt_bf_exi: patch, x_offset=-(sag_bf/1.5+dx_bf)
+pt_bd_ent: patch, x_offset=sag_bd/1.5+dx_bd
+pt_bd_exi: patch, x_offset=-(sag_bd/1.5+dx_bd)
+
+bf: sbend, l=len_bf, db_field=fld_bf, b1_gradient=grd_bf
+bd: sbend, l=len_bd, db_field=fld_bd, b1_gradient=grd_bd
+
+MO1: Marker
+MO2: marker
+MO3: marker
+MF1: marker
+MF2: marker
+MD1: marker
+MD2: marker
+
+
+cell: line=(
+ o0f, MO1,
+ pr_bf, pt_bf_ent, 
+ MF1, bf, MF2, 
+ pt_bf_exi, pr_bf,
+ ofd, MO2, 
+ pr_bd, pt_bd_ent, 
+ MD1, bd, MD2, 
+ pt_bd_exi, pr_bd,
+ od0, MO3)
+
+
+
+MAR.BEG: MARKER
+MAR.END: MARKER
+
+
+cell_1: line = ( MAR.BEG, CELL, MAR.END )
+
+cell_5: line = ( cell, cell, cell, cell, cell )
+
+cell_f: line = ( MAR.BEG, cell_5, cell_5, MAR.END )
+
+cell_10: line = ( cell_5, cell_5 )
+
+cell_20: line = ( cell_10, cell_10 ) 
+
+cell_63: line = ( mar.beg, cell_20, cell_20, cell_20, cell, cell, cell, cell, mar.end )
+
+
+use, CELL_63
+
+
