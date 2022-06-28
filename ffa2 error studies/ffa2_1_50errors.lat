@@ -1,0 +1,1114 @@
+! ffa2_1_50errors.lat
+! Arc FFA2
+! FFA2 pass 1with random errors in the lattice
+
+
+! The beam parameters come from the tuning of the ideal lattice
+parameter[geometry] = open 
+
+! Beam parameters ------------------------------------------- 
+
+parameter[p0c]                      = 1.8499999992943E10 
+parameter[particle]                 = Electron 
+parameter[absolute_time_tracking]    = F 
+bmad_com[auto_bookkeeper] = F 
+beginning[theta_position] = 0.024682682989769 
+
+beginning[beta_a]    = 1.9033652837803 
+beginning[alpha_a]   = -1.8361368871496 
+beginning[eta_x]     = 0.041135698752854 
+beginning[etap_x]    = 0.031966459799352 
+beginning[beta_b]    = 6.2503372377328 
+beginning[alpha_b]   = 3.875639423883 
+particle_start[x]  = -7.7950493197198E-3 
+particle_start[px] = -4.3823863015898E-3 
+particle_start[pz] = -0.13513513524629 
+
+!-----------------------------------------------------------
+
+! The lattice has the following errors;
+! note that the sign of the error is also random.
+
+
+! bd_39 has a magnetic gradient error of size 0.01
+!--
+! bf_53 has a y_offset error of size 0.001
+! bf_21 has a y_offset error of size 0.001
+! bf_38 has a y_offset error of size 0.001
+! bf_31 has a y_offset error of size 0.001
+!--
+! bd_9 has a tilt error of size 4e-05
+! bf_40 has a tilt error of size 4e-05
+!--
+! bf_62 has a magnet length error of size 0.001
+! bd_49 has a magnet length error of size 0.001
+! bf_59 has a magnet length error of size 0.001
+! bf_48 has a magnet length error of size 0.001
+! bf_8 has a magnet length error of size 0.001
+! bf_56 has a magnet length error of size 0.001
+! bf_51 has a magnet length error of size 0.001
+! bf_44 has a magnet length error of size 0.001
+! bf_28 has a magnet length error of size 0.001
+!--
+! od0_52 has a drift length error of size 0.001
+! od0_27 has a drift length error of size 0.001
+! ofd_27 has a drift length error of size 0.001
+! o0f_2 has a drift length error of size 0.001
+! o0f_8 has a drift length error of size 0.001
+! od0_14 has a drift length error of size 0.001
+! ofd_41 has a drift length error of size 0.001
+! ofd_58 has a drift length error of size 0.001
+! o0f_5 has a drift length error of size 0.001
+! ofd_43 has a drift length error of size 0.001
+! od0_7 has a drift length error of size 0.001
+! o0f_35 has a drift length error of size 0.001
+! o0f_12 has a drift length error of size 0.001
+! ofd_10 has a drift length error of size 0.001
+! ofd_62 has a drift length error of size 0.001
+! od0_36 has a drift length error of size 0.001
+! ofd_15 has a drift length error of size 0.001
+! od0_34 has a drift length error of size 0.001
+! ofd_2 has a drift length error of size 0.001
+! ofd_38 has a drift length error of size 0.001
+! o0f_22 has a drift length error of size 0.001
+! o0f_13 has a drift length error of size 0.001
+! od0_37 has a drift length error of size 0.001
+! od0_24 has a drift length error of size 0.001
+! o0f_63 has a drift length error of size 0.001
+! od0_29 has a drift length error of size 0.001
+! od0_45 has a drift length error of size 0.001
+! o0f_31 has a drift length error of size 0.001
+! ofd_33 has a drift length error of size 0.001
+! ofd_54 has a drift length error of size 0.001
+! ofd_29 has a drift length error of size 0.001
+! ofd_34 has a drift length error of size 0.001
+! od0_3 has a drift length error of size 0.001
+! od0_61 has a drift length error of size 0.001
+!--
+
+
+!----------------------------------------------------
+
+
+o0f_1: drift, l = 0.07067094123604864
+bf_1_p_in: patch, x_pitch = -0.01414599501140355, x_offset = 0.0056180731687338415, y_offset = 0
+bf_1: sbend, l=2.38269760837842, db_field = -0.732732732732733, b1_gradient = -32.8078078078078
+bf_1_p_out: patch, x_pitch = -0.01414599501140355, x_offset = -0.0056180731687338415, y_offset = 0
+ofd_1: drift, l = 0.1413694682618643
+bd_1_p_in: patch, x_pitch = -0.01053668797836515, x_offset = -0.005617639099642817, y_offset=0
+bd_1: sbend, l = 1.31330817709767, db_field = -0.990189900342083, b1_gradient = 43.3933933933934
+bd_1_p_out: patch, x_pitch = -0.01053668797836515, x_offset = 0.005617639099642817, y_offset = 0
+od0_1: drift, l = 0.07069852702581567
+
+
+o0f_2: drift, l = 0.06967094123604864
+bf_2_p_in: patch, x_pitch = -0.01414599501140355, x_offset = 0.0056180731687338415, y_offset = 0
+bf_2: sbend, l=2.38269760837842, db_field = -0.732732732732733, b1_gradient = -32.8078078078078
+bf_2_p_out: patch, x_pitch = -0.01414599501140355, x_offset = -0.0056180731687338415, y_offset = 0
+ofd_2: drift, l = 0.1423694682618643
+bd_2_p_in: patch, x_pitch = -0.01053668797836515, x_offset = -0.005617639099642817, y_offset=0
+bd_2: sbend, l = 1.31330817709767, db_field = -0.990189900342083, b1_gradient = 43.3933933933934
+bd_2_p_out: patch, x_pitch = -0.01053668797836515, x_offset = 0.005617639099642817, y_offset = 0
+od0_2: drift, l = 0.07069852702581567
+
+
+o0f_3: drift, l = 0.07067094123604864
+bf_3_p_in: patch, x_pitch = -0.01414599501140355, x_offset = 0.0056180731687338415, y_offset = 0
+bf_3: sbend, l=2.38269760837842, db_field = -0.732732732732733, b1_gradient = -32.8078078078078
+bf_3_p_out: patch, x_pitch = -0.01414599501140355, x_offset = -0.0056180731687338415, y_offset = 0
+ofd_3: drift, l = 0.1413694682618643
+bd_3_p_in: patch, x_pitch = -0.01053668797836515, x_offset = -0.005617639099642817, y_offset=0
+bd_3: sbend, l = 1.31330817709767, db_field = -0.990189900342083, b1_gradient = 43.3933933933934
+bd_3_p_out: patch, x_pitch = -0.01053668797836515, x_offset = 0.005617639099642817, y_offset = 0
+od0_3: drift, l = 0.06969852702581567
+
+
+o0f_4: drift, l = 0.07067094123604864
+bf_4_p_in: patch, x_pitch = -0.01414599501140355, x_offset = 0.0056180731687338415, y_offset = 0
+bf_4: sbend, l=2.38269760837842, db_field = -0.732732732732733, b1_gradient = -32.8078078078078
+bf_4_p_out: patch, x_pitch = -0.01414599501140355, x_offset = -0.0056180731687338415, y_offset = 0
+ofd_4: drift, l = 0.1413694682618643
+bd_4_p_in: patch, x_pitch = -0.01053668797836515, x_offset = -0.005617639099642817, y_offset=0
+bd_4: sbend, l = 1.31330817709767, db_field = -0.990189900342083, b1_gradient = 43.3933933933934
+bd_4_p_out: patch, x_pitch = -0.01053668797836515, x_offset = 0.005617639099642817, y_offset = 0
+od0_4: drift, l = 0.07069852702581567
+
+
+o0f_5: drift, l = 0.06967094123604864
+bf_5_p_in: patch, x_pitch = -0.01414599501140355, x_offset = 0.0056180731687338415, y_offset = 0
+bf_5: sbend, l=2.38269760837842, db_field = -0.732732732732733, b1_gradient = -32.8078078078078
+bf_5_p_out: patch, x_pitch = -0.01414599501140355, x_offset = -0.0056180731687338415, y_offset = 0
+ofd_5: drift, l = 0.1413694682618643
+bd_5_p_in: patch, x_pitch = -0.01053668797836515, x_offset = -0.005617639099642817, y_offset=0
+bd_5: sbend, l = 1.31330817709767, db_field = -0.990189900342083, b1_gradient = 43.3933933933934
+bd_5_p_out: patch, x_pitch = -0.01053668797836515, x_offset = 0.005617639099642817, y_offset = 0
+od0_5: drift, l = 0.07069852702581567
+
+
+o0f_6: drift, l = 0.07067094123604864
+bf_6_p_in: patch, x_pitch = -0.01414599501140355, x_offset = 0.0056180731687338415, y_offset = 0
+bf_6: sbend, l=2.38269760837842, db_field = -0.732732732732733, b1_gradient = -32.8078078078078
+bf_6_p_out: patch, x_pitch = -0.01414599501140355, x_offset = -0.0056180731687338415, y_offset = 0
+ofd_6: drift, l = 0.1413694682618643
+bd_6_p_in: patch, x_pitch = -0.01053668797836515, x_offset = -0.005617639099642817, y_offset=0
+bd_6: sbend, l = 1.31330817709767, db_field = -0.990189900342083, b1_gradient = 43.3933933933934
+bd_6_p_out: patch, x_pitch = -0.01053668797836515, x_offset = 0.005617639099642817, y_offset = 0
+od0_6: drift, l = 0.07069852702581567
+
+
+o0f_7: drift, l = 0.07067094123604864
+bf_7_p_in: patch, x_pitch = -0.01414599501140355, x_offset = 0.0056180731687338415, y_offset = 0
+bf_7: sbend, l=2.38269760837842, db_field = -0.732732732732733, b1_gradient = -32.8078078078078
+bf_7_p_out: patch, x_pitch = -0.01414599501140355, x_offset = -0.0056180731687338415, y_offset = 0
+ofd_7: drift, l = 0.1413694682618643
+bd_7_p_in: patch, x_pitch = -0.01053668797836515, x_offset = -0.005617639099642817, y_offset=0
+bd_7: sbend, l = 1.31330817709767, db_field = -0.990189900342083, b1_gradient = 43.3933933933934
+bd_7_p_out: patch, x_pitch = -0.01053668797836515, x_offset = 0.005617639099642817, y_offset = 0
+od0_7: drift, l = 0.07169852702581567
+
+
+o0f_8: drift, l = 0.07167094123604864
+bf_8_p_in: patch, x_pitch = -0.01414599501140355, x_offset = 0.0056180731687338415, y_offset = 0
+bf_8: sbend, l=2.38369760837842, db_field = -0.732732732732733, b1_gradient = -32.8078078078078
+bf_8_p_out: patch, x_pitch = -0.01414599501140355, x_offset = -0.0056180731687338415, y_offset = 0
+ofd_8: drift, l = 0.1413694682618643
+bd_8_p_in: patch, x_pitch = -0.01053668797836515, x_offset = -0.005617639099642817, y_offset=0
+bd_8: sbend, l = 1.31330817709767, db_field = -0.990189900342083, b1_gradient = 43.3933933933934
+bd_8_p_out: patch, x_pitch = -0.01053668797836515, x_offset = 0.005617639099642817, y_offset = 0
+od0_8: drift, l = 0.07069852702581567
+
+
+o0f_9: drift, l = 0.07067094123604864
+bf_9_p_in: patch, x_pitch = -0.01414599501140355, x_offset = 0.0056180731687338415, y_offset = 0
+bf_9: sbend, l=2.38269760837842, db_field = -0.732732732732733, b1_gradient = -32.8078078078078
+bf_9_p_out: patch, x_pitch = -0.01414599501140355, x_offset = -0.0056180731687338415, y_offset = 0
+ofd_9: drift, l = 0.1413694682618643
+bd_9_p_in: patch, x_pitch = -0.010516687978365151, x_offset = -0.005617639099642817, y_offset=0
+bd_9: sbend, l = 1.31330817709767, db_field = -0.990189900342083, b1_gradient = 43.3933933933934
+bd_9_p_out: patch, x_pitch = -0.010516687978365151, x_offset = 0.005617639099642817, y_offset = 0
+od0_9: drift, l = 0.07069852702581567
+
+
+o0f_10: drift, l = 0.07067094123604864
+bf_10_p_in: patch, x_pitch = -0.01414599501140355, x_offset = 0.0056180731687338415, y_offset = 0
+bf_10: sbend, l=2.38269760837842, db_field = -0.732732732732733, b1_gradient = -32.8078078078078
+bf_10_p_out: patch, x_pitch = -0.01414599501140355, x_offset = -0.0056180731687338415, y_offset = 0
+ofd_10: drift, l = 0.1423694682618643
+bd_10_p_in: patch, x_pitch = -0.01053668797836515, x_offset = -0.005617639099642817, y_offset=0
+bd_10: sbend, l = 1.31330817709767, db_field = -0.990189900342083, b1_gradient = 43.3933933933934
+bd_10_p_out: patch, x_pitch = -0.01053668797836515, x_offset = 0.005617639099642817, y_offset = 0
+od0_10: drift, l = 0.07069852702581567
+
+
+o0f_11: drift, l = 0.07067094123604864
+bf_11_p_in: patch, x_pitch = -0.01414599501140355, x_offset = 0.0056180731687338415, y_offset = 0
+bf_11: sbend, l=2.38269760837842, db_field = -0.732732732732733, b1_gradient = -32.8078078078078
+bf_11_p_out: patch, x_pitch = -0.01414599501140355, x_offset = -0.0056180731687338415, y_offset = 0
+ofd_11: drift, l = 0.1413694682618643
+bd_11_p_in: patch, x_pitch = -0.01053668797836515, x_offset = -0.005617639099642817, y_offset=0
+bd_11: sbend, l = 1.31330817709767, db_field = -0.990189900342083, b1_gradient = 43.3933933933934
+bd_11_p_out: patch, x_pitch = -0.01053668797836515, x_offset = 0.005617639099642817, y_offset = 0
+od0_11: drift, l = 0.07069852702581567
+
+
+o0f_12: drift, l = 0.07167094123604864
+bf_12_p_in: patch, x_pitch = -0.01414599501140355, x_offset = 0.0056180731687338415, y_offset = 0
+bf_12: sbend, l=2.38269760837842, db_field = -0.732732732732733, b1_gradient = -32.8078078078078
+bf_12_p_out: patch, x_pitch = -0.01414599501140355, x_offset = -0.0056180731687338415, y_offset = 0
+ofd_12: drift, l = 0.1413694682618643
+bd_12_p_in: patch, x_pitch = -0.01053668797836515, x_offset = -0.005617639099642817, y_offset=0
+bd_12: sbend, l = 1.31330817709767, db_field = -0.990189900342083, b1_gradient = 43.3933933933934
+bd_12_p_out: patch, x_pitch = -0.01053668797836515, x_offset = 0.005617639099642817, y_offset = 0
+od0_12: drift, l = 0.07069852702581567
+
+
+o0f_13: drift, l = 0.06967094123604864
+bf_13_p_in: patch, x_pitch = -0.01414599501140355, x_offset = 0.0056180731687338415, y_offset = 0
+bf_13: sbend, l=2.38269760837842, db_field = -0.732732732732733, b1_gradient = -32.8078078078078
+bf_13_p_out: patch, x_pitch = -0.01414599501140355, x_offset = -0.0056180731687338415, y_offset = 0
+ofd_13: drift, l = 0.1413694682618643
+bd_13_p_in: patch, x_pitch = -0.01053668797836515, x_offset = -0.005617639099642817, y_offset=0
+bd_13: sbend, l = 1.31330817709767, db_field = -0.990189900342083, b1_gradient = 43.3933933933934
+bd_13_p_out: patch, x_pitch = -0.01053668797836515, x_offset = 0.005617639099642817, y_offset = 0
+od0_13: drift, l = 0.07069852702581567
+
+
+o0f_14: drift, l = 0.07067094123604864
+bf_14_p_in: patch, x_pitch = -0.01414599501140355, x_offset = 0.0056180731687338415, y_offset = 0
+bf_14: sbend, l=2.38269760837842, db_field = -0.732732732732733, b1_gradient = -32.8078078078078
+bf_14_p_out: patch, x_pitch = -0.01414599501140355, x_offset = -0.0056180731687338415, y_offset = 0
+ofd_14: drift, l = 0.1413694682618643
+bd_14_p_in: patch, x_pitch = -0.01053668797836515, x_offset = -0.005617639099642817, y_offset=0
+bd_14: sbend, l = 1.31330817709767, db_field = -0.990189900342083, b1_gradient = 43.3933933933934
+bd_14_p_out: patch, x_pitch = -0.01053668797836515, x_offset = 0.005617639099642817, y_offset = 0
+od0_14: drift, l = 0.07169852702581567
+
+
+o0f_15: drift, l = 0.07067094123604864
+bf_15_p_in: patch, x_pitch = -0.01414599501140355, x_offset = 0.0056180731687338415, y_offset = 0
+bf_15: sbend, l=2.38269760837842, db_field = -0.732732732732733, b1_gradient = -32.8078078078078
+bf_15_p_out: patch, x_pitch = -0.01414599501140355, x_offset = -0.0056180731687338415, y_offset = 0
+ofd_15: drift, l = 0.1403694682618643
+bd_15_p_in: patch, x_pitch = -0.01053668797836515, x_offset = -0.005617639099642817, y_offset=0
+bd_15: sbend, l = 1.31330817709767, db_field = -0.990189900342083, b1_gradient = 43.3933933933934
+bd_15_p_out: patch, x_pitch = -0.01053668797836515, x_offset = 0.005617639099642817, y_offset = 0
+od0_15: drift, l = 0.07069852702581567
+
+
+o0f_16: drift, l = 0.07067094123604864
+bf_16_p_in: patch, x_pitch = -0.01414599501140355, x_offset = 0.0056180731687338415, y_offset = 0
+bf_16: sbend, l=2.38269760837842, db_field = -0.732732732732733, b1_gradient = -32.8078078078078
+bf_16_p_out: patch, x_pitch = -0.01414599501140355, x_offset = -0.0056180731687338415, y_offset = 0
+ofd_16: drift, l = 0.1413694682618643
+bd_16_p_in: patch, x_pitch = -0.01053668797836515, x_offset = -0.005617639099642817, y_offset=0
+bd_16: sbend, l = 1.31330817709767, db_field = -0.990189900342083, b1_gradient = 43.3933933933934
+bd_16_p_out: patch, x_pitch = -0.01053668797836515, x_offset = 0.005617639099642817, y_offset = 0
+od0_16: drift, l = 0.07069852702581567
+
+
+o0f_17: drift, l = 0.07067094123604864
+bf_17_p_in: patch, x_pitch = -0.01414599501140355, x_offset = 0.0056180731687338415, y_offset = 0
+bf_17: sbend, l=2.38269760837842, db_field = -0.732732732732733, b1_gradient = -32.8078078078078
+bf_17_p_out: patch, x_pitch = -0.01414599501140355, x_offset = -0.0056180731687338415, y_offset = 0
+ofd_17: drift, l = 0.1413694682618643
+bd_17_p_in: patch, x_pitch = -0.01053668797836515, x_offset = -0.005617639099642817, y_offset=0
+bd_17: sbend, l = 1.31330817709767, db_field = -0.990189900342083, b1_gradient = 43.3933933933934
+bd_17_p_out: patch, x_pitch = -0.01053668797836515, x_offset = 0.005617639099642817, y_offset = 0
+od0_17: drift, l = 0.07069852702581567
+
+
+o0f_18: drift, l = 0.07067094123604864
+bf_18_p_in: patch, x_pitch = -0.01414599501140355, x_offset = 0.0056180731687338415, y_offset = 0
+bf_18: sbend, l=2.38269760837842, db_field = -0.732732732732733, b1_gradient = -32.8078078078078
+bf_18_p_out: patch, x_pitch = -0.01414599501140355, x_offset = -0.0056180731687338415, y_offset = 0
+ofd_18: drift, l = 0.1413694682618643
+bd_18_p_in: patch, x_pitch = -0.01053668797836515, x_offset = -0.005617639099642817, y_offset=0
+bd_18: sbend, l = 1.31330817709767, db_field = -0.990189900342083, b1_gradient = 43.3933933933934
+bd_18_p_out: patch, x_pitch = -0.01053668797836515, x_offset = 0.005617639099642817, y_offset = 0
+od0_18: drift, l = 0.07069852702581567
+
+
+o0f_19: drift, l = 0.07067094123604864
+bf_19_p_in: patch, x_pitch = -0.01414599501140355, x_offset = 0.0056180731687338415, y_offset = 0
+bf_19: sbend, l=2.38269760837842, db_field = -0.732732732732733, b1_gradient = -32.8078078078078
+bf_19_p_out: patch, x_pitch = -0.01414599501140355, x_offset = -0.0056180731687338415, y_offset = 0
+ofd_19: drift, l = 0.1413694682618643
+bd_19_p_in: patch, x_pitch = -0.01053668797836515, x_offset = -0.005617639099642817, y_offset=0
+bd_19: sbend, l = 1.31330817709767, db_field = -0.990189900342083, b1_gradient = 43.3933933933934
+bd_19_p_out: patch, x_pitch = -0.01053668797836515, x_offset = 0.005617639099642817, y_offset = 0
+od0_19: drift, l = 0.07069852702581567
+
+
+o0f_20: drift, l = 0.07067094123604864
+bf_20_p_in: patch, x_pitch = -0.01414599501140355, x_offset = 0.0056180731687338415, y_offset = 0
+bf_20: sbend, l=2.38269760837842, db_field = -0.732732732732733, b1_gradient = -32.8078078078078
+bf_20_p_out: patch, x_pitch = -0.01414599501140355, x_offset = -0.0056180731687338415, y_offset = 0
+ofd_20: drift, l = 0.1413694682618643
+bd_20_p_in: patch, x_pitch = -0.01053668797836515, x_offset = -0.005617639099642817, y_offset=0
+bd_20: sbend, l = 1.31330817709767, db_field = -0.990189900342083, b1_gradient = 43.3933933933934
+bd_20_p_out: patch, x_pitch = -0.01053668797836515, x_offset = 0.005617639099642817, y_offset = 0
+od0_20: drift, l = 0.07069852702581567
+
+
+o0f_21: drift, l = 0.07067094123604864
+bf_21_p_in: patch, x_pitch = -0.01414599501140355, x_offset = 0.0056180731687338415, y_offset = -0.001
+bf_21: sbend, l=2.38269760837842, db_field = -0.732732732732733, b1_gradient = -32.8078078078078
+bf_21_p_out: patch, x_pitch = -0.01414599501140355, x_offset = -0.0056180731687338415, y_offset = -0.001
+ofd_21: drift, l = 0.1413694682618643
+bd_21_p_in: patch, x_pitch = -0.01053668797836515, x_offset = -0.005617639099642817, y_offset=0
+bd_21: sbend, l = 1.31330817709767, db_field = -0.990189900342083, b1_gradient = 43.3933933933934
+bd_21_p_out: patch, x_pitch = -0.01053668797836515, x_offset = 0.005617639099642817, y_offset = 0
+od0_21: drift, l = 0.07069852702581567
+
+
+o0f_22: drift, l = 0.06967094123604864
+bf_22_p_in: patch, x_pitch = -0.01414599501140355, x_offset = 0.0056180731687338415, y_offset = 0
+bf_22: sbend, l=2.38269760837842, db_field = -0.732732732732733, b1_gradient = -32.8078078078078
+bf_22_p_out: patch, x_pitch = -0.01414599501140355, x_offset = -0.0056180731687338415, y_offset = 0
+ofd_22: drift, l = 0.1413694682618643
+bd_22_p_in: patch, x_pitch = -0.01053668797836515, x_offset = -0.005617639099642817, y_offset=0
+bd_22: sbend, l = 1.31330817709767, db_field = -0.990189900342083, b1_gradient = 43.3933933933934
+bd_22_p_out: patch, x_pitch = -0.01053668797836515, x_offset = 0.005617639099642817, y_offset = 0
+od0_22: drift, l = 0.07069852702581567
+
+
+o0f_23: drift, l = 0.07067094123604864
+bf_23_p_in: patch, x_pitch = -0.01414599501140355, x_offset = 0.0056180731687338415, y_offset = 0
+bf_23: sbend, l=2.38269760837842, db_field = -0.732732732732733, b1_gradient = -32.8078078078078
+bf_23_p_out: patch, x_pitch = -0.01414599501140355, x_offset = -0.0056180731687338415, y_offset = 0
+ofd_23: drift, l = 0.1413694682618643
+bd_23_p_in: patch, x_pitch = -0.01053668797836515, x_offset = -0.005617639099642817, y_offset=0
+bd_23: sbend, l = 1.31330817709767, db_field = -0.990189900342083, b1_gradient = 43.3933933933934
+bd_23_p_out: patch, x_pitch = -0.01053668797836515, x_offset = 0.005617639099642817, y_offset = 0
+od0_23: drift, l = 0.07069852702581567
+
+
+o0f_24: drift, l = 0.07067094123604864
+bf_24_p_in: patch, x_pitch = -0.01414599501140355, x_offset = 0.0056180731687338415, y_offset = 0
+bf_24: sbend, l=2.38269760837842, db_field = -0.732732732732733, b1_gradient = -32.8078078078078
+bf_24_p_out: patch, x_pitch = -0.01414599501140355, x_offset = -0.0056180731687338415, y_offset = 0
+ofd_24: drift, l = 0.1413694682618643
+bd_24_p_in: patch, x_pitch = -0.01053668797836515, x_offset = -0.005617639099642817, y_offset=0
+bd_24: sbend, l = 1.31330817709767, db_field = -0.990189900342083, b1_gradient = 43.3933933933934
+bd_24_p_out: patch, x_pitch = -0.01053668797836515, x_offset = 0.005617639099642817, y_offset = 0
+od0_24: drift, l = 0.07169852702581567
+
+
+o0f_25: drift, l = 0.07067094123604864
+bf_25_p_in: patch, x_pitch = -0.01414599501140355, x_offset = 0.0056180731687338415, y_offset = 0
+bf_25: sbend, l=2.38269760837842, db_field = -0.732732732732733, b1_gradient = -32.8078078078078
+bf_25_p_out: patch, x_pitch = -0.01414599501140355, x_offset = -0.0056180731687338415, y_offset = 0
+ofd_25: drift, l = 0.1413694682618643
+bd_25_p_in: patch, x_pitch = -0.01053668797836515, x_offset = -0.005617639099642817, y_offset=0
+bd_25: sbend, l = 1.31330817709767, db_field = -0.990189900342083, b1_gradient = 43.3933933933934
+bd_25_p_out: patch, x_pitch = -0.01053668797836515, x_offset = 0.005617639099642817, y_offset = 0
+od0_25: drift, l = 0.07069852702581567
+
+
+o0f_26: drift, l = 0.07067094123604864
+bf_26_p_in: patch, x_pitch = -0.01414599501140355, x_offset = 0.0056180731687338415, y_offset = 0
+bf_26: sbend, l=2.38269760837842, db_field = -0.732732732732733, b1_gradient = -32.8078078078078
+bf_26_p_out: patch, x_pitch = -0.01414599501140355, x_offset = -0.0056180731687338415, y_offset = 0
+ofd_26: drift, l = 0.1413694682618643
+bd_26_p_in: patch, x_pitch = -0.01053668797836515, x_offset = -0.005617639099642817, y_offset=0
+bd_26: sbend, l = 1.31330817709767, db_field = -0.990189900342083, b1_gradient = 43.3933933933934
+bd_26_p_out: patch, x_pitch = -0.01053668797836515, x_offset = 0.005617639099642817, y_offset = 0
+od0_26: drift, l = 0.07069852702581567
+
+
+o0f_27: drift, l = 0.07067094123604864
+bf_27_p_in: patch, x_pitch = -0.01414599501140355, x_offset = 0.0056180731687338415, y_offset = 0
+bf_27: sbend, l=2.38269760837842, db_field = -0.732732732732733, b1_gradient = -32.8078078078078
+bf_27_p_out: patch, x_pitch = -0.01414599501140355, x_offset = -0.0056180731687338415, y_offset = 0
+ofd_27: drift, l = 0.1423694682618643
+bd_27_p_in: patch, x_pitch = -0.01053668797836515, x_offset = -0.005617639099642817, y_offset=0
+bd_27: sbend, l = 1.31330817709767, db_field = -0.990189900342083, b1_gradient = 43.3933933933934
+bd_27_p_out: patch, x_pitch = -0.01053668797836515, x_offset = 0.005617639099642817, y_offset = 0
+od0_27: drift, l = 0.07169852702581567
+
+
+o0f_28: drift, l = 0.07067094123604864
+bf_28_p_in: patch, x_pitch = -0.01414599501140355, x_offset = 0.0056180731687338415, y_offset = 0
+bf_28: sbend, l=2.38369760837842, db_field = -0.732732732732733, b1_gradient = -32.8078078078078
+bf_28_p_out: patch, x_pitch = -0.01414599501140355, x_offset = -0.0056180731687338415, y_offset = 0
+ofd_28: drift, l = 0.1413694682618643
+bd_28_p_in: patch, x_pitch = -0.01053668797836515, x_offset = -0.005617639099642817, y_offset=0
+bd_28: sbend, l = 1.31330817709767, db_field = -0.990189900342083, b1_gradient = 43.3933933933934
+bd_28_p_out: patch, x_pitch = -0.01053668797836515, x_offset = 0.005617639099642817, y_offset = 0
+od0_28: drift, l = 0.07069852702581567
+
+
+o0f_29: drift, l = 0.07067094123604864
+bf_29_p_in: patch, x_pitch = -0.01414599501140355, x_offset = 0.0056180731687338415, y_offset = 0
+bf_29: sbend, l=2.38269760837842, db_field = -0.732732732732733, b1_gradient = -32.8078078078078
+bf_29_p_out: patch, x_pitch = -0.01414599501140355, x_offset = -0.0056180731687338415, y_offset = 0
+ofd_29: drift, l = 0.1403694682618643
+bd_29_p_in: patch, x_pitch = -0.01053668797836515, x_offset = -0.005617639099642817, y_offset=0
+bd_29: sbend, l = 1.31330817709767, db_field = -0.990189900342083, b1_gradient = 43.3933933933934
+bd_29_p_out: patch, x_pitch = -0.01053668797836515, x_offset = 0.005617639099642817, y_offset = 0
+od0_29: drift, l = 0.06969852702581567
+
+
+o0f_30: drift, l = 0.07067094123604864
+bf_30_p_in: patch, x_pitch = -0.01414599501140355, x_offset = 0.0056180731687338415, y_offset = 0
+bf_30: sbend, l=2.38269760837842, db_field = -0.732732732732733, b1_gradient = -32.8078078078078
+bf_30_p_out: patch, x_pitch = -0.01414599501140355, x_offset = -0.0056180731687338415, y_offset = 0
+ofd_30: drift, l = 0.1413694682618643
+bd_30_p_in: patch, x_pitch = -0.01053668797836515, x_offset = -0.005617639099642817, y_offset=0
+bd_30: sbend, l = 1.31330817709767, db_field = -0.990189900342083, b1_gradient = 43.3933933933934
+bd_30_p_out: patch, x_pitch = -0.01053668797836515, x_offset = 0.005617639099642817, y_offset = 0
+od0_30: drift, l = 0.07069852702581567
+
+
+o0f_31: drift, l = 0.07167094123604864
+bf_31_p_in: patch, x_pitch = -0.01414599501140355, x_offset = 0.0056180731687338415, y_offset = 0.001
+bf_31: sbend, l=2.38269760837842, db_field = -0.732732732732733, b1_gradient = -32.8078078078078
+bf_31_p_out: patch, x_pitch = -0.01414599501140355, x_offset = -0.0056180731687338415, y_offset = 0.001
+ofd_31: drift, l = 0.1413694682618643
+bd_31_p_in: patch, x_pitch = -0.01053668797836515, x_offset = -0.005617639099642817, y_offset=0
+bd_31: sbend, l = 1.31330817709767, db_field = -0.990189900342083, b1_gradient = 43.3933933933934
+bd_31_p_out: patch, x_pitch = -0.01053668797836515, x_offset = 0.005617639099642817, y_offset = 0
+od0_31: drift, l = 0.07069852702581567
+
+
+o0f_32: drift, l = 0.07067094123604864
+bf_32_p_in: patch, x_pitch = -0.01414599501140355, x_offset = 0.0056180731687338415, y_offset = 0
+bf_32: sbend, l=2.38269760837842, db_field = -0.732732732732733, b1_gradient = -32.8078078078078
+bf_32_p_out: patch, x_pitch = -0.01414599501140355, x_offset = -0.0056180731687338415, y_offset = 0
+ofd_32: drift, l = 0.1413694682618643
+bd_32_p_in: patch, x_pitch = -0.01053668797836515, x_offset = -0.005617639099642817, y_offset=0
+bd_32: sbend, l = 1.31330817709767, db_field = -0.990189900342083, b1_gradient = 43.3933933933934
+bd_32_p_out: patch, x_pitch = -0.01053668797836515, x_offset = 0.005617639099642817, y_offset = 0
+od0_32: drift, l = 0.07069852702581567
+
+
+o0f_33: drift, l = 0.07067094123604864
+bf_33_p_in: patch, x_pitch = -0.01414599501140355, x_offset = 0.0056180731687338415, y_offset = 0
+bf_33: sbend, l=2.38269760837842, db_field = -0.732732732732733, b1_gradient = -32.8078078078078
+bf_33_p_out: patch, x_pitch = -0.01414599501140355, x_offset = -0.0056180731687338415, y_offset = 0
+ofd_33: drift, l = 0.1423694682618643
+bd_33_p_in: patch, x_pitch = -0.01053668797836515, x_offset = -0.005617639099642817, y_offset=0
+bd_33: sbend, l = 1.31330817709767, db_field = -0.990189900342083, b1_gradient = 43.3933933933934
+bd_33_p_out: patch, x_pitch = -0.01053668797836515, x_offset = 0.005617639099642817, y_offset = 0
+od0_33: drift, l = 0.07069852702581567
+
+
+o0f_34: drift, l = 0.07067094123604864
+bf_34_p_in: patch, x_pitch = -0.01414599501140355, x_offset = 0.0056180731687338415, y_offset = 0
+bf_34: sbend, l=2.38269760837842, db_field = -0.732732732732733, b1_gradient = -32.8078078078078
+bf_34_p_out: patch, x_pitch = -0.01414599501140355, x_offset = -0.0056180731687338415, y_offset = 0
+ofd_34: drift, l = 0.1403694682618643
+bd_34_p_in: patch, x_pitch = -0.01053668797836515, x_offset = -0.005617639099642817, y_offset=0
+bd_34: sbend, l = 1.31330817709767, db_field = -0.990189900342083, b1_gradient = 43.3933933933934
+bd_34_p_out: patch, x_pitch = -0.01053668797836515, x_offset = 0.005617639099642817, y_offset = 0
+od0_34: drift, l = 0.06969852702581567
+
+
+o0f_35: drift, l = 0.06967094123604864
+bf_35_p_in: patch, x_pitch = -0.01414599501140355, x_offset = 0.0056180731687338415, y_offset = 0
+bf_35: sbend, l=2.38269760837842, db_field = -0.732732732732733, b1_gradient = -32.8078078078078
+bf_35_p_out: patch, x_pitch = -0.01414599501140355, x_offset = -0.0056180731687338415, y_offset = 0
+ofd_35: drift, l = 0.1413694682618643
+bd_35_p_in: patch, x_pitch = -0.01053668797836515, x_offset = -0.005617639099642817, y_offset=0
+bd_35: sbend, l = 1.31330817709767, db_field = -0.990189900342083, b1_gradient = 43.3933933933934
+bd_35_p_out: patch, x_pitch = -0.01053668797836515, x_offset = 0.005617639099642817, y_offset = 0
+od0_35: drift, l = 0.07069852702581567
+
+
+o0f_36: drift, l = 0.07067094123604864
+bf_36_p_in: patch, x_pitch = -0.01414599501140355, x_offset = 0.0056180731687338415, y_offset = 0
+bf_36: sbend, l=2.38269760837842, db_field = -0.732732732732733, b1_gradient = -32.8078078078078
+bf_36_p_out: patch, x_pitch = -0.01414599501140355, x_offset = -0.0056180731687338415, y_offset = 0
+ofd_36: drift, l = 0.1413694682618643
+bd_36_p_in: patch, x_pitch = -0.01053668797836515, x_offset = -0.005617639099642817, y_offset=0
+bd_36: sbend, l = 1.31330817709767, db_field = -0.990189900342083, b1_gradient = 43.3933933933934
+bd_36_p_out: patch, x_pitch = -0.01053668797836515, x_offset = 0.005617639099642817, y_offset = 0
+od0_36: drift, l = 0.06969852702581567
+
+
+o0f_37: drift, l = 0.07067094123604864
+bf_37_p_in: patch, x_pitch = -0.01414599501140355, x_offset = 0.0056180731687338415, y_offset = 0
+bf_37: sbend, l=2.38269760837842, db_field = -0.732732732732733, b1_gradient = -32.8078078078078
+bf_37_p_out: patch, x_pitch = -0.01414599501140355, x_offset = -0.0056180731687338415, y_offset = 0
+ofd_37: drift, l = 0.1413694682618643
+bd_37_p_in: patch, x_pitch = -0.01053668797836515, x_offset = -0.005617639099642817, y_offset=0
+bd_37: sbend, l = 1.31330817709767, db_field = -0.990189900342083, b1_gradient = 43.3933933933934
+bd_37_p_out: patch, x_pitch = -0.01053668797836515, x_offset = 0.005617639099642817, y_offset = 0
+od0_37: drift, l = 0.06969852702581567
+
+
+o0f_38: drift, l = 0.07067094123604864
+bf_38_p_in: patch, x_pitch = -0.01414599501140355, x_offset = 0.0056180731687338415, y_offset = -0.001
+bf_38: sbend, l=2.38269760837842, db_field = -0.732732732732733, b1_gradient = -32.8078078078078
+bf_38_p_out: patch, x_pitch = -0.01414599501140355, x_offset = -0.0056180731687338415, y_offset = -0.001
+ofd_38: drift, l = 0.1423694682618643
+bd_38_p_in: patch, x_pitch = -0.01053668797836515, x_offset = -0.005617639099642817, y_offset=0
+bd_38: sbend, l = 1.31330817709767, db_field = -0.990189900342083, b1_gradient = 43.3933933933934
+bd_38_p_out: patch, x_pitch = -0.01053668797836515, x_offset = 0.005617639099642817, y_offset = 0
+od0_38: drift, l = 0.07069852702581567
+
+
+o0f_39: drift, l = 0.07067094123604864
+bf_39_p_in: patch, x_pitch = -0.01414599501140355, x_offset = 0.0056180731687338415, y_offset = 0
+bf_39: sbend, l=2.38269760837842, db_field = -0.732732732732733, b1_gradient = -32.8078078078078
+bf_39_p_out: patch, x_pitch = -0.01414599501140355, x_offset = -0.0056180731687338415, y_offset = 0
+ofd_39: drift, l = 0.1413694682618643
+bd_39_p_in: patch, x_pitch = -0.01053668797836515, x_offset = -0.005617639099642817, y_offset=0
+bd_39: sbend, l = 1.31330817709767, db_field = -0.990189900342083, b1_gradient = 43.383393393393405
+bd_39_p_out: patch, x_pitch = -0.01053668797836515, x_offset = 0.005617639099642817, y_offset = 0
+od0_39: drift, l = 0.07069852702581567
+
+
+o0f_40: drift, l = 0.07067094123604864
+bf_40_p_in: patch, x_pitch = -0.01412599501140355, x_offset = 0.0056180731687338415, y_offset = 0
+bf_40: sbend, l=2.38269760837842, db_field = -0.732732732732733, b1_gradient = -32.8078078078078
+bf_40_p_out: patch, x_pitch = -0.01412599501140355, x_offset = -0.0056180731687338415, y_offset = 0
+ofd_40: drift, l = 0.1413694682618643
+bd_40_p_in: patch, x_pitch = -0.01053668797836515, x_offset = -0.005617639099642817, y_offset=0
+bd_40: sbend, l = 1.31330817709767, db_field = -0.990189900342083, b1_gradient = 43.3933933933934
+bd_40_p_out: patch, x_pitch = -0.01053668797836515, x_offset = 0.005617639099642817, y_offset = 0
+od0_40: drift, l = 0.07069852702581567
+
+
+o0f_41: drift, l = 0.07067094123604864
+bf_41_p_in: patch, x_pitch = -0.01414599501140355, x_offset = 0.0056180731687338415, y_offset = 0
+bf_41: sbend, l=2.38269760837842, db_field = -0.732732732732733, b1_gradient = -32.8078078078078
+bf_41_p_out: patch, x_pitch = -0.01414599501140355, x_offset = -0.0056180731687338415, y_offset = 0
+ofd_41: drift, l = 0.1403694682618643
+bd_41_p_in: patch, x_pitch = -0.01053668797836515, x_offset = -0.005617639099642817, y_offset=0
+bd_41: sbend, l = 1.31330817709767, db_field = -0.990189900342083, b1_gradient = 43.3933933933934
+bd_41_p_out: patch, x_pitch = -0.01053668797836515, x_offset = 0.005617639099642817, y_offset = 0
+od0_41: drift, l = 0.07069852702581567
+
+
+o0f_42: drift, l = 0.07067094123604864
+bf_42_p_in: patch, x_pitch = -0.01414599501140355, x_offset = 0.0056180731687338415, y_offset = 0
+bf_42: sbend, l=2.38269760837842, db_field = -0.732732732732733, b1_gradient = -32.8078078078078
+bf_42_p_out: patch, x_pitch = -0.01414599501140355, x_offset = -0.0056180731687338415, y_offset = 0
+ofd_42: drift, l = 0.1413694682618643
+bd_42_p_in: patch, x_pitch = -0.01053668797836515, x_offset = -0.005617639099642817, y_offset=0
+bd_42: sbend, l = 1.31330817709767, db_field = -0.990189900342083, b1_gradient = 43.3933933933934
+bd_42_p_out: patch, x_pitch = -0.01053668797836515, x_offset = 0.005617639099642817, y_offset = 0
+od0_42: drift, l = 0.07069852702581567
+
+
+o0f_43: drift, l = 0.07067094123604864
+bf_43_p_in: patch, x_pitch = -0.01414599501140355, x_offset = 0.0056180731687338415, y_offset = 0
+bf_43: sbend, l=2.38269760837842, db_field = -0.732732732732733, b1_gradient = -32.8078078078078
+bf_43_p_out: patch, x_pitch = -0.01414599501140355, x_offset = -0.0056180731687338415, y_offset = 0
+ofd_43: drift, l = 0.1423694682618643
+bd_43_p_in: patch, x_pitch = -0.01053668797836515, x_offset = -0.005617639099642817, y_offset=0
+bd_43: sbend, l = 1.31330817709767, db_field = -0.990189900342083, b1_gradient = 43.3933933933934
+bd_43_p_out: patch, x_pitch = -0.01053668797836515, x_offset = 0.005617639099642817, y_offset = 0
+od0_43: drift, l = 0.07069852702581567
+
+
+o0f_44: drift, l = 0.07067094123604864
+bf_44_p_in: patch, x_pitch = -0.01414599501140355, x_offset = 0.0056180731687338415, y_offset = 0
+bf_44: sbend, l=2.38369760837842, db_field = -0.732732732732733, b1_gradient = -32.8078078078078
+bf_44_p_out: patch, x_pitch = -0.01414599501140355, x_offset = -0.0056180731687338415, y_offset = 0
+ofd_44: drift, l = 0.1413694682618643
+bd_44_p_in: patch, x_pitch = -0.01053668797836515, x_offset = -0.005617639099642817, y_offset=0
+bd_44: sbend, l = 1.31330817709767, db_field = -0.990189900342083, b1_gradient = 43.3933933933934
+bd_44_p_out: patch, x_pitch = -0.01053668797836515, x_offset = 0.005617639099642817, y_offset = 0
+od0_44: drift, l = 0.07069852702581567
+
+
+o0f_45: drift, l = 0.07067094123604864
+bf_45_p_in: patch, x_pitch = -0.01414599501140355, x_offset = 0.0056180731687338415, y_offset = 0
+bf_45: sbend, l=2.38269760837842, db_field = -0.732732732732733, b1_gradient = -32.8078078078078
+bf_45_p_out: patch, x_pitch = -0.01414599501140355, x_offset = -0.0056180731687338415, y_offset = 0
+ofd_45: drift, l = 0.1413694682618643
+bd_45_p_in: patch, x_pitch = -0.01053668797836515, x_offset = -0.005617639099642817, y_offset=0
+bd_45: sbend, l = 1.31330817709767, db_field = -0.990189900342083, b1_gradient = 43.3933933933934
+bd_45_p_out: patch, x_pitch = -0.01053668797836515, x_offset = 0.005617639099642817, y_offset = 0
+od0_45: drift, l = 0.07169852702581567
+
+
+o0f_46: drift, l = 0.07067094123604864
+bf_46_p_in: patch, x_pitch = -0.01414599501140355, x_offset = 0.0056180731687338415, y_offset = 0
+bf_46: sbend, l=2.38269760837842, db_field = -0.732732732732733, b1_gradient = -32.8078078078078
+bf_46_p_out: patch, x_pitch = -0.01414599501140355, x_offset = -0.0056180731687338415, y_offset = 0
+ofd_46: drift, l = 0.1413694682618643
+bd_46_p_in: patch, x_pitch = -0.01053668797836515, x_offset = -0.005617639099642817, y_offset=0
+bd_46: sbend, l = 1.31330817709767, db_field = -0.990189900342083, b1_gradient = 43.3933933933934
+bd_46_p_out: patch, x_pitch = -0.01053668797836515, x_offset = 0.005617639099642817, y_offset = 0
+od0_46: drift, l = 0.07069852702581567
+
+
+o0f_47: drift, l = 0.07067094123604864
+bf_47_p_in: patch, x_pitch = -0.01414599501140355, x_offset = 0.0056180731687338415, y_offset = 0
+bf_47: sbend, l=2.38269760837842, db_field = -0.732732732732733, b1_gradient = -32.8078078078078
+bf_47_p_out: patch, x_pitch = -0.01414599501140355, x_offset = -0.0056180731687338415, y_offset = 0
+ofd_47: drift, l = 0.1413694682618643
+bd_47_p_in: patch, x_pitch = -0.01053668797836515, x_offset = -0.005617639099642817, y_offset=0
+bd_47: sbend, l = 1.31330817709767, db_field = -0.990189900342083, b1_gradient = 43.3933933933934
+bd_47_p_out: patch, x_pitch = -0.01053668797836515, x_offset = 0.005617639099642817, y_offset = 0
+od0_47: drift, l = 0.07069852702581567
+
+
+o0f_48: drift, l = 0.07067094123604864
+bf_48_p_in: patch, x_pitch = -0.01414599501140355, x_offset = 0.0056180731687338415, y_offset = 0
+bf_48: sbend, l=2.38169760837842, db_field = -0.732732732732733, b1_gradient = -32.8078078078078
+bf_48_p_out: patch, x_pitch = -0.01414599501140355, x_offset = -0.0056180731687338415, y_offset = 0
+ofd_48: drift, l = 0.1413694682618643
+bd_48_p_in: patch, x_pitch = -0.01053668797836515, x_offset = -0.005617639099642817, y_offset=0
+bd_48: sbend, l = 1.31330817709767, db_field = -0.990189900342083, b1_gradient = 43.3933933933934
+bd_48_p_out: patch, x_pitch = -0.01053668797836515, x_offset = 0.005617639099642817, y_offset = 0
+od0_48: drift, l = 0.07069852702581567
+
+
+o0f_49: drift, l = 0.07067094123604864
+bf_49_p_in: patch, x_pitch = -0.01414599501140355, x_offset = 0.0056180731687338415, y_offset = 0
+bf_49: sbend, l=2.38269760837842, db_field = -0.732732732732733, b1_gradient = -32.8078078078078
+bf_49_p_out: patch, x_pitch = -0.01414599501140355, x_offset = -0.0056180731687338415, y_offset = 0
+ofd_49: drift, l = 0.1413694682618643
+bd_49_p_in: patch, x_pitch = -0.01053668797836515, x_offset = -0.005617639099642817, y_offset=0
+bd_49: sbend, l = 1.31430817709767, db_field = -0.990189900342083, b1_gradient = 43.3933933933934
+bd_49_p_out: patch, x_pitch = -0.01053668797836515, x_offset = 0.005617639099642817, y_offset = 0
+od0_49: drift, l = 0.07069852702581567
+
+
+o0f_50: drift, l = 0.07067094123604864
+bf_50_p_in: patch, x_pitch = -0.01414599501140355, x_offset = 0.0056180731687338415, y_offset = 0
+bf_50: sbend, l=2.38269760837842, db_field = -0.732732732732733, b1_gradient = -32.8078078078078
+bf_50_p_out: patch, x_pitch = -0.01414599501140355, x_offset = -0.0056180731687338415, y_offset = 0
+ofd_50: drift, l = 0.1413694682618643
+bd_50_p_in: patch, x_pitch = -0.01053668797836515, x_offset = -0.005617639099642817, y_offset=0
+bd_50: sbend, l = 1.31330817709767, db_field = -0.990189900342083, b1_gradient = 43.3933933933934
+bd_50_p_out: patch, x_pitch = -0.01053668797836515, x_offset = 0.005617639099642817, y_offset = 0
+od0_50: drift, l = 0.07069852702581567
+
+
+o0f_51: drift, l = 0.07067094123604864
+bf_51_p_in: patch, x_pitch = -0.01414599501140355, x_offset = 0.0056180731687338415, y_offset = 0
+bf_51: sbend, l=2.38169760837842, db_field = -0.732732732732733, b1_gradient = -32.8078078078078
+bf_51_p_out: patch, x_pitch = -0.01414599501140355, x_offset = -0.0056180731687338415, y_offset = 0
+ofd_51: drift, l = 0.1413694682618643
+bd_51_p_in: patch, x_pitch = -0.01053668797836515, x_offset = -0.005617639099642817, y_offset=0
+bd_51: sbend, l = 1.31330817709767, db_field = -0.990189900342083, b1_gradient = 43.3933933933934
+bd_51_p_out: patch, x_pitch = -0.01053668797836515, x_offset = 0.005617639099642817, y_offset = 0
+od0_51: drift, l = 0.07069852702581567
+
+
+o0f_52: drift, l = 0.07067094123604864
+bf_52_p_in: patch, x_pitch = -0.01414599501140355, x_offset = 0.0056180731687338415, y_offset = 0
+bf_52: sbend, l=2.38269760837842, db_field = -0.732732732732733, b1_gradient = -32.8078078078078
+bf_52_p_out: patch, x_pitch = -0.01414599501140355, x_offset = -0.0056180731687338415, y_offset = 0
+ofd_52: drift, l = 0.1413694682618643
+bd_52_p_in: patch, x_pitch = -0.01053668797836515, x_offset = -0.005617639099642817, y_offset=0
+bd_52: sbend, l = 1.31330817709767, db_field = -0.990189900342083, b1_gradient = 43.3933933933934
+bd_52_p_out: patch, x_pitch = -0.01053668797836515, x_offset = 0.005617639099642817, y_offset = 0
+od0_52: drift, l = 0.06969852702581567
+
+
+o0f_53: drift, l = 0.07067094123604864
+bf_53_p_in: patch, x_pitch = -0.01414599501140355, x_offset = 0.0056180731687338415, y_offset = 0.001
+bf_53: sbend, l=2.38269760837842, db_field = -0.732732732732733, b1_gradient = -32.8078078078078
+bf_53_p_out: patch, x_pitch = -0.01414599501140355, x_offset = -0.0056180731687338415, y_offset = 0.001
+ofd_53: drift, l = 0.1413694682618643
+bd_53_p_in: patch, x_pitch = -0.01053668797836515, x_offset = -0.005617639099642817, y_offset=0
+bd_53: sbend, l = 1.31330817709767, db_field = -0.990189900342083, b1_gradient = 43.3933933933934
+bd_53_p_out: patch, x_pitch = -0.01053668797836515, x_offset = 0.005617639099642817, y_offset = 0
+od0_53: drift, l = 0.07069852702581567
+
+
+o0f_54: drift, l = 0.07067094123604864
+bf_54_p_in: patch, x_pitch = -0.01414599501140355, x_offset = 0.0056180731687338415, y_offset = 0
+bf_54: sbend, l=2.38269760837842, db_field = -0.732732732732733, b1_gradient = -32.8078078078078
+bf_54_p_out: patch, x_pitch = -0.01414599501140355, x_offset = -0.0056180731687338415, y_offset = 0
+ofd_54: drift, l = 0.1403694682618643
+bd_54_p_in: patch, x_pitch = -0.01053668797836515, x_offset = -0.005617639099642817, y_offset=0
+bd_54: sbend, l = 1.31330817709767, db_field = -0.990189900342083, b1_gradient = 43.3933933933934
+bd_54_p_out: patch, x_pitch = -0.01053668797836515, x_offset = 0.005617639099642817, y_offset = 0
+od0_54: drift, l = 0.07069852702581567
+
+
+o0f_55: drift, l = 0.07067094123604864
+bf_55_p_in: patch, x_pitch = -0.01414599501140355, x_offset = 0.0056180731687338415, y_offset = 0
+bf_55: sbend, l=2.38269760837842, db_field = -0.732732732732733, b1_gradient = -32.8078078078078
+bf_55_p_out: patch, x_pitch = -0.01414599501140355, x_offset = -0.0056180731687338415, y_offset = 0
+ofd_55: drift, l = 0.1413694682618643
+bd_55_p_in: patch, x_pitch = -0.01053668797836515, x_offset = -0.005617639099642817, y_offset=0
+bd_55: sbend, l = 1.31330817709767, db_field = -0.990189900342083, b1_gradient = 43.3933933933934
+bd_55_p_out: patch, x_pitch = -0.01053668797836515, x_offset = 0.005617639099642817, y_offset = 0
+od0_55: drift, l = 0.07069852702581567
+
+
+o0f_56: drift, l = 0.07067094123604864
+bf_56_p_in: patch, x_pitch = -0.01414599501140355, x_offset = 0.0056180731687338415, y_offset = 0
+bf_56: sbend, l=2.38169760837842, db_field = -0.732732732732733, b1_gradient = -32.8078078078078
+bf_56_p_out: patch, x_pitch = -0.01414599501140355, x_offset = -0.0056180731687338415, y_offset = 0
+ofd_56: drift, l = 0.1413694682618643
+bd_56_p_in: patch, x_pitch = -0.01053668797836515, x_offset = -0.005617639099642817, y_offset=0
+bd_56: sbend, l = 1.31330817709767, db_field = -0.990189900342083, b1_gradient = 43.3933933933934
+bd_56_p_out: patch, x_pitch = -0.01053668797836515, x_offset = 0.005617639099642817, y_offset = 0
+od0_56: drift, l = 0.07069852702581567
+
+
+o0f_57: drift, l = 0.07067094123604864
+bf_57_p_in: patch, x_pitch = -0.01414599501140355, x_offset = 0.0056180731687338415, y_offset = 0
+bf_57: sbend, l=2.38269760837842, db_field = -0.732732732732733, b1_gradient = -32.8078078078078
+bf_57_p_out: patch, x_pitch = -0.01414599501140355, x_offset = -0.0056180731687338415, y_offset = 0
+ofd_57: drift, l = 0.1413694682618643
+bd_57_p_in: patch, x_pitch = -0.01053668797836515, x_offset = -0.005617639099642817, y_offset=0
+bd_57: sbend, l = 1.31330817709767, db_field = -0.990189900342083, b1_gradient = 43.3933933933934
+bd_57_p_out: patch, x_pitch = -0.01053668797836515, x_offset = 0.005617639099642817, y_offset = 0
+od0_57: drift, l = 0.07069852702581567
+
+
+o0f_58: drift, l = 0.07067094123604864
+bf_58_p_in: patch, x_pitch = -0.01414599501140355, x_offset = 0.0056180731687338415, y_offset = 0
+bf_58: sbend, l=2.38269760837842, db_field = -0.732732732732733, b1_gradient = -32.8078078078078
+bf_58_p_out: patch, x_pitch = -0.01414599501140355, x_offset = -0.0056180731687338415, y_offset = 0
+ofd_58: drift, l = 0.1423694682618643
+bd_58_p_in: patch, x_pitch = -0.01053668797836515, x_offset = -0.005617639099642817, y_offset=0
+bd_58: sbend, l = 1.31330817709767, db_field = -0.990189900342083, b1_gradient = 43.3933933933934
+bd_58_p_out: patch, x_pitch = -0.01053668797836515, x_offset = 0.005617639099642817, y_offset = 0
+od0_58: drift, l = 0.07069852702581567
+
+
+o0f_59: drift, l = 0.07067094123604864
+bf_59_p_in: patch, x_pitch = -0.01414599501140355, x_offset = 0.0056180731687338415, y_offset = 0
+bf_59: sbend, l=2.38369760837842, db_field = -0.732732732732733, b1_gradient = -32.8078078078078
+bf_59_p_out: patch, x_pitch = -0.01414599501140355, x_offset = -0.0056180731687338415, y_offset = 0
+ofd_59: drift, l = 0.1413694682618643
+bd_59_p_in: patch, x_pitch = -0.01053668797836515, x_offset = -0.005617639099642817, y_offset=0
+bd_59: sbend, l = 1.31330817709767, db_field = -0.990189900342083, b1_gradient = 43.3933933933934
+bd_59_p_out: patch, x_pitch = -0.01053668797836515, x_offset = 0.005617639099642817, y_offset = 0
+od0_59: drift, l = 0.07069852702581567
+
+
+o0f_60: drift, l = 0.07067094123604864
+bf_60_p_in: patch, x_pitch = -0.01414599501140355, x_offset = 0.0056180731687338415, y_offset = 0
+bf_60: sbend, l=2.38269760837842, db_field = -0.732732732732733, b1_gradient = -32.8078078078078
+bf_60_p_out: patch, x_pitch = -0.01414599501140355, x_offset = -0.0056180731687338415, y_offset = 0
+ofd_60: drift, l = 0.1413694682618643
+bd_60_p_in: patch, x_pitch = -0.01053668797836515, x_offset = -0.005617639099642817, y_offset=0
+bd_60: sbend, l = 1.31330817709767, db_field = -0.990189900342083, b1_gradient = 43.3933933933934
+bd_60_p_out: patch, x_pitch = -0.01053668797836515, x_offset = 0.005617639099642817, y_offset = 0
+od0_60: drift, l = 0.07069852702581567
+
+
+o0f_61: drift, l = 0.07067094123604864
+bf_61_p_in: patch, x_pitch = -0.01414599501140355, x_offset = 0.0056180731687338415, y_offset = 0
+bf_61: sbend, l=2.38269760837842, db_field = -0.732732732732733, b1_gradient = -32.8078078078078
+bf_61_p_out: patch, x_pitch = -0.01414599501140355, x_offset = -0.0056180731687338415, y_offset = 0
+ofd_61: drift, l = 0.1413694682618643
+bd_61_p_in: patch, x_pitch = -0.01053668797836515, x_offset = -0.005617639099642817, y_offset=0
+bd_61: sbend, l = 1.31330817709767, db_field = -0.990189900342083, b1_gradient = 43.3933933933934
+bd_61_p_out: patch, x_pitch = -0.01053668797836515, x_offset = 0.005617639099642817, y_offset = 0
+od0_61: drift, l = 0.07169852702581567
+
+
+o0f_62: drift, l = 0.07067094123604864
+bf_62_p_in: patch, x_pitch = -0.01414599501140355, x_offset = 0.0056180731687338415, y_offset = 0
+bf_62: sbend, l=2.38369760837842, db_field = -0.732732732732733, b1_gradient = -32.8078078078078
+bf_62_p_out: patch, x_pitch = -0.01414599501140355, x_offset = -0.0056180731687338415, y_offset = 0
+ofd_62: drift, l = 0.1403694682618643
+bd_62_p_in: patch, x_pitch = -0.01053668797836515, x_offset = -0.005617639099642817, y_offset=0
+bd_62: sbend, l = 1.31330817709767, db_field = -0.990189900342083, b1_gradient = 43.3933933933934
+bd_62_p_out: patch, x_pitch = -0.01053668797836515, x_offset = 0.005617639099642817, y_offset = 0
+od0_62: drift, l = 0.07069852702581567
+
+
+o0f_63: drift, l = 0.07167094123604864
+bf_63_p_in: patch, x_pitch = -0.01414599501140355, x_offset = 0.0056180731687338415, y_offset = 0
+bf_63: sbend, l=2.38269760837842, db_field = -0.732732732732733, b1_gradient = -32.8078078078078
+bf_63_p_out: patch, x_pitch = -0.01414599501140355, x_offset = -0.0056180731687338415, y_offset = 0
+ofd_63: drift, l = 0.1413694682618643
+bd_63_p_in: patch, x_pitch = -0.01053668797836515, x_offset = -0.005617639099642817, y_offset=0
+bd_63: sbend, l = 1.31330817709767, db_field = -0.990189900342083, b1_gradient = 43.3933933933934
+bd_63_p_out: patch, x_pitch = -0.01053668797836515, x_offset = 0.005617639099642817, y_offset = 0
+od0_63: drift, l = 0.07069852702581567
+
+
+MO1: Marker 
+MO2: Marker 
+MO3: Marker 
+mar.beg: marker 
+mar.end: marker
+
+
+!----------------------------------------------------
+
+
+FFA2: line = (mar.beg, 
+              o0f_1, MO1, 
+              bf_1_p_in, bf_1, bf_1_p_out, 
+              ofd_1, MO2, 
+              bd_1_p_in, bd_1, bd_1_p_out, 
+              od0_1, MO3,
+              o0f_2, MO1, 
+              bf_2_p_in, bf_2, bf_2_p_out, 
+              ofd_2, MO2, 
+              bd_2_p_in, bd_2, bd_2_p_out, 
+              od0_2, MO3,
+              o0f_3, MO1, 
+              bf_3_p_in, bf_3, bf_3_p_out, 
+              ofd_3, MO2, 
+              bd_3_p_in, bd_3, bd_3_p_out, 
+              od0_3, MO3,
+              o0f_4, MO1, 
+              bf_4_p_in, bf_4, bf_4_p_out, 
+              ofd_4, MO2, 
+              bd_4_p_in, bd_4, bd_4_p_out, 
+              od0_4, MO3,
+              o0f_5, MO1, 
+              bf_5_p_in, bf_5, bf_5_p_out, 
+              ofd_5, MO2, 
+              bd_5_p_in, bd_5, bd_5_p_out, 
+              od0_5, MO3,
+              o0f_6, MO1, 
+              bf_6_p_in, bf_6, bf_6_p_out, 
+              ofd_6, MO2, 
+              bd_6_p_in, bd_6, bd_6_p_out, 
+              od0_6, MO3,
+              o0f_7, MO1, 
+              bf_7_p_in, bf_7, bf_7_p_out, 
+              ofd_7, MO2, 
+              bd_7_p_in, bd_7, bd_7_p_out, 
+              od0_7, MO3,
+              o0f_8, MO1, 
+              bf_8_p_in, bf_8, bf_8_p_out, 
+              ofd_8, MO2, 
+              bd_8_p_in, bd_8, bd_8_p_out, 
+              od0_8, MO3,
+              o0f_9, MO1, 
+              bf_9_p_in, bf_9, bf_9_p_out, 
+              ofd_9, MO2, 
+              bd_9_p_in, bd_9, bd_9_p_out, 
+              od0_9, MO3,
+              o0f_10, MO1, 
+              bf_10_p_in, bf_10, bf_10_p_out, 
+              ofd_10, MO2, 
+              bd_10_p_in, bd_10, bd_10_p_out, 
+              od0_10, MO3,
+              o0f_11, MO1, 
+              bf_11_p_in, bf_11, bf_11_p_out, 
+              ofd_11, MO2, 
+              bd_11_p_in, bd_11, bd_11_p_out, 
+              od0_11, MO3,
+              o0f_12, MO1, 
+              bf_12_p_in, bf_12, bf_12_p_out, 
+              ofd_12, MO2, 
+              bd_12_p_in, bd_12, bd_12_p_out, 
+              od0_12, MO3,
+              o0f_13, MO1, 
+              bf_13_p_in, bf_13, bf_13_p_out, 
+              ofd_13, MO2, 
+              bd_13_p_in, bd_13, bd_13_p_out, 
+              od0_13, MO3,
+              o0f_14, MO1, 
+              bf_14_p_in, bf_14, bf_14_p_out, 
+              ofd_14, MO2, 
+              bd_14_p_in, bd_14, bd_14_p_out, 
+              od0_14, MO3,
+              o0f_15, MO1, 
+              bf_15_p_in, bf_15, bf_15_p_out, 
+              ofd_15, MO2, 
+              bd_15_p_in, bd_15, bd_15_p_out, 
+              od0_15, MO3,
+              o0f_16, MO1, 
+              bf_16_p_in, bf_16, bf_16_p_out, 
+              ofd_16, MO2, 
+              bd_16_p_in, bd_16, bd_16_p_out, 
+              od0_16, MO3,
+              o0f_17, MO1, 
+              bf_17_p_in, bf_17, bf_17_p_out, 
+              ofd_17, MO2, 
+              bd_17_p_in, bd_17, bd_17_p_out, 
+              od0_17, MO3,
+              o0f_18, MO1, 
+              bf_18_p_in, bf_18, bf_18_p_out, 
+              ofd_18, MO2, 
+              bd_18_p_in, bd_18, bd_18_p_out, 
+              od0_18, MO3,
+              o0f_19, MO1, 
+              bf_19_p_in, bf_19, bf_19_p_out, 
+              ofd_19, MO2, 
+              bd_19_p_in, bd_19, bd_19_p_out, 
+              od0_19, MO3,
+              o0f_20, MO1, 
+              bf_20_p_in, bf_20, bf_20_p_out, 
+              ofd_20, MO2, 
+              bd_20_p_in, bd_20, bd_20_p_out, 
+              od0_20, MO3,
+              o0f_21, MO1, 
+              bf_21_p_in, bf_21, bf_21_p_out, 
+              ofd_21, MO2, 
+              bd_21_p_in, bd_21, bd_21_p_out, 
+              od0_21, MO3,
+              o0f_22, MO1, 
+              bf_22_p_in, bf_22, bf_22_p_out, 
+              ofd_22, MO2, 
+              bd_22_p_in, bd_22, bd_22_p_out, 
+              od0_22, MO3,
+              o0f_23, MO1, 
+              bf_23_p_in, bf_23, bf_23_p_out, 
+              ofd_23, MO2, 
+              bd_23_p_in, bd_23, bd_23_p_out, 
+              od0_23, MO3,
+              o0f_24, MO1, 
+              bf_24_p_in, bf_24, bf_24_p_out, 
+              ofd_24, MO2, 
+              bd_24_p_in, bd_24, bd_24_p_out, 
+              od0_24, MO3,
+              o0f_25, MO1, 
+              bf_25_p_in, bf_25, bf_25_p_out, 
+              ofd_25, MO2, 
+              bd_25_p_in, bd_25, bd_25_p_out, 
+              od0_25, MO3,
+              o0f_26, MO1, 
+              bf_26_p_in, bf_26, bf_26_p_out, 
+              ofd_26, MO2, 
+              bd_26_p_in, bd_26, bd_26_p_out, 
+              od0_26, MO3,
+              o0f_27, MO1, 
+              bf_27_p_in, bf_27, bf_27_p_out, 
+              ofd_27, MO2, 
+              bd_27_p_in, bd_27, bd_27_p_out, 
+              od0_27, MO3,
+              o0f_28, MO1, 
+              bf_28_p_in, bf_28, bf_28_p_out, 
+              ofd_28, MO2, 
+              bd_28_p_in, bd_28, bd_28_p_out, 
+              od0_28, MO3,
+              o0f_29, MO1, 
+              bf_29_p_in, bf_29, bf_29_p_out, 
+              ofd_29, MO2, 
+              bd_29_p_in, bd_29, bd_29_p_out, 
+              od0_29, MO3,
+              o0f_30, MO1, 
+              bf_30_p_in, bf_30, bf_30_p_out, 
+              ofd_30, MO2, 
+              bd_30_p_in, bd_30, bd_30_p_out, 
+              od0_30, MO3,
+              o0f_31, MO1, 
+              bf_31_p_in, bf_31, bf_31_p_out, 
+              ofd_31, MO2, 
+              bd_31_p_in, bd_31, bd_31_p_out, 
+              od0_31, MO3,
+              o0f_32, MO1, 
+              bf_32_p_in, bf_32, bf_32_p_out, 
+              ofd_32, MO2, 
+              bd_32_p_in, bd_32, bd_32_p_out, 
+              od0_32, MO3,
+              o0f_33, MO1, 
+              bf_33_p_in, bf_33, bf_33_p_out, 
+              ofd_33, MO2, 
+              bd_33_p_in, bd_33, bd_33_p_out, 
+              od0_33, MO3,
+              o0f_34, MO1, 
+              bf_34_p_in, bf_34, bf_34_p_out, 
+              ofd_34, MO2, 
+              bd_34_p_in, bd_34, bd_34_p_out, 
+              od0_34, MO3,
+              o0f_35, MO1, 
+              bf_35_p_in, bf_35, bf_35_p_out, 
+              ofd_35, MO2, 
+              bd_35_p_in, bd_35, bd_35_p_out, 
+              od0_35, MO3,
+              o0f_36, MO1, 
+              bf_36_p_in, bf_36, bf_36_p_out, 
+              ofd_36, MO2, 
+              bd_36_p_in, bd_36, bd_36_p_out, 
+              od0_36, MO3,
+              o0f_37, MO1, 
+              bf_37_p_in, bf_37, bf_37_p_out, 
+              ofd_37, MO2, 
+              bd_37_p_in, bd_37, bd_37_p_out, 
+              od0_37, MO3,
+              o0f_38, MO1, 
+              bf_38_p_in, bf_38, bf_38_p_out, 
+              ofd_38, MO2, 
+              bd_38_p_in, bd_38, bd_38_p_out, 
+              od0_38, MO3,
+              o0f_39, MO1, 
+              bf_39_p_in, bf_39, bf_39_p_out, 
+              ofd_39, MO2, 
+              bd_39_p_in, bd_39, bd_39_p_out, 
+              od0_39, MO3,
+              o0f_40, MO1, 
+              bf_40_p_in, bf_40, bf_40_p_out, 
+              ofd_40, MO2, 
+              bd_40_p_in, bd_40, bd_40_p_out, 
+              od0_40, MO3,
+              o0f_41, MO1, 
+              bf_41_p_in, bf_41, bf_41_p_out, 
+              ofd_41, MO2, 
+              bd_41_p_in, bd_41, bd_41_p_out, 
+              od0_41, MO3,
+              o0f_42, MO1, 
+              bf_42_p_in, bf_42, bf_42_p_out, 
+              ofd_42, MO2, 
+              bd_42_p_in, bd_42, bd_42_p_out, 
+              od0_42, MO3,
+              o0f_43, MO1, 
+              bf_43_p_in, bf_43, bf_43_p_out, 
+              ofd_43, MO2, 
+              bd_43_p_in, bd_43, bd_43_p_out, 
+              od0_43, MO3,
+              o0f_44, MO1, 
+              bf_44_p_in, bf_44, bf_44_p_out, 
+              ofd_44, MO2, 
+              bd_44_p_in, bd_44, bd_44_p_out, 
+              od0_44, MO3,
+              o0f_45, MO1, 
+              bf_45_p_in, bf_45, bf_45_p_out, 
+              ofd_45, MO2, 
+              bd_45_p_in, bd_45, bd_45_p_out, 
+              od0_45, MO3,
+              o0f_46, MO1, 
+              bf_46_p_in, bf_46, bf_46_p_out, 
+              ofd_46, MO2, 
+              bd_46_p_in, bd_46, bd_46_p_out, 
+              od0_46, MO3,
+              o0f_47, MO1, 
+              bf_47_p_in, bf_47, bf_47_p_out, 
+              ofd_47, MO2, 
+              bd_47_p_in, bd_47, bd_47_p_out, 
+              od0_47, MO3,
+              o0f_48, MO1, 
+              bf_48_p_in, bf_48, bf_48_p_out, 
+              ofd_48, MO2, 
+              bd_48_p_in, bd_48, bd_48_p_out, 
+              od0_48, MO3,
+              o0f_49, MO1, 
+              bf_49_p_in, bf_49, bf_49_p_out, 
+              ofd_49, MO2, 
+              bd_49_p_in, bd_49, bd_49_p_out, 
+              od0_49, MO3,
+              o0f_50, MO1, 
+              bf_50_p_in, bf_50, bf_50_p_out, 
+              ofd_50, MO2, 
+              bd_50_p_in, bd_50, bd_50_p_out, 
+              od0_50, MO3,
+              o0f_51, MO1, 
+              bf_51_p_in, bf_51, bf_51_p_out, 
+              ofd_51, MO2, 
+              bd_51_p_in, bd_51, bd_51_p_out, 
+              od0_51, MO3,
+              o0f_52, MO1, 
+              bf_52_p_in, bf_52, bf_52_p_out, 
+              ofd_52, MO2, 
+              bd_52_p_in, bd_52, bd_52_p_out, 
+              od0_52, MO3,
+              o0f_53, MO1, 
+              bf_53_p_in, bf_53, bf_53_p_out, 
+              ofd_53, MO2, 
+              bd_53_p_in, bd_53, bd_53_p_out, 
+              od0_53, MO3,
+              o0f_54, MO1, 
+              bf_54_p_in, bf_54, bf_54_p_out, 
+              ofd_54, MO2, 
+              bd_54_p_in, bd_54, bd_54_p_out, 
+              od0_54, MO3,
+              o0f_55, MO1, 
+              bf_55_p_in, bf_55, bf_55_p_out, 
+              ofd_55, MO2, 
+              bd_55_p_in, bd_55, bd_55_p_out, 
+              od0_55, MO3,
+              o0f_56, MO1, 
+              bf_56_p_in, bf_56, bf_56_p_out, 
+              ofd_56, MO2, 
+              bd_56_p_in, bd_56, bd_56_p_out, 
+              od0_56, MO3,
+              o0f_57, MO1, 
+              bf_57_p_in, bf_57, bf_57_p_out, 
+              ofd_57, MO2, 
+              bd_57_p_in, bd_57, bd_57_p_out, 
+              od0_57, MO3,
+              o0f_58, MO1, 
+              bf_58_p_in, bf_58, bf_58_p_out, 
+              ofd_58, MO2, 
+              bd_58_p_in, bd_58, bd_58_p_out, 
+              od0_58, MO3,
+              o0f_59, MO1, 
+              bf_59_p_in, bf_59, bf_59_p_out, 
+              ofd_59, MO2, 
+              bd_59_p_in, bd_59, bd_59_p_out, 
+              od0_59, MO3,
+              o0f_60, MO1, 
+              bf_60_p_in, bf_60, bf_60_p_out, 
+              ofd_60, MO2, 
+              bd_60_p_in, bd_60, bd_60_p_out, 
+              od0_60, MO3,
+              o0f_61, MO1, 
+              bf_61_p_in, bf_61, bf_61_p_out, 
+              ofd_61, MO2, 
+              bd_61_p_in, bd_61, bd_61_p_out, 
+              od0_61, MO3,
+              o0f_62, MO1, 
+              bf_62_p_in, bf_62, bf_62_p_out, 
+              ofd_62, MO2, 
+              bd_62_p_in, bd_62, bd_62_p_out, 
+              od0_62, MO3,
+              o0f_63, MO1, 
+              bf_63_p_in, bf_63, bf_63_p_out, 
+              ofd_63, MO2, 
+              bd_63_p_in, bd_63, bd_63_p_out, 
+              od0_63, MO3,
+           mar.end)
+
+use, FFA2
