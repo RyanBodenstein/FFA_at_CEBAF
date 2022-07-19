@@ -1,0 +1,463 @@
+#
+#S/R body gradients from Oct 1997 beam based measurements
+# 
+  $scale=1/1.11636966;  => 0.895760639
+#Focusing parameters of Spreader 5 dipoles
+  $G5S01=       0.025*$scale;  => 0.022394016
+  $G5S02=        0.00*$scale;  =>           0
+  $G5S03=       -0.01*$scale;  =>-0.00895760639
+  $G5S04=        0.01*$scale;  =>0.00895760639
+  $G5S06=        0.01*$scale;  =>0.00895760639
+#Focusing parameters of Recombiner 5 dipoles
+  $G5R01=       0.016*$scale;  =>0.0143321702
+  $G5R03=      -0.018*$scale;  =>-0.0161236915
+  $G5R04=       0.003*$scale;  =>0.00268728192
+  $G5R05=       0.003*$scale;  =>0.00268728192
+  $G5R06=        0.01*$scale;  =>0.00895760639
+#main arc quads
+$GA5A02=-0.3926306;  =>   -0.390609
+$GA5A03=0.7198572;  =>   0.7191523
+$GA5A04=-0.3926306;  =>   -0.390609
+$GA5A05=0.3244699;  =>   0.3280849
+$GA5A06=-0.3926306;  =>   -0.390609
+$GA5A07=0.7198572;  =>   0.7191523
+$GA5A08=-0.3926306;  =>   -0.390609
+$GA5A09=0.4121103;  =>   0.4150531
+#
+#Main Arc dipoles - body gradients from July 2004 beam based measurements
+#  $GMBB5=     -0.0009*$scale;  =>-0.000806184575
+  $GMBB5=     0.220/200*2045/2915;  =>0.000771698113
+#-----------------------------------------------------------------------------------------------------------------------
+OptiM
+# Created by Alex Bogacz, Oct. 2004
+Energy[MeV]=5572.489   Mass[MeV]=0.511006 
+Emittance: ex[cm]=2e-07  ey[cm]=2e-07  DP/P=2e-05 
+Initial:	BetaX[cm]=     4971.28 BetaY[cm]=     5444.65
+AlfaX=    1.834140 AlfaY=   -0.352394
+	DispX[cm]=0 	DispY[cm]=0
+	DispPrX=0 	DispPrY=0
+	X[cm]=8060.0000 	Y[cm]=10000.0000 	Z[cm]=9055.3720 	S[cm]=286680.336 
+	tetaX[deg]=0        	tetaY[deg]=0        
+begin lattice. Number of periods=1 
+gMAQ5S01 bMAQ5S01 GMAQ5S01 oD30077 gMAS5S02 bMAS5S02 GMAS5S02 oD30078 gMAU5S03 bMAU5S03 
+GMAU5S03 oD602a iIPM5S01 oD603 qMQA5S01 oD604 kMBC5S01H oD605 
+kMBC5S01V oD606 iITV5S01 oD607 iIPM5S02 oD603 qMQA5S02 oD608 kMBC5S02H 
+oD609 iIPM5S03 oD603 qMQA5S03 oD604 kMBC5S03H oD610 gMAC5S04 bMAC5S04 
+GMAC5S04 oD30083 gMAC5S06 bMAC5S06 GMAC5S06 oD612 qMQA5S04 oD613 iITV5S04 
+oD614 iIPM5S05 oD603 qMQA5S05 oD604 kMBC5S05H oD605 kMBC5S05V oD615 
+qMQA5S06 oD616 iIPM5S07 oD603 qMQA5S07 oD604 kMBC5S07H oD605 kMBC5S07V 
+oD617 iIPM5S08 oD603 qMQA5S08 oD604 kMBC5S08H oD605 kMBC5S08V oD617 
+iIPM5S09 oD603 qMQA5S09 oD604 kMBC5S09H oD605 kMBC5S09V oD617 iIPM5S10 
+oD603 qMQA5S10 oD604 kMBC5S10H oD605 kMBC5S10V oD618 iIPM5E01 oD619 
+qMQB5E01 oD620 kMBM5E01H oD605 kMBM5E01V oD606 iIHA5E01 oD621 gMBY5E01 
+bMBY5E01 GMBY5E01 oD622 gMBZ5E02 bMBZ5E02 GMBZ5E02 oD622 gMBY5E03 bMBY5E03 
+GMBY5E03 oD623 iIPM5E02 oD619 qMQB5E02 oD620 kMBM5E02H oD605 kMBM5E02V 
+oD618 iIPM5E03 oD619 qMQB5E03 oD620 kMBM5E03H oD605 kMBM5E03V oD618 
+iIPM5A01 oD603 qMQA5A01 oD604 kMBC5A01H oD605 kMBC5A01V oD606 
+#period starts
+iITV5A01 oD624 gMBB5A01 bMBB5A01 GMBB5A01 oD625 gMBB5A02 bMBB5A02 GMBB5A02
+oD626 iIPM5A02 oD603 qMQA5A02 oD627 kMBC5A02V oD628 iIPM5A03 oD603 qMQA5A03 
+oD604 kMBC5A03H oD629 iIHA5A03 oD630 iIPM5A04 oD603 qMQA5A04 oD627 
+kMBC5A04V oD631 gMBB5A03 bMBB5A03 GMBB5A03 oD625 gMBB5A04 bMBB5A04 GMBB5A04 
+oD626 iIPM5A05 oD603 qMQA5A05 oD604 kMBC5A05H oD632 gMBB5A05 bMBB5A05 
+GMBB5A05 oD625 gMBB5A06 bMBB5A06 GMBB5A06 oD626 iIPM5A06 oD603 qMQA5A06 
+oD627 kMBC5A06V oD633 iIPM5A07 oD603 qMQA5A07 oD604 kMBC5A07H oD634 
+iIPM5A08 oD603 qMQA5A08 oD627 kMBC5A08V oD631 gMBB5A07 bMBB5A07 GMBB5A07 
+oD625 gMBB5A08 bMBB5A08 GMBB5A08 oD626 iIPM5A09 oD603 qMQA5A09 oD604 
+kMBC5A09H oD635 iITV5A09 oD624 gMBB5A09 bMBB5A09 GMBB5A09 oD625 gMBB5A10 
+bMBB5A10 GMBB5A10 oD626 iIPM5A10 oD603 qMQA5A10 oD627 kMBC5A10V oD628 
+iIPM5A11 oD603 qMQA5A11 oD604 kMBC5A11H oD636 qMQA5A12 oD627 kMBC5A12V 
+oD631 gMBB5A11 bMBB5A11 GMBB5A11 oD625 gMBB5A12 bMBB5A12 GMBB5A12 oD626 
+iIPM5A13 oD603 qMQA5A13 oD627 kMBC5A13H oD631 gMBB5A13 bMBB5A13 GMBB5A13 
+oD625 gMBB5A14 bMBB5A14 GMBB5A14 oD637 qMQA5A14 oD627 kMBC5A14V oD633 
+iIPM5A15 oD603 qMQA5A15 oD604 kMBC5A15H oD634 iIPM5A16 oD603 qMQA5A16 
+oD627 kMBC5A16V oD631 gMBB5A15 bMBB5A15 GMBB5A15 oD625 gMBB5A16 bMBB5A16 
+GMBB5A16 oD626 iIPM5A17 oD603 qMQA5A17 oD604 kMBC5A17H oD635 iITV5A17 
+oD624 gMBB5A17 bMBB5A17 GMBB5A17 oD625 gMBB5A18 bMBB5A18 GMBB5A18 oD626 
+iIPM5A18 oD603 qMQA5A18 oD627 kMBC5A18V oD628 iIPM5A19 oD603 qMQA5A19 
+oD604 kMBC5A19H oD636 qMQA5A20 oD627 kMBC5A20V oD631 gMBB5A19 bMBB5A19 
+GMBB5A19 oD625 gMBB5A20 bMBB5A20 GMBB5A20 oD626 iIPM5A21 oD603 qMQA5A21 
+oD627 kMBC5A21H oD631 gMBB5A21 bMBB5A21 GMBB5A21 oD625 gMBB5A22 bMBB5A22 
+GMBB5A22 oD637 qMQA5A22 oD627 kMBC5A22V oD633 iIPM5A23 oD603 qMQA5A23 
+oD604 kMBC5A23H oD634 iIPM5A24 oD603 qMQA5A24 oD627 kMBC5A24V oD631 
+gMBB5A23 bMBB5A23 GMBB5A23 oD625 gMBB5A24 bMBB5A24 GMBB5A24 oD626 iIPM5A25 
+oD603 qMQA5A25 oD604 kMBC5A25H oD635 iITV5A25 oD624 gMBB5A25 bMBB5A25 
+GMBB5A25 oD625 gMBB5A26 bMBB5A26 GMBB5A26 oD626 iIPM5A26 oD603 qMQA5A26 
+oD627 kMBC5A26V oD628 iIPM5A27 oD603 qMQA5A27 oD604 kMBC5A27H oD636 
+qMQA5A28 oD627 kMBC5A28V oD631 gMBB5A27 bMBB5A27 GMBB5A27 oD625 gMBB5A28 
+bMBB5A28 GMBB5A28 oD626 iIPM5A29 oD603 qMQA5A29 oD604 kMBC5A29H oD632 
+gMBB5A29 bMBB5A29 GMBB5A29 oD625 gMBB5A30 bMBB5A30 GMBB5A30 oD637 qMQA5A30 
+oD627 kMBC5A30V oD633 iIPM5A31 oD603 qMQA5A31 oD604 kMBC5A31H oD634 
+iIPM5A32 oD603 qMQA5A32 oD627 kMBC5A32V oD631 gMBB5A31 bMBB5A31 GMBB5A31 
+oD625 gMBB5A32 bMBB5A32 GMBB5A32 oD626 
+#Recombiner starts
+iIPM5R01 oD603 qMQA5R01 oD604 
+kMBC5R01H oD635 iITV5R01 oD638 iIPM5R02 oD603 qMQA5R02 oD604 kMBC5R02H 
+oD605 kMBC5R02V oD617 iIPM5R03 oD603 qMQA5R03 oD604 kMBC5R03H oD639 
+iIPM5R04 oD603 qMQA5R04 oD604 kMBC5R04H oD605 kMBC5R04V oD640 qMQA5R05 
+oD641 iIPM5R06 oD603 qMQA5R06 oD604 kMBC5R06H oD635 iITV5R06 oD642 
+qMQA5R07 oD627 kMBC5R07V oD643 GMAC5R01 bMAC5R01 gMAC5R01 oD30083 
+GMAC5R03 bMAC5R03 gMAC5R03 oD644 kMBC5R08H oD604 qMQA5R08 oD603 iIPM5R08 oD609 
+kMBC5R09H oD608 qMQA5R09 oD603 iIPM5R09 oD645 kMBC5R10V oD605 kMBC5R10H 
+oD604 qMQA5R10 oD603 iIPM5R10 oD646a GMAU5R04 bMAU5R04 gMAU5R04 oD30078 GMAS5R05 
+bMAS5R05 gMAS5R05 oD30077 GMAQ5R06 bMAQ5R06 gMAQ5R06 
+end lattice
+begin list 
+gMAQ5S01   	B[kG]=12.891061   Angle[deg]=0  EffLen[cm]=1.90844  Tilt[deg]=90  
+bMAQ5S01   	L[cm]=100.0803   	B[kG]=12.891061   	G[kG/cm]=0        	Tilt[deg]=90
+GMAQ5S01   	B[kG]=12.891061   Angle[deg]=3.97641  EffLen[cm]=1.92805  Tilt[deg]=90  
+gMAS5S02   	B[kG]=11.900083   Angle[deg]=-3.97641  EffLen[cm]=2.40364  Tilt[deg]=90  
+bMAS5S02   	L[cm]=100.5355   	B[kG]=11.900083   	G[kG/cm]=0        	Tilt[deg]=90
+GMAS5S02   	B[kG]=11.900083   Angle[deg]=7.66384  EffLen[cm]=2.48309  Tilt[deg]=90  
+gMAU5S03   	B[kG]=-12.423342   Angle[deg]=3.83192  EffLen[cm]=1.29816  Tilt[deg]=90  
+bMAU5S03   	L[cm]=200.1492   	B[kG]=-12.423342   	G[kG/cm]=0        	Tilt[deg]=90
+GMAU5S03   	B[kG]=-12.423342   Angle[deg]=3.83192  EffLen[cm]=1.29816  Tilt[deg]=90  
+gMAC5S04   	B[kG]=8.9387518   Angle[deg]=1.37766  EffLen[cm]=1.27825  Tilt[deg]=90  
+bMAC5S04   	L[cm]=100.0096   	B[kG]=8.9387518   	G[kG/cm]=0        	Tilt[deg]=90
+GMAC5S04   	B[kG]=8.9387518   Angle[deg]=1.37766  EffLen[cm]=1.27825  Tilt[deg]=90  
+gMAC5S06   	B[kG]=-8.9387518   Angle[deg]=1.37766  EffLen[cm]=1.27825  Tilt[deg]=90  
+bMAC5S06   	L[cm]=100.0096   	B[kG]=-8.9387518   	G[kG/cm]=0        	Tilt[deg]=90
+GMAC5S06   	B[kG]=-8.9387518   Angle[deg]=1.37766  EffLen[cm]=1.27825  Tilt[deg]=90  
+qMQA5S01 	L[cm]=30         	G[kG/cm]=-0.9950511 	Tilt[deg]=0
+qMQA5S02 	L[cm]=30         	G[kG/cm]=2.029139 	Tilt[deg]=0
+qMQA5S03 	L[cm]=30         	G[kG/cm]=-3.145468 	Tilt[deg]=0
+qMQA5S04 	L[cm]=30         	G[kG/cm]=-3.347528 	Tilt[deg]=0
+qMQA5S05 	L[cm]=30         	G[kG/cm]=3.388479 	Tilt[deg]=0
+qMQA5S06 	L[cm]=30         	G[kG/cm]=-1.951514 	Tilt[deg]=0
+qMQA5S07 	L[cm]=30         	G[kG/cm]=-2.501888 	Tilt[deg]=0
+qMQA5S08 	L[cm]=30         	G[kG/cm]=2.806935 	Tilt[deg]=0
+qMQA5S09 	L[cm]=30         	G[kG/cm]=-2.357795 	Tilt[deg]=0
+qMQA5S10 	L[cm]=30         	G[kG/cm]=1.719483 	Tilt[deg]=0
+gMBY5E01   	B[kG]=-7.8042414   Angle[deg]=0  EffLen[cm]=0  Tilt[deg]=0  
+bMBY5E01   	L[cm]=100.0294   	B[kG]=-7.8042414   	G[kG/cm]=0        	Tilt[deg]=0
+GMBY5E01   	B[kG]=-7.8042414   Angle[deg]=2.40609  EffLen[cm]=0  Tilt[deg]=0  
+gMBZ5E02   	B[kG]=7.8042414   Angle[deg]=2.40609  EffLen[cm]=0  Tilt[deg]=0  
+bMBZ5E02   	L[cm]=200.0588   	B[kG]=7.8042414   	G[kG/cm]=0        	Tilt[deg]=0
+GMBZ5E02   	B[kG]=7.8042414   Angle[deg]=2.40609  EffLen[cm]=0  Tilt[deg]=0  
+gMBY5E03   	B[kG]=-7.8042414   Angle[deg]=2.40609  EffLen[cm]=0  Tilt[deg]=0  
+bMBY5E03   	L[cm]=100.0294   	B[kG]=-7.8042414   	G[kG/cm]=0        	Tilt[deg]=0
+GMBY5E03   	B[kG]=-7.8042414   Angle[deg]=0  EffLen[cm]=0  Tilt[deg]=0  
+qMQB5E01   	L[cm]=15         	G[kG/cm]=-1.227428 	Tilt[deg]=0
+qMQB5E02   	L[cm]=15         	G[kG/cm]=1.314291 	Tilt[deg]=0
+qMQB5E03   	L[cm]=15         	G[kG/cm]=-1.212096 	Tilt[deg]=0
+gMBB5A01   	B[kG]=9.1214492   Angle[deg]=2.5479  EffLen[cm]=1.27767  Tilt[deg]=0  
+bMBB5A01   	L[cm]=200.0803   	B[kG]=9.1214492   	G[kG/cm]=0.002103019  	Tilt[deg]=0
+GMBB5A01   	B[kG]=9.1214492   Angle[deg]=2.5479  EffLen[cm]=1.27767  Tilt[deg]=0  
+gMBB5A02   	B[kG]=9.1214492   Angle[deg]=2.5479  EffLen[cm]=1.27767  Tilt[deg]=0  
+bMBB5A02   	L[cm]=200.0803   	B[kG]=9.1214492   	G[kG/cm]=0.002103019  	Tilt[deg]=0
+GMBB5A02   	B[kG]=9.1214492   Angle[deg]=2.5479  EffLen[cm]=1.27767  Tilt[deg]=0  
+gMBB5A03   	B[kG]=9.1214492   Angle[deg]=2.5479  EffLen[cm]=1.27767  Tilt[deg]=0  
+bMBB5A03   	L[cm]=200.0803   	B[kG]=9.1214492   	G[kG/cm]=0.002103019  	Tilt[deg]=0
+GMBB5A03   	B[kG]=9.1214492   Angle[deg]=2.5479  EffLen[cm]=1.27767  Tilt[deg]=0  
+gMBB5A04   	B[kG]=9.1214492   Angle[deg]=2.5479  EffLen[cm]=1.27767  Tilt[deg]=0  
+bMBB5A04   	L[cm]=200.0803   	B[kG]=9.1214492   	G[kG/cm]=0.002103019  	Tilt[deg]=0
+GMBB5A04   	B[kG]=9.1214492   Angle[deg]=2.5479  EffLen[cm]=1.27767  Tilt[deg]=0  
+gMBB5A05   	B[kG]=9.1214492   Angle[deg]=2.5479  EffLen[cm]=1.27767  Tilt[deg]=0  
+bMBB5A05   	L[cm]=200.0803   	B[kG]=9.1214492   	G[kG/cm]=0.002103019  	Tilt[deg]=0
+GMBB5A05   	B[kG]=9.1214492   Angle[deg]=2.5479  EffLen[cm]=1.27767  Tilt[deg]=0  
+gMBB5A06   	B[kG]=9.1214492   Angle[deg]=2.5479  EffLen[cm]=1.27767  Tilt[deg]=0  
+bMBB5A06   	L[cm]=200.0803   	B[kG]=9.1214492   	G[kG/cm]=0.002103019  	Tilt[deg]=0
+GMBB5A06   	B[kG]=9.1214492   Angle[deg]=2.5479  EffLen[cm]=1.27767  Tilt[deg]=0  
+gMBB5A07   	B[kG]=9.1214492   Angle[deg]=2.5479  EffLen[cm]=1.27767  Tilt[deg]=0  
+bMBB5A07   	L[cm]=200.0803   	B[kG]=9.1214492   	G[kG/cm]=0.002103019  	Tilt[deg]=0
+GMBB5A07   	B[kG]=9.1214492   Angle[deg]=2.5479  EffLen[cm]=1.27767  Tilt[deg]=0  
+gMBB5A08   	B[kG]=9.1214492   Angle[deg]=2.5479  EffLen[cm]=1.27767  Tilt[deg]=0  
+bMBB5A08   	L[cm]=200.0803   	B[kG]=9.1214492   	G[kG/cm]=0.002103019  	Tilt[deg]=0
+GMBB5A08   	B[kG]=9.1214492   Angle[deg]=2.5479  EffLen[cm]=1.27767  Tilt[deg]=0  
+gMBB5A09   	B[kG]=9.1214492   Angle[deg]=2.5479  EffLen[cm]=1.27767  Tilt[deg]=0  
+bMBB5A09   	L[cm]=200.0803   	B[kG]=9.1214492   	G[kG/cm]=0.002103019  	Tilt[deg]=0
+GMBB5A09   	B[kG]=9.1214492   Angle[deg]=2.5479  EffLen[cm]=1.27767  Tilt[deg]=0  
+gMBB5A10   	B[kG]=9.1214492   Angle[deg]=2.5479  EffLen[cm]=1.27767  Tilt[deg]=0  
+bMBB5A10   	L[cm]=200.0803   	B[kG]=9.1214492   	G[kG/cm]=0.002103019  	Tilt[deg]=0
+GMBB5A10   	B[kG]=9.1214492   Angle[deg]=2.5479  EffLen[cm]=1.27767  Tilt[deg]=0  
+gMBB5A11   	B[kG]=9.1214492   Angle[deg]=2.5479  EffLen[cm]=1.27767  Tilt[deg]=0  
+bMBB5A11   	L[cm]=200.0803   	B[kG]=9.1214492   	G[kG/cm]=0.002103019  	Tilt[deg]=0
+GMBB5A11   	B[kG]=9.1214492   Angle[deg]=2.5479  EffLen[cm]=1.27767  Tilt[deg]=0  
+gMBB5A12   	B[kG]=9.1214492   Angle[deg]=2.5479  EffLen[cm]=1.27767  Tilt[deg]=0  
+bMBB5A12   	L[cm]=200.0803   	B[kG]=9.1214492   	G[kG/cm]=0.002103019  	Tilt[deg]=0
+GMBB5A12   	B[kG]=9.1214492   Angle[deg]=2.5479  EffLen[cm]=1.27767  Tilt[deg]=0  
+gMBB5A13   	B[kG]=9.1214492   Angle[deg]=2.5479  EffLen[cm]=1.27767  Tilt[deg]=0  
+bMBB5A13   	L[cm]=200.0803   	B[kG]=9.1214492   	G[kG/cm]=0.002103019  	Tilt[deg]=0
+GMBB5A13   	B[kG]=9.1214492   Angle[deg]=2.5479  EffLen[cm]=1.27767  Tilt[deg]=0  
+gMBB5A14   	B[kG]=9.1214492   Angle[deg]=2.5479  EffLen[cm]=1.27767  Tilt[deg]=0  
+bMBB5A14   	L[cm]=200.0803   	B[kG]=9.1214492   	G[kG/cm]=0.002103019  	Tilt[deg]=0
+GMBB5A14   	B[kG]=9.1214492   Angle[deg]=2.5479  EffLen[cm]=1.27767  Tilt[deg]=0  
+gMBB5A15   	B[kG]=9.1214492   Angle[deg]=2.5479  EffLen[cm]=1.27767  Tilt[deg]=0  
+bMBB5A15   	L[cm]=200.0803   	B[kG]=9.1214492   	G[kG/cm]=0.002103019  	Tilt[deg]=0
+GMBB5A15   	B[kG]=9.1214492   Angle[deg]=2.5479  EffLen[cm]=1.27767  Tilt[deg]=0  
+gMBB5A16   	B[kG]=9.1214492   Angle[deg]=2.5479  EffLen[cm]=1.27767  Tilt[deg]=0  
+bMBB5A16   	L[cm]=200.0803   	B[kG]=9.1214492   	G[kG/cm]=0.002103019  	Tilt[deg]=0
+GMBB5A16   	B[kG]=9.1214492   Angle[deg]=2.5479  EffLen[cm]=1.27767  Tilt[deg]=0  
+gMBB5A17   	B[kG]=9.1214492   Angle[deg]=2.5479  EffLen[cm]=1.27767  Tilt[deg]=0  
+bMBB5A17   	L[cm]=200.0803   	B[kG]=9.1214492   	G[kG/cm]=0.002103019  	Tilt[deg]=0
+GMBB5A17   	B[kG]=9.1214492   Angle[deg]=2.5479  EffLen[cm]=1.27767  Tilt[deg]=0  
+gMBB5A18   	B[kG]=9.1214492   Angle[deg]=2.5479  EffLen[cm]=1.27767  Tilt[deg]=0  
+bMBB5A18   	L[cm]=200.0803   	B[kG]=9.1214492   	G[kG/cm]=0.002103019  	Tilt[deg]=0
+GMBB5A18   	B[kG]=9.1214492   Angle[deg]=2.5479  EffLen[cm]=1.27767  Tilt[deg]=0  
+gMBB5A19   	B[kG]=9.1214492   Angle[deg]=2.5479  EffLen[cm]=1.27767  Tilt[deg]=0  
+bMBB5A19   	L[cm]=200.0803   	B[kG]=9.1214492   	G[kG/cm]=0.002103019  	Tilt[deg]=0
+GMBB5A19   	B[kG]=9.1214492   Angle[deg]=2.5479  EffLen[cm]=1.27767  Tilt[deg]=0  
+gMBB5A20   	B[kG]=9.1214492   Angle[deg]=2.5479  EffLen[cm]=1.27767  Tilt[deg]=0  
+bMBB5A20   	L[cm]=200.0803   	B[kG]=9.1214492   	G[kG/cm]=0.002103019  	Tilt[deg]=0
+GMBB5A20   	B[kG]=9.1214492   Angle[deg]=2.5479  EffLen[cm]=1.27767  Tilt[deg]=0  
+gMBB5A21   	B[kG]=9.1214492   Angle[deg]=2.5479  EffLen[cm]=1.27767  Tilt[deg]=0  
+bMBB5A21   	L[cm]=200.0803   	B[kG]=9.1214492   	G[kG/cm]=0.002103019  	Tilt[deg]=0
+GMBB5A21   	B[kG]=9.1214492   Angle[deg]=2.5479  EffLen[cm]=1.27767  Tilt[deg]=0  
+gMBB5A22   	B[kG]=9.1214492   Angle[deg]=2.5479  EffLen[cm]=1.27767  Tilt[deg]=0  
+bMBB5A22   	L[cm]=200.0803   	B[kG]=9.1214492   	G[kG/cm]=0.002103019  	Tilt[deg]=0
+GMBB5A22   	B[kG]=9.1214492   Angle[deg]=2.5479  EffLen[cm]=1.27767  Tilt[deg]=0  
+gMBB5A23   	B[kG]=9.1214492   Angle[deg]=2.5479  EffLen[cm]=1.27767  Tilt[deg]=0  
+bMBB5A23   	L[cm]=200.0803   	B[kG]=9.1214492   	G[kG/cm]=0.002103019  	Tilt[deg]=0
+GMBB5A23   	B[kG]=9.1214492   Angle[deg]=2.5479  EffLen[cm]=1.27767  Tilt[deg]=0  
+gMBB5A24   	B[kG]=9.1214492   Angle[deg]=2.5479  EffLen[cm]=1.27767  Tilt[deg]=0  
+bMBB5A24   	L[cm]=200.0803   	B[kG]=9.1214492   	G[kG/cm]=0.002103019  	Tilt[deg]=0
+GMBB5A24   	B[kG]=9.1214492   Angle[deg]=2.5479  EffLen[cm]=1.27767  Tilt[deg]=0  
+gMBB5A25   	B[kG]=9.1214492   Angle[deg]=2.5479  EffLen[cm]=1.27767  Tilt[deg]=0  
+bMBB5A25   	L[cm]=200.0803   	B[kG]=9.1214492   	G[kG/cm]=0.002103019  	Tilt[deg]=0
+GMBB5A25   	B[kG]=9.1214492   Angle[deg]=2.5479  EffLen[cm]=1.27767  Tilt[deg]=0  
+gMBB5A26   	B[kG]=9.1214492   Angle[deg]=2.5479  EffLen[cm]=1.27767  Tilt[deg]=0  
+bMBB5A26   	L[cm]=200.0803   	B[kG]=9.1214492   	G[kG/cm]=0.002103019  	Tilt[deg]=0
+GMBB5A26   	B[kG]=9.1214492   Angle[deg]=2.5479  EffLen[cm]=1.27767  Tilt[deg]=0  
+gMBB5A27   	B[kG]=9.1214492   Angle[deg]=2.5479  EffLen[cm]=1.27767  Tilt[deg]=0  
+bMBB5A27   	L[cm]=200.0803   	B[kG]=9.1214492   	G[kG/cm]=0.002103019  	Tilt[deg]=0
+GMBB5A27   	B[kG]=9.1214492   Angle[deg]=2.5479  EffLen[cm]=1.27767  Tilt[deg]=0  
+gMBB5A28   	B[kG]=9.1214492   Angle[deg]=2.5479  EffLen[cm]=1.27767  Tilt[deg]=0  
+bMBB5A28   	L[cm]=200.0803   	B[kG]=9.1214492   	G[kG/cm]=0.002103019  	Tilt[deg]=0
+GMBB5A28   	B[kG]=9.1214492   Angle[deg]=2.5479  EffLen[cm]=1.27767  Tilt[deg]=0  
+gMBB5A29   	B[kG]=9.1214492   Angle[deg]=2.5479  EffLen[cm]=1.27767  Tilt[deg]=0  
+bMBB5A29   	L[cm]=200.0803   	B[kG]=9.1214492   	G[kG/cm]=0.002103019  	Tilt[deg]=0
+GMBB5A29   	B[kG]=9.1214492   Angle[deg]=2.5479  EffLen[cm]=1.27767  Tilt[deg]=0  
+gMBB5A30   	B[kG]=9.1214492   Angle[deg]=2.5479  EffLen[cm]=1.27767  Tilt[deg]=0  
+bMBB5A30   	L[cm]=200.0803   	B[kG]=9.1214492   	G[kG/cm]=0.002103019  	Tilt[deg]=0
+GMBB5A30   	B[kG]=9.1214492   Angle[deg]=2.5479  EffLen[cm]=1.27767  Tilt[deg]=0  
+gMBB5A31   	B[kG]=9.1214492   Angle[deg]=2.5479  EffLen[cm]=1.27767  Tilt[deg]=0  
+bMBB5A31   	L[cm]=200.0803   	B[kG]=9.1214492   	G[kG/cm]=0.002103019  	Tilt[deg]=0
+GMBB5A31   	B[kG]=9.1214492   Angle[deg]=2.5479  EffLen[cm]=1.27767  Tilt[deg]=0  
+gMBB5A32   	B[kG]=9.1214492   Angle[deg]=2.5479  EffLen[cm]=1.27767  Tilt[deg]=0  
+bMBB5A32   	L[cm]=200.0803   	B[kG]=9.1214492   	G[kG/cm]=0.002103019  	Tilt[deg]=0
+GMBB5A32   	B[kG]=9.1214492   Angle[deg]=2.5479  EffLen[cm]=1.27767  Tilt[deg]=0  
+qMQA5A01 	L[cm]=30         	G[kG/cm]=0.8839452 	Tilt[deg]=0
+qMQA5A02   	L[cm]=30         	G[kG/cm]=-1.091494 	Tilt[deg]=0
+qMQA5A03   	L[cm]=30         	G[kG/cm]=1.969401 	Tilt[deg]=0
+qMQA5A04   	L[cm]=30         	G[kG/cm]=-1.091494 	Tilt[deg]=0
+qMQA5A05   	L[cm]=30         	G[kG/cm]=0.8438119 	Tilt[deg]=0
+qMQA5A06   	L[cm]=30         	G[kG/cm]=-1.091494 	Tilt[deg]=0
+qMQA5A07   	L[cm]=30         	G[kG/cm]=1.969401 	Tilt[deg]=0
+qMQA5A08   	L[cm]=30         	G[kG/cm]=-1.091494 	Tilt[deg]=0
+qMQA5A09   	L[cm]=30         	G[kG/cm]=1.089954 	Tilt[deg]=0
+qMQA5A10   	L[cm]=30         	G[kG/cm]=-1.091494 	Tilt[deg]=0
+qMQA5A11   	L[cm]=30         	G[kG/cm]=1.969401 	Tilt[deg]=0
+qMQA5A12   	L[cm]=30         	G[kG/cm]=-1.091494 	Tilt[deg]=0
+qMQA5A13   	L[cm]=30         	G[kG/cm]=0.8438119 	Tilt[deg]=0
+qMQA5A14   	L[cm]=30         	G[kG/cm]=-1.091494 	Tilt[deg]=0
+qMQA5A15   	L[cm]=30         	G[kG/cm]=1.969401 	Tilt[deg]=0
+qMQA5A16   	L[cm]=30         	G[kG/cm]=-1.091494 	Tilt[deg]=0
+qMQA5A17   	L[cm]=30         	G[kG/cm]=1.089954 	Tilt[deg]=0
+qMQA5A18   	L[cm]=30         	G[kG/cm]=-1.091494 	Tilt[deg]=0
+qMQA5A19   	L[cm]=30         	G[kG/cm]=1.969401 	Tilt[deg]=0
+qMQA5A20   	L[cm]=30         	G[kG/cm]=-1.091494 	Tilt[deg]=0
+qMQA5A21   	L[cm]=30         	G[kG/cm]=0.8438119 	Tilt[deg]=0
+qMQA5A22   	L[cm]=30         	G[kG/cm]=-1.091494 	Tilt[deg]=0
+qMQA5A23   	L[cm]=30         	G[kG/cm]=1.969401 	Tilt[deg]=0
+qMQA5A24   	L[cm]=30         	G[kG/cm]=-1.091494 	Tilt[deg]=0
+qMQA5A25   	L[cm]=30         	G[kG/cm]=1.089954 	Tilt[deg]=0
+qMQA5A26   	L[cm]=30         	G[kG/cm]=-1.091494 	Tilt[deg]=0
+qMQA5A27   	L[cm]=30         	G[kG/cm]=1.969401 	Tilt[deg]=0
+qMQA5A28   	L[cm]=30         	G[kG/cm]=-1.091494 	Tilt[deg]=0
+qMQA5A29   	L[cm]=30         	G[kG/cm]=0.8438119 	Tilt[deg]=0
+qMQA5A30   	L[cm]=30         	G[kG/cm]=-1.091494 	Tilt[deg]=0
+qMQA5A31   	L[cm]=30         	G[kG/cm]=1.969401 	Tilt[deg]=0
+qMQA5A32   	L[cm]=30         	G[kG/cm]=-1.091494 	Tilt[deg]=0
+gMAQ5R06   	B[kG]=12.891061   Angle[deg]=-1.54  EffLen[cm]=1.90844  Tilt[deg]=90  
+bMAQ5R06   	L[cm]=100.0803   	B[kG]=12.891061   	G[kG/cm]=0        	Tilt[deg]=90
+GMAQ5R06   	B[kG]=12.891061   Angle[deg]=3.97641  EffLen[cm]=1.92805  Tilt[deg]=90  
+gMAS5R05   	B[kG]=11.900083   Angle[deg]=-3.97641  EffLen[cm]=2.40364  Tilt[deg]=90  
+bMAS5R05   	L[cm]=100.5355   	B[kG]=11.900083   	G[kG/cm]=0        	Tilt[deg]=90
+GMAS5R05   	B[kG]=11.900083   Angle[deg]=7.66384  EffLen[cm]=2.48309  Tilt[deg]=90  
+gMAU5R04   	B[kG]=-12.423342   Angle[deg]=5.37192  EffLen[cm]=1.29816  Tilt[deg]=90  
+bMAU5R04   	L[cm]=200.1492   	B[kG]=-12.423342   	G[kG/cm]=0        	Tilt[deg]=90
+GMAU5R04   	B[kG]=-12.423342   Angle[deg]=5.37192  EffLen[cm]=1.29816  Tilt[deg]=90  
+gMAC5R03   	B[kG]=8.9387518   Angle[deg]=2.91766  EffLen[cm]=1.27825  Tilt[deg]=90  
+bMAC5R03   	L[cm]=100.0096   	B[kG]=8.9387518   	G[kG/cm]=0        	Tilt[deg]=90
+GMAC5R03   	B[kG]=8.9387518   Angle[deg]=2.91766  EffLen[cm]=1.27825  Tilt[deg]=90  
+gMAC5R01   	B[kG]=-8.9387518   Angle[deg]=2.91766  EffLen[cm]=1.27825  Tilt[deg]=90  
+bMAC5R01   	L[cm]=100.0096   	B[kG]=-8.9387518   	G[kG/cm]=0        	Tilt[deg]=90
+GMAC5R01   	B[kG]=-8.9387518   Angle[deg]=2.91766  EffLen[cm]=1.27825  Tilt[deg]=90  
+qMQA5R10 	L[cm]=30         	G[kG/cm]=-1.015743 	Tilt[deg]=0
+qMQA5R09 	L[cm]=30         	G[kG/cm]=2.033158 	Tilt[deg]=0
+qMQA5R08 	L[cm]=30         	G[kG/cm]=-3.163058 	Tilt[deg]=0
+qMQA5R07 	L[cm]=30         	G[kG/cm]=-1.76987 	Tilt[deg]=0
+qMQA5R06 	L[cm]=30         	G[kG/cm]=2.447274 	Tilt[deg]=0
+qMQA5R05 	L[cm]=30         	G[kG/cm]=-0.8016051 	Tilt[deg]=0
+qMQA5R04 	L[cm]=30         	G[kG/cm]=-0.8688507 	Tilt[deg]=0
+qMQA5R03 	L[cm]=30         	G[kG/cm]=0.8690326 	Tilt[deg]=0
+qMQA5R02 	L[cm]=30         	G[kG/cm]=-0.921291 	Tilt[deg]=0
+qMQA5R01 	L[cm]=30         	G[kG/cm]=1.099199 	Tilt[deg]=0
+iIPM5S01   	L[cm]=0        
+kMBC5S01H  	L[cm]=1e-06      	B[kG]=0   	Tilt[deg]=0
+kMBC5S01V  	L[cm]=1e-06      	B[kG]=0   	Tilt[deg]=90
+iITV5S01   	L[cm]=0        
+iIPM5S02   	L[cm]=0        
+kMBC5S02H  	L[cm]=1e-06      	B[kG]=0   	Tilt[deg]=0
+iIPM5S03   	L[cm]=0        
+kMBC5S03H  	L[cm]=1e-06      	B[kG]=0   	Tilt[deg]=0
+iITV5S04   	L[cm]=0        
+iIPM5S05   	L[cm]=0        
+kMBC5S05H  	L[cm]=1e-06      	B[kG]=0   	Tilt[deg]=0
+kMBC5S05V  	L[cm]=1e-06      	B[kG]=0   	Tilt[deg]=90
+iIPM5S07   	L[cm]=0        
+kMBC5S07H  	L[cm]=1e-06      	B[kG]=0   	Tilt[deg]=0
+kMBC5S07V  	L[cm]=1e-06      	B[kG]=0   	Tilt[deg]=90
+iIPM5S08   	L[cm]=0        
+kMBC5S08H  	L[cm]=1e-06      	B[kG]=0   	Tilt[deg]=0
+kMBC5S08V  	L[cm]=1e-06      	B[kG]=0   	Tilt[deg]=90
+iIPM5S09   	L[cm]=0        
+kMBC5S09H  	L[cm]=1e-06      	B[kG]=0   	Tilt[deg]=0
+kMBC5S09V  	L[cm]=1e-06      	B[kG]=0   	Tilt[deg]=90
+iIPM5S10   	L[cm]=0        
+kMBC5S10H  	L[cm]=1e-06      	B[kG]=0   	Tilt[deg]=0
+kMBC5S10V  	L[cm]=1e-06      	B[kG]=0   	Tilt[deg]=90
+iIPM5E01   	L[cm]=0        
+kMBM5E01H  	L[cm]=1e-06      	B[kG]=0   	Tilt[deg]=0
+kMBM5E01V  	L[cm]=1e-06      	B[kG]=0   	Tilt[deg]=90
+iIHA5E01   	L[cm]=0        
+iIPM5E02   	L[cm]=0        
+kMBM5E02H  	L[cm]=1e-06      	B[kG]=0   	Tilt[deg]=0
+kMBM5E02V  	L[cm]=1e-06      	B[kG]=0   	Tilt[deg]=90
+iIPM5E03   	L[cm]=0        
+kMBM5E03H  	L[cm]=1e-06      	B[kG]=0   	Tilt[deg]=0
+kMBM5E03V  	L[cm]=1e-06      	B[kG]=0   	Tilt[deg]=90
+iIPM5A01   	L[cm]=0        
+kMBC5A01H  	L[cm]=1e-06      	B[kG]=0   	Tilt[deg]=0
+kMBC5A01V  	L[cm]=1e-06      	B[kG]=0   	Tilt[deg]=90
+iITV5A01   	L[cm]=0        
+iIPM5A02   	L[cm]=0        
+kMBC5A02V  	L[cm]=1e-06      	B[kG]=0   	Tilt[deg]=90
+iIPM5A03   	L[cm]=0        
+kMBC5A03H  	L[cm]=1e-06      	B[kG]=0   	Tilt[deg]=0
+iIHA5A03   	L[cm]=0        
+iIPM5A04   	L[cm]=0        
+kMBC5A04V  	L[cm]=1e-06      	B[kG]=0   	Tilt[deg]=90
+iIPM5A05   	L[cm]=0        
+kMBC5A05H  	L[cm]=1e-06      	B[kG]=0   	Tilt[deg]=0
+iIPM5A06   	L[cm]=0        
+kMBC5A06V  	L[cm]=1e-06      	B[kG]=0   	Tilt[deg]=90
+iIPM5A07   	L[cm]=0        
+kMBC5A07H  	L[cm]=1e-06      	B[kG]=0   	Tilt[deg]=0
+iIPM5A08   	L[cm]=0        
+kMBC5A08V  	L[cm]=1e-06      	B[kG]=0   	Tilt[deg]=90
+iIPM5A09   	L[cm]=0        
+kMBC5A09H  	L[cm]=1e-06      	B[kG]=0   	Tilt[deg]=0
+iITV5A09   	L[cm]=0        
+iIPM5A10   	L[cm]=0        
+kMBC5A10V  	L[cm]=1e-06      	B[kG]=0   	Tilt[deg]=90
+iIPM5A11   	L[cm]=0        
+kMBC5A11H  	L[cm]=1e-06      	B[kG]=0   	Tilt[deg]=0
+kMBC5A12V  	L[cm]=1e-06      	B[kG]=0   	Tilt[deg]=90
+iIPM5A13   	L[cm]=0        
+kMBC5A13H  	L[cm]=1e-06      	B[kG]=0   	Tilt[deg]=0
+kMBC5A14V  	L[cm]=1e-06      	B[kG]=0   	Tilt[deg]=90
+iIPM5A15   	L[cm]=0        
+kMBC5A15H  	L[cm]=1e-06      	B[kG]=0   	Tilt[deg]=0
+iIPM5A16   	L[cm]=0        
+kMBC5A16V  	L[cm]=1e-06      	B[kG]=0   	Tilt[deg]=90
+iIPM5A17   	L[cm]=0        
+kMBC5A17H  	L[cm]=1e-06      	B[kG]=0   	Tilt[deg]=0
+iITV5A17   	L[cm]=0        
+iIPM5A18   	L[cm]=0        
+kMBC5A18V  	L[cm]=1e-06      	B[kG]=0   	Tilt[deg]=90
+iIPM5A19   	L[cm]=0        
+kMBC5A19H  	L[cm]=1e-06      	B[kG]=0   	Tilt[deg]=0
+kMBC5A20V  	L[cm]=1e-06      	B[kG]=0   	Tilt[deg]=90
+iIPM5A21   	L[cm]=0        
+kMBC5A21H  	L[cm]=1e-06      	B[kG]=0   	Tilt[deg]=0
+kMBC5A22V  	L[cm]=1e-06      	B[kG]=0   	Tilt[deg]=90
+iIPM5A23   	L[cm]=0        
+kMBC5A23H  	L[cm]=1e-06      	B[kG]=0   	Tilt[deg]=0
+iIPM5A24   	L[cm]=0        
+kMBC5A24V  	L[cm]=1e-06      	B[kG]=0   	Tilt[deg]=90
+iIPM5A25   	L[cm]=0        
+kMBC5A25H  	L[cm]=1e-06      	B[kG]=0   	Tilt[deg]=0
+iITV5A25   	L[cm]=0        
+iIPM5A26   	L[cm]=0        
+kMBC5A26V  	L[cm]=1e-06      	B[kG]=0   	Tilt[deg]=90
+iIPM5A27   	L[cm]=0        
+kMBC5A27H  	L[cm]=1e-06      	B[kG]=0   	Tilt[deg]=0
+kMBC5A28V  	L[cm]=1e-06      	B[kG]=0   	Tilt[deg]=90
+iIPM5A29   	L[cm]=0        
+kMBC5A29H  	L[cm]=1e-06      	B[kG]=0   	Tilt[deg]=0
+kMBC5A30V  	L[cm]=1e-06      	B[kG]=0   	Tilt[deg]=90
+iIPM5A31   	L[cm]=0        
+kMBC5A31H  	L[cm]=1e-06      	B[kG]=0   	Tilt[deg]=0
+iIPM5A32   	L[cm]=0        
+kMBC5A32V  	L[cm]=1e-06      	B[kG]=0   	Tilt[deg]=90
+iIPM5R01   	L[cm]=0        
+kMBC5R01H  	L[cm]=1e-06      	B[kG]=0   	Tilt[deg]=0
+iITV5R01   	L[cm]=0        
+iIPM5R02   	L[cm]=0        
+kMBC5R02H  	L[cm]=1e-06      	B[kG]=0   	Tilt[deg]=0
+kMBC5R02V  	L[cm]=1e-06      	B[kG]=0   	Tilt[deg]=90
+iIPM5R03   	L[cm]=0        
+kMBC5R03H  	L[cm]=1e-06      	B[kG]=0   	Tilt[deg]=0
+iIPM5R04   	L[cm]=0        
+kMBC5R04H  	L[cm]=1e-06      	B[kG]=0   	Tilt[deg]=0
+kMBC5R04V  	L[cm]=1e-06      	B[kG]=0   	Tilt[deg]=90
+iIPM5R06   	L[cm]=0        
+kMBC5R06H  	L[cm]=1e-06      	B[kG]=0   	Tilt[deg]=0
+iITV5R06   	L[cm]=0        
+kMBC5R07V  	L[cm]=1e-06      	B[kG]=0   	Tilt[deg]=90
+kMBC5R08H  	L[cm]=1e-06      	B[kG]=0   	Tilt[deg]=0
+iIPM5R08   	L[cm]=0        
+kMBC5R09H  	L[cm]=1e-06      	B[kG]=0   	Tilt[deg]=0
+iIPM5R09   	L[cm]=0        
+kMBC5R10V  	L[cm]=1e-06      	B[kG]=0   	Tilt[deg]=90
+kMBC5R10H  	L[cm]=1e-06      	B[kG]=0   	Tilt[deg]=0
+iIPM5R10   	L[cm]=0        
+oD602a      	L[cm]=7.934 
+oD603      	L[cm]=22.465   
+oD604      	L[cm]=19.315   
+oD605      	L[cm]=19.609   
+oD606      	L[cm]=50.546   
+oD607      	L[cm]=446.065  
+oD608      	L[cm]=55.485   
+oD609      	L[cm]=144.05   
+oD610      	L[cm]=43.186   
+oD612      	L[cm]=88.9115  
+oD613      	L[cm]=89.47    
+oD614      	L[cm]=58.065   
+oD615      	L[cm]=131.076  
+oD616      	L[cm]=347.535  
+oD617      	L[cm]=308.611  
+oD618      	L[cm]=1563.6115 
+oD619      	L[cm]=29.964   
+oD620      	L[cm]=26.815   
+oD621      	L[cm]=23.03    
+oD622      	L[cm]=500.4405 
+oD623      	L[cm]=90.0356  
+oD624      	L[cm]=199.878  
+oD625      	L[cm]=207.3027 
+oD626      	L[cm]=266.8827 
+oD627      	L[cm]=38.924   
+oD628      	L[cm]=274.291  
+oD629      	L[cm]=41.809   
+oD630      	L[cm]=252.093  
+oD631      	L[cm]=250.424  
+oD632      	L[cm]=270.033  
+oD633      	L[cm]=274.293  
+oD634      	L[cm]=293.902  
+oD635      	L[cm]=70.155   
+oD636      	L[cm]=316.367  
+oD637      	L[cm]=289.3477 
+oD638      	L[cm]=258.065  
+oD639      	L[cm]=328.22   
+oD640      	L[cm]=331.076  
+oD641      	L[cm]=147.535  
+oD642      	L[cm]=80.53    
+oD643      	L[cm]=49.987
+oD644      	L[cm]=43.1855  
+oD645      	L[cm]=496.611  
+oD646a      	L[cm]=7.934 
+oD30077 	 L[cm]=100.2417 
+oD30078 	 L[cm]=332.6715 
+oD30083 	 L[cm]=350.4054 
+end list

@@ -1,0 +1,76 @@
+# Taken from file H:\OPTIM_FILES\New_Combo_C\ArcB.opt
+$Einj=5.01268;  =>     5.01268
+$E=123;  =>  2303
+$T=$E-$Me;  =>     122.488994
+$EmitN=1e-4;  =>      0.0001
+$Emit=$Me/sqrt($E*$E-$Me*$Me)*$EmitN;  =>1.13610656e-06
+OptiM
+#
+Energy[MeV]= 12112.4890 Mass[MeV]=0.511006
+Emittance:ex[cm]=$Emit   ey[cm]=$Emit   DP/P=0.0001
+Initial:BetaX[cm]=    26586.60 BetaY[cm]=    18810.90
+AlfaX=    2.219620 AlfaY=   -1.768850
+DispX[cm]=    0.0000 DispY[cm]=  -28.3359
+DispPrX=  0.000000 DispPrY=  0.000000
+X[cm]=       8060.000000 Y[cm]=      10000.000000 Z[cm]=       9055.351000 S[cm]=       6800.653000
+tetaX[deg]=  0.000000 tetaY[deg]=  0.000000
+#
+begin lattice.Number of periods=1
+#
+gMAQBS01 bMAQBS01 GMAQBS01 oD60074 gMASBS02 bMASBS02 GMASBS02 oD60075 gMYRBS03 bMYRBS03 
+GMYRBS03 oD60076 gMYRBS04 bMYRBS04 GMYRBS04 oD60077 gMYRBS05 bMYRBS05 GMYRBS05 oD60078 
+qMQABS02 oD60079 qMQABS03 oD60080 gMARBS06 bMARBS06 GMARBS06 oD60081 qMQABS05 oD60082 
+qMQABS06 oD60083 qMQABS08 oD60084 qMQCBE01 oD60085 qMQCBE02 oD60086 qMQCBE03 oD60086 
+qMQCBE04 oD60087 gMARBS07 bMARBS07 GMARBS07 oD60088 gMARBS08 bMARBS08 GMARBS08 oD60089 
+end lattice
+begin list: dL=1.  dB=.1  dG=0.01  dS=0.01
+gMAQBS01   	B[kG]=12.891073   Angle[deg]=0  EffLen[cm]=1.90844  Tilt[deg]=90  
+bMAQBS01   	L[cm]=100.017    	B[kG]=12.891073   	G[kG/cm]=0        	Tilt[deg]=-90
+GMAQBS01   	B[kG]=12.891073   Angle[deg]=1.82833  EffLen[cm]=1.9133  Tilt[deg]=90  
+gMASBS02   	B[kG]=11.900022   Angle[deg]=-1.82833  EffLen[cm]=2.39549  Tilt[deg]=90  
+bMASBS02   	L[cm]=100.113    	B[kG]=11.900022   	G[kG/cm]=0        	Tilt[deg]=-90
+GMASBS02   	B[kG]=11.900022   Angle[deg]=3.51772  EffLen[cm]=2.412  Tilt[deg]=90  
+gMYRBS03   	B[kG]=-8.2637052   Angle[deg]=3.51772  EffLen[cm]=1.27854  Tilt[deg]=90  
+bMYRBS03   	L[cm]=300.189    	B[kG]=-8.2637052   	G[kG/cm]=0        	Tilt[deg]=-90
+GMYRBS03   	B[kG]=-8.2637052   Angle[deg]=0  EffLen[cm]=1.26656  Tilt[deg]=90  
+gMYRBS04   	B[kG]=-4.9190792   Angle[deg]=0  EffLen[cm]=1.27  Tilt[deg]=90  
+bMYRBS04   	L[cm]=200.02     	B[kG]=-4.9190792   	G[kG/cm]=0        	Tilt[deg]=-90
+GMYRBS04   	B[kG]=-4.9190792   Angle[deg]=1.39524  EffLen[cm]=1.27188  Tilt[deg]=90  
+gMYRBS05   	B[kG]=-5.6362665   Angle[deg]=0.799274  EffLen[cm]=1.27  Tilt[deg]=90  
+bMYRBS05   	L[cm]=200.006    	B[kG]=-5.6362665   	G[kG/cm]=0        	Tilt[deg]=-90
+GMYRBS05   	B[kG]=-5.6362665   Angle[deg]=0.799274  EffLen[cm]=1.27  Tilt[deg]=90  
+gMARBS06   	B[kG]=10.554793   Angle[deg]=1.4969  EffLen[cm]=1.27  Tilt[deg]=90  
+bMARBS06   	L[cm]=200.023    	B[kG]=10.554793   	G[kG/cm]=0        	Tilt[deg]=-90
+GMARBS06   	B[kG]=10.554793   Angle[deg]=1.4969  EffLen[cm]=1.27  Tilt[deg]=90  
+qMQABS02   	L[cm]=30         	G[kG/cm]=0       	Tilt[deg]=0
+qMQABS03   	L[cm]=30         	G[kG/cm]=-0.1867349 	Tilt[deg]=0
+qMQABS05   	L[cm]=30         	G[kG/cm]=-0.828879 	Tilt[deg]=0
+qMQABS06   	L[cm]=30         	G[kG/cm]=1.71979 	Tilt[deg]=0
+qMQABS08   	L[cm]=30         	G[kG/cm]=-1.120516 	Tilt[deg]=0
+qMQCBE01   	L[cm]=30         	G[kG/cm]=1.891114 	Tilt[deg]=0
+qMQCBE02   	L[cm]=30         	G[kG/cm]=-1.581638 	Tilt[deg]=0
+qMQCBE03   	L[cm]=30         	G[kG/cm]=1.259015 	Tilt[deg]=0
+qMQCBE04   	L[cm]=30         	G[kG/cm]=-0.8717369 	Tilt[deg]=0
+gMARBS07   	B[kG]=-10.576697   Angle[deg]=0.75  EffLen[cm]=1.27054  Tilt[deg]=-90  
+bMARBS07   	L[cm]=100.0114   	B[kG]=10.576697   	G[kG/cm]=0        	Tilt[deg]=-90
+GMARBS07   	B[kG]=-10.576697   Angle[deg]=0.75  EffLen[cm]=1.27054  Tilt[deg]=-90  
+gMARBS08   	B[kG]=10.576697   Angle[deg]=0.75  EffLen[cm]=1.27054  Tilt[deg]=-90  
+bMARBS08   	L[cm]=100.0114   	B[kG]=-10.576697   	G[kG/cm]=0        	Tilt[deg]=-90
+GMARBS08   	B[kG]=10.576697   Angle[deg]=0.75  EffLen[cm]=1.27054  Tilt[deg]=9  
+oD60074 	 L[cm]=100.051  
+oD60075 	 L[cm]=88.354   
+oD60076 	 L[cm]=60.001   
+oD60077 	 L[cm]=60.017   
+oD60078 	 L[cm]=465.64   
+oD60079 	 L[cm]=330.285  
+oD60080 	 L[cm]=241.39   
+oD60081 	 L[cm]=545.741  
+oD60082 	 L[cm]=469.103  
+oD60083 	 L[cm]=968.206  
+oD60084 	 L[cm]=1524.1   
+oD60085 	 L[cm]=1625.883 
+oD60086 	 L[cm]=1625     
+oD60087 	 L[cm]=747.54   
+oD60088 	 L[cm]=1810.0496 
+oD60089 	 L[cm]=421.9766 
+end list
