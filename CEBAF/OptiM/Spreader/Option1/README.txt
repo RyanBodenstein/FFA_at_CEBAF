@@ -1,1 +1,1 @@
-This is the first option, based on calcuations from the spreadsheet. 
+This is the first option, based on calcuations from the spreadsheet. The spreadsheet is included as well. If you want to use the spreadsheet, you must allow iterative calculations in your Excel settings, or it won't work.
