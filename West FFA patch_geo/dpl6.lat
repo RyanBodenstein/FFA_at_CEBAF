@@ -1,0 +1,89 @@
+! dpl6.lat
+! FFA West arc per Dejan
+! FFA pass 6
+
+! File parameters -----------------------------------------------------------------------
+
+call, file = Dejan_params.bmad ! import machine parameters
+parameter[geometry] = open 
+parameter[lattice] = "12-23 GEV" 
+
+! Beam Parameters -----------------------------------------------------------------------
+
+parameter[p0c]                      = 2.0499999993631E10
+parameter[particle]                 = Electron
+parameter[absolute_time_tracking]    = F
+bmad_com[auto_bookkeeper] = F
+
+beginning[beta_a]    = 1.7781415114972
+beginning[alpha_a]   = 1.1793613691575
+beginning[eta_x]     = 0.054996529289944
+beginning[etap_x]    = -0.025439810551632
+beginning[beta_b]    = 9.9422451971852
+beginning[alpha_b]   = -5.5925093686648
+particle_start[x]  = 5.9324689459119E-3
+particle_start[px] = -4.0828571677722E-3
+particle_start[pz] = 0.10487805             ! corresponds to max energy 22.65 GeV
+
+
+
+! Element Definitions -------------------------------------------------------------------
+
+! original drift with modifications from geometry
+d2: drift,   l = dl - dl_bf - dl_bd
+
+ 
+! multi-function magnets using straight-kink geometry
+
+! Bending Defocusing unit
+pr_bd: patch, x_pitch =0.5*angbd                                            ! change angle on both sides of magnet
+pt_bd_i: patch, x_offset =dx_bd                                             ! offset in radial dir due to geometry
+bd: sbend, field_master =T, b1_gradient =BD_grd, l =BDL, db_field =BD_fld   ! bending defocusing field + gradient
+pt_bd_f: patch, x_offset =-dx_bd                                            ! offset in radial dir due to geometry
+
+! Bending Focusing unit
+pr_bf: patch, x_pitch =0.5*angbf                                            ! change angle on both sides of magnet
+pt_bf_i: patch, x_offset =dx_bf                                             ! offset in radial dir due to geometry
+bf: sbend, field_master =T, b1_gradient =BF_grd, l =BFL, db_field =BF_fld   ! bending focusing field + gradient
+pt_bf_f: patch, x_offset =-dx_bf                                            ! offset in radial dir due to geometry
+
+
+
+! markers for diagnostic purposes
+
+MK.BEG: marker      ! beginning of the lattice
+MK.IN: marker       ! beginning of each cell
+MK.BET: marker      ! in between the magnets of each cell
+MK.OUT: marker      ! end of each cell
+MK.END: marker      ! end of the lattice
+
+
+
+! Lattice Construction ------------------------------------------------------------------
+
+
+cell: line = (MK.IN,                                        ! Lattice of one cell
+              pr_bd, pt_bd_i, bd, pt_bd_f, pr_bd,
+              d2, MK.BET,
+              pr_bf, pt_bf_i, bf, pt_bf_f, pr_bf, 
+              d2, 
+              MK.OUT)
+
+arc_1: line = (MK.BEG, cell, MK.END)
+
+arc_2: line = (MK.BEG, cell, cell, MK.END)
+
+cell_5: line = (cell, cell, cell, cell, cell)
+
+arc_5: line = (MK.BEG, cell, cell, cell, cell, cell, MK.END)
+
+cell_20: line = (cell_5, cell_5, cell_5, cell_5)
+
+arc_98: line = (MK.BEG, cell_20, cell_20, cell_20, cell_20, 
+                cell_5, cell_5, cell_5, cell, cell, cell, MK.END)
+
+
+! Go forth and beeeaam ------------------------------------------------------------------
+
+use, arc_5
+

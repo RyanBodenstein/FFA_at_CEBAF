@@ -1,0 +1,10 @@
+The files dpl#.lat are the lattice file for pass # with the correct energy.
+
+Dejan_params.bmad is a file storing all of the parameters Dejan used in his design, which for the most part I've duped. It's pretty well commented if you feel the need to have a look.
+
+Tao.init, tao_plot.init, and tao.startup are the usual shenanigans.
+
+The folder 'closed' contains the results from writing out my closed lattices.
+
+
+You may also notice if you run this thing it only prints out five cells. If you go into the lattice files and change which lattice line follows the 'use' command, you can get 1, 2, 5, or 98 cells.
