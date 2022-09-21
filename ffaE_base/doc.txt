@@ -1,0 +1,19 @@
+This file contains basic documentations for the contents of ffae_base
+
+The folder contains six passes at different energies, through the periodic Bmad lattice of the east ffa arc.
+
+Dejan_params_east.bmad contains all of the machine constants and parameters used by the lattice elements.
+
+E_ele_def.bmad contains the definitions of elements in the lattice; please note that I've used 'patch geometry' to build these elements, 
+and so the correspondence between physical magnets and simulated model is not exactly one-to-one.
+
+E_Arc_Lattice.bmad contains the lattice line of those elements, in a few different cell number configurations.
+
+p#e.lat contain the beam/particle starting parameters for pass #
+
+Tao.init, tao.startup, and tao_plot.init are initialization files for bmad which define how the simulation will treat the lattices.
+
+
+
+
+To run the simulation, navigate to the folder containing all the above files in a bash terminal, (other shells don't work, must be bash) and enter the command 'tao' (without quotes) to run tao.

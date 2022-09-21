@@ -1,0 +1,54 @@
+! p1e.lat
+! FFA East arc per Dejan(ish)
+! FFA pass 1
+
+
+! File parameters -----------------------------------------------------------------------
+
+call, file = E_Arc_Lattice.bmad ! Import the lattice
+parameter[geometry] = open 
+parameter[lattice] = "10-21 GEV" 
+
+! Beam Parameters -----------------------------------------------------------------------
+
+parameter[p0c]                      = ECENT
+parameter[particle]                 = Electron
+
+
+! starting parameters from the closed cell setup
+
+!beginning[beta_a]    = 1.4303331328558
+!beginning[alpha_a]   = 2.7816470219971
+!beginning[eta_x]     = 0.010123313690077
+!beginning[etap_x]    = -0.017946347633929
+!beginning[beta_b]    = 2.9443412757638
+!beginning[alpha_b]   = -3.3789595382999
+!beginning[eta_y]     = -3.6264542888305E-22
+!beginning[etap_y]    = -2.1165638427407E-22
+!beginning[cmat_11]   = 9.1181000832344E-26
+!beginning[cmat_12]   = -9.343565532262E-26
+!beginning[cmat_21]   = 2.8093036608054E-26
+!beginning[cmat_22]   = 3.9810236483143E-26
+!particle_start[x]  = -0.014101451276437
+!particle_start[px] = 8.5388283865692E-3
+!particle_start[y]  = -1.110957388968E-24
+!particle_start[py] = -6.053270163373E-25
+!particle_start[pz] = -0.3426791277258567        ! corresponds 10.55 GeV  miminum energy
+
+
+! starting parameters from after the NE spreader: preliminary
+
+beginning[beta_a]    = 189.168
+beginning[alpha_a]   = 3.52839
+beginning[eta_x]     = 1.6E-17
+beginning[etap_x]    = 1.86E-20
+beginning[beta_b]    = 294.349
+beginning[alpha_b]   = -1.1171
+beginning[eta_y]     = -0.261756
+beginning[etap_y]    = -0.000302958
+
+particle_start[x]  = -0.014101451276437
+particle_start[px] = 8.5388283865692E-3
+particle_start[y]  = -1.110957388968E-24
+particle_start[py] = -6.053270163373E-25
+particle_start[pz] = -0.3426791277258567        ! corresponds 10.55 GeV  miminum energy!
