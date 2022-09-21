@@ -1,0 +1,72 @@
+! -----------------------------------------------------------
+! Dejan's Machine Parameters for the West Arc
+! ----------------
+
+
+m_ELECTR = 510998.9180                          ! electron mass in eV
+
+EMAX = 22.650E9                                 ! 'maximum' energy of FFA@CEBAF west arc
+EMIN = 11.65E9                                  ! energy of first pass in FFA west arc
+ECENT = EMIN + (EMAX-EMIN)/2 
+ELIN = 2.20e9 
+
+! ----------------
+! momenta corresponding to the energies above
+
+p_MAX = sqrt(EMAX ^ 2-m_ELECTR ^ 2)             ! largest momentum in FFA arc
+p_MIN = sqrt(EMIN ^ 2-m_ELECTR ^ 2)             ! smallest momentum
+p_CENT = sqrt(ECENT ^ 2-m_ELECTR ^ 2)           ! central momentum
+p_LIN = sqrt(ELIN ^ 2-m_ELECTR ^ 2)             ! momentum increase per pass
+
+dpp0 = (p_MAX - p_CENT)/p_CENT 
+dltp0 = -(p_LIN/p_CENT) 
+
+BRH0 = p_CENT/c_light                           ! relativistic \beta of electrons with the central energy
+
+! ----------------
+! Accelerator/cell geometry stuff
+
+RCEBAF = 80.60                                  ! radius of CEBAF arcs
+ANGARC = 170.                                   ! angular displacement for the whole arc (approximate) 
+
+ANGCEBAF = PI*ANGARC/180.0                      ! ANGARC in radians
+LARC = ANGCEBAF*RCEBAF                          ! West arc length
+
+NCEL = 98.                                      ! number of BF-O-BD-O cells in the arc
+LCEL = LARC/NCEL                                ! length of each cell
+
+
+RATIO = 4.5                                     ! ratio of bend angles angbf/angbd
+angbd = -ANGCEBAF/(NCEL*(1.0+RATIO))            ! negative sign for consistency with left-handed accelerator
+angbf = angbd*ratio
+
+BFL_arc = 1.40                                  ! Arc length along the center of Dejan's BF magnet
+BFL = sqrt(2*(BFL_arc^2)/(angbf^2) - 2*cos(angbf)*(BFL_arc^2)/(angbf^2)) ! Chord length corresponding to centered arc
+DL = 0.08                                       ! Uniform drift length
+BDL_arc = LCEL - (BFL+2.0*DL)        ! Arc length for BD  
+BDL = sqrt(2*(BDL_arc^2)/(angbd^2) - 2*cos(angbd)*(BDL_arc^2)/(angbd^2)) ! BD chord
+
+
+dz_bf = 0.5*BFL*(1-sinc(0.5*angbf))             ! change in path length due to geometry of BF
+dl_bf = dz_bf/cos(0.5*angbf)                    ! change in BF magnet length due to geometry
+dx_bf = dz_bf*tan(0.5*angbf)                    ! radial displacement of BF due to geometry
+
+dz_bd = 0.5*BDL*(1-sinc(0.5*angbd))             ! change in path length due to geometry of BD
+dl_bd = dz_bd/cos(0.5*angbd)                    ! change in BD magnet length due to geometry
+dx_bd = dz_bd*tan(0.5*angbd)                    ! radial displacement of BD due to geometry
+
+! sagittal displacements, which actually aren't relevant for Dejan's magnets
+! sag_bf = 0.5*BFL*sinc(0.25*angbf)*sin(0.25*angbf)
+! sag_bd = 0.5*BDL*sinc(0.25*angbd)*sin(0.25*angbd)
+
+
+! ----------------
+! Magnetic field and gradient strengths
+
+BF_fld = angbf*BRH0/BFL                         ! bending field strength for BF
+BD_fld = angbd*BRH0/BDL                         ! bending field strength for BD
+
+BF_grd = -71.605506                             ! gradient of the focusing magnet 
+BD_grd = 89.643365                              ! gradient of the defocusing magnet
+kbf = BF_grd/BRH0 
+kbd = BF_grd/BRH0  
