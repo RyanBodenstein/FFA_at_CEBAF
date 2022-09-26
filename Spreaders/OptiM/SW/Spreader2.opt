@@ -1,0 +1,178 @@
+# Injector Energy [MeV]
+  $E0=650.00;  =>         650
+
+# Energy Gain Per Linac [MeV]
+  $Egain = 1100;  =>        1100
+
+# Quad Length (For now, assume all same quads. Change if needed)
+  $QLength1 = 30;  =>          30
+
+#Total Energy After Each Linac
+  $E1 =  $E0+1*$Egain;  =>        1750
+  $E2 =  $E0+2*$Egain;  =>        2850
+  $E3 = $E0+3*$Egain;  =>        3950
+  $E4 = $E0+4*$Egain;  =>        5050
+  $E5 = $E0+5*$Egain;  =>        6150
+  $E6 = $E0+6*$Egain;  =>        7250
+  $E7 = $E0+7*$Egain;  =>        8350
+  $E8 = $E0+8*$Egain;  =>        9450
+  $E9 = $E0+9*$Egain;  =>       10550
+  $E10 = $E0+10*$Egain;  =>       11650
+  $E11 = $E0+11*$Egain;  =>       12750
+  $E12 = $E0+12*$Egain;  =>       13850
+  $E13 = $E0+13*$Egain;  =>       14950
+  $E14 = $E0+14*$Egain;  =>       16050
+  $E15 = $E0+15*$Egain;  =>       17150
+  $E16 = $E0+16*$Egain;  =>       18250
+  $E17 = $E0+17*$Egain;  =>       19350
+  $E18 = $E0+18*$Egain;  =>       20450
+  $E19 = $E0+19*$Egain;  =>       21550
+  $E20 = $E0+20*$Egain;  =>       22650
+  $E21 = $E0+21*$Egain;  =>       23750
+
+# Beamline Heights at ARCs (100 m + beamline height to match machine coords)
+  $LinacH = 10000.00;  =>       10000
+  $H1 = $LinacH + 200.00;  =>       10200
+  $H2 = $LinacH + 200.00;  =>       10200
+  $H3 = $LinacH + 150.00;  =>       10150
+  $H4 = $LinacH + 150.00;  =>       10150
+  $H5 = $LinacH + 100.00;  =>       10100
+  $H6 = $LinacH + 100.00;  =>       10100
+  $H7 = $LinacH + 50.00;  =>       10050
+  $H8 = $LinacH + 50.00;  =>       10050
+  $H9 = $LinacH + 0;  =>       10000
+  $H10 =$LinacH +  0;  =>       10000
+  $H11 =$LinacH -  50.00;  =>        9950
+  $H12 =$LinacH -  50.00;  =>        9950
+
+# ARC2 VARIABLES
+  $T2 =  $E2-$Me;  =>    2849.489
+  $Pc1=sqrt(($E2^2)-($Me^2));  =>  2849.99995
+  $Hr1=$Pc1*1e11/$c;  =>  9506.57656
+  $EmitN=1e-4;  =>      0.0001
+  $Emit=$Me/$Pc1*$EmitN;  =>1.79297866e-008
+
+# Geometrical parameters of SPREADER and RECOMBINER  of ARC2
+  $HalfGapStd=1.27;  =>        1.27
+  $HalfGapLarge=1.5*$HalfGapStd;  =>       1.905
+
+#
+# MXR2S01 dipole
+  $L2S01=150.89227199;  =>  150.892272
+  $B2S01=11.877736981;  =>   11.877737
+  $EdgeAng2S01=10.801879000;  =>   10.801879
+  $Lef2S01s=$HalfGapLarge;  =>       1.905
+  $Lef2S01e=2.080558428;  =>  2.08055843
+#
+# MXH2S02 dipole
+  $L2S02=103.07921892;  =>  103.079219
+  $B2S02= 8.693598667;  =>  8.69359867
+  $EdgeAng2S02s=5.400939500;  =>   5.4009395
+  $EdgeAng2S02e=5.400939500;  =>   5.4009395
+  $Lef2S02s=2.428136651;  =>  2.42813665
+  $Lef2S02e=2.428136651;  =>  2.42813665
+#
+# MXY2S03 dipole
+  $L2S03=101.62458064;  =>  101.624581
+  $B2S03=8.818037466;  =>  8.81803747
+  $EdgeAng2S03s=2.700469750;  =>  2.70046975
+  $EdgeAng2S03e=2.700469750;  =>  2.70046975
+  $Lef2S03s=1.302610388;  =>  1.30261039
+  $Lef2S03e=1.302610388;  =>  1.30261039
+#
+# MXK2S05 dipole
+  $L2S05=100.10896943;  =>  100.108969
+  $B2S05=12.1402245377;  =>  12.1402245
+  $EdgeAng2S05s=3.6624214624;  =>  3.66242146
+  $EdgeAng2S05e=3.6624214624;  =>  3.66242146
+  $Lef2S05s=1.2958571670;  =>  1.29585717
+  $Lef2S05e=1.2958571670;  =>  1.29585717
+#
+# MXK2S06 dipole
+  $L2S06=100.10896943;  =>  100.108969
+  $B2S06=12.1402245377;  =>  12.1402245
+  $EdgeAng2S06s=3.6624214624;  =>  3.66242146
+  $EdgeAng2S06e=3.6624214624;  =>  3.66242146
+  $Lef2S06s=1.2958571670;  =>  1.29585717
+  $Lef2S06e=1.2958571670;  =>  1.29585717
+
+#-----------------------------------------------------------------------------------------------------------------------
+OptiM
+# Edited for FFA@CEBAF Spreader Re-design by Ryan Bodenstein, July 2022
+Energy[MeV]=$T2   Mass[MeV]=$Me
+Emittance: ex[cm]=2e-07  ey[cm]=2e-07  DP/P=2e-05 
+Initial:BetaX[cm]=      1980.7 BetaY[cm]=     1902.62
+AlfaX=   0.24207 AlfaY=   -0.0858305
+DispX[cm]=-0.000780334 	DispY[cm]=0
+DispPrX=0 	DispPrY=0
+X[cm]=8060.0000 	Y[cm]=10000.0000 	Z[cm]=9055.3720 	S[cm]=24276.8240 
+tetaX[deg]=0        	tetaY[deg]=0        
+begin lattice. Number of periods=1 
+gMXR2S01 bMXR2S01 GMXR2S01 oD100 
+gMXH2S02 bMXH2S02 GMXH2S02  oD102 
+gMXY2S03 bMXY2S03 GMXY2S03  oD103a
+qMQB2S01 oD103b qMQB2S02 oD103c qMQB2S03 oD103d
+gMXK2S05 bMXK2S05 GMXK2S05 oD104
+gMXK2S06 bMXK2S06 GMXK2S06 oD105 
+end lattice
+#
+begin list 
+gMXR2S01   	B[kG]=$B2S01   Angle[deg]=0  EffLen[cm]=$Lef2S01s  Tilt[deg]=-90  
+bMXR2S01   	L[cm]=$L2S01   	B[kG]=$B2S01   	G[kG/cm]=0 	Tilt[deg]=-90
+GMXR2S01   	B[kG]=$B2S01   Angle[deg]=$EdgeAng2S01  EffLen[cm]= $Lef2S01e  Tilt[deg]=-90  
+#
+gMXH2S02   	B[kG]=-$B2S02   Angle[deg]=$EdgeAng2S02s  EffLen[cm]=$Lef2S02s  Tilt[deg]=-90  
+bMXH2S02   	L[cm]=$L2S02   	B[kG]=-$B2S02   	G[kG/cm]=0  	Tilt[deg]=-90
+GMXH2S02   	B[kG]=-$B2S02   Angle[deg]=$EdgeAng2S02e  EffLen[cm]=$Lef2S02e  Tilt[deg]=-90  
+#
+gMXY2S03   	B[kG]=-$B2S03   Angle[deg]=$EdgeAng2S03s  EffLen[cm]=$Lef2S03s  Tilt[deg]=-90  
+bMXY2S03   	L[cm]=$L2S03   	B[kG]=-$B2S03   	G[kG/cm]=0 	Tilt[deg]=-90
+GMXY2S03   	B[kG]=-$B2S03   Angle[deg]=$EdgeAng2S03e  EffLen[cm]= $Lef2S03e  Tilt[deg]=-90  
+#
+gMXK2S05   	B[kG]=$B2S05   Angle[deg]=$EdgeAng2S05s  EffLen[cm]=$Lef2S05s  Tilt[deg]=-90  
+bMXK2S05   	L[cm]=$L2S05   	B[kG]=$B2S05   	G[kG/cm]=0  	Tilt[deg]=-90
+GMXK2S05   	B[kG]=$B2S05   Angle[deg]=$EdgeAng2S05e  EffLen[cm]=$Lef2S05e  Tilt[deg]=-90  
+#
+gMXK2S06   	B[kG]=-$B2S06   Angle[deg]=$EdgeAng2S06s  EffLen[cm]=$Lef2S06s  Tilt[deg]=-90  
+bMXK2S06   	L[cm]=$L2S06   	B[kG]=-$B2S06   	G[kG/cm]=0 	Tilt[deg]=-90
+GMXK2S06   	B[kG]=-$B2S06   Angle[deg]=$EdgeAng2S06e  EffLen[cm]=$Lef2S06e  Tilt[deg]=-90  
+#
+qMQB2S01 	L[cm]=30         	G[kG/cm]=-0.4637738 	Tilt[deg]=0
+qMQB2S02 	L[cm]=30         	G[kG/cm]=1.699991 	Tilt[deg]=0
+qMQB2S03 	L[cm]=30         	G[kG/cm]=-2.608784 	Tilt[deg]=0
+#
+#oD100      	L[cm]=637.31041319 
+oD100      	L[cm]=709.165
+oD102 	L[cm]=38.29168600 
+oD103a 	L[cm]=50 
+oD103b 	L[cm]=701      
+oD103c 	L[cm]=99 
+oD103d 	L[cm]=50 
+oD104      	L[cm]=135.05840991   
+oD105      	L[cm]=100.0   
+end list
+
+
+BetaFitBlock dL[cm]=5.0 dB[kG]=0.000001 dG[kG/cm]=0.00000001
+#Requested parameters and corresponding accuracy are listed below (dPARM<=0. - no fitting)
+#Maximum Betas[cm] and Momentum Compaction (Alfa) are on the next line
+BtXmax=5000.  dBtXmax=0.  BtYmax=5000.  dBtYmax=0.  Alfa=0.  dAlfa=0.
+#Fitting parameters at the end of the lattice
+Beta_X[cm]=750   dBeta_X[cm]=-200   Alfa_X=0.822604        dAlfa_X=-0.
+Beta_Y[cm]=750   dBeta_Y[cm]=-200   Alfa_Y=-1.18098        dAlfa_Y=-0.
+Disp_X[cm]=0.     dDisp_X[cm]=0.0001   D_prime_X=0.     dD_prime_X=0.000001
+Disp_Y[cm]=0.     dDisp_Y[cm]=0.0001   D_prime_Y=0.     dD_prime_Y=0.000001
+Qx=0.298571             dQx=0.
+Qy=0.503552            dQy=0.
+#Fit at Element with number =2 
+#To create a constraint at an intermediate element: uncomment the line above, 
+# write the correct Element number and insert six lines describing the
+# fit parameters. You can use up to 4 intermediate points
+#Each point has to be specified as described above
+#
+#Insert groups of Elements below. Each group has to be located on one line.
+#Start from the letter describing the type of changeable parameter such as: L:, B:, G: 
+G: qMQB2S01 : min=-1.000000000000e+010 max=1.000000000000e+010 
+G: qMQB2S02 : min=-1e10   max=1e10
+G: qMQB2S03 : min=-1e10   max=1e10
+EndBetaFitBlock
