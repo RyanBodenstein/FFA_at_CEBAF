@@ -1,0 +1,35 @@
+! p2w.lat
+! FFA West arc per Dejan
+! FFA pass 2
+
+
+! File parameters -----------------------------------------------------------------------
+
+call, file = West_FFA_details/West_FFA.lat.bmad
+parameter[geometry] = open 
+parameter[lattice] = "12-23 GEV" 
+
+! Beam Parameters -----------------------------------------------------------------------
+
+parameter[p0c]                      = 1.385E10
+parameter[particle]                 = Electron
+
+
+beginning[beta_a]    = 1.1793441939045
+beginning[alpha_a]   = 1.6164706351443
+beginning[eta_x]     = 0.017577014046373
+beginning[etap_x]    = -0.023478650719725
+beginning[beta_b]    = 3.5065325381152
+beginning[alpha_b]   = -3.3395179913622
+beginning[eta_y]     = 2.4870858220792E-27
+beginning[etap_y]    = 2.750534649703E-27
+beginning[cmat_11]   = -1.432718692833E-29
+beginning[cmat_12]   = 1.6988353359629E-29
+beginning[cmat_21]   = 3.2690758655788E-29
+beginning[cmat_22]   = -3.5591353483882E-29
+particle_start[x]  = -0.010861694916365
+particle_start[px] = 8.5506423027023E-3
+particle_start[y]  = -2.1342885059033E-28
+particle_start[py] = -1.9040840181154E-28
+!particle_start[pz] = -0.32439023              ! corresponds to 13.85 GeV energy
+

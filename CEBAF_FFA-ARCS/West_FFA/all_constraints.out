@@ -1,0 +1,117 @@
+ 
+ Constraints                                 Ref_Ele    Start_Ele   Ele/S    Meas-or-Lim    Model       Merit      Max_Loc
+ 1@floor[1]       floor.theta <target>                             MK.END     1.5708E+00  -1.5138E-01  2.966E+02
+ 1@twiss[1]       beta.a <target>                                  MK.END     6.5563E+00   7.1038E-01  3.417E+02
+ 1@twiss[2]       alpha.a <target>                                 MK.END     0.0000E+00   1.3623E+00  1.856E+01
+ 1@twiss[3]       beta.b <target>                                  MK.END     3.1018E+01   4.0382E+00  7.279E+03
+ 1@twiss[4]       alpha.b <target>                                 MK.END     0.0000E+00  -4.5195E+00  2.043E+02
+ 1@twiss[5]       eta.x <target>                                   MK.END     0.0000E+00   2.6586E-02  7.068E-02
+ 1@twiss[6]       etap.x <target>                                  MK.END     0.0000E+00  -8.5943E-02  7.386E-01
+ 1@mid[1]         alpha.a <target>                                 MK.END     0.0000E+00   1.3623E+00  1.856E+01
+ 1@mid[2]         alpha.b <target>                                 MK.END     0.0000E+00  -4.5195E+00  2.043E+02
+ 1@mid[3]         etap.x <target>                                  MK.END     0.0000E+00  -8.5943E-02  7.386E-01
+ 1@mid[4]         eta.x <target>                                   MK.END     0.0000E+00   2.6586E-02  7.068E-02
+ 1@mid[5]         eta.x <abs_max>                      MK.BEG      MK.END     8.5000E-03   5.4743E-02  2.138E+01  D2
+ 1@o[1]           orbit.px <target>                                MK.END     0.0000E+00   1.6986E-02  2.885E-02
+ 1@o[2]           orbit.x <target>                                 MK.END     0.0000E+00  -2.1096E-02  4.450E-02
+ 1@o[3]           eta.x <target>                                   MK.END     0.0000E+00   2.6586E-02  7.068E-02
+ 1@o[4]           etap.x <target>                                  MK.END     0.0000E+00  -8.5943E-02  7.386E-01
+ 1@o[5]           orbit.x <abs_max>                    MK.BEG      MK.END     2.3700E-02   2.2455E-02  0.000E+00  PR_BF
+ 1@fit.stable[1]  unstable.orbit <target>                                     0.0000E+00   0.0000E+00  0.000E+00
+ 1@fit.stable[2]  unstable.lattice <target>                                   0.0000E+00   1.0000E-03  1.000E-02
+ 1@fit.center[1]  6@data::fit.orbit[2]+1@data::fit.orbit[1] <target>          0.0000E+00  -6.1416E-03  3.772E-05
+ 1@fit.center[2]  6@data::fit.orbit[2]-1@data::fit.orbit[1] <target>          0.0000E+00   3.8768E-02  1.503E-07
+ 2@floor[1]       floor.theta <target>                             MK.END     1.5708E+00  -1.5138E-01  2.966E+02
+ 2@twiss[1]       beta.a <target>                                  MK.END     4.8298E+00   1.9304E+00  8.407E+01
+ 2@twiss[2]       alpha.a <target>                                 MK.END     0.0000E+00   1.9215E+00  3.692E+01
+ 2@twiss[3]       beta.b <target>                                  MK.END     1.1348E+01   3.1608E+00  6.703E+02
+ 2@twiss[4]       alpha.b <target>                                 MK.END     0.0000E+00  -2.3667E+00  5.601E+01
+ 2@twiss[5]       eta.x <target>                                   MK.END     0.0000E+00   4.7354E-02  2.242E-01
+ 2@twiss[6]       etap.x <target>                                  MK.END     0.0000E+00  -2.6825E-02  7.196E-02
+ 2@mid[1]         alpha.a <target>                                 MK.END     0.0000E+00   1.9215E+00  3.692E+01
+ 2@mid[2]         alpha.b <target>                                 MK.END     0.0000E+00  -2.3667E+00  5.601E+01
+ 2@mid[3]         etap.x <target>                                  MK.END     0.0000E+00  -2.6825E-02  7.196E-02
+ 2@mid[4]         eta.x <target>                                   MK.END     0.0000E+00   4.7354E-02  2.242E-01
+ 2@mid[5]         eta.x <abs_max>                      MK.BEG      MK.END     8.5000E-03   4.9499E-02  1.681E+01  PR_BF
+ 2@o[1]           orbit.px <target>                                MK.END     0.0000E+00   2.4148E-03  5.831E-04
+ 2@o[2]           orbit.x <target>                                 MK.END     0.0000E+00  -1.1724E-02  1.375E-02
+ 2@o[3]           eta.x <target>                                   MK.END     0.0000E+00   4.7354E-02  2.242E-01
+ 2@o[4]           etap.x <target>                                  MK.END     0.0000E+00  -2.6825E-02  7.196E-02
+ 2@o[5]           orbit.x <abs_max>                    MK.BEG      MK.END     2.3700E-02   1.7664E-02  0.000E+00  D2
+ 2@fit.stable[1]  unstable.orbit <target>                                     0.0000E+00   0.0000E+00  0.000E+00
+ 2@fit.stable[2]  unstable.lattice <target>                                   0.0000E+00   1.0000E-03  1.000E-02
+ 2@fit.center[1]  6@data::fit.orbit[2]+1@data::fit.orbit[1] <target>          0.0000E+00  -6.1416E-03  3.772E-05
+ 2@fit.center[2]  6@data::fit.orbit[2]-1@data::fit.orbit[1] <target>          0.0000E+00   3.8768E-02  1.503E-07
+ 3@floor[1]       floor.theta <target>                             MK.END     1.5708E+00  -1.5138E-01  2.966E+02
+ 3@twiss[1]       beta.a <target>                                  MK.END     4.4786E+00   1.2323E+00  1.054E+02
+ 3@twiss[2]       alpha.a <target>                                 MK.END     0.0000E+00   8.7494E-01  7.655E+00
+ 3@twiss[3]       beta.b <target>                                  MK.END     2.0841E+01   5.8841E+00  2.237E+03
+ 3@twiss[4]       alpha.b <target>                                 MK.END     0.0000E+00  -4.3133E+00  1.860E+02
+ 3@twiss[5]       eta.x <target>                                   MK.END     0.0000E+00   1.3607E-02  1.852E-02
+ 3@twiss[6]       etap.x <target>                                  MK.END     0.0000E+00   1.2043E-02  1.450E-02
+ 3@mid[1]         alpha.a <target>                                 MK.END     0.0000E+00   8.7494E-01  7.655E+00
+ 3@mid[2]         alpha.b <target>                                 MK.END     0.0000E+00  -4.3133E+00  1.860E+02
+ 3@mid[3]         etap.x <target>                                  MK.END     0.0000E+00   1.2043E-02  1.450E-02
+ 3@mid[4]         eta.x <target>                                   MK.END     0.0000E+00   1.3607E-02  1.852E-02
+ 3@mid[5]         eta.x <abs_max>                      MK.BEG      MK.END     8.5000E-03   6.5167E-02  3.211E+01  D2
+ 3@o[1]           orbit.px <target>                                MK.END     0.0000E+00   8.2459E-04  6.799E-05
+ 3@o[2]           orbit.x <target>                                 MK.END     0.0000E+00  -5.4777E-03  3.000E-03
+ 3@o[3]           eta.x <target>                                   MK.END     0.0000E+00   1.3607E-02  1.852E-02
+ 3@o[4]           etap.x <target>                                  MK.END     0.0000E+00   1.2043E-02  1.450E-02
+ 3@o[5]           orbit.x <abs_max>                    MK.BEG      MK.END     2.3700E-02   1.2771E-02  0.000E+00  PT_BF_F
+ 3@fit.stable[1]  unstable.orbit <target>                                     0.0000E+00   0.0000E+00  0.000E+00
+ 3@fit.stable[2]  unstable.lattice <target>                                   0.0000E+00   1.0000E-03  1.000E-02
+ 3@fit.center[1]  6@data::fit.orbit[2]+1@data::fit.orbit[1] <target>          0.0000E+00  -6.1416E-03  3.772E-05
+ 3@fit.center[2]  6@data::fit.orbit[2]-1@data::fit.orbit[1] <target>          0.0000E+00   3.8768E-02  1.503E-07
+ 4@floor[1]       floor.theta <target>                             MK.END     1.5708E+00  -1.5138E-01  2.966E+02
+ 4@mid[1]         alpha.a <target>                                 MK.END     0.0000E+00   1.2686E+00  1.609E+01
+ 4@mid[2]         alpha.b <target>                                 MK.END     0.0000E+00  -3.5774E+00  1.280E+02
+ 4@mid[3]         etap.x <target>                                  MK.END     0.0000E+00  -1.0392E-02  1.080E-02
+ 4@mid[4]         eta.x <target>                                   MK.END     0.0000E+00   1.3819E-02  1.910E-02
+ 4@mid[5]         eta.x <abs_max>                      MK.BEG      MK.END     8.5000E-03   8.3161E-02  5.574E+01  BF
+ 4@o[1]           orbit.px <target>                                MK.END     0.0000E+00   1.5473E-03  2.394E-04
+ 4@o[2]           orbit.x <target>                                 MK.END     0.0000E+00  -3.6107E-03  1.304E-03
+ 4@o[3]           eta.x <target>                                   MK.END     0.0000E+00   1.3819E-02  1.910E-02
+ 4@o[4]           etap.x <target>                                  MK.END     0.0000E+00  -1.0392E-02  1.080E-02
+ 4@o[5]           orbit.x <abs_max>                    MK.BEG      MK.END     2.3700E-02   7.0971E-03  0.000E+00  PT_BF_F
+ 4@fit.stable[1]  unstable.orbit <target>                                     0.0000E+00   0.0000E+00  0.000E+00
+ 4@fit.stable[2]  unstable.lattice <target>                                   0.0000E+00   1.0000E-03  1.000E-02
+ 4@fit.center[1]  6@data::fit.orbit[2]+1@data::fit.orbit[1] <target>          0.0000E+00  -6.1416E-03  3.772E-05
+ 4@fit.center[2]  6@data::fit.orbit[2]-1@data::fit.orbit[1] <target>          0.0000E+00   3.8768E-02  1.503E-07
+ 5@floor[1]       floor.theta <target>                             MK.END     1.5708E+00  -1.5138E-01  2.966E+02
+ 5@mid[1]         alpha.a <target>                                 MK.END     0.0000E+00   1.6124E+00  2.600E+01
+ 5@mid[2]         alpha.b <target>                                 MK.END     0.0000E+00  -2.4250E+00  5.881E+01
+ 5@mid[3]         etap.x <target>                                  MK.END     0.0000E+00  -3.9454E-02  1.557E-01
+ 5@mid[4]         eta.x <target>                                   MK.END     0.0000E+00   4.4493E-02  1.980E-01
+ 5@mid[5]         eta.x <abs_max>                      MK.BEG      MK.END     8.5000E-03   9.9934E-02  8.360E+01  PR_BF
+ 5@o[1]           orbit.px <target>                                MK.END     0.0000E+00  -1.0976E-03  1.205E-04
+ 5@o[2]           orbit.x <target>                                 MK.END     0.0000E+00  -5.2615E-04  2.768E-05
+ 5@o[3]           eta.x <target>                                   MK.END     0.0000E+00   4.4493E-02  1.980E-01
+ 5@o[4]           etap.x <target>                                  MK.END     0.0000E+00  -3.9454E-02  1.557E-01
+ 5@o[5]           orbit.x <abs_max>                    MK.BEG      MK.END     2.3700E-02   7.8977E-03  0.000E+00  BF
+ 5@fit.stable[1]  unstable.orbit <target>                                     0.0000E+00   0.0000E+00  0.000E+00
+ 5@fit.stable[2]  unstable.lattice <target>                                   0.0000E+00   1.0000E-03  1.000E-02
+ 5@fit.center[1]  6@data::fit.orbit[2]+1@data::fit.orbit[1] <target>          0.0000E+00  -6.1416E-03  3.772E-05
+ 5@fit.center[2]  6@data::fit.orbit[2]-1@data::fit.orbit[1] <target>          0.0000E+00   3.8768E-02  1.503E-07
+ 6@floor[1]       floor.theta <target>                             MK.END     1.5708E+00  -1.5138E-01  2.966E+02
+ 6@mid[1]         alpha.a <target>                                 MK.END     0.0000E+00   1.5907E+00  2.530E+01
+ 6@mid[2]         alpha.b <target>                                 MK.END     0.0000E+00  -2.4236E+00  5.874E+01
+ 6@mid[3]         etap.x <target>                                  MK.END     0.0000E+00  -5.6148E-02  3.153E-01
+ 6@mid[4]         eta.x <target>                                   MK.END     0.0000E+00   8.7588E-02  7.672E-01
+ 6@mid[5]         eta.x <abs_max>                      MK.BEG      MK.END     8.5000E-03   1.1794E-01  1.198E+02  BF
+ 6@o[1]           orbit.px <target>                                MK.END     0.0000E+00  -6.8732E-03  4.724E-03
+ 6@o[2]           orbit.x <target>                                 MK.END     0.0000E+00   6.8678E-03  4.717E-03
+ 6@o[3]           eta.x <target>                                   MK.END     0.0000E+00   8.7588E-02  7.672E-01
+ 6@o[4]           etap.x <target>                                  MK.END     0.0000E+00  -5.6148E-02  3.153E-01
+ 6@o[5]           orbit.x <abs_max>                    MK.BEG      MK.END     2.3700E-02   1.6313E-02  0.000E+00  PT_BF_I
+ 6@fit.stable[1]  unstable.orbit <target>                                     0.0000E+00   0.0000E+00  0.000E+00
+ 6@fit.stable[2]  unstable.lattice <target>                                   0.0000E+00   1.0000E-03  1.000E-02
+ 6@fit.center[1]  6@data::fit.orbit[2]+1@data::fit.orbit[1] <target>          0.0000E+00  -6.1416E-03  3.772E-05
+ 6@fit.center[2]  6@data::fit.orbit[2]-1@data::fit.orbit[1] <target>          0.0000E+00   3.8768E-02  1.503E-07
+ BF_fld[1]        [1:6]@BF[DB_FIELD]                               2.36      -2.0000E+00  -1.1552E+00  0.000E+00
+ BD_fld[1]        [1:6]@BD[DB_FIELD]                               0.88      -0.0000E+00  -0.0000E+00  0.000E+00
+ BF_grd[1]        [1:6]@BF[B1_GRADIENT]                            2.36      -1.0000E+02  -6.1812E+01  0.000E+00
+ BD_grd[1]        [1:6]@BD[B1_GRADIENT]                            0.88       1.0000E+02   8.1534E+01  0.000E+00
+ Constraints                                 Ref_Ele    Start_Ele   Ele/S    Meas-or-Lim    Model       Merit      Max_Loc
+ 
+  figure of merit: 1.416492E+04

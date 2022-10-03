@@ -1,0 +1,59 @@
+parameter[lattice]     = "12-23 GEV"
+parameter[geometry] = Closed          
+
+parameter[p0c]                      = 1.165E10
+parameter[particle]                 = Electron
+
+beginning[beta_a]    = 1.2271441101548
+beginning[alpha_a]   = 2.4661073141863
+beginning[eta_x]     = 9.7610182519355E-3
+beginning[etap_x]    = -0.022029814214191
+beginning[beta_b]    = 3.1206395976599
+beginning[alpha_b]   = -3.6400428256334
+beginning[eta_y]     = 5.6531721704959E-38
+beginning[etap_y]    = 6.420107181642E-38
+beginning[cmat_11]   = -6.3919060228932E-42
+beginning[cmat_12]   = -9.4338763634841E-42
+beginning[cmat_21]   = -1.1771020453119E-40
+beginning[cmat_22]   = 1.2958574521937E-40
+particle_start[x]  = -0.013193718766195
+particle_start[px] = 0.012490487012974
+particle_start[y]  = 3.4454816309968E-39
+particle_start[py] = 5.0839786673821E-39
+
+
+!-------------------------------------------------------
+
+MK.BEG: Marker
+MK.IN: Marker
+PR_BD: Patch, X_PITCH = -2.7523745161321E-3
+PT_BD_I: Patch, X_OFFSET = -1.5295652335563E-9
+BD: Sbend, L = 0.88028992882579, K1 = -2.306815857231, DB_FIELD = -0.35772987584493,
+   B1_GRADIENT = 89.643365, field_master = T
+PT_BD_F: Patch, X_OFFSET = 1.5295652335563E-9
+D2: Drift, L = 0.079981546222215
+MK.BET: Marker
+PR_BF: Patch, X_PITCH = -0.012385685322594
+PT_BF_I: Patch, X_OFFSET = -2.2167396465496E-7
+BF: Sbend, L = 1.3999642057275, K1 = 1.8426429742553, DB_FIELD = -1.012223759337,
+   B1_GRADIENT = -71.605506, field_master = T
+PT_BF_F: Patch, X_OFFSET = 2.2167396465496E-7
+MK.OUT: Marker
+MK.END: Marker
+
+!-------------------------------------------------------
+! Overlays, groups, rampers, and superimpose
+
+
+!-------------------------------------------------------
+! Lattice lines
+
+
+ARC_5: line = ( MK.BEG, MK.IN, PR_BD, PT_BD_I, BD, PT_BD_F, PR_BD, D2, MK.BET, PR_BF, PT_BF_I, BF,
+   PT_BF_F, PR_BF, D2, MK.OUT, MK.IN, PR_BD, PT_BD_I, BD, PT_BD_F, PR_BD, D2, MK.BET, PR_BF, PT_BF_I, BF,
+   PT_BF_F, PR_BF, D2, MK.OUT, MK.IN, PR_BD, PT_BD_I, BD, PT_BD_F, PR_BD, D2, MK.BET, PR_BF, PT_BF_I, BF,
+   PT_BF_F, PR_BF, D2, MK.OUT, MK.IN, PR_BD, PT_BD_I, BD, PT_BD_F, PR_BD, D2, MK.BET, PR_BF, PT_BF_I, BF,
+   PT_BF_F, PR_BF, D2, MK.OUT, MK.IN, PR_BD, PT_BD_I, BD, PT_BD_F, PR_BD, D2, MK.BET, PR_BF, PT_BF_I, BF,
+   PT_BF_F, PR_BF, D2, MK.OUT, MK.END)
+
+use, ARC_5

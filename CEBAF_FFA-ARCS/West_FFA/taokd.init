@@ -1,0 +1,152 @@
+!-----------------------------------------------------------------------------------------
+! Tao
+
+&tao_start
+  n_universes = 1
+  plot_file    = 'tao_plot.init '
+  startup_file = 'tao.startup'
+/
+
+
+!--------------------------------------------------------
+&tao_design_lattice
+   n_universes = 6
+   design_lattice(1)%file = "west_ffa.pass1.bmad"
+   design_lattice(2)%file = "west_ffa.pass2.bmad"
+   design_lattice(3)%file = "west_ffa.pass3.bmad"
+   design_lattice(4)%file = "west_ffa.pass4.bmad"
+   design_lattice(5)%file = "west_ffa.pass5.bmad"
+   design_lattice(6)%file = "west_ffa.pass6.bmad"
+/
+
+
+
+&tao_params
+  !global%plot_on = T
+  global%track_type = 'single'
+  global%beam_timer_on = T
+  global%random_engine = 'pseudo' ! or: 'quasi'
+  global%de_lm_step_ratio = 1500
+  global%optimizer = 'lmdif'
+  global%n_opti_cycles = 10
+  !---Bmad---
+  bmad_com%radiation_damping_on = F
+  bmad_com%radiation_fluctuations_on = F
+/
+
+
+
+
+!-----------------------------------------------------------------------------------------
+! Beam
+
+
+&tao_beam_init
+  beam_init%n_particle = 10000
+  beam_init%random_engine = 'quasi'
+  ix_universe = 1
+  beam_saved_at =  "MARKER::*"
+  track_start = 'MAR.BEG'
+  track_end = 'MAR.END'
+  beam_init%a_norm_emit = 96.78e-6
+  beam_init%b_norm_emit = 41.4e-6
+  beam_init%dPz_dz = 0.0
+  beam_init%n_bunch = 1     
+  beam_init%bunch_charge = 1e-9
+  beam_init%sig_pz = 57.93e-5
+  beam_init%sig_z = 0.005
+/
+
+
+
+
+!-----------------------------------------------------------------------------------------
+! Data
+
+
+&tao_d2_data
+ d2_data%name = 'fit'
+ universe = '*'
+ n_d1_data = 4
+/
+
+&tao_d1_data
+ ix_d1_data = 1
+ d1_data%name = 'tune'
+ default_weight = 1.0
+ ix_min_data = 1 
+ ix_max_data = 2
+ datum(1)%data_type = 'expression: lat::r.11[beginning&end]+r.22[beginning&end]'
+ datum(2)%data_type = 'expression: lat::r.33[beginning&end]+r.44[beginning&end]'
+/
+
+&tao_d1_data
+ ix_d1_data = 2
+ d1_data%name = 'orbit'
+ default_weight = 1.0
+ ix_min_data = 1 
+ ix_max_data = 2
+ datum(1:2)%data_type = 'orbit.x' 'orbit.x'
+ datum(1:2)%ele_start_name = 'beginning' 'beginning'
+ datum(1:2)%ele_name = 'end' 'end'
+ datum(1:2)%meas = 0.0 0.0
+ datum(1:2)%merit_type = 'min' 'max'
+ datum(1:2)%good_user = f f
+/
+
+&tao_d1_data
+ ix_d1_data = 3
+ d1_data%name = 'stable'
+ default_weight = 1e4
+ ix_min_data = 1 
+ ix_max_data = 2
+ datum(1:2)%data_type = 'unstable.orbit' 'unstable.lattice'
+ datum(1:2)%meas = 0.0 0.0
+/
+
+&tao_d1_data
+ ix_d1_data = 4
+ d1_data%name = 'center'
+ default_weight = 1e4
+ ix_min_data = 1 
+ ix_max_data = 7
+ datum(1)%data_type = 'expression: 8@data::fit.orbit[2]+1@data::fit.orbit[1]'
+ datum(2)%data_type = 'expression: 8@data::fit.orbit[2]-1@data::fit.orbit[1]'
+ datum(3)%data_type = 'expression: 8@data::fit.orbit[2]+2@data::fit.orbit[1]'
+ datum(4)%data_type = 'expression: 8@data::fit.orbit[2]-2@data::fit.orbit[1]'
+ datum(5)%data_type = 'expression: 1@data::fit.orbit[2]+2@data::fit.orbit[1]'
+ datum(6)%data_type = 'expression: 1@data::fit.orbit[2]-2@data::fit.orbit[1]'
+ datum(7)%data_type = 'expression: 8@data::fit.orbit[2]-1@data::fit.orbit[2]'
+ datum(1:7)%meas = 0 0 0 0 0 0 0
+ datum(1:7)%weight = 1 1e-4 1 1e-4 1 1e-4 1
+ datum(1:7)%good_user = t t f f f f f
+/
+
+
+
+
+!-----------------------------------------------------------------------------------------
+! Variables
+
+&tao_var
+ v1_var%name = 'b1'
+ ix_min_var = 1
+ ix_max_var = 2
+ var(1:2)%ele_name = 'bf' 'bd'
+ var(1:2)%attribute = 'b1_gradient' 'b1_gradient'
+ var(1:2)%step = 1e-3 1e-3
+/
+
+&tao_var
+ v1_var%name = 'b0'
+ ix_min_var = 1
+ ix_max_var = 2
+ var(1:2)%ele_name = 'bf' 'bd'
+ var(1:2)%attribute = 'db_field' 'db_field'
+ var(1:2)%step = 1e-5 1e-5
+ var(1)%low_lim = -0.7
+ var(2)%low_lim = -0.5
+ var(1)%high_lim = -0.3
+ var(2)%high_lim = -0.1
+/
+

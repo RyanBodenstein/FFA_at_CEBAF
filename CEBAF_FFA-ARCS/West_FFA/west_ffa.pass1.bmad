@@ -1,0 +1,40 @@
+! p1w.lat
+! FFA West arc per Dejan
+! FFA pass 1
+
+
+! File parameters -----------------------------------------------------------------------
+
+call, file = West_FFA_details/West_FFA.lat.bmad
+parameter[geometry] = open 
+parameter[lattice] = "12-23 GEV" 
+
+! Beam Parameters -----------------------------------------------------------------------
+
+parameter[p0c]                      = 1.165E10
+parameter[particle]                 = Electron
+
+
+beginning[beta_a]    = 1.2271441101548
+beginning[alpha_a]   = 2.4661073141863
+beginning[eta_x]     = 9.7610182519355E-3
+beginning[etap_x]    = -0.022029814214191
+beginning[beta_b]    = 3.1206395976599
+beginning[alpha_b]   = -3.6400428256334
+beginning[eta_y]     = 5.6531721704959E-38
+beginning[etap_y]    = 6.420107181642E-38
+beginning[cmat_11]   = -6.3919060228932E-42
+beginning[cmat_12]   = -9.4338763634841E-42
+beginning[cmat_21]   = -1.1771020453119E-40
+beginning[cmat_22]   = 1.2958574521937E-40
+particle_start[x]  = -0.013193718766195
+particle_start[px] = 0.012490487012974
+particle_start[y]  = 3.4454816309968E-39
+particle_start[py] = 5.0839786673821E-39
+!particle_start[pz] = -0.4317073        ! corresponds 11.65 GeV  miminum energy
+
+
+
+
+
+

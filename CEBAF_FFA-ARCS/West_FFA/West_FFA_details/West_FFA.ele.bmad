@@ -1,0 +1,36 @@
+! W_ele_defs.bmad
+! Element definitions file
+! Dejan's west arc
+
+call, file = West_FFA.params.bmad ! import machine parameters
+
+! Element Definitions -------------------------------------------------------------------
+
+! original drift with modifications from geometry
+d2: drift,   l = dl - dl_bf - dl_bd
+
+ 
+! multi-function magnets using straight-kink geometry
+
+! Bending Defocusing unit
+pr_bd: patch, x_pitch =0.5*angbd                                            ! change angle on both sides of magnet
+pt_bd_i: patch, x_offset =dx_bd                                             ! offset in radial dir due to geometry
+bd: sbend, field_master =T, b1_gradient =BD_grd, l =BDL, db_field =BD_fld   ! bending defocusing field + gradient
+pt_bd_f: patch, x_offset =-dx_bd                                            ! offset in radial dir due to geometry
+
+! Bending Focusing unit
+pr_bf: patch, x_pitch =0.5*angbf                                            ! change angle on both sides of magnet
+pt_bf_i: patch, x_offset =dx_bf                                             ! offset in radial dir due to geometry
+bf: sbend, field_master =T, b1_gradient =BF_grd, l =BFL, db_field =BF_fld   ! bending focusing field + gradient
+pt_bf_f: patch, x_offset =-dx_bf                                            ! offset in radial dir due to geometry
+
+
+
+! markers for diagnostic purposes
+
+MK.BEG: marker      ! beginning of the lattice
+MK.IN: marker       ! beginning of each cell
+MK.BET: marker      ! in between the magnets of each cell
+MK.OUT: marker      ! end of each cell
+MK.END: marker      ! end of the lattice
+
