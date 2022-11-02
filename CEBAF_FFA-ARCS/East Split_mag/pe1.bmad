@@ -1,0 +1,22 @@
+! pe1.bmad
+! File containing pass 1 optics for the east arc
+! Twiss functions, energies, etc.
+
+call, file = E_split.lat
+
+
+parameter[geometry] = open          
+
+parameter[p0c]                      = 2.05E10
+parameter[particle]                 = Electron
+
+beginning[beta_a]    = 1.4298720804987
+beginning[alpha_a]   = 2.7803965902104
+beginning[eta_x]     = 7.5413453139381E-3
+beginning[etap_x]    = -0.015152094078775
+beginning[beta_b]    = 2.9448181161169
+beginning[alpha_b]   = -3.3795684017315
+particle_start[x]  = -0.016721357588131
+particle_start[px] = 8.4767429667261E-3
+particle_start[pz] = -0.485366
+
