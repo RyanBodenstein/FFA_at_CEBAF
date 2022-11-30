@@ -1,0 +1,448 @@
+! Define parameters
+InjE = 650e6
+LinacE = 1100e6
+e1 = InjE + LinacE
+e3 = e1+2*(LinacE)
+e5 = e3+2*(LinacE)
+e7 = e5+2*(LinacE)
+e9 = e7+2*(LinacE)
+e11 = e9+2*(LinacE)
+e13 = e11+2*(LinacE)
+e15 = e13+2*(LinacE)
+e17 = e15+2*(LinacE)
+e19 = e17+2*(LinacE)
+e21 = e19+2*(LinacE)
+e23 = e21+2*(LinacE)
+e25 = e23+2*(LinacE)
+p1 = sqrt(e1*e1-mass_of(electron)^2)
+p3 = sqrt(e3*e3-mass_of(electron)^2)
+p5 = sqrt(e5*e5-mass_of(electron)^2)
+p7 = sqrt(e7*e7-mass_of(electron)^2)
+p9 = sqrt(e9*e9-mass_of(electron)^2)
+p11 = sqrt(e11*e11-mass_of(electron)^2)
+p13 = sqrt(e13*e13-mass_of(electron)^2)
+p15 = sqrt(e15*e15-mass_of(electron)^2)
+p17 = sqrt(e17*e17-mass_of(electron)^2)
+p19 = sqrt(e19*e19-mass_of(electron)^2)
+p21 = sqrt(e21*e21-mass_of(electron)^2)
+p23 = sqrt(e23*e23-mass_of(electron)^2)
+p25 = sqrt(e25*e25-mass_of(electron)^2)
+
+parameter[geometry] = open
+parameter[particle] = electron
+
+! Magnet Steel Lengths
+ls_BCOM1 = 1.5
+ls_BCOM2 = 1.01552701
+ls_NESEPT = 3.03530607
+ls_P1B2 = 1.5
+ls_P1B3 = 1.00881582810623
+ls_P1B4 = 1.00881582810623
+ls_P3B3 = 2.03846890215814
+ls_P3B4 = 1.02289043752664
+ls_P3B5 = 1.02289043752664
+ls_P5B3 = 0.999352823925987
+ls_P5B4 = 1.00059721
+ls_P5B5 = 1.03883612
+ls_P5B6 = 1.03883612
+ls_P7B4 = 0.9989717
+ls_P7B5 = 0.9989717
+ls_Q30 = 0.3
+ls_Q35 = 0.3556
+
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+!!!!!!!!!!!!!  Pass 1 Elements  !!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+
+! Dipoles
+1BCOM1: sbend, l=ls_BCOM1, ref_tilt=-0.5*pi, HGAP=0.1905
+1B2: sbend, l=ls_P1B2, ref_tilt=-0.5*pi, HGAP=0.01269999849
+1B3: sbend, l=ls_P1B3, ref_tilt=-0.5*pi, HGAP=0.01269999849
+1B4: sbend, l=ls_P1B4, ref_tilt=-0.5*pi, HGAP=0.01269999849
+
+! Quads
+1Q1: quadrupole, l=ls_Q30, k1=-0.5992335836
+1Q2: quadrupole, l=ls_Q30, k1=2.740959728
+1Q3: quadrupole, l=ls_Q30, k1=-3.778092635
+
+! Drifts
+D100: drift, l=3.33227
+D101a: drift, l=0.5
+D101b: drift, l=5.409
+D101c: drift, l=0.591
+D101d: drift, l=0.2
+D102: drift, l=0.3663617
+D103: drift, l=1.0
+
+! Patches
+po_1BCOM1: patch
+pi_1B2: patch
+po_1B2: patch
+pi_1B3: patch
+po_1B3: patch
+pi_1B4: patch
+po_1B4: patch
+pi_1Q1: patch
+po_1Q1: patch
+pi_1Q2: patch
+po_1Q2: patch
+pi_1Q3: patch
+po_1Q3: patch
+
+! Overlays
+! Between 1st and 2nd dipoles
+ov1_1: overlay={}
+! Between 2nd dipole and 1st quad
+ov1_2: overlay={}
+! Between 1st quad and 2nd quad
+ov1_3: overlay={}
+! Between 2nd quad and 3rd quad
+ov1_4: overlay={}
+! Between 3rd quad and 3rd dipole
+ov1_5: overlay={}
+! Between 3rd dipole and 4th dipole
+ov1_6: overlay={}
+! After 4th dipole
+ov1_7: overlay={}
+
+Pass1: line=(1BCOM1, po_1BCOM1,
+D100, pi_1B2, 1B2, po_1B2,
+D101a, pi_1Q1, 1Q1, po_1Q1, D101b, pi_1Q2, 1Q2, po_1Q2, D101c, pi_1Q3, 1Q3, po_1Q3,
+D101d, pi_1B3, 1B3, po_1B3,
+D102, pi_1B4, 1B4, po_1B4, D103)
+
+Pass1[e_tot] = e1
+
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+!!!!!!!!!!!!!  Pass 3 Elements  !!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+
+! Dipoles
+!1BCOM1: sbend, l=ls_BCOM1, ref_tilt=-0.5*pi, HGAP=0.1905
+3BCOM2: sbend, l=ls_BCOM2, ref_tilt=-0.5*pi, HGAP=0.023749
+3B3: sbend, l=ls_P3B3, ref_tilt=-0.5*pi, HGAP=0.01269999849
+3B4: sbend, l=ls_P3B4, ref_tilt=-0.5*pi, HGAP=0.01269999849
+3B5: sbend, l=ls_P3B5, ref_tilt=-0.5*pi, HGAP=0.01269999849
+
+! Quads
+3Q1: quadrupole, l=ls_Q30, k1=-0.5994761604
+3Q2: quadrupole, l=ls_Q30, k1=1.138510821
+3Q3: quadrupole, l=ls_Q30, k1=-1.651322901
+
+! Drifts
+D300: drift, l=0.5
+D301: drift, l=2.523235
+D302a: drift, l=0.5
+D302b: drift, l=5.19
+D302c: drift, l=1.81
+D302d: drift, l=0.8
+D303: drift, l=4.232153
+D304: drift, l=1.0
+
+! Patches
+po_3BCOM1: patch
+pi_3BCOM2: patch
+po_3BCOM2: patch
+pi_3B3: patch
+po_3B3: patch
+pi_3B4: patch
+po_3B4: patch
+pi_3B5: patch
+po_3B5: patch
+pi_3Q1: patch
+po_3Q1: patch
+pi_3Q2: patch
+po_3Q2: patch
+pi_3Q3: patch
+po_3Q3: patch
+
+! Overlays
+! Between 1st and 2nd dipoles
+ov3_1: overlay={}
+! Between 2nd dipole and 3rd dipole
+ov3_2: overlay={}
+! Between 3rd dipole and  1st quad
+ov3_3: overlay={}
+! Between 1st quad and 2nd quad
+ov3_4: overlay={}
+! Between 2nd quad and 3rd quad
+ov3_5: overlay={}
+! Between 3rd quad and 4th dipole
+ov3_6: overlay={}
+! Between 4th dipole and 5th dipole
+ov3_7: overlay={}
+! After 5th dipole
+ov3_8: overlay={}
+
+Pass3: line=(1BCOM1, po_3BCOM1,
+D300, pi_3BCOM2, 3BCOM2, po_3BCOM2,
+D301, pi_3B3, 3B3, po_3B3,
+D302a, pi_3Q1, 3Q1, po_3Q1, D302b, pi_3Q2, 3Q2, po_3Q2, D302c, pi_3Q3, 3Q3, po_3Q3,
+D302d, pi_3B4, 3B4, po_3B4,
+D303, pi_3B5, 3B5, po_3B5, D304)
+
+Pass3[e_tot] = e3
+
+
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+!!!!!!!!!!!!!  Pass 5 Elements  !!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+
+! Dipoles
+!1BCOM1: sbend, l=ls_BCOM1, ref_tilt=-0.5*pi, HGAP=0.1905
+!3BCOM2: sbend, l=ls_BCOM2, ref_tilt=-0.5*pi, HGAP=0.023749
+5B3: sbend, l=ls_P5B3, ref_tilt=-0.5*pi, HGAP=0.01269999849
+5B4: sbend, l=ls_P5B4, ref_tilt=-0.5*pi, HGAP=0.01269999849
+5B5: sbend, l=ls_P5B5, ref_tilt=-0.5*pi, HGAP=0.01269999849
+5B6: sbend, l=ls_P5B6, ref_tilt=-0.5*pi, HGAP=0.01269999849
+
+! Quads
+5Q1: quadrupole, l=ls_Q30, k1=-0.4296949199
+5Q2: quadrupole, l=ls_Q30, k1=1.949869651
+5Q3: quadrupole, l=ls_Q30, k1=-1.724046472
+5Q4: quadrupole, l=ls_Q30, k1=-1.722706912
+
+! Drifts
+D500: drift, l=0.5
+D501: drift, l=3.656375
+D502: drift, l=0.4215
+D503a: drift, l=0.3
+D503b: drift, l=7.3868
+D503c: drift, l=0.6132
+D503d: drift, l=0.1
+D503e: drift, l=1.6
+D504: drift, l=0.966706
+D505: drift, l=1.0
+
+! Patches
+po_5BCOM1: patch
+pi_5BCOM2: patch
+po_5BCOM2: patch
+pi_5B3: patch
+po_5B3: patch
+pi_5B4: patch
+po_5B4: patch
+pi_5B5: patch
+po_5B5: patch
+pi_5B6: patch
+po_5B6: patch
+pi_5Q1: patch
+po_5Q1: patch
+pi_5Q2: patch
+po_5Q2: patch
+pi_5Q3: patch
+po_5Q3: patch
+pi_5Q4: patch
+po_5Q4: patch
+
+! Overlays
+! Between 1st and 2nd dipoles
+ov5_1: overlay={}
+! Between 2nd dipole and 3rd dipole
+ov5_2: overlay={}
+! Between 3rd dipole and 4th dipole
+ov5_3: overlay={}
+! Between 4th dipole and 1st quad
+ov5_4: overlay={}
+! Between 1st quad and 2nd quad
+ov5_5: overlay={}
+! Between 2nd quad and 3rd quad
+ov5_6: overlay={}
+! Between 3rd quad and 4th quad
+ov5_7: overlay={}
+! Between 4th quad and 5th dipole
+ov5_8: overlay={}
+! Between 5th dipole and 6th dipole
+ov5_9: overlay={}
+! After 6th dipole
+ov5_10: overlay={}
+
+Pass5: line=(1BCOM1, po_5BCOM1,
+D500, pi_5BCOM2, 3BCOM2, po_5BCOM2,
+D501, pi_5B3, 5B3, po_5B3,
+D502, pi_5B4, 5B4, po_5B4,
+D503a, pi_5Q1, 5Q1, po_5Q1, D503b, pi_5Q2, 5Q2, po_5Q2,
+D503c, pi_5Q3, 5Q3, po_5Q3, D503d, pi_5Q4, 5Q4, po_5Q4,
+D503e pi_5B5, 5B5, po_5B5,
+D504, pi_5B6, 5B6, po_5B6, D505)
+
+Pass5[e_tot] = e5
+
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+!!!!!!!!!!!!!  Pass 7 Elements  !!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+
+! Dipoles
+!1BCOM1: sbend, l=ls_BCOM1, ref_tilt=-0.5*pi, HGAP=0.1905
+!3BCOM2: sbend, l=ls_BCOM2, ref_tilt=-0.5*pi, HGAP=0.023749
+7NESEPT: sbend, l=ls_NESEPT, ref_tilt=-0.5*pi, HGAP=0.01269999849
+7B4: sbend, l=ls_P7B4, ref_tilt=-0.5*pi, HGAP=0.01269999849
+7B5: sbend, l=ls_P7B5, ref_tilt=-0.5*pi, HGAP=0.01269999849
+
+! Quads
+7Q1: quadrupole, l=ls_Q30, k1=-0.4640051239
+7Q2: quadrupole, l=ls_Q30, k1=1.436131537
+7Q3: quadrupole, l=ls_Q30, k1=-1.168047068
+7Q4: quadrupole, l=ls_Q30, k1=-1.176011136
+
+! Drifts
+D700: drift, l=0.5
+D701: drift, l=0.8922411
+D702a: drift, l=0.3
+D702b: drift, l=7.0381
+D702c: drift, l=0.9619
+D702d: drift, l=0.1
+D702e: drift, l=1.6
+D703: drift, l=1.52336
+D704: drift, l=1.0
+
+! Patches
+po_7BCOM1: patch
+pi_7BCOM2: patch
+po_7BCOM2: patch
+pi_7NESEPT: patch
+po_7NESEPT: patch
+pi_7B4: patch
+po_7B4: patch
+pi_7B5: patch
+po_7B5: patch
+pi_7Q1: patch
+po_7Q1: patch
+pi_7Q2: patch
+po_7Q2: patch
+pi_7Q3: patch
+po_7Q3: patch
+pi_7Q4: patch
+po_7Q4: patch
+
+! Overlays
+! Between 1st and 2nd dipoles
+ov7_1: overlay={}
+! Between 2nd dipole and Septum
+ov7_2: overlay={}
+! Between septum and 1st quad
+ov7_3: overlay={}
+! Between 1st quad and 2nd quad
+ov7_4: overlay={}
+! Between 2nd quad and 3rd quad
+ov7_5: overlay={}
+! Between 3rd quad and 4th quad
+ov7_6: overlay={}
+! Between 4th quad 4th dipole
+ov7_7: overlay={}
+! Between 4th dipole and 5th dipole
+ov7_8: overlay={}
+! After 5th dipole
+ov7_9: overlay={}
+
+Pass7: line=(1BCOM1, po_7BCOM1,
+D700, pi_7BCOM2, 3BCOM2, po_7BCOM2,
+D701, pi_7NESEPT, 7NESEPT, po_7NESEPT,
+D702a, pi_7Q1, 7Q1, po_7Q1, D702b, pi_7Q2, 7Q2, po_7Q2,
+D702c, pi_7Q3, 7Q3, po_7Q3, D702d, pi_7Q4, 7Q4, po_7Q4,
+D702e pi_7B4, 7B4, po_7B4,
+D703, pi_7B5, 7B5, po_7B6, D704)
+
+Pass7[e_tot] = e7
+
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+!!!!!!!!!!!!!  Pass 9+ (FFA) Elements  !!!!!!!!!!!!!!!!!!!!!! This stuff is questionable and likely wrong
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+
+! Dipoles
+!1BCOM1: sbend, l=ls_BCOM1, ref_tilt=-0.5*pi, HGAP=0.1905
+!3BCOM2: sbend, l=ls_BCOM2, ref_tilt=-0.5*pi, HGAP=0.023749
+!7NESEPT: sbend, l=ls_NESEPT, ref_tilt=-0.5*pi, HGAP=0.01269999849
+RNESEPT: sbend, l=ls_NESEPT, ref_tilt=-0.5*pi, HGAP=0.01269999849
+RBCOM2: sbend, l=ls_BCOM2, ref_tilt=-0.5*pi, HGAP=0.023749
+RBCOM1: sbend, l=ls_BCOM1, ref_tilt=-0.5*pi, HGAP=0.1905
+
+
+! Drifts
+D900: drift, l=0.5
+D901: drift, l=0.8922411
+D902: drift, l=1.5
+D903: drift, l=0.8922411
+D904: drift, l=0.5
+D905: drift, l=1.0
+
+! Patches
+po_9BCOM1: patch
+pi_9BCOM2: patch
+po_9BCOM2: patch
+pi_9NESEPT: patch
+po_9NESEPT: patch
+pi_RNESEPT: patch
+po_RNESEPT: patch
+pi_RBCOM2: patch
+po_RBCOM2: patch
+pi_RBCOM1: patch
+po_RBCOM1: patch
+
+! Overlays
+! Between 1st and 2nd dipoles
+ov9_1: overlay={}
+! Between 2nd dipole and Septum
+ov9_2: overlay={}
+! Between septum and reverse septum
+ov9_3: overlay={}
+! Between reverse septum and flipped BCOM2
+ov9_4: overlay={}
+! Between flipped BCOM2 and flipped BCOM1
+ov9_5: overlay={}
+! After flipped BCOM1
+ov9_6: overlay={}
+
+Pass9: line=(1BCOM1, po_9BCOM1,
+D900, pi_9BCOM2, 3BCOM2, po_9BCOM2,
+D901, pi_9NESEPT, 7NESEPT, po_9NESEPT,
+D902, pi_RNESEPT, RNESEPT, po_RNESEPT, !!This should be a reversed magnet
+D903, pi_RBCOM2, RBCOM2, po_RBCOM2, !! This should also be a reversed magnet
+D904, pi_RBCOM1, RBCOM1, po_RBCOM1, D905) !!! and one more reversed magnet
+
+Pass9[e_tot] = e9
+
+!! What about higher FFA passes? 11, 13, 15, 17, 19 still needed.
+!! This is where I'll definitely need multipass, etc...
+
+
+
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+!! Scott's Stuff !!!!!!
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+maq1s01: sbend, l=ls1a, ref_tilt=-0.5*pi
+mai1s03: sbend, l=ls1a, ref_tilt=-0.5*pi
+po1maq1s01: patch
+pimai1s03: patch
+pomai1s03: patch
+
+lzd100 = 3.1225381
+od100: drift
+
+ov1_13: overlay={
+ maq1s01[db_field] : -p1*sin(a)/(ls1a*c_light),
+ po1maq1s01[y_pitch] : a,
+ po1maq1s01[y_offset] : ls1a*tan(0.5*a),
+ od100[l] : lzd100/cos(a),
+ mai1s03[db_field] : 2*p1*sin(0.5*a)/(ls1a*c_light),
+ pimai1s03[y_pitch] : -0.5*a,
+ pomai1s03[y_pitch] : -0.5*a},
+ Var={a},
+ a=0 ! 0.356682324
+
+beginning[beta_a] = 1
+beginning[beta_b] = 1
+beginning[y_position] = 100
+
+
+s1: line=(maq1s01,po1maq1s01,od100,pimai1s03,mai1s03,pomai1s03)
+
+s1[e_tot] = e1
+
+po3maq1s01: patch
+
+s3: line=(maq1s01,po3maq1s01)
+
+s3[e_tot] = e3
+
+use, s1

@@ -1,0 +1,94 @@
+!------------------------ General Init -----------------------
+!-------------------------------------------------------------
+
+&tao_design_lattice
+ n_universes = 1
+ design_lattice(1) = 'Pass3_Test.bmad@Pass3'
+/
+
+!------------------------ Variables --------------------------
+!-------------------------------------------------------------
+
+&tao_var
+ v1_var%name = 'Pass3'
+ var(1)%ele_name = 'ov3_2'
+ var(1)%attribute = 'Ang2'
+ var(1)%step = 1e-4
+ var(2)%ele_name = 'ov3_7'
+ var(2)%attribute = 'Ang3'
+ var(2)%step = 1e-4
+ var(3)%ele_name = 'M3Q1'
+ var(3)%attribute = 'k1'
+ var(3)%step = 1e-5
+ var(4)%ele_name = 'M3Q3'
+ var(4)%attribute = 'k1'
+ var(4)%step = 1e-5
+/
+
+!------------------------ Data -------------------------------
+!-------------------------------------------------------------
+
+&tao_d2_data
+ universe = '1'
+ d2_data%name = 'Pass3'
+ n_d1_data = 2
+/
+
+&tao_d1_data
+ ix_d1_data = 1
+ d1_data%name = 'geom'
+ default_weight = 1
+ datum(1)%data_type = 'floor.y'
+ datum(1)%ele_name = 'po_3B3'
+ datum(1)%meas = 101.10
+ datum(2)%data_type = 'floor.y'
+ datum(2)%ele_name = 'po_3B5'
+ datum(2)%meas = 101.5 
+/
+
+&Tao_d1_data
+ ix_d1_data = 2
+ d1_data%name = 'Dispersion1'
+ default_weight = 1
+ datum(1:2)%data_type = 'eta.y' 'etap.y'   
+ datum(1:2)%ele_name = 'M3B5' 'M3B5'
+ datum(1:2)%meas = 0 0
+/
+
+&Tao_d1_data
+ ix_d1_data = 3
+ d1_data%name = 'Dispersion2'
+ default_weight = 1
+ datum(1:2)%data_type = 'eta.y' 'etap.y'   
+ datum(1:2)%ele_name = 'M3B5' 'M3B5'
+ datum(1:2)%meas = 0 0
+/
+
+!&Tao_d1_data
+! ix_d1_data = 2
+! d1_data%name = 'orbit3bcom2'
+! default_weight = 1
+! datum(1:2)%data_type = 'orbit.y' 'orbit.py'    !Can't do this without necessary variables. Need patch y_offset and y_pitch
+! datum(1:2)%ele_name = 'po_3BCOM2' 'po_3BCOM2'
+! datum(1:2)%meas = 0 0
+!/
+
+! Not sure about this one:
+!&Tao_d1_data
+! ix_d1_data = 3
+! d1_data%name = 'orbit3b5'
+! default_weight = 1
+! datum(1:2)%data_type = 'orbit.y' 'orbit.py'    !Can't do this without necessary variables. Need patch y_offset and y_pitch
+! datum(1:2)%ele_name = 'po_3B5' 'po_3B5'
+! datum(1:2)%meas = 0 0
+!/
+
+&tao_params
+ global%blank_line_between_commands = f
+ global%draw_curve_off_scale_warn = f
+ global%history_file = '.history_tao'
+ global%lmdif_negligible_merit = 1e-60
+ global%n_opti_cycles = 128
+ global%symbol_import = t
+ global%var_limits_on = f
+/

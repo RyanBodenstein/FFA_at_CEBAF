@@ -1,0 +1,178 @@
+! Define parameters
+InjE = 650e6
+LinacE = 1100e6
+e1 = InjE + LinacE
+e3 = e1+2*(LinacE)
+e5 = e3+2*(LinacE)
+e7 = e5+2*(LinacE)
+e9 = e7+2*(LinacE)
+e11 = e9+2*(LinacE)
+e13 = e11+2*(LinacE)
+e15 = e13+2*(LinacE)
+e17 = e15+2*(LinacE)
+e19 = e17+2*(LinacE)
+e21 = e19+2*(LinacE)
+e23 = e21+2*(LinacE)
+e25 = e23+2*(LinacE)
+p1 = sqrt(e1*e1-mass_of(electron)^2)
+p3 = sqrt(e3*e3-mass_of(electron)^2)
+p5 = sqrt(e5*e5-mass_of(electron)^2)
+p7 = sqrt(e7*e7-mass_of(electron)^2)
+p9 = sqrt(e9*e9-mass_of(electron)^2)
+p11 = sqrt(e11*e11-mass_of(electron)^2)
+p13 = sqrt(e13*e13-mass_of(electron)^2)
+p15 = sqrt(e15*e15-mass_of(electron)^2)
+p17 = sqrt(e17*e17-mass_of(electron)^2)
+p19 = sqrt(e19*e19-mass_of(electron)^2)
+p21 = sqrt(e21*e21-mass_of(electron)^2)
+p23 = sqrt(e23*e23-mass_of(electron)^2)
+p25 = sqrt(e25*e25-mass_of(electron)^2)
+
+parameter[geometry] = open
+parameter[particle] = electron
+
+! Magnet Steel Lengths
+ls_BCOM1 = 1.5
+ls_BCOM2 = 1.01552701
+ls_NESEPT = 3.03530607
+ls_P1B2 = 1.5
+ls_P1B3 = 1.00881582810623
+ls_P1B4 = 1.00881582810623
+ls_P3B3 = 2.03846890215814
+ls_P3B4 = 1.02289043752664
+ls_P3B5 = 1.02289043752664
+ls_P5B3 = 0.999352823925987
+ls_P5B4 = 1.00059721
+ls_P5B5 = 1.03883612
+ls_P5B6 = 1.03883612
+ls_P7B4 = 0.9989717
+ls_P7B5 = 0.9989717
+ls_Q30 = 0.3
+ls_Q35 = 0.3556
+
+! Parameters from Pass 1
+ang_1BCOM1 = 3.5668231023621599E-01   ! The angle made by the pass 1 beam through the first BCOM
+yoff_1BCOM1 = 2.7038440585384843E-01  ! The yoffset of pass 1 after the first BCOM
+
+! Parameters from Pass 3
+ang_3BCOM2 = 2.0468633002999770E-01  ! The angle made by the pass 3 beam through the second BCOM
+
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+!!!!!!!!!!!!!  Pass 7 Elements  !!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+
+! Dipoles
+mBCOM1: sbend, l=ls_BCOM1, db_field=-1.3588127524761850E+00, ref_tilt=-0.5*pi, HGAP=0.1905	!db_field found from Pass 1
+mBCOM2: sbend, l=ls_BCOM2, db_field=-6.3010719936335613E-01, ref_tilt=-0.5*pi, HGAP=0.023749	!db_field found from Pass 3
+mNESEPT: sbend, l=ls_NESEPT, ref_tilt=-0.5*pi, HGAP=0.01269999849
+m7B4: sbend, l=ls_P7B4, ref_tilt=-0.5*pi, HGAP=0.01269999849
+m7B5: sbend, l=ls_P7B5, ref_tilt=-0.5*pi, HGAP=0.01269999849
+
+! Quads
+m7Q1: quadrupole, l=ls_Q30, k1=-0.4640051239
+m7Q2: quadrupole, l=ls_Q30, k1=1.6 !k1=1.436131537
+m7Q3: quadrupole, l=ls_Q30, k1=-1.168047068
+m7Q4: quadrupole, l=ls_Q30, k1=-1.176011136
+
+! Drifts
+D700: drift, l=0.5
+D701: drift, l=0.8922411
+D702a: drift, l=0.3
+D702b: drift, l=7.0381
+D702c: drift, l=0.9619
+D702d: drift, l=0.1
+D702e: drift, l=1.6
+D703: drift, l=1.52336
+D704: drift, l=1.0
+
+! Patches
+po_7BCOM1: patch, y_pitch = asin((sin(ang_1BCOM1))*(p1/p7))		! output angle for Pass 7 from BCOM1
+po_7BCOM1[y_offset] = ls_BCOM1*tan(0.5*po_7BCOM1[y_pitch])		! yoffset of Pass 7 from BCOM1
+
+pi_7BCOM2_ypitch: patch, y_pitch = -po_7BCOM1[y_pitch]
+pi_7BCOM2_yoffset: patch, y_offset = -(po_7BCOM1[y_offset]+(D700[L]*sin(po_7BCOM1[y_pitch])))	!The negative sign was confusing.
+
+po_7BCOM2_yoffset: patch, y_offset = -pi_7BCOM2_yoffset[y_offset] -ls_BCOM2*tan(0.5*(pi_7BCOM2_ypitch[y_pitch]- (asin((sin(ang_3BCOM2))*(p3/p7)))))
+po_7BCOM2_ypitch: patch, y_pitch = asin((sin(ang_3BCOM2))*(p3/p7))		! output angle for Pass 7 from BCOM2
+
+pi_7NESEPT: patch
+po_7NESEPT: patch
+pi_7B4: patch
+po_7B4: patch
+pi_7B5: patch
+po_7B5: patch
+pi_7Q1: patch
+po_7Q1: patch
+pi_7Q2: patch
+po_7Q2: patch
+pi_7Q3: patch
+po_7Q3: patch
+pi_7Q4: patch
+po_7Q4: patch
+
+! Overlays
+! Between 1st and 2nd dipoles
+!ov7_1: overlay={}
+
+! Between 2nd dipole and Septum
+ov7_2: overlay={
+ mNESEPT[db_field] : -2*p7*sin(0.5*Ang3)/(ls_NESEPT*c_light),		!Note: will later need y_offsets as well, and/or saggital shift.
+ pi_7NESEPT[y_pitch] : 0.5*Ang3,					! For now, keep it centered for a single-pass. The offset will
+ po_7NESEPT[y_pitch] : 0.5*Ang3},					! relate to the other energies, as well as the saggital shift.
+ Var={Ang3},
+ Ang3=0.0 !
+ 
+! Between septum and 1st quad
+!ov7_3: overlay={}
+
+! Between 1st quad and 2nd quad
+!ov7_4: overlay={}
+
+! Between 2nd quad and 3rd quad
+!ov7_5: overlay={}
+
+! Between 3rd quad and 4th quad
+ov7_6: overlay={m7Q3, m7Q4},
+Var = {k1},
+k1 = -1.17	! This is ~ the k1 value for the Q3 and Q4 quads from OptiM.
+
+! Between 4th quad 4th dipole
+!ov7_7: overlay={}
+
+! Between 4th dipole and 5th dipole
+ov7_8: overlay={
+ m7B4[db_field] : -2*p7*sin(0.5*Ang4)/(ls_P7B4*c_light),
+ pi_7B4[y_pitch] : 0.5*Ang4,
+ po_7B4[y_pitch] : 0.5*Ang4,
+ m7B5[db_field] : 2*p7*sin(0.5*Ang4)/(ls_P7B5*c_light),
+ pi_7B5[y_pitch] : -0.5*Ang4,
+ po_7B5[y_pitch] : -0.5*Ang4},
+Var={Ang4},
+Ang4=0 !
+
+! After 5th dipole
+!ov7_9: overlay={}
+
+Pass7: line=(mBCOM1, po_7BCOM1,
+D700, pi_7BCOM2_ypitch, pi_7BCOM2_yoffset, mBCOM2, po_7BCOM2_yoffset, po_7BCOM2_ypitch,
+D701, pi_7NESEPT, mNESEPT, po_7NESEPT,
+D702a, pi_7Q1, m7Q1, po_7Q1, D702b, pi_7Q2, m7Q2, po_7Q2,
+D702c, pi_7Q3, m7Q3, po_7Q3, D702d, pi_7Q4, m7Q4, po_7Q4,
+D702e, pi_7B4, m7B4, po_7B4,
+D703, pi_7B5, m7B5, po_7B5, D704)
+
+Pass7[e_tot] = e7
+
+use, Pass7
+
+beginning[beta_a] = 149.957
+beginning[beta_b] = 145.154
+beginning[alpha_a] = 0.44785
+beginning[alpha_b] = 0.141698
+beginning[eta_x] = 0
+beginning[eta_y] = 0
+beginning[etap_x] = 0
+beginning[etap_y] = 0
+beginning[y_position] = 100
+!beginning[z_position] = 90.553720
+!beginning[s] = 242.768240
