@@ -1,0 +1,184 @@
+#
+$L_trip = 7 + 11.69502 + 15;  =>    33.69502
+$L_drift = 10;  =>          10
+$L_end = ($L_trip - 30)/2;  =>     1.84751
+$Del = 8 + 8 + 14;  =>          30
+#
+$L120=75.35;  =>       75.35
+$L123=16.8078;  =>     16.8078
+$L= $L120 + $L123 + 15;  =>    107.1578
+$L129 = ($L-60)/2;  =>     23.5789
+$X =         -49;  =>         -49
+$L129a = $L129 + $X;  =>    -25.4211
+$L129b = $L129 - $X;  =>     72.5789
+#
+$L126 =143.717;  =>     143.717
+$L130 = $L126 - $L120;  =>      68.367
+#
+$L128 =29.731;  =>      29.731
+#
+$scale =         0.3333
+$scale1 =       1.021
+#
+$G1L02A =1.763681*$scale 	;  =>   0.3527362
+$G1L02B=-1.721176*$scale *$scale1	;  =>-0.351119904
+$G1L02C =1.751701*$scale  	;  =>   0.3503402
+#
+#
+#
+#
+#$dE=3.6875;  =>      3.6875
+$DE=12.5;  =>        12.5
+$dE=(1100 - 5*8*$DE)/20/8;  =>        3.75
+#
+$FI10deg=0;  =>           0
+# Cavity phases in radians
+$FI10=$FI10deg/180*$PI;  =>           0
+#
+# Energy along the linac
+#
+$E02 =650 - $Me;  =>  649.488997
+$P02=sqrt(($E02+$Me)*($E02+$Me)-$Me*$Me);  =>  649.999799
+#
+$E03 =$E02+8*$dE*cos($FI10);  =>  679.488997
+$P03=sqrt(($E03+$Me)*($E03+$Me)-$Me*$Me);  =>  679.999808
+#
+#
+1749.49-$E02;  =>    1100.001
+OptiM
+#
+Energy[MeV]= $E02  Mass[MeV]=0.511006
+Emittance:ex=4e-07 ey[cm]=4e-07 DP/P=0.002
+Initial:	BetaX[cm]=2069.77 	BetaY[cm]=1967.15 
+	AlfaX=-0.216912 	AlfaY=-0.227422 
+	DispersX[cm]=0 	DispersY[cm]=0 
+	Dsp_PrimeX=0 	DspPrimeY=0 
+	X[cm]=8060 Y[cm]=10000 Z[cm]=-15468.929	S[cm]=0
+	tetaX[deg]=0 tetaY[deg]=0
+begin lattice
+#
+kMAT1L02V oD104 
+iIPM1L02 
+#
+oD105 qMQ1L02A oD106 qMQ1L02B oD106 qMQ1L02C oD105 
+#
+oD107 aR121 oD108 aR122 oD109 
+aR123 oD108 aR124 oD109 aR125 oD108 aR126 
+oD109 aR127 oD108 aR128 oD110 
+#
+#
+end lattice
+begin list
+#
+qMQ1L02A 	L[cm]=10         	G[kG/cm]=$G1L02A 	Tilt[deg]=0
+qMQ1L02B 	L[cm]=20         	G[kG/cm]=$G1L02B 	Tilt[deg]=0
+qMQ1L02C 	L[cm]=10         	G[kG/cm]=$G1L02C 	Tilt[deg]=0
+#
+#
+kMAT1L02H L[cm]=1e-06 	B[kG]=0 	Tilt[deg]=0
+kMAT1L02V L[cm]=1e-06 	B[kG]=0 	Tilt[deg]=90
+kMAT1L03V L[cm]=1e-06 	B[kG]=0 	Tilt[deg]=90
+kMAT1L04H L[cm]=1e-06 	B[kG]=0 	Tilt[deg]=0
+kMDB1L05V L[cm]=1e-06 	B[kG]=0 	Tilt[deg]=90
+kMAT1L06H L[cm]=1e-06 	B[kG]=0 	Tilt[deg]=0
+kMAT1L07V L[cm]=1e-06 	B[kG]=0 	Tilt[deg]=90
+kMAT1L08H L[cm]=1e-06 	B[kG]=0 	Tilt[deg]=0
+kMAT1L09V L[cm]=1e-06 	B[kG]=0 	Tilt[deg]=90
+kMAT1L10H L[cm]=1e-06 	B[kG]=0 	Tilt[deg]=0
+kMAT1L11V L[cm]=1e-06 	B[kG]=0 	Tilt[deg]=90
+kMAT1L12H L[cm]=1e-06 	B[kG]=0 	Tilt[deg]=0
+kMAT1L13V L[cm]=1e-06 	B[kG]=0 	Tilt[deg]=90
+kMAT1L14H L[cm]=1e-06 	B[kG]=0 	Tilt[deg]=0
+kMAT1L15V L[cm]=1e-06 	B[kG]=0 	Tilt[deg]=90
+kMAT1L16H L[cm]=1e-06 	B[kG]=0 	Tilt[deg]=0
+kMAT1L17V L[cm]=1e-06 	B[kG]=0 	Tilt[deg]=90
+kMAT1L18H L[cm]=1e-06 	B[kG]=0 	Tilt[deg]=0
+kMAT1L19V L[cm]=1e-06 	B[kG]=0 	Tilt[deg]=90
+kMAT1L20H L[cm]=1e-06 	B[kG]=0 	Tilt[deg]=0
+kMAT1L21V L[cm]=1e-06 	B[kG]=0 	Tilt[deg]=90
+kMAT1L22H L[cm]=1e-06 	B[kG]=0 	Tilt[deg]=0
+kMDB1L23V L[cm]=1e-06 	B[kG]=0 	Tilt[deg]=90
+kMDB1L24H L[cm]=1e-06 	B[kG]=0 	Tilt[deg]=0
+kMDB1L25V L[cm]=1e-06 	B[kG]=0 	Tilt[deg]=90
+kMDB1L26H L[cm]=1e-06 	B[kG]=0 	Tilt[deg]=0
+kMDB1L27H L[cm]=1e-06 	B[kG]=0 	Tilt[deg]=0
+kMDJ1L27V L[cm]=1e-06 	B[kG]=0 	Tilt[deg]=90
+aR121 L[cm]=50 	Ncell=5	 Eff_L[cm]=7 	A[MeV]=$dE 	Phase[deg]=0 	WaveL[cm]=20.0262191048764
+aR122 L[cm]=50 	Ncell=5	 Eff_L[cm]=7 	A[MeV]=$dE 	Phase[deg]=0 	WaveL[cm]=20.0262191048764
+aR123 L[cm]=50 	Ncell=5	 Eff_L[cm]=7 	A[MeV]=$dE 	Phase[deg]=0 	WaveL[cm]=20.0262191048764
+aR124 L[cm]=50 	Ncell=5	 Eff_L[cm]=7 	A[MeV]=$dE 	Phase[deg]=0 	WaveL[cm]=20.0262191048764
+aR125 L[cm]=50 	Ncell=5	 Eff_L[cm]=7 	A[MeV]=$dE 	Phase[deg]=0 	WaveL[cm]=20.0262191048764
+aR126 L[cm]=50 	Ncell=5	 Eff_L[cm]=7 	A[MeV]=$dE 	Phase[deg]=0 	WaveL[cm]=20.0262191048764
+aR127 L[cm]=50 	Ncell=5	 Eff_L[cm]=7 	A[MeV]=$dE 	Phase[deg]=0 	WaveL[cm]=20.0262191048764
+aR128 L[cm]=50 	Ncell=5	 Eff_L[cm]=7 	A[MeV]=$dE 	Phase[deg]=0 	WaveL[cm]=20.0262191048764
+iISR0R09B L[cm]=0
+iICV1L02 L[cm]=0
+iITV1L02 L[cm]=0
+iIPM1L02 L[cm]=0
+iIPM1L03 L[cm]=0
+iIPM1L04 L[cm]=0
+iIPM1L05 L[cm]=0
+iITV1L06 L[cm]=0
+iIPM1L06 L[cm]=0
+iIPM1L07 L[cm]=0
+iIPM1L08 L[cm]=0
+iIPM1L09 L[cm]=0
+iITV1L10 L[cm]=0
+iIPM1L10 L[cm]=0
+iIPM1L11 L[cm]=0
+iIPM1L12 L[cm]=0
+iIPM1L13 L[cm]=0
+iITV1L14 L[cm]=0
+iIPM1L14 L[cm]=0
+iIPM1L15 L[cm]=0
+iIPM1L16 L[cm]=0
+iIPM1L17 L[cm]=0
+iITV1L18 L[cm]=0
+iIPM1L18 L[cm]=0
+iIPM1L19 L[cm]=0
+iIPM1L20 L[cm]=0
+iIPM1L21 L[cm]=0
+iITV1L22 L[cm]=0
+iIPM1L22 L[cm]=0
+iIPM1L23 L[cm]=0
+iIPM1L24 L[cm]=0
+iIPM1L25 L[cm]=0
+iIPM1L26 L[cm]=0
+iIPM1L27 L[cm]=0
+iIBC1L27 L[cm]=0
+iIPM1L28 L[cm]=0
+oD100 L[cm]=57.309
+oD101 L[cm]=112.11
+oD102 L[cm]=11.9164
+oD103 L[cm]=21.971
+oD104 L[cm]=17.97558
+oD105 L[cm]=$L_end
+oD106 L[cm]=$L_drift
+oD107 L[cm]=110.91 - $Del 
+oD108 L[cm]=25
+oD109 L[cm]=66.06
+oD110 L[cm]=99.239
+oD111 L[cm]=77.269
+oD112 L[cm]=39.94658
+oD113 L[cm]=65.331
+oD114 L[cm]=11.938
+oD115 L[cm]=77.2679
+oD116 L[cm]=99.2401
+oD117 L[cm]=65.5081
+oD118 L[cm]=11.7598
+oD119 L[cm]=65.5091
+oD120 L[cm]=75.35
+oD121 L[cm]=29.9
+oD122 L[cm]=83.5421
+oD123 L[cm]=16.8078
+oD124 L[cm]=83.5419
+oD125 L[cm]=83.5431
+oD126 L[cm]=143.717
+oD127 L[cm]=63.799
+oD128 L[cm]=29.731
+oD129 L[cm]=$L129
+oD129a L[cm]=$L129a
+oD129b L[cm]=$L129b
+oD130 L[cm]=$L130
+#
+end list

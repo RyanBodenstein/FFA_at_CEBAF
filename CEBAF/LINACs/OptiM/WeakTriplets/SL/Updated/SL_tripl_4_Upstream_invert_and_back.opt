@@ -1,0 +1,148 @@
+#Please note:
+#There are some inconsistencies in the cavity sizes and warm section lengths compared to other lattices.
+#To account for these, "adjustment" drifts have been added, to keep the quad spacing periodic (at 9.6 m).
+#These are labeled as oAdj#, where # is a number. Some of these are negative, and some are positive.
+#Before any final decisions should be made, properly aligning these files with the machine coordinates, 
+#as well as proper spacing, is required.
+#
+#
+$L_trip = 7 + 11.69502 + 15;  =>    33.69502
+$L_drift = 10;  =>          10
+$L_end = ($L_trip - 30)/2;  =>     1.84751
+$Del = 8 + 8 + 14;  =>          30
+#
+
+#
+#$dE=3.6875;  =>      3.6875
+$DE=12.5;  =>        12.5
+$dE=(1100 - 5*8*$DE)/20/8;  =>        3.75
+#
+$FI10deg=0;  =>           0
+# Cavity phases in radians
+$FI10=$FI10deg/180*$PI;  =>           0
+#
+# Energy along the linac
+$Einj = 650;  =>         650
+$Elinac = 1100;  =>        1100
+$CompletedLinacs = 1;  =>           1
+$Enominal_enter = $Einj+($Elinac*$CompletedLinacs);  =>        1750
+#
+$E02 = $Enominal_enter - $Me;  =>    1749.489
+$P02=sqrt(($E02+$Me)*($E02+$Me)-$Me*$Me);  =>  1749.99993
+#
+$E03 =$E02+8*$dE*cos($FI10);  =>    1779.489
+$P03=sqrt(($E03+$Me)*($E03+$Me)-$Me*$Me);  =>  1779.99993
+#
+#
+$E04 =$E03+8*$dE*cos($FI10);  =>    1809.489
+$E05 =$E04+8*$dE*cos($FI10);  =>    1839.489
+$E06 =$E05+8*$dE*cos($FI10);  =>    1869.489
+$E07 =$E06+8*$dE*cos($FI10);  =>    1899.489
+$E08 =$E07+8*$dE*cos($FI10);  =>    1929.489
+$E09 =$E08+8*$dE*cos($FI10);  =>    1959.489
+$E10 =$E09+8*$dE*cos($FI10);  =>    1989.489
+$E11 =$E10+8*$dE*cos($FI10);  =>    2019.489
+$E12 =$E11+8*$dE*cos($FI10);  =>    2049.489
+$E13 =$E12+8*$dE*cos($FI10);  =>    2079.489
+$E14 =$E13+8*$dE*cos($FI10);  =>    2109.489
+$E15 =$E14+8*$dE*cos($FI10);  =>    2139.489
+$E16 =$E15+8*$dE*cos($FI10);  =>    2169.489
+$E17 =$E16+8*$dE*cos($FI10);  =>    2199.489
+$E18 =$E17+8*$dE*cos($FI10);  =>    2229.489
+$E19 =$E18+8*$dE*cos($FI10);  =>    2259.489
+$E20 =$E19+8*$dE*cos($FI10);  =>    2289.489
+$E21 =$E20+8*$dE*cos($FI10);  =>    2319.489
+$E22 =$E21+8*$dE*cos($FI10);  =>    2349.489
+$E23 =$E22+8*$DE*cos($FI10);  =>    2449.489
+$E24 =$E23+8*$DE*cos($FI10);  =>    2549.489
+$E25 =$E24+8*$DE*cos($FI10);  =>    2649.489
+$E26 =$E25+8*$DE*cos($FI10);  =>    2749.489
+$E27 =$E26+8*$DE*cos($FI10);  =>    2849.489
+#
+$P04=sqrt(($E04+$Me)*($E04+$Me)-$Me*$Me);  =>  1809.99993
+$P05=sqrt(($E05+$Me)*($E05+$Me)-$Me*$Me);  =>  1839.99993
+$P06=sqrt(($E06+$Me)*($E06+$Me)-$Me*$Me);  =>  1869.99993
+$P07=sqrt(($E07+$Me)*($E07+$Me)-$Me*$Me);  =>  1899.99993
+$P08=sqrt(($E08+$Me)*($E08+$Me)-$Me*$Me);  =>  1929.99993
+$P09=sqrt(($E09+$Me)*($E09+$Me)-$Me*$Me);  =>  1959.99993
+$P10=sqrt(($E10+$Me)*($E10+$Me)-$Me*$Me);  =>  1989.99993
+$P11=sqrt(($E11+$Me)*($E11+$Me)-$Me*$Me);  =>  2019.99994
+$P12=sqrt(($E12+$Me)*($E12+$Me)-$Me*$Me);  =>  2049.99994
+$P13=sqrt(($E13+$Me)*($E13+$Me)-$Me*$Me);  =>  2079.99994
+$P14=sqrt(($E14+$Me)*($E14+$Me)-$Me*$Me);  =>  2109.99994
+$P15=sqrt(($E15+$Me)*($E15+$Me)-$Me*$Me);  =>  2139.99994
+$P16=sqrt(($E16+$Me)*($E16+$Me)-$Me*$Me);  =>  2169.99994
+$P17=sqrt(($E17+$Me)*($E17+$Me)-$Me*$Me);  =>  2199.99994
+$P18=sqrt(($E18+$Me)*($E18+$Me)-$Me*$Me);  =>  2229.99994
+$P19=sqrt(($E19+$Me)*($E19+$Me)-$Me*$Me);  =>  2259.99994
+$P20=sqrt(($E20+$Me)*($E20+$Me)-$Me*$Me);  =>  2289.99994
+$P21=sqrt(($E21+$Me)*($E21+$Me)-$Me*$Me);  =>  2319.99994
+$P22=sqrt(($E22+$Me)*($E22+$Me)-$Me*$Me);  =>  2349.99994
+$P23=sqrt(($E23+$Me)*($E23+$Me)-$Me*$Me);  =>  2449.99995
+$P24=sqrt(($E24+$Me)*($E24+$Me)-$Me*$Me);  =>  2549.99995
+$P25=sqrt(($E25+$Me)*($E25+$Me)-$Me*$Me);  =>  2649.99995
+$P26=sqrt(($E26+$Me)*($E26+$Me)-$Me*$Me);  =>  2749.99995
+$P27=sqrt(($E27+$Me)*($E27+$Me)-$Me*$Me);  =>  2849.99995
+#
+
+#
+$EP_1 = $E02;  =>    1749.489
+$EP_2 = $EP_1 + 2*1100;  =>    3949.489
+$EP_3 = $EP_2 + 2*1100;  =>    6149.489
+$EP_4 = $EP_3 + 2*1100;  =>    8349.489
+$EP_5 = $EP_4 + 2*1100;  =>   10549.489
+$EP_6 = $EP_5 + 2*1100;  =>   12749.489
+$EP_7 = $EP_6 + 2*1100;  =>   14949.489
+$EP_8 = $EP_7 + 2*1100;  =>   17149.489
+$EP_9 = $EP_8 + 2*1100;  =>   19349.489
+$EP_10 = $EP_9 + 2*1100;  =>   21549.489
+#
+1749.49-$E02;  =>  0.00099891
+$EP_1-$E02;  =>           0
+$Me;  =>  0.51099891
+##
+#$BetaX=        1980.7;  =>      1980.7
+#$BetaY=        1902.62;  =>     1902.62
+#$AlfaX=       -0.24207;  =>    -0.24207
+#$AlfaY=       0.0858305;  =>   0.0858305
+##
+OptiM
+#
+Energy[MeV]=8349.489   Mass[MeV]=0.51099891 
+Emittance:ex=4e-07 ey[cm]=4e-07 DP/P=0.002
+Initial:	BetaX[cm]=9148.3 	BetaY[cm]=9047.89 
+	AlfaX=0.99854 	AlfaY=0.64636 
+	DispersX[cm]=-0 	DispersY[cm]=0 
+	Dsp_PrimeX=0 	DspPrimeY=-0 
+	X[cm]=8060.000 	Y[cm]=10000.000 	Z[cm]=8707.914 	S[cm]=0.000    
+	tetaX[deg]=0        	tetaY[deg]=-0       
+#
+begin lattice.Number of periods=1
+oD10025 oDend qMQB2L01A oDqd qMQB2L01B oDqd qMQB2L01C 
+oDend oD10074 iIPM2L01 oD10075 iITV2L01 oD10076 iITV2L02 
+oD10077 kMAT2L02V oD10078 iIPM2L02 oD10079 
+end lattice
+begin list: dL=1.  dB=.1  dG=0.01  dS=0.01
+#qMQB2L01   L[cm]=15   G[kG/cm]=0.48923   Tilt[deg]=0
+# NOT PART OF PERIODIC LATTICE
+qMQB2L01A 	L[cm]=10         	G[kG/cm]=-0.3803868 	Tilt[deg]=-0             
+qMQB2L01B 	L[cm]=20         	G[kG/cm]=0.2522783 	Tilt[deg]=-0             
+qMQB2L01C 	L[cm]=10         	G[kG/cm]=-0.1747173 	Tilt[deg]=-0             
+#
+      
+kMAT2L02V  	L[cm]=1e-06      	B[kG]=0   	Tilt[deg]=90           
+iITV2L01   	L[cm]=0        
+iITV2L02   	L[cm]=0        
+iIPM2L01   	L[cm]=0        
+iIPM2L02   	L[cm]=0        
+oDqd	L[cm]=$L_drift   
+oDend	L[cm]=$L_end  
+oD10025 	 L[cm]=30       
+oD10074 	 L[cm]=17.2695  
+oD10075 	 L[cm]=61.2618  
+oD10076 	 L[cm]=375.395  
+oD10077 	 L[cm]=33.7266  
+oD10078 	 L[cm]=17.9766  
+oD10079 	 L[cm]=18.6953  
+end list
+
