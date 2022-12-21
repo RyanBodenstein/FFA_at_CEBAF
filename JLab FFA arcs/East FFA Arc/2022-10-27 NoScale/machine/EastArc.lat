@@ -1,0 +1,69 @@
+! EastArc.lat
+! File containing base element definitions
+! East Arc magnets, drifts, diagnostics, etc
+
+call, file = 2022-10-27_params_east.bmad
+
+! Element Definitions -------------------------------------------------------------------
+ 
+
+
+! Bending Defocusing unit
+! Patches ----------------
+pr_bd: patch, x_pitch = 0.5*angbd                                           
+! Magnet Sections --------                                           
+bda: sbend, field_master = T, b1_gradient = BD_grd, l = BDL/6, 
+    db_field = BD_fld, x_offset = dxDA                  
+bdb: sbend, field_master = T, b1_gradient = BD_grd, l = BDL/6, 
+    db_field = BD_fld, x_offset = dxDB                  
+bdc: sbend, field_master = T, b1_gradient = BD_grd, l = BDL/6, 
+    db_field = BD_fld, x_offset = dxDC 
+
+
+! Interstitial Drift
+d2: drift, l = DL                               
+
+
+! Bending Focusing unit
+! Patches ----------------
+pr_bf: patch, x_pitch = 0.5*angbf                                            
+! Magnet Sections --------                                             
+bfa: sbend, field_master =T, b1_gradient = BF_grd, l = BFL/6, 
+    db_field = BF_fld, x_offset = dxFA                                                
+bfb: sbend, field_master =T, b1_gradient = BF_grd, l = BFL/6, 
+    db_field = BF_fld, x_offset = dxFB                                             
+bfc: sbend, field_master =T, b1_gradient = BF_grd, l = BFL/6, 
+    db_field = BF_fld, x_offset = dxFC
+                                           
+
+! markers for diagnostic purposes
+! -------------------------------
+MK.BEG: marker      ! beginning of the lattice
+MK.IN: marker       ! beginning of each cell
+MK.BET: marker      ! in between the magnets of each cell
+MK.OUT: marker      ! end of each cell
+MK.END: marker      ! end of the lattice
+! -------------------------------
+
+
+
+! Lattice Definition --------------------------------------------------------------------
+
+
+cell: line = (MK.IN, pr_bd, bda, bdb, bdc, bdc, bdb, bda, pr_bd, d2,
+              MK.BET, pr_bf, bfa, bfb, bfc, bfc, bfb, bfa, pr_bf, d2, MK.OUT)
+
+arc1: line = (MK.BEG, cell, MK.END)
+
+cell5: line = (cell, cell, cell, cell, cell)
+
+arc5: line = (MK.BEG, cell5, MK.END)
+
+cell10: line = (cell5, cell5)
+
+cell20: line = (cell10, cell10)
+
+arc75: line = (MK.BEG, cell20, cell20, cell20, cell10, cell5, MK.END)
+
+
+use, arc5

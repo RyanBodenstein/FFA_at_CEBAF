@@ -1,0 +1,32 @@
+! pw1.bmad
+! File containing pass 1 optics for the west arc
+! Twiss functions, energies, etc.
+
+call, file = machine/WestArc.lat
+
+
+parameter[geometry] = open          
+
+parameter[p0c]                      = p_CENT
+parameter[particle]                 = Electron
+
+
+
+beginning[beta_a]    = 1.227091854613
+beginning[alpha_a]   = 2.4661584362138
+beginning[eta_x]     = 8.6213930230976E-3
+beginning[etap_x]    = -0.016135118490761
+beginning[beta_b]    = 3.1210153595473
+beginning[alpha_b]   = -3.6404299322632
+beginning[eta_y]     = 7.6572626500094E-29
+beginning[etap_y]    = -5.0186450246942E-28
+beginning[cmat_11]   = 7.8557408649513E-30
+beginning[cmat_12]   = -2.2274762386701E-30
+beginning[cmat_21]   = -1.0222705089256E-29
+beginning[cmat_22]   = -3.1541372541843E-30
+particle_start[x]  = -0.013465214929947
+particle_start[px] = 7.8045966798522E-3
+particle_start[y]  = 6.8358468825823E-29
+particle_start[py] = 2.4940993174126E-29
+particle_start[pz] = -0.43170731707317
+

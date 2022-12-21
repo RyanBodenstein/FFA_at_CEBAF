@@ -1,0 +1,15 @@
+!!! 2022-10-27
+!!! This is the first version of the east arc with the magnets broken up according to Stephen's ABCCBA scheme
+
+The structure of this folder is thus:
+
+At the top level, there are files which contain all the initial conditions for the optics of this particular machine section. 
+These files should be named like <name><pass#>.bmad
+Additionally, there are tao initialization files: tao.init, tao_plot.init, tao.startup
+Finally, there are two sub-folders: 'machine' and 'juice'
+
+'machine' contains all the machine parameters for the section (in <date>_params_<section>.bmad) as well as the machine element layout (<section>.lat) and any other files I used to check things or reference, eg Stephen's muon1 code or mathematica notebooks.
+
+'juice' is where I put the files bmad spits out when it solves the closed lattice; I keep them for posterity.
+
+

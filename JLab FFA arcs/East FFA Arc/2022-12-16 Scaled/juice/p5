@@ -1,0 +1,64 @@
+parameter[geometry] = Closed          
+
+parameter[p0c]                      = 2.0099999993504E10
+parameter[particle]                 = Electron
+
+beginning[beta_a]    = 2.2786329244892
+beginning[alpha_a]   = 1.2460119388344
+beginning[eta_x]     = 0.078976576662015
+beginning[etap_x]    = -0.034901406575037
+beginning[beta_b]    = 10.289899667436
+beginning[alpha_b]   = -4.6784470114202
+beginning[eta_y]     = 3.7630034666294E-23
+beginning[etap_y]    = 1.471795189418E-23
+beginning[cmat_11]   = -2.4868071168446E-25
+beginning[cmat_12]   = 8.2336339170788E-27
+beginning[cmat_21]   = 3.5352548504023E-25
+beginning[cmat_22]   = -5.5772997658755E-25
+particle_start[x]  = -3.1137402733806E-3
+particle_start[px] = 1.264093509452E-3
+particle_start[y]  = 4.0643621817192E-24
+particle_start[py] = 2.2085034151795E-24
+particle_start[pz] = -0.037313432835821
+
+
+!-------------------------------------------------------
+
+MK.BEG: Marker
+MK.IN: Marker
+PR_BD: Patch, X_PITCH = -3.5533002211684E-3
+BDA: Sbend, L = 0.20747469495897, K1 = -0.64790967063326, X_OFFSET = -1.2627808961866E-3,
+   DB_FIELD = -0.38275499572233, B1_GRADIENT = 43.44, field_master = T
+BDB: Sbend, L = 0.20747469495897, K1 = -0.64790967063326, X_OFFSET = 1.1372191038134E-3,
+   DB_FIELD = -0.38275499572233, B1_GRADIENT = 43.44, field_master = T
+BDC: Sbend, L = 0.20747469495897, K1 = -0.64790967063326, X_OFFSET = 2.3372191038134E-3,
+   DB_FIELD = -0.38275499572233, B1_GRADIENT = 43.44, field_master = T
+D2: Drift, L = 0.11618950038622
+MK.BET: Marker
+PR_BF: Patch, X_PITCH = -0.015989850995258
+BFA: Sbend, L = 0.27885480092693, K1 = 0.61345591052362, X_OFFSET = 1.958751715516E-3,
+   DB_FIELD = -1.2815052519409, B1_GRADIENT = -41.13, field_master = T
+BFB: Sbend, L = 0.27885480092693, K1 = 0.61345591052362, X_OFFSET = 4.958751715516E-3,
+   DB_FIELD = -1.2815052519409, B1_GRADIENT = -41.13, field_master = T
+BFC: Sbend, L = 0.27885480092693, K1 = 0.61345591052362, X_OFFSET = 6.458751715516E-3,
+   DB_FIELD = -1.2815052519409, B1_GRADIENT = -41.13, field_master = T
+MK.OUT: Marker
+MK.END: Marker
+
+!-------------------------------------------------------
+! Overlays, groups, rampers, and superimpose
+
+
+!-------------------------------------------------------
+! Lattice lines
+
+
+ARC5: line = ( MK.BEG, MK.IN, PR_BD, BDA, BDB, BDC, BDC, BDB, BDA, PR_BD, D2, MK.BET, PR_BF, BFA, BFB,
+   BFC, BFC, BFB, BFA, PR_BF, D2, MK.OUT, MK.IN, PR_BD, BDA, BDB, BDC, BDC, BDB, BDA, PR_BD, D2, MK.BET,
+   PR_BF, BFA, BFB, BFC, BFC, BFB, BFA, PR_BF, D2, MK.OUT, MK.IN, PR_BD, BDA, BDB, BDC, BDC, BDB, BDA,
+   PR_BD, D2, MK.BET, PR_BF, BFA, BFB, BFC, BFC, BFB, BFA, PR_BF, D2, MK.OUT, MK.IN, PR_BD, BDA, BDB, BDC,
+   BDC, BDB, BDA, PR_BD, D2, MK.BET, PR_BF, BFA, BFB, BFC, BFC, BFB, BFA, PR_BF, D2, MK.OUT, MK.IN, PR_BD,
+   BDA, BDB, BDC, BDC, BDB, BDA, PR_BD, D2, MK.BET, PR_BF, BFA, BFB, BFC, BFC, BFB, BFA, PR_BF, D2, MK.OUT,
+   MK.END)
+
+use, ARC5

@@ -1,0 +1,32 @@
+! pe3.bmad
+! File containing pass 3 optics for the east arc
+! Twiss functions, energies, etc.
+
+call, file = machine/EastArc.lat
+
+
+parameter[geometry] = open          
+
+parameter[p0c]                      = p_CENT
+parameter[particle]                 = Electron
+
+
+
+beginning[beta_a]    = 1.4316452504556
+beginning[alpha_a]   = 1.4420514448711
+beginning[eta_x]     = 0.025973504941003
+beginning[etap_x]    = -0.023934999341407
+beginning[beta_b]    = 4.326045633658
+beginning[alpha_b]   = -3.3335701201087
+beginning[eta_y]     = -1.4201721866365E-27
+beginning[etap_y]    = -1.5633971621564E-27
+beginning[cmat_11]   = 5.9393806844884E-30
+beginning[cmat_12]   = -1.3081142074316E-29
+beginning[cmat_21]   = -7.432445609943E-30
+beginning[cmat_22]   = 4.5575007575349E-29
+particle_start[x]  = -0.011166891996626
+particle_start[px] = 5.8584266406966E-3
+particle_start[y]  = 3.8470390227632E-28
+particle_start[py] = 1.7440157716095E-28
+particle_start[pz] = -0.25621890547264
+

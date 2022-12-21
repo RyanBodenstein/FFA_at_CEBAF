@@ -1,0 +1,94 @@
+{Dejan's lattice for the East Arc with gradient scaling applied}
+
+dt=5e-12
+
+#m_ELECTR = 510998.9180; // electron mass in eV
+
+#EMAX = 21.550E9; // 'maximum' energy of FFA@CEBAF East arc
+#EMIN = 10.55E9; // energy of first pass in FFA east arc
+#ECENT = 20.1e9; 
+#ELIN = 2.20e9; 
+
+#// momenta corresponding to the energies above
+
+#p_CENT = sqrt(ECENT**2-m_ELECTR**2); // central momentum
+
+#BRH0 = p_CENT/C; // rigidity of electrons with the central energy
+
+#// Accelerator/cell geometry stuff
+
+#RCEBAF = 80.60; // radius of CEBAF arcs
+#ANGARC = 170.; // angle of the whole arc (approximate) 
+
+#ANGCEBAF = pi*ANGARC/180.0; // ANGARC in radians
+#LARC = ANGCEBAF*RCEBAF; // West arc length
+
+#NCEL = 98.; // number of BF-O-BD-O cells in the arc
+#LCEL = LARC/NCEL; // length of each cell
+
+#RATIO = 4.5; // ratio of bend angles angbf/angbd
+#angbd = -ANGCEBAF/(NCEL*(1.0+RATIO)); // negative sign for consistency with left-handed accelerator
+#angbf = angbd*RATIO;
+
+#BFL = 1.296; // Arc length along the center of Dejan's BF magnet
+#DL = 0.09; // Uniform drift length
+#BDL = LCEL - (BFL+2.0*DL); // Arc length for BD  
+
+#// Magnetic field and gradient strengths
+
+#BF_fld = angbf*BRH0/BFL; // bending field strength for BF
+#BD_fld = angbd*BRH0/BDL; // bending field strength for BD
+
+#BF_grd = -68.55; // gradient of the focusing magnet 
+#BD_grd = 72.4; // gradient of the defocusing magnet
+
+
+{Drift Length Angle}
+D2 #DL#
+HalfCornerBD 0 #0.5*angbd#
+HalfCornerBF 0 #0.5*angbf#
+
+#sagF=cos(0.5*angbf); sagF-=1; sagF*=BFL/angbf; sagF*=2.0/3.0;
+#sagD=cos(0.5*angbd); sagD-=1; sagD*=BDL/angbd; sagD*=2.0/3.0;
+
+{Multipole Length Angle Dipole Quad Xrel Fringe=#2.5/gradscale#cm AlignMode=Integral}
+BD #BDL# #angbd# #BD_fld# #BD_grd#
+BF #BFL# #angbf# #BF_fld# #BF_grd#
+BF10th #0.1*BF.Length# #0.1*BF.Angle# #BF.Dipole# #BF.Quad#
+BD10th #0.1*BD.Length# #0.1*BD.Angle# #BD.Dipole# #BD.Quad#
+#dxF=-0.0014; dxD=-0.0016;
+BF6thA #BF.Length/6# 0 #BF.Dipole# #BF.Quad# #sagF+dxF#
+BD6thA #BD.Length/6# 0 #BD.Dipole# #BD.Quad# #sagD+dxD#
+BF6thB #BF.Length/6# 0 #BF.Dipole# #BF.Quad# #sagF+dxF*-0.2#
+BD6thB #BD.Length/6# 0 #BD.Dipole# #BD.Quad# #sagD+dxD*-0.2#
+BF6thC #BF.Length/6# 0 #BF.Dipole# #BF.Quad# #sagF+dxF*-0.8#
+BD6thC #BD.Length/6# 0 #BD.Dipole# #BD.Quad# #sagD+dxD*-0.8#
+
+Cell: BD,D2,BF,D2;
+
+BFsect:10*BF10th;
+BDsect:10*BD10th;
+
+BFbent:HalfCornerBF,BF6thA,BF6thB,BF6thC,BF6thC,BF6thB,BF6thA,HalfCornerBF;
+BDbent:HalfCornerBD,BD6thA,BD6thB,BD6thC,BD6thC,BD6thB,BD6thA,HalfCornerBD;
+
+CellSect: BDsect,D2,BFsect,D2;
+
+CellBent: BDbent,D2,BFbent,D2;
+
+{MatchScan Estart Egoal Estep Species=Electron FOM=MaxField AllowUnstable=1}
+Match #EMIN#eV #EMAX#eV #ELIN#eV
+MatchSect #EMIN#eV #EMAX#eV #ELIN#eV
+MatchFine #EMIN-0.5e9#eV #EMAX+0.5e9#eV 10MeV
+MatchSectFine #EMIN-0.5e9#eV #EMAX+0.5e9#eV 10MeV
+MatchTrue 10494.33MeV 21013.80MeV #ELIN#eV
+MatchBentTrue 10494.33MeV 21013.80MeV #ELIN#eV
+
+{Match-Aperture} 
+MatchEnd
+
+#//Cell,Match,Cell,MatchEnd,Cell, CellSect,MatchSect,CellSect,MatchEnd,CellSect;
+#//Cell,MatchFine,Cell,MatchEnd,Cell;
+#//CellSect,MatchSectFine,CellSect,MatchEnd,CellSect;
+#//Cell,MatchTrue,Cell,MatchEnd,Cell;
+CellBent,MatchBentTrue,CellBent,MatchEnd,CellBent;

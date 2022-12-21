@@ -1,0 +1,56 @@
+parameter[geometry] = Closed          
+
+parameter[p0c]                      = 2.0099999993504E10
+parameter[particle]                 = Electron
+
+beginning[beta_a]    = 1.9297290550939
+beginning[alpha_a]   = 1.1907799638168
+beginning[eta_x]     = 0.058764864779269
+beginning[etap_x]    = -0.02713151247249
+beginning[beta_b]    = 14.859562443555
+beginning[alpha_b]   = -7.8095682744926
+particle_start[x]  = 3.8338091095742E-3
+particle_start[px] = -2.0484190759027E-3
+particle_start[pz] = 0.072139303482587
+
+
+!-------------------------------------------------------
+
+MK.BEG: Marker
+MK.IN: Marker
+PR_BD: Patch, X_PITCH = -2.7523745161321E-3
+BDA: Sbend, L = 0.16070920766711, K1 = -1.0798494510554, X_OFFSET = -7.5766835155752E-4,
+   DB_FIELD = -0.38275499572233, B1_GRADIENT = 72.4, field_master = T
+BDB: Sbend, L = 0.16070920766711, K1 = -1.0798494510554, X_OFFSET = 6.8233164844248E-4,
+   DB_FIELD = -0.38275499572233, B1_GRADIENT = 72.4, field_master = T
+BDC: Sbend, L = 0.16070920766711, K1 = -1.0798494510554, X_OFFSET = 1.4023316484425E-3,
+   DB_FIELD = -0.38275499572233, B1_GRADIENT = 72.4, field_master = T
+D2: Drift, L = 0.09
+MK.BET: Marker
+PR_BF: Patch, X_PITCH = -0.012385685322594
+BFA: Sbend, L = 0.216, K1 = 1.0224265175394, X_OFFSET = 1.1752738293414E-3, DB_FIELD = -1.2815052519409,
+   B1_GRADIENT = -68.55, field_master = T
+BFB: Sbend, L = 0.216, K1 = 1.0224265175394, X_OFFSET = 2.9752738293414E-3, DB_FIELD = -1.2815052519409,
+   B1_GRADIENT = -68.55, field_master = T
+BFC: Sbend, L = 0.216, K1 = 1.0224265175394, X_OFFSET = 3.8752738293414E-3, DB_FIELD = -1.2815052519409,
+   B1_GRADIENT = -68.55, field_master = T
+MK.OUT: Marker
+MK.END: Marker
+
+!-------------------------------------------------------
+! Overlays, groups, rampers, and superimpose
+
+
+!-------------------------------------------------------
+! Lattice lines
+
+
+ARC5: line = ( MK.BEG, MK.IN, PR_BD, BDA, BDB, BDC, BDC, BDB, BDA, PR_BD, D2, MK.BET, PR_BF, BFA, BFB,
+   BFC, BFC, BFB, BFA, PR_BF, D2, MK.OUT, MK.IN, PR_BD, BDA, BDB, BDC, BDC, BDB, BDA, PR_BD, D2, MK.BET,
+   PR_BF, BFA, BFB, BFC, BFC, BFB, BFA, PR_BF, D2, MK.OUT, MK.IN, PR_BD, BDA, BDB, BDC, BDC, BDB, BDA,
+   PR_BD, D2, MK.BET, PR_BF, BFA, BFB, BFC, BFC, BFB, BFA, PR_BF, D2, MK.OUT, MK.IN, PR_BD, BDA, BDB, BDC,
+   BDC, BDB, BDA, PR_BD, D2, MK.BET, PR_BF, BFA, BFB, BFC, BFC, BFB, BFA, PR_BF, D2, MK.OUT, MK.IN, PR_BD,
+   BDA, BDB, BDC, BDC, BDB, BDA, PR_BD, D2, MK.BET, PR_BF, BFA, BFB, BFC, BFC, BFB, BFA, PR_BF, D2, MK.OUT,
+   MK.END)
+
+use, ARC5
