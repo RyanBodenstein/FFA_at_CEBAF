@@ -43,13 +43,11 @@
  d1_data%name = 'geom'
  default_weight = 1
  datum(1)%data_type = 'floor.y'
- datum(1)%ele_name = 'D702E' !'po_7NESEPT' 
- datum(1)%meas = 100.40947
- datum(2)%ele_name = 'D702E' !'po_7NESEPT' 
- datum(2)%meas = 100.40947 
- datum(3)%data_type = 'floor.y'
- datum(3)%ele_name = 'po_7B5'
- datum(3)%meas = 100.50 
+ datum(1)%ele_name = 'po_7NESEPT' 
+ datum(1)%meas = 100.40947 
+ datum(2)%data_type = 'floor.y'
+ datum(2)%ele_name = 'po_7B5'
+ datum(2)%meas = 100.50 
 /
 
 &Tao_d1_data			! Honestly not sure how this one works. But if I remove it, the simulation doesn't work.
@@ -57,7 +55,7 @@
  d1_data%name = 'orbit7NESEPT'
  default_weight = 1
  datum(1:2)%data_type = 'orbit.y' 'orbit.py'   
- datum(1:2)%ele_name = 'D702E' 'D702E' !'po_7NESEPT' 'po_7NESEPT'
+ datum(1:2)%ele_name = 'po_7NESEPT' 'po_7NESEPT'
  datum(1:2)%meas = 0 0
 /
 

@@ -1,0 +1,145 @@
+! Define parameters
+InjE = 650e6
+LinacE = 1100e6
+e1 = InjE + LinacE
+e3 = e1+2*(LinacE)
+e5 = e3+2*(LinacE)
+e7 = e5+2*(LinacE)
+e9 = e7+2*(LinacE)
+e11 = e9+2*(LinacE)
+e13 = e11+2*(LinacE)
+e15 = e13+2*(LinacE)
+e17 = e15+2*(LinacE)
+e19 = e17+2*(LinacE)
+e21 = e19+2*(LinacE)
+e23 = e21+2*(LinacE)
+e25 = e23+2*(LinacE)
+p1 = sqrt(e1*e1-mass_of(electron)^2)
+p3 = sqrt(e3*e3-mass_of(electron)^2)
+p5 = sqrt(e5*e5-mass_of(electron)^2)
+p7 = sqrt(e7*e7-mass_of(electron)^2)
+p9 = sqrt(e9*e9-mass_of(electron)^2)
+p11 = sqrt(e11*e11-mass_of(electron)^2)
+p13 = sqrt(e13*e13-mass_of(electron)^2)
+p15 = sqrt(e15*e15-mass_of(electron)^2)
+p17 = sqrt(e17*e17-mass_of(electron)^2)
+p19 = sqrt(e19*e19-mass_of(electron)^2)
+p21 = sqrt(e21*e21-mass_of(electron)^2)
+p23 = sqrt(e23*e23-mass_of(electron)^2)
+p25 = sqrt(e25*e25-mass_of(electron)^2)
+
+parameter[geometry] = open
+parameter[particle] = electron
+
+! Magnet Steel Lengths
+ls_BCOM1 = 1.5
+ls_BCOM2 = 1.01552701
+ls_NESEPT = 3.03530607
+ls_P1B2 = 1.5
+ls_P1B3 = 1.00881582810623
+ls_P1B4 = 1.00881582810623
+ls_P3B3 = 2.03846890215814
+ls_P3B4 = 1.02289043752664
+ls_P3B5 = 1.02289043752664
+ls_P5B3 = 0.999352823925987
+ls_P5B4 = 1.00059721
+ls_P5B5 = 1.03883612
+ls_P5B6 = 1.03883612
+ls_P7B4 = 0.9989717
+ls_P7B5 = 0.9989717
+ls_Q30 = 0.3
+ls_Q35 = 0.3556
+
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+!!!!!!!!!!!!!  Pass 1 Elements  !!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+
+! Dipoles
+mBCOM1: sbend, l=ls_BCOM1, ref_tilt=-0.5*pi, HGAP=0.1905
+m1B2: sbend, l=ls_P1B2, ref_tilt=-0.5*pi, HGAP=0.01269999849
+m1B3: sbend, l=ls_P1B3, ref_tilt=-0.5*pi, HGAP=0.01269999849
+m1B4: sbend, l=ls_P1B4, ref_tilt=-0.5*pi, HGAP=0.01269999849
+
+! Quads
+m1Q1: quadrupole, l=ls_Q30, k1=-0.617138219
+m1Q2: quadrupole, l=ls_Q30, k1=2.56964975
+m1Q3: quadrupole, l=ls_Q30, k1=-3.750761847
+
+! Drifts
+D100: drift, l=3.33227
+D101a: drift, l=0.5
+D101b: drift, l=5.3652
+D101c: drift, l=0.6348
+D101d: drift, l=0.2
+D102: drift, l=0.3663617
+D103: drift, l=1.0
+
+! Patches
+po_1BCOM1: patch
+pi_1B2: patch
+po_1B2: patch
+pi_1B3: patch
+po_1B3: patch
+pi_1B4: patch
+po_1B4: patch
+pi_1Q1: patch
+po_1Q1: patch
+pi_1Q2: patch
+po_1Q2: patch
+pi_1Q3: patch
+po_1Q3: patch
+
+! Overlays
+! Between 1st and 2nd dipoles
+ov1_1: overlay={
+ mBCOM1[db_field] : -p1*sin(Ang1)/(ls_BCOM1*c_light),
+ po_1BCOM1[y_pitch] : Ang1,
+ po_1BCOM1[y_offset] : ls_BCOM1*tan(0.5*Ang1),
+ m1B2[db_field] : 2*p1*sin(0.5*Ang1)/(ls_P1B2*c_light),
+ pi_1B2[y_pitch] : -0.5*Ang1,
+ po_1B2[y_pitch] : -0.5*Ang1},
+ Var={Ang1},
+ Ang1=0.0 ! 0.356682324
+! Between 2nd dipole and 1st quad
+!ov1_2: overlay={}
+! Between 1st quad and 2nd quad
+!ov1_3: overlay={}
+! Between 2nd quad and 3rd quad
+!ov1_4: overlay={}
+! Between 3rd quad and 3rd dipole
+!ov1_5: overlay={}
+! Between 3rd dipole and 4th dipole
+ov1_6: overlay={
+ m1B3[db_field] : -2*p1*sin(0.5*Ang3)/(ls_P1B3*c_light),
+ pi_1B3[y_pitch] : 0.5*Ang3,
+ po_1B3[y_pitch] : 0.5*Ang3,
+ m1B4[db_field] : 2*p1*sin(0.5*Ang3)/(ls_P1B4*c_light),
+ pi_1B4[y_pitch] : -0.5*Ang3,
+ po_1B4[y_pitch] : -0.5*Ang3},
+ Var={Ang3},
+ Ang3=0 ! 0.2189393374
+! After 4th dipole
+!ov1_7: overlay={}
+
+
+Pass1: line=(mBCOM1, po_1BCOM1,
+D100, pi_1B2, m1B2, po_1B2,
+D101a, pi_1Q1, m1Q1, po_1Q1, D101b, pi_1Q2, m1Q2, po_1Q2, D101c, pi_1Q3, m1Q3, po_1Q3,
+D101d, pi_1B3, m1B3, po_1B3,
+D102, pi_1B4, m1B4, po_1B4, D103)
+
+Pass1[e_tot] = e1
+
+use, Pass1
+
+beginning[beta_a] = 19.807
+beginning[beta_b] = 19.0262
+beginning[alpha_a] = 0.24207
+beginning[alpha_b] = -0.0858305
+beginning[eta_x] = 0
+beginning[eta_y] = 0
+beginning[etap_x] = 0
+beginning[etap_y] = 0
+beginning[y_position] = 100
+!beginning[z_position] = 90.553720
+!beginning[s] = 242.768240
