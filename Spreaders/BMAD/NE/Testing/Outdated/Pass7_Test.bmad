@@ -69,13 +69,13 @@ m7B4: sbend, l=ls_P7B4, ref_tilt=-0.5*pi, HGAP=0.01269999849
 m7B5: sbend, l=ls_P7B5, ref_tilt=-0.5*pi, HGAP=0.01269999849
 
 ! Quads
-m7Q1: quadrupole, l=ls_Q30, k1=-0.4640051239
+m7Q1: quadrupole, l=ls_Q30, k1=0 ! k1=-0.4640051239
 m7Q2: quadrupole, l=ls_Q30, k1=1.6 !k1=1.436131537
-m7Q3: quadrupole, l=ls_Q30, k1=-1.168047068
-m7Q4: quadrupole, l=ls_Q30, k1=-1.176011136
+m7Q3: quadrupole, l=ls_Q30, k1=0 !  k1=-1.168047068
+m7Q4: quadrupole, l=ls_Q30, k1=0 ! k1=-1.176011136
 
 ! Drifts
-D700: drift, l=0.5
+D300: drift, l=0.5
 D701: drift, l=0.8922411
 D702a: drift, l=0.3
 D702b: drift, l=7.0381
@@ -90,7 +90,7 @@ po_7BCOM1: patch, y_pitch = asin((sin(ang_1BCOM1))*(p1/p7))		! output angle for 
 po_7BCOM1[y_offset] = ls_BCOM1*tan(0.5*po_7BCOM1[y_pitch])		! yoffset of Pass 7 from BCOM1
 
 pi_7BCOM2_ypitch: patch, y_pitch = -po_7BCOM1[y_pitch]
-pi_7BCOM2_yoffset: patch, y_offset = -(po_7BCOM1[y_offset]+(D700[L]*sin(po_7BCOM1[y_pitch])))	!The negative sign was confusing.
+pi_7BCOM2_yoffset: patch, y_offset = -(po_7BCOM1[y_offset]+(D300[L]*sin(po_7BCOM1[y_pitch])))	!The negative sign was confusing.
 
 po_7BCOM2_yoffset: patch, y_offset = -pi_7BCOM2_yoffset[y_offset] -ls_BCOM2*tan(0.5*(pi_7BCOM2_ypitch[y_pitch]- (asin((sin(ang_3BCOM2))*(p3/p7)))))
 po_7BCOM2_ypitch: patch, y_pitch = asin((sin(ang_3BCOM2))*(p3/p7))		! output angle for Pass 7 from BCOM2
@@ -154,7 +154,7 @@ Ang4=0 !
 !ov7_9: overlay={}
 
 Pass7: line=(mBCOM1, po_7BCOM1,
-D700, pi_7BCOM2_ypitch, pi_7BCOM2_yoffset, mBCOM2, po_7BCOM2_yoffset, po_7BCOM2_ypitch,
+D300, pi_7BCOM2_ypitch, pi_7BCOM2_yoffset, mBCOM2, po_7BCOM2_yoffset, po_7BCOM2_ypitch,
 D701, pi_7NESEPT, mNESEPT, po_7NESEPT,
 D702a, pi_7Q1, m7Q1, po_7Q1, D702b, pi_7Q2, m7Q2, po_7Q2,
 D702c, pi_7Q3, m7Q3, po_7Q3, D702d, pi_7Q4, m7Q4, po_7Q4,

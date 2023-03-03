@@ -132,10 +132,14 @@ Pass1[e_tot] = e1
 
 use, Pass1
 
-beginning[beta_a] = 19.807
-beginning[beta_b] = 19.0262
-beginning[alpha_a] = 0.24207
-beginning[alpha_b] = -0.0858305
+!beginning[beta_a] = 19.807
+!beginning[beta_b] = 19.0262
+!beginning[alpha_a] = 0.24207
+!beginning[alpha_b] = -0.0858305
+beginning[beta_a] = 19.9358
+beginning[beta_b] = 18.9036
+beginning[alpha_a] = 0.0697
+beginning[alpha_b] = 0.0787445
 beginning[eta_x] = 0
 beginning[eta_y] = 0
 beginning[etap_x] = 0

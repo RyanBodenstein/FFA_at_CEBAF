@@ -55,12 +55,12 @@ ang_1BCOM1 = 3.5668231023621599E-01   ! The angle made by the pass 1 beam throug
 yoff_1BCOM1 = 2.7038440585384843E-01  ! The yoffset of pass 1 after the first BCOM
 
 ! Parameters from Pass 3
-ang_3BCOM2 = 2.0468633002999770E-01  ! The angle made by the pass 3 beam through the second BCOM
+ang_3BCOM2 = 2.04686330029993646E-001 ! 2.0468633002999770E-01  ! The angle made by the pass 3 beam through the second BCOM
 
 ! Parameters from Pass 7 - some have different options, so comment appropriately
 !ang_7NESEPT = -4.8236954074873231E-02	       		 !This one is from "show val asin(lat::orbit.py[MNESEPT])", and gives half the bend
 ang_7NESEPT = -9.6322262818036131E-02	            	 !This one is from "show val 2*asin(lat::orbit.py[MNESEPT])", and gives the full bend
-!ang_7NESEPT = -9.64739081497453799E-002      		 !This one is from "show var -bmad", and gives the full bend from the optimization
+!ang_7NESEPT = -9.63222628180312457E-002		 !This is found from "show var -bmad" and is fractionally different from the above value. MAYBE USE THIS?
 
 edge_7NESEPT = -4.8161131409018065E-02			 !This is half of the bend angle for pass 7, found like above. Watch sign! Might be wrong.
 
@@ -91,38 +91,38 @@ D904: drift, l=0.5
 D905: drift, l=1.0
 
 ! Patches
-po_9BCOM1: patch, y_pitch = asin((sin(ang_1BCOM1))*(p1/p19))		! output angle for Pass 9 from BCOM1 scaled from Pass 1
-po_9BCOM1[y_offset] = ls_BCOM1*tan(0.5*po_9BCOM1[y_pitch])		! yoffset of Pass 9 from BCOM1
+po_19BCOM1: patch, y_pitch = asin((sin(ang_1BCOM1))*(p1/p19))		! output angle for Pass 9 from BCOM1 scaled from Pass 1
+po_19BCOM1[y_offset] = ls_BCOM1*tan(0.5*po_19BCOM1[y_pitch])		! yoffset of Pass 9 from BCOM1
 
-pi_9BCOM2_ypitch: patch, y_pitch = -po_9BCOM1[y_pitch]
-pi_9BCOM2_yoffset: patch, y_offset = -(po_9BCOM1[y_offset]+(D300[L]*sin(po_9BCOM1[y_pitch])))	!The negative sign was confusing.
+pi_19BCOM2_ypitch: patch, y_pitch = -po_19BCOM1[y_pitch]
+pi_19BCOM2_yoffset: patch, y_offset = -(po_19BCOM1[y_offset]+(D300[L]*sin(po_19BCOM1[y_pitch])))	!The negative sign was confusing.
 
-po_9BCOM2_yoffset: patch, y_offset = -pi_9BCOM2_yoffset[y_offset] -ls_BCOM2*tan(0.5*(pi_9BCOM2_ypitch[y_pitch]- (asin((sin(ang_3BCOM2))*(p3/p19)))))
-po_9BCOM2_ypitch: patch, y_pitch = asin((sin(ang_3BCOM2))*(p3/p19))		! output angle for Pass 9 from BCOM2 scaled from Pass 3
+po_19BCOM2_yoffset: patch, y_offset = -pi_19BCOM2_yoffset[y_offset] -ls_BCOM2*tan(0.5*(pi_19BCOM2_ypitch[y_pitch]- (asin((sin(ang_3BCOM2))*(p3/p19)))))
+po_19BCOM2_ypitch: patch, y_pitch = asin((sin(ang_3BCOM2))*(p3/p19))		! output angle for Pass 9 from BCOM2 scaled from Pass 3
 
-pi_9NESEPT: patch, y_pitch = asin((sin(edge_7NESEPT))*(p7/p19))			! input angle for Pass 9 scaled from Pass 7
-po_9NESEPT: patch, y_pitch = asin((sin(edge_7NESEPT))*(p7/p19))			! output angle for Pass 9 scaled from Pass 7
+pi_19NESEPT: patch, y_pitch = asin((sin(edge_7NESEPT))*(p7/p19))			! input angle for Pass 9 scaled from Pass 7
+po_19NESEPT: patch, y_pitch = asin((sin(edge_7NESEPT))*(p7/p19))			! output angle for Pass 9 scaled from Pass 7
 
 !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 ! Mirror Point (there's a quad here)!
 !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 
 
-pi_9RNESEPT: patch, y_pitch = po_9NESEPT[y_pitch]					! Making a mirror image 
-pi_9RNESEPT[y_offset] = 7.4002754573143648E-05						! Account for orbit difference from pass 9 vs pass 7. Tthis is not "real" offset needed for clearance
-po_9RNESEPT: patch, y_pitch = pi_9NESEPT[y_pitch]					! Making a mirror image
+pi_19RNESEPT: patch, y_pitch = po_19NESEPT[y_pitch]					! Making a mirror image 
+pi_19RNESEPT[y_offset] = 7.4002754573143648E-05						! Account for orbit difference from pass 9 vs pass 7. Tthis is not "real" offset needed for clearance
+po_19RNESEPT: patch, y_pitch = pi_19NESEPT[y_pitch]					! Making a mirror image
 
-pi_9RBCOM2_ypitch: patch, y_pitch = po_9BCOM2_ypitch[y_pitch]				! Mirror image
-pi_9RBCOM2_yoffset: patch, y_offset = -po_9BCOM2_yoffset[y_offset] + 3.8705859877552484E-04 		! Mirror image, but offset requires negative. Number is not "real" offset.
-po_9RBCOM2_yoffset: patch, y_offset = -pi_9BCOM2_yoffset[y_offset] 			! Mirror image, but offset requires negative
-po_9RBCOM2_ypitch: patch, y_pitch = pi_9BCOM2_ypitch[y_pitch] 				! Mirror image
+pi_19RBCOM2_ypitch: patch, y_pitch = po_19BCOM2_ypitch[y_pitch]				! Mirror image
+pi_19RBCOM2_yoffset: patch, y_offset = -po_19BCOM2_yoffset[y_offset] + 3.8705859877552484E-04 		! Mirror image, but offset requires negative. Number is not "real" offset.
+po_19RBCOM2_yoffset: patch, y_offset = -pi_19BCOM2_yoffset[y_offset] 			! Mirror image, but offset requires negative
+po_19RBCOM2_ypitch: patch, y_pitch = pi_19BCOM2_ypitch[y_pitch] 				! Mirror image
 
-!pi_9RBCOM1: patch, y_pitch = po_9BCOM1[y_pitch]					! Separate out these patches
-!pi_9RBCOM1[y_offset] = -po_9BCOM1[y_offset]						! If together like this, somehow get a negative length. Below, they are separated out.
-pi_9RBCOM1_ypitch: patch, y_pitch = po_9BCOM1[y_pitch] 					! Mirror image
-pi_9RBCOM1_yoffset: patch, y_offset = -po_9BCOM1[y_offset] + 1.4945474725891472E-04 	! Mirror image, but offset requires negative
-po_9RBCOM1_ypitch: patch, y_pitch = 0.000						
-po_9RBCOM1_yoffset: patch, y_offset = 0.0						! Perhaps unnecessary, but makes things "clean"
+!pi_19RBCOM1: patch, y_pitch = po_19BCOM1[y_pitch]					! Separate out these patches
+!pi_19RBCOM1[y_offset] = -po_19BCOM1[y_offset]						! If together like this, somehow get a negative length. Below, they are separated out.
+pi_19RBCOM1_ypitch: patch, y_pitch = po_19BCOM1[y_pitch] 					! Mirror image
+pi_19RBCOM1_yoffset: patch, y_offset = -po_19BCOM1[y_offset] + 1.4945474725891472E-04 	! Mirror image, but offset requires negative
+po_19RBCOM1_ypitch: patch, y_pitch = 0.000						
+po_19RBCOM1_yoffset: patch, y_offset = 0.0						! Perhaps unnecessary, but makes things "clean"
 
 ! Overlays	    	   	      							! Currently, none used.
 ! Between 1st and 2nd dipoles
@@ -131,8 +131,8 @@ po_9RBCOM1_yoffset: patch, y_offset = 0.0						! Perhaps unnecessary, but makes 
 !ov9_2: overlay={}
 ! Between septum and reverse septum
 !ov9_3: overlay={
-! 	pi_9RNESEPT[y_pitch] : 0.5*Ang1,					
-! 	po_9RNESEPT[y_pitch] : 0.5*Ang1},				
+! 	pi_19RNESEPT[y_pitch] : 0.5*Ang1,					
+! 	po_19RNESEPT[y_pitch] : 0.5*Ang1},				
 !	Var={Ang1},
 !	Ang1=0 !Half of the angle coming out of the NESEPT
 ! Between reverse septum and flipped BCOM2
@@ -142,22 +142,26 @@ po_9RBCOM1_yoffset: patch, y_offset = 0.0						! Perhaps unnecessary, but makes 
 ! After flipped BCOM1
 !ov9_6: overlay={}
 
-Pass19: line=(mBCOM1, po_9BCOM1,
-D300, pi_9BCOM2_ypitch, pi_9BCOM2_yoffset, mBCOM2, po_9BCOM2_yoffset, po_9BCOM2_ypitch,
-D701, pi_9NESEPT, mNESEPT, po_9NESEPT,
+Pass19: line=(mBCOM1, po_19BCOM1,
+D300, pi_19BCOM2_ypitch, pi_19BCOM2_yoffset, mBCOM2, po_19BCOM2_yoffset, po_19BCOM2_ypitch,
+D701, pi_19NESEPT, mNESEPT, po_19NESEPT,
 D902a, m9Q1, D902b, 
-pi_9RNESEPT, mRNESEPT, po_9RNESEPT, 
-D903, pi_9RBCOM2_ypitch, pi_9RBCOM2_yoffset, mRBCOM2, po_9RBCOM2_yoffset, po_9RBCOM2_ypitch,
-D904, pi_9RBCOM1_ypitch, pi_9RBCOM1_yoffset, mRBCOM1, po_9RBCOM1_ypitch, po_9RBCOM1_yoffset, D905) 
+pi_19RNESEPT, mRNESEPT, po_19RNESEPT, 
+D903, pi_19RBCOM2_ypitch, pi_19RBCOM2_yoffset, mRBCOM2, po_19RBCOM2_yoffset, po_19RBCOM2_ypitch,
+D904, pi_19RBCOM1_ypitch, pi_19RBCOM1_yoffset, mRBCOM1, po_19RBCOM1_ypitch, po_19RBCOM1_yoffset, D905) 
 
 Pass19[e_tot] = e19
 
 use, Pass19
 
-beginning[beta_a] = 272.625
-beginning[beta_b] = 277.476
-beginning[alpha_a] = 1.00087
-beginning[alpha_b] = 0.135848
+!beginning[beta_a] = 272.625
+!beginning[beta_b] = 277.476
+!beginning[alpha_a] = 1.00087
+!beginning[alpha_b] = 0.135848
+beginning[beta_a] = 228.427
+beginning[beta_b] = 231.096
+beginning[alpha_a] = -0.667699
+beginning[alpha_b] = -0.706812
 beginning[eta_x] = 0
 beginning[eta_y] = 0
 beginning[etap_x] = 0

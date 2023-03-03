@@ -77,7 +77,7 @@ m5Q3: quadrupole, l=ls_Q30, k1=-1.724046472
 m5Q4: quadrupole, l=ls_Q30, k1=-1.722706912
 
 ! Drifts
-D500: drift, l=0.5
+D300: drift, l=0.5
 D501: drift, l=3.656375
 D502: drift, l=0.4215
 D503a: drift, l=0.3
@@ -93,7 +93,7 @@ po_5BCOM1: patch, y_pitch = asin((sin(ang_1BCOM1))*(p1/p5))		! output angle for 
 po_5BCOM1[y_offset] = ls_BCOM1*tan(0.5*po_5BCOM1[y_pitch])		! yoffset of Pass 5 from BCOM1
 
 pi_5BCOM2_ypitch: patch, y_pitch = -po_5BCOM1[y_pitch]
-pi_5BCOM2_yoffset: patch, y_offset = -(po_5BCOM1[y_offset]+(D500[L]*sin(po_5BCOM1[y_pitch])))	!The negative sign was confusing.
+pi_5BCOM2_yoffset: patch, y_offset = -(po_5BCOM1[y_offset]+(D300[L]*sin(po_5BCOM1[y_pitch])))	!The negative sign was confusing.
 
 po_5BCOM2_yoffset: patch, y_offset = -pi_5BCOM2_yoffset[y_offset] -ls_BCOM2*tan(0.5*(pi_5BCOM2_ypitch[y_pitch]- (asin((sin(ang_3BCOM2))*(p3/p5)))))
 po_5BCOM2_ypitch: patch, y_pitch = asin((sin(ang_3BCOM2))*(p3/p5))		! output angle for Pass 5 from BCOM2
@@ -161,7 +161,7 @@ Ang4=0 !
 !ov5_10: overlay={}
 
 Pass5 : line=(mBCOM1, po_5BCOM1,
-D500, pi_5BCOM2_ypitch, pi_5BCOM2_yoffset, mBCOM2, po_5BCOM2_yoffset, po_5BCOM2_ypitch,
+D300, pi_5BCOM2_ypitch, pi_5BCOM2_yoffset, mBCOM2, po_5BCOM2_yoffset, po_5BCOM2_ypitch,
 D501, pi_5B3, m5B3, po_5B3,
 D502, pi_5B4, m5B4, po_5B4,
 D503a, pi_5Q1, m5Q1, po_5Q1, D503b, pi_5Q2, m5Q2, po_5Q2,

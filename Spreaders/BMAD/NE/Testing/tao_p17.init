@@ -55,7 +55,7 @@
  d1_data%name = 'DispersionY'
  default_weight = 10000000
  datum(1:2)%data_type = 'eta.y' 'etap.y'
- datum(1:2)%ele_name =  'po_9RBCOM1_yoffset' 'po_9RBCOM1_yoffset'
+ datum(1:2)%ele_name =  'po_17RBCOM1_yoffset' 'po_17RBCOM1_yoffset'
  datum(1:2)%meas = 0.00000000000000000 0.00000000000000000000 
 /
 
@@ -64,7 +64,7 @@
  d1_data%name = 'DispersionY_2'
  default_weight = 1000
  datum(1:2)%data_type = 'eta.y' 'etap.y'   
- datum(1:2)%ele_name = 'END' 'END' !'po_9RBCOM1_yoffset' 'po_9RBCOM1_yoffset'
+ datum(1:2)%ele_name = 'END' 'END' !'po_17RBCOM1_yoffset' 'po_17RBCOM1_yoffset'
  datum(1:2)%meas = 0 
 /
 

@@ -55,12 +55,12 @@ ang_1BCOM1 = 3.5668231023621599E-01   ! The angle made by the pass 1 beam throug
 yoff_1BCOM1 = 2.7038440585384843E-01  ! The yoffset of pass 1 after the first BCOM
 
 ! Parameters from Pass 3
-ang_3BCOM2 = 2.0468633002999770E-01  ! The angle made by the pass 3 beam through the second BCOM
+ang_3BCOM2 = 2.04686330029993646E-001 ! 2.0468633002999770E-01  ! The angle made by the pass 3 beam through the second BCOM
 
 ! Parameters from Pass 7 - some have different options, so comment appropriately
 !ang_7NESEPT = -4.8236954074873231E-02	       		 !This one is from "show val asin(lat::orbit.py[MNESEPT])", and gives half the bend
 ang_7NESEPT = -9.6322262818036131E-02	            	 !This one is from "show val 2*asin(lat::orbit.py[MNESEPT])", and gives the full bend
-!ang_7NESEPT = -9.64739081497453799E-002      		 !This one is from "show var -bmad", and gives the full bend from the optimization
+!ang_7NESEPT = -9.63222628180312457E-002		 !This is found from "show var -bmad" and is fractionally different from the above value. MAYBE USE THIS?
 
 edge_7NESEPT = -4.8161131409018065E-02			 !This is half of the bend angle for pass 7, found like above. Watch sign! Might be wrong.
 
@@ -154,10 +154,14 @@ Pass9[e_tot] = e9
 
 use, Pass9
 
-beginning[beta_a] = 272.625
-beginning[beta_b] = 277.476
-beginning[alpha_a] = 1.00087
-beginning[alpha_b] = 0.135848
+!beginning[beta_a] = 272.625
+!beginning[beta_b] = 277.476
+!beginning[alpha_a] = 1.00087
+!beginning[alpha_b] = 0.135848
+beginning[beta_a] = 180.075
+beginning[beta_b] = 184.599
+beginning[alpha_a] = 0.25257
+beginning[alpha_b] = 0.205461
 beginning[eta_x] = 0
 beginning[eta_y] = 0
 beginning[etap_x] = 0
