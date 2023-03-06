@@ -99,7 +99,7 @@ ov1_1: overlay={
  pi_1B2[y_pitch] : -0.5*Ang1,
  po_1B2[y_pitch] : -0.5*Ang1},
  Var={Ang1},
- Ang1=0.0 ! 0.356682324
+ Ang1= 3.56682310236215883E-001
 ! Between 2nd dipole and 1st quad
 !ov1_2: overlay={}
 ! Between 1st quad and 2nd quad
@@ -131,6 +131,8 @@ D102, pi_1B4, m1B4, po_1B4, D103)
 Pass1[e_tot] = e1
 
 use, Pass1
+
+call, file=p1.out
 
 !beginning[beta_a] = 19.807
 !beginning[beta_b] = 19.0262

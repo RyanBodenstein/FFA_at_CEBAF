@@ -165,6 +165,8 @@ Pass7[e_tot] = e7
 
 use, Pass7
 
+call, file=p7.out
+
 !beginning[beta_a] = 149.957
 !beginning[beta_b] = 145.154
 !beginning[alpha_a] = 0.44785

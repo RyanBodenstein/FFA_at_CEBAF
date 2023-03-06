@@ -1,0 +1,48 @@
+ OV5_3[ANG3] = -1.30922835486321054E-001
+ OV5_9[ANG4] =  6.14092665638547308E-002
+ M5Q1[K1] = -4.37210361426165706E-001
+ OV5_7[K1] = -1.73131722217361528E+000
+ 
+ end_file
+ 
+ 
+ ! Top 10
+ 
+ Constraints                              Ref_Ele    Start_Ele   Ele/S    Meas-or-Lim    Model       Merit      Max_Loc
+ Pass5.geom[1]         floor.y <target>                         PO_5B4     1.0088E+02   1.0088E+02  4.471E-08
+ Pass5.Dispersion2[1]  eta.y <target>                           PO_5B6     0.0000E+00  -6.0388E-14  3.647E-27
+ Pass5.Dispersion1[1]  eta.y <target>                           PO_5B6     0.0000E+00  -6.0388E-14  3.647E-27
+ Pass5.Dispersion2[2]  etap.y <target>                          PO_5B6     0.0000E+00  -1.4821E-14  2.197E-28
+ Pass5.Dispersion1[2]  etap.y <target>                          PO_5B6     0.0000E+00  -1.4821E-14  2.197E-28
+ Pass5.geom[2]         floor.y <target>                         PO_5B6     1.0100E+02   1.0100E+02  2.019E-28
+ Pass5.orbit5q4[2]     orbit.py <target>                        PO_5B4     0.0000E+00  -8.4655E-15  7.166E-29
+ Pass5.orbit5q4[1]     orbit.y <target>                         PO_5B4     0.0000E+00   5.1514E-15  2.654E-29
+ Pass5[4]              OV5_7[K1]                                           1.9000E+00  -1.7313E+00  0.000E+00
+ Pass5[3]              M5Q1[K1]                                 9.70      -1.0000E+30  -4.3721E-01  0.000E+00
+ Constraints                              Ref_Ele    Start_Ele   Ele/S    Meas-or-Lim    Model       Merit      Max_Loc
+ 
+  figure of merit: 4.471424E-08
+ 
+ List of non-zero contributors to the Merit Function:
+ Name                                          Merit           Sigma [= sqrt(Chi^2/N)]
+ Pass5.geom                                    4.4714E-08      1.4952E-04
+ Pass5.Dispersion2                             3.8664E-27      4.3968E-14
+ Pass5.Dispersion1                             3.8664E-27      4.3968E-14
+ Pass5.orbit5q4                                9.8201E-29      7.0072E-15
+ 
+ Constraints                              Ref_Ele    Start_Ele   Ele/S    Meas-or-Lim    Model       Merit      Max_Loc
+ Pass5.geom[1]         floor.y <target>                         PO_5B4     1.0088E+02   1.0088E+02  4.471E-08
+ Pass5.geom[2]         floor.y <target>                         PO_5B6     1.0100E+02   1.0100E+02  2.019E-28
+ Pass5.orbit5q4[1]     orbit.y <target>                         PO_5B4     0.0000E+00   5.1514E-15  2.654E-29
+ Pass5.orbit5q4[2]     orbit.py <target>                        PO_5B4     0.0000E+00  -8.4655E-15  7.166E-29
+ Pass5.Dispersion1[1]  eta.y <target>                           PO_5B6     0.0000E+00  -6.0388E-14  3.647E-27
+ Pass5.Dispersion1[2]  etap.y <target>                          PO_5B6     0.0000E+00  -1.4821E-14  2.197E-28
+ Pass5.Dispersion2[1]  eta.y <target>                           PO_5B6     0.0000E+00  -6.0388E-14  3.647E-27
+ Pass5.Dispersion2[2]  etap.y <target>                          PO_5B6     0.0000E+00  -1.4821E-14  2.197E-28
+ Pass5[1]              OV5_3[ANG3]                                        -1.0000E+30  -1.3092E-01  0.000E+00
+ Pass5[2]              OV5_9[ANG4]                                        -1.0000E+30   6.1409E-02  0.000E+00
+ Pass5[3]              M5Q1[K1]                                 9.70      -1.0000E+30  -4.3721E-01  0.000E+00
+ Pass5[4]              OV5_7[K1]                                           1.9000E+00  -1.7313E+00  0.000E+00
+ Constraints                              Ref_Ele    Start_Ele   Ele/S    Meas-or-Lim    Model       Merit      Max_Loc
+ 
+  figure of merit: 4.471424E-08

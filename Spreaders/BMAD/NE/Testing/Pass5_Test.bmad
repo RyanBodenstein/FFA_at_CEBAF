@@ -173,6 +173,8 @@ Pass5[e_tot] = e5
 
 use, Pass5
 
+call, file=p5.out
+
 !beginning[beta_a] = 69.9535
 !beginning[beta_b] = 71.9985
 !beginning[alpha_a] = 0.809391

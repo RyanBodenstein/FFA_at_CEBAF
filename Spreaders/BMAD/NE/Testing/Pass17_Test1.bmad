@@ -154,6 +154,9 @@ Pass17[e_tot] = e17
 
 use, Pass17
 
+!call, file=p9.out			!Use this if you want to align with the values from pass 9
+call, file=p17.out
+
 !beginning[beta_a] = 272.625
 !beginning[beta_b] = 277.476
 !beginning[alpha_a] = 1.00087

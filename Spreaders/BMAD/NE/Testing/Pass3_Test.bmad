@@ -150,6 +150,8 @@ Pass3[e_tot] = e3
 
 use, Pass3
 
+call, file=p3.out
+
 !beginning[beta_a] = 52.5449
 !beginning[beta_b] = 52.4138
 !beginning[alpha_a] = 0.01989

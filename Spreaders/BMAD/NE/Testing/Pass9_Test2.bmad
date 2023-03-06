@@ -154,6 +154,8 @@ Pass9[e_tot] = e9
 
 use, Pass9
 
+call, file=p9.out
+
 !beginning[beta_a] = 272.625
 !beginning[beta_b] = 277.476
 !beginning[alpha_a] = 1.00087
