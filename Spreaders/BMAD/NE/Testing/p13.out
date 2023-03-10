@@ -1,0 +1,32 @@
+ M9Q1[K1] =  4.10274975101194365E-004
+ M9Q1[VKICK] =  3.06117714103808260E-006
+ 
+ end_file
+ 
+ 
+ ! Top 10
+ 
+ Constraints                               Ref_Ele    Start_Ele   Ele/S               Meas-or-Lim    Model       Merit      Max_Loc
+ Pass13.DispersionY[1]    eta.y <target>                         PO_13RBCOM1_YOFFSET   0.0000E+00   1.1796E-16  1.391E-25
+ Pass13.DispersionY[2]    etap.y <target>                        PO_13RBCOM1_YOFFSET   0.0000E+00  -1.3878E-17  1.926E-27
+ Pass13.DispersionY_2[1]  eta.y <target>                         END                   0.0000E+00   1.0408E-16  1.083E-29
+ Pass13[2]                M9Q1[VKICK]                            7.84                 -1.0000E+30   3.0612E-06  0.000E+00
+ Pass13[1]                M9Q1[K1]                               7.84                 -1.0000E+30   4.1027E-04  0.000E+00
+ Constraints                               Ref_Ele    Start_Ele   Ele/S               Meas-or-Lim    Model       Merit      Max_Loc
+ 
+  figure of merit: 1.410852E-25
+ 
+ List of non-zero contributors to the Merit Function:
+ Name                                          Merit           Sigma [= sqrt(Chi^2/N)]
+ Pass13.DispersionY                            1.4107E-25      8.3986E-17
+ Pass13.DispersionY_2                          1.0833E-29      1.0408E-16
+ 
+ Constraints                               Ref_Ele    Start_Ele   Ele/S               Meas-or-Lim    Model       Merit      Max_Loc
+ Pass13.DispersionY[1]    eta.y <target>                         PO_13RBCOM1_YOFFSET   0.0000E+00   1.1796E-16  1.391E-25
+ Pass13.DispersionY[2]    etap.y <target>                        PO_13RBCOM1_YOFFSET   0.0000E+00  -1.3878E-17  1.926E-27
+ Pass13.DispersionY_2[1]  eta.y <target>                         END                   0.0000E+00   1.0408E-16  1.083E-29
+ Pass13[1]                M9Q1[K1]                               7.84                 -1.0000E+30   4.1027E-04  0.000E+00
+ Pass13[2]                M9Q1[VKICK]                            7.84                 -1.0000E+30   3.0612E-06  0.000E+00
+ Constraints                               Ref_Ele    Start_Ele   Ele/S               Meas-or-Lim    Model       Merit      Max_Loc
+ 
+  figure of merit: 1.410852E-25

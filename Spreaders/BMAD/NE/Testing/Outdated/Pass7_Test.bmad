@@ -55,7 +55,7 @@ ang_1BCOM1 = 3.5668231023621599E-01   ! The angle made by the pass 1 beam throug
 yoff_1BCOM1 = 2.7038440585384843E-01  ! The yoffset of pass 1 after the first BCOM
 
 ! Parameters from Pass 3
-ang_3BCOM2 = 2.04686330029993646E-001 ! 2.0468633002999770E-01  ! The angle made by the pass 3 beam through the second BCOM
+ang_3BCOM2 = 2.0468633002999770E-01  ! The angle made by the pass 3 beam through the second BCOM
 
 !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 !!!!!!!!!!!!!  Pass 7 Elements  !!!!!!!!!!!!!!!!!!!!!!!!!!!!!
@@ -165,16 +165,10 @@ Pass7[e_tot] = e7
 
 use, Pass7
 
-call, file=p7.out
-
-!beginning[beta_a] = 149.957
-!beginning[beta_b] = 145.154
-!beginning[alpha_a] = 0.44785
-!beginning[alpha_b] = 0.141698
-beginning[beta_a] = 143.741
-beginning[beta_b] = 146.94
-beginning[alpha_a] = 0.288127
-beginning[alpha_b] = 0.290674
+beginning[beta_a] = 149.957
+beginning[beta_b] = 145.154
+beginning[alpha_a] = 0.44785
+beginning[alpha_b] = 0.141698
 beginning[eta_x] = 0
 beginning[eta_y] = 0
 beginning[etap_x] = 0

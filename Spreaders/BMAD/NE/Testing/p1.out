@@ -1,0 +1,40 @@
+ OV1_1[ANG1] =  3.56682310236219935E-001
+ OV1_6[ANG3] =  2.18939110820283334E-001
+ M1Q1[K1] = -6.17138269124383299E-001
+ M1Q3[K1] = -3.75076181480988202E+000
+ 
+ end_file
+ 
+ 
+ ! Top 10
+ 
+ Constraints                             Ref_Ele    Start_Ele   Ele/S    Meas-or-Lim    Model       Merit      Max_Loc
+ Pass1.geom[1]         floor.y <target>                        PO_1B2     1.0170E+02   1.0170E+02  2.019E-28
+ Pass1.Dispersion1[1]  eta.y <target>                          M1B4       0.0000E+00   1.3475E-14  1.816E-28
+ Pass1.Dispersion1[2]  etap.y <target>                         M1B4       0.0000E+00   5.5511E-15  3.081E-29
+ Pass1[4]              M1Q3[K1]                                13.83     -1.0000E+30  -3.7508E+00  0.000E+00
+ Pass1[3]              M1Q1[K1]                                7.23      -1.0000E+30  -6.1714E-01  0.000E+00
+ Pass1[2]              OV1_6[ANG3]                                       -1.0000E+30   2.1894E-01  0.000E+00
+ Pass1[1]              OV1_1[ANG1]                                       -1.0000E+30   3.5668E-01  0.000E+00
+ Pass1.geom[2]         floor.y <target>                        PO_1B4     1.0200E+02   1.0200E+02  0.000E+00
+ Constraints                             Ref_Ele    Start_Ele   Ele/S    Meas-or-Lim    Model       Merit      Max_Loc
+ 
+  figure of merit: 4.143478E-28
+ 
+ List of non-zero contributors to the Merit Function:
+ Name                                          Merit           Sigma [= sqrt(Chi^2/N)]
+ Pass1.Dispersion1                             2.1240E-28      1.0305E-14
+ Pass1.geom                                    2.0195E-28      1.4211E-14
+ 
+ Constraints                             Ref_Ele    Start_Ele   Ele/S    Meas-or-Lim    Model       Merit      Max_Loc
+ Pass1.geom[1]         floor.y <target>                        PO_1B2     1.0170E+02   1.0170E+02  2.019E-28
+ Pass1.geom[2]         floor.y <target>                        PO_1B4     1.0200E+02   1.0200E+02  0.000E+00
+ Pass1.Dispersion1[1]  eta.y <target>                          M1B4       0.0000E+00   1.3475E-14  1.816E-28
+ Pass1.Dispersion1[2]  etap.y <target>                         M1B4       0.0000E+00   5.5511E-15  3.081E-29
+ Pass1[1]              OV1_1[ANG1]                                       -1.0000E+30   3.5668E-01  0.000E+00
+ Pass1[2]              OV1_6[ANG3]                                       -1.0000E+30   2.1894E-01  0.000E+00
+ Pass1[3]              M1Q1[K1]                                7.23      -1.0000E+30  -6.1714E-01  0.000E+00
+ Pass1[4]              M1Q3[K1]                                13.83     -1.0000E+30  -3.7508E+00  0.000E+00
+ Constraints                             Ref_Ele    Start_Ele   Ele/S    Meas-or-Lim    Model       Merit      Max_Loc
+ 
+  figure of merit: 4.143478E-28

@@ -3,14 +3,14 @@
 
 &tao_design_lattice
  n_universes = 1
- design_lattice(1) = 'Pass9_Test2.bmad@Pass9'
+ design_lattice(1) = 'Pass13_Test1.bmad@Pass13'
 /
 
 !------------------------ Variables --------------------------
 !-------------------------------------------------------------
 
 &tao_var
- v1_var%name = 'Pass9'
+ v1_var%name = 'Pass13'
 ! var(1)%ele_name = 'ov9_3'
 ! var(1)%attribute = 'Ang1'
 ! var(1)%step = 1e-4
@@ -37,7 +37,7 @@
 
 &tao_d2_data
  universe = '1'
- d2_data%name = 'Pass9'
+ d2_data%name = 'Pass13'
  n_d1_data = 2
 /
 
@@ -55,7 +55,7 @@
  d1_data%name = 'DispersionY'
  default_weight = 10000000
  datum(1:2)%data_type = 'eta.y' 'etap.y'
- datum(1:2)%ele_name =  'po_9RBCOM1_yoffset' 'po_9RBCOM1_yoffset'
+ datum(1:2)%ele_name =  'po_13RBCOM1_yoffset' 'po_13RBCOM1_yoffset'
  datum(1:2)%meas = 0.00000000000000000 0.00000000000000000000 
 /
 
@@ -64,8 +64,8 @@
  d1_data%name = 'DispersionY_2'
  default_weight = 1000
  datum(1:2)%data_type = 'eta.y' 'etap.y'   
- datum(1:2)%ele_name = 'END' 'END' !'po_9RBCOM1_yoffset' 'po_9RBCOM1_yoffset'
- datum(1:2)%meas = 0 0
+ datum(1:2)%ele_name = 'END' 'END' !'po_13RBCOM1_yoffset' 'po_13RBCOM1_yoffset'
+ datum(1:2)%meas = 0 
 /
 
 

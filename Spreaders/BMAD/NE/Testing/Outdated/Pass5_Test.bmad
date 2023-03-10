@@ -55,7 +55,7 @@ ang_1BCOM1 = 3.5668231023621599E-01   ! The angle made by the pass 1 beam throug
 yoff_1BCOM1 = 2.7038440585384843E-01  ! The yoffset of pass 1 after the first BCOM
 
 ! Parameters from Pass 3
-ang_3BCOM2 = 2.04686330029993646E-001 ! 2.0468633002999770E-01  ! The angle made by the pass 3 beam through the second BCOM
+ang_3BCOM2 = 2.0468633002999770E-01  ! The angle made by the pass 3 beam through the second BCOM
 
 
 !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
@@ -173,16 +173,10 @@ Pass5[e_tot] = e5
 
 use, Pass5
 
-call, file=p5.out
-
-!beginning[beta_a] = 69.9535
-!beginning[beta_b] = 71.9985
-!beginning[alpha_a] = 0.809391
-!beginning[alpha_b] = 0.473244
-beginning[beta_a] = 120.27
-beginning[beta_b] = 120.858
-beginning[alpha_a] = 0.615607
-beginning[alpha_b] = 0.611207
+beginning[beta_a] = 69.9535
+beginning[beta_b] = 71.9985
+beginning[alpha_a] = 0.809391
+beginning[alpha_b] = 0.473244
 beginning[eta_x] = 0
 beginning[eta_y] = 0
 beginning[etap_x] = 0

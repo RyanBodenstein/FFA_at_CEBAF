@@ -1,0 +1,177 @@
+! Define parameters
+InjE = 650e6
+LinacE = 1100e6
+e1 = InjE + LinacE
+e3 = e1+2*(LinacE)
+e5 = e3+2*(LinacE)
+e7 = e5+2*(LinacE)
+e9 = e7+2*(LinacE)
+e11 = e9+2*(LinacE)
+e13 = e11+2*(LinacE)
+e15 = e13+2*(LinacE)
+e17 = e15+2*(LinacE)
+e19 = e17+2*(LinacE)
+e21 = e19+2*(LinacE)
+e23 = e21+2*(LinacE)
+e25 = e23+2*(LinacE)
+p1 = sqrt(e1*e1-mass_of(electron)^2)
+p3 = sqrt(e3*e3-mass_of(electron)^2)
+p5 = sqrt(e5*e5-mass_of(electron)^2)
+p7 = sqrt(e7*e7-mass_of(electron)^2)
+p9 = sqrt(e9*e9-mass_of(electron)^2)
+p11 = sqrt(e11*e11-mass_of(electron)^2)
+p13 = sqrt(e13*e13-mass_of(electron)^2)
+p15 = sqrt(e15*e15-mass_of(electron)^2)
+p17 = sqrt(e17*e17-mass_of(electron)^2)
+p19 = sqrt(e19*e19-mass_of(electron)^2)
+p21 = sqrt(e21*e21-mass_of(electron)^2)
+p23 = sqrt(e23*e23-mass_of(electron)^2)
+p25 = sqrt(e25*e25-mass_of(electron)^2)
+
+parameter[geometry] = open
+parameter[particle] = electron
+
+! Magnet Steel Lengths (insofar as I can tell, some may be path length, but it'll be steel length for now)
+ls_BCOM1 = 1.5
+ls_BCOM2 = 1.01552701
+ls_NESEPT = 3.03530607
+ls_P1B2 = 1.5
+ls_P1B3 = 1.00881582810623
+ls_P1B4 = 1.00881582810623
+ls_P3B3 = 2.03846890215814
+ls_P3B4 = 1.02289043752664
+ls_P3B5 = 1.02289043752664
+ls_P5B3 = 0.999352823925987
+ls_P5B4 = 1.00059721
+ls_P5B5 = 1.03883612
+ls_P5B6 = 1.03883612
+ls_P7B4 = 0.9989717
+ls_P7B5 = 0.9989717
+ls_Q30 = 0.3
+ls_Q35 = 0.3556
+
+! Parameters from Pass 1
+ang_1BCOM1 = 3.5668231023621599E-01   ! The angle made by the pass 1 beam through the first BCOM
+yoff_1BCOM1 = 2.7038440585384843E-01  ! The yoffset of pass 1 after the first BCOM
+
+! Parameters from Pass 3
+ang_3BCOM2 = 2.04686330029993646E-001 ! 2.0468633002999770E-01  ! The angle made by the pass 3 beam through the second BCOM
+
+! Parameters from Pass 7 - some have different options, so comment appropriately
+!ang_7NESEPT = -4.8236954074873231E-02	       		 !This one is from "show val asin(lat::orbit.py[MNESEPT])", and gives half the bend
+ang_7NESEPT = -9.6322262818036131E-02	            	 !This one is from "show val 2*asin(lat::orbit.py[MNESEPT])", and gives the full bend
+!ang_7NESEPT = -9.63222628180312457E-002		 !This is found from "show var -bmad" and is fractionally different from the above value. MAYBE USE THIS?
+
+edge_7NESEPT = -4.8161131409018065E-02			 !This is half of the bend angle for pass 7, found like above. Watch sign! Might be wrong.
+
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+!!!!!!!!!!!!!  Pass 9+ (FFA) Elements  !!!!!!!!!!!!!!!!!!!!!! This stuff is being developed
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+
+! Dipoles
+mBCOM1: sbend, l=ls_BCOM1, db_field=-1.3588127524761850E+00, ref_tilt=-0.5*pi, HGAP=0.1905		! db_field found from Pass 1
+mBCOM2: sbend, l=ls_BCOM2, db_field=-6.3010719936335613E-01, ref_tilt=-0.5*pi, HGAP=0.023749		! db_field found from Pass 3
+mNESEPT: sbend, l=ls_NESEPT, db_field=8.8353153364146308E-01, ref_tilt=-0.5*pi, HGAP=0.01269999849	! db_field fround from Pass 7 
+mRNESEPT: sbend, l=ls_NESEPT, db_field=8.8353153364146308E-01, ref_tilt=-0.5*pi, HGAP=0.01269999849	! Not negative - bending the same way! 
+mRBCOM2: sbend, l=ls_BCOM2, db_field=-6.3010719936335613E-01, ref_tilt=-0.5*pi, HGAP=0.023749		!
+mRBCOM1: sbend, l=ls_BCOM1, db_field=-1.3588127524761850E+00, ref_tilt=-0.5*pi, HGAP=0.1905		!
+
+! Quads
+m9Q1: quadrupole, l=ls_Q30, k1=-1.29246142535765943E-003, vkick=3.06319532796452727E-006	!Adding quad to close dispersion between septa, k1 and vkick values found through optimizing
+!m9Q1: sbend, l=ls_Q30, db_field=0, k1=-1.26110753439445406E-003, ref_tilt=-0.5*pi		!This is a dipole with quad coils used when troubleshooting
+
+! Drifts
+D300: drift, l=0.5
+D701: drift, l=0.8922411
+!D902: drift, l=1.5					! Commented out to fit in 30 cm quad. Split this into two drifts of 0.60 m each. Used 2 quads at one point, but found errors.
+D902a: drift, l=0.6
+D902b: drift, l=0.6					
+D903: drift, l=0.8922411
+D904: drift, l=0.5
+D905: drift, l=1.0
+
+! Patches
+po_11BCOM1: patch, y_pitch = asin((sin(ang_1BCOM1))*(p1/p11))		! output angle for Pass 9 from BCOM1 scaled from Pass 1
+po_11BCOM1[y_offset] = ls_BCOM1*tan(0.5*po_11BCOM1[y_pitch])		! yoffset of Pass 9 from BCOM1
+
+pi_11BCOM2_ypitch: patch, y_pitch = -po_11BCOM1[y_pitch]
+pi_11BCOM2_yoffset: patch, y_offset = -(po_11BCOM1[y_offset]+(D300[L]*sin(po_11BCOM1[y_pitch])))	!The negative sign was confusing.
+
+po_11BCOM2_yoffset: patch, y_offset = -pi_11BCOM2_yoffset[y_offset] -ls_BCOM2*tan(0.5*(pi_11BCOM2_ypitch[y_pitch]- (asin((sin(ang_3BCOM2))*(p3/p11)))))
+po_11BCOM2_ypitch: patch, y_pitch = asin((sin(ang_3BCOM2))*(p3/p11))		! output angle for Pass 9 from BCOM2 scaled from Pass 3
+
+pi_11NESEPT: patch, y_pitch = asin((sin(edge_7NESEPT))*(p7/p11))			! input angle for Pass 9 scaled from Pass 7
+po_11NESEPT: patch, y_pitch = asin((sin(edge_7NESEPT))*(p7/p11))			! output angle for Pass 9 scaled from Pass 7
+
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+! Mirror Point (there's a quad here)!
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+
+
+pi_11RNESEPT: patch, y_pitch = po_11NESEPT[y_pitch]					! Making a mirror image 
+pi_11RNESEPT[y_offset] = 7.4002754573143648E-05						! Account for orbit difference from pass 9 vs pass 7. Tthis is not "real" offset needed for clearance
+po_11RNESEPT: patch, y_pitch = pi_11NESEPT[y_pitch]					! Making a mirror image
+
+pi_11RBCOM2_ypitch: patch, y_pitch = po_11BCOM2_ypitch[y_pitch]				! Mirror image
+pi_11RBCOM2_yoffset: patch, y_offset = -po_11BCOM2_yoffset[y_offset] + 3.8705859877552484E-04 		! Mirror image, but offset requires negative. Number is not "real" offset.
+po_11RBCOM2_yoffset: patch, y_offset = -pi_11BCOM2_yoffset[y_offset] 			! Mirror image, but offset requires negative
+po_11RBCOM2_ypitch: patch, y_pitch = pi_11BCOM2_ypitch[y_pitch] 				! Mirror image
+
+!pi_11RBCOM1: patch, y_pitch = po_11BCOM1[y_pitch]					! Separate out these patches
+!pi_11RBCOM1[y_offset] = -po_11BCOM1[y_offset]						! If together like this, somehow get a negative length. Below, they are separated out.
+pi_11RBCOM1_ypitch: patch, y_pitch = po_11BCOM1[y_pitch] 					! Mirror image
+pi_11RBCOM1_yoffset: patch, y_offset = -po_11BCOM1[y_offset] + 1.4945474725891472E-04 	! Mirror image, but offset requires negative
+po_11RBCOM1_ypitch: patch, y_pitch = 0.000						
+po_11RBCOM1_yoffset: patch, y_offset = 0.0						! Perhaps unnecessary, but makes things "clean"
+
+! Overlays	    	   	      							! Currently, none used.
+! Between 1st and 2nd dipoles
+!ov9_1: overlay={}
+! Between 2nd dipole and Septum
+!ov9_2: overlay={}
+! Between septum and reverse septum
+!ov9_3: overlay={
+! 	pi_9RNESEPT[y_pitch] : 0.5*Ang1,					
+! 	po_9RNESEPT[y_pitch] : 0.5*Ang1},				
+!	Var={Ang1},
+!	Ang1=0 !Half of the angle coming out of the NESEPT
+! Between reverse septum and flipped BCOM2
+!ov9_4: overlay={}
+! Between flipped BCOM2 and flipped BCOM1
+!ov9_5: overlay={}
+! After flipped BCOM1
+!ov9_6: overlay={}
+
+Pass11: line=(mBCOM1, po_11BCOM1,
+D300, pi_11BCOM2_ypitch, pi_11BCOM2_yoffset, mBCOM2, po_11BCOM2_yoffset, po_11BCOM2_ypitch,
+D701, pi_11NESEPT, mNESEPT, po_11NESEPT,
+D902a, m9Q1, D902b, 
+pi_11RNESEPT, mRNESEPT, po_11RNESEPT, 
+D903, pi_11RBCOM2_ypitch, pi_11RBCOM2_yoffset, mRBCOM2, po_11RBCOM2_yoffset, po_11RBCOM2_ypitch,
+D904, pi_11RBCOM1_ypitch, pi_11RBCOM1_yoffset, mRBCOM1, po_11RBCOM1_ypitch, po_11RBCOM1_yoffset, D905) 
+
+Pass11[e_tot] = e11
+
+use, Pass11
+
+!call, file=p9.out			!Use this if you want to align with the values from pass 9
+call, file=p11.out
+
+!beginning[beta_a] = 272.625
+!beginning[beta_b] = 277.476
+!beginning[alpha_a] = 1.00087
+!beginning[alpha_b] = 0.135848
+beginning[beta_a] = 199.493
+beginning[beta_b] = 203.523
+beginning[alpha_a] = -0.102365
+beginning[alpha_b] = -0.15201
+beginning[eta_x] = 0
+beginning[eta_y] = 0
+beginning[etap_x] = 0
+beginning[etap_y] = 0
+beginning[y_position] = 100
+!beginning[z_position] = 90.553720
+!beginning[s] = 242.768240
+!! What about higher FFA passes? 11, 13, 15, 17, 19 still needed.
+!! This is where I'll definitely need multipass, etc...
+
