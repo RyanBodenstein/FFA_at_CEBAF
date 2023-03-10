@@ -31,8 +31,7 @@
   global%n_opti_cycles = 1000
   !---Bmad---
   bmad_com%radiation_damping_on = T
-  bmad_com%radiation_fluctuations_on = T
-  bmad_com%csr_and_space_charge_on = T
+  bmad_com%radiation_fluctuations_on = T  
   !bmad_com%taylor_order = 8    
   ! TEMP for EM field tracking  
   !bmad_com%abs_tol_tracking = 1e-7

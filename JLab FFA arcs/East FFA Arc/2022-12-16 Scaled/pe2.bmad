@@ -11,21 +11,21 @@ parameter[p0c]                      = p_CENT
 parameter[particle]                 = Electron
 
 
-beginning[beta_a]    = 1.6677475053032
-beginning[alpha_a]   = 1.6874578197784
-beginning[eta_x]     = 0.027102696532592
-beginning[etap_x]    = -0.026443608806497
-beginning[beta_b]    = 4.4696905001209
-beginning[alpha_b]   = -3.1811128200821
-beginning[eta_y]     = -7.5353155299456E-26
-beginning[etap_y]    = -9.9008368725018E-26
-beginning[cmat_11]   = 4.5346884305745E-27
-beginning[cmat_12]   = -6.9756717930865E-27
-beginning[cmat_21]   = -3.2535016312828E-27
-beginning[cmat_22]   = 5.8051609730721E-27
-particle_start[x]  = -0.024163623268143
-particle_start[px] = 9.7652833963542E-3
-particle_start[y]  = 1.8409708021323E-26
-particle_start[py] = 9.8100838758906E-27
+beginning[beta_a]    = 2.629154890782
+beginning[alpha_a]   = 1.6874578198021
+beginning[eta_x]     = 0.04272660385384
+beginning[etap_x]    = -0.026443608797789
+beginning[beta_b]    = 7.0463356119766
+beginning[alpha_b]   = -3.1811128200948
+beginning[eta_y]     = 6.8210488595854E-25
+beginning[etap_y]    = 3.521544318951E-25
+beginning[cmat_11]   = -5.8634814389015E-27
+beginning[cmat_12]   = 1.3344199285974E-26
+beginning[cmat_21]   = 6.070797471077E-27
+beginning[cmat_22]   = -1.3384099124752E-26
+particle_start[x]  = -0.024163623245668
+particle_start[px] = 9.7652833782964E-3
+particle_start[y]  = -5.1123402021387E-26
+particle_start[py] = -1.982899432425E-26
 particle_start[pz] = -0.36567164179104
 

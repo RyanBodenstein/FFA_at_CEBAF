@@ -12,14 +12,13 @@ parameter[particle]                 = Electron
 
 
 
-
-beginning[beta_a]    = 2.0983873377998
+beginning[beta_a]    = 2.1035178691881
 beginning[alpha_a]   = 1.2283576221766
-beginning[eta_x]     = 0.072877959540828
-beginning[etap_x]    = -0.03347005186192
-beginning[beta_b]    = 8.8098707563526
-beginning[alpha_b]   = -4.2659159511108
-particle_start[x]  = -2.0502267713883E-4
-particle_start[px] = 7.5936804914441E-5
-particle_start[pz] = -2.4390243902439E-3
+beginning[eta_x]     = 0.073056145257118
+beginning[etap_x]    = -0.033470051859052
+beginning[beta_b]    = 8.8314107826512
+beginning[alpha_b]   = -4.2659159511106
+particle_start[x]  = -2.0502267744882E-4
+particle_start[px] = 7.593680512923E-5
+particle_start[pz] = -2.4390243902439E-3 ! Corresponds to 20.45 GeV
 

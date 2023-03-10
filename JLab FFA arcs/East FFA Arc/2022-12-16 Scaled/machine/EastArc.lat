@@ -18,6 +18,8 @@ bdb: sbend, field_master = T, b1_gradient = GD, l = BDL/6,
     db_field = BD_fld, x_offset = dxDB                  
 bdc: sbend, field_master = T, b1_gradient = GD, l = BDL/6, 
     db_field = BD_fld, x_offset = dxDC 
+! Girder -----------------
+!BDM : GIRDER = {bda, bdb, bdc, bdc, bdb, bda}, origin_ele = bda 
 
 
 ! Interstitial Drift
@@ -34,6 +36,8 @@ bfb: sbend, field_master =T, b1_gradient = GF, l = BFL/6,
     db_field = BF_fld, x_offset = dxFB                                             
 bfc: sbend, field_master =T, b1_gradient = GF, l = BFL/6, 
     db_field = BF_fld, x_offset = dxFC
+! Girder -----------------
+!BFM : Girder = {bfa, bfb, bfc, bfc, bfb, bfa}, origin_ele = bfa
                                            
 
 ! markers for diagnostic purposes
@@ -66,4 +70,4 @@ cell20: line = (cell10, cell10)
 arc75: line = (MK.BEG, cell20, cell20, cell20, cell10, cell5, MK.END)
 
 
-use, arc75
+use, arc5
