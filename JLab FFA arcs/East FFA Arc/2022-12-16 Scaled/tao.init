@@ -171,47 +171,47 @@
 
 !------------------- Variables-------------
 
-&tao_var
-    v1_var%name = 'BF_fld'
-        default_universe = "gang"
-        default_attribute = "db_field"
-        default_weight = 1e3
-        default_step = 1e-6
-        ix_min_var = 1
-        search_for_lat_eles = "SBEND::BF*"
-	default_low_lim  =   -2.0
-	default_high_lim =   0.0
-/
-&tao_var
-    v1_var%name = 'BD_fld'
-        default_universe = "gang"
-        default_attribute = "db_field"
-        default_weight = 1e3
-        default_step = 1e-6
-        ix_min_var = 1
-        search_for_lat_eles = "SBEND::BD*"
-	default_low_lim =  -0.65
-	default_high_lim = -0.0
-/
-&tao_var 
-	v1_var%name = 'BF_grd'
-	default_universe = 'gang'
-	default_attribute = 'b1_gradient'
-	default_weight = 1e3
-	default_step = 1e-6
-        search_for_lat_eles = "SBEND::BF*"
-	default_low_lim  = -100.
-	default_high_lim =  -9.
-        default_key_bound = T
-        default_key_delta = 1	
-/
-&tao_var 
-	v1_var%name = 'BD_grd'
-	default_universe = 'gang'
-	default_attribute = 'b1_gradient'
-	default_weight = 1e3
-	default_step = 1e-6 
-        search_for_lat_eles = "SBEND::BD*"
-	default_low_lim  = 0.0
-	default_high_lim = 100.0
-/
+!&tao_var
+!    v1_var%name = 'BF_fld'
+!        default_universe = "gang"
+!        default_attribute = "db_field"
+!        default_weight = 1e3
+!        default_step = 1e-6
+!        ix_min_var = 1
+!        search_for_lat_eles = "SBEND::BF*"
+!	default_low_lim  =   -2.0
+!	default_high_lim =   0.0
+!/
+!&tao_var
+!    v1_var%name = 'BD_fld'
+!        default_universe = "gang"
+!        default_attribute = "db_field"
+!        default_weight = 1e3
+!        default_step = 1e-6
+!        ix_min_var = 1
+!        search_for_lat_eles = "SBEND::BD*"
+!	default_low_lim =  -0.65
+!	default_high_lim = -0.0
+!/
+!&tao_var 
+!	v1_var%name = 'BF_grd'
+!	default_universe = 'gang'
+!	default_attribute = 'b1_gradient'
+!	default_weight = 1e3
+!	default_step = 1e-6
+!        search_for_lat_eles = "SBEND::BF*"
+!	default_low_lim  = -100.
+!	default_high_lim =  -9.
+!        default_key_bound = T
+!        default_key_delta = 1	
+!/
+!&tao_var 
+!	v1_var%name = 'BD_grd'
+!	default_universe = 'gang'
+!	default_attribute = 'b1_gradient'
+!	default_weight = 1e3
+!	default_step = 1e-6 
+!        search_for_lat_eles = "SBEND::BD*"
+!	default_low_lim  = 0.0
+!	default_high_lim = 100.0
+!/

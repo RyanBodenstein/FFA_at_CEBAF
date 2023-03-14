@@ -7,6 +7,8 @@
 /
 
 &tao_template_graph
+ graph%name = 'orbits'
+ graph%type = 'data'
  graph_index=1
  graph%n_curve=6
  curve(1:6)%data_type = 'orbit.x' 'orbit.x' 'orbit.x' 'orbit.x' 'orbit.x' 'orbit.x'

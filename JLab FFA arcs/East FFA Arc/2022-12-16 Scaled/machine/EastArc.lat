@@ -18,8 +18,10 @@ bdb: sbend, field_master = T, b1_gradient = GD, l = BDL/6,
     db_field = BD_fld, x_offset = dxDB                  
 bdc: sbend, field_master = T, b1_gradient = GD, l = BDL/6, 
     db_field = BD_fld, x_offset = dxDC 
+! Whole Magnet -----------
+BDM : line = (pr_bd, bda, bdb, bdc, bdc, bdb, bda, pr_bd)
 ! Girder -----------------
-!BDM : GIRDER = {bda, bdb, bdc, bdc, bdb, bda}, origin_ele = bda 
+BDMG : GIRDER = {BDM}, origin_ele = global_coordinates
 
 
 ! Interstitial Drift
@@ -36,8 +38,10 @@ bfb: sbend, field_master =T, b1_gradient = GF, l = BFL/6,
     db_field = BF_fld, x_offset = dxFB                                             
 bfc: sbend, field_master =T, b1_gradient = GF, l = BFL/6, 
     db_field = BF_fld, x_offset = dxFC
+! Whole Magnet -----------
+BFM : line = (pr_bf, bfa, bfb, bfc, bfc, bfb, bfa, pr_bf)
 ! Girder -----------------
-!BFM : Girder = {bfa, bfb, bfc, bfc, bfb, bfa}, origin_ele = bfa
+BFMG : Girder = {BFM}, origin_ele = global_coordinates
                                            
 
 ! markers for diagnostic purposes
@@ -54,8 +58,8 @@ MK.END: marker      ! end of the lattice
 ! Lattice Definition --------------------------------------------------------------------
 
 
-cell: line = (MK.IN, pr_bd, bda, bdb, bdc, bdc, bdb, bda, pr_bd, d2,
-              MK.BET, pr_bf, bfa, bfb, bfc, bfc, bfb, bfa, pr_bf, d2, MK.OUT)
+cell: line = (MK.IN, BDM, d2,
+              MK.BET, BFM, d2, MK.OUT)
 
 arc1: line = (MK.BEG, cell, MK.END)
 
