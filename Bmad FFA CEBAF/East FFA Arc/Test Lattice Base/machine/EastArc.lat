@@ -1,0 +1,111 @@
+! EastArc.lat
+! File containing base element definitions
+! East Arc magnets, drifts, diagnostics, etc
+
+call, file = 2022-12-16_params_east.bmad
+
+! Element Definitions -------------------------------------------------------------------
+ 
+
+
+! Bending Defocusing unit --------------------------------
+
+! Patches -----------------------
+pr_bd: patch, x_pitch = 0.5*angbd                                           
+! -------------------------------
+
+! Magnet Sections ---------------                                           
+bda: sbend, field_master = T, b1_gradient = GD, l = BDL/6, 
+    db_field = BD_fld, x_offset = dxDA                  
+bdb: sbend, field_master = T, b1_gradient = GD, l = BDL/6, 
+    db_field = BD_fld, x_offset = dxDB                  
+bdc: sbend, field_master = T, b1_gradient = GD, l = BDL/6, 
+    db_field = BD_fld, x_offset = dxDC 
+! -------------------------------
+
+! Whole Magnet ------------------
+BDM : line = (pr_bd, bda, bdb, bdc, bdc, bdb, bda, pr_bd)
+! --------------------------------------------------------
+
+
+
+! Drifts -------------------------------------------------
+d2: drift                ! mid-cell drift
+d2i: drift               ! half drift for cell start
+d2o: drift               ! half drift for cellend
+! --------------------------------------------------------
+
+
+
+! Bending Focusing unit ----------------------------------
+
+! Patches -----------------------
+pr_bf: patch, x_pitch = 0.5*angbf 
+! -------------------------------
+
+! Magnet Sections ---------------                                         
+bfa: sbend, field_master =T, b1_gradient = GF, l = BFL/6, 
+    db_field = BF_fld, x_offset = dxFA                                                
+bfb: sbend, field_master =T, b1_gradient = GF, l = BFL/6, 
+    db_field = BF_fld, x_offset = dxFB                                             
+bfc: sbend, field_master =T, b1_gradient = GF, l = BFL/6, 
+    db_field = BF_fld, x_offset = dxFC
+! -------------------------------
+
+! Whole Magnet ------------------
+BFM : line = (pr_bf, bfa, bfb, bfc, bfc, bfb, bfa, pr_bf)
+! --------------------------------------------------------
+                                           
+
+
+
+! Control Elements ---------------------------------------
+
+! Girders -----------------------
+BFMG : Girder = {BFM}, origin_ele = global_coordinates,      ! Bending focusing girder
+       GANG = False
+BDMG : GIRDER = {BDM}, origin_ele = global_coordinates,      ! Bending defocusing girder
+       GANG = False
+! -------------------------------
+
+! Overlays ----------------------
+! The following overlay preserves the overrall 
+! size of each cell regardless of offsets
+CREG : Overlay = {d2i[l]:(DL/2 + zo1), BDMG[z_offset]: zo1, d2[l]:(DL - zo1 + zo2), 
+                      BFMG[z_offset]: zo2, d2o[l]:(DL/2 - zo2)}, 
+                      VAR = {zo1, zo2}, zo1 = 0, zo2 = 0, GANG = False
+! --------------------------------------------------------
+
+
+
+! markers for diagnostic purposes
+! -------------------------------
+MK.BEG: marker      ! beginning of the lattice
+MK.IN: marker       ! beginning of each cell
+MK.DO: marker       ! after defocusing magnets
+MK.FE: marker       ! before focusing magnets
+MK.OUT: marker      ! end of each cell
+MK.END: marker      ! end of the lattice
+! -------------------------------
+
+
+! Lattice Definition --------------------------------------------------------------------
+
+
+cell: line = (MK.IN, d2i, BDM, MK.DO, d2,
+              MK.FE, BFM, d2o, MK.OUT)
+
+arc1: line = (MK.BEG, cell, MK.END)
+
+cell5: line = (cell, cell, cell, cell, cell)
+
+arc5: line = (MK.BEG, cell5, MK.END)
+
+cell10: line = (cell5, cell5)
+
+cell20: line = (cell10, cell10)
+
+arc75: line = (MK.BEG, cell20, cell20, cell20, cell10, cell5, MK.END)
+
+
+use, arc5
