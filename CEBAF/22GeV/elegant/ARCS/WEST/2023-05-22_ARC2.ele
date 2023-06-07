@@ -1,0 +1,37 @@
+&run_setup
+	lattice=2023-05-22_ARC2.lte,
+	use_beamline=ARC2,
+	p_central_mev=2849.489155200849382, !From SL2 exit
+	final=%s.fin
+	parameters=%s.parms
+	centroid=%s.cen
+&end
+&twiss_output
+	filename=%s.twi,
+	matched=0,radiation_integrals=1,
+	beta_x=3.084987482803937e+01, alpha_x=-1.901432085853106e+00, !From SL2 exit
+	beta_y=1.273624030768383e+01, alpha_y=9.452134365262557e-01
+&end
+&run_control 
+	n_steps=1
+&end
+&floor_coordinates
+	filename=%s.flr,
+	X0=-80.6,Y0=100,Z0=-91.51785,
+	theta0=3.14159265358979,phi0=0
+&end
+&bunched_beam
+	n_particles_per_bunch=1,
+	emit_x=0, emit_y=2.218859802776e-10,
+	sigma_dp=0.0001,sigma_s=0.0,
+	distribution_type[0] = 3*"gaussian",
+	distribution_cutoff[0] = 3*3,
+	enforce_rms_values[0]=1,1,1
+	beta_x=3.084987482803937e+01, alpha_x=-1.901432085853106e+00,
+	beta_y=1.273624030768383e+01, alpha_y=9.452134365262557e-01
+&end
+&matrix_output
+	SDDS_output=%s.mat
+&end
+&track
+&end
