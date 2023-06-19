@@ -1,0 +1,450 @@
+!------------------------------------------------------------------------
+&tao_start
+ startup_file = "tao_NESplit.startup"
+ building_wall_file = "Wall_Splitters.in"
+/
+
+&tao_params
+  !global%optimizer = "lmdif" ! Set the default optimizer.
+  !global%n_opti_cycles = 10000
+/
+
+
+!--------------------------------------------------------
+!&tao_design_lattice
+!  n_universes = 6
+!  design_lattice(1)%file = "p9_test.bmad"
+!  design_lattice(2)%file = "p11_test2.bmad"
+!  design_lattice(3)%file = "p13_test.bmad"
+!  design_lattice(4)%file = "p15_test.bmad"
+!  design_lattice(5)%file = "p17_test.bmad"
+!  design_lattice(6)%file = "P19_test.bmad"
+!/
+
+&tao_design_lattice
+  n_universes = 6
+  design_lattice(1)%file = "NESplitter_test.bmad@Pass9"
+  design_lattice(2)%file = "NESplitter_test.bmad@Pass11"
+  design_lattice(3)%file = "NESplitter_test.bmad@Pass13"
+  design_lattice(4)%file = "NESplitter_test.bmad@Pass15"
+  design_lattice(5)%file = "NESplitter_test.bmad@Pass17"
+  design_lattice(6)%file = "NESplitter_test.bmad@Pass19"
+/
+
+&tao_plot_page
+  !plot_page%size = 500, 600
+  plot_page%size = 1000, 500
+  plot_page%draw_graph_title_suffix = F
+  !plot_page@text_height = 20
+  place(1) = 'r11', 'floor'
+  !place(2) = 'r22', 'multiorbit'
+/
+
+!!!------------  Multi floor plan ------------
+
+&floor_plan_drawing
+ include_default_shapes = T
+ !ele_shape(N) = "<ele_id>" "<shape>" "<color>" "<size>" "<label>" <draw> <multi> <line_width>
+ ele_shape(1) = "building_wall::overhead_view_floor_left" "solid_line" "orange" 
+ ele_shape(2) = "building_wall::overhead_view_floor_right" "solid_line" "orange"
+ ele_shape(3) = "sbend::*B*" "box" "blue" 0.25 "none"
+ ele_shape(4) = "quadrupole::*" "xbox" "red" 0.25 "none"
+ ele_shape(5) = "sbend::*E" "xbox" "orange" 0.15 "none"
+/
+
+&tao_template_plot
+plot%name = "floor"
+plot%n_graph = 1
+/
+
+&tao_template_graph
+ graph_index = 1
+ graph%name = "overhead_view_floor"
+ graph%type = "floor_plan"
+ graph%box = 1, 1, 1, 1
+ graph%margin = 0.05, 0.05, 0.05, 0.05, "%BOX"
+ graph%ix_universe = -2 ! Draw all universes.
+ !graph%y%major_div_nominal = 4
+ !graph%x%major_div_nominal = 5
+ graph%y%max = 2 !104
+ graph%y%min = -2 !99
+ !graph%y%max = 25
+ graph%floor_plan%correct_distortion = F
+ graph%floor_plan%size_is_absolute = T
+ graph%floor_plan%view='zx'
+ graph%floor_plan%orbit_color = "green"
+ graph%floor_plan%orbit_width = 5
+ graph%floor_plan%orbit_scale = 1
+ graph%x%label = "Z (m)"
+ graph%y%label = "X (m)"
+ graph%title = "Floor Plan"
+/
+
+
+!!!------------  Multi beta a ------------
+
+&tao_template_plot
+  plot%name = 'multiba'
+  plot%x_axis_type = 's'
+  plot%x%label = 's (m)'
+  plot%n_graph = 1
+/
+
+&tao_template_graph
+  graph%name = 'ba'
+
+ !graph%title = 'Lattice orbit'
+ !graph%x%draw_numbers = .false.
+ !graph%x%draw_label = .false.
+  graph_index = 1
+ 
+ !graph%y%min = 0
+ !graph%y%max =  15
+
+  graph%margin =  0.15, 0.05, 0.05, 0.15, '%BOX'
+  graph%y%label = '\gb\dA\u (m)'
+  graph%y%label_offset=.2
+  graph%n_curve = 5
+
+  curve(1)%ix_universe = 1
+  curve(1)%data_source = 'lattice'
+  curve(1)%data_type   = 'beta.a'
+  curve(1)%y_axis_scale_factor = 1
+  curve(1)%line%color = 1
+  curve(1)%line%width=2
+  curve(1)%draw_symbols=.false.
+  curve(1)%legend_text = '1@beta.a'
+  curve(1)%y_axis_scale_factor = 1
+
+  curve(2)%ix_universe = 2
+  curve(2)%data_source = 'lattice'
+  curve(2)%data_type   = 'beta.a'
+  curve(2)%y_axis_scale_factor = 1
+  curve(2)%line%color = 2
+  curve(2)%line%width=2
+  curve(2)%draw_symbols=.false.
+  curve(2)%legend_text = '2@beta.a'
+  curve(2)%y_axis_scale_factor = 1
+
+  curve(3)%ix_universe = 3
+  curve(3)%data_source = 'lattice'
+  curve(3)%data_type   = 'beta.a'
+  curve(3)%y_axis_scale_factor = 1
+  curve(3)%line%color = 3
+  curve(3)%line%width=2
+  curve(3)%draw_symbols=.false.
+  curve(3)%legend_text = '3@beta.a'
+  curve(3)%y_axis_scale_factor = 1
+
+  curve(4)%ix_universe = 4
+  curve(4)%data_source = 'lattice'
+  curve(4)%data_type   = 'beta.a'
+  curve(4)%y_axis_scale_factor = 1
+  curve(4)%line%color = 4
+  curve(4)%line%width=2
+  curve(4)%draw_symbols=.false.
+  curve(4)%legend_text = '4@beta.a'
+  curve(4)%y_axis_scale_factor = 1
+
+  curve(5)%ix_universe = 5
+  curve(5)%data_source = 'lattice'
+  curve(5)%data_type   = 'beta.a'
+  curve(5)%y_axis_scale_factor = 1
+  curve(5)%line%color = 5
+  curve(5)%line%width=2
+  curve(5)%draw_symbols=.false.
+  curve(5)%legend_text = '5@beta.a'
+  curve(5)%y_axis_scale_factor = 1
+/
+
+!!!------------  Multi beta b ------------
+
+&tao_template_plot
+  plot%name = 'multibb'
+  plot%x_axis_type = 's'
+  plot%x%label = 's (m)'
+  plot%n_graph = 1
+/
+
+&tao_template_graph
+  graph%name = 'bb'
+
+ !graph%title = ''
+ !graph%x%draw_numbers = .false.
+ !graph%x%draw_label = .false.
+  graph_index = 1
+ 
+ !graph%y%min = 0
+ !graph%y%max =  15
+
+  graph%margin =  0.15, 0.05, 0.05, 0.15, '%BOX'
+  graph%y%label = '\gb\dB\u (m)'
+  graph%y%label_offset=.2
+  graph%n_curve = 5
+
+  curve(1)%ix_universe = 1
+  curve(1)%data_source = 'lattice'
+  curve(1)%data_type   = 'beta.b'
+  curve(1)%y_axis_scale_factor = 1
+  curve(1)%line%color = 1
+  curve(1)%line%width=2
+  curve(1)%draw_symbols=.false.
+  curve(1)%legend_text = '1@beta.b'
+  curve(1)%y_axis_scale_factor = 1
+
+  curve(2)%ix_universe = 2
+  curve(2)%data_source = 'lattice'
+  curve(2)%data_type   = 'beta.b'
+  curve(2)%y_axis_scale_factor = 1
+  curve(2)%line%color = 2
+  curve(2)%line%width=2
+  curve(2)%draw_symbols=.false.
+  curve(2)%legend_text = '2@beta.b'
+  curve(2)%y_axis_scale_factor = 1
+
+  curve(3)%ix_universe = 3
+  curve(3)%data_source = 'lattice'
+  curve(3)%data_type   = 'beta.b'
+  curve(3)%y_axis_scale_factor = 1
+  curve(3)%line%color = 3
+  curve(3)%line%width=2
+  curve(3)%draw_symbols=.false.
+  curve(3)%legend_text = '3@beta.b'
+  curve(3)%y_axis_scale_factor = 1
+
+  curve(4)%ix_universe = 4
+  curve(4)%data_source = 'lattice'
+  curve(4)%data_type   = 'beta.b'
+  curve(4)%y_axis_scale_factor = 1
+  curve(4)%line%color = 4
+  curve(4)%line%width=2
+  curve(4)%draw_symbols=.false.
+  curve(4)%legend_text = '4@beta.b'
+  curve(4)%y_axis_scale_factor = 1
+
+  curve(5)%ix_universe = 5
+  curve(5)%data_source = 'lattice'
+  curve(5)%data_type   = 'beta.b'
+  curve(5)%y_axis_scale_factor = 1
+  curve(5)%line%color = 5
+  curve(5)%line%width=2
+  curve(5)%draw_symbols=.false.
+  curve(5)%legend_text = '5@beta.b'
+  curve(5)%y_axis_scale_factor = 1
+/
+
+!!!------------  Multi orbit ------------
+
+&tao_template_plot
+  plot%name = 'multiorbit'
+  plot%x_axis_type = 's'
+  plot%x%label = 's (m)'
+  plot%n_graph = 1
+/
+
+&tao_template_graph
+  graph%name = 'orbit'
+
+ !graph%title = 'Lattice orbit'
+ !graph%x%draw_numbers = .false.
+ !graph%x%draw_label = .false.
+  graph_index = 1
+ 
+ !graph%y%min = 0
+ !graph%y%max =  15
+
+  graph%margin =  0.15, 0.05, 0.05, 0.15, '%BOX'
+  graph%y%label = 'x (mm)'
+  graph%y%label_offset=.2
+  graph%n_curve = 5
+
+  curve(1)%ix_universe = 1
+  curve(1)%data_source = 'lattice'
+  curve(1)%data_type   = 'orbit.x'
+  curve(1)%y_axis_scale_factor = 1
+  curve(1)%line%color = 1
+  curve(1)%line%width=2
+  curve(1)%draw_symbols=.false.
+  curve(1)%legend_text = '1@orbit.x'
+  curve(1)%y_axis_scale_factor = 1000
+
+  curve(2)%ix_universe = 2
+  curve(2)%data_source = 'lattice'
+  curve(2)%data_type   = 'orbit.x'
+  curve(2)%y_axis_scale_factor = 1
+  curve(2)%line%color = 2
+  curve(2)%line%width=2
+  curve(2)%draw_symbols=.false.
+  curve(2)%legend_text = '2@orbit.x'
+  curve(2)%y_axis_scale_factor = 1000
+
+  curve(3)%ix_universe = 3
+  curve(3)%data_source = 'lattice'
+  curve(3)%data_type   = 'orbit.x'
+  curve(3)%y_axis_scale_factor = 1
+  curve(3)%line%color = 3
+  curve(3)%line%width=2
+  curve(3)%draw_symbols=.false.
+  curve(3)%legend_text = '3@orbit.x'
+  curve(3)%y_axis_scale_factor = 1000
+
+  curve(4)%ix_universe = 4
+  curve(4)%data_source = 'lattice'
+  curve(4)%data_type   = 'orbit.x'
+  curve(4)%y_axis_scale_factor = 1
+  curve(4)%line%color = 4
+  curve(4)%line%width=2
+  curve(4)%draw_symbols=.false.
+  curve(4)%legend_text = '4@orbit.x'
+  curve(4)%y_axis_scale_factor = 1000
+
+  curve(5)%ix_universe = 5
+  curve(5)%data_source = 'lattice'
+  curve(5)%data_type   = 'orbit.x'
+  curve(5)%y_axis_scale_factor = 1
+  curve(5)%line%color = 5
+  curve(5)%line%width=2
+  curve(5)%draw_symbols=.false.
+  curve(5)%legend_text = '5@orbit.x'
+  curve(5)%y_axis_scale_factor = 1000
+/
+
+!!!------------  Multi eta ------------
+
+&tao_template_plot
+  plot%name = 'multieta'
+  plot%x_axis_type = 's'
+  plot%x%label = 's (m)'
+  plot%n_graph = 1
+/
+
+&tao_template_graph
+  graph%name = 'eta'
+
+ !graph%title = 'Lattice orbit'
+ !graph%x%draw_numbers = .false.
+ !graph%x%draw_label = .false.
+  graph_index = 1
+ 
+ !graph%y%min = 0
+ !graph%y%max =  15
+
+  graph%margin =  0.15, 0.05, 0.05, 0.15, '%BOX'
+  graph%y%label = '\gy\dx\u (cm)'
+  graph%y%label_offset=.2
+  graph%n_curve = 5
+
+  curve(1)%ix_universe = 1
+  curve(1)%data_source = 'lattice'
+  curve(1)%data_type   = 'eta.x'
+  curve(1)%y_axis_scale_factor = 1
+  curve(1)%line%color = 1
+  curve(1)%line%width=2
+  curve(1)%draw_symbols=.false.
+  curve(1)%legend_text = '1@eta.x'
+  curve(1)%y_axis_scale_factor = 100
+
+  curve(2)%ix_universe = 2
+  curve(2)%data_source = 'lattice'
+  curve(2)%data_type   = 'eta.x'
+  curve(2)%y_axis_scale_factor = 1
+  curve(2)%line%color = 2
+  curve(2)%line%width=2
+  curve(2)%draw_symbols=.false.
+  curve(2)%legend_text = '2@eta.x'
+  curve(2)%y_axis_scale_factor = 100
+
+  curve(3)%ix_universe = 3
+  curve(3)%data_source = 'lattice'
+  curve(3)%data_type   = 'eta.x'
+  curve(3)%y_axis_scale_factor = 1
+  curve(3)%line%color = 3
+  curve(3)%line%width=2
+  curve(3)%draw_symbols=.false.
+  curve(3)%legend_text = '3@eta.x'
+  curve(3)%y_axis_scale_factor = 100
+
+  curve(4)%ix_universe = 4
+  curve(4)%data_source = 'lattice'
+  curve(4)%data_type   = 'eta.x'
+  curve(4)%y_axis_scale_factor = 1
+  curve(4)%line%color = 4
+  curve(4)%line%width=2
+  curve(4)%draw_symbols=.false.
+  curve(4)%legend_text = '4@eta.x'
+  curve(4)%y_axis_scale_factor = 100
+
+  curve(5)%ix_universe = 5
+  curve(5)%data_source = 'lattice'
+  curve(5)%data_type   = 'eta.x'
+  curve(5)%y_axis_scale_factor = 1
+  curve(5)%line%color = 5
+  curve(5)%line%width=2
+  curve(5)%draw_symbols=.false.
+  curve(5)%legend_text = '5@eta.x'
+  curve(5)%y_axis_scale_factor = 100
+/
+
+
+!!! Linac optics matching and optimization
+
+&tao_d2_data
+  d2_data%name = "twiss"
+  universe = "*"
+  default_merit_type = "target"
+  n_d1_data = 1
+/
+
+&tao_d1_data
+  ix_d1_data = 1
+  d1_data%name = "twiss"
+  !default_weight = 1
+!  datum(1) = 'eta.x'     ''  ''  'END'  'target'    0           1e4
+!  datum(2) = 'etap.x'    ''  ''  'END'  'target'    0           1e4
+  datum(1) = 'orbit.x'   ''  ''  'END'  'target'    0           1
+  datum(2) = 'orbit.px'   ''  ''  'END'  'target'    0          1
+!  datum(5) = 'alpha.a'   ''  ''  'END'  'abs_max'    0.01           1 
+!  datum(6) = 'alpha.b'   ''  ''  'END'  'abs_max'    0.01           1 
+!  datum(7) = 'orbit.x'   ''  'BEGINNING'  'END'  'abs_max'    0.03           1e1
+!  datum(8) = 'eta.x'   ''  'BEGINNING'  'END'  'abs_max'    0.12           1
+!  datum(9) = 'beta.a'   ''  'BEGINNING'  'END'  'max'    50           1
+!  datum(10) = 'beta.b'   ''  'BEGINNING'  'END'  'max'    50           1
+  !datum(11) = 'unstable.orbit'     ''  ''  'END'  'target'    0           1e8
+  datum(3) = 'expression: 1@ele::35[floor.x] - 2@ele::35[floor.x]'  ''  ''  'END'  'target'    0.0           1
+  datum(4) = 'expression: 1@ele::35[floor.z] - 2@ele::35[floor.z]'  ''  ''  'END'  'target'    0.0           1
+  ! datum(2) = 'expression: 5@ele::end[orbit_px]'  ''  ''  'END'  'target'    0.0           1
+  ! datum(3) = 'expression: 1@ele::end[orbit_x] + 5@ele::end[orbit_x]' '' '' 'END'   'target'  0   1e1
+/
+
+!x=-245.82636956E-03
+!z=-113.10807510E-03
+
+&tao_var
+  v1_var%name = 'bfvar'
+  default_universe = 'gang'
+  search_for_lat_eles = 'SBEND::*'
+  ! default_merit_type = 'limit'
+  default_key_bound = T
+  default_step = 1e-3
+  default_attribute = 'b_field'
+  default_low_lim = -1.0
+  default_high_lim = 1.0
+  default_key_delta = 1e-2
+  ix_min_var = 0
+  ix_max_var = 100
+/
+
+&tao_var
+  v1_var%name = 'dlvar'
+  default_universe = 'gang'
+  search_for_lat_eles = 'DRIFT::*var'
+  !default_merit_type = 'limit'
+  default_key_bound = T
+  default_step = 1e-3
+  default_attribute = 'l'
+  default_low_lim = 0.05
+  default_high_lim = 0.25
+  default_key_delta = 1e-2
+  ix_min_var = 0
+  ix_max_var = 100
+/
