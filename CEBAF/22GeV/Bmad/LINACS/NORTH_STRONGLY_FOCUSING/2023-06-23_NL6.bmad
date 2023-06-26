@@ -1,0 +1,490 @@
+! ==============================================================================
+! *** OPTICS=NL6, 22GEV CEBAF 2023-JUN-23 ***
+! ------------------------------------------------------------------------------
+
+
+! ------------------------------------------------------------------------------
+! constants and global parameters
+! ------------------------------------------------------------------------------
+
+parameter[geometry] = open    	! or closed
+parameter[particle] = electron	! Default is positron
+mc2 = 0.00051099906           	! rest energy [GeV]
+
+! energy profile; Alex B.'s convention
+
+e_nl1 = 0.649489                !centroid energy into NL1 [GeV]
+e_nl2 = 2.849489                !centroid energy into NL2 [GeV]
+e_nl3 = 5.049489                !centroid energy into NL3 [GeV]
+e_nl4 = 7.249489                !centroid energy into NL4 [GeV]
+e_nl5 = 9.449489                !centroid energy into NL5 [GeV]
+e_nl6 = 11.649489               !centroid energy into NL6 [GeV]
+e_nl7 = 13.849489            	!centroid energy into NL7 [GeV]
+e_nl8 = 16.049489            	!centroid energy into NL8 [GeV]
+e_nl9 = 18.249489            	!centroid energy into NL9 [GeV]
+e_nl10 = 20.449489	            !centroid energy into NL10 [GeV]
+e_nl11 = 22.649489	            !centroid energy into NL11 [GeV]
+
+! initial conditions (entrance of NL6)
+
+emitxn = 4e-07 * e_nl6 / mc2	!normalized horizontal emittance [m]
+emityn = 4e-07 * e_nl6 / mc2	!normalized vertical emittance [m]
+espread = 0.002        			!fractional energy spread
+
+nl6_bx = 53.7029    !twiss beta x [m]
+nl6_ax = 0.427888	!twiss alpha x [m]
+nl6_by = 53.1255	!twiss beta y [m] 
+nl6_ay = 0.538592	!twiss alpha y [m]
+
+beginning[x_position] = 80.60000000
+beginning[y_position] = 100.00000000
+beginning[z_position] = -156.75372000
+beginning[theta_position] = 0.0
+beginning[phi_position] = 0.0
+beginning[psi_position] = 0.0
+beginning[s] = 0.0
+beginning[e_tot] = e_nl6 * 1e9
+beginning[beta_a] = nl6_bx
+beginning[alpha_a] = nl6_ax
+beginning[beta_b] = nl6_by
+beginning[alpha_b] = nl6_ay
+beginning[eta_x] = 0.0
+beginning[etap_x] = 0.0
+
+! ==============================================================================
+! XCORs & YCORs
+! ------------------------------------------------------------------------------
+
+mat1l02v: vkicker, type = "vkick", l = 1e-08
+mat1l03v: vkicker, type = "vkick", l = 1e-08
+mat1l04h: hkicker, type = "hkick", l = 1e-08
+mdb1l05v: vkicker, type = "vkick", l = 1e-08
+mat1l06h: hkicker, type = "hkick", l = 1e-08
+mat1l07v: vkicker, type = "vkick", l = 1e-08
+mat1l08h: hkicker, type = "hkick", l = 1e-08
+mat1l09v: vkicker, type = "vkick", l = 1e-08
+mat1l10h: hkicker, type = "hkick", l = 1e-08
+mat1l11v: vkicker, type = "vkick", l = 1e-08
+mat1l12h: hkicker, type = "hkick", l = 1e-08
+mat1l13v: vkicker, type = "vkick", l = 1e-08
+mat1l14h: hkicker, type = "hkick", l = 1e-08
+mat1l15v: vkicker, type = "vkick", l = 1e-08
+mat1l16h: hkicker, type = "hkick", l = 1e-08
+mat1l17v: vkicker, type = "vkick", l = 1e-08
+mat1l18h: hkicker, type = "hkick", l = 1e-08
+mat1l19v: vkicker, type = "vkick", l = 1e-08
+mat1l20h: hkicker, type = "hkick", l = 1e-08
+mat1l21v: vkicker, type = "vkick", l = 1e-08
+mat1l22h: hkicker, type = "hkick", l = 1e-08
+mdb1l23v: vkicker, type = "vkick", l = 1e-08
+mdb1l24h: hkicker, type = "hkick", l = 1e-08
+mdb1l25v: vkicker, type = "vkick", l = 1e-08
+mdb1l26h: hkicker, type = "hkick", l = 1e-08
+mdb1l27h: hkicker, type = "hkick", l = 1e-08
+mdj1l27v: vkicker, type = "vkick", l = 1e-08
+
+! ==============================================================================
+! DRIFTs
+! ------------------------------------------------------------------------------
+
+dfront: drift, l = 2.033063989999996
+d104: drift, l = 0.1797558
+d105: drift, l = 0.0184751
+d106: drift, l = 0.1
+d107: drift, l = 0.8091
+d108: drift, l = 0.25
+d109: drift, l = 0.6606
+d110: drift, l = 0.99239
+d111: drift, l = 0.77269
+d112: drift, l = 0.3994658
+d113: drift, l = 0.65331
+d114: drift, l = 0.11938
+d115: drift, l = 0.772679
+d116: drift, l = 0.992401
+d117: drift, l = 0.655081
+d118: drift, l = 0.117598
+d119: drift, l = 0.655091
+d120: drift, l = 0.7535
+d121: drift, l = 0.299
+d122: drift, l = 0.58121
+d123: drift, l = 0.168078
+d124: drift, l = 0.581208
+d125: drift, l = 0.58122
+d127: drift, l = 0.63799
+d128: drift, l = 0.29731
+d129b: drift, l = 0.725789
+d130: drift, l = 0.68367
+
+! ==============================================================================
+! MARKERs
+! ------------------------------------------------------------------------------
+
+ipm1l02: instrument, type = "monitor"
+ipm1l03: instrument, type = "monitor"
+ipm1l04: instrument, type = "monitor"
+ipm1l05: instrument, type = "monitor"
+itv1l06: instrument, type = "monitor"
+ipm1l06: instrument, type = "monitor"
+ipm1l07: instrument, type = "monitor"
+ipm1l08: instrument, type = "monitor"
+ipm1l09: instrument, type = "monitor"
+itv1l10: instrument, type = "monitor"
+ipm1l10: instrument, type = "monitor"
+ipm1l11: instrument, type = "monitor"
+ipm1l12: instrument, type = "monitor"
+ipm1l13: instrument, type = "monitor"
+itv1l14: instrument, type = "monitor"
+ipm1l14: instrument, type = "monitor"
+ipm1l15: instrument, type = "monitor"
+ipm1l16: instrument, type = "monitor"
+ipm1l17: instrument, type = "monitor"
+itv1l18: instrument, type = "monitor"
+ipm1l18: instrument, type = "monitor"
+ipm1l19: instrument, type = "monitor"
+ipm1l20: instrument, type = "monitor"
+ipm1l21: instrument, type = "monitor"
+itv1l22: instrument, type = "monitor"
+ipm1l22: instrument, type = "monitor"
+ipm1l23: instrument, type = "monitor"
+ipm1l24: instrument, type = "monitor"
+ipm1l25: instrument, type = "monitor"
+ipm1l26: instrument, type = "monitor"
+ipm1l27: instrument, type = "monitor"
+ibc1l27: instrument, type = "monitor"
+ipm1l28: instrument, type = "monitor"
+
+! ==============================================================================
+! QUADs
+! ------------------------------------------------------------------------------
+
+mq1l02a: quadrupole, type = "kquad", l = 0.1, b1_gradient = -24.36414069198048286318
+mq1l02b: quadrupole, type = "kquad", l = 0.2, b1_gradient = 23.95612171566947676237
+mq1l02c: quadrupole, type = "kquad", l = 0.1, b1_gradient = -24.36414069198048286318
+mq1l03a: quadrupole, type = "kquad", l = 0.1, b1_gradient = 24.96805587287521622262
+mq1l03b: quadrupole, type = "kquad", l = 0.2, b1_gradient = -24.55947248177038937726
+mq1l03c: quadrupole, type = "kquad", l = 0.1, b1_gradient = 24.96805587287521622262
+mq1l04a: quadrupole, type = "kquad", l = 0.1, b1_gradient = -26.61490973920067153297
+mq1l04b: quadrupole, type = "kquad", l = 0.2, b1_gradient = 26.16919780730739110565
+mq1l04c: quadrupole, type = "kquad", l = 0.1, b1_gradient = -26.61490973920067153297
+mq1l05a: quadrupole, type = "kquad", l = 0.1, b1_gradient = 27.17277817404179701031
+mq1l05b: quadrupole, type = "kquad", l = 0.2, b1_gradient = -26.72811616677385501549
+mq1l05c: quadrupole, type = "kquad", l = 0.1, b1_gradient = 27.17277817404179701031
+mq1l06a: quadrupole, type = "kquad", l = 0.1, b1_gradient = -28.86567859152463954223
+mq1l06b: quadrupole, type = "kquad", l = 0.2, b1_gradient = 28.38227370737998670757
+mq1l06c: quadrupole, type = "kquad", l = 0.1, b1_gradient = -28.86567859152463954223
+mq1l07a: quadrupole, type = "kquad", l = 0.1, b1_gradient = 29.37750028057462395476
+mq1l07b: quadrupole, type = "kquad", l = 0.2, b1_gradient = -28.89675968662577895442
+mq1l07c: quadrupole, type = "kquad", l = 0.1, b1_gradient = 29.37750028057462395476
+mq1l08a: quadrupole, type = "kquad", l = 0.1, b1_gradient = -31.11644729211368934202
+mq1l08b: quadrupole, type = "kquad", l = 0.2, b1_gradient = 30.59534943065698560959
+mq1l08c: quadrupole, type = "kquad", l = 0.1, b1_gradient = -31.11644729211368934202
+mq1l09a: quadrupole, type = "kquad", l = 0.1, b1_gradient = 31.58222227982327919122
+mq1l09b: quadrupole, type = "kquad", l = 0.2, b1_gradient = -31.06540304808215321945
+mq1l09c: quadrupole, type = "kquad", l = 0.1, b1_gradient = 31.58222227982327919122
+mq1l10a: quadrupole, type = "kquad", l = 0.1, b1_gradient = -33.36721584281332971717
+mq1l10b: quadrupole, type = "kquad", l = 0.2, b1_gradient = 32.80842506146242611898
+mq1l10c: quadrupole, type = "kquad", l = 0.1, b1_gradient = -33.36721584281332971717
+mq1l11a: quadrupole, type = "kquad", l = 0.1, b1_gradient = 33.78694417373551284562
+mq1l11b: quadrupole, type = "kquad", l = 0.2, b1_gradient = -33.23404633265943756235
+mq1l11c: quadrupole, type = "kquad", l = 0.1, b1_gradient = 33.78694417373551284562
+mq1l12a: quadrupole, type = "kquad", l = 0.1, b1_gradient = -35.61798432451197437161
+mq1l12b: quadrupole, type = "kquad", l = 0.2, b1_gradient = 35.02150059728403278878
+mq1l12c: quadrupole, type = "kquad", l = 0.1, b1_gradient = -35.61798432451197437161
+mq1l13a: quadrupole, type = "kquad", l = 0.1, b1_gradient = 35.99166594973228336378
+mq1l13b: quadrupole, type = "kquad", l = 0.2, b1_gradient = -35.40268950078170219344
+mq1l13c: quadrupole, type = "kquad", l = 0.1, b1_gradient = 35.99166594973228336378
+mq1l14a: quadrupole, type = "kquad", l = 0.1, b1_gradient = -37.86875269381860995370
+mq1l14b: quadrupole, type = "kquad", l = 0.2, b1_gradient = 37.23457602209894850639
+mq1l14c: quadrupole, type = "kquad", l = 0.1, b1_gradient = -37.86875269381860995370
+mq1l15a: quadrupole, type = "kquad", l = 0.1, b1_gradient = 38.19638768661067986762
+mq1l15b: quadrupole, type = "kquad", l = 0.2, b1_gradient = -37.57133263099314308384
+mq1l15c: quadrupole, type = "kquad", l = 0.1, b1_gradient = 38.19638768661067986762
+mq1l16a: quadrupole, type = "kquad", l = 0.1, b1_gradient = -40.11952103000018938164
+mq1l16b: quadrupole, type = "kquad", l = 0.2, b1_gradient = 39.44765141494097049847
+mq1l16c: quadrupole, type = "kquad", l = 0.1, b1_gradient = -40.11952103000018938164
+mq1l17a: quadrupole, type = "kquad", l = 0.1, b1_gradient = 40.40110932910549007891
+mq1l17b: quadrupole, type = "kquad", l = 0.2, b1_gradient = -39.73997566783085738480
+mq1l17c: quadrupole, type = "kquad", l = 0.1, b1_gradient = 40.40110932910549007891
+mq1l18a: quadrupole, type = "kquad", l = 0.1, b1_gradient = -42.37028927467360028632
+mq1l18b: quadrupole, type = "kquad", l = 0.2, b1_gradient = 41.66072671724337346023
+mq1l18c: quadrupole, type = "kquad", l = 0.1, b1_gradient = -42.37028927467360028632
+mq1l19a: quadrupole, type = "kquad", l = 0.1, b1_gradient = 42.60583091946909390180
+mq1l19b: quadrupole, type = "kquad", l = 0.2, b1_gradient = -41.90861869206684225473
+mq1l19c: quadrupole, type = "kquad", l = 0.1, b1_gradient = 42.60583091946909390180
+mq1l20a: quadrupole, type = "kquad", l = 0.1, b1_gradient = -44.62105747026379621657
+mq1l20b: quadrupole, type = "kquad", l = 0.2, b1_gradient = 43.87380197128454336318
+mq1l20c: quadrupole, type = "kquad", l = 0.1, b1_gradient = -44.62105747026379621657
+mq1l21a: quadrupole, type = "kquad", l = 0.1, b1_gradient = 44.81055250607401748355
+mq1l21b: quadrupole, type = "kquad", l = 0.2, b1_gradient = -44.07726163591853769732
+mq1l21c: quadrupole, type = "kquad", l = 0.1, b1_gradient = 44.81055250607401748355
+mq1l22a: quadrupole, type = "kquad", l = 0.1, b1_gradient = -46.87182566552008304045
+mq1l22b: quadrupole, type = "kquad", l = 0.2, b1_gradient = 46.08687722569537284423
+mq1l22c: quadrupole, type = "kquad", l = 0.1, b1_gradient = -46.87182566552008304045
+mq1l23a: quadrupole, type = "kquad", l = 0.1, b1_gradient = 49.58744906905132839105
+mq1l23b: quadrupole, type = "kquad", l = 0.2, b1_gradient = -48.77598789209515595208
+mq1l23c: quadrupole, type = "kquad", l = 0.1, b1_gradient = 49.58744906905132839105
+mq1l24a: quadrupole, type = "kquad", l = 0.1, b1_gradient = -54.37438599603036632351
+mq1l24b: quadrupole, type = "kquad", l = 0.2, b1_gradient = 53.46379437566391890419
+mq1l24c: quadrupole, type = "kquad", l = 0.1, b1_gradient = -54.37438599603036632351
+mq1l25a: quadrupole, type = "kquad", l = 0.1, b1_gradient = 56.93652050774411467187
+mq1l25b: quadrupole, type = "kquad", l = 0.2, b1_gradient = -56.00479732438927267152
+mq1l25c: quadrupole, type = "kquad", l = 0.1, b1_gradient = 56.93652050774411467187
+mq1l26a: quadrupole, type = "kquad", l = 0.1, b1_gradient = -61.87694602255340859224
+mq1l26b: quadrupole, type = "kquad", l = 0.2, b1_gradient = 60.84071132273752925617
+mq1l26c: quadrupole, type = "kquad", l = 0.1, b1_gradient = -61.87694602255340859224
+mq1l27a: quadrupole, type = "kquad", l = 0.1, b1_gradient = 64.28559174995148607369
+mq1l27b: quadrupole, type = "kquad", l = 0.2, b1_gradient = -63.23360656363165103261
+mq1l27c: quadrupole, type = "kquad", l = 0.1, b1_gradient = 64.28559174995148607369
+mqb1l28: quadrupole, type = "kquad", l = 0.15, b1_gradient = 0
+
+! ==============================================================================
+! SRFs
+! ------------------------------------------------------------------------------
+
+r121: lcavity, type = "rfca", l = 0.5, voltage = 3750000, phi0 = (90 - 90)/360, rf_frequency = 1497000000
+r122: lcavity, type = "rfca", l = 0.5, voltage = 3750000, phi0 = (90 - 90)/360, rf_frequency = 1497000000
+r123: lcavity, type = "rfca", l = 0.5, voltage = 3750000, phi0 = (90 - 90)/360, rf_frequency = 1497000000
+r124: lcavity, type = "rfca", l = 0.5, voltage = 3750000, phi0 = (90 - 90)/360, rf_frequency = 1497000000
+r125: lcavity, type = "rfca", l = 0.5, voltage = 3750000, phi0 = (90 - 90)/360, rf_frequency = 1497000000
+r126: lcavity, type = "rfca", l = 0.5, voltage = 3750000, phi0 = (90 - 90)/360, rf_frequency = 1497000000
+r127: lcavity, type = "rfca", l = 0.5, voltage = 3750000, phi0 = (90 - 90)/360, rf_frequency = 1497000000
+r128: lcavity, type = "rfca", l = 0.5, voltage = 3750000, phi0 = (90 - 90)/360, rf_frequency = 1497000000
+r131: lcavity, type = "rfca", l = 0.5, voltage = 3750000, phi0 = (90 - 90)/360, rf_frequency = 1497000000
+r132: lcavity, type = "rfca", l = 0.5, voltage = 3750000, phi0 = (90 - 90)/360, rf_frequency = 1497000000
+r133: lcavity, type = "rfca", l = 0.5, voltage = 3750000, phi0 = (90 - 90)/360, rf_frequency = 1497000000
+r134: lcavity, type = "rfca", l = 0.5, voltage = 3750000, phi0 = (90 - 90)/360, rf_frequency = 1497000000
+r135: lcavity, type = "rfca", l = 0.5, voltage = 3750000, phi0 = (90 - 90)/360, rf_frequency = 1497000000
+r136: lcavity, type = "rfca", l = 0.5, voltage = 3750000, phi0 = (90 - 90)/360, rf_frequency = 1497000000
+r137: lcavity, type = "rfca", l = 0.5, voltage = 3750000, phi0 = (90 - 90)/360, rf_frequency = 1497000000
+r138: lcavity, type = "rfca", l = 0.5, voltage = 3750000, phi0 = (90 - 90)/360, rf_frequency = 1497000000
+r141: lcavity, type = "rfca", l = 0.5, voltage = 3750000, phi0 = (90 - 90)/360, rf_frequency = 1497000000
+r142: lcavity, type = "rfca", l = 0.5, voltage = 3750000, phi0 = (90 - 90)/360, rf_frequency = 1497000000
+r143: lcavity, type = "rfca", l = 0.5, voltage = 3750000, phi0 = (90 - 90)/360, rf_frequency = 1497000000
+r144: lcavity, type = "rfca", l = 0.5, voltage = 3750000, phi0 = (90 - 90)/360, rf_frequency = 1497000000
+r145: lcavity, type = "rfca", l = 0.5, voltage = 3750000, phi0 = (90 - 90)/360, rf_frequency = 1497000000
+r146: lcavity, type = "rfca", l = 0.5, voltage = 3750000, phi0 = (90 - 90)/360, rf_frequency = 1497000000
+r147: lcavity, type = "rfca", l = 0.5, voltage = 3750000, phi0 = (90 - 90)/360, rf_frequency = 1497000000
+r148: lcavity, type = "rfca", l = 0.5, voltage = 3750000, phi0 = (90 - 90)/360, rf_frequency = 1497000000
+r151: lcavity, type = "rfca", l = 0.5, voltage = 3750000, phi0 = (90 - 90)/360, rf_frequency = 1497000000
+r152: lcavity, type = "rfca", l = 0.5, voltage = 3750000, phi0 = (90 - 90)/360, rf_frequency = 1497000000
+r153: lcavity, type = "rfca", l = 0.5, voltage = 3750000, phi0 = (90 - 90)/360, rf_frequency = 1497000000
+r154: lcavity, type = "rfca", l = 0.5, voltage = 3750000, phi0 = (90 - 90)/360, rf_frequency = 1497000000
+r155: lcavity, type = "rfca", l = 0.5, voltage = 3750000, phi0 = (90 - 90)/360, rf_frequency = 1497000000
+r156: lcavity, type = "rfca", l = 0.5, voltage = 3750000, phi0 = (90 - 90)/360, rf_frequency = 1497000000
+r157: lcavity, type = "rfca", l = 0.5, voltage = 3750000, phi0 = (90 - 90)/360, rf_frequency = 1497000000
+r158: lcavity, type = "rfca", l = 0.5, voltage = 3750000, phi0 = (90 - 90)/360, rf_frequency = 1497000000
+r161: lcavity, type = "rfca", l = 0.5, voltage = 3750000, phi0 = (90 - 90)/360, rf_frequency = 1497000000
+r162: lcavity, type = "rfca", l = 0.5, voltage = 3750000, phi0 = (90 - 90)/360, rf_frequency = 1497000000
+r163: lcavity, type = "rfca", l = 0.5, voltage = 3750000, phi0 = (90 - 90)/360, rf_frequency = 1497000000
+r164: lcavity, type = "rfca", l = 0.5, voltage = 3750000, phi0 = (90 - 90)/360, rf_frequency = 1497000000
+r165: lcavity, type = "rfca", l = 0.5, voltage = 3750000, phi0 = (90 - 90)/360, rf_frequency = 1497000000
+r166: lcavity, type = "rfca", l = 0.5, voltage = 3750000, phi0 = (90 - 90)/360, rf_frequency = 1497000000
+r167: lcavity, type = "rfca", l = 0.5, voltage = 3750000, phi0 = (90 - 90)/360, rf_frequency = 1497000000
+r168: lcavity, type = "rfca", l = 0.5, voltage = 3750000, phi0 = (90 - 90)/360, rf_frequency = 1497000000
+r171: lcavity, type = "rfca", l = 0.5, voltage = 3750000, phi0 = (90 - 90)/360, rf_frequency = 1497000000
+r172: lcavity, type = "rfca", l = 0.5, voltage = 3750000, phi0 = (90 - 90)/360, rf_frequency = 1497000000
+r173: lcavity, type = "rfca", l = 0.5, voltage = 3750000, phi0 = (90 - 90)/360, rf_frequency = 1497000000
+r174: lcavity, type = "rfca", l = 0.5, voltage = 3750000, phi0 = (90 - 90)/360, rf_frequency = 1497000000
+r175: lcavity, type = "rfca", l = 0.5, voltage = 3750000, phi0 = (90 - 90)/360, rf_frequency = 1497000000
+r176: lcavity, type = "rfca", l = 0.5, voltage = 3750000, phi0 = (90 - 90)/360, rf_frequency = 1497000000
+r177: lcavity, type = "rfca", l = 0.5, voltage = 3750000, phi0 = (90 - 90)/360, rf_frequency = 1497000000
+r178: lcavity, type = "rfca", l = 0.5, voltage = 3750000, phi0 = (90 - 90)/360, rf_frequency = 1497000000
+r181: lcavity, type = "rfca", l = 0.5, voltage = 3750000, phi0 = (90 - 90)/360, rf_frequency = 1497000000
+r182: lcavity, type = "rfca", l = 0.5, voltage = 3750000, phi0 = (90 - 90)/360, rf_frequency = 1497000000
+r183: lcavity, type = "rfca", l = 0.5, voltage = 3750000, phi0 = (90 - 90)/360, rf_frequency = 1497000000
+r184: lcavity, type = "rfca", l = 0.5, voltage = 3750000, phi0 = (90 - 90)/360, rf_frequency = 1497000000
+r185: lcavity, type = "rfca", l = 0.5, voltage = 3750000, phi0 = (90 - 90)/360, rf_frequency = 1497000000
+r186: lcavity, type = "rfca", l = 0.5, voltage = 3750000, phi0 = (90 - 90)/360, rf_frequency = 1497000000
+r187: lcavity, type = "rfca", l = 0.5, voltage = 3750000, phi0 = (90 - 90)/360, rf_frequency = 1497000000
+r188: lcavity, type = "rfca", l = 0.5, voltage = 3750000, phi0 = (90 - 90)/360, rf_frequency = 1497000000
+r191: lcavity, type = "rfca", l = 0.5, voltage = 3750000, phi0 = (90 - 90)/360, rf_frequency = 1497000000
+r192: lcavity, type = "rfca", l = 0.5, voltage = 3750000, phi0 = (90 - 90)/360, rf_frequency = 1497000000
+r193: lcavity, type = "rfca", l = 0.5, voltage = 3750000, phi0 = (90 - 90)/360, rf_frequency = 1497000000
+r194: lcavity, type = "rfca", l = 0.5, voltage = 3750000, phi0 = (90 - 90)/360, rf_frequency = 1497000000
+r195: lcavity, type = "rfca", l = 0.5, voltage = 3750000, phi0 = (90 - 90)/360, rf_frequency = 1497000000
+r196: lcavity, type = "rfca", l = 0.5, voltage = 3750000, phi0 = (90 - 90)/360, rf_frequency = 1497000000
+r197: lcavity, type = "rfca", l = 0.5, voltage = 3750000, phi0 = (90 - 90)/360, rf_frequency = 1497000000
+r198: lcavity, type = "rfca", l = 0.5, voltage = 3750000, phi0 = (90 - 90)/360, rf_frequency = 1497000000
+r1a1: lcavity, type = "rfca", l = 0.5, voltage = 3750000, phi0 = (90 - 90)/360, rf_frequency = 1497000000
+r1a2: lcavity, type = "rfca", l = 0.5, voltage = 3750000, phi0 = (90 - 90)/360, rf_frequency = 1497000000
+r1a3: lcavity, type = "rfca", l = 0.5, voltage = 3750000, phi0 = (90 - 90)/360, rf_frequency = 1497000000
+r1a4: lcavity, type = "rfca", l = 0.5, voltage = 3750000, phi0 = (90 - 90)/360, rf_frequency = 1497000000
+r1a5: lcavity, type = "rfca", l = 0.5, voltage = 3750000, phi0 = (90 - 90)/360, rf_frequency = 1497000000
+r1a6: lcavity, type = "rfca", l = 0.5, voltage = 3750000, phi0 = (90 - 90)/360, rf_frequency = 1497000000
+r1a7: lcavity, type = "rfca", l = 0.5, voltage = 3750000, phi0 = (90 - 90)/360, rf_frequency = 1497000000
+r1a8: lcavity, type = "rfca", l = 0.5, voltage = 3750000, phi0 = (90 - 90)/360, rf_frequency = 1497000000
+r1b1: lcavity, type = "rfca", l = 0.5, voltage = 3750000, phi0 = (90 - 90)/360, rf_frequency = 1497000000
+r1b2: lcavity, type = "rfca", l = 0.5, voltage = 3750000, phi0 = (90 - 90)/360, rf_frequency = 1497000000
+r1b3: lcavity, type = "rfca", l = 0.5, voltage = 3750000, phi0 = (90 - 90)/360, rf_frequency = 1497000000
+r1b4: lcavity, type = "rfca", l = 0.5, voltage = 3750000, phi0 = (90 - 90)/360, rf_frequency = 1497000000
+r1b5: lcavity, type = "rfca", l = 0.5, voltage = 3750000, phi0 = (90 - 90)/360, rf_frequency = 1497000000
+r1b6: lcavity, type = "rfca", l = 0.5, voltage = 3750000, phi0 = (90 - 90)/360, rf_frequency = 1497000000
+r1b7: lcavity, type = "rfca", l = 0.5, voltage = 3750000, phi0 = (90 - 90)/360, rf_frequency = 1497000000
+r1b8: lcavity, type = "rfca", l = 0.5, voltage = 3750000, phi0 = (90 - 90)/360, rf_frequency = 1497000000
+r1c1: lcavity, type = "rfca", l = 0.5, voltage = 3750000, phi0 = (90 - 90)/360, rf_frequency = 1497000000
+r1c2: lcavity, type = "rfca", l = 0.5, voltage = 3750000, phi0 = (90 - 90)/360, rf_frequency = 1497000000
+r1c3: lcavity, type = "rfca", l = 0.5, voltage = 3750000, phi0 = (90 - 90)/360, rf_frequency = 1497000000
+r1c4: lcavity, type = "rfca", l = 0.5, voltage = 3750000, phi0 = (90 - 90)/360, rf_frequency = 1497000000
+r1c5: lcavity, type = "rfca", l = 0.5, voltage = 3750000, phi0 = (90 - 90)/360, rf_frequency = 1497000000
+r1c6: lcavity, type = "rfca", l = 0.5, voltage = 3750000, phi0 = (90 - 90)/360, rf_frequency = 1497000000
+r1c7: lcavity, type = "rfca", l = 0.5, voltage = 3750000, phi0 = (90 - 90)/360, rf_frequency = 1497000000
+r1c8: lcavity, type = "rfca", l = 0.5, voltage = 3750000, phi0 = (90 - 90)/360, rf_frequency = 1497000000
+r1d1: lcavity, type = "rfca", l = 0.5, voltage = 3750000, phi0 = (90 - 90)/360, rf_frequency = 1497000000
+r1d2: lcavity, type = "rfca", l = 0.5, voltage = 3750000, phi0 = (90 - 90)/360, rf_frequency = 1497000000
+r1d3: lcavity, type = "rfca", l = 0.5, voltage = 3750000, phi0 = (90 - 90)/360, rf_frequency = 1497000000
+r1d4: lcavity, type = "rfca", l = 0.5, voltage = 3750000, phi0 = (90 - 90)/360, rf_frequency = 1497000000
+r1d5: lcavity, type = "rfca", l = 0.5, voltage = 3750000, phi0 = (90 - 90)/360, rf_frequency = 1497000000
+r1d6: lcavity, type = "rfca", l = 0.5, voltage = 3750000, phi0 = (90 - 90)/360, rf_frequency = 1497000000
+r1d7: lcavity, type = "rfca", l = 0.5, voltage = 3750000, phi0 = (90 - 90)/360, rf_frequency = 1497000000
+r1d8: lcavity, type = "rfca", l = 0.5, voltage = 3750000, phi0 = (90 - 90)/360, rf_frequency = 1497000000
+r1e1: lcavity, type = "rfca", l = 0.5, voltage = 3750000, phi0 = (90 - 90)/360, rf_frequency = 1497000000
+r1e2: lcavity, type = "rfca", l = 0.5, voltage = 3750000, phi0 = (90 - 90)/360, rf_frequency = 1497000000
+r1e3: lcavity, type = "rfca", l = 0.5, voltage = 3750000, phi0 = (90 - 90)/360, rf_frequency = 1497000000
+r1e4: lcavity, type = "rfca", l = 0.5, voltage = 3750000, phi0 = (90 - 90)/360, rf_frequency = 1497000000
+r1e5: lcavity, type = "rfca", l = 0.5, voltage = 3750000, phi0 = (90 - 90)/360, rf_frequency = 1497000000
+r1e6: lcavity, type = "rfca", l = 0.5, voltage = 3750000, phi0 = (90 - 90)/360, rf_frequency = 1497000000
+r1e7: lcavity, type = "rfca", l = 0.5, voltage = 3750000, phi0 = (90 - 90)/360, rf_frequency = 1497000000
+r1e8: lcavity, type = "rfca", l = 0.5, voltage = 3750000, phi0 = (90 - 90)/360, rf_frequency = 1497000000
+r1f1: lcavity, type = "rfca", l = 0.5, voltage = 3750000, phi0 = (90 - 90)/360, rf_frequency = 1497000000
+r1f2: lcavity, type = "rfca", l = 0.5, voltage = 3750000, phi0 = (90 - 90)/360, rf_frequency = 1497000000
+r1f3: lcavity, type = "rfca", l = 0.5, voltage = 3750000, phi0 = (90 - 90)/360, rf_frequency = 1497000000
+r1f4: lcavity, type = "rfca", l = 0.5, voltage = 3750000, phi0 = (90 - 90)/360, rf_frequency = 1497000000
+r1f5: lcavity, type = "rfca", l = 0.5, voltage = 3750000, phi0 = (90 - 90)/360, rf_frequency = 1497000000
+r1f6: lcavity, type = "rfca", l = 0.5, voltage = 3750000, phi0 = (90 - 90)/360, rf_frequency = 1497000000
+r1f7: lcavity, type = "rfca", l = 0.5, voltage = 3750000, phi0 = (90 - 90)/360, rf_frequency = 1497000000
+r1f8: lcavity, type = "rfca", l = 0.5, voltage = 3750000, phi0 = (90 - 90)/360, rf_frequency = 1497000000
+r1g1: lcavity, type = "rfca", l = 0.5, voltage = 3750000, phi0 = (90 - 90)/360, rf_frequency = 1497000000
+r1g2: lcavity, type = "rfca", l = 0.5, voltage = 3750000, phi0 = (90 - 90)/360, rf_frequency = 1497000000
+r1g3: lcavity, type = "rfca", l = 0.5, voltage = 3750000, phi0 = (90 - 90)/360, rf_frequency = 1497000000
+r1g4: lcavity, type = "rfca", l = 0.5, voltage = 3750000, phi0 = (90 - 90)/360, rf_frequency = 1497000000
+r1g5: lcavity, type = "rfca", l = 0.5, voltage = 3750000, phi0 = (90 - 90)/360, rf_frequency = 1497000000
+r1g6: lcavity, type = "rfca", l = 0.5, voltage = 3750000, phi0 = (90 - 90)/360, rf_frequency = 1497000000
+r1g7: lcavity, type = "rfca", l = 0.5, voltage = 3750000, phi0 = (90 - 90)/360, rf_frequency = 1497000000
+r1g8: lcavity, type = "rfca", l = 0.5, voltage = 3750000, phi0 = (90 - 90)/360, rf_frequency = 1497000000
+r1h1: lcavity, type = "rfca", l = 0.5, voltage = 3750000, phi0 = (90 - 90)/360, rf_frequency = 1497000000
+r1h2: lcavity, type = "rfca", l = 0.5, voltage = 3750000, phi0 = (90 - 90)/360, rf_frequency = 1497000000
+r1h3: lcavity, type = "rfca", l = 0.5, voltage = 3750000, phi0 = (90 - 90)/360, rf_frequency = 1497000000
+r1h4: lcavity, type = "rfca", l = 0.5, voltage = 3750000, phi0 = (90 - 90)/360, rf_frequency = 1497000000
+r1h5: lcavity, type = "rfca", l = 0.5, voltage = 3750000, phi0 = (90 - 90)/360, rf_frequency = 1497000000
+r1h6: lcavity, type = "rfca", l = 0.5, voltage = 3750000, phi0 = (90 - 90)/360, rf_frequency = 1497000000
+r1h7: lcavity, type = "rfca", l = 0.5, voltage = 3750000, phi0 = (90 - 90)/360, rf_frequency = 1497000000
+r1h8: lcavity, type = "rfca", l = 0.5, voltage = 3750000, phi0 = (90 - 90)/360, rf_frequency = 1497000000
+r1i1: lcavity, type = "rfca", l = 0.5, voltage = 3750000, phi0 = (90 - 90)/360, rf_frequency = 1497000000
+r1i2: lcavity, type = "rfca", l = 0.5, voltage = 3750000, phi0 = (90 - 90)/360, rf_frequency = 1497000000
+r1i3: lcavity, type = "rfca", l = 0.5, voltage = 3750000, phi0 = (90 - 90)/360, rf_frequency = 1497000000
+r1i4: lcavity, type = "rfca", l = 0.5, voltage = 3750000, phi0 = (90 - 90)/360, rf_frequency = 1497000000
+r1i5: lcavity, type = "rfca", l = 0.5, voltage = 3750000, phi0 = (90 - 90)/360, rf_frequency = 1497000000
+r1i6: lcavity, type = "rfca", l = 0.5, voltage = 3750000, phi0 = (90 - 90)/360, rf_frequency = 1497000000
+r1i7: lcavity, type = "rfca", l = 0.5, voltage = 3750000, phi0 = (90 - 90)/360, rf_frequency = 1497000000
+r1i8: lcavity, type = "rfca", l = 0.5, voltage = 3750000, phi0 = (90 - 90)/360, rf_frequency = 1497000000
+r1j1: lcavity, type = "rfca", l = 0.5, voltage = 3750000, phi0 = (90 - 90)/360, rf_frequency = 1497000000
+r1j2: lcavity, type = "rfca", l = 0.5, voltage = 3750000, phi0 = (90 - 90)/360, rf_frequency = 1497000000
+r1j3: lcavity, type = "rfca", l = 0.5, voltage = 3750000, phi0 = (90 - 90)/360, rf_frequency = 1497000000
+r1j4: lcavity, type = "rfca", l = 0.5, voltage = 3750000, phi0 = (90 - 90)/360, rf_frequency = 1497000000
+r1j5: lcavity, type = "rfca", l = 0.5, voltage = 3750000, phi0 = (90 - 90)/360, rf_frequency = 1497000000
+r1j6: lcavity, type = "rfca", l = 0.5, voltage = 3750000, phi0 = (90 - 90)/360, rf_frequency = 1497000000
+r1j7: lcavity, type = "rfca", l = 0.5, voltage = 3750000, phi0 = (90 - 90)/360, rf_frequency = 1497000000
+r1j8: lcavity, type = "rfca", l = 0.5, voltage = 3750000, phi0 = (90 - 90)/360, rf_frequency = 1497000000
+r1k1: lcavity, type = "rfca", l = 0.5, voltage = 3750000, phi0 = (90 - 90)/360, rf_frequency = 1497000000
+r1k2: lcavity, type = "rfca", l = 0.5, voltage = 3750000, phi0 = (90 - 90)/360, rf_frequency = 1497000000
+r1k3: lcavity, type = "rfca", l = 0.5, voltage = 3750000, phi0 = (90 - 90)/360, rf_frequency = 1497000000
+r1k4: lcavity, type = "rfca", l = 0.5, voltage = 3750000, phi0 = (90 - 90)/360, rf_frequency = 1497000000
+r1k5: lcavity, type = "rfca", l = 0.5, voltage = 3750000, phi0 = (90 - 90)/360, rf_frequency = 1497000000
+r1k6: lcavity, type = "rfca", l = 0.5, voltage = 3750000, phi0 = (90 - 90)/360, rf_frequency = 1497000000
+r1k7: lcavity, type = "rfca", l = 0.5, voltage = 3750000, phi0 = (90 - 90)/360, rf_frequency = 1497000000
+r1k8: lcavity, type = "rfca", l = 0.5, voltage = 3750000, phi0 = (90 - 90)/360, rf_frequency = 1497000000
+r1l1: lcavity, type = "rfca", l = 0.5, voltage = 3750000, phi0 = (90 - 90)/360, rf_frequency = 1497000000
+r1l2: lcavity, type = "rfca", l = 0.5, voltage = 3750000, phi0 = (90 - 90)/360, rf_frequency = 1497000000
+r1l3: lcavity, type = "rfca", l = 0.5, voltage = 3750000, phi0 = (90 - 90)/360, rf_frequency = 1497000000
+r1l4: lcavity, type = "rfca", l = 0.5, voltage = 3750000, phi0 = (90 - 90)/360, rf_frequency = 1497000000
+r1l5: lcavity, type = "rfca", l = 0.5, voltage = 3750000, phi0 = (90 - 90)/360, rf_frequency = 1497000000
+r1l6: lcavity, type = "rfca", l = 0.5, voltage = 3750000, phi0 = (90 - 90)/360, rf_frequency = 1497000000
+r1l7: lcavity, type = "rfca", l = 0.5, voltage = 3750000, phi0 = (90 - 90)/360, rf_frequency = 1497000000
+r1l8: lcavity, type = "rfca", l = 0.5, voltage = 3750000, phi0 = (90 - 90)/360, rf_frequency = 1497000000
+r1m1: lcavity, type = "rfca", l = 0.7, voltage = 12500000, phi0 = (90 - 90)/360, rf_frequency = 1497000000
+r1m2: lcavity, type = "rfca", l = 0.7, voltage = 12500000, phi0 = (90 - 90)/360, rf_frequency = 1497000000
+r1m3: lcavity, type = "rfca", l = 0.7, voltage = 12500000, phi0 = (90 - 90)/360, rf_frequency = 1497000000
+r1m4: lcavity, type = "rfca", l = 0.7, voltage = 12500000, phi0 = (90 - 90)/360, rf_frequency = 1497000000
+r1m5: lcavity, type = "rfca", l = 0.7, voltage = 12500000, phi0 = (90 - 90)/360, rf_frequency = 1497000000
+r1m6: lcavity, type = "rfca", l = 0.7, voltage = 12500000, phi0 = (90 - 90)/360, rf_frequency = 1497000000
+r1m7: lcavity, type = "rfca", l = 0.7, voltage = 12500000, phi0 = (90 - 90)/360, rf_frequency = 1497000000
+r1m8: lcavity, type = "rfca", l = 0.7, voltage = 12500000, phi0 = (90 - 90)/360, rf_frequency = 1497000000
+r1n1: lcavity, type = "rfca", l = 0.7, voltage = 12500000, phi0 = (90 - 90)/360, rf_frequency = 1497000000
+r1n2: lcavity, type = "rfca", l = 0.7, voltage = 12500000, phi0 = (90 - 90)/360, rf_frequency = 1497000000
+r1n3: lcavity, type = "rfca", l = 0.7, voltage = 12500000, phi0 = (90 - 90)/360, rf_frequency = 1497000000
+r1n4: lcavity, type = "rfca", l = 0.7, voltage = 12500000, phi0 = (90 - 90)/360, rf_frequency = 1497000000
+r1n5: lcavity, type = "rfca", l = 0.7, voltage = 12500000, phi0 = (90 - 90)/360, rf_frequency = 1497000000
+r1n6: lcavity, type = "rfca", l = 0.7, voltage = 12500000, phi0 = (90 - 90)/360, rf_frequency = 1497000000
+r1n7: lcavity, type = "rfca", l = 0.7, voltage = 12500000, phi0 = (90 - 90)/360, rf_frequency = 1497000000
+r1n8: lcavity, type = "rfca", l = 0.7, voltage = 12500000, phi0 = (90 - 90)/360, rf_frequency = 1497000000
+r1o1: lcavity, type = "rfca", l = 0.7, voltage = 12500000, phi0 = (90 - 90)/360, rf_frequency = 1497000000
+r1o2: lcavity, type = "rfca", l = 0.7, voltage = 12500000, phi0 = (90 - 90)/360, rf_frequency = 1497000000
+r1o3: lcavity, type = "rfca", l = 0.7, voltage = 12500000, phi0 = (90 - 90)/360, rf_frequency = 1497000000
+r1o4: lcavity, type = "rfca", l = 0.7, voltage = 12500000, phi0 = (90 - 90)/360, rf_frequency = 1497000000
+r1o5: lcavity, type = "rfca", l = 0.7, voltage = 12500000, phi0 = (90 - 90)/360, rf_frequency = 1497000000
+r1o6: lcavity, type = "rfca", l = 0.7, voltage = 12500000, phi0 = (90 - 90)/360, rf_frequency = 1497000000
+r1o7: lcavity, type = "rfca", l = 0.7, voltage = 12500000, phi0 = (90 - 90)/360, rf_frequency = 1497000000
+r1o8: lcavity, type = "rfca", l = 0.7, voltage = 12500000, phi0 = (90 - 90)/360, rf_frequency = 1497000000
+r1p1: lcavity, type = "rfca", l = 0.7, voltage = 12500000, phi0 = (90 - 90)/360, rf_frequency = 1497000000
+r1p2: lcavity, type = "rfca", l = 0.7, voltage = 12500000, phi0 = (90 - 90)/360, rf_frequency = 1497000000
+r1p3: lcavity, type = "rfca", l = 0.7, voltage = 12500000, phi0 = (90 - 90)/360, rf_frequency = 1497000000
+r1p4: lcavity, type = "rfca", l = 0.7, voltage = 12500000, phi0 = (90 - 90)/360, rf_frequency = 1497000000
+r1p5: lcavity, type = "rfca", l = 0.7, voltage = 12500000, phi0 = (90 - 90)/360, rf_frequency = 1497000000
+r1p6: lcavity, type = "rfca", l = 0.7, voltage = 12500000, phi0 = (90 - 90)/360, rf_frequency = 1497000000
+r1p7: lcavity, type = "rfca", l = 0.7, voltage = 12500000, phi0 = (90 - 90)/360, rf_frequency = 1497000000
+r1p8: lcavity, type = "rfca", l = 0.7, voltage = 12500000, phi0 = (90 - 90)/360, rf_frequency = 1497000000
+r1q1: lcavity, type = "rfca", l = 0.7, voltage = 12500000, phi0 = (90 - 90)/360, rf_frequency = 1497000000
+r1q2: lcavity, type = "rfca", l = 0.7, voltage = 12500000, phi0 = (90 - 90)/360, rf_frequency = 1497000000
+r1q3: lcavity, type = "rfca", l = 0.7, voltage = 12500000, phi0 = (90 - 90)/360, rf_frequency = 1497000000
+r1q4: lcavity, type = "rfca", l = 0.7, voltage = 12500000, phi0 = (90 - 90)/360, rf_frequency = 1497000000
+r1q5: lcavity, type = "rfca", l = 0.7, voltage = 12500000, phi0 = (90 - 90)/360, rf_frequency = 1497000000
+r1q6: lcavity, type = "rfca", l = 0.7, voltage = 12500000, phi0 = (90 - 90)/360, rf_frequency = 1497000000
+r1q7: lcavity, type = "rfca", l = 0.7, voltage = 12500000, phi0 = (90 - 90)/360, rf_frequency = 1497000000
+r1q8: lcavity, type = "rfca", l = 0.7, voltage = 12500000, phi0 = (90 - 90)/360, rf_frequency = 1497000000
+
+! ==============================================================================
+! BEAMLINEs
+! ------------------------------------------------------------------------------
+
+nl: line=(dfront, mat1l02v, d104, ipm1l02, d105, mq1l02a, d106,  mq1l02b, d106, mq1l02c, d105, d107, r121, d108, r122, d109,
+          r123,  d108, r124, d109, r125, d108, r126, d109, r127, d108, r128,  d110, mat1l03v, d104, ipm1l03, d105, mq1l03a, d106,
+          mq1l03b, d106,  mq1l03c, d105, d107, r131, d108, r132, d109, r133, d108, r134,  d109, r135, d108, r136, d109, r137,
+          d108, r138, d111, mat1l04h,  d112, ipm1l04, d105, mq1l04a, d106, mq1l04b, d106, mq1l04c, d105,  d107, r141, d108, r142,
+          d109, r143, d108, r144, d109, r145,  d108, r146, d109, r147, d108, r148, d110, mdb1l05v, d104,  ipm1l05, d105, mq1l05a,
+          d106, mq1l05b, d106, mq1l05c, d105, d107,  r151, d108, r152, d109, r153, d108, r154, d109, r155, d108,  r156, d109,
+          r157, d108, r158, d113, itv1l06, d114, mat1l06h,  d112, ipm1l06, d105, mq1l06a, d106, mq1l06b, d106, mq1l06c, d105,
+           d107, r161, d108, r162, d109, r163, d108, r164, d109, r165,  d108, r166, d109, r167, d108, r168, d110, mat1l07v, d104,
+           ipm1l07, d105, mq1l07a, d106, mq1l07b, d106, mq1l07c, d105, d107,  r171, d108, r172, d109, r173, d108, r174, d109,
+          r175, d108,  r176, d109, r177, d108, r178, d115, mat1l08h, d112, ipm1l08,  d105, mq1l08a, d106, mq1l08b, d106, mq1l08c,
+          d105, d107, r181,  d108, r182, d109, r183, d108, r184, d109, r185, d108, r186,  d109, r187, d108, r188, d116, mat1l09v,
+          d104, ipm1l09, d105,  mq1l09a, d106, mq1l09b, d106, mq1l09c, d105, d107, r191, d108,  r192, d109, r193, d108, r194,
+          d109, r195, d108, r196, d109,  r197, d108, r198, d117, itv1l10, d118, mat1l10h, d112, ipm1l10,  d105, mq1l10a, d106,
+          mq1l10b, d106, mq1l10c, d105, d107, r1a1,  d108, r1a2, d109, r1a3, d108, r1a4, d109, r1a5, d108, r1a6,  d109, r1a7,
+          d108, r1a8, d116, mat1l11v, d104, ipm1l11, d105,  mq1l11a, d106, mq1l11b, d106, mq1l11c, d105, d107, r1b1, d108,  r1b2,
+          d109, r1b3, d108, r1b4, d109, r1b5, d108, r1b6, d109,  r1b7, d108, r1b8, d115, mat1l12h, d112, ipm1l12, d105, mq1l12a,
+           d106, mq1l12b, d106, mq1l12c, d105, d107, r1c1, d108, r1c2, d109,  r1c3, d108, r1c4, d109, r1c5, d108, r1c6, d109,
+          r1c7, d108,  r1c8, d110, mat1l13v, d104, ipm1l13, d105, mq1l13a, d106, mq1l13b,  d106, mq1l13c, d105, d107, r1d1, d108,
+          r1d2, d109, r1d3, d108,  r1d4, d109, r1d5, d108, r1d6, d109, r1d7, d108, r1d8, d119,  itv1l14, d118, mat1l14h, d112,
+          ipm1l14, d105, mq1l14a, d106,  mq1l14b, d106, mq1l14c, d105, d107, r1e1, d108, r1e2, d109, r1e3,  d108, r1e4, d109,
+          r1e5, d108, r1e6, d109, r1e7, d108, r1e8,  d110, mat1l15v, d104, ipm1l15, d105, mq1l15a, d106, mq1l15b, d106,  mq1l15c,
+          d105, d107, r1f1, d108, r1f2, d109, r1f3, d108, r1f4,  d109, r1f5, d108, r1f6, d109, r1f7, d108, r1f8, d111, mat1l16h,
+           d112, ipm1l16, d105, mq1l16a, d106, mq1l16b, d106, mq1l16c, d105,  d107, r1g1, d108, r1g2, d109, r1g3, d108, r1g4,
+          d109, r1g5,  d108, r1g6, d109, r1g7, d108, r1g8, d110, mat1l17v, d104,  ipm1l17, d105, mq1l17a, d106, mq1l17b, d106,
+          mq1l17c, d105, d107,  r1h1, d108, r1h2, d109, r1h3, d108, r1h4, d109, r1h5, d108,  r1h6, d109, r1h7, d108, r1h8, d117,
+          itv1l18, d118, mat1l18h,  d112, ipm1l18, d105, mq1l18a, d106, mq1l18b, d106, mq1l18c, d105,  d107, r1i1, d108, r1i2,
+          d109, r1i3, d108, r1i4, d109, r1i5,  d108, r1i6, d109, r1i7, d108, r1i8, d116, mat1l19v, d104,  ipm1l19, d105, mq1l19a,
+          d106, mq1l19b, d106, mq1l19c, d105, d107,  r1j1, d108, r1j2, d109, r1j3, d108, r1j4, d109, r1j5, d108,  r1j6, d109,
+          r1j7, d108, r1j8, d115, mat1l20h, d112, ipm1l20,  d105, mq1l20a, d106, mq1l20b, d106, mq1l20c, d105, d107, r1k1,  d108,
+          r1k2, d109, r1k3, d108, r1k4, d109, r1k5, d108, r1k6,  d109, r1k7, d108, r1k8, d116, mat1l21v, d104, ipm1l21, d105,
+           mq1l21a, d106, mq1l21b, d106, mq1l21c, d105, d107, r1l1, d108,  r1l2, d109, r1l3, d108, r1l4, d109, r1l5, d108, r1l6,
+          d109,  r1l7, d108, r1l8, d117, itv1l22, d118, mat1l22h, d112, ipm1l22,  d105, mq1l22a, d106, mq1l22b, d106, mq1l22c,
+          d105, d120, r1m1,  d121, r1m2, d121, r1m3, d121, r1m4, d121, r1m5, d121, r1m6,  d121, r1m7, d121, r1m8, d122, mdb1l23v,
+          ipm1l23, mq1l23a, d106,  mq1l23b, d106, mq1l23c, d129b, r1n1, d121, r1n2, d121, r1n3,  d121, r1n4, d121, r1n5, d121,
+          r1n6, d121, r1n7, d121, r1n8,  d124, mdb1l24h, ipm1l24, mq1l24a, d106, mq1l24b, d106, mq1l24c,  d129b, r1o1, d121,
+          r1o2, d121, r1o3, d121, r1o4, d121, r1o5,  d121, r1o6, d121, r1o7, d121, r1o8, d125, mdb1l25v, ipm1l25,  mq1l25a, d106,
+          mq1l25b, d106, mq1l25c, d129b, r1p1, d121, r1p2,  d121, r1p3, d121, r1p4, d121, r1p5, d121, r1p6, d121, r1p7,  d121,
+          r1p8, d124, mdb1l26h, ipm1l26, mq1l26a, d106, mq1l26b, d106,  mq1l26c, d129b, r1q1, d121, r1q2, d121, r1q3, d121, r1q4,
+          d121,  r1q5, d121, r1q6, d121, r1q7, d121, r1q8, d124, mdb1l27h,  mdj1l27v, ipm1l27, mq1l27a, d106, mq1l27b, d106,
+          mq1l27c, d129b,  d130, ibc1l27, d127, ipm1l28, d123, mqb1l28, d128)
+
+use, nl
