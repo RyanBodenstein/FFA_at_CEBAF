@@ -1,0 +1,880 @@
+! Define parameters
+InjE = 650e6
+LinacE = 1100e6
+e1 = InjE + LinacE
+e3 = e1+2*(LinacE)
+e5 = e3+2*(LinacE)
+e7 = e5+2*(LinacE)
+e9 = e7+2*(LinacE)
+e11 = e9+2*(LinacE)
+e13 = e11+2*(LinacE)
+e15 = e13+2*(LinacE)
+e17 = e15+2*(LinacE)
+e19 = e17+2*(LinacE)
+e21 = e19+2*(LinacE)
+e23 = e21+2*(LinacE)
+e25 = e23+2*(LinacE)
+p1 = sqrt(e1*e1-mass_of(electron)^2)
+p3 = sqrt(e3*e3-mass_of(electron)^2)
+p5 = sqrt(e5*e5-mass_of(electron)^2)
+p7 = sqrt(e7*e7-mass_of(electron)^2)
+p9 = sqrt(e9*e9-mass_of(electron)^2)
+p11 = sqrt(e11*e11-mass_of(electron)^2)
+p13 = sqrt(e13*e13-mass_of(electron)^2)
+p15 = sqrt(e15*e15-mass_of(electron)^2)
+p17 = sqrt(e17*e17-mass_of(electron)^2)
+p19 = sqrt(e19*e19-mass_of(electron)^2)
+p21 = sqrt(e21*e21-mass_of(electron)^2)
+p23 = sqrt(e23*e23-mass_of(electron)^2)
+p25 = sqrt(e25*e25-mass_of(electron)^2)
+
+parameter[geometry] = open
+parameter[particle] = electron
+
+! Magnet Steel Lengths
+ls_B3M = 3
+ls_B3p8M = 3.8
+ls_B1p5M = 1.5
+ls_B1M = 1
+ls_Q30 = 0.3
+ls_Q35 = 0.3556
+ls_Q53 = 0.53
+
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+!!!!!!!!!!!!!!!!!!!!  Elements  !!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+!!!!!!!!!!!!!!!!!!!!!  Dipoles  !!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+
+! Pass 9
+mCB1: sbend, l=ls_B3M, db_field=-1.5
+m9B2: sbend, l=mCB1[L], db_field=-mCB1[db_field]	
+m9B3: sbend, l=ls_B1p5M, db_field=1
+m9B4: sbend, l=m9B3[L], db_field=-m9B3[db_field]
+m9B5: sbend, l=m9B3[L], db_field=-m9B3[db_field]
+m9B6: sbend, l=m9B3[L], db_field=m9B3[db_field]
+m9B7: sbend, l=ls_B3M, db_field=1.
+m9B8: sbend, l=m9B7[L], db_field=-m9B7[db_field]
+m9B9: sbend, l=m9B7[L], db_field=-m9B7[db_field]
+m9B10: sbend, l=m9B7[L], db_field=m9B7[db_field]
+m9B11: sbend, l=m9B3[L], db_field=1
+m9B12: sbend, l=m9B3[L], db_field=-m9B11[db_field]
+m9B13: sbend, l=m9B3[L], db_field=-m9B11[db_field]
+m9B14: sbend, l=m9B3[L], db_field=m9B11[db_field]
+m9B15: sbend, l=ls_B3M, db_field=1.5
+m9B16: sbend, l=m9B15[L], db_field=-m9B15[db_field]
+
+! Pass 11
+m11B2: sbend, l=mcB1[L], db_field=-mCB1[db_field]	
+m11B3: sbend, l=mcB1[L], db_field=1
+m11B4: sbend, l=m11B3[L], db_field=-1
+m11B5: sbend, l=m11B3[L], db_field=-1
+m11B6: sbend, l=m11B3[L], db_field=1
+m11B7: sbend, l=ls_B3M, db_field=1.4
+m11B8: sbend, l=m11B7[L], db_field=-m11B7[db_field]
+
+! Pass 13
+mCB2: sbend, l=mcB1[L], db_field=1.5	
+mCB3A: sbend, l=mcB1[L], db_field=-1.5
+mCB4A: sbend, l=mcB1[L], db_field=1.5
+m13B5: sbend, l=mcB1[L], db_field=1.5
+m13B6: sbend, l=mcB1[L], db_field=-1.5
+m13B7: sbend, l=m13B6[L], db_field=m13B6[db_field]
+m13B8: sbend, l=m13B7[L], db_field=-m13B7[db_field]
+m13B9: sbend, l=ls_B3M, db_field=1.5
+m13B10: sbend, l=m13B9[L], db_field=-m13B9[db_field]
+
+! Pass 15
+m15B5: sbend, l=mcB1[L], db_field=1.7
+m15B6: sbend, l=m15B5[L], db_field=-m15B5[db_field]
+m15B7: sbend, l=m15B6[L], db_field=m15B6[db_field]
+m15B8: sbend, l=m15B7[L], db_field=-m15B7[db_field]
+m15B9: sbend, l=m15B8[L], db_field=1.2
+m15B10: sbend, l=m15B9[L], db_field=-m15B9[db_field]
+
+! Pass 17
+mCB3B: sbend, l=mCB1[L], db_field=1.5  
+mCB4B: sbend, l=mCB1[L], db_field=1.5
+mCB5B: sbend, l=mCB1[L], db_field=-1.5
+mCB6B: sbend, l=mCB1[L], db_field=-1.5
+m17B7: sbend, l=mCB1[L], db_field=-1.7
+m17B8: sbend, l=m17B7[L], db_field=-m17B7[db_field]
+m17B9: sbend, l=m17B8[L], db_field=m17B8[db_field]
+m17B10: sbend, l=m17B9[L], db_field=-m17B9[db_field]
+m17B11: sbend, l=m17B10[L], db_field=-1.7
+m17B12: sbend, l=m17B11[L], db_field=-m17B11[db_field]
+
+! Pass 19
+m19B7: sbend, l=mCB1[L], db_field=1.0
+m19B8: sbend, l=mCB1[L], db_field=-1.0
+m19B9: sbend, l=mCB1[L], db_field=-1.
+m19B10: sbend, l=mCB1[L], db_field=1.
+m19B11: sbend, l=mCB1[L], db_field=1.
+m19B12: sbend, l=mCB1[L], db_field=-1.
+m19B13: sbend, l=mCB1[L], db_field=-1.65
+m19B14: sbend, l=m19B13[L], db_field=-m19B13[db_field]
+
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+!!!!!!!!!!!!!!!!!!!!  Quadrupoles  !!!!!!!!!!!!!!!!!!!!!!!!!!
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+
+! Pass 9
+!m9Q1: quadrupole, l=ls_Q53, k1=0
+!m9Q2: quadrupole, l=ls_Q53, k1=0
+!m9Q3: quadrupole, l=ls_Q53, k1=0
+!m9Q4: quadrupole, l=ls_Q53, k1=0
+!m9Q5: quadrupole, l=ls_Q53, k1=0
+!m9Q6: quadrupole, l=ls_Q53, k1=0
+!m9Q7: quadrupole, l=ls_Q53, k1=0
+!m9Q8: quadrupole, l=ls_Q53, k1=0
+
+! Pass 11
+!m11Q1: quadrupole, l=ls_Q53, k1=0
+!m11Q2: quadrupole, l=ls_Q53, k1=0
+!m11Q3: quadrupole, l=ls_Q53, k1=0
+!m11Q4: quadrupole, l=ls_Q53, k1=0
+!m11Q5: quadrupole, l=ls_Q53, k1=0
+!m11Q6: quadrupole, l=ls_Q53, k1=0
+!m11Q7: quadrupole, l=ls_Q53, k1=0
+!m11Q8: quadrupole, l=ls_Q53, k1=0
+
+! Pass 13
+!m13Q1: quadrupole, l=ls_Q53, k1=0
+!m13Q2: quadrupole, l=ls_Q53, k1=0
+!m13Q3: quadrupole, l=ls_Q53, k1=0
+!m13Q4: quadrupole, l=ls_Q53, k1=0
+!m13Q5: quadrupole, l=ls_Q53, k1=0
+!m13Q6: quadrupole, l=ls_Q53, k1=0
+!m13Q7: quadrupole, l=ls_Q53, k1=0
+!m13Q8: quadrupole, l=ls_Q53, k1=0
+
+! Pass 15
+!m15Q1: quadrupole, l=ls_Q53, k1=0
+!m15Q2: quadrupole, l=ls_Q53, k1=0
+!m15Q3: quadrupole, l=ls_Q53, k1=0
+!m15Q4: quadrupole, l=ls_Q53, k1=0
+!m15Q5: quadrupole, l=ls_Q53, k1=0
+!m15Q6: quadrupole, l=ls_Q53, k1=0
+!m15Q7: quadrupole, l=ls_Q53, k1=0
+!m15Q8: quadrupole, l=ls_Q53, k1=0
+
+! Pass 17
+!m17Q1: quadrupole, l=ls_Q53, k1=0
+!m17Q2: quadrupole, l=ls_Q53, k1=0
+!m17Q3: quadrupole, l=ls_Q53, k1=0
+!m17Q4: quadrupole, l=ls_Q53, k1=0
+!m17Q5: quadrupole, l=ls_Q53, k1=0
+!m17Q6: quadrupole, l=ls_Q53, k1=0
+!m17Q7: quadrupole, l=ls_Q53, k1=0
+!m17Q8: quadrupole, l=ls_Q53, k1=0
+
+! Pass 19
+!m19Q1: quadrupole, l=ls_Q53, k1=0
+!m19Q2: quadrupole, l=ls_Q53, k1=0
+!m19Q3: quadrupole, l=ls_Q53, k1=0
+!m19Q4: quadrupole, l=ls_Q53, k1=0
+!m19Q5: quadrupole, l=ls_Q53, k1=0
+!m19Q6: quadrupole, l=ls_Q53, k1=0
+!m19Q7: quadrupole, l=ls_Q53, k1=0
+!m19Q8: quadrupole, l=ls_Q53, k1=0
+
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+!!!!!!!!!!!!!!!!!!!!!!  Drifts  !!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+
+! Pass 9
+D900: drift, l=7.3
+D901: drift, l=5              ! If extracting here with a 1.5 T, 3 m dipole, need ~4 m (3 m dipole + 1 m drift) to clear downstream magnet.
+D902: drift, l=2
+D903: drift, l=2
+D904: drift, l=2
+D905: drift, l=6
+D906: drift, l=3
+D907: drift, l=4
+D908: drift, l=3
+!D909: drift, l=5               !Used when had mini chicane as well
+D909: drift, l=18.5
+D910: drift, l=2
+D911: drift, l=2
+D912: drift, l=2
+D913: drift, l=2
+D914: drift, l=7.0635
+D915: drift, l=5.136
+
+! Pass 11
+D1100: drift, l=6
+D1101: drift, l=20.5           ! If extracting here with a 1.5 T, 3 m dipole, need ~4.5 m (3 m dipole + 1.5 m drift) to clear downstream magnet.
+D1102: drift, l=3.5
+D1103: drift, l=10.6
+D1104: drift, l=3.5
+D1105: drift, l=11
+D1106: drift, l=6.523
+D1107: drift, l=9.377
+
+! Pass 13
+D1300: drift, l=1.5
+D1301: drift, l=5.0
+D1302: drift, l=2
+D1303: drift, l=7.8
+D1304: drift, l=4
+D1305: drift, l=18.           ! If extracting here with a 1.5 T, 3 m dipole, need ~5 m (3 m dipole + 2 m drift) to clear downstream magnet.
+D1306: drift, l=3.
+D1307: drift, l=3
+D1308: drift, l=5.247
+D1309: drift, l=15.453
+
+! Pass 15
+D1500: drift, l=1.5 ! Adjust WRT Pass 13 later
+D1501: drift, l=5.0
+D1502: drift, l=2
+D1503: drift, l=1
+D1504: drift, l=7           ! If extracting here with a 1.5 T, 3 m dipole, need ~5 m (3 m dipole + 2 m drift) to clear downstream magnet.
+D1505: drift, l=24.0
+D1506: drift, l=2.0
+D1507: drift, l=2
+D1508: drift, l=1.508
+D1509: drift, l=18.992
+
+! Pass 17
+D1700: drift, l=1.5 ! Adjust WRT Pass 13 later
+D1701: drift, l=0.5
+D1702: drift, l=1
+D1703: drift, l=1.5
+D1704: drift, l=3
+D1705: drift, l=6. ! 5.5+1.0381200790483547E-02
+D1706: drift, l=4.5
+D1707: drift, l=8.5           ! If extracting here with a 1.5 T, 3 m dipole, need ~6 m (3 m dipole + 3 m drift) to clear downstream magnet.
+D1708: drift, l=1.5
+D1709: drift, l=12
+D1710: drift, l=7.075
+D1711: drift, l=12.023
+
+! Pass 19
+D1900: drift, l=1.5 ! Adjust WRT Pass 13 later
+D1901: drift, l=0.5
+D1902: drift, l=1
+D1903: drift, l=1.5
+D1904: drift, l=3
+D1905: drift, l=0.5
+D1906: drift, l=6.4
+D1907: drift, l=2.0
+D1908: drift, l=4
+D1909: drift, l=8               ! If extracting here with a 1.5 T, 3 m dipole, need ~6 m (3 m dipole + 3 m drift) to clear downstream magnet.
+D1910: drift, l=4
+D1911: drift, l=2
+D1912: drift, l=16.002
+D1913: drift, l=2.598
+
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+!!!!!!!!!!!!!!!!  Extraction Dipoles  !!!!!!!!!!!!!!!!!!!!!!!
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+m9E: sbend, l=ls_B3M, superimpose, ref=D901, ref_origin=beginning, offset=1, ele_origin=beginning
+m11E: sbend, l=ls_B3M, superimpose, ref=D1101, ref_origin=beginning, offset=2, ele_origin=beginning
+m13E: sbend, l=ls_B3M, superimpose, ref=D1305, ref_origin=beginning, offset=1, ele_origin=beginning
+m15E: sbend, l=ls_B3M, superimpose, ref=D1504, ref_origin=beginning, offset=0.5, ele_origin=beginning
+m17E: sbend, l=ls_B3M, superimpose, ref=D1707, ref_origin=beginning, offset=1, ele_origin=beginning
+m19E: sbend, l=ls_B3M, superimpose, ref=D1909, ref_origin=beginning, offset=1, ele_origin=beginning
+
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+!!!!!!!!!!!!!!!!!!!!!  Patches  !!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+
+!!!!!!!!!!!!!!!!!!!!
+!!!!!! Pass 9 !!!!!!
+!!!!!!!!!!!!!!!!!!!!
+
+pi_9CB1_xpitch: patch, x_pitch = 0
+pi_9CB1_xoff: patch, x_offset = 0
+
+po_9CB1_xpitch: patch, x_pitch = asin(((mCB1[db_field])*(c_light)*(mCB1[L]))/(p9)) !-1.8356960009021217E-01
+po_9CB1_xoff: patch, x_offset = (mCB1[L])*tan(0.5*po_9CB1_xpitch[x_pitch]) 
+
+pi_9B2_xpitch: patch, x_pitch = -po_9CB1_xpitch[x_pitch]
+pi_9B2_xoff: patch, x_offset = po_9CB1_xoff[x_offset]
+
+po_9B2_xpitch: patch, x_pitch = 0.0
+po_9B2_xoff: patch, x_offset = 0
+
+pi_9B3_xpitch: patch, x_pitch = -po_9B2_xpitch[x_pitch]
+pi_9B3_xoff: patch, x_offset = po_9B2_xoff[x_offset]
+
+po_9B3_xpitch: patch, x_pitch = asin((((m9B3[db_field])*(c_light)*(m9B3[L]))/(p9))-sin(pi_9B3_xpitch[x_pitch]))
+po_9B3_xoff: patch, x_offset = -(pi_9B3_xoff[x_offset]+m9B3[L]*tan(0.5*(pi_9B3_xpitch[x_pitch]-po_9B3_xpitch[x_pitch])))
+
+pi_9B4_xpitch: patch, x_pitch = -po_9B3_xpitch[x_pitch]
+pi_9B4_xoff: patch, x_offset = -(po_9B3_xoff[x_offset]+(D902[L]*sin(po_9B3_xpitch[x_pitch])))-0.
+
+po_9B4_xpitch: patch, x_pitch = asin((((m9B4[db_field])*(c_light)*(m9B4[L]))/(p9))-sin(pi_9B4_xpitch[x_pitch]))
+po_9B4_xoff: patch, x_offset = -(pi_9B4_xoff[x_offset]+m9B4[L]*tan(0.5*(pi_9B4_xpitch[x_pitch]-po_9B4_xpitch[x_pitch])))
+
+pi_9B5_xpitch: patch, x_pitch = -po_9B4_xpitch[x_pitch]
+pi_9B5_xoff: patch, x_offset = -(po_9B4_xoff[x_offset]+(D903[L]*sin(po_9B4_xpitch[x_pitch])))-0.
+
+po_9B5_xpitch: patch, x_pitch = asin((((m9B5[db_field])*(c_light)*(m9B5[L]))/(p9))-sin(pi_9B5_xpitch[x_pitch]))
+po_9B5_xoff: patch, x_offset = -(pi_9B5_xoff[x_offset]+m9B5[L]*tan(0.5*(pi_9B5_xpitch[x_pitch]-po_9B5_xpitch[x_pitch])))
+
+pi_9B6_xpitch: patch, x_pitch = -po_9B5_xpitch[x_pitch]
+pi_9B6_xoff: patch, x_offset = -(po_9B5_xoff[x_offset]+(D904[L]*sin(po_9B5_xpitch[x_pitch])))-0.
+
+po_9B6_xpitch: patch, x_pitch = asin((((m9B6[db_field])*(c_light)*(m9B6[L]))/(p9))-sin(pi_9B6_xpitch[x_pitch]))
+po_9B6_xoff: patch, x_offset = -(pi_9B6_xoff[x_offset]+m9B6[L]*tan(0.5*(pi_9B6_xpitch[x_pitch]-po_9B6_xpitch[x_pitch])))
+
+pi_9B7_xpitch: patch, x_pitch = - po_9B6_xpitch[x_pitch]
+pi_9B7_xoff: patch, x_offset = -(po_9B6_xoff[x_offset]+(D905[L]*sin(po_9B6_xpitch[x_pitch])))
+
+po_9B7_xpitch: patch, x_pitch = asin((((m9B7[db_field])*(c_light)*(m9B7[L]))/(p9))-sin(pi_9B7_xpitch[x_pitch]))
+po_9B7_xoff: patch, x_offset = -(pi_9B7_xoff[x_offset]+m9B7[L]*tan(0.5*(pi_9B7_xpitch[x_pitch]-po_9B7_xpitch[x_pitch])))
+
+pi_9B8_xpitch: patch, x_pitch = -po_9B7_xpitch[x_pitch]
+pi_9B8_xoff: patch, x_offset = -(po_9B7_xoff[x_offset]+(D906[L]*sin(po_9B7_xpitch[x_pitch])))+0.35
+
+po_9B8_xpitch: patch, x_pitch = asin((((m9B8[db_field])*(c_light)*(m9B8[L]))/(p9))-sin(pi_9B8_xpitch[x_pitch]))
+po_9B8_xoff: patch, x_offset = -(pi_9B8_xoff[x_offset]+m9B8[L]*tan(0.5*(pi_9B8_xpitch[x_pitch]-po_9B8_xpitch[x_pitch])))
+
+pi_9B9_xpitch: patch, x_pitch = -po_9B8_xpitch[x_pitch]
+pi_9B9_xoff: patch, x_offset = -(po_9B8_xoff[x_offset]+(D907[L]*sin(po_9B8_xpitch[x_pitch])))+0.
+
+po_9B9_xpitch: patch, x_pitch = asin((((m9B9[db_field])*(c_light)*(m9B9[L]))/(p9))-sin(pi_9B9_xpitch[x_pitch]))
+po_9B9_xoff: patch, x_offset = -(pi_9B9_xoff[x_offset]+m9B9[L]*tan(0.5*(pi_9B9_xpitch[x_pitch]-po_9B9_xpitch[x_pitch])))
+
+pi_9B10_xpitch: patch, x_pitch = -po_9B9_xpitch[x_pitch]
+pi_9B10_xoff: patch, x_offset = -(po_9B9_xoff[x_offset]+(D908[L]*sin(po_9B9_xpitch[x_pitch])))-0.35
+
+po_9B10_xpitch: patch, x_pitch = asin((((m9B10[db_field])*(c_light)*(m9B10[L]))/(p9))-sin(pi_9B10_xpitch[x_pitch]))
+po_9B10_xoff: patch, x_offset = -(pi_9B10_xoff[x_offset]+m9B10[L]*tan(0.5*(pi_9B10_xpitch[x_pitch]-po_9B10_xpitch[x_pitch])))
+
+pi_9B11_xpitch: patch, x_pitch = -po_9B10_xpitch[x_pitch]
+pi_9B11_xoff: patch, x_offset = po_9B10_xoff[x_offset]
+
+po_9B11_xpitch: patch, x_pitch = asin((((m9B11[db_field])*(c_light)*(m9B11[L]))/(p9))-sin(pi_9B11_xpitch[x_pitch]))
+po_9B11_xoff: patch, x_offset = -(pi_9B11_xoff[x_offset]+m9B11[L]*tan(0.5*(pi_9B11_xpitch[x_pitch]-po_9B11_xpitch[x_pitch])))
+
+pi_9B12_xpitch: patch, x_pitch = -po_9B11_xpitch[x_pitch]
+pi_9B12_xoff: patch, x_offset = -(po_9B11_xoff[x_offset]+(D910[L]*sin(po_9B11_xpitch[x_pitch])))-0.
+
+po_9B12_xpitch: patch, x_pitch = asin((((m9B12[db_field])*(c_light)*(m9B12[L]))/(p9))-sin(pi_9B12_xpitch[x_pitch]))
+po_9B12_xoff: patch, x_offset = -(pi_9B12_xoff[x_offset]+m9B12[L]*tan(0.5*(pi_9B12_xpitch[x_pitch]-po_9B12_xpitch[x_pitch])))
+
+pi_9B13_xpitch: patch, x_pitch = -po_9B12_xpitch[x_pitch]
+pi_9B13_xoff: patch, x_offset = -(po_9B12_xoff[x_offset]+(D911[L]*sin(po_9B12_xpitch[x_pitch])))-0.
+
+po_9B13_xpitch: patch, x_pitch = asin((((m9B13[db_field])*(c_light)*(m9B13[L]))/(p9))-sin(pi_9B13_xpitch[x_pitch]))
+po_9B13_xoff: patch, x_offset = -(pi_9B13_xoff[x_offset]+m9B13[L]*tan(0.5*(pi_9B13_xpitch[x_pitch]-po_9B13_xpitch[x_pitch])))
+
+pi_9B14_xpitch: patch, x_pitch = -po_9B13_xpitch[x_pitch]
+pi_9B14_xoff: patch, x_offset = -(po_9B13_xoff[x_offset]+(D912[L]*sin(po_9B13_xpitch[x_pitch])))-0.
+
+po_9B14_xpitch: patch, x_pitch = asin((((m9B14[db_field])*(c_light)*(m9B14[L]))/(p9))-sin(pi_9B14_xpitch[x_pitch]))
+po_9B14_xoff: patch, x_offset = -(pi_9B14_xoff[x_offset]+m9B14[L]*tan(0.5*(pi_9B14_xpitch[x_pitch]-po_9B14_xpitch[x_pitch])))
+
+pi_9B15_xpitch: patch, x_pitch = -po_9B14_xpitch[x_pitch]
+pi_9B15_xoff: patch, x_offset = -(po_9B14_xoff[x_offset]+(D913[L]*sin(po_9B14_xpitch[x_pitch])))-0.
+
+po_9B15_xpitch: patch, x_pitch = asin((((m9B15[db_field])*(c_light)*(m9B15[L]))/(p9))-sin(pi_9B15_xpitch[x_pitch]))
+po_9B15_xoff: patch, x_offset = -(pi_9B15_xoff[x_offset]+m9B15[L]*tan(0.5*(pi_9B15_xpitch[x_pitch]-po_9B15_xpitch[x_pitch])))
+
+! For "square" alignment:
+!pi_9B16_xpitch: patch, x_pitch = -po_9B15_xpitch[x_pitch]
+!pi_9B16_xoff: patch, x_offset = 0 !-(po_9B15_xoff[x_offset]+(D914[L]*sin(po_9B15_xpitch[x_pitch])))+0.5
+
+!po_9B16_xpitch: patch, x_pitch = asin((((m9B16[db_field])*(c_light)*(m9B16[L]))/(p9))-sin(pi_9B16_xpitch[x_pitch]))
+!po_9B16_xoff: patch, x_offset = -(pi_9B16_xoff[x_offset]+m9B16[L]*tan(0.5*(pi_9B16_xpitch[x_pitch]-po_9B16_xpitch[x_pitch])))
+
+! For "angled" alignment:
+pi_9B16_xpitch: patch, x_pitch =  -0.5*po_9B15_xpitch[x_pitch]+(-1.0*(0.0174532925199))
+pi_9B16_xoff: patch, x_offset = -0.15 
+
+po_9B16_xpitch: patch, x_pitch = asin((((m9B16[db_field])*(c_light)*(m9B16[L]))/(p9))-sin(pi_9B16_xpitch[x_pitch]))
+po_9B16_xoff: patch, x_offset = -(pi_9B16_xoff[x_offset]+m9B16[L]*tan(0.5*(pi_9B16_xpitch[x_pitch]-po_9B16_xpitch[x_pitch])))
+
+!!!!!!!!!!!!!!!!!!!!
+!!!!!! Pass 11 !!!!!
+!!!!!!!!!!!!!!!!!!!!
+
+pi_11CB1_xpitch: patch, x_pitch = 0
+pi_11CB1_xoff: patch, x_offset = 0
+
+po_11CB1_xpitch: patch, x_pitch =  asin(((mCB1[db_field])*(c_light)*(mCB1[L]))/(p11))
+po_11CB1_xoff: patch, x_offset =  (mCB1[L])*tan(0.5*po_11CB1_xpitch[x_pitch])
+
+pi_11B2_xpitch: patch, x_pitch = -0.5*po_11CB1_xpitch[x_pitch]+(0.5*(0.0174532925199)) 
+pi_11B2_xoff: patch, x_offset = 0.12 ! po_11CB1_xoff[x_offset] 				! 0.5*po_11CB1_xoff[x_offset]	
+
+po_11B2_xpitch: patch, x_pitch = asin((((m11B2[db_field])*(c_light)*(m11B2[L]))/(p11))-sin(pi_11B2_xpitch[x_pitch]))
+po_11B2_xoff: patch, x_offset = -(pi_11B2_xoff[x_offset]+m11B2[L]*tan(0.5*(pi_11B2_xpitch[x_pitch]-po_11B2_xpitch[x_pitch])))
+
+pi_11B3_xpitch: patch, x_pitch = 0 !-po_11B2_xpitch[x_pitch]
+pi_11B3_xoff: patch, x_offset = -(po_11B2_xoff[x_offset]+(D1101[L]*sin(po_11B2_xpitch[x_pitch])))+0.8
+
+po_11B3_xpitch: patch, x_pitch = asin((((m11B3[db_field])*(c_light)*(m11B3[L]))/(p11))-sin(pi_11B3_xpitch[x_pitch]))
+po_11B3_xoff: patch, x_offset = -(pi_11B3_xoff[x_offset]+m11B3[L]*tan(0.5*(pi_11B3_xpitch[x_pitch]-po_11B3_xpitch[x_pitch])))
+
+pi_11B4_xpitch: patch, x_pitch = -po_11B3_xpitch[x_pitch]
+pi_11B4_xoff: patch, x_offset = -(po_11B3_xoff[x_offset]+(D1102[L]*sin(po_11B3_xpitch[x_pitch])))+0.25
+
+po_11B4_xpitch: patch, x_pitch = asin((((m11B4[db_field])*(c_light)*(m11B4[L]))/(p11))-sin(pi_11B4_xpitch[x_pitch]))
+po_11B4_xoff: patch, x_offset = -(pi_11B4_xoff[x_offset]+m11B4[L]*tan(0.5*(pi_11B4_xpitch[x_pitch]-po_11B4_xpitch[x_pitch])))-0.
+
+pi_11B5_xpitch: patch, x_pitch = -po_11B4_xpitch[x_pitch]
+pi_11B5_xoff: patch, x_offset = -(po_11B4_xoff[x_offset]+(D1103[L]*sin(po_11B4_xpitch[x_pitch])))+0.
+
+po_11B5_xpitch: patch, x_pitch = asin((((m11B5[db_field])*(c_light)*(m11B5[L]))/(p11))-sin(pi_11B5_xpitch[x_pitch]))
+po_11B5_xoff: patch, x_offset = -(pi_11B5_xoff[x_offset]+m11B5[L]*tan(0.5*(pi_11B5_xpitch[x_pitch]-po_11B5_xpitch[x_pitch])))-0.
+
+pi_11B6_xpitch: patch, x_pitch = -po_11B5_xpitch[x_pitch]
+pi_11B6_xoff: patch, x_offset = -(po_11B5_xoff[x_offset]+(D1104[L]*sin(po_11B5_xpitch[x_pitch])))-0.25
+
+po_11B6_xpitch: patch, x_pitch = asin((((m11B6[db_field])*(c_light)*(m11B6[L]))/(p11))-sin(pi_11B6_xpitch[x_pitch]))
+po_11B6_xoff: patch, x_offset = -(pi_11B6_xoff[x_offset]+m11B6[L]*tan(0.5*(pi_11B6_xpitch[x_pitch]-po_11B6_xpitch[x_pitch])))-0.
+
+pi_11B7_xpitch: patch, x_pitch = -po_11B6_xpitch[x_pitch]
+pi_11B7_xoff: patch, x_offset = -(po_11B6_xoff[x_offset]+(D1105[L]*sin(po_11B6_xpitch[x_pitch])))-0.0
+
+po_11B7_xpitch: patch, x_pitch = asin((((m11B7[db_field])*(c_light)*(m11B7[L]))/(p11))-sin(pi_11B7_xpitch[x_pitch]))
+po_11B7_xoff: patch, x_offset = -(pi_11B7_xoff[x_offset]+m11B7[L]*tan(0.5*(pi_11B7_xpitch[x_pitch]-po_11B7_xpitch[x_pitch])))-0.
+
+! For "square" alignment:
+!pi_11B8_xpitch: patch, x_pitch = -po_11B7_xpitch[x_pitch]
+!pi_11B8_xoff: patch, x_offset = -(po_11B7_xoff[x_offset]+(D1106[L]*sin(po_11B7_xpitch[x_pitch])))+0.7
+
+!po_11B8_xpitch: patch, x_pitch = asin((((m11B8[db_field])*(c_light)*(m11B8[L]))/(p11))-sin(pi_11B8_xpitch[x_pitch]))
+!po_11B8_xoff: patch, x_offset = -(pi_11B8_xoff[x_offset]+m11B8[L]*tan(0.5*(pi_11B8_xpitch[x_pitch]-po_11B8_xpitch[x_pitch])))-0.
+
+! For "angled" alignment:
+pi_11B8_xpitch: patch, x_pitch = -0.5*po_11B7_xpitch[x_pitch]+(2.5*(0.0174532925199))
+pi_11B8_xoff: patch, x_offset = -0.2
+
+po_11B8_xpitch: patch, x_pitch = asin((((m11B8[db_field])*(c_light)*(m11B8[L]))/(p11))-sin(pi_11B8_xpitch[x_pitch]))
+po_11B8_xoff: patch, x_offset = -(pi_11B8_xoff[x_offset]+m11B8[L]*tan(0.5*(pi_11B8_xpitch[x_pitch]-po_11B8_xpitch[x_pitch])))-0.
+
+!!!!!!!!!!!!!!!!!!!!
+!!!!!! Pass 13 !!!!!
+!!!!!!!!!!!!!!!!!!!!
+
+pi_13CB1_xpitch: patch, x_pitch = 0
+pi_13CB1_xoff: patch, x_offset = 0
+
+po_13CB1_xpitch: patch, x_pitch =  asin(((mCB1[db_field])*(c_light)*(mCB1[L]))/(p13))
+po_13CB1_xoff: patch, x_offset =  (mCB1[L])*tan(0.5*po_13CB1_xpitch[x_pitch])
+
+pi_13CB2_xpitch: patch, x_pitch = -((0.5*po_13CB1_xpitch[x_pitch])+((0.5*po_13CB1_xpitch[x_pitch])-(0.5*po_13CB1_xpitch[x_pitch])))-(3*(0.0174532925199)) ! Subtracted angle to avoid collision  	
+pi_13CB2_xoff: patch, x_offset =  -(po_13CB1_xoff[x_offset]+(D1300[L]*sin(po_13CB1_xpitch[x_pitch]))) - 0.04 ! Added manual offset to avoid collisions	
+
+po_13CB2_xpitch: patch, x_pitch = asin((((mCB2[db_field])*(c_light)*(mCB2[L]))/(p13))-sin(pi_13CB2_xpitch[x_pitch]))
+po_13CB2_xoff: patch, x_offset = -(pi_13CB2_xoff[x_offset]+mCB2[L]*tan(0.5*(pi_13CB2_xpitch[x_pitch]-po_13CB2_xpitch[x_pitch])))
+
+pi_13CB3A_xpitch: patch, x_pitch = 0
+pi_13CB3A_xoff: patch, x_offset =  -(po_13CB2_xoff[x_offset]+(D1301[L]*sin(po_13CB2_xpitch[x_pitch])))+0.3
+
+po_13CB3A_xpitch: patch, x_pitch = asin((((mCB3A[db_field])*(c_light)*(mCB3A[L]))/(p13))-sin(pi_13CB3A_xpitch[x_pitch]))
+po_13CB3A_xoff: patch, x_offset = -(pi_13CB3A_xoff[x_offset]+mCB3A[L]*tan(0.5*(pi_13CB3A_xpitch[x_pitch]-po_13CB3A_xpitch[x_pitch])))
+
+pi_13CB4A_xpitch: patch, x_pitch = -po_13CB3A_xpitch[x_pitch]
+pi_13CB4A_xoff: patch, x_offset =  -(po_13CB3A_xoff[x_offset]+(D1302[L]*sin(po_13CB3A_xpitch[x_pitch])))-0.13
+
+po_13CB4A_xpitch: patch, x_pitch = asin((((mCB4A[db_field])*(c_light)*(mCB4A[L]))/(p13))-sin(pi_13CB4A_xpitch[x_pitch]))
+po_13CB4A_xoff: patch, x_offset = -(pi_13CB4A_xoff[x_offset]+mCB4A[L]*tan(0.5*(pi_13CB4A_xpitch[x_pitch]-po_13CB4A_xpitch[x_pitch])))
+
+pi_13B5_xpitch: patch, x_pitch = -po_13CB4A_xpitch[x_pitch]
+pi_13B5_xoff: patch, x_offset =  -(po_13CB4A_xoff[x_offset]+(D1303[L]*sin(po_13CB4A_xpitch[x_pitch])))-0.0
+
+po_13B5_xpitch: patch, x_pitch = asin((((m13B5[db_field])*(c_light)*(m13B5[L]))/(p13))-sin(pi_13B5_xpitch[x_pitch]))
+po_13B5_xoff: patch, x_offset = -(pi_13B5_xoff[x_offset]+m13B5[L]*tan(0.5*(pi_13B5_xpitch[x_pitch]-po_13B5_xpitch[x_pitch])))
+
+pi_13B6_xpitch: patch, x_pitch = -po_13B5_xpitch[x_pitch]
+pi_13B6_xoff: patch, x_offset =  -(po_13B5_xoff[x_offset]+(D1304[L]*sin(po_13B5_xpitch[x_pitch])))+0.3
+
+po_13B6_xpitch: patch, x_pitch = asin((((m13B6[db_field])*(c_light)*(m13B6[L]))/(p13))-sin(pi_13B6_xpitch[x_pitch]))
+po_13B6_xoff: patch, x_offset = -(pi_13B6_xoff[x_offset]+m13B6[L]*tan(0.5*(pi_13B6_xpitch[x_pitch]-po_13B6_xpitch[x_pitch])))
+
+pi_13B7_xpitch: patch, x_pitch = -po_13B6_xpitch[x_pitch]
+pi_13B7_xoff: patch, x_offset =  -(po_13B6_xoff[x_offset]+(D1305[L]*sin(po_13B6_xpitch[x_pitch])))+0.0
+
+po_13B7_xpitch: patch, x_pitch = asin((((m13B7[db_field])*(c_light)*(m13B7[L]))/(p13))-sin(pi_13B7_xpitch[x_pitch]))
+po_13B7_xoff: patch, x_offset = -(pi_13B7_xoff[x_offset]+m13B7[L]*tan(0.5*(pi_13B7_xpitch[x_pitch]-po_13B7_xpitch[x_pitch])))
+
+pi_13B8_xpitch: patch, x_pitch = -po_13B7_xpitch[x_pitch]
+pi_13B8_xoff: patch, x_offset =  -(po_13B7_xoff[x_offset]+(D1306[L]*sin(po_13B7_xpitch[x_pitch])))-0.3
+
+po_13B8_xpitch: patch, x_pitch = asin((((m13B8[db_field])*(c_light)*(m13B8[L]))/(p13))-sin(pi_13B8_xpitch[x_pitch]))
+po_13B8_xoff: patch, x_offset = -(pi_13B8_xoff[x_offset]+m13B8[L]*tan(0.5*(pi_13B8_xpitch[x_pitch]-po_13B8_xpitch[x_pitch])))
+
+pi_13B9_xpitch: patch, x_pitch = -po_13B8_xpitch[x_pitch]
+pi_13B9_xoff: patch, x_offset =  -(po_13B8_xoff[x_offset]+(D1307[L]*sin(po_13B8_xpitch[x_pitch])))-0.0
+
+po_13B9_xpitch: patch, x_pitch = asin((((m13B9[db_field])*(c_light)*(m13B9[L]))/(p13))-sin(pi_13B9_xpitch[x_pitch]))
+po_13B9_xoff: patch, x_offset = -(pi_13B9_xoff[x_offset]+m13B9[L]*tan(0.5*(pi_13B9_xpitch[x_pitch]-po_13B9_xpitch[x_pitch])))
+
+! For "square" alignment:
+!pi_13B10_xpitch: patch, x_pitch = -po_13B9_xpitch[x_pitch]
+!pi_13B10_xoff: patch, x_offset =  -(po_13B9_xoff[x_offset]+(D1308[L]*sin(po_13B9_xpitch[x_pitch])))+0.5
+
+!po_13B10_xpitch: patch, x_pitch = asin((((m13B10[db_field])*(c_light)*(m13B10[L]))/(p13))-sin(pi_13B10_xpitch[x_pitch]))
+!po_13B10_xoff: patch, x_offset = -(pi_13B10_xoff[x_offset]+m13B10[L]*tan(0.5*(pi_13B10_xpitch[x_pitch]-po_13B10_xpitch[x_pitch])))
+
+! For "angled" alignment:
+pi_13B10_xpitch: patch, x_pitch = -0.5*po_13B9_xpitch[x_pitch] + (1.5*(0.0174532925199))
+pi_13B10_xoff: patch, x_offset =  -0.20
+
+po_13B10_xpitch: patch, x_pitch = asin((((m13B10[db_field])*(c_light)*(m13B10[L]))/(p13))-sin(pi_13B10_xpitch[x_pitch]))
+po_13B10_xoff: patch, x_offset = -(pi_13B10_xoff[x_offset]+m13B10[L]*tan(0.5*(pi_13B10_xpitch[x_pitch]-po_13B10_xpitch[x_pitch])))
+
+!!!!!!!!!!!!!!!!!!!!
+!!!!!! Pass 15 !!!!!
+!!!!!!!!!!!!!!!!!!!!
+
+pi_15CB1_xpitch: patch, x_pitch = 0
+pi_15CB1_xoff: patch, x_offset = 0
+
+po_15CB1_xpitch: patch, x_pitch =  asin(((mCB1[db_field])*(c_light)*(mCB1[L]))/(p15))
+po_15CB1_xoff: patch, x_offset =  (mCB1[L])*tan(0.5*po_15CB1_xpitch[x_pitch])
+
+pi_15CB2_xpitch: patch, x_pitch = -((0.5*po_15CB1_xpitch[x_pitch])+((0.5*po_15CB1_xpitch[x_pitch])-(0.5*po_13CB1_xpitch[x_pitch])))-(3*0.0174532925199)	
+pi_15CB2_xoff: patch, x_offset = -(po_15CB1_xoff[x_offset]+(D1500[L]*sin(po_15CB1_xpitch[x_pitch]))) - 0.04  ! po_15CB1_xoff[x_offset] 		 ! 0.5*po_15CB1_xoff[x_offset]	
+
+po_15CB2_xpitch: patch, x_pitch = asin((((mCB2[db_field])*(c_light)*(mCB2[L]))/(p15))-sin(pi_15CB2_xpitch[x_pitch]))	 !x_pitch = pi_15CB2_xpitch[x_pitch]
+po_15CB2_xoff: patch, x_offset = -(pi_15CB2_xoff[x_offset]+mCB2[L]*tan(0.5*(pi_15CB2_xpitch[x_pitch]-po_15CB2_xpitch[x_pitch])))   
+
+pi_15CB3A_xpitch: patch, x_pitch = 0
+pi_15CB3A_xoff: patch, x_offset = -(po_15CB2_xoff[x_offset]+(D1501[L]*sin(po_15CB2_xpitch[x_pitch])))+0.3
+
+po_15CB3A_xpitch: patch, x_pitch = asin((((mCB3A[db_field])*(c_light)*(mCB3A[L]))/(p15))-sin(pi_15CB3A_xpitch[x_pitch]))
+po_15CB3A_xoff: patch, x_offset = -(pi_15CB3A_xoff[x_offset]+mCB3A[L]*tan(0.5*(pi_15CB3A_xpitch[x_pitch]-po_15CB3A_xpitch[x_pitch]))) 
+
+pi_15CB4A_xpitch: patch, x_pitch = -po_15CB3A_xpitch[x_pitch]
+pi_15CB4A_xoff: patch, x_offset = -(po_15CB3A_xoff[x_offset]+(D1502[L]*sin(po_15CB3A_xpitch[x_pitch])))-0.13
+
+po_15CB4A_xpitch: patch, x_pitch = asin((((mCB4A[db_field])*(c_light)*(mCB4A[L]))/(p15))-sin(pi_15CB4A_xpitch[x_pitch]))
+po_15CB4A_xoff: patch, x_offset = -(pi_15CB4A_xoff[x_offset]+mCB4A[L]*tan(0.5*(pi_15CB4A_xpitch[x_pitch]-po_15CB4A_xpitch[x_pitch]))) 
+
+pi_15B5_xpitch: patch, x_pitch = -po_15CB4A_xpitch[x_pitch]+(0*0.0174532925199)	
+pi_15B5_xoff: patch, x_offset = -(po_15CB4A_xoff[x_offset]+(D1503[L]*sin(po_15CB4A_xpitch[x_pitch])))+0.07
+
+po_15B5_xpitch: patch, x_pitch = asin((((m15B5[db_field])*(c_light)*(m15B5[L]))/(p15))-sin(pi_15B5_xpitch[x_pitch]))
+po_15B5_xoff: patch, x_offset = -(pi_15B5_xoff[x_offset]+m15B5[L]*tan(0.5*(pi_15B5_xpitch[x_pitch]-po_15B5_xpitch[x_pitch]))) 
+
+pi_15B6_xpitch: patch, x_pitch = -po_15B5_xpitch[x_pitch]+(0*0.0174532925199)
+pi_15B6_xoff: patch, x_offset = -(po_15B5_xoff[x_offset]+(D1504[L]*sin(po_15B5_xpitch[x_pitch])))+0.6
+
+po_15B6_xpitch: patch, x_pitch = asin((((m15B6[db_field])*(c_light)*(m15B6[L]))/(p15))-sin(pi_15B6_xpitch[x_pitch]))
+po_15B6_xoff: patch, x_offset = -(pi_15B6_xoff[x_offset]+m15B6[L]*tan(0.5*(pi_15B6_xpitch[x_pitch]-po_15B6_xpitch[x_pitch])))
+
+pi_15B7_xpitch: patch, x_pitch = -po_15B6_xpitch[x_pitch]+(0*0.0174532925199)
+pi_15B7_xoff: patch, x_offset = -(po_15B6_xoff[x_offset]+(D1505[L]*sin(po_15B6_xpitch[x_pitch])))+0.15
+
+po_15B7_xpitch: patch, x_pitch = asin((((m15B7[db_field])*(c_light)*(m15B7[L]))/(p15))-sin(pi_15B7_xpitch[x_pitch]))
+po_15B7_xoff: patch, x_offset = -(pi_15B7_xoff[x_offset]+m15B7[L]*tan(0.5*(pi_15B7_xpitch[x_pitch]-po_15B7_xpitch[x_pitch])))
+
+pi_15B8_xpitch: patch, x_pitch = -po_15B7_xpitch[x_pitch]+(0*0.0174532925199)
+pi_15B8_xoff: patch, x_offset = -(po_15B7_xoff[x_offset]+(D1506[L]*sin(po_15B7_xpitch[x_pitch])))-0.3
+
+po_15B8_xpitch: patch, x_pitch = asin((((m15B8[db_field])*(c_light)*(m15B8[L]))/(p15))-sin(pi_15B8_xpitch[x_pitch]))
+po_15B8_xoff: patch, x_offset = -(pi_15B8_xoff[x_offset]+m15B8[L]*tan(0.5*(pi_15B8_xpitch[x_pitch]-po_15B8_xpitch[x_pitch])))
+
+pi_15B9_xpitch: patch, x_pitch = -po_15B8_xpitch[x_pitch]+(0*0.0174532925199)
+pi_15B9_xoff: patch, x_offset = -(po_15B8_xoff[x_offset]+(D1507[L]*sin(po_15B8_xpitch[x_pitch])))-0.0
+
+po_15B9_xpitch: patch, x_pitch = asin((((m15B9[db_field])*(c_light)*(m15B9[L]))/(p15))-sin(pi_15B9_xpitch[x_pitch]))
+po_15B9_xoff: patch, x_offset = -(pi_15B9_xoff[x_offset]+m15B9[L]*tan(0.5*(pi_15B9_xpitch[x_pitch]-po_15B9_xpitch[x_pitch])))
+
+pi_15B10_xpitch: patch, x_pitch = -po_15B9_xpitch[x_pitch]+(0*0.0174532925199)
+pi_15B10_xoff: patch, x_offset = -(po_15B9_xoff[x_offset]+(D1508[L]*sin(po_15B9_xpitch[x_pitch])))+0.19
+
+po_15B10_xpitch: patch, x_pitch = asin((((m15B10[db_field])*(c_light)*(m15B10[L]))/(p15))-sin(pi_15B10_xpitch[x_pitch]))
+po_15B10_xoff: patch, x_offset = -(pi_15B10_xoff[x_offset]+m15B10[L]*tan(0.5*(pi_15B10_xpitch[x_pitch]-po_15B10_xpitch[x_pitch])))
+
+!!!!!!!!!!!!!!!!!!!!
+!!!!!! Pass 17 !!!!!
+!!!!!!!!!!!!!!!!!!!!
+
+pi_17CB1_xpitch: patch, x_pitch = 0
+pi_17CB1_xoff: patch, x_offset = 0
+
+po_17CB1_xpitch: patch, x_pitch =  asin(((mCB1[db_field])*(c_light)*(mCB1[L]))/(p17))
+po_17CB1_xoff: patch, x_offset =  (mCB1[L])*tan(0.5*po_17CB1_xpitch[x_pitch])
+
+pi_17CB2_xpitch: patch, x_pitch = -((0.5*po_17CB1_xpitch[x_pitch])+((0.5*po_17CB1_xpitch[x_pitch])-(0.5*po_13CB1_xpitch[x_pitch])))-(3*0.0174532925199)   		
+pi_17CB2_xoff: patch, x_offset = -(po_17CB1_xoff[x_offset]+(D1700[L]*sin(po_17CB1_xpitch[x_pitch]))) - 0.04 
+
+po_17CB2_xpitch: patch, x_pitch = asin((((mCB2[db_field])*(c_light)*(mCB2[L]))/(p17))-sin(pi_17CB2_xpitch[x_pitch]))				 !pi_17CB2_xpitch[x_pitch]
+po_17CB2_xoff: patch, x_offset = -(pi_17CB2_xoff[x_offset]+mCB2[L]*tan(0.5*(pi_17CB2_xpitch[x_pitch]-po_17CB2_xpitch[x_pitch])))
+
+pi_17CB3B_xpitch: patch, x_pitch = 0        ! -po_17B2_xpitch[x_pitch]
+pi_17CB3B_xoff: patch, x_offset = -(po_17CB2_xoff[x_offset]+(D1701[L]*sin(po_17CB2_xpitch[x_pitch])))+0.3             ! -ls_B2M*tan(0.5*(asin((((m11B3[db_field])*(c_light)*(ls_B2M))/(p17)))))
+
+po_17CB3B_xpitch: patch, x_pitch = asin((((mCB3B[db_field])*(c_light)*(mCB3B[L]))/(p17))-sin(pi_17CB3B_xpitch[x_pitch])) 
+po_17CB3B_xoff: patch, x_offset = -(pi_17CB3B_xoff[x_offset]+mCB3B[L]*tan(0.5*(pi_17CB3B_xpitch[x_pitch]-po_17CB3B_xpitch[x_pitch])))
+
+pi_17CB4B_xpitch: patch, x_pitch = -((0.5*po_17CB3B_xpitch[x_pitch])+((0.5*po_17CB3B_xpitch[x_pitch])-(0.5*po_17CB3B_xpitch[x_pitch])))-(-0.5*0.0174532925199)
+pi_17CB4B_xoff: patch, x_offset = -(po_17CB3B_xoff[x_offset]+(D1702[L]*sin(po_17CB3B_xpitch[x_pitch])))+0.1 
+
+po_17CB4B_xpitch: patch, x_pitch = asin((((mCB4B[db_field])*(c_light)*(mCB4B[L]))/(p17))-sin(pi_17CB4B_xpitch[x_pitch]))
+po_17CB4B_xoff: patch, x_offset = -(pi_17CB4B_xoff[x_offset]+mCB4B[L]*tan(0.5*(pi_17CB4B_xpitch[x_pitch]-po_17CB4B_xpitch[x_pitch])))
+
+pi_17CB5B_xpitch: patch, x_pitch = -((0.5*po_17CB4B_xpitch[x_pitch])+((0.5*po_17CB4B_xpitch[x_pitch])-(0.5*po_17CB4B_xpitch[x_pitch])))-(-1.5*0.0174532925199)
+pi_17CB5B_xoff: patch, x_offset = -(po_17CB4B_xoff[x_offset]+(D1703[L]*sin(po_17CB4B_xpitch[x_pitch])))+0.15 
+
+po_17CB5B_xpitch: patch, x_pitch = asin((((mCB5B[db_field])*(c_light)*(mCB5B[L]))/(p17))-sin(pi_17CB5B_xpitch[x_pitch]))
+po_17CB5B_xoff: patch, x_offset = -(pi_17CB5B_xoff[x_offset]+mCB5B[L]*tan(0.5*(pi_17CB5B_xpitch[x_pitch]-po_17CB5B_xpitch[x_pitch])))
+
+pi_17CB6B_xpitch: patch, x_pitch = -((0.5*po_17CB5B_xpitch[x_pitch])+((0.5*po_17CB5B_xpitch[x_pitch])-(0.5*po_17CB5B_xpitch[x_pitch])))-(2.5*0.0174532925199)
+pi_17CB6B_xoff: patch, x_offset = -(po_17CB5B_xoff[x_offset]+(D1704[L]*sin(po_17CB5B_xpitch[x_pitch])))-0.2
+
+po_17CB6B_xpitch: patch, x_pitch = asin((((mCB6B[db_field])*(c_light)*(mCB6B[L]))/(p17))-sin(pi_17CB6B_xpitch[x_pitch]))
+po_17CB6B_xoff: patch, x_offset = -(pi_17CB6B_xoff[x_offset]+mCB6B[L]*tan(0.5*(pi_17CB6B_xpitch[x_pitch]-po_17CB6B_xpitch[x_pitch])))
+
+pi_17B7_xpitch: patch, x_pitch = 0 ! po_17CB6B_xpitch[x_pitch]
+pi_17B7_xoff: patch, x_offset = -(po_17CB6B_xoff[x_offset]+(D1705[L]*sin(po_17CB6B_xpitch[x_pitch])))-0.52
+
+po_17B7_xpitch: patch, x_pitch = asin((((m17B7[db_field])*(c_light)*(m17B7[L]))/(p17))-sin(pi_17B7_xpitch[x_pitch]))
+po_17B7_xoff: patch, x_offset = -(pi_17B7_xoff[x_offset]+m17B7[L]*tan(0.5*(pi_17B7_xpitch[x_pitch]-po_17B7_xpitch[x_pitch])))
+
+pi_17B8_xpitch: patch, x_pitch = -po_17B7_xpitch[x_pitch]
+pi_17B8_xoff: patch, x_offset = -((D1706[L]*sin(po_17B7_xpitch[x_pitch])))-0.35
+
+po_17B8_xpitch: patch, x_pitch = asin((((m17B8[db_field])*(c_light)*(m17B8[L]))/(p17))-sin(pi_17B8_xpitch[x_pitch]))
+po_17B8_xoff: patch, x_offset = -(pi_17B8_xoff[x_offset]+m17B8[L]*tan(0.5*(pi_17B8_xpitch[x_pitch]-po_17B8_xpitch[x_pitch])))
+
+pi_17B9_xpitch: patch, x_pitch = -po_17B8_xpitch[x_pitch]
+pi_17B9_xoff: patch, x_offset = -((D1707[L]*sin(po_17B8_xpitch[x_pitch])))+0.11
+
+po_17B9_xpitch: patch, x_pitch = asin((((m17B9[db_field])*(c_light)*(m17B9[L]))/(p17))-sin(pi_17B9_xpitch[x_pitch]))
+po_17B9_xoff: patch, x_offset = -(pi_17B9_xoff[x_offset]+m17B9[L]*tan(0.5*(pi_17B9_xpitch[x_pitch]-po_17B9_xpitch[x_pitch])))
+
+pi_17B10_xpitch: patch, x_pitch = -po_17B9_xpitch[x_pitch]
+pi_17B10_xoff: patch, x_offset = -((D1708[L]*sin(po_17B9_xpitch[x_pitch])))+0.05
+
+po_17B10_xpitch: patch, x_pitch = asin((((m17B10[db_field])*(c_light)*(m17B10[L]))/(p17))-sin(pi_17B10_xpitch[x_pitch]))
+po_17B10_xoff: patch, x_offset = -(pi_17B10_xoff[x_offset]+m17B10[L]*tan(0.5*(pi_17B10_xpitch[x_pitch]-po_17B10_xpitch[x_pitch])))
+
+pi_17B11_xpitch: patch, x_pitch = -po_17B10_xpitch[x_pitch]
+pi_17B11_xoff: patch, x_offset = -((D1709[L]*sin(po_17B10_xpitch[x_pitch])))-0.20
+
+po_17B11_xpitch: patch, x_pitch = asin((((m17B11[db_field])*(c_light)*(m17B11[L]))/(p17))-sin(pi_17B11_xpitch[x_pitch]))
+po_17B11_xoff: patch, x_offset = -(pi_17B11_xoff[x_offset]+m17B11[L]*tan(0.5*(pi_17B11_xpitch[x_pitch]-po_17B11_xpitch[x_pitch])))
+
+! For "square" alignment:
+!pi_17B12_xpitch: patch, x_pitch = -po_17B11_xpitch[x_pitch]
+!pi_17B12_xoff: patch, x_offset = -((D1710[L]*sin(po_17B11_xpitch[x_pitch])))-0.5
+
+!po_17B12_xpitch: patch, x_pitch = asin((((m17B12[db_field])*(c_light)*(m17B12[L]))/(p17))-sin(pi_17B12_xpitch[x_pitch]))
+!po_17B12_xoff: patch, x_offset = -(pi_17B12_xoff[x_offset]+m17B12[L]*tan(0.5*(pi_17B12_xpitch[x_pitch]-po_17B12_xpitch[x_pitch])))
+
+! For "angled" alignment:
+pi_17B12_xpitch: patch, x_pitch = -0.5*po_17B11_xpitch[x_pitch] + (0*(0.0174532925199))
+pi_17B12_xoff: patch, x_offset = 0.2
+
+po_17B12_xpitch: patch, x_pitch = asin((((m17B12[db_field])*(c_light)*(m17B12[L]))/(p17))-sin(pi_17B12_xpitch[x_pitch]))
+po_17B12_xoff: patch, x_offset = -(pi_17B12_xoff[x_offset]+m17B12[L]*tan(0.5*(pi_17B12_xpitch[x_pitch]-po_17B12_xpitch[x_pitch])))
+
+!!!!!!!!!!!!!!!!!!!!
+!!!!!! Pass 19 !!!!!
+!!!!!!!!!!!!!!!!!!!!
+
+pi_19CB1_xpitch: patch, x_pitch = 0
+pi_19CB1_xoff: patch, x_offset = 0
+
+po_19CB1_xpitch: patch, x_pitch =  asin(((mCB1[db_field])*(c_light)*((mCB1[L])))/(p19))
+po_19CB1_xoff: patch, x_offset =  (mCB1[L])*tan(0.5*po_19CB1_xpitch[x_pitch])
+
+pi_19CB2_xpitch: patch, x_pitch = -((0.5*po_19CB1_xpitch[x_pitch])+((0.5*po_19CB1_xpitch[x_pitch])-(0.5*po_13CB1_xpitch[x_pitch])))-(3*0.0174532925199)  	
+pi_19CB2_xoff: patch, x_offset = -(po_19CB1_xoff[x_offset]+(D1900[L]*sin(po_19CB1_xpitch[x_pitch]))) - 0.04  ! po_19CB1_xoff[x_offset] 	 ! 0.5*po_19CB1_xoff[x_offset]	
+
+po_19CB2_xpitch: patch, x_pitch = asin((((mCB2[db_field])*(c_light)*(mCB2[L]))/(p19))-sin(pi_19CB2_xpitch[x_pitch]))			 !x_pitch = pi_19CB2_xpitch[x_pitch]
+po_19CB2_xoff: patch, x_offset = -(pi_19CB2_xoff[x_offset]+mCB2[L]*tan(0.5*(pi_19CB2_xpitch[x_pitch]-po_19CB2_xpitch[x_pitch])))
+
+pi_19CB3B_xpitch: patch, x_pitch = 0     ! -po_19B2_xpitch[x_pitch]
+pi_19CB3B_xoff: patch, x_offset = -(po_19CB2_xoff[x_offset]+(D1901[L]*sin(po_19CB2_xpitch[x_pitch])))+0.3
+
+po_19CB3B_xpitch: patch, x_pitch = asin((((mCB3B[db_field])*(c_light)*(mCB3B[L]))/(p19))-sin(pi_19CB3B_xpitch[x_pitch])) 
+po_19CB3B_xoff: patch, x_offset = -(pi_19CB3B_xoff[x_offset]+mCB3B[L]*tan(0.5*(pi_19CB3B_xpitch[x_pitch]-po_19CB3B_xpitch[x_pitch])))
+
+pi_19CB4B_xpitch: patch, x_pitch= -((0.5*po_19CB3B_xpitch[x_pitch])+((0.5*po_19CB3B_xpitch[x_pitch])-(0.5*po_17CB3B_xpitch[x_pitch])))-(-0.5*0.0174532925199)
+pi_19CB4B_xoff: patch, x_offset = -(po_19CB3B_xoff[x_offset]+(D1902[L]*sin(po_19CB3B_xpitch[x_pitch])))+0.1 
+
+po_19CB4B_xpitch: patch, x_pitch = asin((((mCB4B[db_field])*(c_light)*(mCB4B[L]))/(p19))-sin(pi_19CB4B_xpitch[x_pitch]))
+po_19CB4B_xoff: patch, x_offset = -(pi_19CB4B_xoff[x_offset]+mCB4B[L]*tan(0.5*(pi_19CB4B_xpitch[x_pitch]-po_19CB4B_xpitch[x_pitch])))
+
+pi_19CB5B_xpitch: patch, x_pitch= -((0.5*po_19CB4B_xpitch[x_pitch])+((0.5*po_19CB4B_xpitch[x_pitch])-(0.5*po_17CB4B_xpitch[x_pitch])))-(-1.5*0.0174532925199)
+pi_19CB5B_xoff: patch, x_offset = -(po_19CB4B_xoff[x_offset]+(D1903[L]*sin(po_19CB4B_xpitch[x_pitch])))+0.15 
+
+po_19CB5B_xpitch: patch, x_pitch = asin((((mCB5B[db_field])*(c_light)*(mCB5B[L]))/(p19))-sin(pi_19CB5B_xpitch[x_pitch]))
+po_19CB5B_xoff: patch, x_offset = -(pi_19CB5B_xoff[x_offset]+mCB5B[L]*tan(0.5*(pi_19CB5B_xpitch[x_pitch]-po_19CB5B_xpitch[x_pitch])))
+
+pi_19CB6B_xpitch: patch, x_pitch= -((0.5*po_19CB5B_xpitch[x_pitch])+((0.5*po_19CB5B_xpitch[x_pitch])-(0.5*po_17CB5B_xpitch[x_pitch])))-(2.5*0.0174532925199)
+pi_19CB6B_xoff: patch, x_offset = -(po_19CB5B_xoff[x_offset]+(D1904[L]*sin(po_19CB5B_xpitch[x_pitch])))-0.2
+
+po_19CB6B_xpitch: patch, x_pitch = asin((((mCB6B[db_field])*(c_light)*(mCB6B[L]))/(p19))-sin(pi_19CB6B_xpitch[x_pitch]))
+po_19CB6B_xoff: patch, x_offset = -(pi_19CB6B_xoff[x_offset]+mCB6B[L]*tan(0.5*(pi_19CB6B_xpitch[x_pitch]-po_19CB6B_xpitch[x_pitch])))
+
+pi_19B7_xpitch: patch, x_pitch = 0 ! po_19CB6B_xpitch[x_pitch]
+pi_19B7_xoff: patch, x_offset = -(po_19CB6B_xoff[x_offset]+(D1905[L]*sin(po_19CB6B_xpitch[x_pitch])))-0.32
+
+po_19B7_xpitch: patch, x_pitch = asin((((m19B7[db_field])*(c_light)*(m19B7[L]))/(p19))-sin(pi_19B7_xpitch[x_pitch]))
+po_19B7_xoff: patch, x_offset = -(pi_19B7_xoff[x_offset]+m19B7[L]*tan(0.5*(pi_19B7_xpitch[x_pitch]-po_19B7_xpitch[x_pitch])))
+
+pi_19B8_xpitch: patch, x_pitch = -po_19B7_xpitch[x_pitch]
+pi_19B8_xoff: patch, x_offset = -(po_19B7_xoff[x_offset] + (D1906[L]*sin(po_19B7_xpitch[x_pitch])))+0.38
+
+po_19B8_xpitch: patch, x_pitch = asin((((m19B8[db_field])*(c_light)*(m19B8[L]))/(p19))-sin(pi_19B8_xpitch[x_pitch]))
+po_19B8_xoff: patch, x_offset = -(pi_19B8_xoff[x_offset]+m19B8[L]*tan(0.5*(pi_19B8_xpitch[x_pitch]-po_19B8_xpitch[x_pitch])))
+
+pi_19B9_xpitch: patch, x_pitch = -po_19B8_xpitch[x_pitch]
+pi_19B9_xoff: patch, x_offset = -(po_19B8_xoff[x_offset] + (D1907[L]*sin(po_19B8_xpitch[x_pitch])))-0.01
+
+po_19B9_xpitch: patch, x_pitch = asin((((m19B9[db_field])*(c_light)*(m19B9[L]))/(p19))-sin(pi_19B9_xpitch[x_pitch]))
+po_19B9_xoff: patch, x_offset = -(pi_19B9_xoff[x_offset]+m19B9[L]*tan(0.5*(pi_19B9_xpitch[x_pitch]-po_19B9_xpitch[x_pitch])))
+
+pi_19B10_xpitch: patch, x_pitch = -po_19B9_xpitch[x_pitch]
+pi_19B10_xoff: patch, x_offset = (po_19B9_xoff[x_offset] + (D1908[L]*sin(po_19B9_xpitch[x_pitch])))+0.05
+
+po_19B10_xpitch: patch, x_pitch = asin((((m19B10[db_field])*(c_light)*(m19B10[L]))/(p19))-sin(pi_19B10_xpitch[x_pitch]))
+po_19B10_xoff: patch, x_offset = -(pi_19B10_xoff[x_offset]+m19B10[L]*tan(0.5*(pi_19B10_xpitch[x_pitch]-po_19B10_xpitch[x_pitch])))
+
+pi_19B11_xpitch: patch, x_pitch = -po_19B10_xpitch[x_pitch]
+pi_19B11_xoff: patch, x_offset = (po_19B10_xoff[x_offset] + (D1909[L]*sin(po_19B10_xpitch[x_pitch])))+0.17
+
+po_19B11_xpitch: patch, x_pitch = asin((((m19B11[db_field])*(c_light)*(m19B11[L]))/(p19))-sin(pi_19B11_xpitch[x_pitch]))
+po_19B11_xoff: patch, x_offset = -(pi_19B11_xoff[x_offset]+m19B11[L]*tan(0.5*(pi_19B11_xpitch[x_pitch]-po_19B11_xpitch[x_pitch])))
+
+pi_19B12_xpitch: patch, x_pitch = -po_19B11_xpitch[x_pitch]
+pi_19B12_xoff: patch, x_offset = -(po_19B11_xoff[x_offset]+(D1910[L]*sin(po_19B11_xpitch[x_pitch])))-0.
+
+po_19B12_xpitch: patch, x_pitch = asin((((m19B12[db_field])*(c_light)*(m19B12[L]))/(p19))-sin(pi_19B12_xpitch[x_pitch]))
+po_19B12_xoff: patch, x_offset = -(pi_19B12_xoff[x_offset]+m19B12[L]*tan(0.5*(pi_19B12_xpitch[x_pitch]-po_19B12_xpitch[x_pitch])))
+
+pi_19B13_xpitch: patch, x_pitch = -po_19B12_xpitch[x_pitch]
+pi_19B13_xoff: patch, x_offset = -(po_19B12_xoff[x_offset]+(D1911[L]*sin(po_19B12_xpitch[x_pitch])))-0.
+
+po_19B13_xpitch: patch, x_pitch = asin((((m19B13[db_field])*(c_light)*(m19B13[L]))/(p19))-sin(pi_19B13_xpitch[x_pitch]))
+po_19B13_xoff: patch, x_offset = -(pi_19B13_xoff[x_offset]+m19B13[L]*tan(0.5*(pi_19B13_xpitch[x_pitch]-po_19B13_xpitch[x_pitch])))
+
+! For "square" alignment:
+!pi_19B14_xpitch: patch, x_pitch = -po_19B13_xpitch[x_pitch]
+!pi_19B14_xoff: patch, x_offset = 0.1 !-(po_19B13_xoff[x_offset]+(D1912[L]*sin(po_19B13_xpitch[x_pitch])))-0.
+
+!po_19B14_xpitch: patch, x_pitch = asin((((m19B14[db_field])*(c_light)*(m19B14[L]))/(p19))-sin(pi_19B14_xpitch[x_pitch]))
+!po_19B14_xoff: patch, x_offset = -(pi_19B14_xoff[x_offset]+m19B14[L]*tan(0.5*(pi_19B14_xpitch[x_pitch]-po_19B14_xpitch[x_pitch])))
+
+! For "angled" alignment:
+pi_19B14_xpitch: patch, x_pitch =  -0.5*po_19B13_xpitch[x_pitch]+(0.0*(0.0174532925199))
+pi_19B14_xoff: patch, x_offset = 0.2 
+
+po_19B14_xpitch: patch, x_pitch = asin((((m19B14[db_field])*(c_light)*(m19B14[L]))/(p19))-sin(pi_19B14_xpitch[x_pitch]))
+po_19B14_xoff: patch, x_offset = -(pi_19B14_xoff[x_offset]+m19B14[L]*tan(0.5*(pi_19B14_xpitch[x_pitch]-po_19B14_xpitch[x_pitch])))
+
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+!!!!!!!!!!!!!!!!!!!!!  Overlays  !!!!!!!!!!!!!!!!!!!!!!!!!!!!
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+
+
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+!!!!!!!!!!!!!!!!!!!!!!!  Lines  !!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+
+Pass9: line=(pi_9CB1_xpitch, pi_9CB1_xoff, mCB1, po_9CB1_xoff, po_9CB1_xpitch, D900,
+pi_9B2_xpitch, pi_9B2_xoff, m9B2, po_9B2_xoff, po_9B2_xpitch, D901,
+pi_9B3_xpitch, pi_9B3_xoff, m9B3, po_9B3_xoff, po_9B3_xpitch, D902,
+pi_9B4_xpitch, pi_9B4_xoff, m9B4, po_9B4_xoff, po_9B4_xpitch, D903,
+pi_9B5_xpitch, pi_9B5_xoff, m9B5, po_9B5_xoff, po_9B5_xpitch, D904,
+pi_9B6_xpitch, pi_9B6_xoff, m9B6, po_9B6_xoff, po_9B6_xpitch, D905,
+pi_9B7_xpitch, pi_9B7_xoff, m9B7, po_9B7_xoff, po_9B7_xpitch, D906,
+pi_9B8_xpitch, pi_9B8_xoff, m9B8, po_9B8_xoff, po_9B8_xpitch, D907,
+pi_9B9_xpitch, pi_9B9_xoff, m9B9, po_9B9_xoff, po_9B9_xpitch, D908,
+pi_9B10_xpitch, pi_9B10_xoff, m9B10, po_9B10_xoff, po_9B10_xpitch, D909,
+!pi_9B11_xpitch, pi_9B11_xoff, m9B11, po_9B11_xoff, po_9B11_xpitch, D910,
+!pi_9B12_xpitch, pi_9B12_xoff, m9B12, po_9B12_xoff, po_9B12_xpitch, D911,
+!pi_9B13_xpitch, pi_9B13_xoff, m9B13, po_9B13_xoff, po_9B13_xpitch, D912,
+!pi_9B14_xpitch, pi_9B14_xoff, m9B14, po_9B14_xoff, po_9B14_xpitch, D913,
+pi_9B15_xpitch, pi_9B15_xoff, m9B15, po_9B15_xoff, po_9B15_xpitch, D914,
+pi_9B16_xpitch, pi_9B16_xoff, m9B16, po_9B16_xoff, po_9B16_xpitch, D915) 
+
+Pass9[e_tot] = e9
+
+Pass11: line=(pi_11CB1_xpitch, pi_11CB1_xoff, mCB1, po_11CB1_xoff, po_11CB1_xpitch, D1100,
+pi_11B2_xpitch, pi_11B2_xoff, m11B2, po_11B2_xoff, po_11B2_xpitch, D1101,
+pi_11B3_xpitch, pi_11B3_xoff, m11B3, po_11B3_xoff, po_11B3_xpitch, D1102,
+pi_11B4_xpitch, pi_11B4_xoff, m11B4, po_11B4_xoff, po_11B4_xpitch, D1103,
+pi_11B5_xpitch, pi_11B5_xoff, m11B5, po_11B5_xoff, po_11B5_xpitch, D1104,
+pi_11B6_xpitch, pi_11B6_xoff, m11B6, po_11B6_xoff, po_11B6_xpitch, D1105,
+pi_11B7_xpitch, pi_11B7_xoff, m11B7, po_11B7_xoff, po_11B7_xpitch, D1106,
+pi_11B8_xpitch, pi_11B8_xoff, m11B8, po_11B8_xoff, po_11B8_xpitch, D1107)
+
+Pass11[e_tot] = e11
+
+Pass13: line=(pi_13CB1_xpitch, pi_13CB1_xoff, mCB1, po_13CB1_xoff, po_13CB1_xpitch, D1300,
+pi_13CB2_xpitch, pi_13CB2_xoff, mCB2, po_13CB2_xoff, po_13CB2_xpitch, D1301,
+pi_13CB3A_xpitch, pi_13CB3A_xoff, mCB3A, po_13CB3A_xoff, po_13CB3A_xpitch, D1302,
+pi_13CB4A_xpitch, pi_13CB4A_xoff, mCB4A, po_13CB4A_xoff, po_13CB4A_xpitch, D1303,
+pi_13B5_xpitch, pi_13B5_xoff, m13B5, po_13B5_xoff, po_13B5_xpitch, D1304,
+pi_13B6_xpitch, pi_13B6_xoff, m13B6, po_13B6_xoff, po_13B6_xpitch, D1305,
+pi_13B7_xpitch, pi_13B7_xoff, m13B7, po_13B7_xoff, po_13B7_xpitch, D1306,
+pi_13B8_xpitch, pi_13B8_xoff, m13B8, po_13B8_xoff, po_13B8_xpitch, D1307,
+pi_13B9_xpitch, pi_13B9_xoff, m13B9, po_13B9_xoff, po_13B9_xpitch, D1308,
+pi_13B10_xpitch, pi_13B10_xoff, m13B10, po_13B10_xoff, po_13B10_xpitch, D1309) 
+
+Pass13[e_tot] = e13
+
+Pass15: line=(pi_15CB1_xpitch, pi_15CB1_xoff, mCB1, po_15CB1_xoff, po_15CB1_xpitch, D1500,
+pi_15CB2_xpitch, pi_15CB2_xoff, mCB2, po_15CB2_xoff, po_15CB2_xpitch, D1501,
+pi_15CB3A_xpitch, pi_15CB3A_xoff, mCB3A, po_15CB3A_xoff, po_15CB3A_xpitch, D1502,
+pi_15CB4A_xpitch, pi_15CB4A_xoff, mCB4A, po_15CB4A_xoff, po_15CB4A_xpitch, D1503,
+pi_15B5_xpitch, pi_15B5_xoff, m15B5, po_15B5_xoff, po_15B5_xpitch, D1504,
+pi_15B6_xpitch, pi_15B6_xoff, m15B6, po_15B6_xoff, po_15B6_xpitch, D1505,
+pi_15B7_xpitch, pi_15B7_xoff, m15B7, po_15B7_xoff, po_15B7_xpitch, D1506,
+pi_15B8_xpitch, pi_15B8_xoff, m15B8, po_15B8_xoff, po_15B8_xpitch, D1507,
+pi_15B9_xpitch, pi_15B9_xoff, m15B9, po_15B9_xoff, po_15B9_xpitch, D1508,
+pi_15B10_xpitch, pi_15B10_xoff, m15B10, po_15B10_xoff, po_15B10_xpitch, D1509) 
+
+Pass15[e_tot] = e15
+
+Pass17: line=(pi_17CB1_xpitch, pi_17CB1_xoff, mCB1, po_17CB1_xoff, po_17CB1_xpitch, D1700,
+pi_17CB2_xpitch, pi_17CB2_xoff, mCB2, po_17CB2_xoff, po_17CB2_xpitch, D1701,
+pi_17CB3B_xpitch, pi_17CB3B_xoff, mCB3B, po_17CB3B_xoff, po_17CB3B_xpitch, D1702,
+pi_17CB4B_xpitch, pi_17CB4B_xoff, mCB4B, po_17CB4B_xoff, po_17CB4B_xpitch, D1703,
+pi_17CB5B_xpitch, pi_17CB5B_xoff, mCB5B, po_17CB5B_xoff, po_17CB5B_xpitch, D1704,
+pi_17CB6B_xpitch, pi_17CB6B_xoff, mCB6B, po_17CB6B_xoff, po_17CB6B_xpitch, D1705,
+pi_17B7_xpitch, pi_17B7_xoff, m17B7, po_17B7_xoff, po_17B7_xpitch, D1706,
+pi_17B8_xpitch, pi_17B8_xoff, m17B8, po_17B8_xoff, po_17B8_xpitch, D1707,
+pi_17B9_xpitch, pi_17B9_xoff, m17B9, po_17B9_xoff, po_17B9_xpitch, D1708,
+pi_17B10_xpitch, pi_17B10_xoff, m17B10, po_17B10_xoff, po_17B10_xpitch, D1709,
+pi_17B11_xpitch, pi_17B11_xoff, m17B11, po_17B11_xoff, po_17B11_xpitch, D1710,
+pi_17B12_xpitch, pi_17B12_xoff, m17B12, po_17B12_xoff, po_17B12_xpitch, D1711) 
+
+Pass17[e_tot] = e17
+
+Pass19: line=(pi_19CB1_xpitch, pi_19CB1_xoff, mCB1, po_19CB1_xoff, po_19CB1_xpitch, D1900,
+pi_19CB2_xpitch, pi_19CB2_xoff, mCB2, po_19CB2_xoff, po_19CB2_xpitch, D1901,
+pi_19CB3B_xpitch, pi_19CB3B_xoff, mCB3B, po_19CB3B_xoff, po_19CB3B_xpitch, D1902,
+pi_19CB4B_xpitch, pi_19CB4B_xoff, mCB4B, po_19CB4B_xoff, po_19CB4B_xpitch, D1903,
+pi_19CB5B_xpitch, pi_19CB5B_xoff, mCB5B, po_19CB5B_xoff, po_19CB5B_xpitch, D1904,
+pi_19CB6B_xpitch, pi_19CB6B_xoff, mCB6B, po_19CB6B_xoff, po_19CB6B_xpitch, D1905,
+pi_19B7_xpitch, pi_19B7_xoff, m19B7, po_19B7_xoff, po_19B7_xpitch, D1906,
+pi_19B8_xpitch, pi_19B8_xoff, m19B8, po_19B8_xoff, po_19B8_xpitch, D1907,
+pi_19B9_xpitch, pi_19B9_xoff, m19B9, po_19B9_xoff, po_19B9_xpitch, D1908,
+pi_19B10_xpitch, pi_19B10_xoff, m19B10, po_19B10_xoff, po_19B10_xpitch, D1909,
+pi_19B11_xpitch, pi_19B11_xoff, m19B11, po_19B11_xoff, po_19B11_xpitch, D1910,
+pi_19B12_xpitch, pi_19B12_xoff, m19B12, po_19B12_xoff, po_19B12_xpitch, D1911,
+pi_19B13_xpitch, pi_19B13_xoff, m19B13, po_19B13_xoff, po_19B13_xpitch, D1912,
+pi_19B14_xpitch, pi_19B14_xoff, m19B14, po_19B14_xoff, po_19B14_xpitch, D1913) 
+
+Pass19[e_tot] = e19
+
+use, Pass9, Pass11, Pass13, Pass15, Pass17, Pass19
+
+!call, file=p1.out
+
+beginning[beta_a] = 1.
+beginning[beta_b] = 1.
+beginning[alpha_a] = 1.
+beginning[alpha_b] = 1.
+beginning[eta_x] = 0 !-9.2735848555127933E-19
+beginning[eta_y] = 0 !8.3266726846886741E-17
+beginning[etap_x] = 0 !-1.0381788464151318E-19
+beginning[etap_y] = 0 !4.1633363423443370E-17
+beginning[y_position] = 100
+!!beginning[z_position] = 90.553720
+!!beginning[s] = 242.768240
+

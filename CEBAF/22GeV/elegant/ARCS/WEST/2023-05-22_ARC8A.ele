@@ -1,0 +1,37 @@
+&run_setup
+	lattice=2023-05-22_ARC8A.lte,
+	use_beamline=ARC8A,
+	p_central_mev=9449.489187203122128, !From SL8 exit
+	final=%s.fin
+	parameters=%s.parms
+	centroid=%s.cen
+&end
+&twiss_output
+	filename=%s.twi,
+	matched=0,radiation_integrals=1,
+	beta_x=6.848648085048596e+01, alpha_x=-1.292118872618874e+00, !From SL8 exit
+	beta_y=6.848284457430061e+01, alpha_y=1.885770139704175e+00
+&end
+&run_control 
+	n_steps=1
+&end
+&floor_coordinates
+	filename=%s.flr,
+	X0=-80.6,Y0=100,Z0=-91.51785,
+	theta0=-3.14159265358979,phi0=0
+&end
+&bunched_beam
+	n_particles_per_bunch=1,
+	emit_x=7.1e-10, emit_y=3.47e-10,
+	sigma_dp=0.000122,sigma_s=0.0,
+	distribution_type[0] = 3*"gaussian",
+	distribution_cutoff[0] = 3*3,
+	enforce_rms_values[0]=1,1,1
+	beta_x=6.848648085048596e+01, alpha_x=-1.292118872618874e+00,
+	beta_y=6.848284457430061e+01, alpha_y=1.885770139704175e+00
+&end
+&matrix_output
+	SDDS_output=%s.mat
+&end
+&track
+&end
