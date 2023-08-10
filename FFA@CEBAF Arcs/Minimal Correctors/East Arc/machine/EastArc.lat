@@ -1,0 +1,193 @@
+! EastArc.lat
+! File containing base element definitions
+! East Arc magnets, drifts, diagnostics, etc
+
+call, file = 2022-12-16_params_east.bmad 
+
+! Element Definitions -------------------------------------------------------------------
+
+
+
+! Drifts -------------------------------------------------
+d2: drift                ! mid-cell drift
+d2i: drift               ! half drift for cell start
+d2o: drift               ! half drift for cellend
+! --------------------------------------------------------
+
+
+! markers for diagnostics + structure
+! -------------------------------
+MK.BEG: marker                                      ! beginning of the lattice
+MK.BPM: marker, type = "BPM"                         ! beginning of BD
+MK.END: marker                                      ! end of the lattice
+! ------------------------------- 
+
+
+
+
+! Bending Defocusing unit --------------------------------
+
+! Patches -----------------------
+pr_bd: patch, x_pitch = 0.5*angbd                                           
+! -------------------------------
+
+! Magnet Sections ---------------     
+
+! basic blocks per Stephen
+!-------------
+bda: sbend, field_master = T, b1_gradient = GD, l = BDL/6, 
+    db_field = BD_fld, x_offset = dxDA,
+    x2_limit = .008, x1_limit = .035, y_limit = 0.01, offset_moves_aperture = F                   
+bdb: sbend, field_master = T, b1_gradient = GD, l = BDL/6, 
+    db_field = BD_fld, x_offset = dxDB,
+    x2_limit = .008, x1_limit = .035, y_limit = 0.01, offset_moves_aperture = F                   
+bdc: sbend, field_master = T, b1_gradient = GD, l = BDL/6, 
+    db_field = BD_fld, x_offset = dxDC,
+    x2_limit = .008, x1_limit = .035, y_limit = 0.01, offset_moves_aperture = F  
+!-------------
+
+! short blocks to account for sections with corrector term
+!-------------
+bda_short: sbend, field_master = T, b1_gradient = GD, l = BDL/6-0.2, 
+    db_field = BD_fld, x_offset = bda[x_offset],
+    x2_limit = .008, x1_limit = .035, y_limit = 0.01, offset_moves_aperture = F  
+bdb_short: sbend, field_master = T, b1_gradient = GD, l = BDL/6-0.2, 
+    db_field = BD_fld, x_offset = bdb[x_offset],
+    x2_limit = .008, x1_limit = .035, y_limit = 0.01, offset_moves_aperture = F                   
+bdc_short: sbend, field_master = T, b1_gradient = GD, l = BDL/6-0.2, 
+    db_field = BD_fld, x_offset = bdc[x_offset],
+    x2_limit = .008, x1_limit = .035, y_limit = 0.01, offset_moves_aperture = F 
+!-------------
+
+
+! blocks with an additional corrector term: size may need adjustment
+!-------------
+pqbda: sbend, field_master = T, l = 0.2, x_offset = bda[x_offset], 
+       x2_limit = .008, x1_limit = .035, y_limit = 0.01, offset_moves_aperture = F
+pqbdb: sbend, field_master = T, l = 0.2, x_offset = bdb[x_offset], 
+       x2_limit = .008, x1_limit = .035, y_limit = 0.01, offset_moves_aperture = F
+pqbdc: sbend, field_master = T, l = 0.2, x_offset = bdc[x_offset], 
+       x2_limit = .008, x1_limit = .035, y_limit = 0.01, offset_moves_aperture = F
+! -------------------------------
+
+! Whole BD Magnet Array ------------------
+! BDM : line = (pr_bd, bda, bdb, bdc, bdc, bdb, bda, pr_bd)                             ! No corrector !
+BDM : line = (pr_bd, bda, bdb, bdc, bdc_short, pqbdc, pqbdb, bdb_short, bda, pr_bd)     ! line with a 'superposed' Panofsky quad
+! --------------------------------------------------------
+
+
+
+
+! Bending Focusing unit ----------------------------------
+
+! Patches -----------------------
+pr_bf: patch, x_pitch = 0.5*angbf 
+! -------------------------------
+
+! Magnet Sections ---------------      
+
+! basic blocks per stephen      
+!-------------                          
+bfa: sbend, field_master =T, b1_gradient = GF, l = BFL/6, 
+    db_field = BF_fld, x_offset = dxFA,
+    x1_limit = .042, x2_limit = .018, y_limit = 0.01, offset_moves_aperture = F                                                   
+bfb: sbend, field_master =T, b1_gradient = GF, l = BFL/6, 
+    db_field = BF_fld, x_offset = dxFB,
+    x1_limit = .042, x2_limit = .018, y_limit = 0.01, offset_moves_aperture = F                                                
+bfc: sbend, field_master =T, b1_gradient = GF, l = BFL/6 , 
+    db_field = BF_fld, x_offset = dxFC,
+    x1_limit = .042, x2_limit = .018, y_limit = 0.01, offset_moves_aperture = F  
+!-------------
+
+
+! short blocks to account for 'superposed' corrector
+!-------------
+bfa_short: sbend, field_master =T, b1_gradient = GF, l = BFL/6-0.2, 
+    db_field = BF_fld, x_offset = bfa[x_offset],
+    x1_limit = .042, x2_limit = .018, y_limit = 0.01, offset_moves_aperture = F                                                   
+bfb_short: sbend, field_master =T, b1_gradient = GF, l = BFL/6-0.2, 
+    db_field = BF_fld, x_offset = bfb[x_offset],
+    x1_limit = .042, x2_limit = .018, y_limit = 0.01, offset_moves_aperture = F                                                   
+bfc_short: sbend, field_master =T, b1_gradient = GF, l = BFL/6-0.2, 
+    db_field = BF_fld, x_offset = bfc[x_offset],
+    x1_limit = .042, x2_limit = .018, y_limit = 0.01, offset_moves_aperture = F
+!-------------
+
+
+! 'superposed' corrector blocks
+!-------------
+pqbfa: sbend, field_master = T, l = 0.2, x_offset = bfa[x_offset], 
+       x2_limit = 0.015, x1_limit = 0.035, y_limit = 0.01, offset_moves_aperture = T
+pqbfb: sbend, field_master = T, l = 0.2, x_offset = bfb[x_offset], 
+       x2_limit = 0.015, x1_limit = 0.035, y_limit = 0.01, offset_moves_aperture = T
+pqbfc: sbend, field_master = T, l = 0.2, x_offset = bfc[x_offset], 
+       x2_limit = 0.015, x1_limit = 0.035, y_limit = 0.01, offset_moves_aperture = T
+! -------------------------------
+
+! Whole BF Magnet Array ------------------
+!BFM : line = (pr_bf, bfa, bfb, bfc_short, pqbfc, pqbfc, bfc_short, bfb, bfa, pr_bf)    ! magnet with 'superposed' corrector
+BFM : line = (pr_bf, bfa, bfb, bfc, bfc, bfb, bfa, pr_bf)                               ! No corrector
+! --------------------------------------------------------
+                                           
+
+
+
+! Control Elements ---------------------------------------
+
+! we want to be able to move the whole magnet together, so put the lines on girders
+! Girders -----------------------
+BFMG : Girder = {BFM}, origin_ele = global_coordinates      ! Bending focusing girder
+BDMG : GIRDER = {BDM}, origin_ele = global_coordinates      ! Bending defocusing girder
+! -------------------------------
+
+
+
+! Overlays ----------------------
+! The following overlay preserves the overrall 
+! size of each cell regardless of offsets
+CREG : Overlay = {d2i[l]:(DL/2 + zo1), BDMG[z_offset]: zo1, d2[l]:(DL - zo1 + zo2), 
+                      BFMG[z_offset]: zo2, d2o[l]:(DL/2 - zo2)}, 
+                      VAR = {zo1, zo2}, zo1 = 0, zo2 = 0, GANG = False
+
+
+
+! The following are overlays that functionally control corrections
+
+
+! defocusing magnet corrector
+CorrH: Overlay = {pqbdc:pqbdc[l],pqbdb:pqbdb[l],pqbda:pqbda[l]}, var = {bl_hkick}, bl_hkick = 0, GANG=False
+CorrV: Overlay = {pqbdc:pqbdc[l],pqbdb:pqbdb[l],pqbda:pqbda[l]}, var = {bl_vkick}, bl_vkick = 0, GANG=False
+CorrG: Overlay = {pqbdc[b1_gradient]: bdc[b1_gradient] + gc, 
+                  pqbdb[b1_gradient]: bdb[b1_gradient] + gc,
+                  pqbda[b1_gradient]: bda[b1_gradient] + gc}, var = {gc}, gc = 0, GANG=False
+
+! --------------------------------------------------------
+
+! Note the corrector is on the BD magnet!
+
+! Lattice Definition --------------------------------------------------------------------
+
+
+cell: line = (d2i, BDM, d2,
+              MK.BPM, BFM, d2o)
+
+arc1: line = (MK.BEG, cell, MK.END)
+
+arc2: line = (MK.BEG, cell, cell, MK.END)
+
+cell5: line = (cell, cell, cell, cell, cell)
+
+arc5: line = (MK.BEG, cell5, MK.END)
+
+cell10: line = (cell5, cell5)
+
+arc10: line = (MK.BEG, cell5, cell5, MK.END)
+
+cell20: line = (cell10, cell10)
+
+arc20: line = (MK.BEG, cell10, cell10, MK.END)
+
+arc75: line = (MK.BEG, cell20, cell20, cell20, cell10, cell5, MK.END)
+
+
+use, arc75

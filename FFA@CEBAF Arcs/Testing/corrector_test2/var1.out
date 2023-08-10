@@ -1,0 +1,190 @@
+ expand_lattice
+ CORR##1[HK] =  3.20000000000000007E-002
+ CORR##2[HK] =  3.20000000000000007E-002
+ CORR##3[HK] =  3.20000000000000007E-002
+ CORR##4[HK] =  3.20000000000000007E-002
+ CORR##5[HK] =  3.20000000000000007E-002
+ CORR##6[HK] =  3.20000000000000007E-002
+ CORR##7[HK] =  3.20000000000000007E-002
+ CORR##8[HK] =  3.20000000000000007E-002
+ CORR##9[HK] =  3.20000000000000007E-002
+ CORR##10[HK] =  3.20000000000000007E-002
+ CORR##11[HK] =  3.20000000000000007E-002
+ CORR##12[HK] =  3.20000000000000007E-002
+ CORR##13[HK] =  3.20000000000000007E-002
+ CORR##14[HK] =  3.20000000000000007E-002
+ CORR##15[HK] =  3.20000000000000007E-002
+ CORR##16[HK] =  3.20000000000000007E-002
+ CORR##17[HK] =  3.20000000000000007E-002
+ CORR##18[HK] =  3.20000000000000007E-002
+ CORR##19[HK] =  3.20000000000000007E-002
+ CORR##20[HK] =  3.20000000000000007E-002
+ CORR##1[VK] =  0.00000000000000000E+000   ! Not used in optimizing
+ CORR##2[VK] =  0.00000000000000000E+000   ! Not used in optimizing
+ CORR##3[VK] =  0.00000000000000000E+000   ! Not used in optimizing
+ CORR##4[VK] =  0.00000000000000000E+000   ! Not used in optimizing
+ CORR##5[VK] =  0.00000000000000000E+000   ! Not used in optimizing
+ CORR##6[VK] =  0.00000000000000000E+000   ! Not used in optimizing
+ CORR##7[VK] =  0.00000000000000000E+000   ! Not used in optimizing
+ CORR##8[VK] =  0.00000000000000000E+000   ! Not used in optimizing
+ CORR##9[VK] =  0.00000000000000000E+000   ! Not used in optimizing
+ CORR##10[VK] =  0.00000000000000000E+000   ! Not used in optimizing
+ CORR##11[VK] =  4.00000000000000008E-002
+ CORR##12[VK] =  4.00000000000000008E-002
+ CORR##13[VK] =  3.02246018962577193E-003
+ CORR##14[VK] =  3.02246018962576760E-003
+ CORR##15[VK] =  3.02246018962576413E-003
+ CORR##16[VK] =  3.02246018962576152E-003
+ CORR##17[VK] =  3.02246018962576760E-003
+ CORR##18[VK] =  3.02246018962576673E-003
+ CORR##19[VK] =  3.02246018962576846E-003
+ CORR##20[VK] =  3.02246018962576586E-003
+ CORR##1[GC] =  1.43398495864160175E-001
+ CORR##2[GC] =  1.88000000000000000E-001
+ CORR##3[GC] = -1.88000000000000000E-001
+ CORR##4[GC] = -1.88000000000000000E-001
+ CORR##5[GC] = -1.88000000000000000E-001
+ CORR##6[GC] = -1.88000000000000000E-001
+ CORR##7[GC] = -1.88000000000000000E-001
+ CORR##8[GC] = -1.88000000000000000E-001
+ CORR##9[GC] = -1.88000000000000000E-001
+ CORR##10[GC] = -1.88000000000000000E-001
+ CORR##11[GC] =  1.88000000000000000E-001
+ CORR##12[GC] = -1.88000000000000000E-001
+ CORR##13[GC] =  3.71729580758556402E-002
+ CORR##14[GC] =  3.71729580758556402E-002
+ CORR##15[GC] =  3.71729580758556472E-002
+ CORR##16[GC] =  3.71729580758556402E-002
+ CORR##17[GC] =  3.71729580758556472E-002
+ CORR##18[GC] =  3.71729580758556472E-002
+ CORR##19[GC] =  3.71729580758556472E-002
+ CORR##20[GC] =  3.71729580758556472E-002
+ 
+ end_file
+ 
+ 
+ ! Top 10
+ 
+ Constraints                                 Ref_Ele    Start_Ele   Ele/S      Meas-or-Lim    Model       Merit      Max_Loc
+ orbit.unstable[1]  unstable.orbit <target>                                     0.0000E+00   1.1050E+02  1.221E+07  BFB
+ floor[1]           floor.theta <target>                           MK.END       1.5708E+00  -3.9086E-01  3.848E+02
+ orbit.bpm1.x[16]   orbit.x <target>                               MK.BPM2##6   0.0000E+00  -2.5469E-02  6.487E-02
+ orbit.bpm1.x[4]    orbit.x <target>                               MK.BPM1##4   0.0000E+00  -2.5197E-02  6.349E-02
+ orbit.bpm1.x[13]   orbit.x <target>                               MK.BPM2##3   0.0000E+00  -2.4123E-02  5.819E-02
+ orbit.bpm1.x[21]   orbit.x <target>                               MK.BEG       0.0000E+00  -2.3361E-02  5.458E-02
+ orbit.bpm1.x[1]    orbit.x <target>                               MK.BPM1##1   0.0000E+00  -2.3361E-02  5.458E-02
+ orbit.bpm1.x[6]    orbit.x <target>                               MK.BPM1##6   0.0000E+00  -2.3049E-02  5.312E-02
+ orbit.bpm1.x[2]    orbit.x <target>                               MK.BPM1##2   0.0000E+00  -2.2486E-02  5.056E-02
+ orbit.bpm1.x[11]   orbit.x <target>                               MK.BPM2##1   0.0000E+00  -2.2262E-02  4.956E-02
+ Constraints                                 Ref_Ele    Start_Ele   Ele/S      Meas-or-Lim    Model       Merit      Max_Loc
+ 
+  figure of merit: 1.221064E+07
+ 
+ List of non-zero contributors to the Merit Function:
+ Name                                          Merit           Sigma [= sqrt(Chi^2/N)]
+ orbit.unstable                                1.2210E+07      1.1050E+02
+ floor.angle                                   3.8481E+02      1.9617E+00
+ orbit.bpm1.x                                  6.6224E-01      2.2570E-02
+ orbit.bpm1.px                                 1.2942E-01      9.9778E-03
+ 
+ Constraints                                 Ref_Ele    Start_Ele   Ele/S       Meas-or-Lim    Model       Merit      Max_Loc
+ floor[1]           floor.theta <target>                           MK.END        1.5708E+00  -3.9086E-01  3.848E+02
+ orbit.bpm1.x[1]    orbit.x <target>                               MK.BPM1##1    0.0000E+00  -2.3361E-02  5.458E-02
+ orbit.bpm1.x[2]    orbit.x <target>                               MK.BPM1##2    0.0000E+00  -2.2486E-02  5.056E-02
+ orbit.bpm1.x[3]    orbit.x <target>                               MK.BPM1##3    0.0000E+00  -2.1743E-02  4.727E-02
+ orbit.bpm1.x[4]    orbit.x <target>                               MK.BPM1##4    0.0000E+00  -2.5197E-02  6.349E-02
+ orbit.bpm1.x[5]    orbit.x <target>                               MK.BPM1##5    0.0000E+00  -2.0200E-02  4.081E-02
+ orbit.bpm1.x[6]    orbit.x <target>                               MK.BPM1##6    0.0000E+00  -2.3049E-02  5.312E-02
+ orbit.bpm1.x[7]    orbit.x <target>                               MK.BPM1##7    0.0000E+00   0.0000E+00  0.000E+00
+ orbit.bpm1.x[8]    orbit.x <target>                               MK.BPM1##8    0.0000E+00   0.0000E+00  0.000E+00
+ orbit.bpm1.x[9]    orbit.x <target>                               MK.BPM1##9    0.0000E+00   0.0000E+00  0.000E+00
+ orbit.bpm1.x[10]   orbit.x <target>                               MK.BPM1##10   0.0000E+00   0.0000E+00  0.000E+00
+ orbit.bpm1.x[11]   orbit.x <target>                               MK.BPM2##1    0.0000E+00  -2.2262E-02  4.956E-02
+ orbit.bpm1.x[12]   orbit.x <target>                               MK.BPM2##2    0.0000E+00  -2.0254E-02  4.102E-02
+ orbit.bpm1.x[13]   orbit.x <target>                               MK.BPM2##3    0.0000E+00  -2.4123E-02  5.819E-02
+ orbit.bpm1.x[14]   orbit.x <target>                               MK.BPM2##4    0.0000E+00  -2.0636E-02  4.259E-02
+ orbit.bpm1.x[15]   orbit.x <target>                               MK.BPM2##5    0.0000E+00  -2.0398E-02  4.161E-02
+ orbit.bpm1.x[16]   orbit.x <target>                               MK.BPM2##6    0.0000E+00  -2.5469E-02  6.487E-02
+ orbit.bpm1.x[17]   orbit.x <target>                               MK.BPM2##7    0.0000E+00   0.0000E+00  0.000E+00
+ orbit.bpm1.x[18]   orbit.x <target>                               MK.BPM2##8    0.0000E+00   0.0000E+00  0.000E+00
+ orbit.bpm1.x[19]   orbit.x <target>                               MK.BPM2##9    0.0000E+00   0.0000E+00  0.000E+00
+ orbit.bpm1.x[20]   orbit.x <target>                               MK.BPM2##10   0.0000E+00   0.0000E+00  0.000E+00
+ orbit.bpm1.x[21]   orbit.x <target>                               MK.BEG        0.0000E+00  -2.3361E-02  5.458E-02
+ orbit.bpm1.x[22]   orbit.x <target>                               MK.END        0.0000E+00   0.0000E+00  0.000E+00
+ orbit.bpm1.x[23]   orbit.x <abs_max>                  MK.BEG      MK.END        2.3700E-02   0.0000E+00  0.000E+00
+ orbit.bpm1.px[1]   orbit.px <target>                              MK.BPM1##1    0.0000E+00   1.0077E-02  1.016E-02
+ orbit.bpm1.px[2]   orbit.px <target>                              MK.BPM1##2    0.0000E+00   1.0143E-02  1.029E-02
+ orbit.bpm1.px[3]   orbit.px <target>                              MK.BPM1##3    0.0000E+00   8.3538E-03  6.979E-03
+ orbit.bpm1.px[4]   orbit.px <target>                              MK.BPM1##4    0.0000E+00   1.1953E-02  1.429E-02
+ orbit.bpm1.px[5]   orbit.px <target>                              MK.BPM1##5    0.0000E+00   8.4523E-03  7.144E-03
+ orbit.bpm1.px[6]   orbit.px <target>                              MK.BPM1##6    0.0000E+00   8.8253E-03  7.789E-03
+ orbit.bpm1.px[7]   orbit.px <target>                              MK.BPM1##7    0.0000E+00   0.0000E+00  0.000E+00
+ orbit.bpm1.px[8]   orbit.px <target>                              MK.BPM1##8    0.0000E+00   0.0000E+00  0.000E+00
+ orbit.bpm1.px[9]   orbit.px <target>                              MK.BPM1##9    0.0000E+00   0.0000E+00  0.000E+00
+ orbit.bpm1.px[10]  orbit.px <target>                              MK.BPM1##10   0.0000E+00   0.0000E+00  0.000E+00
+ orbit.bpm1.px[11]  orbit.px <target>                              MK.BPM2##1    0.0000E+00  -9.8674E-03  9.737E-03
+ orbit.bpm1.px[12]  orbit.px <target>                              MK.BPM2##2    0.0000E+00  -8.6428E-03  7.470E-03
+ orbit.bpm1.px[13]  orbit.px <target>                              MK.BPM2##3    0.0000E+00  -1.1948E-02  1.428E-02
+ orbit.bpm1.px[14]  orbit.px <target>                              MK.BPM2##4    0.0000E+00  -7.9750E-03  6.360E-03
+ orbit.bpm1.px[15]  orbit.px <target>                              MK.BPM2##5    0.0000E+00  -9.5578E-03  9.135E-03
+ orbit.bpm1.px[16]  orbit.px <target>                              MK.BPM2##6    0.0000E+00  -1.2509E-02  1.565E-02
+ orbit.bpm1.px[17]  orbit.px <target>                              MK.BPM2##7    0.0000E+00   0.0000E+00  0.000E+00
+ orbit.bpm1.px[18]  orbit.px <target>                              MK.BPM2##8    0.0000E+00   0.0000E+00  0.000E+00
+ orbit.bpm1.px[19]  orbit.px <target>                              MK.BPM2##9    0.0000E+00   0.0000E+00  0.000E+00
+ orbit.bpm1.px[20]  orbit.px <target>                              MK.BPM2##10   0.0000E+00   0.0000E+00  0.000E+00
+ orbit.bpm1.px[21]  orbit.px <target>                              MK.BEG        0.0000E+00   1.0077E-02  1.016E-02
+ orbit.bpm1.px[22]  orbit.px <target>                              MK.END        0.0000E+00   0.0000E+00  0.000E+00
+ orbit.unstable[1]  unstable.orbit <target>                                      0.0000E+00   1.1050E+02  1.221E+07  BFB
+ hfld[1]            CORR[HK]                                                     3.2000E-02   3.2000E-02  0.000E+00
+ hfld[2]            CORR[HK]                                                     3.2000E-02   3.2000E-02  0.000E+00
+ hfld[3]            CORR[HK]                                                     3.2000E-02   3.2000E-02  0.000E+00
+ hfld[4]            CORR[HK]                                                     3.2000E-02   3.2000E-02  0.000E+00
+ hfld[5]            CORR[HK]                                                     3.2000E-02   3.2000E-02  0.000E+00
+ hfld[6]            CORR[HK]                                                     3.2000E-02   3.2000E-02  0.000E+00
+ hfld[7]            CORR[HK]                                                     3.2000E-02   3.2000E-02  0.000E+00
+ hfld[8]            CORR[HK]                                                     3.2000E-02   3.2000E-02  0.000E+00
+ hfld[9]            CORR[HK]                                                     3.2000E-02   3.2000E-02  0.000E+00
+ hfld[10]           CORR[HK]                                                     3.2000E-02   3.2000E-02  0.000E+00
+ hfld[11]           CORR[HK]                                                     3.2000E-02   3.2000E-02  0.000E+00
+ hfld[12]           CORR[HK]                                                     3.2000E-02   3.2000E-02  0.000E+00
+ hfld[13]           CORR[HK]                                                     3.2000E-02   3.2000E-02  0.000E+00
+ hfld[14]           CORR[HK]                                                     3.2000E-02   3.2000E-02  0.000E+00
+ hfld[15]           CORR[HK]                                                     3.2000E-02   3.2000E-02  0.000E+00
+ hfld[16]           CORR[HK]                                                     3.2000E-02   3.2000E-02  0.000E+00
+ hfld[17]           CORR[HK]                                                     3.2000E-02   3.2000E-02  0.000E+00
+ hfld[18]           CORR[HK]                                                     3.2000E-02   3.2000E-02  0.000E+00
+ hfld[19]           CORR[HK]                                                     3.2000E-02   3.2000E-02  0.000E+00
+ hfld[20]           CORR[HK]                                                     3.2000E-02   3.2000E-02  0.000E+00
+ vfld[11]           CORR[VK]                                                     4.0000E-02   4.0000E-02  0.000E+00
+ vfld[12]           CORR[VK]                                                     4.0000E-02   4.0000E-02  0.000E+00
+ vfld[13]           CORR[VK]                                                     4.0000E-02   3.0225E-03  0.000E+00
+ vfld[14]           CORR[VK]                                                     4.0000E-02   3.0225E-03  0.000E+00
+ vfld[15]           CORR[VK]                                                     4.0000E-02   3.0225E-03  0.000E+00
+ vfld[16]           CORR[VK]                                                     4.0000E-02   3.0225E-03  0.000E+00
+ vfld[17]           CORR[VK]                                                     4.0000E-02   3.0225E-03  0.000E+00
+ vfld[18]           CORR[VK]                                                     4.0000E-02   3.0225E-03  0.000E+00
+ vfld[19]           CORR[VK]                                                     4.0000E-02   3.0225E-03  0.000E+00
+ vfld[20]           CORR[VK]                                                     4.0000E-02   3.0225E-03  0.000E+00
+ b1corr[1]          CORR[GC]                                                     1.8800E-01   1.4340E-01  0.000E+00
+ b1corr[2]          CORR[GC]                                                     1.8800E-01   1.8800E-01  0.000E+00
+ b1corr[3]          CORR[GC]                                                    -1.8800E-01  -1.8800E-01  0.000E+00
+ b1corr[4]          CORR[GC]                                                    -1.8800E-01  -1.8800E-01  0.000E+00
+ b1corr[5]          CORR[GC]                                                    -1.8800E-01  -1.8800E-01  0.000E+00
+ b1corr[6]          CORR[GC]                                                    -1.8800E-01  -1.8800E-01  0.000E+00
+ b1corr[7]          CORR[GC]                                                    -1.8800E-01  -1.8800E-01  0.000E+00
+ b1corr[8]          CORR[GC]                                                    -1.8800E-01  -1.8800E-01  0.000E+00
+ b1corr[9]          CORR[GC]                                                    -1.8800E-01  -1.8800E-01  0.000E+00
+ b1corr[10]         CORR[GC]                                                    -1.8800E-01  -1.8800E-01  0.000E+00
+ b1corr[11]         CORR[GC]                                                     1.8800E-01   1.8800E-01  0.000E+00
+ b1corr[12]         CORR[GC]                                                    -1.8800E-01  -1.8800E-01  0.000E+00
+ b1corr[13]         CORR[GC]                                                     1.8800E-01   3.7173E-02  0.000E+00
+ b1corr[14]         CORR[GC]                                                     1.8800E-01   3.7173E-02  0.000E+00
+ b1corr[15]         CORR[GC]                                                     1.8800E-01   3.7173E-02  0.000E+00
+ b1corr[16]         CORR[GC]                                                     1.8800E-01   3.7173E-02  0.000E+00
+ b1corr[17]         CORR[GC]                                                     1.8800E-01   3.7173E-02  0.000E+00
+ b1corr[18]         CORR[GC]                                                     1.8800E-01   3.7173E-02  0.000E+00
+ b1corr[19]         CORR[GC]                                                     1.8800E-01   3.7173E-02  0.000E+00
+ b1corr[20]         CORR[GC]                                                     1.8800E-01   3.7173E-02  0.000E+00
+ Constraints                                 Ref_Ele    Start_Ele   Ele/S       Meas-or-Lim    Model       Merit      Max_Loc
+ 
+  figure of merit: 1.221064E+07

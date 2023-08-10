@@ -1,0 +1,307 @@
+!------------------------------------------------------------------------
+
+&tao_start
+  plot_file = 'tao_plot.init'
+  startup_file = 'tao.startup'
+/
+
+&tao_design_lattice
+   n_universes = 6
+!   n_universes = 1
+   design_lattice(1)%file = "p1w.bmad"
+   design_lattice(2)%file = "p2w.bmad"
+   design_lattice(3)%file = "p3w.bmad"
+   design_lattice(4)%file = "p4w.bmad"
+   design_lattice(5)%file = "p5w.bmad"
+   design_lattice(6)%file = "p6w.bmad"
+/
+
+!------------------------------------------------------------------------
+
+&tao_params
+  !global%plot_on = .true.
+  global%track_type = 'single'
+  !global%track_type = 'beam'
+  global%beam_timer_on = T
+  !global%random_engine = 'pseudo'
+  global%random_engine = 'quasi'
+  !global%floor_plan_rotation = 0.5
+  global%de_lm_step_ratio = 1000
+  global%de_var_to_population_factor = 0.002
+  global%optimizer = 'lmdif'
+  global%n_opti_cycles = 1000
+  global%opt_with_base = F
+  global%opt_with_ref = T
+  !---Bmad---
+  bmad_com%radiation_damping_on = T
+  bmad_com%radiation_fluctuations_on = T  
+  !bmad_com%taylor_order = 8    
+  ! TEMP for EM field tracking  
+  !bmad_com%abs_tol_tracking = 1e-7
+  !bmad_com%rel_tol_tracking = 1e-7
+/
+
+!Beam Initialization
+!--------------------------------------------------------
+
+&tao_beam_init
+  beam_init%n_particle = 10000
+  beam_init%random_engine = 'quasi'
+  ix_universe = -1
+  beam_saved_at =  "MARKER::*"
+  track_start = 'MK.BEG'
+  track_end = 'MK.END'
+  beam_init%a_norm_emit = 96.78e-6
+  beam_init%b_norm_emit = 41.4e-6
+  beam_init%dPz_dz = 0.0
+  beam_init%n_bunch = 1     
+  beam_init%bunch_charge = 1e-9
+  beam_init%sig_pz = 57.93e-5
+  beam_init%sig_z = 0.005
+  !beam_init%use_particle_start = True
+/
+
+
+!Data Collection
+!--------------------------------------------------------
+
+&tao_d2_data
+        d2_data%name = 'floor'
+        universe = '*'
+        n_d1_data = 1
+        default_merit_type = "target"
+/
+
+&tao_d1_data
+        ix_d1_data = 1
+        d1_data%name = 'angle'
+	datum( 1) = 'floor.theta'  '' ''  'MK.END'    'target'   1.57079632679  100
+        default_weight = 100
+/
+
+
+&tao_d2_data
+        d2_data%name = "orbit"
+        universe = '*'
+        n_d1_data= 3
+/
+
+
+ &tao_d1_data
+    ix_d1_data= 1
+	d1_data%name = "x"
+	default_weight = 10
+!                     data_       ele_ref           ele              merit        meas          weight
+!                     type         name             name              type        val
+	datum( 1) = 'orbit.x'     ''      ''      'MK.BPM1##1'      'target'      0.0           10            
+	datum( 2) = 'orbit.x'     ''      ''      'MK.BPM1##2'      'target'      0.0           10 
+        datum( 3) = 'orbit.x'     ''      ''      'MK.BPM1##3'      'target '     0.0           10
+        datum( 4) = 'orbit.x'     ''      ''      'MK.BPM1##4'      'target'      0.0           10
+        datum( 5) = 'orbit.x'     ''      ''      'MK.BPM1##5'      'target'      0.0           10
+	datum( 6) = 'orbit.x'     ''      ''      'MK.BPM1##6'      'target'      0.0     	10
+        datum( 7) = 'orbit.x'     ''      ''      'MK.BPM1##7'      'target'      0.0     	10
+        datum( 8) = 'orbit.x'     ''      ''      'MK.BPM1##8'      'target '     0.0           10
+        datum( 9) = 'orbit.x'     ''      ''      'MK.BPM1##9'      'target'      0.0           10
+        datum( 10) = 'orbit.x'    ''      ''      'MK.BPM1##10'     'target'      0.0           10
+	datum( 11) = 'orbit.x'    ''      ''      'MK.BPM1##11'     'target'      0.0     	10
+	datum( 12) = 'orbit.x'    ''      ''      'MK.BPM1##12'     'target'      0.0     	10
+        datum( 13) = 'orbit.x'    ''      ''      'MK.BPM1##13'     'target '     0.0           10
+        datum( 14) = 'orbit.x'    ''      ''      'MK.BPM1##14'     'target'      0.0           10
+        datum( 15) = 'orbit.x'    ''      ''      'MK.BPM1##15'     'target'      0.0           10
+	datum( 16) = 'orbit.x'    ''      ''      'MK.BPM1##16'     'target'      0.0     	10
+	datum( 17) = 'orbit.x'    ''      ''      'MK.BPM1##17'     'target'      0.0      	10
+        datum( 18) = 'orbit.x'    ''      ''      'MK.BPM1##18'     'target '     0.0           10
+        datum( 19) = 'orbit.x'    ''      ''      'MK.BPM1##19'     'target'      0.0           10
+        datum( 20) = 'orbit.x'    ''      ''      'MK.BPM1##20'     'target'      0.0           10
+	datum( 21) = 'orbit.x'    ''      ''      'MK.BPM1##21'     'target'      0.0     	10
+	datum( 22) = 'orbit.x'    ''      ''      'MK.BPM1##22'     'target'      0.0     	10
+        datum( 23) = 'orbit.x'    ''      ''      'MK.BPM1##23'     'target '     0.0           10
+        datum( 24) = 'orbit.x'    ''      ''      'MK.BPM1##24'     'target'      0.0           10
+        datum( 25) = 'orbit.x'    ''      ''      'MK.BPM1##25'     'target'      0.0           10
+	datum( 26) = 'orbit.x'    ''      ''      'MK.BPM1##26'     'target'      0.0     	10
+	datum( 27) = 'orbit.x'    ''      ''      'MK.BPM1##27'     'target'      0.0     	10
+        datum( 28) = 'orbit.x'    ''      ''      'MK.BPM1##28'     'target '     0.0           10
+        datum( 29) = 'orbit.x'    ''      ''      'MK.BPM1##29'     'target'      0.0           10
+        datum( 30) = 'orbit.x'    ''      ''      'MK.BPM1##30'     'target'      0.0           10
+	datum( 31) = 'orbit.x'    ''      ''      'MK.BPM1##31'     'target'      0.0     	10
+	datum( 32) = 'orbit.x'    ''      ''      'MK.BPM1##32'     'target'      0.0     	10
+        datum( 33) = 'orbit.x'    ''      ''      'MK.BPM1##33'     'target '     0.0           10
+        datum( 34) = 'orbit.x'    ''      ''      'MK.BPM1##34'     'target'      0.0           10
+        datum( 35) = 'orbit.x'    ''      ''      'MK.BPM1##35'     'target'      0.0           10
+	datum( 36) = 'orbit.x'    ''      ''      'MK.BPM1##36'     'target'      0.0     	10
+	datum( 37) = 'orbit.x'    ''      ''      'MK.BPM1##37'     'target'      0.0     	10
+        datum( 38) = 'orbit.x'    ''      ''      'MK.BPM1##38'     'target '     0.0           10
+        datum( 39) = 'orbit.x'    ''      ''      'MK.BPM1##39'     'target'      0.0           10
+        datum( 40) = 'orbit.x'    ''      ''      'MK.BPM1##40'     'target'      0.0           10
+	datum( 41) = 'orbit.x'    ''      ''      'MK.BPM1##41'     'target'      0.0     	10
+	datum( 42) = 'orbit.x'    ''      ''      'MK.BPM1##42'     'target'      0.0     	10
+        datum( 43) = 'orbit.x'    ''      ''      'MK.BPM1##43'     'target '     0.0           10
+        datum( 44) = 'orbit.x'    ''      ''      'MK.BPM1##44'     'target'      0.0           10
+        datum( 45) = 'orbit.x'    ''      ''      'MK.BPM1##45'     'target'      0.0           10
+	datum( 46) = 'orbit.x'    ''      ''      'MK.BPM1##46'     'target'      0.0     	10
+	datum( 47) = 'orbit.x'    ''      ''      'MK.BPM1##47'     'target'      0.0     	10
+        datum( 48) = 'orbit.x'    ''      ''      'MK.BPM1##48'     'target '     0.0           10
+        datum( 49) = 'orbit.x'    ''      ''      'MK.BPM1##49'     'target'      0.0           10
+        datum( 50) = 'orbit.x'    ''      ''      'MK.BPM1##50'     'target'      0.0           10
+	datum( 51) = 'orbit.x'    ''      ''      'MK.BPM1##51'     'target'      0.0     	10
+	datum( 52) = 'orbit.x'    ''      ''      'MK.BPM1##52'     'target'      0.0     	10
+        datum( 53) = 'orbit.x'    ''      ''      'MK.BPM1##53'     'target '     0.0           10
+        datum( 54) = 'orbit.x'    ''      ''      'MK.BPM1##54'     'target'      0.0           10
+        datum( 55) = 'orbit.x'    ''      ''      'MK.BPM1##55'     'target'      0.0           10
+	datum( 56) = 'orbit.x'    ''      ''      'MK.BPM1##56'     'target'      0.0     	10
+	datum( 57) = 'orbit.x'    ''      ''      'MK.BPM1##57'     'target'      0.0     	10
+        datum( 58) = 'orbit.x'    ''      ''      'MK.BPM1##58'     'target '     0.0           10
+        datum( 59) = 'orbit.x'    ''      ''      'MK.BPM1##59'     'target'      0.0           10
+        datum( 60) = 'orbit.x'    ''      ''      'MK.BPM1##60'     'target'      0.0           10
+	datum( 61) = 'orbit.x'    ''      ''      'MK.BPM1##61'     'target'      0.0     	10
+	datum( 62) = 'orbit.x'    ''      ''      'MK.BPM1##62'     'target'      0.0     	10
+        datum( 63) = 'orbit.x'    ''      ''      'MK.BPM1##63'     'target '     0.0           10
+        datum( 64) = 'orbit.x'    ''      ''      'MK.BPM1##64'     'target'      0.0           10
+        datum( 65) = 'orbit.x'    ''      ''      'MK.BPM1##65'     'target'      0.0           10
+	datum( 66) = 'orbit.x'    ''      ''      'MK.BPM1##66'     'target'      0.0     	10
+	datum( 67) = 'orbit.x'    ''      ''      'MK.BPM1##67'     'target'      0.0     	10
+        datum( 68) = 'orbit.x'    ''      ''      'MK.BPM1##68'     'target '     0.0           10
+        datum( 69) = 'orbit.x'    ''      ''      'MK.BPM1##69'     'target'      0.0           10
+        datum( 70) = 'orbit.x'    ''      ''      'MK.BPM1##70'     'target'      0.0           10
+	datum( 71) = 'orbit.x'    ''      ''      'MK.BPM1##71'     'target'      0.0     	10
+	datum( 72) = 'orbit.x'    ''      ''      'MK.BPM1##72'     'target'      0.0           10
+        datum( 73) = 'orbit.x'    ''      ''      'MK.BPM1##73'     'target '     0.0           10
+        datum( 74) = 'orbit.x'    ''      ''      'MK.BPM1##74'     'target'      0.0           10
+        datum( 75) = 'orbit.x'    ''      ''      'MK.BPM1##75'     'target'      0.0           300
+        datum( 76) = 'orbit.x'    ''      ''      'MK.BEG'          'target'      0.0           0
+        datum( 77) = 'orbit.x'    ''      ''      'MK.END'          'target'      0.0           0
+        datum( 78) = 'orbit.x'    ''   'MK.BEG'   'MK.END'          'abs_max'    0.0237         1000
+/
+ &tao_d1_data
+    ix_d1_data= 2
+	d1_data%name = "px"
+	default_weight = 10
+!                     data_     ele_ref          ele          merit      meas          weight
+!                     type      name              name         type      val
+	datum( 1) = 'orbit.px'    ''      ''      'MK.BPM1##1'      'target'      0.0          10
+	datum( 2) = 'orbit.px'    ''      ''      'MK.BPM1##2'      'target'      0.0          10
+        datum( 3) = 'orbit.px'    ''      ''      'MK.BPM1##3'      'target '     0.0          10
+        datum( 4) = 'orbit.px'    ''      ''      'MK.BPM1##4'      'target'      0.0          10
+        datum( 5) = 'orbit.px'    ''      ''      'MK.BPM1##5'      'target'      0.0          10
+	datum( 6) = 'orbit.px'    ''      ''      'MK.BPM1##6'      'target'      0.0          10
+	datum( 7) = 'orbit.px'    ''      ''      'MK.BPM1##7'      'target'      0.0          10
+        datum( 8) = 'orbit.px'    ''      ''      'MK.BPM1##8'      'target '     0.0          10
+        datum( 9) = 'orbit.px'    ''      ''      'MK.BPM1##9'      'target'      0.0          10
+        datum( 10) = 'orbit.px'    ''      ''      'MK.BPM1##10'     'target'      0.0          10
+	datum( 11) = 'orbit.px'    ''      ''      'MK.BPM1##11'     'target'      0.0     	10
+	datum( 12) = 'orbit.px'    ''      ''      'MK.BPM1##12'     'target'      0.0     	10
+        datum( 13) = 'orbit.px'    ''      ''      'MK.BPM1##13'     'target '     0.0          10
+        datum( 14) = 'orbit.px'    ''      ''      'MK.BPM1##14'     'target'      0.0          10
+        datum( 15) = 'orbit.px'    ''      ''      'MK.BPM1##15'     'target'      0.0          10
+	datum( 16) = 'orbit.px'    ''      ''      'MK.BPM1##16'     'target'      0.0     	10
+	datum( 17) = 'orbit.px'    ''      ''      'MK.BPM1##17'     'target'      0.0     	10
+        datum( 18) = 'orbit.px'    ''      ''      'MK.BPM1##18'     'target '     0.0          10
+        datum( 19) = 'orbit.px'    ''      ''      'MK.BPM1##19'     'target'      0.0          10
+        datum( 20) = 'orbit.px'    ''      ''      'MK.BPM1##20'     'target'      0.0          10
+	datum( 21) = 'orbit.px'    ''      ''      'MK.BPM1##21'     'target'      0.0     	10
+	datum( 22) = 'orbit.px'    ''      ''      'MK.BPM1##22'     'target'      0.0     	10
+        datum( 23) = 'orbit.px'    ''      ''      'MK.BPM1##23'     'target '     0.0          10
+        datum( 24) = 'orbit.px'    ''      ''      'MK.BPM1##24'     'target'      0.0          10
+        datum( 25) = 'orbit.px'    ''      ''      'MK.BPM1##25'     'target'      0.0          10
+	datum( 26) = 'orbit.px'    ''      ''      'MK.BPM1##26'     'target'      0.0     	10
+	datum( 27) = 'orbit.px'    ''      ''      'MK.BPM1##27'     'target'      0.0     	10
+        datum( 28) = 'orbit.px'    ''      ''      'MK.BPM1##28'     'target '     0.0          10
+        datum( 29) = 'orbit.px'    ''      ''      'MK.BPM1##29'     'target'      0.0          10
+        datum( 30) = 'orbit.px'    ''      ''      'MK.BPM1##30'     'target'      0.0          10
+	datum( 31) = 'orbit.px'    ''      ''      'MK.BPM1##31'     'target'      0.0     	10
+	datum( 32) = 'orbit.px'    ''      ''      'MK.BPM1##32'     'target'      0.0     	10
+        datum( 33) = 'orbit.px'    ''      ''      'MK.BPM1##33'     'target '     0.0          10
+        datum( 34) = 'orbit.px'    ''      ''      'MK.BPM1##34'     'target'      0.0          10
+        datum( 35) = 'orbit.px'    ''      ''      'MK.BPM1##35'     'target'      0.0          10
+	datum( 36) = 'orbit.px'    ''      ''      'MK.BPM1##36'     'target'      0.0     	10
+	datum( 37) = 'orbit.px'    ''      ''      'MK.BPM1##37'     'target'      0.0     	10
+        datum( 38) = 'orbit.px'    ''      ''      'MK.BPM1##38'     'target '     0.0          10
+        datum( 39) = 'orbit.px'    ''      ''      'MK.BPM1##39'     'target'      0.0          10
+        datum( 40) = 'orbit.px'    ''      ''      'MK.BPM1##40'     'target'      0.0          10
+	datum( 41) = 'orbit.px'    ''      ''      'MK.BPM1##41'     'target'      0.0     	10
+	datum( 42) = 'orbit.px'    ''      ''      'MK.BPM1##42'     'target'      0.0     	10
+        datum( 43) = 'orbit.px'    ''      ''      'MK.BPM1##43'     'target '     0.0          10
+        datum( 44) = 'orbit.px'    ''      ''      'MK.BPM1##44'     'target'      0.0          10
+        datum( 45) = 'orbit.px'    ''      ''      'MK.BPM1##45'     'target'      0.0          10
+	datum( 46) = 'orbit.px'    ''      ''      'MK.BPM1##46'     'target'      0.0     	10
+	datum( 47) = 'orbit.px'    ''      ''      'MK.BPM1##47'     'target'      0.0     	10
+        datum( 48) = 'orbit.px'    ''      ''      'MK.BPM1##48'     'target '     0.0          10
+        datum( 49) = 'orbit.px'    ''      ''      'MK.BPM1##49'     'target'      0.0          10
+        datum( 50) = 'orbit.px'    ''      ''      'MK.BPM1##50'     'target'      0.0          10
+	datum( 51) = 'orbit.px'    ''      ''      'MK.BPM1##51'     'target'      0.0     	10
+	datum( 52) = 'orbit.px'    ''      ''      'MK.BPM1##52'     'target'      0.0     	10
+        datum( 53) = 'orbit.px'    ''      ''      'MK.BPM1##53'     'target '     0.0          10
+        datum( 54) = 'orbit.px'    ''      ''      'MK.BPM1##54'     'target'      0.0          10
+        datum( 55) = 'orbit.px'    ''      ''      'MK.BPM1##55'     'target'      0.0          10
+	datum( 56) = 'orbit.px'    ''      ''      'MK.BPM1##56'     'target'      0.0     	10
+	datum( 57) = 'orbit.px'    ''      ''      'MK.BPM1##57'     'target'      0.0     	10
+        datum( 58) = 'orbit.px'    ''      ''      'MK.BPM1##58'     'target '     0.0          10
+        datum( 59) = 'orbit.px'    ''      ''      'MK.BPM1##59'     'target'      0.0          10
+        datum( 60) = 'orbit.px'    ''      ''      'MK.BPM1##60'     'target'      0.0          10
+	datum( 61) = 'orbit.px'    ''      ''      'MK.BPM1##61'     'target'      0.0     	10
+	datum( 62) = 'orbit.px'    ''      ''      'MK.BPM1##62'     'target'      0.0     	10
+        datum( 63) = 'orbit.px'    ''      ''      'MK.BPM1##63'     'target '     0.0          10
+        datum( 64) = 'orbit.px'    ''      ''      'MK.BPM1##64'     'target'      0.0          10
+        datum( 65) = 'orbit.px'    ''      ''      'MK.BPM1##65'     'target'      0.0          10
+	datum( 66) = 'orbit.px'    ''      ''      'MK.BPM1##66'     'target'      0.0     	10
+	datum( 67) = 'orbit.px'    ''      ''      'MK.BPM1##67'     'target'      0.0     	10
+        datum( 68) = 'orbit.px'    ''      ''      'MK.BPM1##68'     'target '     0.0          10
+        datum( 69) = 'orbit.px'    ''      ''      'MK.BPM1##69'     'target'      0.0          10
+        datum( 70) = 'orbit.px'    ''      ''      'MK.BPM1##70'     'target'      0.0          10
+	datum( 71) = 'orbit.px'    ''      ''      'MK.BPM1##71'     'target'      0.0     	10
+	datum( 72) = 'orbit.px'    ''      ''      'MK.BPM1##72'     'target'      0.0     	10
+        datum( 73) = 'orbit.px'    ''      ''      'MK.BPM1##73'     'target '     0.0          10
+        datum( 74) = 'orbit.px'    ''      ''      'MK.BPM1##74'     'target'      0.0          10
+        datum( 75) = 'orbit.px'    ''      ''      'MK.BPM1##75'     'target'      0.0          100
+        datum( 76) = 'orbit.px'    ''      ''      'MK.BEG'     'target'      0.0          0
+        datum( 77) = 'orbit.px'    ''      ''      'MK.END'     'target'      0.0          0
+/
+
+ &tao_d1_data
+    ix_d1_data= 3
+	d1_data%name = "unstable"
+	default_weight = 100
+!                     data_           ele_ref          ele        merit      meas         weight
+!                     type             name            name        type       val
+	datum( 1) = 'unstable.orbit'    ''      ''      ''      'target'      0.0          1000
+/
+
+
+
+
+
+!------------------- Variables-------------
+
+
+&tao_var
+    v1_var%name = 'hfld'
+        default_universe = "gang"
+        search_for_lat_eles =  "-no_grouping OVERLAY::CorrH*"
+        default_attribute = 'hk'
+        default_weight = 100
+        default_step = 1e-6
+        ix_min_var = 1
+	default_low_lim  =   -0.032
+	default_high_lim =   0.032
+/
+&tao_var
+    v1_var%name = 'vfld'
+        default_universe = "gang"
+        search_for_lat_eles = "-no_grouping OVERLAY::CorrV*"
+        default_attribute = 'vk'
+        default_weight = 10
+        default_step = 1e-6
+        ix_min_var = 1
+	default_low_lim  =   -0.04
+	default_high_lim =   0.04
+/
+&tao_var 
+	v1_var%name = 'b1corr'
+	default_universe = 'gang'
+        search_for_lat_eles = "-no_grouping OVERLAY::CorrG*"
+        default_attribute = 'gc'
+	default_weight = 10
+	default_step = 1e-6
+	default_low_lim  = -0.188
+	default_high_lim =  0.188
+/

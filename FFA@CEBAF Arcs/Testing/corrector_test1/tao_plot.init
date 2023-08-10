@@ -1,0 +1,77 @@
+
+&tao_template_plot
+ plot%name = 'all_orbits'
+ plot%n_graph = 1
+ plot%x_axis_type = 's'
+ plot%autoscale_y = t
+/
+ 
+&tao_template_graph
+ graph%name = 'all_orbits'
+ graph%type = 'data'
+ graph_index=1
+ graph%n_curve=1
+ curve(1)%data_type = 'orbit.x' 
+ curve(1)%ix_universe = 1 
+ curve(1)%legend_text = '11.65 GeV' 
+/
+
+
+&tao_template_plot
+ plot%name = 'tune'
+ plot%n_graph = 1
+ plot%x_axis_type = 'lat'
+ plot%n_graph = 1
+ plot%x%min = 0
+ plot%x%max = 6.2
+/
+
+&tao_template_graph
+ graph_index=1
+ graph%n_curve=2
+ curve(1:2)%data_type_x='particle_start[pz]' 'particle_start[pz]'
+ curve(1:2)%data_type='tune.a/twopi' 'tune.b/twopi'
+ curve(1:2)%ix_universe = -1
+/
+
+
+
+&tao_template_plot
+ plot%name = "floor"
+ plot%n_graph = 1
+/
+
+&tao_template_graph
+ graph_index = 1
+ graph%name = "1"
+ graph%type = "floor_plan"
+ graph%box = 1, 1, 1, 1
+ graph%margin = 0.10, 0.10, 0.10, 0.10, "%BOX"
+ graph%ix_universe = -1 ! Draw all universes.
+ graph%x%min = -12
+ graph%x%max = 0
+ graph%x%major_div_nominal = 4
+ graph%x%minor_div = 3
+ graph%x%label = "SMART LABEL"
+ graph%y%label = "SMART LABEL"
+ graph%y%max = 2
+ graph%y%min = -1
+ graph%draw_axes = false
+ graph%draw_grid = false
+ graph%floor_plan%rotation = .25
+ graph%floor_plan%correct_distortion = T
+ graph%floor_plan%size_is_absolute = T
+! graph%floor_plan%view = "xz" ! Looking from beneath
+ graph%floor_plan%orbit_scale = 100
+/
+
+
+
+&tao_plot_page
+  plot_page%size = 700, 750
+  plot_page%n_curve_pts = 960
+  place(1) = 'layout', 'lat_layout'
+  place(2) = 'r13', 'beta'
+  place(3) = 'r23', 'disp'
+  place(4) = 'r33', 'all_orbits'
+/

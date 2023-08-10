@@ -1,0 +1,31 @@
+Minimal corrector lattice documentation:
+Please note: these lattices only handle horizontal beam correction right now:
+the correctors themselves are set up for horizontal, vertical, and optics corrections,
+but I haven't added the necessary diagnostics yet.
+
+Furthermore, the file 'tao.init' in the namelist &tao_params must contain the lines:
+
+  global%opt_with_ref = F
+  global%opt_with_base = T
+
+otherwise corrector optimization won't work.
+
+
+To run, navigate to the 'East Arc' or 'West Arc' folder from the command line, enter 'tao' and bazinga
+
+the best optimizer to use for corrections is svd: to add errors to the lattice, at the tao prompt enter one of:
+
+change particle_start <attribute> <amount to change nominal value by>
+change ele <element reference #> <attribute> <amount to change nominal value by>
+change var <variable name> <amount to change nominal value by>
+
+or
+
+set particle_start <attribute> <new value of attribute>
+set ele <element reference #> <attribute> <new value of attribute>
+set var <variable name> <new value of variable>
+
+
+and repeat for as many errors as you like. 
+Then, at the tao prompt enter 'run svd' 
+and voila! you've run the basic correction scheme.
