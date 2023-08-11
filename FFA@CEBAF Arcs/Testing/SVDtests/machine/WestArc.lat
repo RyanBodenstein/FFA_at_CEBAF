@@ -14,30 +14,30 @@ pr_bd: patch, x_pitch = 0.5*angbd
 ! Magnet Sections --------                                           
 bda: sbend, field_master = T, b1_gradient = GD, l = BDL/6, 
     db_field = BD_fld, x_offset = dxDA,
-    x2_limit = .014, x1_limit = .028, y_limit = 0.01, offset_moves_aperture = T                   
+    x2_limit = .014, x1_limit = .028, y_limit = 0.01, offset_moves_aperture = F                   
 bdb: sbend, field_master = T, b1_gradient = GD, l = BDL/6, 
     db_field = BD_fld, x_offset = dxDB,
-    x2_limit = .014, x1_limit = .028, y_limit = 0.01, offset_moves_aperture = T                   
+    x2_limit = .014, x1_limit = .028, y_limit = 0.01, offset_moves_aperture = F                   
 bdc: sbend, field_master = T, b1_gradient = GD, l = BDL/6, 
     db_field = BD_fld, x_offset = dxDC,
-    x2_limit = .014, x1_limit = .028, y_limit = 0.01, offset_moves_aperture = T 
+    x2_limit = .014, x1_limit = .028, y_limit = 0.01, offset_moves_aperture = F 
 
 bda_short: sbend, field_master = T, b1_gradient = GD, l = .0835, 
     db_field = BD_fld, x_offset = bda[x_offset],
-    x2_limit = .014, x1_limit = .028, y_limit = 0.01, offset_moves_aperture = T  
+    x2_limit = .014, x1_limit = .028, y_limit = 0.01, offset_moves_aperture = F  
 bdb_short: sbend, field_master = T, b1_gradient = GD, l = .0835, 
     db_field = BD_fld, x_offset = bdb[x_offset],
-    x2_limit = .014, x1_limit = .028, y_limit = 0.01, offset_moves_aperture = T                   
+    x2_limit = .014, x1_limit = .028, y_limit = 0.01, offset_moves_aperture = F                  
 bdc_short: sbend, field_master = T, b1_gradient = GD, l = .0835, 
     db_field = BD_fld, x_offset = bdc[x_offset],
-    x2_limit = .014, x1_limit = .028, y_limit = 0.01, offset_moves_aperture = T 
+    x2_limit = .014, x1_limit = .028, y_limit = 0.01, offset_moves_aperture = F 
 
 pqbda: sbend, field_master = T, l = BDL/6-.0835, x_offset = bda[x_offset], 
-       x2_limit = .014, x1_limit = .028, y_limit = 0.01, offset_moves_aperture = T
+       x2_limit = .014, x1_limit = .028, y_limit = 0.01, offset_moves_aperture = F
 pqbdb: sbend, field_master = T, l = BDL/6, x_offset = bdb[x_offset], 
-       x2_limit = .014, x1_limit = .028, y_limit = 0.01, offset_moves_aperture = T
+       x2_limit = .014, x1_limit = .028, y_limit = 0.01, offset_moves_aperture = F
 pqbdc: sbend, field_master = T, l = BDL/6-.0835, x_offset = bdc[x_offset], 
-       x2_limit = .014, x1_limit = .028, y_limit = 0.01, offset_moves_aperture = T
+       x2_limit = .014, x1_limit = .028, y_limit = 0.01, offset_moves_aperture = F
 ! Whole Magnet ----------
 BDM : line = (pr_bd, bda, bdb, bdc, bdc_short, pqbdc, pqbdb, pqbda, bda_short, pr_bd)
 
@@ -66,20 +66,20 @@ bfc: sbend, field_master =T, b1_gradient = GF, l = BFL/6,
 
 bfa_short: sbend, field_master =T, b1_gradient = GF, l = BFL/6-0.2, 
     db_field = BF_fld, x_offset = dxFA,
-    x1_limit = .03, x2_limit = .022, y_limit = 0.01, offset_moves_aperture = T                                                   
+    x1_limit = .03, x2_limit = .022, y_limit = 0.01, offset_moves_aperture = F                                                   
 bfb_short: sbend, field_master =T, b1_gradient = GF, l = BFL/6-0.2, 
     db_field = BF_fld, x_offset = dxFB,
-    x1_limit = .03, x2_limit = .022, y_limit = 0.01, offset_moves_aperture = T                                                   
+    x1_limit = .03, x2_limit = .022, y_limit = 0.01, offset_moves_aperture = F                                                   
 bfc_short: sbend, field_master =T, b1_gradient = GF, l = BFL/6-0.2, 
     db_field = BF_fld, x_offset = dxFC,
-    x1_limit = .03, x2_limit = .022, y_limit = 0.01, offset_moves_aperture = T
+    x1_limit = .03, x2_limit = .022, y_limit = 0.01, offset_moves_aperture = F
 
 pqbfa: sbend, field_master = T, l = 0.2, x_offset = bfa[x_offset], 
-       x1_limit = .03, x2_limit = .022, y_limit = 0.01, offset_moves_aperture = T
+       x1_limit = .03, x2_limit = .022, y_limit = 0.01, offset_moves_aperture = F
 pqbfb: sbend, field_master = T, l = 0.2, x_offset = bfb[x_offset], 
-       x1_limit = .03, x2_limit = .022, y_limit = 0.01, offset_moves_aperture = T
+       x1_limit = .03, x2_limit = .022, y_limit = 0.01, offset_moves_aperture = F
 pqbfc: sbend, field_master = T, l = 0.2, x_offset = bfc[x_offset], 
-       x1_limit = .03, x2_limit = .022, y_limit = 0.01, offset_moves_aperture = T
+       x1_limit = .03, x2_limit = .022, y_limit = 0.01, offset_moves_aperture = F
 
 ! Whole Magnet ----------
 BFM : line = (pr_bf, bfa, bfb, bfc, bfc, bfb, bfa, pr_bf)
@@ -144,4 +144,4 @@ arc20: line = (MK.BEG, cell20, MK.END)
 arc75: line = (MK.BEG, cell20, cell20, cell20, cell10, cell5, MK.END)
 
 
-use, arc20
+use, arc75

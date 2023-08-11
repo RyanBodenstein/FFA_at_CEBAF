@@ -277,7 +277,7 @@
     v1_var%name = 'hfld'
         default_universe = "gang"
         search_for_lat_eles =  "-no_grouping OVERLAY::CorrH*"
-        default_attribute = 'hk'
+        default_attribute = 'bl_hkick'
         default_weight = 100
         default_step = 1e-7
         ix_min_var = 1
@@ -288,7 +288,7 @@
     v1_var%name = 'vfld'
         default_universe = "gang"
         search_for_lat_eles = "-no_grouping OVERLAY::CorrV*"
-        default_attribute = 'vk'
+        default_attribute = 'bl_vkick'
         default_weight = 10
         default_step = 1e-7
         ix_min_var = 1
