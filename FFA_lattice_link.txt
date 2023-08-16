@@ -1,7 +1,7 @@
 Hello and welcome to 'Figuring out what the hell the FFA optics look like anyway'
 
 First and most importantly, all current Bmad lattices (per Alex C, at least) 
-may be found on the LDRD github at: https://github.com/RyanBodenstein/FFA_at_CEBAF/tree/main/FFA%40CEBAF%20Arcs
+may be found on the LDRD github at: https://github.com/RyanBodenstein/FFA_at_CEBAF/tree/main/CEBAF/22GeV/Bmad/FFA%20ARCS
 
 Before use of those lattices, please read the readme, which serves as basic documentation. 
 Further questions about the lattices themselves may be directed to alexcoxe@jlab.org
@@ -9,4 +9,4 @@ Further questions about the lattices themselves may be directed to alexcoxe@jlab
 Also at that page is a spreadsheet containing the entrance end optics and beam positions
 for all six passes through each FFA arc in the nominal (no errors anywhere) case.
 
-Thanks for your time, and here's hoping you don't get to angry or depressed!
+Thanks for your time, and here's hoping you don't get too angry or depressed!
