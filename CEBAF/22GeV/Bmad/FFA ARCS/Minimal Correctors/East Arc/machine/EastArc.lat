@@ -62,11 +62,11 @@ bdc_short: sbend, field_master = T, b1_gradient = GD, l = BDL/6-0.2,
 
 ! blocks with an additional corrector term: size may need adjustment
 !-------------
-pqbda: sbend, field_master = T, l = 0.2, x_offset = bda[x_offset], 
+pqbda: sbend, field_master = T, l = 0.2, x_offset = bda[x_offset], db_field = bda[db_field],
        x2_limit = .008, x1_limit = .035, y_limit = 0.01, offset_moves_aperture = F
-pqbdb: sbend, field_master = T, l = 0.2, x_offset = bdb[x_offset], 
+pqbdb: sbend, field_master = T, l = 0.2, x_offset = bdb[x_offset], db_field = bdb[db_field],
        x2_limit = .008, x1_limit = .035, y_limit = 0.01, offset_moves_aperture = F
-pqbdc: sbend, field_master = T, l = 0.2, x_offset = bdc[x_offset], 
+pqbdc: sbend, field_master = T, l = 0.2, x_offset = bdc[x_offset],  db_field = bdc[db_field],
        x2_limit = .008, x1_limit = .035, y_limit = 0.01, offset_moves_aperture = F
 ! -------------------------------
 
@@ -116,11 +116,11 @@ bfc_short: sbend, field_master =T, b1_gradient = GF, l = BFL/6-0.2,
 
 ! 'superposed' corrector blocks
 !-------------
-pqbfa: sbend, field_master = T, l = 0.2, x_offset = bfa[x_offset], 
+pqbfa: sbend, field_master = T, l = 0.2, x_offset = bfa[x_offset], db_field = bfa[db_field],
        x2_limit = 0.015, x1_limit = 0.035, y_limit = 0.01, offset_moves_aperture = T
-pqbfb: sbend, field_master = T, l = 0.2, x_offset = bfb[x_offset], 
+pqbfb: sbend, field_master = T, l = 0.2, x_offset = bfb[x_offset], db_field = bfa[db_field], 
        x2_limit = 0.015, x1_limit = 0.035, y_limit = 0.01, offset_moves_aperture = T
-pqbfc: sbend, field_master = T, l = 0.2, x_offset = bfc[x_offset], 
+pqbfc: sbend, field_master = T, l = 0.2, x_offset = bfc[x_offset], db_field = bfa[db_field], 
        x2_limit = 0.015, x1_limit = 0.035, y_limit = 0.01, offset_moves_aperture = T
 ! -------------------------------
 
