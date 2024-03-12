@@ -1,0 +1,34 @@
+ M13Q1[K1] = -2.16104661170152590E-001   ! Not used in optimizing
+ M13Q2[K1] =  1.30823085992493982E-001   ! Not used in optimizing
+ M13Q3[K1] =  2.98434113340335649E-001   ! Not used in optimizing
+ M13Q4[K1] = -9.43647107389686685E-002   ! Not used in optimizing
+ M13Q5[K1] = -2.29117073762740264E-001   ! Not used in optimizing
+ M13Q6[K1] =  5.99898310854486527E-001   ! Not used in optimizing
+ M13Q7[K1] =  5.99850356345524638E-001   ! Not used in optimizing
+ M13Q8[K1] =  5.99998873394263277E-001   ! Not used in optimizing
+ M13Q9[K1] = -5.98452536696532755E-001   ! Not used in optimizing
+ M13Q10[K1] =  4.82403396973144327E-001   ! Not used in optimizing
+ M13Q11[K1] =  5.17403861670089005E-001   ! Not used in optimizing
+ M13Q12[K1] = -5.99863442094326071E-001   ! Not used in optimizing
+ 
+ end_file
+ 
+ 
+ ! Top 10
+ 
+ Constraints                            Ref_Ele    Start_Ele   Ele/S    Meas-or-Lim    Model       Merit      Max_Loc
+ 4@Optics[41]             4@lat::beta.a[END] <target>                    2.6023E+00   2.8535E+00  6.312E+08
+ 4@Optics[42]             4@lat::beta.b[END] <target>                    8.0350E+00   8.0889E+00  2.902E+07
+ 4@Optics[48]             4@lat::r.56[END] <target>                      1.9190E-01   1.9191E-01  2.079E+05
+ Twiss_P15_FirstThree[3]  4@M15Q3[K1]                         42.35     -6.0000E-01  -2.8715E-03  0.000E+00
+ Twiss_P15_FirstThree[2]  4@M15Q2[K1]                         31.66      6.0000E-01   2.3961E-03  0.000E+00
+ Twiss_P15_FirstThree[1]  4@M15Q1[K1]                         30.86      6.0000E-01   5.8082E-03  0.000E+00
+ 4@Optics[50]             beta.b <max>            BEGINNING   END        7.0000E+02   2.4895E+02  0.000E+00  MCB2
+ 4@Optics[49]             beta.a <max>            BEGINNING   END        7.0000E+02   2.8371E+02  0.000E+00  D1508#2
+ Constraints                            Ref_Ele    Start_Ele   Ele/S    Meas-or-Lim    Model       Merit      Max_Loc
+ 
+  figure of merit: 6.604349E+08
+ 
+ List of non-zero contributors to the Merit Function:
+ Name                                          Merit           Sigma [= sqrt(Chi^2/N)]
+ Optics.Twiss                                  6.6043E+08      1.4835E-01
