@@ -1,0 +1,167 @@
+! Arcs.lat
+! File containing base element definitions
+! Arc magnets, drifts, diagnostics, etc
+
+call, file = 2022-12-16_params_west.bmad 
+
+
+! Element Definitions -------------------------------------------------------------------
+ 
+
+
+! Bending Defocusing unit
+
+! Patches ----------------
+pr_bd_in: patch, x_pitch = 0.5*angbd, x_offset = BDL * sin(0.5*angbd) / 2   
+pr_bd_out: patch, x_pitch = 0.5*angbd, x_offset = -BDL * sin(0.5*angbd) / 2   
+!-------------------------  
+
+! Magnet Sections --------   
+! basic blocks per Stephen Brooks
+
+bda: sbend, field_master = T, b1_gradient = GD, l = BDL/6, 
+    db_field = BD_fld, x_offset = dxDA,
+    x2_limit = 0.02, x1_limit = .08, y_limit = 0.01, 
+    offset_moves_aperture = F                   
+bdb: sbend, field_master = T, b1_gradient = GD, l = BDL/6, 
+    db_field = BD_fld, x_offset = dxDB,
+    x2_limit = 0.02, x1_limit = .08, y_limit = 0.01, 
+    offset_moves_aperture = F                   
+bdc: sbend, field_master = T, l = BDL/6, 
+    db_field = BD_fld, x_offset = dxDC, b1_gradient = GD, 
+    x2_limit = 0.02, x1_limit = .08, y_limit = 0.01, 
+    offset_moves_aperture = F 
+
+! define some sections that act as correctors on top of the magnet
+
+bdac: sbend, field_master = T, l = BDL/6, 
+    db_field = BD_fld, x_offset = dxDA,
+    x2_limit = 0.02, x1_limit = .08, y_limit = 0.01, 
+    offset_moves_aperture = F                   
+bdbc: sbend, field_master = T, l = BDL/6, 
+    db_field = BD_fld, x_offset = dxDB,
+    x2_limit = 0.02, x1_limit = .08, y_limit = 0.01, 
+    offset_moves_aperture = F  
+!-------------
+! Whole Magnet ----------
+BDM: line = (pr_bd_in, bda, bdb, bdc, bdc, bdbc, bdac, pr_bd_out)     ! magnet with corrector at trailing edge
+BDMb: line = (pr_bd_in, bda, bdb, bdc, bdc, bdb, bda, pr_bd_out)      ! magnet with no corrector
+
+
+
+! Drifts -------------------------------------------------
+d2: drift, l = DL                ! mid-cell drift
+d2i: drift, l = DL/2               ! half drift for cell start
+d2o: drift, l = DL/2               ! half drift for cellend
+! --------------------------------------------------------                          
+
+
+! Bending Focusing unit
+
+! Patches ----------------
+pr_bf_in: patch, x_pitch = 0.5*angbf, x_offset = BFL * sin(0.5*angbf) / 2   
+pr_bf_out: patch, x_pitch = 0.5*angbf, x_offset = -BFL * sin(0.5*angbf) / 2   
+!-------------------------
+
+! Magnet Sections --------    
+! basic blocks
+
+bfa: sbend, field_master =T, b1_gradient = GF, l = BFL/6, 
+    db_field = BF_fld, x_offset = dxFA,
+    x2_limit = 0.026, x1_limit = .074, y_limit = 0.01, 
+    offset_moves_aperture = F                                                
+bfb: sbend, field_master =T, b1_gradient = GF, l = BFL/6, 
+    db_field = BF_fld, x_offset = dxFB,
+    x2_limit = 0.026, x1_limit = .074, y_limit = 0.01, 
+    offset_moves_aperture = F                                             
+bfc: sbend, field_master =T,l = BFL/6, 
+    db_field = BF_fld, x_offset = dxFC, b1_gradient = GF, 
+    x2_limit = 0.026, x1_limit = .074, y_limit = 0.01, 
+    offset_moves_aperture = F
+
+! define some sections that act as correctors on top of the magnet
+
+bfac: sbend, field_master =T, l = BFL/6, 
+    db_field = BF_fld, x_offset = dxFA,
+    x2_limit = 0.026, x1_limit = .074, y_limit = 0.01, 
+    offset_moves_aperture = F                                                
+bfbc: sbend, field_master =T, l = BFL/6, 
+    db_field = BF_fld, x_offset = dxFB,
+    x2_limit = 0.026, x1_limit = .074, y_limit = 0.01, 
+    offset_moves_aperture = F   
+!-------------
+! Whole Magnet ----------
+BFM : line = (pr_bf_in, bfa, bfb, bfc, bfc, bfbc, bfac, pr_bf_out)     ! magnet with corrector on the trailing edge
+BFMb : line = (pr_bf_in, bfa, bfb, bfc, bfc, bfb, bfa, pr_bf_out)      ! magnet with no corrector
+
+
+
+! Control Elements ---------------------------------------
+
+! Girders -----------------------
+BFMG : Girder = {pr_bf_in: pr_bf_out}, origin_ele = global_coordinates!,      ! Bending focusing girder
+       ! x_pitch = angbf, x_offset = BFL * sin(angbf) / 2
+BDMG : GIRDER = {pr_bd_in: pr_bd_out}, origin_ele = global_coordinates!,      ! Bending defocusing girder
+       ! x_pitch = angbd, x_offset = BDL * sin(angbd) / 2
+! -------------------------------
+
+! Overlays ----------------------
+ 
+
+! Correctors at the trailing edge
+! -------------------------------------
+! defocusing magnet corrector
+CorrHBD: Overlay = {bdbc[bl_hkick]: 0.2*bl_hkick, bdac[bl_hkick]: 0.2*bl_hkick}, 
+         var = {bl_hkick}, bl_hkick = 0, GANG=False
+CorrVBD: Overlay = {bdbc[bl_vkick]: 0.2*bl_vkick, bdac[bl_vkick]: 0.2*bl_vkick}, 
+         var = {bl_vkick}, bl_vkick = 0, GANG=False
+CorrGBD: Overlay = {bdbc[b1_gradient]: GD + gc, bdac[b1_gradient]: GD + gc}, 
+         var = {gc}, gc = 0, GANG=False
+
+! focusing magnet corrector
+CorrHBF: Overlay = {bfbc[bl_hkick]: 0.2*bl_hkick, bfac[bl_hkick]: 0.2*bl_hkick}, 
+         var = {bl_hkick}, bl_hkick = 0, GANG=False
+CorrVBF: Overlay = {bfbc[bl_vkick]: 0.2*bl_vkick, bfac[bl_vkick]: 0.2*bl_vkick}, 
+         var = {bl_vkick}, bl_vkick = 0, GANG=False
+CorrGBF: Overlay = {bfbc[b1_gradient]: GF + gc, bfac[b1_gradient]: GF + gc}, 
+         var = {gc}, gc = 0, GANG=False
+! --------------------------------------------------------
+
+
+
+
+! markers for diagnostic purposes
+! -------------------------------
+MK.BEG: marker      ! beginning of the lattice
+MK.BPM: marker, type = "BPM"             
+MK.END: marker      ! end of the lattice
+! -------------------------------
+
+
+
+
+! Lattice Definition --------------------------------------------------------------------
+
+
+cell: line = (d2i, MK.BPM, BDM, d2o, d2i, MK.BPM, BFM, d2o)
+cellb: line = (d2i, MK.BPM, BDM, d2o, d2i, BFMb, d2o)
+
+arc1: line = (MK.BEG, cell, MK.END)
+
+cell5: line = (cell, cell, cell, cell, cell)
+cell5b: line = (cellb, cellb, cellb, cellb, cellb)
+
+arc5: line = (MK.BEG, cell5, MK.END)
+
+cell10: line = (cell5, cell5)
+cell10b: line = (cell5b, cell5b)
+arc10: line = (MK.BEG, cell5, cell5, MK.END)
+
+cell20: line = (cell10, cell10)
+cell20b: line = (cell10b, cell10b)
+
+arc75: line = (MK.BEG, cell10, cell10b, cell20b, cell20b, cell10, cell5, MK.END)
+
+arc87: line = (MK.BEG, cell20, cell20, cell20, cell20, cell, MK.END)
+
+use, arc75

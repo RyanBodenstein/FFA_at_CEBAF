@@ -1,0 +1,75 @@
+parameter[geometry] = Closed          
+
+parameter[p0c]                      = 2.0099999993504E10
+parameter[particle]                 = Electron
+
+beginning[beta_a]    = 2.9516336628743
+beginning[alpha_a]   = 1.8207282983058
+beginning[eta_x]     = 0.028158053185307
+beginning[etap_x]    = -0.02623049818222
+beginning[beta_b]    = 6.4827908300084
+beginning[alpha_b]   = -3.0402377724129
+particle_start[x]  = -0.048897025136
+particle_start[px] = 0.017250645258705
+particle_start[pz] = -0.365672
+
+GD = 43.44
+GF = -41.13
+
+!-------------------------------------------------------
+
+MK.BEG: Marker
+D2I: Drift, L = 0.058094750193111
+MK.BPM: Marker, type = "BPM"
+PR_BD_IN: Patch, L = 7.8586576080636E-6, X_PITCH = -3.5533002211684E-3, X_OFFSET = -2.2116549844087E-3
+BDA: Sbend, L = 0.20747469495897, K1 = -0.64790967063326, X_OFFSET = -1.2627808961866E-3,
+   DB_FIELD = -0.38275499572233, B1_GRADIENT = 43.44, X1_LIMIT = 0.05, y_limit = 0.01, field_master = T
+BDB: Sbend, L = 0.20747469495897, K1 = -0.64790967063326, X_OFFSET = 1.1372191038134E-3,
+   DB_FIELD = -0.38275499572233, B1_GRADIENT = 43.44, X1_LIMIT = 0.05, y_limit = 0.01, field_master = T
+BDC: Sbend, L = 0.20747469495897, K1 = -0.64790967063326, X_OFFSET = 2.3372191038134E-3,
+   DB_FIELD = -0.38275499572233, B1_GRADIENT = 43.44, X1_LIMIT = 0.05, y_limit = 0.01, field_master = T
+BDBC: Sbend, L = 0.20747469495897, K1 = -0.64790967063326, X_OFFSET = 1.1372191038134E-3,
+   DB_FIELD = -0.38275499572233, B1_GRADIENT = 43.44, X1_LIMIT = 0.05, y_limit = 0.01, field_master = T
+BDAC: Sbend, L = 0.20747469495897, K1 = -0.64790967063326, X_OFFSET = -1.2627808961866E-3,
+   DB_FIELD = -0.38275499572233, B1_GRADIENT = 43.44, X1_LIMIT = 0.05, y_limit = 0.01, field_master = T
+PR_BD_OUT: Patch, L = -7.8586576080636E-6, X_PITCH = -3.5533002211684E-3, X_OFFSET = 2.2116549844087E-3
+D2O: Drift, L = 0.058094750193111
+PR_BF_IN: Patch, L = 2.1387065572244E-4, X_PITCH = -0.015989850995258, X_OFFSET = -0.013375970147125
+BFA: Sbend, L = 0.27885480092693, K1 = 0.61345591052362, X_OFFSET = 1.958751715516E-3,
+   DB_FIELD = -1.2815052519409, B1_GRADIENT = -41.13, X1_LIMIT = 0.05, X2_LIMIT = 0.015, y_limit = 0.01,
+   field_master = T
+BFB: Sbend, L = 0.27885480092693, K1 = 0.61345591052362, X_OFFSET = 4.958751715516E-3,
+   DB_FIELD = -1.2815052519409, B1_GRADIENT = -41.13, X1_LIMIT = 0.05, X2_LIMIT = 0.015, y_limit = 0.01,
+   field_master = T
+BFC: Sbend, L = 0.27885480092693, K1 = 0.61345591052362, X_OFFSET = 6.458751715516E-3,
+   DB_FIELD = -1.2815052519409, B1_GRADIENT = -41.13, X1_LIMIT = 0.05, X2_LIMIT = 0.015, y_limit = 0.01,
+   field_master = T
+BFBC: Sbend, L = 0.27885480092693, K1 = 0.61345591052362, X_OFFSET = 4.958751715516E-3,
+   DB_FIELD = -1.2815052519409, B1_GRADIENT = -41.13, X1_LIMIT = 0.05, X2_LIMIT = 0.015, y_limit = 0.01,
+   field_master = T
+BFAC: Sbend, L = 0.27885480092693, K1 = 0.61345591052362, X_OFFSET = 1.958751715516E-3,
+   DB_FIELD = -1.2815052519409, B1_GRADIENT = -41.13, X1_LIMIT = 0.05, X2_LIMIT = 0.015, y_limit = 0.01,
+   field_master = T
+PR_BF_OUT: Patch, L = -2.1387065572244E-4, X_PITCH = -0.015989850995258, X_OFFSET = 0.013375970147125
+MK.END: Marker
+BFMG: girder = {PR_BF_IN,BFA,BFB,BFC,BFC,BFBC,BFAC,PR_BF_OUT}, origin_ele = GLOBAL_COORDINATES
+BDMG: girder = {PR_BD_IN,BDA,BDB,BDC,BDC,BDBC,BDAC,PR_BD_OUT}, origin_ele = GLOBAL_COORDINATES
+
+!-------------------------------------------------------
+! Overlays, groups, rampers, and superimpose
+
+CORRHBD: overlay = {BDBC: 0.2*bl_hkick, BDAC: 0.2*bl_hkick}, var = {BL_HKICK}, gang = False
+CORRVBD: overlay = {BDBC: 0.2*bl_vkick, BDAC: 0.2*bl_vkick}, var = {BL_VKICK}, gang = False
+CORRGBD: overlay = {BDBC[B1_GRADIENT]: GD+gc, BDAC[B1_GRADIENT]: GD+gc}, var = {GC}, gang = False
+CORRHBF: overlay = {BFBC: 0.2*bl_hkick, BFAC: 0.2*bl_hkick}, var = {BL_HKICK}, gang = False
+CORRVBF: overlay = {BFBC: 0.2*bl_vkick, BFAC: 0.2*bl_vkick}, var = {BL_VKICK}, gang = False
+CORRGBF: overlay = {BFBC[B1_GRADIENT]: GF+gc, BFAC[B1_GRADIENT]: GF+gc}, var = {GC}, gang = False
+
+!-------------------------------------------------------
+! Lattice lines
+
+
+ARC1: line = ( MK.BEG, D2I, MK.BPM, PR_BD_IN, BDA, BDB, BDC, BDC, BDBC, BDAC, PR_BD_OUT, D2O, D2I,
+   MK.BPM, PR_BF_IN, BFA, BFB, BFC, BFC, BFBC, BFAC, PR_BF_OUT, D2O, MK.END)
+
+use, ARC1

@@ -1,0 +1,823 @@
+!------------------------------------------------------------------------
+
+&tao_start
+  plot_file = 'tao_plot.init'
+  startup_file = 'tao.startup'
+/
+
+&tao_design_lattice
+   n_universes = 6
+!   n_universes = 1
+   design_lattice(1)%file = "wp1.bmad"
+   design_lattice(2)%file = "wp2.bmad"
+   design_lattice(3)%file = "wp3.bmad"
+   design_lattice(4)%file = "wp4.bmad"
+   design_lattice(5)%file = "wp5.bmad"
+   design_lattice(6)%file = "wp6.bmad"
+/
+
+!------------------------------------------------------------------------
+
+&tao_params
+  !global%plot_on = .true.
+  global%track_type = 'single'
+  !global%track_type = 'beam'
+  global%beam_timer_on = T
+  !global%random_engine = 'pseudo'
+  global%random_engine = 'quasi'
+  !global%floor_plan_rotation = 0.5
+  global%de_lm_step_ratio = 1000
+  global%de_var_to_population_factor = 0.002
+  global%optimizer = 'lmdif'
+  global%n_opti_cycles = 1000
+  global%opt_with_base = F
+  global%opt_with_ref = T
+  !---Bmad---
+  bmad_com%radiation_damping_on = F
+  bmad_com%radiation_fluctuations_on = F  
+  !bmad_com%taylor_order = 8    
+  ! TEMP for EM field tracking  
+  !bmad_com%abs_tol_tracking = 1e-7
+  !bmad_com%rel_tol_tracking = 1e-7
+/
+
+!Beam Initialization
+!--------------------------------------------------------
+
+&tao_beam_init
+  beam_init%n_particle = 10000
+  beam_init%random_engine = 'quasi'
+  ix_universe = -1
+  beam_saved_at =  "MARKER::*"
+  track_start = 'MK.BEG'
+  track_end = 'MK.END'
+  beam_init%a_norm_emit = 96.78e-6
+  beam_init%b_norm_emit = 41.4e-6
+  beam_init%dPz_dz = 0.0
+  beam_init%n_bunch = 1     
+  beam_init%bunch_charge = 1e-9
+  beam_init%sig_pz = 57.93e-5
+  beam_init%sig_z = 0.005
+  !beam_init%use_particle_start = True
+/
+
+
+!Data Collection
+!--------------------------------------------------------
+
+!&tao_d2_data
+!        d2_data%name = 'floor'
+!        universe = '*'
+!        n_d1_data = 1
+!        default_merit_type = "target"
+!/
+
+!&tao_d1_data
+!        ix_d1_data = 1
+!        d1_data%name = 'angle'
+!	datum( 1) = 'floor.theta'  '' ''  'MK.END'    'target'   1.57079632679  100
+!        default_weight = 100
+!/
+
+
+
+&tao_d2_data
+        d2_data%name = "twiss"
+        universe = '*'
+        n_d1_data= 2
+/
+
+
+
+ &tao_d1_data
+    ix_d1_data= 1
+	d1_data%name = "beta_a"
+	default_weight = 10
+!               data_type    ref_ele_name      ele           merit_type	   meas_val		weight
+	datum( 1) = 'beta.a'    ''      ''      'MK.BPM##1'      'target'      0.0          10
+	datum( 2) = 'beta.a'    ''      ''      'MK.BPM##2'      'target'      0.0          10
+	datum( 3) = 'beta.a'    ''      ''      'MK.BPM##3'      'target'      0.0          10
+	datum( 4) = 'beta.a'    ''      ''      'MK.BPM##4'      'target'      0.0          10
+	datum( 5) = 'beta.a'    ''      ''      'MK.BPM##5'      'target'      0.0          10
+	datum( 6) = 'beta.a'    ''      ''      'MK.BPM##6'      'target'      0.0          10
+	datum( 7) = 'beta.a'    ''      ''      'MK.BPM##7'      'target'      0.0          10
+	datum( 8) = 'beta.a'    ''      ''      'MK.BPM##8'      'target'      0.0          10
+	datum( 9) = 'beta.a'    ''      ''      'MK.BPM##9'      'target'      0.0          10
+	datum( 10) = 'beta.a'    ''      ''      'MK.BPM##10'      'target'      0.0          10
+	datum( 11) = 'beta.a'    ''      ''      'MK.BPM##11'      'target'      0.0          10
+	datum( 12) = 'beta.a'    ''      ''      'MK.BPM##12'      'target'      0.0          10
+	datum( 13) = 'beta.a'    ''      ''      'MK.BPM##13'      'target'      0.0          10
+	datum( 14) = 'beta.a'    ''      ''      'MK.BPM##14'      'target'      0.0          10
+	datum( 15) = 'beta.a'    ''      ''      'MK.BPM##15'      'target'      0.0          10
+	datum( 16) = 'beta.a'    ''      ''      'MK.BPM##16'      'target'      0.0          10
+	datum( 17) = 'beta.a'    ''      ''      'MK.BPM##17'      'target'      0.0          10
+	datum( 18) = 'beta.a'    ''      ''      'MK.BPM##18'      'target'      0.0          10
+	datum( 19) = 'beta.a'    ''      ''      'MK.BPM##19'      'target'      0.0          10
+	datum( 20) = 'beta.a'    ''      ''      'MK.BPM##20'      'target'      0.0          10
+	datum( 21) = 'beta.a'    ''      ''      'MK.BPM##21'      'target'      0.0          10
+	datum( 22) = 'beta.a'    ''      ''      'MK.BPM##22'      'target'      0.0          10
+	datum( 23) = 'beta.a'    ''      ''      'MK.BPM##23'      'target'      0.0          10
+	datum( 24) = 'beta.a'    ''      ''      'MK.BPM##24'      'target'      0.0          10
+	datum( 25) = 'beta.a'    ''      ''      'MK.BPM##25'      'target'      0.0          10
+	datum( 26) = 'beta.a'    ''      ''      'MK.BPM##26'      'target'      0.0          10
+	datum( 27) = 'beta.a'    ''      ''      'MK.BPM##27'      'target'      0.0          10
+	datum( 28) = 'beta.a'    ''      ''      'MK.BPM##28'      'target'      0.0          10
+	datum( 29) = 'beta.a'    ''      ''      'MK.BPM##29'      'target'      0.0          10
+	datum( 30) = 'beta.a'    ''      ''      'MK.BPM##30'      'target'      0.0          10
+	datum( 31) = 'beta.a'    ''      ''      'MK.BPM##31'      'target'      0.0          10
+	datum( 32) = 'beta.a'    ''      ''      'MK.BPM##32'      'target'      0.0          10
+	datum( 33) = 'beta.a'    ''      ''      'MK.BPM##33'      'target'      0.0          10
+	datum( 34) = 'beta.a'    ''      ''      'MK.BPM##34'      'target'      0.0          10
+	datum( 35) = 'beta.a'    ''      ''      'MK.BPM##35'      'target'      0.0          10
+	datum( 36) = 'beta.a'    ''      ''      'MK.BPM##36'      'target'      0.0          10
+	datum( 37) = 'beta.a'    ''      ''      'MK.BPM##37'      'target'      0.0          10
+	datum( 38) = 'beta.a'    ''      ''      'MK.BPM##38'      'target'      0.0          10
+	datum( 39) = 'beta.a'    ''      ''      'MK.BPM##39'      'target'      0.0          10
+	datum( 40) = 'beta.a'    ''      ''      'MK.BPM##40'      'target'      0.0          10
+	datum( 41) = 'beta.a'    ''      ''      'MK.BPM##41'      'target'      0.0          10
+	datum( 42) = 'beta.a'    ''      ''      'MK.BPM##42'      'target'      0.0          10
+	datum( 43) = 'beta.a'    ''      ''      'MK.BPM##43'      'target'      0.0          10
+	datum( 44) = 'beta.a'    ''      ''      'MK.BPM##44'      'target'      0.0          10
+	datum( 45) = 'beta.a'    ''      ''      'MK.BPM##45'      'target'      0.0          10
+	datum( 46) = 'beta.a'    ''      ''      'MK.BPM##46'      'target'      0.0          10
+	datum( 47) = 'beta.a'    ''      ''      'MK.BPM##47'      'target'      0.0          10
+	datum( 48) = 'beta.a'    ''      ''      'MK.BPM##48'      'target'      0.0          10
+	datum( 49) = 'beta.a'    ''      ''      'MK.BPM##49'      'target'      0.0          10
+	datum( 50) = 'beta.a'    ''      ''      'MK.BPM##50'      'target'      0.0          10
+	datum( 51) = 'beta.a'    ''      ''      'MK.BPM##51'      'target'      0.0          10
+	datum( 52) = 'beta.a'    ''      ''      'MK.BPM##52'      'target'      0.0          10
+	datum( 53) = 'beta.a'    ''      ''      'MK.BPM##53'      'target'      0.0          10
+	datum( 54) = 'beta.a'    ''      ''      'MK.BPM##54'      'target'      0.0          10
+	datum( 55) = 'beta.a'    ''      ''      'MK.BPM##55'      'target'      0.0          10
+	datum( 56) = 'beta.a'    ''      ''      'MK.BPM##56'      'target'      0.0          10
+	datum( 57) = 'beta.a'    ''      ''      'MK.BPM##57'      'target'      0.0          10
+	datum( 58) = 'beta.a'    ''      ''      'MK.BPM##58'      'target'      0.0          10
+	datum( 59) = 'beta.a'    ''      ''      'MK.BPM##59'      'target'      0.0          10
+	datum( 60) = 'beta.a'    ''      ''      'MK.BPM##60'      'target'      0.0          10
+	datum( 61) = 'beta.a'    ''      ''      'MK.BPM##61'      'target'      0.0          10
+	datum( 62) = 'beta.a'    ''      ''      'MK.BPM##62'      'target'      0.0          10
+	datum( 63) = 'beta.a'    ''      ''      'MK.BPM##63'      'target'      0.0          10
+	datum( 64) = 'beta.a'    ''      ''      'MK.BPM##64'      'target'      0.0          10
+	datum( 65) = 'beta.a'    ''      ''      'MK.BPM##65'      'target'      0.0          10
+	datum( 66) = 'beta.a'    ''      ''      'MK.BPM##66'      'target'      0.0          10
+	datum( 67) = 'beta.a'    ''      ''      'MK.BPM##67'      'target'      0.0          10
+	datum( 68) = 'beta.a'    ''      ''      'MK.BPM##68'      'target'      0.0          10
+	datum( 69) = 'beta.a'    ''      ''      'MK.BPM##69'      'target'      0.0          10
+	datum( 70) = 'beta.a'    ''      ''      'MK.BPM##70'      'target'      0.0          10
+	datum( 71) = 'beta.a'    ''      ''      'MK.BPM##71'      'target'      0.0          10
+	datum( 72) = 'beta.a'    ''      ''      'MK.BPM##72'      'target'      0.0          10
+	datum( 73) = 'beta.a'    ''      ''      'MK.BPM##73'      'target'      0.0          10
+	datum( 74) = 'beta.a'    ''      ''      'MK.BPM##74'      'target'      0.0          10
+	datum( 75) = 'beta.a'    ''      ''      'MK.BPM##75'      'target'      0.0          10
+	datum( 76) = 'beta.a'    ''      ''      'MK.BPM##76'      'target'      0.0          10
+	datum( 77) = 'beta.a'    ''      ''      'MK.BPM##77'      'target'      0.0          10
+	datum( 78) = 'beta.a'    ''      ''      'MK.BPM##78'      'target'      0.0          10
+	datum( 79) = 'beta.a'    ''      ''      'MK.BPM##79'      'target'      0.0          10
+	datum( 80) = 'beta.a'    ''      ''      'MK.BPM##80'      'target'      0.0          10
+	datum( 81) = 'beta.a'    ''      ''      'MK.BPM##81'      'target'      0.0          10
+	datum( 82) = 'beta.a'    ''      ''      'MK.BPM##82'      'target'      0.0          10
+	datum( 83) = 'beta.a'    ''      ''      'MK.BPM##83'      'target'      0.0          10
+	datum( 84) = 'beta.a'    ''      ''      'MK.BPM##84'      'target'      0.0          10
+	datum( 85) = 'beta.a'    ''      ''      'MK.BPM##85'      'target'      0.0          10
+	datum( 86) = 'beta.a'    ''      ''      'MK.BPM##86'      'target'      0.0          10
+	datum( 87) = 'beta.a'    ''      ''      'MK.BPM##87'      'target'      0.0          10
+	datum( 88) = 'beta.a'    ''      ''      'MK.BPM##88'      'target'      0.0          10
+	datum( 89) = 'beta.a'    ''      ''      'MK.BPM##89'      'target'      0.0          10
+	datum( 90) = 'beta.a'    ''      ''      'MK.BPM##90'      'target'      0.0          10
+	datum( 91) = 'beta.a'    ''      ''      'MK.BPM##91'      'target'      0.0          10
+	datum( 92) = 'beta.a'    ''      ''      'MK.BPM##92'      'target'      0.0          10
+	datum( 93) = 'beta.a'    ''      ''      'MK.BPM##93'      'target'      0.0          10
+	datum( 94) = 'beta.a'    ''      ''      'MK.BPM##94'      'target'      0.0          10
+	datum( 95) = 'beta.a'    ''      ''      'MK.BPM##95'      'target'      0.0          10
+	datum( 96) = 'beta.a'    ''      ''      'MK.BPM##96'      'target'      0.0          10
+	datum( 97) = 'beta.a'    ''      ''      'MK.BPM##97'      'target'      0.0          10
+	datum( 98) = 'beta.a'    ''      ''      'MK.BPM##98'      'target'      0.0          10
+	datum( 99) = 'beta.a'    ''      ''      'MK.BPM##99'      'target'      0.0          10
+	datum( 100) = 'beta.a'    ''      ''      'MK.BPM##100'      'target'      0.0          10
+    datum( 101) = 'beta.a'    ''      ''      'MK.BEG'           'target'      0.0           0
+    datum( 102) = 'beta.a'    ''      ''      'MK.END'           'target'      0.0           1000
+    datum( 103) = 'beta.a'    ''   'MK.BEG'   'MK.END'           'abs_max'    0.0237         1000
+/
+
+
+
+ &tao_d1_data
+    ix_d1_data= 2
+	d1_data%name = "alpha_a"
+	default_weight = 10
+!               data_type    ref_ele_name      ele           merit_type	   meas_val		weight
+	datum( 1) = 'alpha.a'    ''      ''      'MK.BPM##1'      'target'      0.0          10
+	datum( 2) = 'alpha.a'    ''      ''      'MK.BPM##2'      'target'      0.0          10
+	datum( 3) = 'alpha.a'    ''      ''      'MK.BPM##3'      'target'      0.0          10
+	datum( 4) = 'alpha.a'    ''      ''      'MK.BPM##4'      'target'      0.0          10
+	datum( 5) = 'alpha.a'    ''      ''      'MK.BPM##5'      'target'      0.0          10
+	datum( 6) = 'alpha.a'    ''      ''      'MK.BPM##6'      'target'      0.0          10
+	datum( 7) = 'alpha.a'    ''      ''      'MK.BPM##7'      'target'      0.0          10
+	datum( 8) = 'alpha.a'    ''      ''      'MK.BPM##8'      'target'      0.0          10
+	datum( 9) = 'alpha.a'    ''      ''      'MK.BPM##9'      'target'      0.0          10
+	datum( 10) = 'alpha.a'    ''      ''      'MK.BPM##10'      'target'      0.0          10
+	datum( 11) = 'alpha.a'    ''      ''      'MK.BPM##11'      'target'      0.0          10
+	datum( 12) = 'alpha.a'    ''      ''      'MK.BPM##12'      'target'      0.0          10
+	datum( 13) = 'alpha.a'    ''      ''      'MK.BPM##13'      'target'      0.0          10
+	datum( 14) = 'alpha.a'    ''      ''      'MK.BPM##14'      'target'      0.0          10
+	datum( 15) = 'alpha.a'    ''      ''      'MK.BPM##15'      'target'      0.0          10
+	datum( 16) = 'alpha.a'    ''      ''      'MK.BPM##16'      'target'      0.0          10
+	datum( 17) = 'alpha.a'    ''      ''      'MK.BPM##17'      'target'      0.0          10
+	datum( 18) = 'alpha.a'    ''      ''      'MK.BPM##18'      'target'      0.0          10
+	datum( 19) = 'alpha.a'    ''      ''      'MK.BPM##19'      'target'      0.0          10
+	datum( 20) = 'alpha.a'    ''      ''      'MK.BPM##20'      'target'      0.0          10
+	datum( 21) = 'alpha.a'    ''      ''      'MK.BPM##21'      'target'      0.0          10
+	datum( 22) = 'alpha.a'    ''      ''      'MK.BPM##22'      'target'      0.0          10
+	datum( 23) = 'alpha.a'    ''      ''      'MK.BPM##23'      'target'      0.0          10
+	datum( 24) = 'alpha.a'    ''      ''      'MK.BPM##24'      'target'      0.0          10
+	datum( 25) = 'alpha.a'    ''      ''      'MK.BPM##25'      'target'      0.0          10
+	datum( 26) = 'alpha.a'    ''      ''      'MK.BPM##26'      'target'      0.0          10
+	datum( 27) = 'alpha.a'    ''      ''      'MK.BPM##27'      'target'      0.0          10
+	datum( 28) = 'alpha.a'    ''      ''      'MK.BPM##28'      'target'      0.0          10
+	datum( 29) = 'alpha.a'    ''      ''      'MK.BPM##29'      'target'      0.0          10
+	datum( 30) = 'alpha.a'    ''      ''      'MK.BPM##30'      'target'      0.0          10
+	datum( 31) = 'alpha.a'    ''      ''      'MK.BPM##31'      'target'      0.0          10
+	datum( 32) = 'alpha.a'    ''      ''      'MK.BPM##32'      'target'      0.0          10
+	datum( 33) = 'alpha.a'    ''      ''      'MK.BPM##33'      'target'      0.0          10
+	datum( 34) = 'alpha.a'    ''      ''      'MK.BPM##34'      'target'      0.0          10
+	datum( 35) = 'alpha.a'    ''      ''      'MK.BPM##35'      'target'      0.0          10
+	datum( 36) = 'alpha.a'    ''      ''      'MK.BPM##36'      'target'      0.0          10
+	datum( 37) = 'alpha.a'    ''      ''      'MK.BPM##37'      'target'      0.0          10
+	datum( 38) = 'alpha.a'    ''      ''      'MK.BPM##38'      'target'      0.0          10
+	datum( 39) = 'alpha.a'    ''      ''      'MK.BPM##39'      'target'      0.0          10
+	datum( 40) = 'alpha.a'    ''      ''      'MK.BPM##40'      'target'      0.0          10
+	datum( 41) = 'alpha.a'    ''      ''      'MK.BPM##41'      'target'      0.0          10
+	datum( 42) = 'alpha.a'    ''      ''      'MK.BPM##42'      'target'      0.0          10
+	datum( 43) = 'alpha.a'    ''      ''      'MK.BPM##43'      'target'      0.0          10
+	datum( 44) = 'alpha.a'    ''      ''      'MK.BPM##44'      'target'      0.0          10
+	datum( 45) = 'alpha.a'    ''      ''      'MK.BPM##45'      'target'      0.0          10
+	datum( 46) = 'alpha.a'    ''      ''      'MK.BPM##46'      'target'      0.0          10
+	datum( 47) = 'alpha.a'    ''      ''      'MK.BPM##47'      'target'      0.0          10
+	datum( 48) = 'alpha.a'    ''      ''      'MK.BPM##48'      'target'      0.0          10
+	datum( 49) = 'alpha.a'    ''      ''      'MK.BPM##49'      'target'      0.0          10
+	datum( 50) = 'alpha.a'    ''      ''      'MK.BPM##50'      'target'      0.0          10
+	datum( 51) = 'alpha.a'    ''      ''      'MK.BPM##51'      'target'      0.0          10
+	datum( 52) = 'alpha.a'    ''      ''      'MK.BPM##52'      'target'      0.0          10
+	datum( 53) = 'alpha.a'    ''      ''      'MK.BPM##53'      'target'      0.0          10
+	datum( 54) = 'alpha.a'    ''      ''      'MK.BPM##54'      'target'      0.0          10
+	datum( 55) = 'alpha.a'    ''      ''      'MK.BPM##55'      'target'      0.0          10
+	datum( 56) = 'alpha.a'    ''      ''      'MK.BPM##56'      'target'      0.0          10
+	datum( 57) = 'alpha.a'    ''      ''      'MK.BPM##57'      'target'      0.0          10
+	datum( 58) = 'alpha.a'    ''      ''      'MK.BPM##58'      'target'      0.0          10
+	datum( 59) = 'alpha.a'    ''      ''      'MK.BPM##59'      'target'      0.0          10
+	datum( 60) = 'alpha.a'    ''      ''      'MK.BPM##60'      'target'      0.0          10
+	datum( 61) = 'alpha.a'    ''      ''      'MK.BPM##61'      'target'      0.0          10
+	datum( 62) = 'alpha.a'    ''      ''      'MK.BPM##62'      'target'      0.0          10
+	datum( 63) = 'alpha.a'    ''      ''      'MK.BPM##63'      'target'      0.0          10
+	datum( 64) = 'alpha.a'    ''      ''      'MK.BPM##64'      'target'      0.0          10
+	datum( 65) = 'alpha.a'    ''      ''      'MK.BPM##65'      'target'      0.0          10
+	datum( 66) = 'alpha.a'    ''      ''      'MK.BPM##66'      'target'      0.0          10
+	datum( 67) = 'alpha.a'    ''      ''      'MK.BPM##67'      'target'      0.0          10
+	datum( 68) = 'alpha.a'    ''      ''      'MK.BPM##68'      'target'      0.0          10
+	datum( 69) = 'alpha.a'    ''      ''      'MK.BPM##69'      'target'      0.0          10
+	datum( 70) = 'alpha.a'    ''      ''      'MK.BPM##70'      'target'      0.0          10
+	datum( 71) = 'alpha.a'    ''      ''      'MK.BPM##71'      'target'      0.0          10
+	datum( 72) = 'alpha.a'    ''      ''      'MK.BPM##72'      'target'      0.0          10
+	datum( 73) = 'alpha.a'    ''      ''      'MK.BPM##73'      'target'      0.0          10
+	datum( 74) = 'alpha.a'    ''      ''      'MK.BPM##74'      'target'      0.0          10
+	datum( 75) = 'alpha.a'    ''      ''      'MK.BPM##75'      'target'      0.0          10
+	datum( 76) = 'alpha.a'    ''      ''      'MK.BPM##76'      'target'      0.0          10
+	datum( 77) = 'alpha.a'    ''      ''      'MK.BPM##77'      'target'      0.0          10
+	datum( 78) = 'alpha.a'    ''      ''      'MK.BPM##78'      'target'      0.0          10
+	datum( 79) = 'alpha.a'    ''      ''      'MK.BPM##79'      'target'      0.0          10
+	datum( 80) = 'alpha.a'    ''      ''      'MK.BPM##80'      'target'      0.0          10
+	datum( 81) = 'alpha.a'    ''      ''      'MK.BPM##81'      'target'      0.0          10
+	datum( 82) = 'alpha.a'    ''      ''      'MK.BPM##82'      'target'      0.0          10
+	datum( 83) = 'alpha.a'    ''      ''      'MK.BPM##83'      'target'      0.0          10
+	datum( 84) = 'alpha.a'    ''      ''      'MK.BPM##84'      'target'      0.0          10
+	datum( 85) = 'alpha.a'    ''      ''      'MK.BPM##85'      'target'      0.0          10
+	datum( 86) = 'alpha.a'    ''      ''      'MK.BPM##86'      'target'      0.0          10
+	datum( 87) = 'alpha.a'    ''      ''      'MK.BPM##87'      'target'      0.0          10
+	datum( 88) = 'alpha.a'    ''      ''      'MK.BPM##88'      'target'      0.0          10
+	datum( 89) = 'alpha.a'    ''      ''      'MK.BPM##89'      'target'      0.0          10
+	datum( 90) = 'alpha.a'    ''      ''      'MK.BPM##90'      'target'      0.0          10
+	datum( 91) = 'alpha.a'    ''      ''      'MK.BPM##91'      'target'      0.0          10
+	datum( 92) = 'alpha.a'    ''      ''      'MK.BPM##92'      'target'      0.0          10
+	datum( 93) = 'alpha.a'    ''      ''      'MK.BPM##93'      'target'      0.0          10
+	datum( 94) = 'alpha.a'    ''      ''      'MK.BPM##94'      'target'      0.0          10
+	datum( 95) = 'alpha.a'    ''      ''      'MK.BPM##95'      'target'      0.0          10
+	datum( 96) = 'alpha.a'    ''      ''      'MK.BPM##96'      'target'      0.0          10
+	datum( 97) = 'alpha.a'    ''      ''      'MK.BPM##97'      'target'      0.0          10
+	datum( 98) = 'alpha.a'    ''      ''      'MK.BPM##98'      'target'      0.0          10
+	datum( 99) = 'alpha.a'    ''      ''      'MK.BPM##99'      'target'      0.0          10
+	datum( 100) = 'alpha.a'    ''      ''      'MK.BPM##100'      'target'      0.0          10
+    datum( 101) = 'alpha.a'    ''      ''      'MK.BEG'           'target'      0.0           0
+    datum( 102) = 'alpha.a'    ''      ''      'MK.END'           'target'      0.0           1000
+    datum( 103) = 'alpha.a'    ''   'MK.BEG'   'MK.END'           'abs_max'    0.0237         1000
+/
+
+
+
+
+
+&tao_d2_data
+        d2_data%name = "eta"
+        universe = '*'
+        n_d1_data= 2
+/
+
+ &tao_d1_data
+    ix_d1_data= 1
+	d1_data%name = "x"
+	default_weight = 10
+!               data_type    ref_ele_name      ele           merit_type	   meas_val		weight
+	datum( 1) = 'eta.x'    ''      ''      'MK.BPM##1'      'target'      0.0          10
+	datum( 2) = 'eta.x'    ''      ''      'MK.BPM##2'      'target'      0.0          10
+	datum( 3) = 'eta.x'    ''      ''      'MK.BPM##3'      'target'      0.0          10
+	datum( 4) = 'eta.x'    ''      ''      'MK.BPM##4'      'target'      0.0          10
+	datum( 5) = 'eta.x'    ''      ''      'MK.BPM##5'      'target'      0.0          10
+	datum( 6) = 'eta.x'    ''      ''      'MK.BPM##6'      'target'      0.0          10
+	datum( 7) = 'eta.x'    ''      ''      'MK.BPM##7'      'target'      0.0          10
+	datum( 8) = 'eta.x'    ''      ''      'MK.BPM##8'      'target'      0.0          10
+	datum( 9) = 'eta.x'    ''      ''      'MK.BPM##9'      'target'      0.0          10
+	datum( 10) = 'eta.x'    ''      ''      'MK.BPM##10'      'target'      0.0          10
+	datum( 11) = 'eta.x'    ''      ''      'MK.BPM##11'      'target'      0.0          10
+	datum( 12) = 'eta.x'    ''      ''      'MK.BPM##12'      'target'      0.0          10
+	datum( 13) = 'eta.x'    ''      ''      'MK.BPM##13'      'target'      0.0          10
+	datum( 14) = 'eta.x'    ''      ''      'MK.BPM##14'      'target'      0.0          10
+	datum( 15) = 'eta.x'    ''      ''      'MK.BPM##15'      'target'      0.0          10
+	datum( 16) = 'eta.x'    ''      ''      'MK.BPM##16'      'target'      0.0          10
+	datum( 17) = 'eta.x'    ''      ''      'MK.BPM##17'      'target'      0.0          10
+	datum( 18) = 'eta.x'    ''      ''      'MK.BPM##18'      'target'      0.0          10
+	datum( 19) = 'eta.x'    ''      ''      'MK.BPM##19'      'target'      0.0          10
+	datum( 20) = 'eta.x'    ''      ''      'MK.BPM##20'      'target'      0.0          10
+	datum( 21) = 'eta.x'    ''      ''      'MK.BPM##21'      'target'      0.0          10
+	datum( 22) = 'eta.x'    ''      ''      'MK.BPM##22'      'target'      0.0          10
+	datum( 23) = 'eta.x'    ''      ''      'MK.BPM##23'      'target'      0.0          10
+	datum( 24) = 'eta.x'    ''      ''      'MK.BPM##24'      'target'      0.0          10
+	datum( 25) = 'eta.x'    ''      ''      'MK.BPM##25'      'target'      0.0          10
+	datum( 26) = 'eta.x'    ''      ''      'MK.BPM##26'      'target'      0.0          10
+	datum( 27) = 'eta.x'    ''      ''      'MK.BPM##27'      'target'      0.0          10
+	datum( 28) = 'eta.x'    ''      ''      'MK.BPM##28'      'target'      0.0          10
+	datum( 29) = 'eta.x'    ''      ''      'MK.BPM##29'      'target'      0.0          10
+	datum( 30) = 'eta.x'    ''      ''      'MK.BPM##30'      'target'      0.0          10
+	datum( 31) = 'eta.x'    ''      ''      'MK.BPM##31'      'target'      0.0          10
+	datum( 32) = 'eta.x'    ''      ''      'MK.BPM##32'      'target'      0.0          10
+	datum( 33) = 'eta.x'    ''      ''      'MK.BPM##33'      'target'      0.0          10
+	datum( 34) = 'eta.x'    ''      ''      'MK.BPM##34'      'target'      0.0          10
+	datum( 35) = 'eta.x'    ''      ''      'MK.BPM##35'      'target'      0.0          10
+	datum( 36) = 'eta.x'    ''      ''      'MK.BPM##36'      'target'      0.0          10
+	datum( 37) = 'eta.x'    ''      ''      'MK.BPM##37'      'target'      0.0          10
+	datum( 38) = 'eta.x'    ''      ''      'MK.BPM##38'      'target'      0.0          10
+	datum( 39) = 'eta.x'    ''      ''      'MK.BPM##39'      'target'      0.0          10
+	datum( 40) = 'eta.x'    ''      ''      'MK.BPM##40'      'target'      0.0          10
+	datum( 41) = 'eta.x'    ''      ''      'MK.BPM##41'      'target'      0.0          10
+	datum( 42) = 'eta.x'    ''      ''      'MK.BPM##42'      'target'      0.0          10
+	datum( 43) = 'eta.x'    ''      ''      'MK.BPM##43'      'target'      0.0          10
+	datum( 44) = 'eta.x'    ''      ''      'MK.BPM##44'      'target'      0.0          10
+	datum( 45) = 'eta.x'    ''      ''      'MK.BPM##45'      'target'      0.0          10
+	datum( 46) = 'eta.x'    ''      ''      'MK.BPM##46'      'target'      0.0          10
+	datum( 47) = 'eta.x'    ''      ''      'MK.BPM##47'      'target'      0.0          10
+	datum( 48) = 'eta.x'    ''      ''      'MK.BPM##48'      'target'      0.0          10
+	datum( 49) = 'eta.x'    ''      ''      'MK.BPM##49'      'target'      0.0          10
+	datum( 50) = 'eta.x'    ''      ''      'MK.BPM##50'      'target'      0.0          10
+	datum( 51) = 'eta.x'    ''      ''      'MK.BPM##51'      'target'      0.0          10
+	datum( 52) = 'eta.x'    ''      ''      'MK.BPM##52'      'target'      0.0          10
+	datum( 53) = 'eta.x'    ''      ''      'MK.BPM##53'      'target'      0.0          10
+	datum( 54) = 'eta.x'    ''      ''      'MK.BPM##54'      'target'      0.0          10
+	datum( 55) = 'eta.x'    ''      ''      'MK.BPM##55'      'target'      0.0          10
+	datum( 56) = 'eta.x'    ''      ''      'MK.BPM##56'      'target'      0.0          10
+	datum( 57) = 'eta.x'    ''      ''      'MK.BPM##57'      'target'      0.0          10
+	datum( 58) = 'eta.x'    ''      ''      'MK.BPM##58'      'target'      0.0          10
+	datum( 59) = 'eta.x'    ''      ''      'MK.BPM##59'      'target'      0.0          10
+	datum( 60) = 'eta.x'    ''      ''      'MK.BPM##60'      'target'      0.0          10
+	datum( 61) = 'eta.x'    ''      ''      'MK.BPM##61'      'target'      0.0          10
+	datum( 62) = 'eta.x'    ''      ''      'MK.BPM##62'      'target'      0.0          10
+	datum( 63) = 'eta.x'    ''      ''      'MK.BPM##63'      'target'      0.0          10
+	datum( 64) = 'eta.x'    ''      ''      'MK.BPM##64'      'target'      0.0          10
+	datum( 65) = 'eta.x'    ''      ''      'MK.BPM##65'      'target'      0.0          10
+	datum( 66) = 'eta.x'    ''      ''      'MK.BPM##66'      'target'      0.0          10
+	datum( 67) = 'eta.x'    ''      ''      'MK.BPM##67'      'target'      0.0          10
+	datum( 68) = 'eta.x'    ''      ''      'MK.BPM##68'      'target'      0.0          10
+	datum( 69) = 'eta.x'    ''      ''      'MK.BPM##69'      'target'      0.0          10
+	datum( 70) = 'eta.x'    ''      ''      'MK.BPM##70'      'target'      0.0          10
+	datum( 71) = 'eta.x'    ''      ''      'MK.BPM##71'      'target'      0.0          10
+	datum( 72) = 'eta.x'    ''      ''      'MK.BPM##72'      'target'      0.0          10
+	datum( 73) = 'eta.x'    ''      ''      'MK.BPM##73'      'target'      0.0          10
+	datum( 74) = 'eta.x'    ''      ''      'MK.BPM##74'      'target'      0.0          10
+	datum( 75) = 'eta.x'    ''      ''      'MK.BPM##75'      'target'      0.0          10
+	datum( 76) = 'eta.x'    ''      ''      'MK.BPM##76'      'target'      0.0          10
+	datum( 77) = 'eta.x'    ''      ''      'MK.BPM##77'      'target'      0.0          10
+	datum( 78) = 'eta.x'    ''      ''      'MK.BPM##78'      'target'      0.0          10
+	datum( 79) = 'eta.x'    ''      ''      'MK.BPM##79'      'target'      0.0          10
+	datum( 80) = 'eta.x'    ''      ''      'MK.BPM##80'      'target'      0.0          10
+	datum( 81) = 'eta.x'    ''      ''      'MK.BPM##81'      'target'      0.0          10
+	datum( 82) = 'eta.x'    ''      ''      'MK.BPM##82'      'target'      0.0          10
+	datum( 83) = 'eta.x'    ''      ''      'MK.BPM##83'      'target'      0.0          10
+	datum( 84) = 'eta.x'    ''      ''      'MK.BPM##84'      'target'      0.0          10
+	datum( 85) = 'eta.x'    ''      ''      'MK.BPM##85'      'target'      0.0          10
+	datum( 86) = 'eta.x'    ''      ''      'MK.BPM##86'      'target'      0.0          10
+	datum( 87) = 'eta.x'    ''      ''      'MK.BPM##87'      'target'      0.0          10
+	datum( 88) = 'eta.x'    ''      ''      'MK.BPM##88'      'target'      0.0          10
+	datum( 89) = 'eta.x'    ''      ''      'MK.BPM##89'      'target'      0.0          10
+	datum( 90) = 'eta.x'    ''      ''      'MK.BPM##90'      'target'      0.0          10
+	datum( 91) = 'eta.x'    ''      ''      'MK.BPM##91'      'target'      0.0          10
+	datum( 92) = 'eta.x'    ''      ''      'MK.BPM##92'      'target'      0.0          10
+	datum( 93) = 'eta.x'    ''      ''      'MK.BPM##93'      'target'      0.0          10
+	datum( 94) = 'eta.x'    ''      ''      'MK.BPM##94'      'target'      0.0          10
+	datum( 95) = 'eta.x'    ''      ''      'MK.BPM##95'      'target'      0.0          10
+	datum( 96) = 'eta.x'    ''      ''      'MK.BPM##96'      'target'      0.0          10
+	datum( 97) = 'eta.x'    ''      ''      'MK.BPM##97'      'target'      0.0          10
+	datum( 98) = 'eta.x'    ''      ''      'MK.BPM##98'      'target'      0.0          10
+	datum( 99) = 'eta.x'    ''      ''      'MK.BPM##99'      'target'      0.0          10
+	datum( 100) = 'eta.x'    ''      ''      'MK.BPM##100'      'target'      0.0          10
+    datum( 101) = 'eta.x'    ''      ''      'MK.BEG'           'target'      0.0          0
+    datum( 102) = 'eta.x'    ''      ''      'MK.END'           'target'      0.0          1000
+    datum( 103) = 'eta.x'    ''   'MK.BEG'   'MK.END'           'abs_max'    0.0237        1000
+/
+
+
+ &tao_d1_data
+    ix_d1_data= 2
+	d1_data%name = "px"
+	default_weight = 10
+!               data_type    ref_ele_name      ele           merit_type	   meas_val		weight
+	datum( 1) = 'etap.x'    ''      ''      'MK.BPM##1'      'target'      0.0          10
+	datum( 2) = 'etap.x'    ''      ''      'MK.BPM##2'      'target'      0.0          10
+	datum( 3) = 'etap.x'    ''      ''      'MK.BPM##3'      'target'      0.0          10
+	datum( 4) = 'etap.x'    ''      ''      'MK.BPM##4'      'target'      0.0          10
+	datum( 5) = 'etap.x'    ''      ''      'MK.BPM##5'      'target'      0.0          10
+	datum( 6) = 'etap.x'    ''      ''      'MK.BPM##6'      'target'      0.0          10
+	datum( 7) = 'etap.x'    ''      ''      'MK.BPM##7'      'target'      0.0          10
+	datum( 8) = 'etap.x'    ''      ''      'MK.BPM##8'      'target'      0.0          10
+	datum( 9) = 'etap.x'    ''      ''      'MK.BPM##9'      'target'      0.0          10
+	datum( 10) = 'etap.x'    ''      ''      'MK.BPM##10'      'target'      0.0          10
+	datum( 11) = 'etap.x'    ''      ''      'MK.BPM##11'      'target'      0.0          10
+	datum( 12) = 'etap.x'    ''      ''      'MK.BPM##12'      'target'      0.0          10
+	datum( 13) = 'etap.x'    ''      ''      'MK.BPM##13'      'target'      0.0          10
+	datum( 14) = 'etap.x'    ''      ''      'MK.BPM##14'      'target'      0.0          10
+	datum( 15) = 'etap.x'    ''      ''      'MK.BPM##15'      'target'      0.0          10
+	datum( 16) = 'etap.x'    ''      ''      'MK.BPM##16'      'target'      0.0          10
+	datum( 17) = 'etap.x'    ''      ''      'MK.BPM##17'      'target'      0.0          10
+	datum( 18) = 'etap.x'    ''      ''      'MK.BPM##18'      'target'      0.0          10
+	datum( 19) = 'etap.x'    ''      ''      'MK.BPM##19'      'target'      0.0          10
+	datum( 20) = 'etap.x'    ''      ''      'MK.BPM##20'      'target'      0.0          10
+	datum( 21) = 'etap.x'    ''      ''      'MK.BPM##21'      'target'      0.0          10
+	datum( 22) = 'etap.x'    ''      ''      'MK.BPM##22'      'target'      0.0          10
+	datum( 23) = 'etap.x'    ''      ''      'MK.BPM##23'      'target'      0.0          10
+	datum( 24) = 'etap.x'    ''      ''      'MK.BPM##24'      'target'      0.0          10
+	datum( 25) = 'etap.x'    ''      ''      'MK.BPM##25'      'target'      0.0          10
+	datum( 26) = 'etap.x'    ''      ''      'MK.BPM##26'      'target'      0.0          10
+	datum( 27) = 'etap.x'    ''      ''      'MK.BPM##27'      'target'      0.0          10
+	datum( 28) = 'etap.x'    ''      ''      'MK.BPM##28'      'target'      0.0          10
+	datum( 29) = 'etap.x'    ''      ''      'MK.BPM##29'      'target'      0.0          10
+	datum( 30) = 'etap.x'    ''      ''      'MK.BPM##30'      'target'      0.0          10
+	datum( 31) = 'etap.x'    ''      ''      'MK.BPM##31'      'target'      0.0          10
+	datum( 32) = 'etap.x'    ''      ''      'MK.BPM##32'      'target'      0.0          10
+	datum( 33) = 'etap.x'    ''      ''      'MK.BPM##33'      'target'      0.0          10
+	datum( 34) = 'etap.x'    ''      ''      'MK.BPM##34'      'target'      0.0          10
+	datum( 35) = 'etap.x'    ''      ''      'MK.BPM##35'      'target'      0.0          10
+	datum( 36) = 'etap.x'    ''      ''      'MK.BPM##36'      'target'      0.0          10
+	datum( 37) = 'etap.x'    ''      ''      'MK.BPM##37'      'target'      0.0          10
+	datum( 38) = 'etap.x'    ''      ''      'MK.BPM##38'      'target'      0.0          10
+	datum( 39) = 'etap.x'    ''      ''      'MK.BPM##39'      'target'      0.0          10
+	datum( 40) = 'etap.x'    ''      ''      'MK.BPM##40'      'target'      0.0          10
+	datum( 41) = 'etap.x'    ''      ''      'MK.BPM##41'      'target'      0.0          10
+	datum( 42) = 'etap.x'    ''      ''      'MK.BPM##42'      'target'      0.0          10
+	datum( 43) = 'etap.x'    ''      ''      'MK.BPM##43'      'target'      0.0          10
+	datum( 44) = 'etap.x'    ''      ''      'MK.BPM##44'      'target'      0.0          10
+	datum( 45) = 'etap.x'    ''      ''      'MK.BPM##45'      'target'      0.0          10
+	datum( 46) = 'etap.x'    ''      ''      'MK.BPM##46'      'target'      0.0          10
+	datum( 47) = 'etap.x'    ''      ''      'MK.BPM##47'      'target'      0.0          10
+	datum( 48) = 'etap.x'    ''      ''      'MK.BPM##48'      'target'      0.0          10
+	datum( 49) = 'etap.x'    ''      ''      'MK.BPM##49'      'target'      0.0          10
+	datum( 50) = 'etap.x'    ''      ''      'MK.BPM##50'      'target'      0.0          10
+	datum( 51) = 'etap.x'    ''      ''      'MK.BPM##51'      'target'      0.0          10
+	datum( 52) = 'etap.x'    ''      ''      'MK.BPM##52'      'target'      0.0          10
+	datum( 53) = 'etap.x'    ''      ''      'MK.BPM##53'      'target'      0.0          10
+	datum( 54) = 'etap.x'    ''      ''      'MK.BPM##54'      'target'      0.0          10
+	datum( 55) = 'etap.x'    ''      ''      'MK.BPM##55'      'target'      0.0          10
+	datum( 56) = 'etap.x'    ''      ''      'MK.BPM##56'      'target'      0.0          10
+	datum( 57) = 'etap.x'    ''      ''      'MK.BPM##57'      'target'      0.0          10
+	datum( 58) = 'etap.x'    ''      ''      'MK.BPM##58'      'target'      0.0          10
+	datum( 59) = 'etap.x'    ''      ''      'MK.BPM##59'      'target'      0.0          10
+	datum( 60) = 'etap.x'    ''      ''      'MK.BPM##60'      'target'      0.0          10
+	datum( 61) = 'etap.x'    ''      ''      'MK.BPM##61'      'target'      0.0          10
+	datum( 62) = 'etap.x'    ''      ''      'MK.BPM##62'      'target'      0.0          10
+	datum( 63) = 'etap.x'    ''      ''      'MK.BPM##63'      'target'      0.0          10
+	datum( 64) = 'etap.x'    ''      ''      'MK.BPM##64'      'target'      0.0          10
+	datum( 65) = 'etap.x'    ''      ''      'MK.BPM##65'      'target'      0.0          10
+	datum( 66) = 'etap.x'    ''      ''      'MK.BPM##66'      'target'      0.0          10
+	datum( 67) = 'etap.x'    ''      ''      'MK.BPM##67'      'target'      0.0          10
+	datum( 68) = 'etap.x'    ''      ''      'MK.BPM##68'      'target'      0.0          10
+	datum( 69) = 'etap.x'    ''      ''      'MK.BPM##69'      'target'      0.0          10
+	datum( 70) = 'etap.x'    ''      ''      'MK.BPM##70'      'target'      0.0          10
+	datum( 71) = 'etap.x'    ''      ''      'MK.BPM##71'      'target'      0.0          10
+	datum( 72) = 'etap.x'    ''      ''      'MK.BPM##72'      'target'      0.0          10
+	datum( 73) = 'etap.x'    ''      ''      'MK.BPM##73'      'target'      0.0          10
+	datum( 74) = 'etap.x'    ''      ''      'MK.BPM##74'      'target'      0.0          10
+	datum( 75) = 'etap.x'    ''      ''      'MK.BPM##75'      'target'      0.0          10
+	datum( 76) = 'etap.x'    ''      ''      'MK.BPM##76'      'target'      0.0          10
+	datum( 77) = 'etap.x'    ''      ''      'MK.BPM##77'      'target'      0.0          10
+	datum( 78) = 'etap.x'    ''      ''      'MK.BPM##78'      'target'      0.0          10
+	datum( 79) = 'etap.x'    ''      ''      'MK.BPM##79'      'target'      0.0          10
+	datum( 80) = 'etap.x'    ''      ''      'MK.BPM##80'      'target'      0.0          10
+	datum( 81) = 'etap.x'    ''      ''      'MK.BPM##81'      'target'      0.0          10
+	datum( 82) = 'etap.x'    ''      ''      'MK.BPM##82'      'target'      0.0          10
+	datum( 83) = 'etap.x'    ''      ''      'MK.BPM##83'      'target'      0.0          10
+	datum( 84) = 'etap.x'    ''      ''      'MK.BPM##84'      'target'      0.0          10
+	datum( 85) = 'etap.x'    ''      ''      'MK.BPM##85'      'target'      0.0          10
+	datum( 86) = 'etap.x'    ''      ''      'MK.BPM##86'      'target'      0.0          10
+	datum( 87) = 'etap.x'    ''      ''      'MK.BPM##87'      'target'      0.0          10
+	datum( 88) = 'etap.x'    ''      ''      'MK.BPM##88'      'target'      0.0          10
+	datum( 89) = 'etap.x'    ''      ''      'MK.BPM##89'      'target'      0.0          10
+	datum( 90) = 'etap.x'    ''      ''      'MK.BPM##90'      'target'      0.0          10
+	datum( 91) = 'etap.x'    ''      ''      'MK.BPM##91'      'target'      0.0          10
+	datum( 92) = 'etap.x'    ''      ''      'MK.BPM##92'      'target'      0.0          10
+	datum( 93) = 'etap.x'    ''      ''      'MK.BPM##93'      'target'      0.0          10
+	datum( 94) = 'etap.x'    ''      ''      'MK.BPM##94'      'target'      0.0          10
+	datum( 95) = 'etap.x'    ''      ''      'MK.BPM##95'      'target'      0.0          10
+	datum( 96) = 'etap.x'    ''      ''      'MK.BPM##96'      'target'      0.0          10
+	datum( 97) = 'etap.x'    ''      ''      'MK.BPM##97'      'target'      0.0          10
+	datum( 98) = 'etap.x'    ''      ''      'MK.BPM##98'      'target'      0.0          10
+	datum( 99) = 'etap.x'    ''      ''      'MK.BPM##99'      'target'      0.0          10
+	datum( 100) = 'etap.x'    ''      ''      'MK.BPM##100'      'target'      0.0          10
+    datum( 101) = 'etap.x'    ''      ''      'MK.BEG'     		 'target'      0.0          0
+    datum( 102) = 'etap.x'    ''      ''      'MK.END'     		 'target'      0.0          100
+/ 
+
+
+ 
+
+
+&tao_d2_data
+        d2_data%name = "orbit"
+        universe = '*'
+        n_d1_data= 3
+/
+
+ &tao_d1_data
+    ix_d1_data= 1
+	d1_data%name = "x"
+	default_weight = 10
+!                     data_       ele_ref           ele              merit        meas          weight
+!                     type         name             name              type        val
+	datum( 1) = 'orbit.x'    ''      ''      'MK.BPM##1'      'target'      0.0          10
+	datum( 2) = 'orbit.x'    ''      ''      'MK.BPM##2'      'target'      0.0          10
+	datum( 3) = 'orbit.x'    ''      ''      'MK.BPM##3'      'target'      0.0          10
+	datum( 4) = 'orbit.x'    ''      ''      'MK.BPM##4'      'target'      0.0          10
+	datum( 5) = 'orbit.x'    ''      ''      'MK.BPM##5'      'target'      0.0          10
+	datum( 6) = 'orbit.x'    ''      ''      'MK.BPM##6'      'target'      0.0          10
+	datum( 7) = 'orbit.x'    ''      ''      'MK.BPM##7'      'target'      0.0          10
+	datum( 8) = 'orbit.x'    ''      ''      'MK.BPM##8'      'target'      0.0          10
+	datum( 9) = 'orbit.x'    ''      ''      'MK.BPM##9'      'target'      0.0          10
+	datum( 10) = 'orbit.x'    ''      ''      'MK.BPM##10'      'target'      0.0          10
+	datum( 11) = 'orbit.x'    ''      ''      'MK.BPM##11'      'target'      0.0          10
+	datum( 12) = 'orbit.x'    ''      ''      'MK.BPM##12'      'target'      0.0          10
+	datum( 13) = 'orbit.x'    ''      ''      'MK.BPM##13'      'target'      0.0          10
+	datum( 14) = 'orbit.x'    ''      ''      'MK.BPM##14'      'target'      0.0          10
+	datum( 15) = 'orbit.x'    ''      ''      'MK.BPM##15'      'target'      0.0          10
+	datum( 16) = 'orbit.x'    ''      ''      'MK.BPM##16'      'target'      0.0          10
+	datum( 17) = 'orbit.x'    ''      ''      'MK.BPM##17'      'target'      0.0          10
+	datum( 18) = 'orbit.x'    ''      ''      'MK.BPM##18'      'target'      0.0          10
+	datum( 19) = 'orbit.x'    ''      ''      'MK.BPM##19'      'target'      0.0          10
+	datum( 20) = 'orbit.x'    ''      ''      'MK.BPM##20'      'target'      0.0          10
+	datum( 21) = 'orbit.x'    ''      ''      'MK.BPM##21'      'target'      0.0          10
+	datum( 22) = 'orbit.x'    ''      ''      'MK.BPM##22'      'target'      0.0          10
+	datum( 23) = 'orbit.x'    ''      ''      'MK.BPM##23'      'target'      0.0          10
+	datum( 24) = 'orbit.x'    ''      ''      'MK.BPM##24'      'target'      0.0          10
+	datum( 25) = 'orbit.x'    ''      ''      'MK.BPM##25'      'target'      0.0          10
+	datum( 26) = 'orbit.x'    ''      ''      'MK.BPM##26'      'target'      0.0          10
+	datum( 27) = 'orbit.x'    ''      ''      'MK.BPM##27'      'target'      0.0          10
+	datum( 28) = 'orbit.x'    ''      ''      'MK.BPM##28'      'target'      0.0          10
+	datum( 29) = 'orbit.x'    ''      ''      'MK.BPM##29'      'target'      0.0          10
+	datum( 30) = 'orbit.x'    ''      ''      'MK.BPM##30'      'target'      0.0          10
+	datum( 31) = 'orbit.x'    ''      ''      'MK.BPM##31'      'target'      0.0          10
+	datum( 32) = 'orbit.x'    ''      ''      'MK.BPM##32'      'target'      0.0          10
+	datum( 33) = 'orbit.x'    ''      ''      'MK.BPM##33'      'target'      0.0          10
+	datum( 34) = 'orbit.x'    ''      ''      'MK.BPM##34'      'target'      0.0          10
+	datum( 35) = 'orbit.x'    ''      ''      'MK.BPM##35'      'target'      0.0          10
+	datum( 36) = 'orbit.x'    ''      ''      'MK.BPM##36'      'target'      0.0          10
+	datum( 37) = 'orbit.x'    ''      ''      'MK.BPM##37'      'target'      0.0          10
+	datum( 38) = 'orbit.x'    ''      ''      'MK.BPM##38'      'target'      0.0          10
+	datum( 39) = 'orbit.x'    ''      ''      'MK.BPM##39'      'target'      0.0          10
+	datum( 40) = 'orbit.x'    ''      ''      'MK.BPM##40'      'target'      0.0          10
+	datum( 41) = 'orbit.x'    ''      ''      'MK.BPM##41'      'target'      0.0          10
+	datum( 42) = 'orbit.x'    ''      ''      'MK.BPM##42'      'target'      0.0          10
+	datum( 43) = 'orbit.x'    ''      ''      'MK.BPM##43'      'target'      0.0          10
+	datum( 44) = 'orbit.x'    ''      ''      'MK.BPM##44'      'target'      0.0          10
+	datum( 45) = 'orbit.x'    ''      ''      'MK.BPM##45'      'target'      0.0          10
+	datum( 46) = 'orbit.x'    ''      ''      'MK.BPM##46'      'target'      0.0          10
+	datum( 47) = 'orbit.x'    ''      ''      'MK.BPM##47'      'target'      0.0          10
+	datum( 48) = 'orbit.x'    ''      ''      'MK.BPM##48'      'target'      0.0          10
+	datum( 49) = 'orbit.x'    ''      ''      'MK.BPM##49'      'target'      0.0          10
+	datum( 50) = 'orbit.x'    ''      ''      'MK.BPM##50'      'target'      0.0          10
+	datum( 51) = 'orbit.x'    ''      ''      'MK.BPM##51'      'target'      0.0          10
+	datum( 52) = 'orbit.x'    ''      ''      'MK.BPM##52'      'target'      0.0          10
+	datum( 53) = 'orbit.x'    ''      ''      'MK.BPM##53'      'target'      0.0          10
+	datum( 54) = 'orbit.x'    ''      ''      'MK.BPM##54'      'target'      0.0          10
+	datum( 55) = 'orbit.x'    ''      ''      'MK.BPM##55'      'target'      0.0          10
+	datum( 56) = 'orbit.x'    ''      ''      'MK.BPM##56'      'target'      0.0          10
+	datum( 57) = 'orbit.x'    ''      ''      'MK.BPM##57'      'target'      0.0          10
+	datum( 58) = 'orbit.x'    ''      ''      'MK.BPM##58'      'target'      0.0          10
+	datum( 59) = 'orbit.x'    ''      ''      'MK.BPM##59'      'target'      0.0          10
+	datum( 60) = 'orbit.x'    ''      ''      'MK.BPM##60'      'target'      0.0          10
+	datum( 61) = 'orbit.x'    ''      ''      'MK.BPM##61'      'target'      0.0          10
+	datum( 62) = 'orbit.x'    ''      ''      'MK.BPM##62'      'target'      0.0          10
+	datum( 63) = 'orbit.x'    ''      ''      'MK.BPM##63'      'target'      0.0          10
+	datum( 64) = 'orbit.x'    ''      ''      'MK.BPM##64'      'target'      0.0          10
+	datum( 65) = 'orbit.x'    ''      ''      'MK.BPM##65'      'target'      0.0          10
+	datum( 66) = 'orbit.x'    ''      ''      'MK.BPM##66'      'target'      0.0          10
+	datum( 67) = 'orbit.x'    ''      ''      'MK.BPM##67'      'target'      0.0          10
+	datum( 68) = 'orbit.x'    ''      ''      'MK.BPM##68'      'target'      0.0          10
+	datum( 69) = 'orbit.x'    ''      ''      'MK.BPM##69'      'target'      0.0          10
+	datum( 70) = 'orbit.x'    ''      ''      'MK.BPM##70'      'target'      0.0          10
+	datum( 71) = 'orbit.x'    ''      ''      'MK.BPM##71'      'target'      0.0          10
+	datum( 72) = 'orbit.x'    ''      ''      'MK.BPM##72'      'target'      0.0          10
+	datum( 73) = 'orbit.x'    ''      ''      'MK.BPM##73'      'target'      0.0          10
+	datum( 74) = 'orbit.x'    ''      ''      'MK.BPM##74'      'target'      0.0          10
+	datum( 75) = 'orbit.x'    ''      ''      'MK.BPM##75'      'target'      0.0          10
+	datum( 76) = 'orbit.x'    ''      ''      'MK.BPM##76'      'target'      0.0          10
+	datum( 77) = 'orbit.x'    ''      ''      'MK.BPM##77'      'target'      0.0          10
+	datum( 78) = 'orbit.x'    ''      ''      'MK.BPM##78'      'target'      0.0          10
+	datum( 79) = 'orbit.x'    ''      ''      'MK.BPM##79'      'target'      0.0          10
+	datum( 80) = 'orbit.x'    ''      ''      'MK.BPM##80'      'target'      0.0          10
+	datum( 81) = 'orbit.x'    ''      ''      'MK.BPM##81'      'target'      0.0          10
+	datum( 82) = 'orbit.x'    ''      ''      'MK.BPM##82'      'target'      0.0          10
+	datum( 83) = 'orbit.x'    ''      ''      'MK.BPM##83'      'target'      0.0          10
+	datum( 84) = 'orbit.x'    ''      ''      'MK.BPM##84'      'target'      0.0          10
+	datum( 85) = 'orbit.x'    ''      ''      'MK.BPM##85'      'target'      0.0          10
+	datum( 86) = 'orbit.x'    ''      ''      'MK.BPM##86'      'target'      0.0          10
+	datum( 87) = 'orbit.x'    ''      ''      'MK.BPM##87'      'target'      0.0          10
+	datum( 88) = 'orbit.x'    ''      ''      'MK.BPM##88'      'target'      0.0          10
+	datum( 89) = 'orbit.x'    ''      ''      'MK.BPM##89'      'target'      0.0          10
+	datum( 90) = 'orbit.x'    ''      ''      'MK.BPM##90'      'target'      0.0          10
+	datum( 91) = 'orbit.x'    ''      ''      'MK.BPM##91'      'target'      0.0          10
+	datum( 92) = 'orbit.x'    ''      ''      'MK.BPM##92'      'target'      0.0          10
+	datum( 93) = 'orbit.x'    ''      ''      'MK.BPM##93'      'target'      0.0          10
+	datum( 94) = 'orbit.x'    ''      ''      'MK.BPM##94'      'target'      0.0          10
+	datum( 95) = 'orbit.x'    ''      ''      'MK.BPM##95'      'target'      0.0          10
+	datum( 96) = 'orbit.x'    ''      ''      'MK.BPM##96'      'target'      0.0          10
+	datum( 97) = 'orbit.x'    ''      ''      'MK.BPM##97'      'target'      0.0          10
+	datum( 98) = 'orbit.x'    ''      ''      'MK.BPM##98'      'target'      0.0          10
+	datum( 99) = 'orbit.x'    ''      ''      'MK.BPM##99'      'target'      0.0          10
+	datum( 100) = 'orbit.x'    ''      ''      'MK.BPM##100'      'target'      0.0          10
+       datum( 101) = 'orbit.x'    ''      ''      'MK.BEG'          'target'      0.0           0
+        datum( 102) = 'orbit.x'    ''      ''      'MK.END'          'target'      0.0           1000
+        datum( 103) = 'orbit.x'    ''   'MK.BEG'   'MK.END'          'abs_max'    0.0237         1000
+/
+ &tao_d1_data
+    ix_d1_data= 2
+	d1_data%name = "px"
+	default_weight = 10
+!                     data_     ele_ref          ele          merit      meas          weight
+!                     type      name              name         type      val
+	datum( 1) = 'orbit.px'    ''      ''      'MK.BPM##1'      'target'      0.0          10
+	datum( 2) = 'orbit.px'    ''      ''      'MK.BPM##2'      'target'      0.0          10
+	datum( 3) = 'orbit.px'    ''      ''      'MK.BPM##3'      'target'      0.0          10
+	datum( 4) = 'orbit.px'    ''      ''      'MK.BPM##4'      'target'      0.0          10
+	datum( 5) = 'orbit.px'    ''      ''      'MK.BPM##5'      'target'      0.0          10
+	datum( 6) = 'orbit.px'    ''      ''      'MK.BPM##6'      'target'      0.0          10
+	datum( 7) = 'orbit.px'    ''      ''      'MK.BPM##7'      'target'      0.0          10
+	datum( 8) = 'orbit.px'    ''      ''      'MK.BPM##8'      'target'      0.0          10
+	datum( 9) = 'orbit.px'    ''      ''      'MK.BPM##9'      'target'      0.0          10
+	datum( 10) = 'orbit.px'    ''      ''      'MK.BPM##10'      'target'      0.0          10
+	datum( 11) = 'orbit.px'    ''      ''      'MK.BPM##11'      'target'      0.0          10
+	datum( 12) = 'orbit.px'    ''      ''      'MK.BPM##12'      'target'      0.0          10
+	datum( 13) = 'orbit.px'    ''      ''      'MK.BPM##13'      'target'      0.0          10
+	datum( 14) = 'orbit.px'    ''      ''      'MK.BPM##14'      'target'      0.0          10
+	datum( 15) = 'orbit.px'    ''      ''      'MK.BPM##15'      'target'      0.0          10
+	datum( 16) = 'orbit.px'    ''      ''      'MK.BPM##16'      'target'      0.0          10
+	datum( 17) = 'orbit.px'    ''      ''      'MK.BPM##17'      'target'      0.0          10
+	datum( 18) = 'orbit.px'    ''      ''      'MK.BPM##18'      'target'      0.0          10
+	datum( 19) = 'orbit.px'    ''      ''      'MK.BPM##19'      'target'      0.0          10
+	datum( 20) = 'orbit.px'    ''      ''      'MK.BPM##20'      'target'      0.0          10
+	datum( 21) = 'orbit.px'    ''      ''      'MK.BPM##21'      'target'      0.0          10
+	datum( 22) = 'orbit.px'    ''      ''      'MK.BPM##22'      'target'      0.0          10
+	datum( 23) = 'orbit.px'    ''      ''      'MK.BPM##23'      'target'      0.0          10
+	datum( 24) = 'orbit.px'    ''      ''      'MK.BPM##24'      'target'      0.0          10
+	datum( 25) = 'orbit.px'    ''      ''      'MK.BPM##25'      'target'      0.0          10
+	datum( 26) = 'orbit.px'    ''      ''      'MK.BPM##26'      'target'      0.0          10
+	datum( 27) = 'orbit.px'    ''      ''      'MK.BPM##27'      'target'      0.0          10
+	datum( 28) = 'orbit.px'    ''      ''      'MK.BPM##28'      'target'      0.0          10
+	datum( 29) = 'orbit.px'    ''      ''      'MK.BPM##29'      'target'      0.0          10
+	datum( 30) = 'orbit.px'    ''      ''      'MK.BPM##30'      'target'      0.0          10
+	datum( 31) = 'orbit.px'    ''      ''      'MK.BPM##31'      'target'      0.0          10
+	datum( 32) = 'orbit.px'    ''      ''      'MK.BPM##32'      'target'      0.0          10
+	datum( 33) = 'orbit.px'    ''      ''      'MK.BPM##33'      'target'      0.0          10
+	datum( 34) = 'orbit.px'    ''      ''      'MK.BPM##34'      'target'      0.0          10
+	datum( 35) = 'orbit.px'    ''      ''      'MK.BPM##35'      'target'      0.0          10
+	datum( 36) = 'orbit.px'    ''      ''      'MK.BPM##36'      'target'      0.0          10
+	datum( 37) = 'orbit.px'    ''      ''      'MK.BPM##37'      'target'      0.0          10
+	datum( 38) = 'orbit.px'    ''      ''      'MK.BPM##38'      'target'      0.0          10
+	datum( 39) = 'orbit.px'    ''      ''      'MK.BPM##39'      'target'      0.0          10
+	datum( 40) = 'orbit.px'    ''      ''      'MK.BPM##40'      'target'      0.0          10
+	datum( 41) = 'orbit.px'    ''      ''      'MK.BPM##41'      'target'      0.0          10
+	datum( 42) = 'orbit.px'    ''      ''      'MK.BPM##42'      'target'      0.0          10
+	datum( 43) = 'orbit.px'    ''      ''      'MK.BPM##43'      'target'      0.0          10
+	datum( 44) = 'orbit.px'    ''      ''      'MK.BPM##44'      'target'      0.0          10
+	datum( 45) = 'orbit.px'    ''      ''      'MK.BPM##45'      'target'      0.0          10
+	datum( 46) = 'orbit.px'    ''      ''      'MK.BPM##46'      'target'      0.0          10
+	datum( 47) = 'orbit.px'    ''      ''      'MK.BPM##47'      'target'      0.0          10
+	datum( 48) = 'orbit.px'    ''      ''      'MK.BPM##48'      'target'      0.0          10
+	datum( 49) = 'orbit.px'    ''      ''      'MK.BPM##49'      'target'      0.0          10
+	datum( 50) = 'orbit.px'    ''      ''      'MK.BPM##50'      'target'      0.0          10
+	datum( 51) = 'orbit.px'    ''      ''      'MK.BPM##51'      'target'      0.0          10
+	datum( 52) = 'orbit.px'    ''      ''      'MK.BPM##52'      'target'      0.0          10
+	datum( 53) = 'orbit.px'    ''      ''      'MK.BPM##53'      'target'      0.0          10
+	datum( 54) = 'orbit.px'    ''      ''      'MK.BPM##54'      'target'      0.0          10
+	datum( 55) = 'orbit.px'    ''      ''      'MK.BPM##55'      'target'      0.0          10
+	datum( 56) = 'orbit.px'    ''      ''      'MK.BPM##56'      'target'      0.0          10
+	datum( 57) = 'orbit.px'    ''      ''      'MK.BPM##57'      'target'      0.0          10
+	datum( 58) = 'orbit.px'    ''      ''      'MK.BPM##58'      'target'      0.0          10
+	datum( 59) = 'orbit.px'    ''      ''      'MK.BPM##59'      'target'      0.0          10
+	datum( 60) = 'orbit.px'    ''      ''      'MK.BPM##60'      'target'      0.0          10
+	datum( 61) = 'orbit.px'    ''      ''      'MK.BPM##61'      'target'      0.0          10
+	datum( 62) = 'orbit.px'    ''      ''      'MK.BPM##62'      'target'      0.0          10
+	datum( 63) = 'orbit.px'    ''      ''      'MK.BPM##63'      'target'      0.0          10
+	datum( 64) = 'orbit.px'    ''      ''      'MK.BPM##64'      'target'      0.0          10
+	datum( 65) = 'orbit.px'    ''      ''      'MK.BPM##65'      'target'      0.0          10
+	datum( 66) = 'orbit.px'    ''      ''      'MK.BPM##66'      'target'      0.0          10
+	datum( 67) = 'orbit.px'    ''      ''      'MK.BPM##67'      'target'      0.0          10
+	datum( 68) = 'orbit.px'    ''      ''      'MK.BPM##68'      'target'      0.0          10
+	datum( 69) = 'orbit.px'    ''      ''      'MK.BPM##69'      'target'      0.0          10
+	datum( 70) = 'orbit.px'    ''      ''      'MK.BPM##70'      'target'      0.0          10
+	datum( 71) = 'orbit.px'    ''      ''      'MK.BPM##71'      'target'      0.0          10
+	datum( 72) = 'orbit.px'    ''      ''      'MK.BPM##72'      'target'      0.0          10
+	datum( 73) = 'orbit.px'    ''      ''      'MK.BPM##73'      'target'      0.0          10
+	datum( 74) = 'orbit.px'    ''      ''      'MK.BPM##74'      'target'      0.0          10
+	datum( 75) = 'orbit.px'    ''      ''      'MK.BPM##75'      'target'      0.0          10
+	datum( 76) = 'orbit.px'    ''      ''      'MK.BPM##76'      'target'      0.0          10
+	datum( 77) = 'orbit.px'    ''      ''      'MK.BPM##77'      'target'      0.0          10
+	datum( 78) = 'orbit.px'    ''      ''      'MK.BPM##78'      'target'      0.0          10
+	datum( 79) = 'orbit.px'    ''      ''      'MK.BPM##79'      'target'      0.0          10
+	datum( 80) = 'orbit.px'    ''      ''      'MK.BPM##80'      'target'      0.0          10
+	datum( 81) = 'orbit.px'    ''      ''      'MK.BPM##81'      'target'      0.0          10
+	datum( 82) = 'orbit.px'    ''      ''      'MK.BPM##82'      'target'      0.0          10
+	datum( 83) = 'orbit.px'    ''      ''      'MK.BPM##83'      'target'      0.0          10
+	datum( 84) = 'orbit.px'    ''      ''      'MK.BPM##84'      'target'      0.0          10
+	datum( 85) = 'orbit.px'    ''      ''      'MK.BPM##85'      'target'      0.0          10
+	datum( 86) = 'orbit.px'    ''      ''      'MK.BPM##86'      'target'      0.0          10
+	datum( 87) = 'orbit.px'    ''      ''      'MK.BPM##87'      'target'      0.0          10
+	datum( 88) = 'orbit.px'    ''      ''      'MK.BPM##88'      'target'      0.0          10
+	datum( 89) = 'orbit.px'    ''      ''      'MK.BPM##89'      'target'      0.0          10
+	datum( 90) = 'orbit.px'    ''      ''      'MK.BPM##90'      'target'      0.0          10
+	datum( 91) = 'orbit.px'    ''      ''      'MK.BPM##91'      'target'      0.0          10
+	datum( 92) = 'orbit.px'    ''      ''      'MK.BPM##92'      'target'      0.0          10
+	datum( 93) = 'orbit.px'    ''      ''      'MK.BPM##93'      'target'      0.0          10
+	datum( 94) = 'orbit.px'    ''      ''      'MK.BPM##94'      'target'      0.0          10
+	datum( 95) = 'orbit.px'    ''      ''      'MK.BPM##95'      'target'      0.0          10
+	datum( 96) = 'orbit.px'    ''      ''      'MK.BPM##96'      'target'      0.0          10
+	datum( 97) = 'orbit.px'    ''      ''      'MK.BPM##97'      'target'      0.0          10
+	datum( 98) = 'orbit.px'    ''      ''      'MK.BPM##98'      'target'      0.0          10
+	datum( 99) = 'orbit.px'    ''      ''      'MK.BPM##99'      'target'      0.0          10
+	datum( 100) = 'orbit.px'    ''      ''      'MK.BPM##100'      'target'      0.0          10
+        datum( 101) = 'orbit.px'    ''      ''      'MK.BEG'     'target'      0.0          0
+        datum( 102) = 'orbit.px'    ''      ''      'MK.END'     'target'      0.0          100
+/ 
+
+
+
+ 
+
+ &tao_d1_data
+    ix_d1_data= 3
+	d1_data%name = "unstable"
+	default_weight = 100
+!                     data_           ele_ref          ele        merit      meas         weight
+!                     type             name            name        type       val
+	datum( 1) = 'unstable.orbit'    ''      ''      ''      'target'      0.0          1000000
+/
+
+
+
+
+
+!------------------- Variables-------------
+
+
+&tao_var
+    v1_var%name = 'hfld'
+        default_universe = "gang"
+        var(1:150)%ele_name = 'corrhbd##1', 'corrhbf##1', 'corrhbd##2', 'corrhbf##2', 'corrhbd##3', 'corrhbf##3', 'corrhbd##4', 'corrhbf##4', 'corrhbd##5', 'corrhbf##5', 'corrhbd##6', 'corrhbf##6', 'corrhbd##7', 'corrhbf##7', 'corrhbd##8', 'corrhbf##8', 'corrhbd##9', 'corrhbf##9', 'corrhbd##10', 'corrhbf##10', 'corrhbd##11', 'corrhbd##12', 'corrhbd##13', 'corrhbd##14', 'corrhbd##15', 'corrhbd##16', 'corrhbd##17', 'corrhbd##18', 'corrhbd##19', 'corrhbd##20', 'corrhbd##21', 'corrhbd##22', 'corrhbd##23', 'corrhbd##24', 'corrhbd##25', 'corrhbd##26', 'corrhbd##27', 'corrhbd##28', 'corrhbd##29', 'corrhbd##30', 'corrhbd##31', 'corrhbd##32', 'corrhbd##33', 'corrhbd##34', 'corrhbd##35', 'corrhbd##36', 'corrhbd##37', 'corrhbd##38', 'corrhbd##39', 'corrhbd##40', 'corrhbd##41', 'corrhbd##42', 'corrhbd##43', 'corrhbd##44', 'corrhbd##45', 'corrhbd##46', 'corrhbd##47', 'corrhbd##48', 'corrhbd##49', 'corrhbd##50', 'corrhbd##51', 'corrhbd##52', 'corrhbd##53', 'corrhbd##54', 'corrhbd##55', 'corrhbd##56', 'corrhbd##57', 'corrhbd##58', 'corrhbd##59', 'corrhbd##60', 'corrhbd##61', 'corrhbf##11', 'corrhbd##62', 'corrhbf##12', 'corrhbd##63', 'corrhbf##13', 'corrhbd##64', 'corrhbf##14', 'corrhbd##65', 'corrhbf##15', 'corrhbd##66', 'corrhbf##16', 'corrhbd##67', 'corrhbf##17', 'corrhbd##68', 'corrhbf##18', 'corrhbd##69', 'corrhbf##19', 'corrhbd##70', 'corrhbf##20', 'corrhbd##71', 'corrhbf##21', 'corrhbd##72', 'corrhbf##22', 'corrhbd##73', 'corrhbf##23', 'corrhbd##74', 'corrhbf##24', 'corrhbd##75', 'corrhbf##25'
+        default_attribute = 'bl_hkick'
+        default_step = 0.000016
+        ix_min_var = 1
+	default_low_lim  =   -0.032
+	default_high_lim =   0.032
+/
+&tao_var
+    v1_var%name = 'vfld'
+        default_universe = "gang"
+        var(1:150)%ele_name ='corrvbd##1', 'corrvbf##1', 'corrvbd##2', 'corrvbf##2', 'corrvbd##3', 'corrvbf##3', 'corrvbd##4', 'corrvbf##4', 'corrvbd##5', 'corrvbf##5', 'corrvbd##6', 'corrvbf##6', 'corrvbd##7', 'corrvbf##7', 'corrvbd##8', 'corrvbf##8', 'corrvbd##9', 'corrvbf##9', 'corrvbd##10', 'corrvbf##10', 'corrvbd##11', 'corrvbd##12', 'corrvbd##13', 'corrvbd##14', 'corrvbd##15', 'corrvbd##16', 'corrvbd##17', 'corrvbd##18', 'corrvbd##19', 'corrvbd##20', 'corrvbd##21', 'corrvbd##22', 'corrvbd##23', 'corrvbd##24', 'corrvbd##25', 'corrvbd##26', 'corrvbd##27', 'corrvbd##28', 'corrvbd##29', 'corrvbd##30', 'corrvbd##31', 'corrvbd##32', 'corrvbd##33', 'corrvbd##34', 'corrvbd##35', 'corrvbd##36', 'corrvbd##37', 'corrvbd##38', 'corrvbd##39', 'corrvbd##40', 'corrvbd##41', 'corrvbd##42', 'corrvbd##43', 'corrvbd##44', 'corrvbd##45', 'corrvbd##46', 'corrvbd##47', 'corrvbd##48', 'corrvbd##49', 'corrvbd##50', 'corrvbd##51', 'corrvbd##52', 'corrvbd##53', 'corrvbd##54', 'corrvbd##55', 'corrvbd##56', 'corrvbd##57', 'corrvbd##58', 'corrvbd##59', 'corrvbd##60', 'corrvbd##61', 'corrvbf##11', 'corrvbd##62', 'corrvbf##12', 'corrvbd##63', 'corrvbf##13', 'corrvbd##64', 'corrvbf##14', 'corrvbd##65', 'corrvbf##15', 'corrvbd##66', 'corrvbf##16', 'corrvbd##67', 'corrvbf##17', 'corrvbd##68', 'corrvbf##18', 'corrvbd##69', 'corrvbf##19', 'corrvbd##70', 'corrvbf##20', 'corrvbd##71', 'corrvbf##21', 'corrvbd##72', 'corrvbf##22', 'corrvbd##73', 'corrvbf##23', 'corrvbd##74', 'corrvbf##24', 'corrvbd##75', 'corrvbf##25'
+        default_attribute = 'bl_vkick'
+        default_step = 0.000016
+        ix_min_var = 1
+	default_low_lim  =   -0.032
+	default_high_lim =   0.032
+/
+&tao_var 
+	v1_var%name = 'b1corr'
+	default_universe = 'gang'
+    var(1:150)%ele_name ='corrgbd##1', 'corrgbf##1', 'corrgbd##2', 'corrgbf##2', 'corrgbd##3', 'corrgbf##3', 'corrgbd##4', 'corrgbf##4', 'corrgbd##5', 'corrgbf##5', 'corrgbd##6', 'corrgbf##6', 'corrgbd##7', 'corrgbf##7', 'corrgbd##8', 'corrgbf##8', 'corrgbd##9', 'corrgbf##9', 'corrgbd##10', 'corrgbf##10', 'corrgbd##11', 'corrgbd##12', 'corrgbd##13', 'corrgbd##14', 'corrgbd##15', 'corrgbd##16', 'corrgbd##17', 'corrgbd##18', 'corrgbd##19', 'corrgbd##20', 'corrgbd##21', 'corrgbd##22', 'corrgbd##23', 'corrgbd##24', 'corrgbd##25', 'corrgbd##26', 'corrgbd##27', 'corrgbd##28', 'corrgbd##29', 'corrgbd##30', 'corrgbd##31', 'corrgbd##32', 'corrgbd##33', 'corrgbd##34', 'corrgbd##35', 'corrgbd##36', 'corrgbd##37', 'corrgbd##38', 'corrgbd##39', 'corrgbd##40', 'corrgbd##41', 'corrgbd##42', 'corrgbd##43', 'corrgbd##44', 'corrgbd##45', 'corrgbd##46', 'corrgbd##47', 'corrgbd##48', 'corrgbd##49', 'corrgbd##50', 'corrgbd##51', 'corrgbd##52', 'corrgbd##53', 'corrgbd##54', 'corrgbd##55', 'corrgbd##56', 'corrgbd##57', 'corrgbd##58', 'corrgbd##59', 'corrgbd##60', 'corrgbd##61', 'corrgbf##11', 'corrgbd##62', 'corrgbf##12', 'corrgbd##63', 'corrgbf##13', 'corrgbd##64', 'corrgbf##14', 'corrgbd##65', 'corrgbf##15', 'corrgbd##66', 'corrgbf##16', 'corrgbd##67', 'corrgbf##17', 'corrgbd##68', 'corrgbf##18', 'corrgbd##69', 'corrgbf##19', 'corrgbd##70', 'corrgbf##20', 'corrgbd##71', 'corrgbf##21', 'corrgbd##72', 'corrgbf##22', 'corrgbd##73', 'corrgbf##23', 'corrgbd##74', 'corrgbf##24', 'corrgbd##75', 'corrgbf##25'
+    default_attribute = 'gc'
+	default_step = .000188
+	default_low_lim  = -0.188
+	default_high_lim =  0.188
+/
+ 

@@ -1,0 +1,23 @@
+! pw2.bmad
+! File containing pass 2 optics for the west arc
+! Twiss functions, energies, etc.
+
+call, file = machine/Arcs.lat
+
+parameter[geometry] = open           
+
+parameter[p0c]                      = p_CENT
+parameter[particle]                 = Electron
+
+
+
+beginning[beta_a]    = 2.5111351613272
+beginning[alpha_a]   = 1.7377724799945
+beginning[eta_x]     = 0.024251354224847
+beginning[etap_x]    = -0.026556334062008
+beginning[beta_b]    = 6.2047252795598
+beginning[alpha_b]   = -3.2040592325653
+particle_start[x]  = -0.045018383623758
+particle_start[px] = 0.017595051962099
+particle_start[pz] = -0.32439024390244 ! Corresponds to 13.85 GeV
+
