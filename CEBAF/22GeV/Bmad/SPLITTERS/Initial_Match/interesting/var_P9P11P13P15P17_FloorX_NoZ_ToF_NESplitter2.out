@@ -1,0 +1,31 @@
+ O_P11_TOF_B1[STRENGTH11_1] = -1.49225134978342178E+000   ! Not used in optimizing
+ O_P11_TOF_B2[STRENGTH11_2] =  1.66527343231040725E+000   ! Not used in optimizing
+ O_P11_TOF_D1[LENGTH11_1] =  9.00000000000000000E+000   ! Not used in optimizing
+ O_P11_TOF_D2[LENGTH11_2] =  5.42167697621872779E+000   ! Not used in optimizing
+ O_P11_TOF_D3[LENGTH11_3] =  9.88052311117433035E+000   ! Not used in optimizing
+ O_P11_TOF_D4[LENGTH11_4] =  7.44650469947863591E+000   ! Not used in optimizing
+ O_P11_TOF_D5[LENGTH11_5] =  9.29067757864110177E+000   ! Not used in optimizing
+ 
+ end_file
+ 
+ 
+ ! Top 10
+ 
+ Constraints                                      Ref_Ele    Start_Ele   Ele/S    Meas-or-Lim    Model       Merit      Max_Loc
+ 5@ToF[14]          5@lat::floor.x[END] <target>                                  -3.1900E-03  -3.1900E-03  1.926E-24
+ ToF_P17_Drifts[6]  5@O_P17_TOF_D6[LENGTH17_6]                                     1.2000E+01   1.2029E+01  0.000E+00
+ ToF_P17_Drifts[5]  5@O_P17_TOF_D5[LENGTH17_5]                                     6.0000E+00   6.3273E+00  0.000E+00
+ ToF_P17_Drifts[4]  5@O_P17_TOF_D4[LENGTH17_4]                                     1.2000E+01   1.2982E+01  0.000E+00
+ ToF_P17_Drifts[3]  5@O_P17_TOF_D3[LENGTH17_3]                                     1.4000E+00   1.4776E+00  0.000E+00
+ ToF_P17_Drifts[2]  5@O_P17_TOF_D2[LENGTH17_2]                                     8.4000E+00   8.4823E+00  0.000E+00
+ ToF_P17_Drifts[1]  5@O_P17_TOF_D1[LENGTH17_1]                                     4.0000E+00   4.4871E+00  0.000E+00
+ ToF_P17_Bends[3]   5@O_P17_TOF_B3[STRENGTH17_3]                                  -1.7000E+00  -1.6995E+00  0.000E+00
+ ToF_P17_Bends[2]   5@O_P17_TOF_B2[STRENGTH17_2]                                   1.7000E+00   1.6198E+00  0.000E+00
+ ToF_P17_Bends[1]   5@O_P17_TOF_B1[STRENGTH17_1]                                  -1.7000E+00  -1.6196E+00  0.000E+00
+ Constraints                                      Ref_Ele    Start_Ele   Ele/S    Meas-or-Lim    Model       Merit      Max_Loc
+ 
+  figure of merit: 1.925930E-24
+ 
+ List of non-zero contributors to the Merit Function:
+ Name                                          Merit           Sigma [= sqrt(Chi^2/N)]
+ ToF.time                                      1.9259E-24      1.3878E-17

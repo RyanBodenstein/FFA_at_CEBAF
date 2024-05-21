@@ -1,0 +1,33 @@
+ O_P9_TOF_B1[STRENGTH9_1] =  4.95288804523830728E-001   ! Not used in optimizing
+ O_P9_TOF_B2[STRENGTH9_2] =  1.19013021656125728E+000   ! Not used in optimizing
+ O_P9_TOF_B3[STRENGTH9_3] = -1.43900033753680767E+000   ! Not used in optimizing
+ O_P9_TOF_B4[STRENGTH9_4] =  1.50000000000005684E+000   ! Not used in optimizing
+ O_P9_TOF_D1[LENGTH9_1] =  2.80000000000000204E+000   ! Not used in optimizing
+ O_P9_TOF_D2[LENGTH9_2] =  2.62222424347977867E+000   ! Not used in optimizing
+ O_P9_TOF_D3[LENGTH9_3] =  1.96000000000000014E+001   ! Not used in optimizing
+ O_P9_TOF_D4[LENGTH9_4] =  7.86231675485836057E+000   ! Not used in optimizing
+ O_P9_TOF_D5[LENGTH9_5] =  5.14094610309435485E+000   ! Not used in optimizing
+ 
+ end_file
+ 
+ 
+ ! Top 10
+ 
+ Constraints                                      Ref_Ele    Start_Ele   Ele/S    Meas-or-Lim    Model       Merit      Max_Loc
+ 6@ToF[17]          6@lat::floor.x[END] <target>                                   6.5299E-03   6.5299E-03  7.981E-23
+ ToF_P19_Drifts[6]  6@O_P19_TOF_D6[LENGTH19_6]                                     3.0000E+00   3.2306E+00  0.000E+00
+ ToF_P19_Drifts[5]  6@O_P19_TOF_D5[LENGTH19_5]                                     1.5500E+01   1.5833E+01  0.000E+00
+ ToF_P19_Drifts[4]  6@O_P19_TOF_D4[LENGTH19_4]                                     1.8000E+00   1.9736E+00  0.000E+00
+ ToF_P19_Drifts[3]  6@O_P19_TOF_D3[LENGTH19_3]                                     4.1000E+00   3.9647E+00  0.000E+00
+ ToF_P19_Drifts[2]  6@O_P19_TOF_D2[LENGTH19_2]                                     7.9000E+00   7.9736E+00  0.000E+00
+ ToF_P19_Drifts[1]  6@O_P19_TOF_D1[LENGTH19_1]                                     4.1000E+00   3.9826E+00  0.000E+00
+ ToF_P19_Bends[3]   6@O_P19_TOF_B3[STRENGTH19_3]                                  -1.7000E+00  -1.6986E+00  0.000E+00
+ ToF_P19_Bends[2]   6@O_P19_TOF_B2[STRENGTH19_2]                                   1.7000E+00   1.7000E+00  0.000E+00
+ ToF_P19_Bends[1]   6@O_P19_TOF_B1[STRENGTH19_1]                                  -1.7000E+00  -1.6995E+00  0.000E+00
+ Constraints                                      Ref_Ele    Start_Ele   Ele/S    Meas-or-Lim    Model       Merit      Max_Loc
+ 
+  figure of merit: 7.981325E-23
+ 
+ List of non-zero contributors to the Merit Function:
+ Name                                          Merit           Sigma [= sqrt(Chi^2/N)]
+ ToF.time                                      7.9813E-23      8.9338E-17
