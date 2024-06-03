@@ -1,0 +1,462 @@
+! ==============================================================================
+! *** OPTICS=ARC1, 22GEV CEBAF 2024-MAY-31 ***
+! ------------------------------------------------------------------------------
+
+
+! ------------------------------------------------------------------------------
+! constants and global parameters
+! ------------------------------------------------------------------------------
+
+parameter[geometry] = open    	! or closed
+parameter[particle] = electron	! Default is positron
+mc2 = 0.00051099906           	! rest energy [GeV]
+
+! energy profile
+
+e_nl1 = 0.649489000000000000    !centroid energy into NL1 [GeV]
+e_sl2 = 1.749489126392060371    !centroid energy into SL2 [GeV]
+e_nl3 = 2.849489155200849382    !centroid energy into NL3 [GeV]
+e_sl4 = 3.949489167962193278    !centroid energy into SL4 [GeV]
+e_nl5 = 5.049489175163595974    !centroid energy into NL5 [GeV]
+e_sl6 = 6.149489179788682122    !centroid energy into SL6 [GeV]
+e_nl7 = 7.249489183010239685	!centroid energy into NL7 [GeV]
+e_sl8 = 8.349489185382981304	!centroid energy into SL8 [GeV]
+e_nl9 = 9.449489187203122128	!centroid energy into NL9 [GeV]
+
+! initial conditions (entrance of ARC1)
+
+emitxn = 4.212724199044e-10 * e_sl2 / mc2	!normalized horizontal emittance [m]
+emityn = 4.212724199044e-10 * e_sl2 / mc2	!normalized vertical emittance [m]
+espread = 0.0001        		            !fractional energy spread
+
+arc1_bx = 2.687782669072217e+00    !twiss beta x [m]
+arc1_ax = 8.487558244602760e-01	   !twiss alpha x [m]
+arc1_by = 6.683894323681116e+00	   !twiss beta y [m] 
+arc1_ay = 1.850840213018698e+00    !twiss alpha y [m]
+
+beginning[x_position] = 80.6
+beginning[y_position] = 100
+beginning[z_position] = 90.55103
+beginning[theta_position] = 0.0
+beginning[phi_position] = 0.0
+beginning[psi_position] = 0.0
+beginning[s] = 0.0
+beginning[e_tot] = e_sl2 * 1e9
+beginning[beta_a] = arc1_bx
+beginning[alpha_a] = arc1_ax
+beginning[beta_b] = arc1_by
+beginning[alpha_b] = arc1_ay
+beginning[eta_x] = 0.0
+beginning[etap_x] = 0.0
+
+! ==============================================================================
+! XCORs & YCORs
+! ------------------------------------------------------------------------------
+
+mbt1s01h: hkicker, type = "hkick"
+mbt1s01v: vkicker, type = "vkick"
+mbt1s02h: hkicker, type = "hkick"
+mbt1s02v: vkicker, type = "vkick"
+mbc3s05h: hkicker, type = "hkick"
+mbc3s07h: hkicker, type = "hkick"
+mbc3s08h: hkicker, type = "hkick"
+mbc3s09h: hkicker, type = "hkick"
+mbc3s10h: hkicker, type = "hkick"
+mbm3e01h: hkicker, type = "hkick"
+mbm3e02h: hkicker, type = "hkick"
+mbm3e03h: hkicker, type = "hkick"
+mbc3a01h: hkicker, type = "hkick"
+mbc3a03h: hkicker, type = "hkick"
+mbc3a05h: hkicker, type = "hkick"
+mbc3a07h: hkicker, type = "hkick"
+mbc3a09h: hkicker, type = "hkick"
+mbc3a11h: hkicker, type = "hkick"
+mbc3a13h: hkicker, type = "hkick"
+mbc3a15h: hkicker, type = "hkick"
+mbc3a17h: hkicker, type = "hkick"
+mbc3a19h: hkicker, type = "hkick"
+mbc3a21h: hkicker, type = "hkick"
+mbc3a23h: hkicker, type = "hkick"
+mbc3a25h: hkicker, type = "hkick"
+mbc3a27h: hkicker, type = "hkick"
+mbc3a29h: hkicker, type = "hkick"
+mbc3a31h: hkicker, type = "hkick"
+mbc3r01h: hkicker, type = "hkick"
+mbc3r02h: hkicker, type = "hkick"
+mbc3r03h: hkicker, type = "hkick"
+mbc3r04h: hkicker, type = "hkick"
+mbc3r06h: hkicker, type = "hkick"
+mbc3s05v: vkicker, type = "vkick"
+mbc3s07v: vkicker, type = "vkick"
+mbc3s08v: vkicker, type = "vkick"
+mbc3s09v: vkicker, type = "vkick"
+mbc3s10v: vkicker, type = "vkick"
+mbm3e01v: vkicker, type = "vkick"
+mbm3e02v: vkicker, type = "vkick"
+mbm3e03v: vkicker, type = "vkick"
+mbc3a01v: vkicker, type = "vkick"
+mbc3a02v: vkicker, type = "vkick"
+mbc3a04v: vkicker, type = "vkick"
+mbc3a06v: vkicker, type = "vkick"
+mbc3a08v: vkicker, type = "vkick"
+mbc3a10v: vkicker, type = "vkick"
+mbc3a12v: vkicker, type = "vkick"
+mbc3a14v: vkicker, type = "vkick"
+mbc3a16v: vkicker, type = "vkick"
+mbc3a18v: vkicker, type = "vkick"
+mbc3a20v: vkicker, type = "vkick"
+mbc3a22v: vkicker, type = "vkick"
+mbc3a24v: vkicker, type = "vkick"
+mbc3a26v: vkicker, type = "vkick"
+mbc3a28v: vkicker, type = "vkick"
+mbc3a30v: vkicker, type = "vkick"
+mbc3r02v: vkicker, type = "vkick"
+mbc3r04v: vkicker, type = "vkick"
+mbc3r07v: vkicker, type = "vkick"
+mbt1r09h: hkicker, type = "hkick"
+mbt1r10h: hkicker, type = "hkick"
+mbt1r10v: vkicker, type = "vkick"
+
+! ==============================================================================
+! DRIFTs
+! ------------------------------------------------------------------------------
+
+d100a: drift, type = "csrdrift", l = 1.6661349105
+d100b: drift, type = "csrdrift", l = 1.6661349105
+d102aa: drift, type = "csrdrift", l = 0.25
+d102ab: drift, type = "csrdrift", l = 0.25
+d102ac: drift, type = "csrdrift", l = 0.2
+d102ad: drift, type = "csrdrift", l = 0.2
+d102ae: drift, type = "csrdrift", l = 0.1
+d102ba: drift, type = "csrdrift", l = 0.2
+d102bb: drift, type = "csrdrift", l = 0.2
+d102bc: drift, type = "csrdrift", l = 0.5
+d102bd: drift, type = "csrdrift", l = 4.1652
+d102be: drift, type = "csrdrift", l = 0.3
+d102bf: drift, type = "csrdrift", l = 0.2
+d102bg: drift, type = "csrdrift", l = 4.8652
+d102bh: drift, type = "csrdrift", l = 0.3
+d102ca: drift, type = "csrdrift", l = 0.1587
+d102cb: drift, type = "csrdrift", l = 0.1587
+d102cc: drift, type = "csrdrift", l = 0.1587
+d102cd: drift, type = "csrdrift", l = 0.1587
+d102ce: drift, type = "csrdrift", l = 0.3174
+d102cf: drift, type = "csrdrift", l = 0.3174
+d102d: drift, type = "csrdrift", l = 0.2
+d102da: drift, type = "csrdrift", l = 0.1
+d102db: drift, type = "csrdrift", l = 0.1
+d103: drift, type = "csrdrift", l = 0.3663606073008759
+dextra: drift, type = "csrdrift", l = 6.905594297598732
+d712a: drift, type = "csrdrift", l = 0.345250530525821
+d713: drift, type = "csrdrift", l = 0.8947000000000001
+d714: drift, type = "csrdrift", l = 0.58065
+d715: drift, type = "csrdrift", l = 0.22465
+d716: drift, type = "csrdrift", l = 0.19315
+d717: drift, type = "csrdrift", l = 0.19609
+d718: drift, type = "csrdrift", l = 1.31076
+d719: drift, type = "csrdrift", l = 3.47535
+d720: drift, type = "csrdrift", l = 3.08611
+d721: drift, type = "csrdrift", l = 15.63611
+d722: drift, type = "csrdrift", l = 0.29965
+d723: drift, type = "csrdrift", l = 0.26815
+d724: drift, type = "csrdrift", l = 0.3644
+d725: drift, type = "csrdrift", l = 0.62136
+d726: drift, type = "csrdrift", l = 5.7519708
+d727: drift, type = "csrdrift", l = 1.150351
+d728: drift, type = "csrdrift", l = 0.50546
+d729: drift, type = "csrdrift", l = 2.8200607
+d730: drift, type = "csrdrift", l = 2.436523
+d731: drift, type = "csrdrift", l = 3.489828
+d732: drift, type = "csrdrift", l = 0.38924
+d733: drift, type = "csrdrift", l = 2.74292
+d734: drift, type = "csrdrift", l = 2.93902
+d735: drift, type = "csrdrift", l = 3.32523
+d736: drift, type = "csrdrift", l = 2.436528
+d737: drift, type = "csrdrift", l = 3.489839
+d738: drift, type = "csrdrift", l = 3.52133
+d739: drift, type = "csrdrift", l = 2.742915
+d740: drift, type = "csrdrift", l = 3.325236
+d741: drift, type = "csrdrift", l = 3.489816
+d742: drift, type = "csrdrift", l = 0.70155
+d743: drift, type = "csrdrift", l = 2.81978
+d744: drift, type = "csrdrift", l = 3.16367
+d745: drift, type = "csrdrift", l = 3.32524
+d746: drift, type = "csrdrift", l = 3.714478
+d747: drift, type = "csrdrift", l = 2.74293
+d748: drift, type = "csrdrift", l = 2.742911
+d749: drift, type = "csrdrift", l = 3.163662
+d750: drift, type = "csrdrift", l = 3.325228
+d751: drift, type = "csrdrift", l = 2.436536
+d752: drift, type = "csrdrift", l = 3.71448
+d753: drift, type = "csrdrift", l = 3.4901027
+d754: drift, type = "csrdrift", l = 2.58065
+d755: drift, type = "csrdrift", l = 1.86262
+d756: drift, type = "csrdrift", l = 1.41958
+d757: drift, type = "csrdrift", l = 3.31076
+d758: drift, type = "csrdrift", l = 1.47535
+d759: drift, type = "csrdrift", l = 0.689356
+d760: drift, type = "csrdrift", l = 0.8174939999999999
+d732a: drift, type = "csrdrift", l = 0.1726207652629105
+d761a: drift, type = "csrdrift", l = 0.1726207652629105
+
+! ==============================================================================
+! MARKERs
+! ------------------------------------------------------------------------------
+
+c: marker, type = "charge"
+arc1beg: marker, type = "watch"
+arc1end: marker, type = "watch"
+spreader1beg: marker, type = "watch"
+spreader1end: marker, type = "watch"
+recombiner1beg: marker, type = "watch"
+recombiner1end: marker, type = "watch"
+ipm1s00: instrument, type = "monitor"
+ipm1s01: instrument, type = "monitor"
+itv1s01: instrument, type = "monitor"
+ipm1s02: instrument, type = "monitor"
+ipm1s03: instrument, type = "monitor"
+ipm3s03: instrument, type = "monitor"
+itv3s04: instrument, type = "monitor"
+ipm3s05: instrument, type = "monitor"
+ipm3s07: instrument, type = "monitor"
+ipm3s08: instrument, type = "monitor"
+ipm3s09: instrument, type = "monitor"
+ipm3s10: instrument, type = "monitor"
+ipm3e01: instrument, type = "monitor"
+iha3e01: instrument, type = "monitor"
+ipm3e02: instrument, type = "monitor"
+ipm3e03: instrument, type = "monitor"
+ipm3a01: instrument, type = "monitor"
+itv3a01: instrument, type = "monitor"
+ipm3a02: instrument, type = "monitor"
+ipm3a03: instrument, type = "monitor"
+ipm3a04: instrument, type = "monitor"
+ipm3a05: instrument, type = "monitor"
+ipm3a06: instrument, type = "monitor"
+ipm3a07: instrument, type = "monitor"
+ipm3a08: instrument, type = "monitor"
+ipm3a09: instrument, type = "monitor"
+itv3a09: instrument, type = "monitor"
+ipm3a10: instrument, type = "monitor"
+ipm3a11: instrument, type = "monitor"
+ipm3a13: instrument, type = "monitor"
+ipm3a15: instrument, type = "monitor"
+ipm3a16: instrument, type = "monitor"
+ipm3a17: instrument, type = "monitor"
+itv3a17: instrument, type = "monitor"
+ipm3a18: instrument, type = "monitor"
+ipm3a19: instrument, type = "monitor"
+ipm3a21: instrument, type = "monitor"
+ipm3a23: instrument, type = "monitor"
+ipm3a24: instrument, type = "monitor"
+ipm3a25: instrument, type = "monitor"
+itv3a25: instrument, type = "monitor"
+ipm3a26: instrument, type = "monitor"
+ipm3a27: instrument, type = "monitor"
+ipm3a29: instrument, type = "monitor"
+ipm3a31: instrument, type = "monitor"
+ipm3a32: instrument, type = "monitor"
+ipm3r01: instrument, type = "monitor"
+itv3r01: instrument, type = "monitor"
+ipm3r02: instrument, type = "monitor"
+ipm3r03: instrument, type = "monitor"
+ida3r03: instrument, type = "monitor"
+ipm3r04: instrument, type = "monitor"
+ipm3r06: instrument, type = "monitor"
+itv3r06: instrument, type = "monitor"
+ipm1r08: instrument, type = "monitor"
+ipm1r09: instrument, type = "monitor"
+ipm1r10: instrument, type = "monitor"
+ipm1r10a: instrument, type = "monitor"
+
+! ==============================================================================
+! QUADs
+! ------------------------------------------------------------------------------
+
+mqb1s01: quadrupole, type = "kquad", l = 0.3, k1 = -0.617138219
+mql1s02: quadrupole, type = "kquad", l = 0.3, k1 = 2.56964975
+mqn1s03: quadrupole, type = "kquad", l = 0.3, k1 = -3.750763447667804
+mqa3s04: quadrupole, type = "kquad", l = 0.3, k1 = -0.6342573622988407
+mqa3s05: quadrupole, type = "kquad", l = 0.3, k1 = 0.9284190234869205
+mqa3s06: quadrupole, type = "kquad", l = 0.3, k1 = -0.730786600214028
+mqa3s07: quadrupole, type = "kquad", l = 0.3, k1 = 0.4608153390225692
+mqa3s08: quadrupole, type = "kquad", l = 0.3, k1 = -0.4967543807906121
+mqa3s09: quadrupole, type = "kquad", l = 0.3, k1 = 0.4972868706122333
+mqa3s10: quadrupole, type = "kquad", l = 0.3, k1 = -0.2797262002443958
+mqb3e01: quadrupole, type = "kquad", l = 0.15, k1 = -0.4960029534916762
+mqb3e02: quadrupole, type = "kquad", l = 0.15, k1 = -0.3394855246542564
+mqb3e03: quadrupole, type = "kquad", l = 0.15, k1 = 0.5290456456172041
+mqa3a01: quadrupole, type = "kquad", l = 0.3, k1 = 0.1714422578459871
+mqa3a02: quadrupole, type = "kquad", l = 0.3, k1 = -0.59718072995121
+mqa3a03: quadrupole, type = "kquad", l = 0.3, k1 = 0.9803636229243361
+mqa3a04: quadrupole, type = "kquad", l = 0.3, k1 = -0.5447403772946626
+mqa3a05: quadrupole, type = "kquad", l = 0.3, k1 = 0.4306142663427964
+mqa3a06: quadrupole, type = "kquad", l = 0.3, k1 = -0.5447403772946626
+mqa3a07: quadrupole, type = "kquad", l = 0.3, k1 = 0.9803636229243361
+mqa3a08: quadrupole, type = "kquad", l = 0.3, k1 = -0.59718072995121
+mqa3a09: quadrupole, type = "kquad", l = 0.3, k1 = 0.78
+mqa3a10: quadrupole, type = "kquad", l = 0.3, k1 = -0.59718072995121
+mqa3a11: quadrupole, type = "kquad", l = 0.3, k1 = 0.9803636229243361
+mqa3a12: quadrupole, type = "kquad", l = 0.3, k1 = -0.5447403772946626
+mqa3a13: quadrupole, type = "kquad", l = 0.3, k1 = 0.4306142663427964
+mqa3a14: quadrupole, type = "kquad", l = 0.3, k1 = -0.5447403772946626
+mqa3a15: quadrupole, type = "kquad", l = 0.3, k1 = 0.9803636229243361
+mqa3a16: quadrupole, type = "kquad", l = 0.3, k1 = -0.59718072995121
+mqa3a17: quadrupole, type = "kquad", l = 0.3, k1 = 0.78
+mqa3a18: quadrupole, type = "kquad", l = 0.3, k1 = -0.59718072995121
+mqa3a19: quadrupole, type = "kquad", l = 0.3, k1 = 0.9803636229243361
+mqa3a20: quadrupole, type = "kquad", l = 0.3, k1 = -0.5447403772946626
+mqa3a21: quadrupole, type = "kquad", l = 0.3, k1 = 0.4306142663427964
+mqa3a22: quadrupole, type = "kquad", l = 0.3, k1 = -0.5447403772946626
+mqa3a23: quadrupole, type = "kquad", l = 0.3, k1 = 0.9803636229243361
+mqa3a24: quadrupole, type = "kquad", l = 0.3, k1 = -0.59718072995121
+mqa3a25: quadrupole, type = "kquad", l = 0.3, k1 = 0.78
+mqa3a26: quadrupole, type = "kquad", l = 0.3, k1 = -0.59718072995121
+mqa3a27: quadrupole, type = "kquad", l = 0.3, k1 = 0.9803636229243361
+mqa3a28: quadrupole, type = "kquad", l = 0.3, k1 = -0.5447403772946626
+mqa3a29: quadrupole, type = "kquad", l = 0.3, k1 = 0.4306142663427964
+mqa3a30: quadrupole, type = "kquad", l = 0.3, k1 = -0.5447403772946626
+mqa3a31: quadrupole, type = "kquad", l = 0.3, k1 = 0.9803636229243361
+mqa3a32: quadrupole, type = "kquad", l = 0.3, k1 = -0.59718072995121
+mqa3r01: quadrupole, type = "kquad", l = 0.3, k1 = 1.047768258263431
+mqa3r02: quadrupole, type = "kquad", l = 0.3, k1 = -1.435571070910473
+mqa3r03: quadrupole, type = "kquad", l = 0.3, k1 = -8.603252837660607
+mqa3r04: quadrupole, type = "kquad", l = 0.3, k1 = 0.9019943721790635
+mqa3r05: quadrupole, type = "kquad", l = 0.3, k1 = 0.6325916785570657
+mqa3r06: quadrupole, type = "kquad", l = 0.3, k1 = -1.106971419265187
+mqa3r07: quadrupole, type = "kquad", l = 0.3, k1 = 0.1117864663569868
+mqn1r08: quadrupole, type = "kquad", l = 0.3, k1 = -3.750763447667804
+mql1r09: quadrupole, type = "kquad", l = 0.3, k1 = 2.56964975
+mqb1r10: quadrupole, type = "kquad", l = 0.3, k1 = -0.617138219
+
+! ==============================================================================
+! BENDs
+! ------------------------------------------------------------------------------
+
+mxq1s01: sbend, type = "csrcsbend", l = 1.532284064, angle = 0.3566822374, e2 = 0.3566822374, ref_tilt = -1.570796327,
+          hgap = 0.01397129825
+mxj1s03: sbend, type = "csrcsbend", l = 1.507980997, angle = -0.3566822374, e1 = -0.1783411187, e2 = -0.1783411187,
+          ref_tilt = -1.570796327, hgap = 0.0127
+mxi1s05: sbend, type = "csrcsbend", l = 1.01083352, angle = 0.2189390556, e1 = 0.1094695278, e2 = 0.1094695278,
+          ref_tilt = -1.570796327, hgap = 0.0127
+mxi1s06: sbend, type = "csrcsbend", l = 1.01083352, angle = -0.2189390556, e1 = -0.1094695278, e2 = -0.1094695278,
+          ref_tilt = -1.570796327, hgap = 0.0127
+mbw3e01: sbend, type = "csrcsbend", l = 0.5000571121777, angle = -0.0261780622846432, e2 = -0.0261780622846432,
+          hgap = 0.0127
+mcv3e02: sbend, type = "csrcsbend", l = 1.000114224355, angle = 0.052356124569286, e1 = 0.0261780622846432,
+          e2 = 0.0261780622846432, hgap = 0.01905000000000472
+mbw3e03: sbend, type = "csrcsbend", l = 0.5000571121777, angle = -0.0261780622846432, e1 = -0.0261780622846432,
+          hgap = 0.0127
+mjd3a01: sbend, type = "csrcsbend", l = 1.000401708, angle = 0.0981747702511386, k1 = 0.00117, e1 = 0.0490873852123405,
+          e2 = 0.0490873852123405, hgap = 0.01265543745261172
+mjd3a02: sbend, type = "csrcsbend", l = 1.000401708, angle = 0.0981747702511386, k1 = 0.00117, e1 = 0.0490873852123405,
+          e2 = 0.0490873852123405, hgap = 0.01265543745261172
+mjd3a03: sbend, type = "csrcsbend", l = 1.000401708, angle = 0.0981747702511386, k1 = 0.00117, e1 = 0.0490873852123405,
+          e2 = 0.0490873852123405, hgap = 0.01265543745261172
+mjd3a04: sbend, type = "csrcsbend", l = 1.000401708, angle = 0.0981747702511386, k1 = 0.00117, e1 = 0.0490873852123405,
+          e2 = 0.0490873852123405, hgap = 0.01265543745261172
+mjd3a05: sbend, type = "csrcsbend", l = 1.000401708, angle = 0.0981747702511386, k1 = 0.00117, e1 = 0.0490873852123405,
+          e2 = 0.0490873852123405, hgap = 0.01265543745261172
+mjd3a06: sbend, type = "csrcsbend", l = 1.000401708, angle = 0.0981747702511386, k1 = 0.00117, e1 = 0.0490873852123405,
+          e2 = 0.0490873852123405, hgap = 0.01265543745261172
+mjd3a07: sbend, type = "csrcsbend", l = 1.000401708, angle = 0.0981747702511386, k1 = 0.00117, e1 = 0.0490873852123405,
+          e2 = 0.0490873852123405, hgap = 0.01265543745261172
+mjd3a08: sbend, type = "csrcsbend", l = 1.000401708, angle = 0.0981747702511386, k1 = 0.00117, e1 = 0.0490873852123405,
+          e2 = 0.0490873852123405, hgap = 0.01265543745261172
+mjd3a09: sbend, type = "csrcsbend", l = 1.000401708, angle = 0.0981747702511386, k1 = 0.00117, e1 = 0.0490873852123405,
+          e2 = 0.0490873852123405, hgap = 0.01265543745261172
+mjd3a10: sbend, type = "csrcsbend", l = 1.000401708, angle = 0.0981747702511386, k1 = 0.00117, e1 = 0.0490873852123405,
+          e2 = 0.0490873852123405, hgap = 0.01265543745261172
+mjd3a11: sbend, type = "csrcsbend", l = 1.000401708, angle = 0.0981747702511386, k1 = 0.00117, e1 = 0.0490873852123405,
+          e2 = 0.0490873852123405, hgap = 0.01265543745261172
+mjd3a12: sbend, type = "csrcsbend", l = 1.000401708, angle = 0.0981747702511386, k1 = 0.00117, e1 = 0.0490873852123405,
+          e2 = 0.0490873852123405, hgap = 0.01265543745261172
+mjd3a13: sbend, type = "csrcsbend", l = 1.000401708, angle = 0.0981747702511386, k1 = 0.00117, e1 = 0.0490873852123405,
+          e2 = 0.0490873852123405, hgap = 0.01265543745261172
+mjd3a14: sbend, type = "csrcsbend", l = 1.000401708, angle = 0.0981747702511386, k1 = 0.00117, e1 = 0.0490873852123405,
+          e2 = 0.0490873852123405, hgap = 0.01265543745261172
+mjd3a15: sbend, type = "csrcsbend", l = 1.000401708, angle = 0.0981747702511386, k1 = 0.00117, e1 = 0.0490873852123405,
+          e2 = 0.0490873852123405, hgap = 0.01265543745261172
+mjd3a16: sbend, type = "csrcsbend", l = 1.000401708, angle = 0.0981747702511386, k1 = 0.00117, e1 = 0.0490873852123405,
+          e2 = 0.0490873852123405, hgap = 0.01265543745261172
+mjd3a17: sbend, type = "csrcsbend", l = 1.000401708, angle = 0.0981747702511386, k1 = 0.00117, e1 = 0.0490873852123405,
+          e2 = 0.0490873852123405, hgap = 0.01265543745261172
+mjd3a18: sbend, type = "csrcsbend", l = 1.000401708, angle = 0.0981747702511386, k1 = 0.00117, e1 = 0.0490873852123405,
+          e2 = 0.0490873852123405, hgap = 0.01265543745261172
+mjd3a19: sbend, type = "csrcsbend", l = 1.000401708, angle = 0.0981747702511386, k1 = 0.00117, e1 = 0.0490873852123405,
+          e2 = 0.0490873852123405, hgap = 0.01265543745261172
+mjd3a20: sbend, type = "csrcsbend", l = 1.000401708, angle = 0.0981747702511386, k1 = 0.00117, e1 = 0.0490873852123405,
+          e2 = 0.0490873852123405, hgap = 0.01265543745261172
+mjd3a21: sbend, type = "csrcsbend", l = 1.000401708, angle = 0.0981747702511386, k1 = 0.00117, e1 = 0.0490873852123405,
+          e2 = 0.0490873852123405, hgap = 0.01265543745261172
+mjd3a22: sbend, type = "csrcsbend", l = 1.000401708, angle = 0.0981747702511386, k1 = 0.00117, e1 = 0.0490873852123405,
+          e2 = 0.0490873852123405, hgap = 0.01265543745261172
+mjd3a23: sbend, type = "csrcsbend", l = 1.000401708, angle = 0.0981747702511386, k1 = 0.00117, e1 = 0.0490873852123405,
+          e2 = 0.0490873852123405, hgap = 0.01265543745261172
+mjd3a24: sbend, type = "csrcsbend", l = 1.000401708, angle = 0.0981747702511386, k1 = 0.00117, e1 = 0.0490873852123405,
+          e2 = 0.0490873852123405, hgap = 0.01265543745261172
+mjd3a25: sbend, type = "csrcsbend", l = 1.000401708, angle = 0.0981747702511386, k1 = 0.00117, e1 = 0.0490873852123405,
+          e2 = 0.0490873852123405, hgap = 0.01265543745261172
+mjd3a26: sbend, type = "csrcsbend", l = 1.000401708, angle = 0.0981747702511386, k1 = 0.00117, e1 = 0.0490873852123405,
+          e2 = 0.0490873852123405, hgap = 0.01265543745261172
+mjd3a27: sbend, type = "csrcsbend", l = 1.000401708, angle = 0.0981747702511386, k1 = 0.00117, e1 = 0.0490873852123405,
+          e2 = 0.0490873852123405, hgap = 0.01265543745261172
+mjd3a28: sbend, type = "csrcsbend", l = 1.000401708, angle = 0.0981747702511386, k1 = 0.00117, e1 = 0.0490873852123405,
+          e2 = 0.0490873852123405, hgap = 0.01265543745261172
+mjd3a29: sbend, type = "csrcsbend", l = 1.000401708, angle = 0.0981747702511386, k1 = 0.00117, e1 = 0.0490873852123405,
+          e2 = 0.0490873852123405, hgap = 0.01265543745261172
+mjd3a30: sbend, type = "csrcsbend", l = 1.000401708, angle = 0.0981747702511386, k1 = 0.00117, e1 = 0.0490873852123405,
+          e2 = 0.0490873852123405, hgap = 0.01265543745261172
+mjd3a31: sbend, type = "csrcsbend", l = 1.000401708, angle = 0.0981747702511386, k1 = 0.00117, e1 = 0.0490873852123405,
+          e2 = 0.0490873852123405, hgap = 0.01265543745261172
+mjd3a32: sbend, type = "csrcsbend", l = 1.000401708, angle = 0.0981747702511386, k1 = 0.00117, e1 = 0.0490873852123405,
+          e2 = 0.0490873852123405, hgap = 0.01265543745261172
+mxi1r01: sbend, type = "csrcsbend", l = 1.01083352, angle = -0.2189390556, e1 = -0.1094695278, e2 = -0.1094695278,
+          ref_tilt = -1.570796327, hgap = 0.0127
+mxi1r02: sbend, type = "csrcsbend", l = 1.01083352, angle = 0.2189390556, e1 = 0.1094695278, e2 = 0.1094695278,
+          ref_tilt = -1.570796327, hgap = 0.0127
+mxj1r04: sbend, type = "csrcsbend", l = 1.507980997, angle = -0.3566822374, e1 = -0.1783411187, e2 = -0.1783411187,
+          ref_tilt = -1.570796327, hgap = 0.0127
+mxq1r06: sbend, type = "csrcsbend", l = 1.532284064, angle = 0.3566822374, e1 = 0.3566822374, ref_tilt = -1.570796327,
+          hgap = 0.01397129825
+
+! ==============================================================================
+! SRFs
+! ------------------------------------------------------------------------------
+
+! ==============================================================================
+! BEAMLINEs
+! ------------------------------------------------------------------------------
+
+spreader1: line=(spreader1beg,mxq1s01,d100a,ipm1s00,d100b,mxj1s03,d102aa,ipm1s01,d102ab,mqb1s01,d102ba,mbt1s01h,d102bb,
+         mbt1s01v,d102bc,itv1s01,d102bd,ipm1s02,d102be,mql1s02,d102ca,mbt1s02h,d102cb,mbt1s02v,d102cc,ipm1s03,d102cd,mqn1s03,
+         d102d,mxi1s05,d103,mxi1s06,spreader1end)
+arcproper1: line=(dextra,d712a,mqa3s04,d713,itv3s04,d714,ipm3s05,d715,mqa3s05,d716,mbc3s05h,d717,mbc3s05v,d718,mqa3s06,
+         d719,ipm3s07,d715,mqa3s07,d716,mbc3s07h,d717,mbc3s07v,d720,ipm3s08,d715,mqa3s08,d716,mbc3s08h,d717,mbc3s08v,d720,
+         ipm3s09,d715,mqa3s09,d716,mbc3s09h,d717,mbc3s09v,d720,ipm3s10,d715,mqa3s10,d716,mbc3s10h,d717,mbc3s10v,d721,ipm3e01,
+         d722,mqb3e01,d723,mbm3e01h,d717,mbm3e01v,d724,iha3e01,d725,mbw3e01,d726,mcv3e02,d726,mbw3e03,d727,ipm3e02,d722,mqb3e02,
+         d723,mbm3e02h,d717,mbm3e02v,d721,ipm3e03,d722,mqb3e03,d723,mbm3e03h,d717,mbm3e03v,d721,ipm3a01,d715,mqa3a01,d716,
+         mbc3a01h,d717,mbc3a01v,d728,itv3a01,d729,mjd3a01,d730,mjd3a02,d731,ipm3a02,d715,mqa3a02,d732,mbc3a02v,d733,ipm3a03,d715,
+         mqa3a03,d716,mbc3a03h,d734,ipm3a04,d715,mqa3a04,d732,mbc3a04v,d735,mjd3a03,d736,mjd3a04,d737,ipm3a05,d715,mqa3a05,d716,
+         mbc3a05h,d738,mjd3a05,d736,mjd3a06,d731,ipm3a06,d715,mqa3a06,d732,mbc3a06v,d739,ipm3a07,d715,mqa3a07,d716,mbc3a07h,d734,
+         ipm3a08,d715,mqa3a08,d732,mbc3a08v,d740,mjd3a07,d730,mjd3a08,d741,ipm3a09,d715,mqa3a09,d716,mbc3a09h,d742,itv3a09,d743,
+         mjd3a09,d736,mjd3a10,d731,ipm3a10,d715,mqa3a10,d732,mbc3a10v,d733,ipm3a11,d715,mqa3a11,d716,mbc3a11h,d744,mqa3a12,d732,
+         mbc3a12v,d735,mjd3a11,d736,mjd3a12,d731,ipm3a13,d715,mqa3a13,d732,mbc3a13h,d745,mjd3a13,d736,mjd3a14,d746,mqa3a14,d732,
+         mbc3a14v,d747,ipm3a15,d715,mqa3a15,d716,mbc3a15h,d734,ipm3a16,d715,mqa3a16,d732,mbc3a16v,d745,mjd3a15,d736,mjd3a16,d741,
+         ipm3a17,d715,mqa3a17,d716,mbc3a17h,d742,itv3a17,d743,mjd3a17,d736,mjd3a18,d731,ipm3a18,d715,mqa3a18,d732,mbc3a18v,d748,
+         ipm3a19,d715,mqa3a19,d716,mbc3a19h,d749,mqa3a20,d732,mbc3a20v,d735,mjd3a19,d736,mjd3a20,d731,ipm3a21,d715,mqa3a21,d732,
+         mbc3a21h,d750,mjd3a21,d751,mjd3a22,d746,mqa3a22,d732,mbc3a22v,d747,ipm3a23,d715,mqa3a23,d716,mbc3a23h,d734,ipm3a24,d715,
+         mqa3a24,d732,mbc3a24v,d745,mjd3a23,d736,mjd3a24,d731,ipm3a25,d715,mqa3a25,d716,mbc3a25h,d742,itv3a25,d743,mjd3a25,d736,
+         mjd3a26,d731,ipm3a26,d715,mqa3a26,d732,mbc3a26v,d733,ipm3a27,d715,mqa3a27,d716,mbc3a27h,d744,mqa3a28,d732,mbc3a28v,d735,
+         mjd3a27,d736,mjd3a28,d731,ipm3a29,d715,mqa3a29,d716,mbc3a29h,d738,mjd3a29,d736,mjd3a30,d746,mqa3a30,d732,mbc3a30v,d739,
+         ipm3a31,d715,mqa3a31,d716,mbc3a31h,d734,ipm3a32,d715,mqa3a32,d752,mjd3a31,d736,mjd3a32,d753,ipm3r01,d715,mqa3r01,d716,
+         mbc3r01h,d742,itv3r01,d754,ipm3r02,d715,mqa3r02,d716,mbc3r02h,d717,mbc3r02v,d720,ipm3r03,d715,mqa3r03,d716,mbc3r03h,
+         d755,ida3r03,d756,ipm3r04,d715,mqa3r04,d716,mbc3r04h,d717,mbc3r04v,d757,mqa3r05,d758,ipm3r06,d715,mqa3r06,d716,mbc3r06h,
+         d759,itv3r06,d760,mqa3r07,d732a,mbc3r07v,d761a,dextra)
+recombiner1: line=(recombiner1beg,mxi1r01,d103,mxi1r02,d102da,ipm1r08,d102db,mqn1r08,d102ce,ipm1r09,d102cf,mql1r09,
+         d102bf,mbt1r09h,d102bg,ipm1r10,d102bh,mqb1r10,d102ac,mbt1r10h,d102ad,mbt1r10v,d102ae,mxj1r04,d100a,ipm1r10a,d100b,
+         mxq1r06,recombiner1end)
+arc1: line=(c,arc1beg,spreader1,arcproper1,recombiner1,arc1end)
+
+
+use, arc1

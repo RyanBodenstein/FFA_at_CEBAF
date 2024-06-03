@@ -1,0 +1,525 @@
+! ==============================================================================
+! *** OPTICS=ARC8A, 22GEV CEBAF 2024-MAY-31 ***
+! ------------------------------------------------------------------------------
+
+
+! ------------------------------------------------------------------------------
+! constants and global parameters
+! ------------------------------------------------------------------------------
+
+parameter[geometry] = open    	! or closed
+parameter[particle] = electron	! Default is positron
+mc2 = 0.00051099906           	! rest energy [GeV]
+
+! energy profile
+
+e_nl1 = 0.649489000000000000    !centroid energy into NL1 [GeV]
+e_sl2 = 1.749489126392060371    !centroid energy into SL2 [GeV]
+e_nl3 = 2.849489155200849382    !centroid energy into NL3 [GeV]
+e_sl4 = 3.949489167962193278    !centroid energy into SL4 [GeV]
+e_nl5 = 5.049489175163595974    !centroid energy into NL5 [GeV]
+e_sl6 = 6.149489179788682122    !centroid energy into SL6 [GeV]
+e_nl7 = 7.249489183010239685	!centroid energy into NL7 [GeV]
+e_sl8 = 8.349489185382981304	!centroid energy into SL8 [GeV]
+e_nl9 = 9.449489187203122128	!centroid energy into NL9 [GeV]
+
+! initial conditions (entrance of ARC8A)
+
+emitxn = 7.1e-10 * e_nl9 / mc2	!normalized horizontal emittance [m]
+emityn = 3.47e-10 * e_nl9 / mc2	!normalized vertical emittance [m]
+espread = 0.000122        		!fractional energy spread
+
+arc8A_bx = 1.402516123625324e+01      !twiss beta x [m]
+arc8A_ax = 6.372144597053431e-03	  !twiss alpha x [m]
+arc8A_by = 1.704536312093998e+01	  !twiss beta y [m] 
+arc8A_ay = 4.826841086617699e-01	  !twiss alpha y [m]
+
+beginning[x_position] = -80.6
+beginning[y_position] = 100
+beginning[z_position] = -91.51785
+beginning[theta_position] = 0.0
+beginning[phi_position] = 0.0
+beginning[psi_position] = 0.0
+beginning[s] = 0.0
+beginning[e_tot] = e_nl9 * 1e9
+beginning[beta_a] = arc8A_bx
+beginning[alpha_a] = arc8A_ax
+beginning[beta_b] = arc8A_by
+beginning[alpha_b] = arc8A_ay
+beginning[eta_x] = 0.0
+beginning[etap_x] = 0.0
+
+! ==============================================================================
+! XCORs & YCORs
+! ------------------------------------------------------------------------------
+
+mbc8s00h: hkicker, type = "hkick"
+mbc8s01v: vkicker, type = "vkick"
+mbc8s02h: hkicker, type = "hkick"
+mbc8s02v: vkicker, type = "vkick"
+mbc8s03v: vkicker, type = "vkick"
+mbdas10h: hkicker, type = "hkick"
+mbdas02h: hkicker, type = "hkick"
+mbdas03h: hkicker, type = "hkick"
+mbdas04h: hkicker, type = "hkick"
+mbdas05h: hkicker, type = "hkick"
+mbdas06h: hkicker, type = "hkick"
+mbdas08h: hkicker, type = "hkick"
+mbdas09h: hkicker, type = "hkick"
+mbdae01h: hkicker, type = "hkick"
+mbdae02h: hkicker, type = "hkick"
+mbmae03h: hkicker, type = "hkick"
+mbdaa03h: hkicker, type = "hkick"
+mbdaa05h: hkicker, type = "hkick"
+mbdaa07h: hkicker, type = "hkick"
+mbdaa09h: hkicker, type = "hkick"
+mbdaa11h: hkicker, type = "hkick"
+mbdaa13h: hkicker, type = "hkick"
+mbdaa15h: hkicker, type = "hkick"
+mbdaa17h: hkicker, type = "hkick"
+mbdaa19h: hkicker, type = "hkick"
+mbdaa21h: hkicker, type = "hkick"
+mbdaa23h: hkicker, type = "hkick"
+mbdaa25h: hkicker, type = "hkick"
+mbdaa27h: hkicker, type = "hkick"
+mbdaa29h: hkicker, type = "hkick"
+mbdaa31h: hkicker, type = "hkick"
+mbdar01h: hkicker, type = "hkick"
+mbdar02h: hkicker, type = "hkick"
+mbdar03h: hkicker, type = "hkick"
+mbdar04h: hkicker, type = "hkick"
+mbdar05h: hkicker, type = "hkick"
+mbdar06h: hkicker, type = "hkick"
+mbdar07h: hkicker, type = "hkick"
+mbdar08h: hkicker, type = "hkick"
+mbdar09h: hkicker, type = "hkick"
+mbdas02v: vkicker, type = "vkick"
+mbdas03v: vkicker, type = "vkick"
+mbdas04v: vkicker, type = "vkick"
+mbdas05v: vkicker, type = "vkick"
+mbdas06v: vkicker, type = "vkick"
+mbdas07v: vkicker, type = "vkick"
+mbdas09v: vkicker, type = "vkick"
+mbdas10v: vkicker, type = "vkick"
+mbdae01v: vkicker, type = "vkick"
+mbdae02v: vkicker, type = "vkick"
+mbmae03v: vkicker, type = "vkick"
+mbdaa01v: vkicker, type = "vkick"
+mbdaa02v: vkicker, type = "vkick"
+mbdaa04v: vkicker, type = "vkick"
+mbdaa06v: vkicker, type = "vkick"
+mbdaa08v: vkicker, type = "vkick"
+mbdaa10v: vkicker, type = "vkick"
+mbdaa12v: vkicker, type = "vkick"
+mbdaa14v: vkicker, type = "vkick"
+mbdaa16v: vkicker, type = "vkick"
+mbdaa18v: vkicker, type = "vkick"
+mbdaa20v: vkicker, type = "vkick"
+mbdaa22v: vkicker, type = "vkick"
+mbdaa24v: vkicker, type = "vkick"
+mbdaa26v: vkicker, type = "vkick"
+mbdaa28v: vkicker, type = "vkick"
+mbdaa30v: vkicker, type = "vkick"
+mbdaa32v: vkicker, type = "vkick"
+mbdar02v: vkicker, type = "vkick"
+mbdar04v: vkicker, type = "vkick"
+mbdar05v: vkicker, type = "vkick"
+mbdar06v: vkicker, type = "vkick"
+mbdar07v: vkicker, type = "vkick"
+mbdar08v: vkicker, type = "vkick"
+mbc8r08h: hkicker, type = "hkick"
+mbc8r08v: vkicker, type = "vkick"
+mbc8r09h: hkicker, type = "hkick"
+mbc8r10h: hkicker, type = "hkick"
+mbc8r10v: vkicker, type = "vkick"
+mar8r10ah: hkicker, type = "hkick"
+
+! ==============================================================================
+! DRIFTs
+! ------------------------------------------------------------------------------
+
+d800: drift, type = "csrdrift", l = 1.981007
+d801: drift, type = "csrdrift", l = 0.92
+d802a: drift, type = "csrdrift", l = 4
+d802aa: drift, type = "csrdrift", l = 1.333333333333333
+d802ab: drift, type = "csrdrift", l = 1.333333333333333
+d802ac: drift, type = "csrdrift", l = 1.333333333333333
+d802ad: drift, type = "csrdrift", l = 1
+d802ae: drift, type = "csrdrift", l = 1
+d802af: drift, type = "csrdrift", l = 1
+d802ag: drift, type = "csrdrift", l = 1
+d802b: drift, type = "csrdrift", l = 5.8511
+d802ba: drift, type = "csrdrift", l = 1.462775
+d802bb: drift, type = "csrdrift", l = 1.462775
+d802bc: drift, type = "csrdrift", l = 1.462775
+d802bd: drift, type = "csrdrift", l = 1.462775
+d802be: drift, type = "csrdrift", l = 1.950366666666667
+d802bf: drift, type = "csrdrift", l = 1.950366666666667
+d802bg: drift, type = "csrdrift", l = 1.950366666666667
+d802c: drift, type = "csrdrift", l = 1.0933
+d802ca: drift, type = "csrdrift", l = 0.273325
+d802cb: drift, type = "csrdrift", l = 0.273325
+d802cc: drift, type = "csrdrift", l = 0.273325
+d802cd: drift, type = "csrdrift", l = 0.273325
+d802d: drift, type = "csrdrift", l = 0.1
+d802e: drift, type = "csrdrift", l = 1
+d802ea: drift, type = "csrdrift", l = 0.5
+d802eb: drift, type = "csrdrift", l = 0.5
+d803: drift, type = "csrdrift", l = 2.428807431145496
+d803a: drift, type = "csrdrift", l = 1.214403715572748
+d803b: drift, type = "csrdrift", l = 1.214403715572748
+d2508: drift, type = "csrdrift", l = 1.106767
+d2509: drift, type = "csrdrift", l = 0.22465
+d2510: drift, type = "csrdrift", l = 0.19315
+d2511: drift, type = "csrdrift", l = 0.19609
+d2512: drift, type = "csrdrift", l = 0.4935220000000001
+d2513: drift, type = "csrdrift", l = 1.092588
+d2514: drift, type = "csrdrift", l = 6.534134000000001
+d2515: drift, type = "csrdrift", l = 0.138684
+d2516: drift, type = "csrdrift", l = 0.1445
+d2517: drift, type = "csrdrift", l = 0.70696
+d2518: drift, type = "csrdrift", l = 0.6861100000000001
+d2519: drift, type = "csrdrift", l = 3.85831
+d2520: drift, type = "csrdrift", l = 2.23215
+d2521: drift, type = "csrdrift", l = 2.03606
+d2510a: drift, type = "csrdrift", l = 0.0415
+d2511a: drift, type = "csrdrift", l = 0.0415
+d2522: drift, type = "csrdrift", l = 0.50243
+d2523a: drift, type = "csrdrift", l = 0.227261
+d2523b: drift, type = "csrdrift", l = 0.642805
+d2524: drift, type = "csrdrift", l = 11.947443
+d2525: drift, type = "csrdrift", l = 0.46142217
+d2526: drift, type = "csrdrift", l = 15.174684
+d2527: drift, type = "csrdrift", l = 15.17474
+d2528a: drift, type = "csrdrift", l = 3.75665204054277
+d2529: drift, type = "csrdrift", l = 0.11815
+d2530: drift, type = "csrdrift", l = 0.12109
+d2531: drift, type = "csrdrift", l = 0.32588017
+d2532: drift, type = "csrdrift", l = 1.011571
+d2533: drift, type = "csrdrift", l = 1.02903
+d2534: drift, type = "csrdrift", l = 0.38924
+d2535: drift, type = "csrdrift", l = 2.85156
+d2536: drift, type = "csrdrift", l = 0.1397
+d2537: drift, type = "csrdrift", l = 3.04764
+d2538: drift, type = "csrdrift", l = 0.8644499999999999
+d2539: drift, type = "csrdrift", l = 1.060545
+d2540: drift, type = "csrdrift", l = 2.85155
+d2541: drift, type = "csrdrift", l = 0.70155
+d2542: drift, type = "csrdrift", l = 0.3589950000000001
+d2543: drift, type = "csrdrift", l = 3.07621
+d2544: drift, type = "csrdrift", l = 1.06054
+d2545: drift, type = "csrdrift", l = 3.0762
+d2546: drift, type = "csrdrift", l = 1.02901
+d2547: drift, type = "csrdrift", l = 3.04765
+d2548: drift, type = "csrdrift", l = 0.5145150000000001
+d2549: drift, type = "csrdrift", l = 0.95621683
+d2550: drift, type = "csrdrift", l = 0.689356
+d2552: drift, type = "csrdrift", l = 0.1651
+d2553: drift, type = "csrdrift", l = 0.57836122
+d2555: drift, type = "csrdrift", l = 1.9059
+d2556: drift, type = "csrdrift", l = 2.22261
+d2558: drift, type = "csrdrift", l = 0.8829600000000001
+d2561: drift, type = "csrdrift", l = 0.526168840542768
+
+! ==============================================================================
+! MARKERs
+! ------------------------------------------------------------------------------
+
+c: marker, type = "charge"
+arc8abeg: marker, type = "watch"
+arc8aend: marker, type = "watch"
+spreader8abeg: marker, type = "watch"
+spreader8aend: marker, type = "watch"
+recombiner8abeg: marker, type = "watch"
+recombiner8aend: marker, type = "watch"
+ipm8s01: instrument, type = "monitor"
+itv8s01: instrument, type = "monitor"
+ipm8s02: instrument, type = "monitor"
+ipm8s03: instrument, type = "monitor"
+ipm8s03a: instrument, type = "monitor"
+ipmas02: instrument, type = "monitor"
+itvas02: instrument, type = "monitor"
+ipmas03: instrument, type = "monitor"
+itvas04: instrument, type = "monitor"
+ipmas04: instrument, type = "monitor"
+ipmas05: instrument, type = "monitor"
+ipmas06: instrument, type = "monitor"
+ipmas07: instrument, type = "monitor"
+ipmas08: instrument, type = "monitor"
+ipmas09: instrument, type = "monitor"
+ipmas10: instrument, type = "monitor"
+ipmae01: instrument, type = "monitor"
+ihaae01: instrument, type = "monitor"
+ipmae02: instrument, type = "monitor"
+itvae02: instrument, type = "monitor"
+ipmae03: instrument, type = "monitor"
+ipmaa01: instrument, type = "monitor"
+itvaa01: instrument, type = "monitor"
+ipmaa02: instrument, type = "monitor"
+ipmaa03: instrument, type = "monitor"
+ipmaa04: instrument, type = "monitor"
+ipmaa05: instrument, type = "monitor"
+ipmaa06: instrument, type = "monitor"
+ipmaa07: instrument, type = "monitor"
+ipmaa08: instrument, type = "monitor"
+ipmaa09: instrument, type = "monitor"
+itvaa09: instrument, type = "monitor"
+ipmaa10: instrument, type = "monitor"
+ipmaa12: instrument, type = "monitor"
+ipmaa13: instrument, type = "monitor"
+ipmaa14: instrument, type = "monitor"
+ipmaa16: instrument, type = "monitor"
+ipmaa17: instrument, type = "monitor"
+itvaa17: instrument, type = "monitor"
+ipmaa18: instrument, type = "monitor"
+ipmaa20: instrument, type = "monitor"
+ipmaa21: instrument, type = "monitor"
+ipmaa22: instrument, type = "monitor"
+ipmaa24: instrument, type = "monitor"
+ipmaa25: instrument, type = "monitor"
+itvaa25: instrument, type = "monitor"
+ipmaa26: instrument, type = "monitor"
+ipmaa28: instrument, type = "monitor"
+ipmaa29: instrument, type = "monitor"
+israa29: instrument, type = "monitor"
+ipmaa30: instrument, type = "monitor"
+ipmaa32: instrument, type = "monitor"
+ipmar01: instrument, type = "monitor"
+itvar01: instrument, type = "monitor"
+ipmar02: instrument, type = "monitor"
+idaar02: instrument, type = "monitor"
+ipmar03: instrument, type = "monitor"
+ipmar04: instrument, type = "monitor"
+itvar05: instrument, type = "monitor"
+ipmar06: instrument, type = "monitor"
+ipmar08: instrument, type = "monitor"
+ipmar09: instrument, type = "monitor"
+ipm8r07a: instrument, type = "monitor"
+ipm8r08: instrument, type = "monitor"
+ipm8r09: instrument, type = "monitor"
+ipm8r10: instrument, type = "monitor"
+ipm8r11_new: instrument, type = "monitor"
+ipm8r12_new: instrument, type = "monitor"
+ipm8r13_new: instrument, type = "monitor"
+
+! ==============================================================================
+! QUADs
+! ------------------------------------------------------------------------------
+
+mqa8s01: quadrupole, type = "kquad", l = 0.3, k1 = -0.5481002414
+mqr8s02: quadrupole, type = "kquad", l = 0.3556, k1 = 1.205514648
+mqr8s03: quadrupole, type = "kquad", l = 0.3, k1 = -1.106124406
+mqb8s04: quadrupole, type = "kquad", l = 0.3, k1 = -1.110858040583212
+mqkas02: quadrupole, type = "kquad", l = 0.3, k1 = -0.6893673612564659
+mqaas03: quadrupole, type = "kquad", l = 0.3, k1 = 0.5943140553055346
+mqras04: quadrupole, type = "kquad", l = 0.3556, k1 = -0.8212457023095607
+mqaas05: quadrupole, type = "kquad", l = 0.3, k1 = 0.2779213629630511
+mqkas06: quadrupole, type = "kquad", l = 0.3, k1 = 0.7622619230025394
+mqras07: quadrupole, type = "kquad", l = 0.3556, k1 = -0.6955935799747712
+mqkas08: quadrupole, type = "kquad", l = 0.3, k1 = 0.508841352214115
+mqkas08a: quadrupole, type = "kquad", l = 0.3, k1 = 0.508841352214115
+mqras09: quadrupole, type = "kquad", l = 0.3556, k1 = -0.9477682608063107
+mqkas10: quadrupole, type = "kquad", l = 0.3, k1 = 0.5119303996529695
+mqkas10a: quadrupole, type = "kquad", l = 0.3, k1 = 0.5119303996529695
+mqnae01: quadrupole, type = "kquad", l = 0.3, k1 = -0.2935628074067589
+mqnae02: quadrupole, type = "kquad", l = 0.3, k1 = 0.2778211821177684
+mqnae03: quadrupole, type = "kquad", l = 0.3, k1 = -0.3966511855393317
+mqpaa01: quadrupole, type = "kquad", l = 0.3, k1 = 0.4976629751597965
+mqpaa02: quadrupole, type = "kquad", l = 0.3, k1 = -0.5889036440898097
+mqpaa03a: quadrupole, type = "kquad", l = 0.3, k1 = 0.532691994055964
+mqpaa03b: quadrupole, type = "kquad", l = 0.3, k1 = 0.532691994055964
+mqpaa04: quadrupole, type = "kquad", l = 0.3, k1 = -0.5889969396516642
+mqpaa05: quadrupole, type = "kquad", l = 0.3, k1 = 0.4747453981848881
+mqpaa06: quadrupole, type = "kquad", l = 0.3, k1 = -0.5889969396516642
+mqpaa07a: quadrupole, type = "kquad", l = 0.3, k1 = 0.532691994055964
+mqpaa07b: quadrupole, type = "kquad", l = 0.3, k1 = 0.532691994055964
+mqpaa08: quadrupole, type = "kquad", l = 0.3, k1 = -0.5889036440898097
+mqpaa09: quadrupole, type = "kquad", l = 0.3, k1 = 0.6
+mqpaa10: quadrupole, type = "kquad", l = 0.3, k1 = -0.5889036440898097
+mqpaa11a: quadrupole, type = "kquad", l = 0.3, k1 = 0.532691994055964
+mqpaa11b: quadrupole, type = "kquad", l = 0.3, k1 = 0.532691994055964
+mqpaa12: quadrupole, type = "kquad", l = 0.3, k1 = -0.5889969396516642
+mqpaa13: quadrupole, type = "kquad", l = 0.3, k1 = 0.4747453981848881
+mqpaa14: quadrupole, type = "kquad", l = 0.3, k1 = -0.5889969396516642
+mqpaa15a: quadrupole, type = "kquad", l = 0.3, k1 = 0.532691994055964
+mqpaa15b: quadrupole, type = "kquad", l = 0.3, k1 = 0.532691994055964
+mqpaa16: quadrupole, type = "kquad", l = 0.3, k1 = -0.5889036440898097
+mqpaa17: quadrupole, type = "kquad", l = 0.3, k1 = 0.6
+mqpaa18: quadrupole, type = "kquad", l = 0.3, k1 = -0.5889036440898097
+mqpaa19a: quadrupole, type = "kquad", l = 0.3, k1 = 0.532691994055964
+mqpaa19b: quadrupole, type = "kquad", l = 0.3, k1 = 0.532691994055964
+mqpaa20: quadrupole, type = "kquad", l = 0.3, k1 = -0.5889969396516642
+mqpaa21: quadrupole, type = "kquad", l = 0.3, k1 = 0.4747453981848881
+mqpaa22: quadrupole, type = "kquad", l = 0.3, k1 = -0.5889969396516642
+mqpaa23a: quadrupole, type = "kquad", l = 0.3, k1 = 0.532691994055964
+mqpaa23b: quadrupole, type = "kquad", l = 0.3, k1 = 0.532691994055964
+mqpaa24: quadrupole, type = "kquad", l = 0.3, k1 = -0.5889036440898097
+mqpaa25: quadrupole, type = "kquad", l = 0.3, k1 = 0.6
+mqpaa26: quadrupole, type = "kquad", l = 0.3, k1 = -0.5889036440898097
+mqpaa27a: quadrupole, type = "kquad", l = 0.3, k1 = 0.532691994055964
+mqpaa27b: quadrupole, type = "kquad", l = 0.3, k1 = 0.532691994055964
+mqpaa28: quadrupole, type = "kquad", l = 0.3, k1 = -0.5889969396516642
+mqpaa29: quadrupole, type = "kquad", l = 0.3, k1 = 0.4747453981848881
+mqpaa30: quadrupole, type = "kquad", l = 0.3, k1 = -0.5889969396516642
+mqpaa31a: quadrupole, type = "kquad", l = 0.3, k1 = 0.532691994055964
+mqpaa31b: quadrupole, type = "kquad", l = 0.3, k1 = 0.532691994055964
+mqpaa32: quadrupole, type = "kquad", l = 0.3, k1 = -0.5889036440898097
+mqrar01: quadrupole, type = "kquad", l = 0.3556, k1 = 1.77180197752785
+mqrar02: quadrupole, type = "kquad", l = 0.3556, k1 = -1.072914261508173
+mqrar02a: quadrupole, type = "kquad", l = 0.3556, k1 = -1.072914261508173
+mqrar03: quadrupole, type = "kquad", l = 0.3556, k1 = 1.14725929857313
+mqrar03a: quadrupole, type = "kquad", l = 0.3556, k1 = 1.14725929857313
+mqrar04: quadrupole, type = "kquad", l = 0.3556, k1 = -0.2671605558862715
+mqrar04a: quadrupole, type = "kquad", l = 0.3556, k1 = -0.2671605558862715
+mqkar05: quadrupole, type = "kquad", l = 0.3, k1 = 0.6083924035879138
+mqkar06: quadrupole, type = "kquad", l = 0.3, k1 = 0.3079390043168985
+mqrar07: quadrupole, type = "kquad", l = 0.3556, k1 = -1.418449158423732
+mqaar08: quadrupole, type = "kquad", l = 0.3, k1 = 1.00935380987477
+mqaar09: quadrupole, type = "kquad", l = 0.3, k1 = -0.2717179203397119
+mqr8r08a: quadrupole, type = "kquad", l = 0.3, k1 = -1.110858040583212
+mqr8r08: quadrupole, type = "kquad", l = 0.3, k1 = -1.106124406
+mqr8r09: quadrupole, type = "kquad", l = 0.3556, k1 = 1.205514648
+mqa8r10: quadrupole, type = "kquad", l = 0.3, k1 = -0.5481002414
+
+! ==============================================================================
+! BENDs
+! ------------------------------------------------------------------------------
+
+mxr2s01_8s: sbend, type = "csrcsbend", l = 1.5008, angle = 0.05655166815, e2 = 0.05655166973, ref_tilt = -1.570796327,
+          hgap = 0.01889841043
+mxt4s02_8s: sbend, type = "csrcsbend", l = 1.028499, angle = 0.03135056108, e1 = 0.05655166973, e2 = 0.08790225114,
+          ref_tilt = -1.570796327, hgap = 0.02348230763
+mza8s03: sbend, type = "csrcsbend", l = 3.039218, angle = -0.08790221055, e1 = -0.08790225114, ref_tilt = -1.570796327,
+          hgap = 0.01294726
+mxe8s05: sbend, type = "csrcsbend", l = 0.998563, angle = 0.03477296304, e1 = 0.01738648132, e2 = 0.01738648132,
+          ref_tilt = -1.570796327, hgap = 0.01295399734
+mxe8s06: sbend, type = "csrcsbend", l = 0.998563, angle = -0.03477296304, e1 = -0.01738648132, e2 = -0.01738648132,
+          ref_tilt = -1.570796327, hgap = 0.01295399734
+rrfae00a: sbend, type = "csrcsbend", l = 0.466667
+rrfae00b: sbend, type = "csrcsbend", l = 0.466667
+rrfae00c: sbend, type = "csrcsbend", l = 0.466667
+rrfae00d: sbend, type = "csrcsbend", l = 0.466667
+mbdaa01h: sbend, type = "csrcsbend", l = 0.15
+mxpaa01: sbend, type = "csrcsbend", l = 4.0016068, angle = 0.09817477067178509, e1 = 0.0490873852123405,
+          e2 = 0.0490873852123405, hgap = 0.01270000830206931
+mxpaa02: sbend, type = "csrcsbend", l = 4.0016068, angle = 0.09817477067178509, e1 = 0.0490873852123405,
+          e2 = 0.0490873852123405, hgap = 0.01270000830206931
+mxpaa03: sbend, type = "csrcsbend", l = 4.0016068, angle = 0.09817477067178509, e1 = 0.0490873852123405,
+          e2 = 0.0490873852123405, hgap = 0.01270000830206931
+mxpaa04: sbend, type = "csrcsbend", l = 4.0016068, angle = 0.09817477067178509, e1 = 0.0490873852123405,
+          e2 = 0.0490873852123405, hgap = 0.01270000830206931
+mxpaa05: sbend, type = "csrcsbend", l = 4.0016068, angle = 0.09817477067178509, e1 = 0.0490873852123405,
+          e2 = 0.0490873852123405, hgap = 0.01270000830206931
+mxpaa06: sbend, type = "csrcsbend", l = 4.0016068, angle = 0.09817477067178509, e1 = 0.0490873852123405,
+          e2 = 0.0490873852123405, hgap = 0.01270000830206931
+mxpaa07: sbend, type = "csrcsbend", l = 4.0016068, angle = 0.09817477067178509, e1 = 0.0490873852123405,
+          e2 = 0.0490873852123405, hgap = 0.01270000830206931
+mxpaa08: sbend, type = "csrcsbend", l = 4.0016068, angle = 0.09817477067178509, e1 = 0.0490873852123405,
+          e2 = 0.0490873852123405, hgap = 0.01270000830206931
+mxpaa09: sbend, type = "csrcsbend", l = 4.0016068, angle = 0.09817477067178509, e1 = 0.0490873852123405,
+          e2 = 0.0490873852123405, hgap = 0.01270000830206931
+mxpaa10: sbend, type = "csrcsbend", l = 4.0016068, angle = 0.09817477067178509, e1 = 0.0490873852123405,
+          e2 = 0.0490873852123405, hgap = 0.01270000830206931
+mxpaa11: sbend, type = "csrcsbend", l = 4.0016068, angle = 0.09817477067178509, e1 = 0.0490873852123405,
+          e2 = 0.0490873852123405, hgap = 0.01270000830206931
+mxpaa12: sbend, type = "csrcsbend", l = 4.0016068, angle = 0.09817477067178509, e1 = 0.0490873852123405,
+          e2 = 0.0490873852123405, hgap = 0.01270000830206931
+mxpaa13: sbend, type = "csrcsbend", l = 4.0016068, angle = 0.09817477067178509, e1 = 0.0490873852123405,
+          e2 = 0.0490873852123405, hgap = 0.01270000830206931
+mxpaa14: sbend, type = "csrcsbend", l = 4.0016068, angle = 0.09817477067178509, e1 = 0.0490873852123405,
+          e2 = 0.0490873852123405, hgap = 0.01270000830206931
+mxpaa15: sbend, type = "csrcsbend", l = 4.0016068, angle = 0.09817477067178509, e1 = 0.0490873852123405,
+          e2 = 0.0490873852123405, hgap = 0.01270000830206931
+mxpaa16: sbend, type = "csrcsbend", l = 4.0016068, angle = 0.09817477067178509, e1 = 0.0490873852123405,
+          e2 = 0.0490873852123405, hgap = 0.01270000830206931
+mxpaa17: sbend, type = "csrcsbend", l = 4.0016068, angle = 0.09817477067178509, e1 = 0.0490873852123405,
+          e2 = 0.0490873852123405, hgap = 0.01270000830206931
+mxpaa18: sbend, type = "csrcsbend", l = 4.0016068, angle = 0.09817477067178509, e1 = 0.0490873852123405,
+          e2 = 0.0490873852123405, hgap = 0.01270000830206931
+mxpaa19: sbend, type = "csrcsbend", l = 4.0016068, angle = 0.09817477067178509, e1 = 0.0490873852123405,
+          e2 = 0.0490873852123405, hgap = 0.01270000830206931
+mxpaa20: sbend, type = "csrcsbend", l = 4.0016068, angle = 0.09817477067178509, e1 = 0.0490873852123405,
+          e2 = 0.0490873852123405, hgap = 0.01270000830206931
+mxpaa21: sbend, type = "csrcsbend", l = 4.0016068, angle = 0.09817477067178509, e1 = 0.0490873852123405,
+          e2 = 0.0490873852123405, hgap = 0.01270000830206931
+mxpaa22: sbend, type = "csrcsbend", l = 4.0016068, angle = 0.09817477067178509, e1 = 0.0490873852123405,
+          e2 = 0.0490873852123405, hgap = 0.01270000830206931
+mxpaa23: sbend, type = "csrcsbend", l = 4.0016068, angle = 0.09817477067178509, e1 = 0.0490873852123405,
+          e2 = 0.0490873852123405, hgap = 0.01270000830206931
+mxpaa24: sbend, type = "csrcsbend", l = 4.0016068, angle = 0.09817477067178509, e1 = 0.0490873852123405,
+          e2 = 0.0490873852123405, hgap = 0.01270000830206931
+mxpaa25: sbend, type = "csrcsbend", l = 4.0016068, angle = 0.09817477067178509, e1 = 0.0490873852123405,
+          e2 = 0.0490873852123405, hgap = 0.01270000830206931
+mxpaa26: sbend, type = "csrcsbend", l = 4.0016068, angle = 0.09817477067178509, e1 = 0.0490873852123405,
+          e2 = 0.0490873852123405, hgap = 0.01270000830206931
+mxpaa27: sbend, type = "csrcsbend", l = 4.0016068, angle = 0.09817477067178509, e1 = 0.0490873852123405,
+          e2 = 0.0490873852123405, hgap = 0.01270000830206931
+mxpaa28: sbend, type = "csrcsbend", l = 4.0016068, angle = 0.09817477067178509, e1 = 0.0490873852123405,
+          e2 = 0.0490873852123405, hgap = 0.01270000830206931
+mxpaa29: sbend, type = "csrcsbend", l = 4.0016068, angle = 0.09817477067178509, e1 = 0.0490873852123405,
+          e2 = 0.0490873852123405, hgap = 0.01270000830206931
+mxpaa30: sbend, type = "csrcsbend", l = 4.0016068, angle = 0.09817477067178509, e1 = 0.0490873852123405,
+          e2 = 0.0490873852123405, hgap = 0.01270000830206931
+mxpaa31: sbend, type = "csrcsbend", l = 4.0016068, angle = 0.09817477067178509, e1 = 0.0490873852123405,
+          e2 = 0.0490873852123405, hgap = 0.01270000830206931
+mxpaa32: sbend, type = "csrcsbend", l = 4.0016068, angle = 0.09817477067178509, e1 = 0.0490873852123405,
+          e2 = 0.0490873852123405, hgap = 0.01270000830206931
+mxe8r01: sbend, type = "csrcsbend", l = 0.998563, angle = -0.03477296304, e1 = -0.01738648132, e2 = -0.01738648132,
+          ref_tilt = -1.570796327, hgap = 0.01295399734
+mxe8r02: sbend, type = "csrcsbend", l = 0.998563, angle = 0.03477296304, e1 = 0.01738648132, e2 = 0.01738648132,
+          ref_tilt = -1.570796327, hgap = 0.01295399734
+mza8r04: sbend, type = "csrcsbend", l = 3.039218, angle = -0.08790221055, e2 = -0.08790225114, ref_tilt = -1.570796327,
+          hgap = 0.01294726
+mxt4r05_8r: sbend, type = "csrcsbend", l = 1.028499, angle = 0.03135056108, e1 = 0.08790225114, e2 = 0.05655166973,
+          ref_tilt = -1.570796327, hgap = 0.02348230763
+mxr2r06_8r: sbend, type = "csrcsbend", l = 1.5008, angle = 0.05655166815, e1 = 0.05655166973, ref_tilt = -1.570796327,
+          hgap = 0.01889841043
+
+! ==============================================================================
+! SRFs
+! ------------------------------------------------------------------------------
+
+! ==============================================================================
+! BEAMLINEs
+! ------------------------------------------------------------------------------
+
+spreader8a: line=(spreader8abeg,mxr2s01_8s,d800,mxt4s02_8s,d801,mza8s03,d802aa,mbc8s00h,d802ab,ipm8s01,d802ac,mqa8s01,
+         d802ba,mbc8s01v,d802bb,itv8s01,d802bc,ipm8s02,d802bd,mqr8s02,d802ca,mbc8s02h,d802cb,mbc8s02v,d802cc,ipm8s03,d802cd,
+         mqr8s03,d802d,mqb8s04,d802ea,mbc8s03v,d802eb,mxe8s05,d803a,ipm8s03a,d803b,mxe8s06,spreader8aend)
+arcproper8: line=(d2508,ipmas02,d2509,mqkas02,d2510,mbdas02h,d2511,mbdas02v,d2512,itvas02,d2513,ipmas03,d2509,mqaas03,
+         d2510,mbdas03h,d2511,mbdas03v,d2514,itvas04,d2515,ipmas04,d2509,mqras04,d2516,mbdas04h,d2511,mbdas04v,d2517,ipmas05,
+         d2509,mqaas05,d2510,mbdas05h,d2511,mbdas05v,d2518,ipmas06,d2509,mqkas06,d2510,mbdas06h,d2511,mbdas06v,d2519,ipmas07,
+         d2509,mqras07,d2510,mbdas07v,d2520,ipmas08,d2509,mqkas08,d2516,mqkas08a,d2510,mbdas08h,d2520,ipmas09,d2509,mqras09,
+         d2510,mbdas09h,d2511,mbdas09v,d2521,ipmas10,d2509,mqkas10,d2516,mqkas10a,d2510a,mbdas10h,d2511a,mbdas10v,d2522,rrfae00a,
+         d2523a,rrfae00b,d2523b,rrfae00c,d2523a,rrfae00d,d2524,ipmae01,d2509,mqnae01,d2510,mbdae01h,d2511,mbdae01v,d2525,ihaae01,
+         d2526,ipmae02,d2509,mqnae02,d2510,mbdae02h,d2511,mbdae02v,d2525,itvae02,d2527,ipmae03,d2509,mqnae03,d2510,mbmae03h,
+         d2511,mbmae03v,d2528a,ipmaa01,d2509,mqpaa01,d2529,mbdaa01h,d2530,mbdaa01v,d2512,itvaa01,d2531,mxpaa01,d2532,mxpaa02,
+         d2533,ipmaa02,d2509,mqpaa02,d2534,mbdaa02v,d2535,ipmaa03,d2509,mqpaa03a,d2536,mqpaa03b,d2510,mbdaa03h,d2537,ipmaa04,
+         d2509,mqpaa04,d2534,mbdaa04v,d2538,mxpaa03,d2532,mxpaa04,d2533,ipmaa05,d2509,mqpaa05,d2510,mbdaa05h,d2539,mxpaa05,d2532,
+         mxpaa06,d2533,ipmaa06,d2509,mqpaa06,d2534,mbdaa06v,d2540,ipmaa07,d2509,mqpaa07a,d2536,mqpaa07b,d2510,mbdaa07h,d2537,
+         ipmaa08,d2509,mqpaa08,d2534,mbdaa08v,d2538,mxpaa07,d2532,mxpaa08,d2533,ipmaa09,d2509,mqpaa09,d2510,mbdaa09h,d2541,
+         itvaa09,d2542,mxpaa09,d2532,mxpaa10,d2533,ipmaa10,d2509,mqpaa10,d2534,mbdaa10v,d2543,mqpaa11a,d2536,mqpaa11b,d2510,
+         mbdaa11h,d2537,ipmaa12,d2509,mqpaa12,d2534,mbdaa12v,d2538,mxpaa11,d2532,mxpaa12,d2533,ipmaa13,d2509,mqpaa13,d2510,
+         mbdaa13h,d2544,mxpaa13,d2532,mxpaa14,d2533,ipmaa14,d2509,mqpaa14,d2534,mbdaa14v,d2545,mqpaa15a,d2536,mqpaa15b,d2510,
+         mbdaa15h,d2537,ipmaa16,d2509,mqpaa16,d2534,mbdaa16v,d2538,mxpaa15,d2532,mxpaa16,d2546,ipmaa17,d2509,mqpaa17,d2510,
+         mbdaa17h,d2541,itvaa17,d2542,mxpaa17,d2532,mxpaa18,d2533,ipmaa18,d2509,mqpaa18,d2534,mbdaa18v,d2543,mqpaa19a,d2536,
+         mqpaa19b,d2510,mbdaa19h,d2547,ipmaa20,d2509,mqpaa20,d2534,mbdaa20v,d2538,mxpaa19,d2532,mxpaa20,d2533,ipmaa21,d2509,
+         mqpaa21,d2510,mbdaa21h,d2544,mxpaa21,d2532,mxpaa22,d2533,ipmaa22,d2509,mqpaa22,d2534,mbdaa22v,d2545,mqpaa23a,d2536,
+         mqpaa23b,d2510,mbdaa23h,d2537,ipmaa24,d2509,mqpaa24,d2534,mbdaa24v,d2538,mxpaa23,d2532,mxpaa24,d2533,ipmaa25,d2509,
+         mqpaa25,d2510,mbdaa25h,d2541,itvaa25,d2542,mxpaa25,d2532,mxpaa26,d2533,ipmaa26,d2509,mqpaa26,d2534,mbdaa26v,d2543,
+         mqpaa27a,d2536,mqpaa27b,d2510,mbdaa27h,d2547,ipmaa28,d2509,mqpaa28,d2534,mbdaa28v,d2538,mxpaa27,d2532,mxpaa28,d2533,
+         ipmaa29,d2509,mqpaa29,d2510,mbdaa29h,d2544,mxpaa29,d2532,mxpaa30,d2548,israa29,d2548,ipmaa30,d2509,mqpaa30,d2534,
+         mbdaa30v,d2545,mqpaa31a,d2536,mqpaa31b,d2510,mbdaa31h,d2537,ipmaa32,d2509,mqpaa32,d2534,mbdaa32v,d2538,mxpaa31,d2532,
+         mxpaa32,d2549,ipmar01,d2509,mqrar01,d2510,mbdar01h,d2550,itvar01,ipmar02,d2509,mqrar02,d2552,mqrar02a,d2510,mbdar02h,
+         d2511,mbdar02v,d2553,idaar02,ipmar03,mqrar03,d2552,mqrar03a,d2510,mbdar03h,d2555,ipmar04,d2509,mqrar04,d2552,mqrar04a,
+         d2510,mbdar04h,d2511,mbdar04v,d2556,mqkar05,d2510,mbdar05h,d2511,mbdar05v,itvar05,ipmar06,d2509,mqkar06,mbdar06h,
+         mbdar06v,d2558,mqrar07,d2510,mbdar07h,d2511,mbdar07v,ipmar08,d2509,mqaar08,d2510,mbdar08h,d2511,mbdar08v,ipmar09,d2509,
+         mqaar09,d2510,mbdar09h,d2561)
+recombiner8a: line=(recombiner8abeg,mxe8r01,d803a,ipm8r07a,d803b,mxe8r02,d802e,ipm8r08,d802e,mqr8r08a,d802d,mqr8r08,
+         d802ca,mbc8r08h,d802cb,mbc8r08v,d802cc,ipm8r09,d802cd,mqr8r09,d802be,mbc8r09h,d802bf,ipm8r10,d802bg,mqa8r10,d802ad,
+         mbc8r10h,ipm8r11_new,d802ae,mbc8r10v,ipm8r12_new,d802af,mar8r10ah,ipm8r13_new,d802ag,mza8r04,d801,mxt4r05_8r,d800,
+         mxr2r06_8r,recombiner8aend)
+arc8a: line=(c,arc8abeg,spreader8a,arcproper8,recombiner8a,arc8aend)
+
+
+use, arc8a
