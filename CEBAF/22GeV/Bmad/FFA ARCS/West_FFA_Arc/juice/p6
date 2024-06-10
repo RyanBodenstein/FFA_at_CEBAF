@@ -1,0 +1,92 @@
+parameter[geometry] = Closed          
+
+parameter[p0c]                      = 2.04999999936312E10
+parameter[particle]                 = Electron
+
+beginning[beta_a]    = 2.19102518579563
+beginning[alpha_a]   = 1.23324899511855
+beginning[eta_x]     = 0.0744875636804169
+beginning[etap_x]    = -0.0332490629371521
+beginning[beta_b]    = 11.1094259360196
+beginning[alpha_b]   = -5.46755616774612
+beginning[eta_y]     = -4.54063292831925E-32
+beginning[etap_y]    = -2.32066835622597E-32
+beginning[cmat_11]   = 3.86706682178568E-35
+beginning[cmat_12]   = -4.48913778216002E-35
+beginning[cmat_21]   = -3.20579541465713E-35
+beginning[cmat_22]   = 4.63250079001068E-35
+particle_start[x]  = -0.0130234399383757
+particle_start[px] = 4.40561068383801E-3
+particle_start[y]  = 9.83456247776311E-34
+particle_start[py] = -8.09420425405873E-35
+particle_start[pz] = 0.10487804878049
+
+GD = 53.786019
+GF = -42.9633036
+
+!-------------------------------------------------------
+
+MK.BEG: Marker
+O0D: Drift, L = 0.0516385822610097
+MK.BPM: Marker, type = "BPM"
+PR_BD_IN: Patch, L = 2.39137080636316E-6, X_PITCH = -3.55330022116839E-3, X_OFFSET = -6.73001347970145E-4
+BDA: SBend, L = 0.189400772676673, K1 = -0.786567943758741, X_OFFSET = -2E-3,
+   DB_FIELD = -0.427623988373398, B1_GRADIENT = 53.786019, field_master = T
+BDB: SBend, L = 0.189400772676673, K1 = -0.786567943758741, X_OFFSET = 4E-4,
+   DB_FIELD = -0.427623988373398, B1_GRADIENT = 53.786019, field_master = T
+BDC: SBend, L = 0.189400772676673, K1 = -0.786567943758741, X_OFFSET = 1.6E-3,
+   DB_FIELD = -0.427623988373398, B1_GRADIENT = 53.786019, field_master = T
+BDBC: SBend, L = 0.189400772676673, K1 = -0.786567943758741, X_OFFSET = 4E-4,
+   DB_FIELD = -0.427623988373398, B1_GRADIENT = 53.786019, field_master = T
+BDAC: SBend, L = 0.189400772676673, K1 = -0.786567943758741, X_OFFSET = -2E-3,
+   DB_FIELD = -0.427623988373398, B1_GRADIENT = 53.786019, field_master = T
+PR_BD_OUT: Patch, L = -2.39137080636316E-6, X_PITCH = -3.55330022116839E-3,
+   X_OFFSET = 6.73001347970145E-4
+O0F: Drift, L = 0.0516012647172833
+PR_BF_IN: Patch, L = 7.70225254880776E-5, X_PITCH = -0.0159898509952577, X_OFFSET = -4.81716857370917E-3
+BFA: SBend, L = 0.301232038038355, K1 = 0.62829631190467, X_OFFSET = -2.5E-3,
+   DB_FIELD = -1.20991583276445, B1_GRADIENT = -42.9633036, field_master = T
+BFB: SBend, L = 0.301232038038355, K1 = 0.62829631190467, X_OFFSET = 5E-4, DB_FIELD = -1.20991583276445,
+   B1_GRADIENT = -42.9633036, field_master = T
+BFC: SBend, L = 0.301232038038355, K1 = 0.62829631190467, X_OFFSET = 2E-3, DB_FIELD = -1.20991583276445,
+   B1_GRADIENT = -42.9633036, field_master = T
+BFBC: SBend, L = 0.301232038038355, K1 = 0.62829631190467, X_OFFSET = 5E-4, DB_FIELD = -1.20991583276445,
+   B1_GRADIENT = -42.9633036, field_master = T
+BFAC: SBend, L = 0.301232038038355, K1 = 0.62829631190467, X_OFFSET = -2.5E-3,
+   DB_FIELD = -1.20991583276445, B1_GRADIENT = -42.9633036, field_master = T
+PR_BF_OUT: Patch, L = -7.70225254880776E-5, X_PITCH = -0.0159898509952577, X_OFFSET = 4.81716857370917E-3
+MK.END: Marker
+BFMG: girder = {PR_BF_IN,BFA,BFB,BFC,BFC,BFBC,BFAC,PR_BF_OUT}, origin_ele = GLOBAL_COORDINATES
+BDMG: girder = {PR_BD_IN,BDA,BDB,BDC,BDC,BDBC,BDAC,PR_BD_OUT}, origin_ele = GLOBAL_COORDINATES
+
+!-------------------------------------------------------
+! Overlays, groups, rampers, and superimpose
+
+CORRHBD: overlay = {BDBC: 0.2*BL_HKICK, BDAC: 0.2*BL_HKICK}, var = {BL_HKICK}, gang = False
+CORRVBD: overlay = {BDBC: 0.2*BL_VKICK, BDAC: 0.2*BL_VKICK}, var = {BL_VKICK}, gang = False
+CORRGBD: overlay = {BDBC[B1_GRADIENT]: GD+GC, BDAC[B1_GRADIENT]: GD+GC}, var = {GC}, gang = False
+CORRHBF: overlay = {BFBC: 0.2*BL_HKICK, BFAC: 0.2*BL_HKICK}, var = {BL_HKICK}, gang = False
+CORRVBF: overlay = {BFBC: 0.2*BL_VKICK, BFAC: 0.2*BL_VKICK}, var = {BL_VKICK}, gang = False
+CORRGBF: overlay = {BFBC[B1_GRADIENT]: GF+GC, BFAC[B1_GRADIENT]: GF+GC}, var = {GC}, gang = False
+
+!-------------------------------------------------------
+! Lattice lines
+
+
+ARC10: line = ( mk.beg, o0d, mk.bpm, pr_bd_in, bda, bdb, bdc, bdc, bdbc, bdac, pr_bd_out, o0d, o0f,
+   mk.bpm, pr_bf_in, bfa, bfb, bfc, bfc, bfbc, bfac, pr_bf_out, o0f, o0d, mk.bpm, pr_bd_in, bda, bdb, bdc,
+   bdc, bdbc, bdac, pr_bd_out, o0d, o0f, mk.bpm, pr_bf_in, bfa, bfb, bfc, bfc, bfbc, bfac, pr_bf_out, o0f,
+   o0d, mk.bpm, pr_bd_in, bda, bdb, bdc, bdc, bdbc, bdac, pr_bd_out, o0d, o0f, mk.bpm, pr_bf_in, bfa, bfb,
+   bfc, bfc, bfbc, bfac, pr_bf_out, o0f, o0d, mk.bpm, pr_bd_in, bda, bdb, bdc, bdc, bdbc, bdac, pr_bd_out,
+   o0d, o0f, mk.bpm, pr_bf_in, bfa, bfb, bfc, bfc, bfbc, bfac, pr_bf_out, o0f, o0d, mk.bpm, pr_bd_in, bda,
+   bdb, bdc, bdc, bdbc, bdac, pr_bd_out, o0d, o0f, mk.bpm, pr_bf_in, bfa, bfb, bfc, bfc, bfbc, bfac,
+   pr_bf_out, o0f, o0d, mk.bpm, pr_bd_in, bda, bdb, bdc, bdc, bdbc, bdac, pr_bd_out, o0d, o0f, mk.bpm,
+   pr_bf_in, bfa, bfb, bfc, bfc, bfbc, bfac, pr_bf_out, o0f, o0d, mk.bpm, pr_bd_in, bda, bdb, bdc, bdc,
+   bdbc, bdac, pr_bd_out, o0d, o0f, mk.bpm, pr_bf_in, bfa, bfb, bfc, bfc, bfbc, bfac, pr_bf_out, o0f, o0d,
+   mk.bpm, pr_bd_in, bda, bdb, bdc, bdc, bdbc, bdac, pr_bd_out, o0d, o0f, mk.bpm, pr_bf_in, bfa, bfb, bfc,
+   bfc, bfbc, bfac, pr_bf_out, o0f, o0d, mk.bpm, pr_bd_in, bda, bdb, bdc, bdc, bdbc, bdac, pr_bd_out, o0d,
+   o0f, mk.bpm, pr_bf_in, bfa, bfb, bfc, bfc, bfbc, bfac, pr_bf_out, o0f, o0d, mk.bpm, pr_bd_in, bda, bdb,
+   bdc, bdc, bdbc, bdac, pr_bd_out, o0d, o0f, mk.bpm, pr_bf_in, bfa, bfb, bfc, bfc, bfbc, bfac, pr_bf_out,
+   o0f, mk.end)
+
+use, ARC10

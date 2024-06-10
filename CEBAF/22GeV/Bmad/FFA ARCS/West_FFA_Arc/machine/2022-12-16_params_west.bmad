@@ -1,0 +1,119 @@
+! -----------------------------------------------------------
+! 2022-12-16_params_west.bmad
+! Machine Parameters for the West Arc
+! Note which parameters are pre-and-post scaling
+! ----------------
+
+
+
+m_ELECTR = 510998.9180                          ! electron mass in eV
+
+EMAX = 22.650E9                                 ! 'maximum' energy of FFA@CEBAF East arc
+EMIN = 11.65E9                                  ! energy of first pass in FFA east arc
+ECENT = 20.5E9
+ELIN = 2.20e9 
+
+! ----------------
+! momenta corresponding to the energies above
+
+p_MAX = sqrt(EMAX ^ 2-m_ELECTR ^ 2)             ! largest momentum in FFA arc
+p_MIN = sqrt(EMIN ^ 2-m_ELECTR ^ 2)             ! smallest momentum
+p_CENT = sqrt(ECENT ^ 2-m_ELECTR ^ 2)           ! central momentum
+p_LIN = sqrt(ELIN ^ 2-m_ELECTR ^ 2)             ! momentum increase per pass
+
+dpp0 = (p_MAX - p_CENT)/p_CENT 
+dltp0 = -(p_LIN/p_CENT) 
+
+BRHO = p_CENT/c_light                           ! rigidity of electrons with the central energy
+
+! ----------------
+! Accelerator/cell geometry stuff
+
+RCEBAF = 80.60                                  ! radius of CEBAF arcs
+ANGARC = 170.                                   ! angular displacement for the whole arc (approximate) 
+
+ANGCEBAF = PI*ANGARC/180.0                      ! ANGARC in radians
+LARC = ANGCEBAF*RCEBAF                          ! West arc length
+
+NCEL0 = 98.                                     ! number of BF-O-BD-O cells in the arc (pre-scale)
+LCEL0 = LARC/NCEL0                               ! length of each cell (pre-scale)
+
+
+RATIO = 4.5                                     ! ratio of bend angles angbf/angbd
+angbd0 = -ANGCEBAF/(NCEL0*(1.0+RATIO))          ! negative sign for consistency with left-handed accelerator
+angbf0 = angbd0*ratio
+
+BFLen = 1.40                                    ! Length of BF magnet pre-scaling
+DLen = 0.08                                     ! Uniform drift length (pre-scale)
+BDLen = LCEL0 - (BFLen+2.0*DLen)                 ! Length of BD magnet pre-scaling  
+
+
+
+
+! ----------------
+! Magnetic field and gradient strengths
+! ----------------
+
+
+BF_fld = angbf0*BRHO/BFLen                       ! bending field strength for BF (pre-scale)
+BD_fld = angbd0*BRHO/BDLen                       ! bending field strength for BD (pre-scale)
+
+BF_grd = -71.605506                             ! gradient of the focusing magnet (pre-scale)
+BD_grd = 89.643365                              ! gradient of the defocusing magnet (pre-scale)
+
+
+
+! ----------------
+! SCALES
+! ----------------
+gscale = 0.6                                    ! parameter for scaling gradients
+lscale = 1/sqrt(gscale)                         ! parameter for scaling lengths
+
+
+
+! ----------------
+! ----- SCALE IT ALL, BATMAN! --------------
+! ----------------
+
+
+GF = BF_grd*gscale                             ! Scaled focusing gradient
+GD = BD_grd*gscale                             ! Scaled defocusing gradient
+BFL = BFLen*lscale                             ! Scaled focusing magnet length
+BDL = BDLen*lscale                             ! Scaled defocusing magnet length
+DL = DLen*lscale                               ! Scaled drift length
+angbf = angbf0*lscale                          ! Scaled focusing magnet angle
+angbd = angbd0*lscale                          ! Scaled defocusing magnet angle
+dxF = -.0015/gscale                            ! Scaled focusing magnet bend offset
+dxD = -.0012/gscale                            ! Scaled defocusing magnet bend offset
+
+
+
+! ----------------
+! Geometric offets and other such good yick
+! ----------------
+
+! sagittal lengths
+sagF = 0.5*BFL*sinc(0.25*angbf)*sin(0.25*angbf)   ! sagittal offset on BF
+sagD = 0.5*BDL*sinc(0.25*angbd)*sin(0.25*angbd)    ! sagittal offset of BD
+
+! magnet edge drift reductions, etc.
+dzF = 0.5*BFL*(1-sinc(0.5*angbf))
+dlF = dzF/cos(0.5*angbf)
+dx_dzF = dzF*tan(0.5*angbf)
+dzD = 0.5*BDL*(1-sinc(0.5*angbd))
+dlD = dzD/cos(0.5*angbd)
+dx_dzD = dzD*tan(0.5*angbd)
+
+! ABCCBA offsets per Stephen
+dxFA = dxF                                  ! total offset BFA
+dxDA = dxD                                  ! total offset BDA
+dxFB = -0.2*dxF                              ! total offset BFB
+dxDB = -0.2*dxD                              ! total offset BDB
+dxFC = -0.8*dxF                              ! total offset BFC
+dxDC = -0.8*dxD                              ! total offset BDC
+
+! patch offsets
+bfx = sagF/1.5 + dx_dzF
+bdx = sagD/1.5 + dx_dzD
+
+
