@@ -1,0 +1,4 @@
+include arc1_lattice.gmad;
+include arc1_beam.gmad;
+include arc1_options.gmad;
+sample, all;

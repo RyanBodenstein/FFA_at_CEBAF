@@ -1,0 +1,38 @@
+<?xml version="1.0" ?>
+<gdml xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://service-spi.web.cern.ch/service-spi/app/releases/GDML/schema/gdml.xsd">
+	<define/>
+	<materials/>
+	<solids>
+		<box name="container_solid" x="200" y="100" z="50" lunit="mm"/>
+		<box name="box_outer_solid" x="200" y="100" z="50" lunit="mm"/>
+		<box name="box_inner_solid" x="180" y="98" z="48" lunit="mm"/>
+		<subtraction name="box_solid">
+			<first ref="box_outer_solid"/>
+			<second ref="box_inner_solid"/>
+		</subtraction>
+		<box name="water_solid" x="180" y="98" z="48" lunit="mm"/>
+	</solids>
+	<structure>
+		<volume name="box_lv">
+			<materialref ref="G4_STAINLESS-STEEL"/>
+			<solidref ref="box_solid"/>
+		</volume>
+		<volume name="water_lv">
+			<materialref ref="G4_WATER"/>
+			<solidref ref="water_solid"/>
+		</volume>
+		<volume name="container_lv">
+			<materialref ref="G4_AIR"/>
+			<solidref ref="container_solid"/>
+			<physvol name="box_pv">
+				<volumeref ref="box_lv"/>
+			</physvol>
+			<physvol name="water_pv">
+				<volumeref ref="water_lv"/>
+			</physvol>
+		</volume>
+	</structure>
+	<setup name="Default" version="1.0">
+		<world ref="container_lv"/>
+	</setup>
+</gdml>

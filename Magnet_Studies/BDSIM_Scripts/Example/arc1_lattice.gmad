@@ -1,0 +1,348 @@
+mxq1s01: sbend, l=1.0233190851, angle=0.32522698285995, k1=0.00385553400640839, e1=0, hgap=0.01905, fint=0.5, e2=0.32522704758289, tilt=-1.5707963267949;
+d200: drift, l=3.3620233;
+ipm1s00: marker;
+d201: drift, l=0.46092037;
+mxj1s03: sbend, l=1.0082535246, angle=-0.325226982862346, k1=0.0182643566072808, e1=-0.162613521958849, hgap=0.01282700000000144, fint=0.5, e2=-0.162613521958849, tilt=-1.5707963267949;
+d202: drift, l=0.56543361;
+ipm1s01: marker;
+d203: drift, l=0.29845;
+mqb1s01: quadrupole, l=0.15, k1=-0.9851662964670876;
+d204: drift, l=0.190754;
+mbt1s01h: hkicker, l=0, hkick=0;
+d205: drift, l=0.195834;
+mbt1s01v: vkicker, l=0, vkick=0;
+d206: drift, l=0.4935220000000001;
+itv1s01: marker;
+d207: drift, l=4.8751399;
+ipm1s02: marker;
+mql1s02: quadrupole, l=0.15, k1=2.108992177631953;
+mbt1s02h: hkicker, l=0, hkick=0;
+mbt1s02v: vkicker, l=0, vkick=0;
+d208: drift, l=0.97126307;
+ipm1s03: marker;
+d209: drift, l=0.22345;
+mqn1s03: quadrupole, l=0.3, k1=-1.873966486239387;
+d210: drift, l=0.59373147;
+mxi1s05: sbend, l=1.0133505396, angle=0.327938520999349, k1=0.0198461141483714, e1=0.163969293721798, hgap=0.01282700000000087, fint=0.5, e2=0.163969293721798, tilt=-1.5707963267949;
+d211: drift, l=0.37774684;
+mxi1s06: sbend, l=1.0133505396, angle=-0.327938520999349, k1=0.0181654967609626, e1=-0.163969293721798, hgap=0.01282700000000087, fint=0.5, e2=-0.163969293721798, tilt=-1.5707963267949;
+d212: drift, l=0.65347;
+mqn1s04: quadrupole, l=0.3, k1=-1.109983525483396;
+d213: drift, l=0.8947000000000001;
+itv1s04: marker;
+d214: drift, l=0.58065;
+ipm1s05: marker;
+d215: drift, l=0.29965;
+mql1s05: quadrupole, l=0.15, k1=2.614533998095689;
+d216: drift, l=0.26875;
+mbt1s05h: hkicker, l=0, hkick=0;
+d217: drift, l=0.19609;
+mbt1s05v: vkicker, l=0, vkick=0;
+d218: drift, l=1.38516;
+mqb1s06: quadrupole, l=0.15, k1=-1.76815654557544;
+d219: drift, l=3.55035;
+ipm1s07: marker;
+mql1s07: quadrupole, l=0.15, k1=-0.5332418551028545;
+d220: drift, l=0.46424;
+mbt1s07v: vkicker, l=0, vkick=0;
+d221: drift, l=4.5638225;
+maz1s08h: hkicker, l=0, hkick=0;
+d222: drift, l=0.5222875;
+ipm1s08: marker;
+mql1s08: quadrupole, l=0.15, k1=0.6808910127759586;
+mbt1s08h: hkicker, l=0, hkick=0;
+mbt1s08v: vkicker, l=0, vkick=0;
+d223: drift, l=4.6643018;
+maz1s09v: vkicker, l=0, vkick=0;
+d224: drift, l=0.4212082;
+ipm1s09: marker;
+mql1s09: quadrupole, l=0.15, k1=-0.5939872762715135;
+mbt1s09v: vkicker, l=0, vkick=0;
+d225: drift, l=5.08611;
+ipm1s10: marker;
+mqb1s10: quadrupole, l=0.15, k1=0.4133772572374704;
+mbt1s10h: hkicker, l=0, hkick=0;
+mbt1s10v: vkicker, l=0, vkick=0;
+d226: drift, l=14.867166;
+maz1e01h: hkicker, l=0, hkick=0;
+d227: drift, l=0.2921;
+maz1e01v: vkicker, l=0, vkick=0;
+d228: drift, l=0.47631;
+ipm1e01: marker;
+d229: drift, l=0.299588;
+mqb1e01: quadrupole, l=0.15, k1=-0.4667754146277634;
+mbt1e01h: hkicker, l=0, hkick=0;
+mbt1e01v: vkicker, l=0, vkick=0;
+d230: drift, l=0.3638;
+iha1e01: marker;
+d231: drift, l=0.62196;
+mbw1e01: sbend, l=0.5000684772159, angle=-0.0286643916622948, k1=0, e1=-0, hgap=0.0127, fint=0.5, e2=-0.0286643999044468, tilt=-0;
+d232: drift, l=5.752363000000001;
+mbx1e02: sbend, l=1.000136954432, angle=0.057328783324601, k1=0, e1=0.0286643999044468, hgap=0.01904999999999802, fint=0.5, e2=0.0286643999044468, tilt=-0;
+mbw1e03: sbend, l=0.5000684772159, angle=-0.0286643916622948, k1=0, e1=-0.0286643999044468, hgap=0.01269999999999535, fint=0.5, e2=-0, tilt=-0;
+d233: drift, l=1.1497511;
+ipm1e02: marker;
+mqb1e02: quadrupole, l=0.15, k1=0.4313919927327978;
+mbt1e02h: hkicker, l=0, hkick=0;
+mbt1e02v: vkicker, l=0, vkick=0;
+d234: drift, l=15.635506;
+ipm1e03: marker;
+mqb1e03: quadrupole, l=0.15, k1=-0.4147197739504711;
+mbt1e03h: hkicker, l=0, hkick=0;
+mbt1e03v: vkicker, l=0, vkick=0;
+d235: drift, l=0.70155;
+iha1e03: marker;
+d236: drift, l=14.93396;
+ipm1a01: marker;
+mqb1a01: quadrupole, l=0.15, k1=0.6578695203638478;
+mbt1a01h: hkicker, l=0, hkick=0;
+mbt1a01v: vkicker, l=0, vkick=0;
+d237: drift, l=0.50546;
+itv1a01: marker;
+d238: drift, l=1.71462;
+mqb1a02: quadrupole, l=0.15, k1=0.2775109574974125;
+d239: drift, l=2.68242;
+mjd1a01: sbend, l=1.00160819, angle=0.196349541411099, k1=0.0101038435297468, e1=0.098174770424681, hgap=0.01236679193706916, fint=0.5, e2=0.098174770424681, tilt=-0;
+d240: drift, l=3.589842;
+sbc1a02: marker;
+d241: drift, l=0.5920000000000001;
+sss1a02: marker;
+d242: drift, l=1.03335;
+ipm1a03: marker;
+mqb1a03: quadrupole, l=0.15, k1=-1.113376889708267;
+mbt1a03v: vkicker, l=0, vkick=0;
+d243: drift, l=2.74292;
+ipm1a04: marker;
+mql1a04: quadrupole, l=0.15, k1=2.191700302258655;
+mbt1a04h: hkicker, l=0, hkick=0;
+itv1a04: marker;
+d244: drift, l=2.236869;
+ipm1a05: marker;
+mqb1a05: quadrupole, l=0.15, k1=-0.8733508672889284;
+mbt1a05v: vkicker, l=0, vkick=0;
+d245: drift, l=5.0505998;
+mjd1a02: sbend, l=1.00160819, angle=0.196349541411099, k1=0.0101038435297468, e1=0.098174770424681, hgap=0.01236679193706916, fint=0.5, e2=0.098174770424681, tilt=-0;
+d246: drift, l=5.215192;
+ipm1a06: marker;
+mqb1a06: quadrupole, l=0.15, k1=0.8812789326644135;
+mbt1a06h: hkicker, l=0, hkick=0;
+d247: drift, l=5.246101;
+mjd1a03: sbend, l=1.00160819, angle=0.196349541411099, k1=0.0101038435297468, e1=0.098174770424681, hgap=0.01236679193706916, fint=0.5, e2=0.098174770424681, tilt=-0;
+ipm1a07: marker;
+mqb1a07: quadrupole, l=0.15, k1=-0.9294899139183926;
+mbt1a07v: vkicker, l=0, vkick=0;
+d248: drift, l=2.742918;
+ipm1a08: marker;
+mqb1a08: quadrupole, l=0.15, k1=1.637908450901644;
+mbt1a08h: hkicker, l=0, hkick=0;
+d249: drift, l=2.9384187;
+ipm1a09: marker;
+mqb1a09: quadrupole, l=0.15, k1=-0.7847086803869784;
+mbt1a09v: vkicker, l=0, vkick=0;
+d250: drift, l=5.050616;
+mjd1a04: sbend, l=1.00160819, angle=0.196349541411099, k1=0.0101038435297468, e1=0.098174770424681, hgap=0.01236679193706916, fint=0.5, e2=0.098174770424681, tilt=-0;
+d251: drift, l=2.382772;
+ipm1a10: marker;
+d252: drift, l=2.83242;
+ipm1a11: marker;
+mqb1a11: quadrupole, l=0.15, k1=1.248517558176349;
+mbt1a11h: hkicker, l=0, hkick=0;
+d253: drift, l=5.246096000000001;
+mjd1a05: sbend, l=1.00160819, angle=0.196349541411099, k1=0.0101038435297468, e1=0.098174770424681, hgap=0.01236679193706916, fint=0.5, e2=0.098174770424681, tilt=-0;
+ipm1a13: marker;
+mqb1a13: quadrupole, l=0.15, k1=-0.9192910378729792;
+mbt1a13v: vkicker, l=0, vkick=0;
+ipm1a14: marker;
+mqb1a14: quadrupole, l=0.15, k1=1.432218924604762;
+mbt1a14h: hkicker, l=0, hkick=0;
+d254: drift, l=3.238048;
+mqb1a15: quadrupole, l=0.15, k1=-0.8445030698340565;
+mbt1a15v: vkicker, l=0, vkick=0;
+d255: drift, l=5.05061;
+mjd1a06: sbend, l=1.00160819, angle=0.196349541411099, k1=0.0101038435297468, e1=0.098174770424681, hgap=0.01236679193706916, fint=0.5, e2=0.098174770424681, tilt=-0;
+ipm1a16: marker;
+mqb1a16: quadrupole, l=0.15, k1=0.5630592205004917;
+mbt1a16h: hkicker, l=0, hkick=0;
+mjd1a07: sbend, l=1.00160819, angle=0.196349541411099, k1=0.0101038435297468, e1=0.098174770424681, hgap=0.01236679193706916, fint=0.5, e2=0.098174770424681, tilt=-0;
+d256: drift, l=5.514851999999999;
+mqb1a17: quadrupole, l=0.15, k1=-1.077103729196438;
+mbt1a17v: vkicker, l=0, vkick=0;
+d257: drift, l=2.74293;
+ipm1a18: marker;
+mqb1a18: quadrupole, l=0.15, k1=1.329729686178642;
+mbt1a18h: hkicker, l=0, hkick=0;
+d258: drift, l=2.9384049;
+ipm1a19: marker;
+mqb1a19: quadrupole, l=0.15, k1=-0.6009699943665812;
+mbt1a19v: vkicker, l=0, vkick=0;
+mjd1a08: sbend, l=1.00160819, angle=0.196349541411099, k1=0.0101038435297468, e1=0.098174770424681, hgap=0.01236679193706916, fint=0.5, e2=0.098174770424681, tilt=-0;
+d259: drift, l=5.215182;
+ipm1a21: marker;
+mqb1a21: quadrupole, l=0.15, k1=0.5988450019699723;
+mbt1a21h: hkicker, l=0, hkick=0;
+itv1a21: marker;
+d260: drift, l=0.136284;
+iha1a21: marker;
+d261: drift, l=4.408276;
+mjd1a09: sbend, l=1.00160819, angle=0.196349541411099, k1=0.0101038435297468, e1=0.098174770424681, hgap=0.01236679193706916, fint=0.5, e2=0.098174770424681, tilt=-0;
+isr1a21: marker;
+ipm1a23: marker;
+mqb1a23: quadrupole, l=0.15, k1=-0.6009699943665812;
+mbt1a23v: vkicker, l=0, vkick=0;
+ipm1a24: marker;
+mqb1a24: quadrupole, l=0.15, k1=1.329729686178642;
+mbt1a24h: hkicker, l=0, hkick=0;
+d262: drift, l=3.2380656;
+mqb1a25: quadrupole, l=0.15, k1=-1.077103729196438;
+mbt1a25v: vkicker, l=0, vkick=0;
+mjd1a10: sbend, l=1.00160819, angle=0.196349541411099, k1=0.0101038435297468, e1=0.098174770424681, hgap=0.01236679193706916, fint=0.5, e2=0.098174770424681, tilt=-0;
+ipm1a26: marker;
+mqb1a26: quadrupole, l=0.15, k1=0.5630592205004917;
+mbt1a26h: hkicker, l=0, hkick=0;
+mjd1a11: sbend, l=1.00160819, angle=0.196349541411099, k1=0.0101038435297468, e1=0.098174770424681, hgap=0.01236679193706916, fint=0.5, e2=0.098174770424681, tilt=-0;
+mqb1a27: quadrupole, l=0.15, k1=-0.8445030698340565;
+mbt1a27v: vkicker, l=0, vkick=0;
+ipm1a28: marker;
+mqb1a28: quadrupole, l=0.15, k1=1.432218924604762;
+d263: drift, l=0.26813803;
+mbt1a28h: hkicker, l=0, hkick=0;
+d264: drift, l=2.93902;
+ipm1a29: marker;
+mqb1a29: quadrupole, l=0.15, k1=-0.9192910378729792;
+d265: drift, l=5.51484;
+mjd1a12: sbend, l=1.00160819, angle=0.196349541411099, k1=0.0101038435297468, e1=0.098174770424681, hgap=0.01236679193706916, fint=0.5, e2=0.098174770424681, tilt=-0;
+d266: drift, l=3.296662;
+mbt1a30v: vkicker, l=0, vkick=0;
+d267: drift, l=1.91853;
+ipm1a31: marker;
+mqb1a31: quadrupole, l=0.15, k1=1.248517558176349;
+mbt1a31h: hkicker, l=0, hkick=0;
+itv1a31: marker;
+d268: drift, l=4.544546;
+mjd1a13: sbend, l=1.00160819, angle=0.196349541411099, k1=0.0101038435297468, e1=0.098174770424681, hgap=0.01236679193706916, fint=0.5, e2=0.098174770424681, tilt=-0;
+d269: drift, l=5.215204;
+ipm1a33: marker;
+mqb1a33: quadrupole, l=0.15, k1=-0.7847086803869784;
+mbt1a33v: vkicker, l=0, vkick=0;
+d270: drift, l=2.742932;
+ipm1a34: marker;
+mqb1a34: quadrupole, l=0.15, k1=1.637908450901644;
+mbt1a34h: hkicker, l=0, hkick=0;
+d271: drift, l=3.2380587;
+mqb1a35: quadrupole, l=0.15, k1=-0.9294899139183926;
+mbt1a35v: vkicker, l=0, vkick=0;
+d272: drift, l=5.050598;
+mjd1a14: sbend, l=1.00160819, angle=0.196349541411099, k1=0.0101038435297468, e1=0.098174770424681, hgap=0.01236679193706916, fint=0.5, e2=0.098174770424681, tilt=-0;
+ipm1a36: marker;
+mqb1a36: quadrupole, l=0.15, k1=0.8812789326644135;
+mbt1a36h: hkicker, l=0, hkick=0;
+d273: drift, l=5.2460947;
+mjd1a15: sbend, l=1.00160819, angle=0.196349541411099, k1=0.0101038435297468, e1=0.098174770424681, hgap=0.01236679193706916, fint=0.5, e2=0.098174770424681, tilt=-0;
+d274: drift, l=5.5148418;
+mqb1a37: quadrupole, l=0.15, k1=-0.8733508672889284;
+mbt1a37v: vkicker, l=0, vkick=0;
+ipm1a38: marker;
+mql1a38: quadrupole, l=0.15, k1=2.191700302258655;
+mbt1a38h: hkicker, l=0, hkick=0;
+d275: drift, l=2.9384082;
+ipm1a39: marker;
+mqb1a39: quadrupole, l=0.15, k1=-1.113376889708267;
+d276: drift, l=5.5148502;
+mjd1a16: sbend, l=1.00160819, angle=0.196349541411099, k1=0.0101038435297468, e1=0.098174770424681, hgap=0.01236679193706916, fint=0.5, e2=0.098174770424681, tilt=-0;
+d277: drift, l=2.682413;
+mqb1a40: quadrupole, l=0.15, k1=0.6430180528010858;
+mbt1a40v: vkicker, l=0, vkick=0;
+d278: drift, l=1.92101;
+ipm1r01: marker;
+mqb1r01: quadrupole, l=0.15, k1=1.272187324030692;
+mbt1r01h: hkicker, l=0, hkick=0;
+itv1r01: marker;
+d279: drift, l=4.58005;
+ipm1r02: marker;
+mql1r02: quadrupole, l=0.15, k1=-1.75828786141673;
+mbt1r02v: vkicker, l=0, vkick=0;
+d280: drift, l=3.66653;
+ida1r02: marker;
+d281: drift, l=1.41958;
+ipm1r03: marker;
+mql1r03: quadrupole, l=0.15, k1=2.335964993093057;
+mbt1r03h: hkicker, l=0, hkick=0;
+d282: drift, l=5.2816;
+ipm1r04: marker;
+mql1r04: quadrupole, l=0.15, k1=-1.674375871011488;
+mbt1r04v: vkicker, l=0, vkick=0;
+itv1r04: marker;
+d283: drift, l=2.6898;
+mqb1r05: quadrupole, l=0.15, k1=-1.054135868250955;
+d284: drift, l=1.55035;
+ipm1r06: marker;
+mql1r06: quadrupole, l=0.15, k1=2.739361854545477;
+mbt1r06h: hkicker, l=0, hkick=0;
+d285: drift, l=1.58125;
+mql1r07: quadrupole, l=0.15, k1=-1.705630658574592;
+mbt1r07v: vkicker, l=0, vkick=0;
+d286: drift, l=0.454736;
+mxi1r01: sbend, l=1.0133505396, angle=-0.327938520999349, k1=0.0215267315357802, e1=-0.163969293721798, hgap=0.01282700000000087, fint=0.5, e2=-0.163969293721798, tilt=-1.5707963267949;
+mxi1r02: sbend, l=1.0133505396, angle=0.327938520999349, k1=0.023849937924257, e1=0.163969293721798, hgap=0.01282700000000087, fint=0.5, e2=0.163969293721798, tilt=-1.5707963267949;
+d287: drift, l=0.3702834699999999;
+ipm1r08: marker;
+mqn1r08: quadrupole, l=0.3, k1=-1.865207503855598;
+d288: drift, l=1.2828511;
+ipm1r09: marker;
+mql1r09: quadrupole, l=0.15, k1=2.147917006371651;
+mbt1r09h: hkicker, l=0, hkick=0;
+d289: drift, l=5.5644939;
+ipm1r10: marker;
+mqb1r10: quadrupole, l=0.15, k1=-0.9811842218573921;
+mbt1r10h: hkicker, l=0, hkick=0;
+mbt1r10v: vkicker, l=0, vkick=0;
+d290: drift, l=0.47729561;
+mxj1r04: sbend, l=1.0082535246, angle=-0.325226982862346, k1=0.0189069456083488, e1=-0.162613521958849, hgap=0.01282700000000144, fint=0.5, e2=-0.162613521958849, tilt=-1.5707963267949;
+ipm1r10a: marker;
+mxq1r06: sbend, l=1.0233190851, angle=0.32522698285995, k1=0.000318823004376078, e1=0.32522704758289, hgap=0.01904999999999671, fint=0.5, e2=0, tilt=-1.5707963267949;
+
+arc1: line = (
+  mxq1s01, d200, ipm1s00, d201, mxj1s03, d202, ipm1s01, d203, mqb1s01, d204,
+  mbt1s01h, d205, mbt1s01v, d206, itv1s01, d207, ipm1s02, d203, mql1s02, d204,
+  mbt1s02h, d205, mbt1s02v, d208, ipm1s03, d209, mqn1s03, d210, mxi1s05, d211,
+  mxi1s06, d212, mqn1s04, d213, itv1s04, d214, ipm1s05, d215, mql1s05, d216,
+  mbt1s05h, d217, mbt1s05v, d218, mqb1s06, d219, ipm1s07, d215, mql1s07, d220,
+  mbt1s07v, d221, maz1s08h, d222, ipm1s08, d215, mql1s08, d216, mbt1s08h, d217,
+  mbt1s08v, d223, maz1s09v, d224, ipm1s09, d215, mql1s09, d220, mbt1s09v, d225,
+  ipm1s10, d215, mqb1s10, d216, mbt1s10h, d217, mbt1s10v, d226, maz1e01h, d227,
+  maz1e01v, d228, ipm1e01, d229, mqb1e01, d216, mbt1e01h, d217, mbt1e01v, d230,
+  iha1e01, d231, mbw1e01, d232, mbx1e02, d232, mbw1e03, d233, ipm1e02, d215,
+  mqb1e02, d216, mbt1e02h, d217, mbt1e02v, d234, ipm1e03, d215, mqb1e03, d216,
+  mbt1e03h, d217, mbt1e03v, d235, iha1e03, d236, ipm1a01, d215, mqb1a01, d216,
+  mbt1a01h, d217, mbt1a01v, d237, itv1a01, d238, mqb1a02, d239, mjd1a01, d240,
+  sbc1a02, d241, sss1a02, d242, ipm1a03, d215, mqb1a03, d220, mbt1a03v, d243,
+  ipm1a04, d215, mql1a04, d216, mbt1a04h, d235, itv1a04, d244, ipm1a05, d215,
+  mqb1a05, d220, mbt1a05v, d245, mjd1a02, d246, ipm1a06, d215, mqb1a06, d216,
+  mbt1a06h, d247, mjd1a03, d246, ipm1a07, d215, mqb1a07, d220, mbt1a07v, d248,
+  ipm1a08, d215, mqb1a08, d216, mbt1a08h, d249, ipm1a09, d215, mqb1a09, d220,
+  mbt1a09v, d250, mjd1a04, d251, ipm1a10, d252, ipm1a11, d215, mqb1a11, d216,
+  mbt1a11h, d253, mjd1a05, d246, ipm1a13, d215, mqb1a13, d220, mbt1a13v, d243,
+  ipm1a14, d215, mqb1a14, d216, mbt1a14h, d254, mqb1a15, d220, mbt1a15v, d255,
+  mjd1a06, d246, ipm1a16, d215, mqb1a16, d220, mbt1a16h, d255, mjd1a07, d256,
+  mqb1a17, d220, mbt1a17v, d257, ipm1a18, d215, mqb1a18, d216, mbt1a18h, d258,
+  ipm1a19, d215, mqb1a19, d220, mbt1a19v, d245, mjd1a08, d259, ipm1a21, d215,
+  mqb1a21, d216, mbt1a21h, d235, itv1a21, d260, iha1a21, d261, mjd1a09, isr1a21,
+  d246, ipm1a23, d215, mqb1a23, d220, mbt1a23v, d243, ipm1a24, d215, mqb1a24,
+  d216, mbt1a24h, d262, mqb1a25, d220, mbt1a25v, d255, mjd1a10, d246, ipm1a26,
+  d215, mqb1a26, d220, mbt1a26h, d245, mjd1a11, d256, mqb1a27, d220, mbt1a27v,
+  d257, ipm1a28, d215, mqb1a28, d263, mbt1a28h, d264, ipm1a29, d215, mqb1a29,
+  d265, mjd1a12, d266, mbt1a30v, d267, ipm1a31, d215, mqb1a31, d216, mbt1a31h,
+  d235, itv1a31, d268, mjd1a13, d269, ipm1a33, d215, mqb1a33, d220, mbt1a33v,
+  d270, ipm1a34, d215, mqb1a34, d216, mbt1a34h, d271, mqb1a35, d220, mbt1a35v,
+  d272, mjd1a14, d269, ipm1a36, d215, mqb1a36, d216, mbt1a36h, d273, mjd1a15,
+  d274, mqb1a37, d220, mbt1a37v, d257, ipm1a38, d215, mql1a38, d216, mbt1a38h,
+  d275, ipm1a39, d215, mqb1a39, d276, mjd1a16, d277, mqb1a40, d220, mbt1a40v,
+  d278, ipm1r01, d215, mqb1r01, d216, mbt1r01h, d235, itv1r01, d279, ipm1r02,
+  d215, mql1r02, d220, mbt1r02v, d280, ida1r02, d281, ipm1r03, d215, mql1r03,
+  d216, mbt1r03h, d282, ipm1r04, d215, mql1r04, d220, mbt1r04v, d237, itv1r04,
+  d283, mqb1r05, d284, ipm1r06, d215, mql1r06, d216, mbt1r06h, d285, mql1r07,
+  d220, mbt1r07v, d286, mxi1r01, d211, mxi1r02, d287, ipm1r08, d209, mqn1r08,
+  d288, ipm1r09, d203, mql1r09, d204, mbt1r09h, d289, ipm1r10, d203, mqb1r10,
+  d204, mbt1r10h, d205, mbt1r10v, d290, mxj1r04, d200, ipm1r10a, d201, mxq1r06
+);
+use, period=arc1
