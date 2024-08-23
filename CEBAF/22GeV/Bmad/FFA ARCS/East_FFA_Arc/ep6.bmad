@@ -1,0 +1,25 @@
+! pe6.bmad
+! File containing pass 6 optics for the east arc
+! Twiss functions, energies, etc.
+
+call, file = machine/Arcs.lat
+
+
+parameter[geometry] = open          
+
+parameter[p0c]                      = p_CENT
+parameter[particle]                 = Electron
+
+
+
+
+beginning[beta_a]    = 2.45638340489052
+beginning[alpha_a]   = 1.24730951583771
+beginning[eta_x]     = 0.0858726171873394
+beginning[etap_x]    = -0.0344013180460645
+beginning[beta_b]    = 17.058271156799
+beginning[alpha_b]   = -7.6232894820465
+particle_start[x]  = -0.0134178722507585
+particle_start[px] = 4.1372842285447E-3
+particle_start[pz] = 0.0721393 ! corresponds to 21.55 GeV
+

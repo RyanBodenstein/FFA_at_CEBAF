@@ -1,0 +1,304 @@
+! Arcs.lat
+! File containing base element definitions
+! Arc magnets, drifts, diagnostics, etc
+
+! all attribute values given as names rather than numbers
+! are defined in the below file
+call, file = 2022-12-16_params_east.bmad 
+
+! Element Definitions -----------------------------------------------
+ 
+
+! patch elements rotate and shift the local
+! coordinates of the particle:
+! allows me to use `db_field' attributes 
+
+! ------------- Patches ---------------------------------------------
+
+! patches for BD magnet
+! -------------------------  
+pr_bd_in: patch, x_pitch = 0.5*angbd
+pr_bd_out: patch, x_pitch = 0.5*angbd
+px_bd_in: patch, x_offset = bdx  
+px_bd_out: patch, x_offset = -bdx
+
+! patches for BF magnet
+! -------------------------  
+px_bf_in: patch, x_offset = bfx  
+pr_bf_in: patch, x_pitch = 0.5*angbf 
+pr_bf_out: patch, x_pitch = 0.5*angbf
+px_bf_out: patch, x_offset = -bfx  
+
+! -------------------------------------------------------------------
+
+
+! Cross sectional pieces of magnets, 
+! offset from each other in ABCCBA pattern
+! to increase the good field region
+
+! ------------- BD Magnet Sections ----------------------------------
+
+!------------------------- 
+bda: sbend, field_master = T, l = BDL/6, x_offset = dxDA,
+    db_field = BD_fld, b1_gradient = GD, 
+    x2_limit = BD_x2, x1_limit = BD_x1, y_limit = 0.01, 
+    offset_moves_aperture = F            
+
+bdb: sbend, field_master = T, l = BDL/6, x_offset = dxDB,
+    db_field = BD_fld, b1_gradient = GD, 
+    x2_limit = BD_x2, x1_limit = BD_x1, y_limit = 0.01, 
+    offset_moves_aperture = F         
+
+bdc: sbend, field_master = T, l = BDL/6, x_offset = dxDC, 
+    db_field = BD_fld, b1_gradient = GD,
+    x2_limit = BD_x2, x1_limit = BD_x1, y_limit = 0.01, 
+    offset_moves_aperture = F 
+
+!-------------------------
+! magnet sections with b1_gradient controlled by correctors
+!-------------------------
+
+bdac: sbend, field_master = T, l = BDL/6, 
+    x_offset = dxDA, db_field = BD_fld, 
+    x2_limit = BD_x2, x1_limit = BD_x1, y_limit = 0.01, 
+    offset_moves_aperture = F     
+
+bdbc: sbend, field_master = T, l = BDL/6, 
+    x_offset = dxDB, db_field = BD_fld, 
+    x2_limit = BD_x2, x1_limit = BD_x1, y_limit = 0.01, 
+    offset_moves_aperture = F
+!--------------------------------------------------------------------
+
+
+
+! ------------- BF Magnet Sections ----------------------------------
+
+bfa: sbend, field_master =T, l = BFL/6, x_offset = dxFA,
+    db_field = BF_fld, b1_gradient = GF, 
+    x2_limit = BF_x2, x1_limit = BF_x1, y_limit = 0.01,
+    offset_moves_aperture = F
+
+bfb: sbend, field_master =T, l = BFL/6, x_offset = dxFB,
+    db_field = BF_fld, b1_gradient = GF, 
+    x2_limit = BF_x2, x1_limit = BF_x1, y_limit = 0.01,
+    offset_moves_aperture = F
+
+bfc: sbend, field_master =T,l = BFL/6, x_offset = dxFC,
+    db_field = BF_fld, b1_gradient = GF, 
+    x2_limit = BF_x2, x1_limit = BF_x1, y_limit = 0.01,
+    offset_moves_aperture = F
+
+!-------------------------
+! magnet blocks with b1_gradient controlled by correctors
+!-------------------------
+
+bfac: sbend, field_master =T, l = BFL/6, 
+    x_offset = dxFA, db_field = BF_fld, 
+    x2_limit = BF_x2, x1_limit = BF_x1, y_limit = 0.01,
+    offset_moves_aperture = F
+    
+bfbc: sbend, field_master =T, l = BFL/6, 
+    x_offset = dxFB, db_field = BF_fld, 
+    x2_limit = BF_x2, x1_limit = BF_x1, y_limit = 0.01,
+    offset_moves_aperture = F
+!--------------------------------------------------------------------
+
+
+! use these markers to define the beginning and end of 
+! the whole magnet assemblies
+
+
+! --------------- Entrance and Exit Markers -------------------------
+
+! BD limits
+!-------------------------
+MK.BD_IN: marker
+MK.BD_OUT: marker
+
+! BF limits
+!-------------------------
+MK.BF_IN: marker
+MK.BF_OUT: marker
+
+! -------------------------------------------------------------------
+
+
+
+! line elements allow treating a particular sequence of elements
+! as a single element; this is useful in assembling lattices from 
+! complex parts
+
+! -------------- Assembled magnet elements --------------------------
+
+! The BDM assembly always has a corrector
+! -------------------------
+BDM: line = (mk.bd_in, pr_bd_in, px_bd_in, bda, bdb, bdc, 
+                bdc, bdbc, bdac, px_bd_out, pr_bd_out, mk.bd_out)
+  
+! the BFM assembly allows a corrector on BF magnet
+! -------------------------
+BFM : line = (mk.bf_in, pr_bf_in, px_bf_in, bfa, bfb, bfc, 
+                bfc, bfbc, bfac, px_bf_out, pr_bf_out, mk.bf_out)
+
+! the BFMb assembly does not permit correction on BF magnet
+! -------------------------
+BFMb : line = (mk.bf_in, pr_bf_in, px_bf_in, bfa, bfb, bfc, 
+                bfc, bfb, bfa, px_bf_out, pr_bf_out, mk.bf_out)
+! -------------------------------------------------------------------   
+
+
+
+
+! -------------- Inter-magnet drifts --------------------------------
+
+o0f: drift, l = 0.5*DL - dlF     ! half drift for cell start
+
+o0d: drift, l = 0.5*DL - dlD     ! half drift for cell end
+
+! -------------------------------------------------------------------    
+
+
+
+
+! girders allow imposing alignment errors 
+! on a whole assembled magnet
+
+! ----------------------- Girders -----------------------------------
+
+BDMG : GIRDER = {mk.bd_in: mk.bd_out}, 
+       origin_ele = global_coordinates  
+
+BFMG : Girder = {mk.bf_in:mk.bf_out}, 
+       origin_ele = global_coordinates     
+! -------------------------------------------------------------------
+
+! overlays allow setting element attributes with 
+! outputs of correction algorithm
+
+! CorrHBD/F and CorrVBD/F control a `bl_kick' attribute,
+! which is magnetic dipole field integrated over a length
+! ---
+! CorrGBD/F directly controls the `b1_gradient' attribute,
+! which is already an integrated quadrupole field
+! ---
+
+! ------------------ Overlays ---------------------------------------
+
+
+! CorrXBD overlays specify controllers on BD magnets:
+
+! ---
+CorrHBD: Overlay = 
+        {bdbc[bl_hkick]: 0.2*bl_hkick, bdac[bl_hkick]: 0.2*bl_hkick}, 
+        var = {bl_hkick}, bl_hkick = 0, GANG=False
+! ---
+CorrVBD: Overlay = 
+        {bdbc[bl_vkick]: 0.2*bl_vkick, bdac[bl_vkick]: 0.2*bl_vkick}, 
+        var = {bl_vkick}, bl_vkick = 0, GANG=False
+! ---
+
+CorrGBD: Overlay = 
+        {bdbc[b1_gradient]: GD + gc, bdac[b1_gradient]: GD + gc}, 
+        var = {gc}, gc = 0, GANG=False
+! -------------------------------------------------------------------
+
+! ---
+! CorrXBF overlays specify controllers on BF magnets:
+! ---
+
+CorrHBF: Overlay = 
+        {bfbc[bl_hkick]: 0.2*bl_hkick, bfac[bl_hkick]: 0.2*bl_hkick}, 
+        var = {bl_hkick}, bl_hkick = 0, GANG=False
+! ---
+CorrVBF: Overlay = 
+        {bfbc[bl_vkick]: 0.2*bl_vkick, bfac[bl_vkick]: 0.2*bl_vkick}, 
+        var = {bl_vkick}, bl_vkick = 0, GANG=False
+! ---
+CorrGBF: Overlay = 
+        {bfbc[b1_gradient]: GF + gc, bfac[b1_gradient]: GF + gc}, 
+        var = {gc}, gc = 0, GANG=False
+! -------------------------------------------------------------------
+
+
+
+! these markers will serve as the read locations
+! for optimization input data
+
+! ----------------- Diagnostic markers ------------------------------
+
+MK.BEG: marker      ! beginning of the lattice
+MK.BPM: marker, type = "BPM"             
+MK.END: marker      ! end of the lattice
+! -------------------------------------------------------------------
+
+
+
+
+! ----------------- Cell Definition ---------------------------------
+
+! single cell with two correctors
+! --------
+cell: line = (o0d, MK.BPM, BDM, o0d, o0f, MK.BPM, BFM, o0f) 
+! --------
+
+! single cell with one corrector
+! --------
+cellb: line = (o0d, MK.BPM, BDM, o0d, o0f, BFMb, o0f) 
+! --------
+
+! ---------------------------------
+! single cell I simulate by itself
+! --------
+arc1: line = (MK.BEG, cell, MK.END)
+! --------------------------------- 
+
+! -------------------------------------------------------------------
+
+! ----------------- 5 Cell Definition -------------------------------
+
+! 5 cell line w/ 2 correctors per cell
+! --------
+cell5: line = (cell, cell, cell, cell, cell)
+! --------
+
+! 5 cell line w/ 1 corrector per cell
+! --------
+cell5b: line = (cellb, cellb, cellb, cellb, cellb) 
+! --------
+
+! ---------------------------------
+! 5 cell line to look at short term dynamics
+! --------
+arc5: line = (MK.BEG, cell5, MK.END)
+! --------------------------------- 
+
+! -------------------------------------------------------------------
+
+! ----------------- Many Cell Definitions ---------------------------
+
+! The next few lines just pull together
+! more cells for a total simulation
+! --------------------------------- 
+cell10: line = (cell5, cell5) 
+cell10b: line = (cell5b, cell5b) 
+
+cell20: line = (cell10, cell10) 
+cell20b: line = (cell10b, cell10b) 
+! -------------------------------------------------------------------
+
+! ----------------- Full Lattice Definition -------------------------
+! Full length simulation line: 
+! seventy five cells long, 
+! with 100 correctors
+! --------------------------------- 
+arc75: line = (MK.BEG, cell10, cell10b, cell20b, 
+                cell20b, cell10, cell5, MK.END) 
+! -------------------------------------------------------------------
+
+
+! --------------
+! invoke a line for simulation
+! --------------
+
+use, arc1
+! -------------------------------------------------------------------
