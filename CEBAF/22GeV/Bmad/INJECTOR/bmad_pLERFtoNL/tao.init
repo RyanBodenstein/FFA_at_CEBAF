@@ -1,0 +1,64 @@
+!------------------------ General Init -----------------------
+!-------------------------------------------------------------
+
+&tao_start
+  startup_file = 'setup.tao'
+/
+
+&tao_design_lattice
+  n_universes = 1
+  design_lattice(1)%file ="pLERFtoNL.bmad" !"lat.bmad"
+/
+
+&tao_plot_page
+  plot_page%size = 800, 600
+  plot_page%n_curve_pts = 150000
+  !place(1) = 'layout', 'lat_layout'
+  place(1) = 'r13', 'beta'
+  place(2) = 'r23', 'dispersion'
+  place(3) = 'r33', 'floor'
+/
+!------------------------ Data -------------------------------
+!-------------------------------------------------------------
+
+&tao_d2_data
+  d2_data%name = 'twiss'
+  n_d1_data = 2
+/
+
+&tao_d1_data
+  ix_d1_data = 1
+  d1_data%name = 'a'
+  datum(1) =  'beta.a'     '' '' 'END'   'target'  34.2431   1e6
+  datum(2) =  'alpha.a'    '' '' 'END'   'target' -3.29669   1e6
+  datum(3) =  'eta.a'      '' '' 'END'   'target'  0.0        1e6
+ ! datum(4) =  'etap.a'      '' '' 'END'   'target'  0.0        1e6
+/
+
+&tao_d1_data
+  ix_d1_data = 2
+  d1_data%name = 'b'
+  datum(1) =  'beta.b'     '' '' 'END'   'target'  3.76261   1e6
+  datum(2) =  'alpha.b'    '' '' 'END'   'target' 0.585508   1e6
+  datum(3) =  'eta.b'      '' '' 'END'   'target'  0.0    1e6
+ ! datum(4) =  'etap.b'      '' '' 'END'   'target'  0.0    1e6
+
+
+/
+
+!------------------------ Variables --------------------------
+!-------------------------------------------------------------
+
+&tao_var
+  v1_var%name = 'quad'
+  search_for_lat_eles = 'MQS0*,MQO*'!,MQL1S*' !'Quad::*'
+  default_step = 1e-2
+  default_attribute = 'k1'
+  default_merit_type = 'limit'
+  default_low_lim = -50
+  default_high_lim = 50
+  default_weight = 1e3
+  ix_min_var = 1
+  default_key_delta = 1e-24
+  default_key_bound = T
+/

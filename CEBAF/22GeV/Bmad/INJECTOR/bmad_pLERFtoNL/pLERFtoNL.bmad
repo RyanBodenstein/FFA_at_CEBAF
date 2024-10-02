@@ -1,0 +1,614 @@
+
+!+
+! Translated by elegant_to_bmad.py from Elegant file(s): ['pLERFtoNL.lte']
+!-
+
+! Salim 
+
+parameter[p0c] = 1e6*(650)
+use,LERF_TO_NL
+
+beginning[beta_a] = 4.58380836555537
+beginning[alpha_a] = -1.41421356237309
+beginning[eta_x] = 0
+beginning[etap_x] = 0
+
+beginning[beta_b] = 4.58380836555537
+beginning[alpha_b] = 1.41421356237309
+beginning[eta_y] = 0
+beginning[etap_y] = 0
+
+
+! ! From the end point of Yves' LERF7 vault deck
+beginning[x_position] = -9.711369999999990e+00
+beginning[y_position] = 105.0
+beginning[z_position] = 1.575920000000000e+02
+beginning[theta_position] = -4.43965358979329e-02
+beginning[phi_position] = 0
+beginning[psi_position] = 0
+
+particle_start[emittance_a] = 4.038476301731158e-06
+particle_start[emittance_b] = 4.628522007995604e-06
+
+! particle_start[sig_z] = 100e-6
+! particle_start[pz] = 2e-4
+
+parameter[geometry] = open
+parameter[particle] = electron
+
+
+! 
+dg0: drift, type = "drif", l = 0.320675
+dg1: drift, type = "drif", l = 0.245675
+dg2: drift, type = "drif", l = 0.268408
+dg3: drift, type = "drif", l = 0.196088
+dg4: drift, type = "drif", l = 0.5748200000000001
+DARC_US: drift, type = "drif", l = 0.95235065304968
+DARC_DS: drift, type = "drif", l = 0.95235065304968
+DLAUNCH_US: drift, type = "drif", l = 1.45293612185179
+DLAUNCH_DS: drift, type = "drif", l = 1.45293612185179
+DRAMP_US: drift, type = "drif", l = 0.9528857735561225
+DRAMP_DS: drift, type = "drif", l = 0.9528857735561225
+dg0a: drift, type = "drif", l = 0.320675
+dg1a: drift, type = "drif", l = 0.245675
+dg2a: drift, type = "drif", l = 0.268408
+dg3a: drift, type = "drif", l = 0.196088
+dg4a: drift, type = "drif", l = 0.5748200000000001
+DARCP1_US: drift, type = "drif", l = 0.03489195724761107
+DARCP1_DS: drift, type = "drif", l = 0.03489195724761107
+DLA_US: drift, type = "drif", l = 0.5404819329696252
+DLA_DS: drift, type = "drif", l = 0.5404819329696252
+DARCP2_US: drift, type = "drif", l = 0.8417968317652494
+DARCP2_DS: drift, type = "drif", l = 0.8417968317652494
+DLB_US: drift, type = "drif", l = 1.342432015681809
+DLB_DS: drift, type = "drif", l = 1.342432015681809
+dend: drift, type = "drif", l = 6.112176587037203
+dsl: drift, type = "drif", l = 6.35
+match1: marker, type = "mark"
+match2: marker, type = "mark"
+match3: marker, type = "mark"
+match4: marker, type = "mark"
+ipmxx01: monitor, type = "moni"
+mqbxx01: quadrupole, type = "kquad", l = 0.15, k1 = 1.419036145054359
+mbtxx01h: hkicker, type = "hkick"
+mbtxx01v: vkicker, type = "vkick"
+ipmxx01a: monitor, type = "moni"
+mqbxx01a: quadrupole, type = "kquad", l = 0.15, k1 = -3.633443717480914
+mbtxx01ah: hkicker, type = "hkick"
+mbtxx01av: vkicker, type = "vkick"
+ipmxx02: monitor, type = "moni"
+mqbxx02: quadrupole, type = "kquad", l = 0.15, k1 = 3.087067484249552
+mbtxx02h: hkicker, type = "hkick"
+mbtxx02v: vkicker, type = "vkick"
+ipmxx02a: monitor, type = "moni"
+mqbxx02a: quadrupole, type = "kquad", l = 0.15, k1 = -3.421985646082189
+mbtxx02ah: hkicker, type = "hkick"
+mbtxx02av: vkicker, type = "vkick"
+ipmxx03: monitor, type = "moni"
+mqbxx03: quadrupole, type = "kquad", l = 0.15, k1 = 9.03537133652288
+mbtxx03h: hkicker, type = "hkick"
+mbtxx03v: vkicker, type = "vkick"
+ipmxx03a: monitor, type = "moni"
+mqbxx03a: quadrupole, type = "kquad", l = 0.15, k1 = -3.421985646082189
+mbtxx03ah: hkicker, type = "hkick"
+mbtxx03av: vkicker, type = "vkick"
+ipmxx04: monitor, type = "moni"
+mqbxx04: quadrupole, type = "kquad", l = 0.15, k1 = 3.087067484249552
+mbtxx04h: hkicker, type = "hkick"
+mbtxx04v: vkicker, type = "vkick"
+ipmxx04a: monitor, type = "moni"
+mqbxx04a: quadrupole, type = "kquad", l = 0.15, k1 = -3.633443717480914
+mbtxx04ah: hkicker, type = "hkick"
+mbtxx04av: vkicker, type = "vkick"
+mjfxx09: sbend, type = "csbend", l = 1.001170937604221, angle = 0.1675693551472986, e1 = 0.0837846775736493,
+          e2 = 0.0837846775736493, hgap = 0.01236679193706916
+ipmxx05: monitor, type = "moni"
+mqbxx05: quadrupole, type = "kquad", l = 0.15, k1 = 1.419036145054359
+mbtxx05h: hkicker, type = "hkick"
+mbtxx05v: vkicker, type = "vkick"
+ipmxx05a: monitor, type = "moni"
+mqbxx05a: quadrupole, type = "kquad", l = 0.15, k1 = -1.139420407145344
+mbtxx05ah: hkicker, type = "hkick"
+mbtxx05av: vkicker, type = "vkick"
+ipmxx05b: monitor, type = "moni"
+mqbxx05b: quadrupole, type = "kquad", l = 0.15, k1 = 3.635741830323509
+mbtxx05bh: hkicker, type = "hkick"
+mbtxx05bv: vkicker, type = "vkick"
+ipmxx06: monitor, type = "moni"
+mqbxx06: quadrupole, type = "kquad", l = 0.15, k1 = -3.07606063193386
+mbtxx06h: hkicker, type = "hkick"
+mbtxx06v: vkicker, type = "vkick"
+ipmxx06a: monitor, type = "moni"
+mqbxx06a: quadrupole, type = "kquad", l = 0.15, k1 = 3.557231480804969
+mbtxx06ah: hkicker, type = "hkick"
+mbtxx06av: vkicker, type = "vkick"
+ipmxx06b: monitor, type = "moni"
+mqbxx06b: quadrupole, type = "kquad", l = 0.15, k1 = -3.085237098915556
+mbtxx06bh: hkicker, type = "hkick"
+mbtxx06bv: vkicker, type = "vkick"
+ipmxx07: monitor, type = "moni"
+mqbxx07: quadrupole, type = "kquad", l = 0.15, k1 = 3.085237098915556
+mbtxx07h: hkicker, type = "hkick"
+mbtxx07v: vkicker, type = "vkick"
+mjfxx14: sbend, type = "csbend", l = 1.001170937604221, angle = 0.1675693551472986, e1 = 0.0837846775736493,
+          e2 = 0.0837846775736493, hgap = 0.01236679193706916
+ipmxx07a: monitor, type = "moni"
+mqbxx07a: quadrupole, type = "kquad", l = 0.15, k1 = -3.085237098915556
+mbtxx07ah: hkicker, type = "hkick"
+mbtxx07av: vkicker, type = "vkick"
+mjfyy01: sbend, type = "csbend", l = 1.000100696591336, angle = -0.04915839558533041, e1 = -0.0245791977926652,
+          e2 = -0.0245791977926652, ref_tilt = -1.570796326794897, hgap = 0.01236679193706916
+mjfyy01a: sbend, type = "csbend", l = 1.000100696591336, angle = -0.04915839558533041, e1 = -0.0245791977926652,
+          e2 = -0.0245791977926652, ref_tilt = -1.570796326794897, hgap = 0.01236679193706916
+ipmxx08: monitor, type = "moni"
+mqbxx08: quadrupole, type = "kquad", l = 0.15, k1 = 3.085237098915556
+mbtxx08h: hkicker, type = "hkick"
+mbtxx08v: vkicker, type = "vkick"
+ipmxx09: monitor, type = "moni"
+mqbxx09: quadrupole, type = "kquad", l = 0.15, k1 = -9.022300157132927
+mbtxx09h: hkicker, type = "hkick"
+mbtxx09v: vkicker, type = "vkick"
+ipmxx10: monitor, type = "moni"
+mqbxx10: quadrupole, type = "kquad", l = 0.15, k1 = 3.557231480804969
+mbtxx10h: hkicker, type = "hkick"
+mbtxx10v: vkicker, type = "vkick"
+ipmxx11: monitor, type = "moni"
+mqbxx11: quadrupole, type = "kquad", l = 0.15, k1 = -3.07606063193386
+mbtxx11h: hkicker, type = "hkick"
+mbtxx11v: vkicker, type = "vkick"
+ipmxx12: monitor, type = "moni"
+mqbxx12: quadrupole, type = "kquad", l = 0.15, k1 = 3.635741830323509
+mbtxx12h: hkicker, type = "hkick"
+mbtxx12v: vkicker, type = "vkick"
+ipmxx13: monitor, type = "moni"
+mqbxx13: quadrupole, type = "kquad", l = 0.15, k1 = -1.139420407145344
+mbtxx13h: hkicker, type = "hkick"
+mbtxx13v: vkicker, type = "vkick"
+ipmxx14: monitor, type = "moni"
+mqbxx14: quadrupole, type = "kquad", l = 0.15, k1 = 3.08523709891556
+mbtxx14h: hkicker, type = "hkick"
+mbtxx14v: vkicker, type = "vkick"
+ipmxx15: monitor, type = "moni"
+mqbxx15: quadrupole, type = "kquad", l = 0.15, k1 = -1.371555891438887
+mbtxx15h: hkicker, type = "hkick"
+mbtxx15v: vkicker, type = "vkick"
+ipmxx16: monitor, type = "moni"
+mqbxx16: quadrupole, type = "kquad", l = 0.15, k1 = 3.602593026779346
+mbtxx16h: hkicker, type = "hkick"
+mbtxx16v: vkicker, type = "vkick"
+ipmxx17: monitor, type = "moni"
+mqbxx17: quadrupole, type = "kquad", l = 0.15, k1 = -3.075632123882344
+mbtxx17h: hkicker, type = "hkick"
+mbtxx17v: vkicker, type = "vkick"
+ipmxx18: monitor, type = "moni"
+mqbxx18: quadrupole, type = "kquad", l = 0.15, k1 = 3.493212593915663
+mbtxx18h: hkicker, type = "hkick"
+mbtxx18v: vkicker, type = "vkick"
+ipmxx19: monitor, type = "moni"
+mqbxx19: quadrupole, type = "kquad", l = 0.15, k1 = -9.022300157132927
+mbtxx19h: hkicker, type = "hkick"
+mbtxx19v: vkicker, type = "vkick"
+ipmxx20: monitor, type = "moni"
+mqbxx20: quadrupole, type = "kquad", l = 0.15, k1 = 3.493212593915663
+mbtxx20h: hkicker, type = "hkick"
+mbtxx20v: vkicker, type = "vkick"
+ipmxx21: monitor, type = "moni"
+mqbxx21: quadrupole, type = "kquad", l = 0.15, k1 = -3.075632123882344
+mbtxx21h: hkicker, type = "hkick"
+mbtxx21v: vkicker, type = "vkick"
+ipmxx22: monitor, type = "moni"
+mqbxx22: quadrupole, type = "kquad", l = 0.15, k1 = 3.602593026779346
+mbtxx22h: hkicker, type = "hkick"
+mbtxx22v: vkicker, type = "vkick"
+ipmxx23: monitor, type = "moni"
+mqbxx23: quadrupole, type = "kquad", l = 0.15, k1 = -1.371555891438887
+mbtxx23h: hkicker, type = "hkick"
+mbtxx23v: vkicker, type = "vkick"
+ipmxx24: monitor, type = "moni"
+mqbxx24: quadrupole, type = "kquad", l = 0.15, k1 = 2.077104407275745
+mbtxx24h: hkicker, type = "hkick"
+mbtxx24v: vkicker, type = "vkick"
+ipmxx25: monitor, type = "moni"
+mqbxx25: quadrupole, type = "kquad", l = 0.15, k1 = -3.167307934958634
+mbtxx25h: hkicker, type = "hkick"
+mbtxx25v: vkicker, type = "vkick"
+ipmxx26: monitor, type = "moni"
+mqbxx26: quadrupole, type = "kquad", l = 0.15, k1 = 3.146472766974112
+mbtxx26h: hkicker, type = "hkick"
+mbtxx26v: vkicker, type = "vkick"
+ipmxx27: monitor, type = "moni"
+mqbxx27: quadrupole, type = "kquad", l = 0.15, k1 = -4.556257181092718
+mbtxx27h: hkicker, type = "hkick"
+mbtxx27v: vkicker, type = "vkick"
+mjfyy02: sbend, type = "csbend", l = 1.000100696591336, angle = 0.04915839558533041, e1 = 0.0245791977926652,
+          e2 = 0.0245791977926652, ref_tilt = -1.570796326794897, hgap = 0.01236679193706916
+mjfyy02a: sbend, type = "csbend", l = 1.000100696591336, angle = 0.04915839558533041, e1 = 0.0245791977926652,
+          e2 = 0.0245791977926652, ref_tilt = -1.570796326794897, hgap = 0.01236679193706916
+mjfzz01: sbend, type = "csbend", l = 1.011179951444028, angle = 0.515981426649879, e1 = 0.2579907133249395,
+          e2 = 0.2579907133249395, hgap = 0.01236679193706916
+mjfzz02: sbend, type = "csbend", l = 1.011179951444028, angle = 0.515981426649879, e1 = 0.2579907133249395,
+          e2 = 0.2579907133249395, hgap = 0.01236679193706916
+mjfzz03: sbend, type = "csbend", l = 1.00486244525794, angle = 0.3410321886956792, e1 = 0.1705160943478396,
+          e2 = 0.1705160943478396, hgap = 0.01236679193706916
+mjfzz04: sbend, type = "csbend", l = 1.00486244525794, angle = 0.3410321886956792, e1 = 0.1705160943478396,
+          e2 = 0.1705160943478396, hgap = 0.01236679193706916
+ipmzz00: monitor, type = "moni"
+mqbzz00: quadrupole, type = "kquad", l = 0.15, k1 = 0.202211115487838
+mbtzz00h: hkicker, type = "hkick"
+mbtzz00v: vkicker, type = "vkick"
+ipmzz01: monitor, type = "moni"
+mqbzz01: quadrupole, type = "kquad", l = 0.15, k1 = -7.865665987441451
+mbtzz01h: hkicker, type = "hkick"
+mbtzz01v: vkicker, type = "vkick"
+ipmzz02: monitor, type = "moni"
+mqbzz02: quadrupole, type = "kquad", l = 0.15, k1 = 7.578383807991749
+mbtzz02h: hkicker, type = "hkick"
+mbtzz02v: vkicker, type = "vkick"
+ipmzz03: monitor, type = "moni"
+mqbzz03: quadrupole, type = "kquad", l = 0.15, k1 = -7.005884929752833
+mbtzz03h: hkicker, type = "hkick"
+mbtzz03v: vkicker, type = "vkick"
+ipmzz04: monitor, type = "moni"
+mqbzz04: quadrupole, type = "kquad", l = 0.15, k1 = 24.52886476116244
+mbtzz04h: hkicker, type = "hkick"
+mbtzz04v: vkicker, type = "vkick"
+ipmzz05: monitor, type = "moni"
+mqbzz05: quadrupole, type = "kquad", l = 0.15, k1 = -7.005884929752833
+mbtzz05h: hkicker, type = "hkick"
+mbtzz05v: vkicker, type = "vkick"
+ipmzz06: monitor, type = "moni"
+mqbzz06: quadrupole, type = "kquad", l = 0.15, k1 = 7.578383807991749
+mbtzz06h: hkicker, type = "hkick"
+mbtzz06v: vkicker, type = "vkick"
+ipmzz07: monitor, type = "moni"
+mqbzz07: quadrupole, type = "kquad", l = 0.15, k1 = -7.865665987441451
+mbtzz07h: hkicker, type = "hkick"
+mbtzz07v: vkicker, type = "vkick"
+ipmzz08: monitor, type = "moni"
+mqbzz08: quadrupole, type = "kquad", l = 0.15, k1 = 0.202211115487838
+mbtzz08h: hkicker, type = "hkick"
+mbtzz08v: vkicker, type = "vkick"
+ipmzz09: monitor, type = "moni"
+mqbzz09: quadrupole, type = "kquad", l = 0.15, k1 = -7.65911224260571
+mbtzz09h: hkicker, type = "hkick"
+mbtzz09v: vkicker, type = "vkick"
+ipmzz10: monitor, type = "moni"
+mqbzz10: quadrupole, type = "kquad", l = 0.15, k1 = 3.30336129187608
+mbtzz10h: hkicker, type = "hkick"
+mbtzz10v: vkicker, type = "vkick"
+ipmzz11: monitor, type = "moni"
+mqbzz11: quadrupole, type = "kquad", l = 0.15, k1 = -8.143404984858588
+mbtzz11h: hkicker, type = "hkick"
+mbtzz11v: vkicker, type = "vkick"
+ipmzz12: monitor, type = "moni"
+mqbzz12: quadrupole, type = "kquad", l = 0.15, k1 = 7.690496478085654
+mbtzz12h: hkicker, type = "hkick"
+mbtzz12v: vkicker, type = "vkick"
+ipmzz13: monitor, type = "moni"
+mqbzz13: quadrupole, type = "kquad", l = 0.15, k1 = -7.727524078709686
+mbtzz13h: hkicker, type = "hkick"
+mbtzz13v: vkicker, type = "vkick"
+ipmzz14: monitor, type = "moni"
+mqbzz14: quadrupole, type = "kquad", l = 0.15, k1 = 24.52886476116244
+mbtzz14h: hkicker, type = "hkick"
+mbtzz14v: vkicker, type = "vkick"
+ipmzz15: monitor, type = "moni"
+mqbzz15: quadrupole, type = "kquad", l = 0.15, k1 = -7.727524078709686
+mbtzz15h: hkicker, type = "hkick"
+mbtzz15v: vkicker, type = "vkick"
+ipmzz16: monitor, type = "moni"
+mqbzz16: quadrupole, type = "kquad", l = 0.15, k1 = 7.843607511643537
+mbtzz16h: hkicker, type = "hkick"
+mbtzz16v: vkicker, type = "vkick"
+ipmzz17: monitor, type = "moni"
+mqbzz17: quadrupole, type = "kquad", l = 0.15, k1 = -11.3252262769812
+mbtzz17h: hkicker, type = "hkick"
+mbtzz17v: vkicker, type = "vkick"
+ipmzz18: monitor, type = "moni"
+mqbzz18: quadrupole, type = "kquad", l = 0.15, k1 = 4.079290655910613
+mbtzz18h: hkicker, type = "hkick"
+mbtzz18v: vkicker, type = "vkick"
+ipmzz19: monitor, type = "moni"
+mqbzz19: quadrupole, type = "kquad", l = 0.15, k1 = -6.203116634501289
+mbtzz19h: hkicker, type = "hkick"
+mbtzz19v: vkicker, type = "vkick"
+ipmzz20: monitor, type = "moni"
+mqbzz20: quadrupole, type = "kquad", l = 0.15, k1 = 1.536801049928575
+mbtzz20h: hkicker, type = "hkick"
+mbtzz20v: vkicker, type = "vkick"
+ipmzz21: monitor, type = "moni"
+mqbzz21: quadrupole, type = "kquad", l = 0.15, k1 = -3.965480885945924
+mbtzz21h: hkicker, type = "hkick"
+mbtzz21v: vkicker, type = "vkick"
+ipmzz22: monitor, type = "moni"
+mqbzz22: quadrupole, type = "kquad", l = 0.15, k1 = 3.324328920892079
+mbtzz22h: hkicker, type = "hkick"
+mbtzz22v: vkicker, type = "vkick"
+ipmzz23: monitor, type = "moni"
+mqbzz23: quadrupole, type = "kquad", l = 0.15, k1 = -3.669587169455631
+mbtzz23h: hkicker, type = "hkick"
+mbtzz23v: vkicker, type = "vkick"
+mjfzz05: sbend, type = "csbend", l = 1.011179951444028, angle = 0.515981426649879, e1 = 0.2579907133249395,
+          e2 = 0.2579907133249395, hgap = 0.01236679193706916
+ipmzz24: monitor, type = "moni"
+mqbzz24: quadrupole, type = "kquad", l = 0.15, k1 = 9.768108223384305
+mbtzz24h: hkicker, type = "hkick"
+mbtzz24v: vkicker, type = "vkick"
+ipmzz25: monitor, type = "moni"
+mqbzz25: quadrupole, type = "kquad", l = 0.15, k1 = -3.669587169455631
+mbtzz25h: hkicker, type = "hkick"
+mbtzz25v: vkicker, type = "vkick"
+ipmzz26: monitor, type = "moni"
+mqbzz26: quadrupole, type = "kquad", l = 0.15, k1 = 3.324328920892079
+mbtzz26h: hkicker, type = "hkick"
+mbtzz26v: vkicker, type = "vkick"
+ipmzz27: monitor, type = "moni"
+mqbzz27: quadrupole, type = "kquad", l = 0.15, k1 = -3.965480885945924
+mbtzz27h: hkicker, type = "hkick"
+mbtzz27v: vkicker, type = "vkick"
+mjfzz06: sbend, type = "csbend", l = 1.011179951444028, angle = 0.515981426649879, e1 = 0.2579907133249395,
+          e2 = 0.2579907133249395, hgap = 0.01236679193706916
+ipmzz28: monitor, type = "moni"
+mqbzz28: quadrupole, type = "kquad", l = 0.15, k1 = 1.536801049928575
+mbtzz28h: hkicker, type = "hkick"
+mbtzz28v: vkicker, type = "vkick"
+ipmzz29: monitor, type = "moni"
+mqbzz29: quadrupole, type = "kquad", l = 0.15, k1 = -3.32576459100414
+mbtzz29h: hkicker, type = "hkick"
+mbtzz29v: vkicker, type = "vkick"
+mjfzz07: sbend, type = "csbend", l = 1.00127036783312, angle = 0.174532925199441, e1 = 0.08726646259972048,
+          e2 = 0.08726646259972048, hgap = 0.01236679193706916
+ipmzz30: monitor, type = "moni"
+mqbzz30: quadrupole, type = "kquad", l = 0.15, k1 = 1.548913211676647
+mbtzz30h: hkicker, type = "hkick"
+mbtzz30v: vkicker, type = "vkick"
+ipmzz31: monitor, type = "moni"
+mqbzz31: quadrupole, type = "kquad", l = 0.15, k1 = -3.975192760783982
+mbtzz31h: hkicker, type = "hkick"
+mbtzz31v: vkicker, type = "vkick"
+mjfzz08: sbend, type = "csbend", l = 1.00127036783312, angle = 0.174532925199441, e1 = 0.08726646259972048,
+          e2 = 0.08726646259972048, hgap = 0.01236679193706916
+mjfzz09: sbend, type = "csbend", l = 1.00127036783312, angle = 0.174532925199441, e1 = 0.08726646259972048,
+          e2 = 0.08726646259972048, hgap = 0.01236679193706916
+mjfzz10: sbend, type = "csbend", l = 1.00127036783312, angle = 0.174532925199441, e1 = 0.08726646259972048,
+          e2 = 0.08726646259972048, hgap = 0.01236679193706916
+mjfzz11: sbend, type = "csbend", l = 1.001577750930109, angle = 0.1944845821198417, e1 = 0.09724229105992085,
+          e2 = 0.09724229105992085, hgap = 0.01236679193706916
+mjfzz12: sbend, type = "csbend", l = 1.001577750930109, angle = 0.1944845821198417, e1 = 0.09724229105992085,
+          e2 = 0.09724229105992085, hgap = 0.01236679193706916
+ipmzz32: monitor, type = "moni"
+mqbzz32: quadrupole, type = "kquad", l = 0.15, k1 = 3.316926969080146
+mbtzz32h: hkicker, type = "hkick"
+mbtzz32v: vkicker, type = "vkick"
+ipmzz33: monitor, type = "moni"
+mqbzz33: quadrupole, type = "kquad", l = 0.15, k1 = -3.619624558026462
+mbtzz33h: hkicker, type = "hkick"
+mbtzz33v: vkicker, type = "vkick"
+ipmzz34: monitor, type = "moni"
+mqbzz34: quadrupole, type = "kquad", l = 0.15, k1 = 9.768108223384305
+mbtzz34h: hkicker, type = "hkick"
+mbtzz34v: vkicker, type = "vkick"
+ipmzz35: monitor, type = "moni"
+mqbzz35: quadrupole, type = "kquad", l = 0.15, k1 = -2.442517075455562
+mbtzz35h: hkicker, type = "hkick"
+mbtzz35v: vkicker, type = "vkick"
+ipmzz36: monitor, type = "moni"
+mqbzz36: quadrupole, type = "kquad", l = 0.15, k1 = 3.215646051282664
+mbtzz36h: hkicker, type = "hkick"
+mbtzz36v: vkicker, type = "vkick"
+ipmzz37: monitor, type = "moni"
+mqbzz37: quadrupole, type = "kquad", l = 0.15, k1 = -0.8789174031917668
+mbtzz37h: hkicker, type = "hkick"
+mbtzz37v: vkicker, type = "vkick"
+ipmzz38: monitor, type = "moni"
+mqbzz38: quadrupole, type = "kquad", l = 0.15, k1 = -2.109358151344075
+mbtzz38h: hkicker, type = "hkick"
+mbtzz38v: vkicker, type = "vkick"
+mqbnl01: quadrupole, type = "kquad", l = 0.15, k1 = 2.500910946065756
+ipmzz39: monitor, type = "moni"
+mqbzz39: quadrupole, type = "kquad", l = 0.15, k1 = 1.724650155560153
+mbtzz39h: hkicker, type = "hkick"
+mbtzz39v: vkicker, type = "vkick"
+ipmzz40: monitor, type = "moni"
+mqbzz40: quadrupole, type = "kquad", l = 0.15, k1 = -1.724650155560153
+mbtzz40h: hkicker, type = "hkick"
+mbtzz40v: vkicker, type = "vkick"
+ipmzz41: monitor, type = "moni"
+mqbzz41: quadrupole, type = "kquad", l = 0.15, k1 = 1.724650155560153
+mbtzz41h: hkicker, type = "hkick"
+mbtzz41v: vkicker, type = "vkick"
+ipmzz42: monitor, type = "moni"
+mqbzz42: quadrupole, type = "kquad", l = 0.15, k1 = -1.724650155560153
+mbtzz42h: hkicker, type = "hkick"
+mbtzz42v: vkicker, type = "vkick"
+ipmzz43: monitor, type = "moni"
+mqbzz43: quadrupole, type = "kquad", l = 0.15, k1 = 1.724650155560153
+mbtzz43h: hkicker, type = "hkick"
+mbtzz43v: vkicker, type = "vkick"
+ipmzz44: monitor, type = "moni"
+mqbzz44: quadrupole, type = "kquad", l = 0.15, k1 = -1.724650155560153
+mbtzz44h: hkicker, type = "hkick"
+mbtzz44v: vkicker, type = "vkick"
+END_MARK: marker, type = "mark"
+LERF_TO_RAMP: LINE=(DLAUNCH_US,MQBXX01,DLAUNCH_DS,DLAUNCH_US,MQBXX01A,DLAUNCH_DS,DLAUNCH_US,MQBXX02,DLAUNCH_DS,
+         DLAUNCH_US,MQBXX02A,DARC_DS,MJFXX09,DARC_US,MQBXX03,DARC_DS,MJFXX14,DARC_US,MQBXX03A,DLAUNCH_DS,DLAUNCH_US,MQBXX04,
+         DLAUNCH_DS,DLAUNCH_US,MQBXX04A,DLAUNCH_DS,DLAUNCH_US,MQBXX05,DLAUNCH_DS,MATCH1)
+RAMP: LINE=(DLAUNCH_US,MQBXX05A,DLAUNCH_DS,DLAUNCH_US,MQBXX05B,DLAUNCH_DS,DLAUNCH_US,MQBXX06,DLAUNCH_DS,DLAUNCH_US,
+         MQBXX06A,DRAMP_DS,MJFYY01,DRAMP_US,MQBXX09,DRAMP_DS,MJFYY01A,DRAMP_US,MQBXX10,DLAUNCH_DS,DLAUNCH_US,MQBXX11,DLAUNCH_DS,
+         DLAUNCH_US,MQBXX12,DLAUNCH_DS,DLAUNCH_US,MQBXX13,DLAUNCH_DS,MATCH2,DLAUNCH_US,MQBXX14,DLAUNCH_DS,DLAUNCH_US,MQBXX15,
+         DLAUNCH_DS,DLAUNCH_US,MQBXX16,DLAUNCH_DS,DLAUNCH_US,MQBXX17,DLAUNCH_DS,DLAUNCH_US,MQBXX18,DRAMP_DS,MJFYY02,DRAMP_US,
+         MQBXX19,DRAMP_DS,MJFYY02A,DRAMP_US,MQBXX20,DLAUNCH_DS,DLAUNCH_US,MQBXX21,DLAUNCH_DS,DLAUNCH_US,MQBXX22,DLAUNCH_DS,
+         DLAUNCH_US,MQBXX23,DLAUNCH_DS,DLAUNCH_US,MQBXX24,DLAUNCH_DS,DLAUNCH_US,MQBXX25,DLAUNCH_DS,DLAUNCH_US,MQBXX26,DLAUNCH_DS,
+         DLAUNCH_US,MQBXX27,DLAUNCH_DS,MATCH3)
+ARCP1: LINE=(DLA_US,MQBZZ00,DLA_DS,DLA_US,MQBZZ01,DLA_DS,DLA_US,MQBZZ02,DLA_DS,DLA_US,MQBZZ03,DARCP1_DS,MJFZZ01,
+         DARCP1_US,MQBZZ04,DARCP1_DS,MJFZZ02,DARCP1_US,MQBZZ05,DLA_DS,DLA_US,MQBZZ06,DLA_DS,DLA_US,MQBZZ07,DLA_DS,DLA_US,MQBZZ08,
+         DLA_DS,DLA_US,MQBZZ09,DLA_DS,DLA_US,MQBZZ10,DLA_DS,DLA_US,MQBZZ11,DLA_DS,DLA_US,MQBZZ12,DLA_DS,DLA_US,MQBZZ13,DARCP1_DS,
+         MJFZZ05,DARCP1_US,MQBZZ14,DARCP1_DS,MJFZZ06,DARCP1_US,MQBZZ15,DLA_DS,DLA_US,MQBZZ16,DLA_DS,DLA_US,MQBZZ17,DLA_DS,DLA_US,
+         MQBZZ18,DLA_DS,DLA_US,MQBZZ19,DLA_DS,MATCH4)
+ARCP2: LINE=(DLB_US,MQBZZ20,DLB_DS,DLB_US,MQBZZ21,DLB_DS,DLB_US,MQBZZ22,DLB_DS,DLB_US,MQBZZ23,DARCP2_DS,MJFZZ07,
+         DARCP2_US,MQBZZ24,DARCP2_DS,MJFZZ08,DARCP2_US,MQBZZ25,DLB_DS,DLB_US,MQBZZ26,DLB_DS,DLB_US,MQBZZ27,DLB_DS,DLB_US,MQBZZ28,
+         DLB_DS,DLB_US,MQBZZ29,DLB_DS,DLB_US,MQBZZ30,DLB_DS,DLB_US,MQBZZ31,DLB_DS,DLB_US,MQBZZ32,DLB_DS,DLB_US,MQBZZ33,DARCP2_DS,
+         MJFZZ09,DARCP2_US,MQBZZ34,DARCP2_DS,MJFZZ10,DARCP2_US,MQBZZ35,DLB_DS,DLB_US,MQBZZ36,DLB_DS,DLB_US,MQBZZ37,DLB_DS,DLB_US,
+         MQBZZ38,DLB_DS,MQBNL01,DEND)
+SL: LINE=(MQBZZ39,DSL,MQBZZ40,DSL,MQBZZ41,DSL,MQBZZ42,DSL,MQBZZ43,DSL,MQBZZ44,DSL,END_MARK)
+mqbf1: quadrupole, type = "quad", l = 0.15, k1 = 0.7228781360207684
+o1: drift, type = "drif", l = 6.350000000000001
+os: drift, type = "drif", l = 12.85
+mqbd1: quadrupole, type = "quad", l = 0.15, k1 = -0.7010999473730531
+ALINCELL: LINE=(MQBF1,OS,MQBD1,OS)
+SLLINAC: LINE=(15*ALINCELL)
+odg: drift, type = "drif", l = 0.8140000000000001
+odgap: drift, type = "drif", l = 1.15944
+
+mqlbmad1: quadrupole, type = "quad", l = 0.15, k1 = 1.11801348648106341E-001
+mqlbmad2: quadrupole, type = "quad", l = 0.15, k1 = 2.85712442660490629E+000
+mqlbmad3: quadrupole, type = "quad", l = 0.15, k1 = -3.38040727461648505E+000
+mqlbmad4: quadrupole, type = "quad", l = 0.15, k1 = 1.23857430424903692E+000
+mqlbmad5: quadrupole, type = "quad", l = 0.15, k1 = 2.70347071394825694E-002
+
+ 
+od103: drift, type = "drif", l = 0.26815
+mbt1a01h: hkicker, type = "hkick"
+od104: drift, type = "drif", l = 0.19609
+mbt1a01v: vkicker, type = "vkick"
+od105: drift, type = "drif", l = 0.50546
+itv1a01: monitor, type = "moni"
+od125: drift, type = "drif", l = 1.71272
+mqb1a02: quadrupole, type = "quad", l = 0.15, k1 = -0.4715838971912538
+od126: drift, type = "drif", l = 1.68242
+q1: quadrupole, type = "kquad", l = 0.19, k1 = 3.798310608788421
+k: drift, type = "drif", l = 0.8224814233223765
+d1: sbend, type = "sben", l = 0.9977103280003717, angle = 0.0981731265178237
+dq: drift, type = "drif", l = 0.385
+qd: quadrupole, type = "kquad", l = 0.38, k1 = -1.983384024422375
+g: drift, type = "drif", l = 0.735
+qf: quadrupole, type = "kquad", l = 0.38, k1 = 2.169773270683237
+dl2: drift, type = "drif", l = 3.801834104988399
+imstart: marker, type = "mark"
+imcellend: marker, type = "mark"
+imend: marker, type = "mark"
+THELINE: LINE=(DL2,QF,G,QD,DQ,D1,K,Q1,Q1,K,D1,DQ,QD,G,QF,DL2,IMCELLEND)
+NEWARC: LINE=(16*THELINE)
+oclear: drift, type = "drif"
+ipm1r01: monitor, type = "moni"
+mqb1r01: quadrupole, type = "quad", l = 0.15, k1 = 2.651496093349524
+odg2: drift, type = "drif", l = 2.373911388492174
+mql5: quadrupole, type = "quad", l = 0.15, k1 = 0.9712806697918631
+mql6: quadrupole, type = "quad", l = 0.15, k1 = -2.664054852052445
+mql7: quadrupole, type = "quad", l = 0.15, k1 = 2.941710140866127
+mql8: quadrupole, type = "quad", l = 0.15, k1 = -0.7407684158337555
+mjd1h: sbend, type = "sben", l = 1.00273759, angle = -0.161718
+od11h: drift, type = "drif", l = 1.95112514
+od11s0h: drift, type = "drif", l = 1.357750488019531
+od11s0h1: drift, type = "drif", l = 0.2479909152447439
+mql1h: quadrupole, type = "quad", l = 0.15, k1 = 11.33209190579285
+mql2h: quadrupole, type = "quad", l = 0.15, k1 = -5.943939828673125
+mql3h: quadrupole, type = "quad", l = 0.15, k1 = 4.449800489576688
+mql4h: quadrupole, type = "quad", l = 0.15, k1 = 0.2501069676763881
+mql5h: quadrupole, type = "quad", l = 0.15, k1 = -1.445344408620994
+mql6h: quadrupole, type = "quad", l = 0.15, k1 = 10.77506104385472
+mjd2h: sbend, type = "sben", l = 1.00273759, angle = 0.161718
+odg1: drift, type = "drif", l = 0.29131
+ofixg: drift, type = "drif", l = 0.5251245007377147
+mql9: quadrupole, type = "quad", l = 0.15, k1 = -9.561222281673047
+mql10: quadrupole, type = "quad", l = 0.15, k1 = 9.383112447098849
+mjd1s06: sbend, type = "sben", l = 1.0005698, angle = -0.224, e1 = -0.112, e2 = -0.112, ref_tilt = -1.5707963267949,
+          hgap = 0.009999963966887578
+od9106: drift, type = "drif", l = 7.569084
+odsv01: drift, type = "drif", l = 0.303
+odsv02: drift, type = "drif", l = 0.5
+odsv03: drift, type = "drif", l = 0.5
+od9106s1: drift, type = "drif", l = 3.709542
+od9106s2: drift, type = "drif", l = 1
+mqv01: quadrupole, type = "quad", l = 0.15, k1 = -9.892199576357346
+mqv02: quadrupole, type = "quad", l = 0.15, k1 = 8.539775140941984
+mqv03: quadrupole, type = "quad", l = 0.15, k1 = -7.346023907881712
+mqv04: quadrupole, type = "quad", l = 0.15, k1 = 5.009499363611985
+mqv05: quadrupole, type = "quad", l = 0.15, k1 = -5.811317719386527
+mqv06: quadrupole, type = "quad", l = 0.15, k1 = -6.308881043948808
+od9105: drift, type = "drif", l = 0.5
+od9104: drift, type = "drif", l = 1
+mql1s01: quadrupole, type = "quad", l = 0.1, k1 = 5.574390714353428
+mql1s02: quadrupole, type = "quad", l = 0.1, k1 = -5.492682738355373
+mql1s03: quadrupole, type = "quad", l = 0.1, k1 = 5.50391404514793
+mql1s04: quadrupole, type = "quad", l = 0.1, k1 = -5.574390714353428
+mql1s05: quadrupole, type = "quad", l = 0.1, k1 = 5.492682738355373
+mql1s06: quadrupole, type = "quad", l = 0.1, k1 = -5.50391404514793
+mql1s07: quadrupole, type = "quad", l = 0.1, k1 = 5.492682738355373
+odd01: drift, type = "drif", l = 0.5570000000000001
+mjd1s01: sbend, type = "sben", l = 1.0005698, angle = 0.224, e1 = 0.112, e2 = 0.112, ref_tilt = -1.5707963267949,
+          hgap = 0.009999963966887578
+od115: drift, type = "drif", l = 0.46424
+od144: drift, type = "drif", l = 1.91853
+od102: drift, type = "drif", l = 0.29965
+imtonl: marker, type = "mark"
+imh01: marker, type = "mark"
+imv01: marker, type = "mark"
+odb01: drift, type = "drif", l = 1.29917058
+ode01: drift, type = "drif", l = 0.30151
+mbl0r03: sbend, type = "csbend", l = 0.369756603, angle = -0.09599310886, e2 = -0.09599310885968811, hgap = 0.0206375
+mbl0r04: sbend, type = "csbend", l = 0.369756603, angle = 0.09599310886, e1 = 0.09599310885968811, hgap = 0.0206375
+doff1: drift, type = "drif", l = -0.03491
+d56: drift, type = "drif", l = 0.21971
+d57: drift, type = "drif", l = 0.206248
+d58: drift, type = "drif", l = 0.17265
+d67: drift, type = "drif", l = 3.086392
+d68: drift, type = "drif", l = 0.53144
+d69: drift, type = "drif", l = 0.42872
+d70: drift, type = "drif", l = 0.40193
+d71: drift, type = "drif", l = 0.724302
+d72: drift, type = "drif", l = 3.5001457
+dadjj: drift, type = "drif", l = 3e-05
+mbt0r08v: vkicker, type = "vkick"
+mat0r09v: vkicker, type = "vkick"
+mat0r08h: hkicker, type = "hkick"
+mat0r09h: hkicker, type = "hkick"
+ipm0r08: monitor, type = "moni"
+sld0r08: monitor, type = "moni"
+sbc0r08: monitor, type = "moni"
+ibc0r08: monitor, type = "moni"
+ipm0r09: monitor, type = "moni"
+dos01: drift, type = "drif", l = 1.17751403787498
+dos02: drift, type = "drif", l = 0.9926357363750724
+dos03: drift, type = "drif", l = 0.9926357363750724
+mqs01: quadrupole, type = "quad", l = 0.15, k1 = 5.18778202257611287E+000
+mqs02: quadrupole, type = "quad", l = 0.15, k1 = 1.89805629996260983E+000
+mqs03: quadrupole, type = "quad", l = 0.15, k1 = -2.16689630259179955E+000
+mqs04: quadrupole, type = "quad", l = 0.15, k1 = -1.14071496199965106E+000
+mqs05: quadrupole, type = "quad", l = 0.15, k1 = 3.46907068859459677E+000
+mqs06: quadrupole, type = "quad", l = 0.15, k1 = -4.39500281881192745E+000
+mqs07: quadrupole, type = "quad", l = 0.15, k1 = -1.07287758070781086E-002
+
+
+mqo01: quadrupole, type = "quad", l = 0.15, k1 = 1.12333675546136771E+001
+mqo02: quadrupole, type = "quad", l = 0.15, k1 = -1.05937262965583550E+001
+
+dshv01: drift, type = "drif", l = 0.309878301499907
+dshv02: drift, type = "drif", l = 0.3113200023370874
+dshv03: drift, type = "drif"
+ode02: drift, type = "drif", l = 0.3
+imnl: marker, type = "mark"
+dsh1: drift, type = "drif", l = 0.0347
+dsh1m: drift, type = "drif", l = -0.0347
+d0dum: drift, type = "drif", l = 10.47011230299984
+mqd0r08: quadrupole, type = "kquad", l = 0.15, k1 = 0.4312781434091695
+mqd0r09: quadrupole, type = "kquad", l = 0.15, k1 = -1.257087474127336
+MERGER: LINE=(MBL0R03,DOFF1,D67,MAT0R08H,D56,MBT0R08V,D57,IPM0R08,D58,DSH1,MQD0R08,DSH1M,D68,SLD0R08,D69,SBC0R08,D70,
+         IBC0R08,D71,MAT0R09H,D56,MAT0R09V,D57,IPM0R09,D58,DSH1,MQD0R09,DSH1M,D72,DOFF1,DADJJ,MBL0R04)
+ARCTONLH: LINE=(IPM1R01,OD102,MQB1R01,ODG2,MQL5,ODG2,MQL6,ODG2,MQL7,ODG2,MQL8,ODG2,MJD1H,OD11S0H1,MQL1H,OD11S0H,MQL2H,
+         OD11S0H,MQL3H,OD11S0H,MQL4H,OD11S0H,MQL5H,OD11S0H,MQL6H,OD11S0H1,MJD2H,IMH01,ODG1,MQL9,ODG1,ODG1,MQL10,ODG1)
+ARCTONLV0: LINE=(MJD1S06,ODE01,MQV01,ODB01,MQV02,ODB01,MQV03,ODB01,MQV04,ODB01,MQV05,ODB01,MQV06,ODE01,MJD1S01,IMTONL,
+         ODD01,MQO01,DSHV01,MQO02,DSHV02)
+MERG: LINE=(MBL0R03,DOS02,MQS01,DOS01,MQS02,DOS01,MQS03,DOS01,MQS04,DOS01,MQS05,DOS01,MQS06,DOS01,MQS07,DOS03,MBL0R04,
+         IMNL)
+LERF_TO_ARC: LINE=(LERF_TO_RAMP,RAMP)
+LERF_TO_ARCP1: LINE=(LERF_TO_RAMP,RAMP,ARCP1)
+ARC: LINE=(ARCP1,ARCP2)
+LERF_TO_SL_START: LINE=(LERF_TO_RAMP,RAMP,ARCP1,ARCP2)
+LERF_TO_SL: LINE=(LERF_TO_RAMP,RAMP,ARCP1,ARCP2,SLLINAC)
+LERF_TO_SL_END: LINE=(LERF_TO_RAMP,RAMP,ARCP1,ARCP2,SLLINAC,ODG,mqlbmad1,ODG,mqlbmad2,ODG,mqlbmad3,ODG,mqlbmad4,ODG,ODGAP,OCLEAR,
+         mqlbmad5,OD103,MBT1A01H,OD104,MBT1A01V,OD105,ITV1A01,OCLEAR,IMSTART)
+LERF_SL_ARC_END: LINE=(LERF_TO_SL_END,NEWARC)
+LERF_TO_NL: LINE=(LERF_SL_ARC_END,ARCTONLH,ARCTONLV0,MERG)
+
+
