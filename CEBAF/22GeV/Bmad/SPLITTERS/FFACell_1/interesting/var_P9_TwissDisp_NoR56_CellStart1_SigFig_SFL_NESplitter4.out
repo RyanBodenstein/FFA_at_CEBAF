@@ -1,0 +1,34 @@
+ M15Q1[K1] =  1.74051159386590493E-001   ! Not used in optimizing
+ M15Q2[K1] = -5.99999554608545482E-001   ! Not used in optimizing
+ M15Q3[K1] =  1.75608467296935661E-001   ! Not used in optimizing
+ M15Q4[K1] =  4.15437467965766999E-002   ! Not used in optimizing
+ M15Q5[K1] = -1.11760969491069229E-001   ! Not used in optimizing
+ M15Q6[K1] =  9.86670527634047612E-002   ! Not used in optimizing
+ M15Q7[K1] = -2.84059481172746278E-002   ! Not used in optimizing
+ M15Q8[K1] = -3.03571400418899573E-001   ! Not used in optimizing
+ M15Q9[K1] =  4.76126741596668956E-001   ! Not used in optimizing
+ M15Q10[K1] = -2.98734474097640423E-001   ! Not used in optimizing
+ 
+ end_file
+ 
+ 
+ ! Top 10
+ 
+ Constraints                          Ref_Ele    Start_Ele   Ele/S    Meas-or-Lim    Model       Merit      Max_Loc
+ 1@Optics[9]            beta.a <max>            BEGINNING   END        7.0000E+02   1.1342E+03  1.885E+02  M9Q16
+ 1@Optics[10]           beta.b <max>            BEGINNING   END        7.0000E+02   1.0804E+03  1.447E+02  M9Q14
+ 1@Optics[3]            1@lat::alpha.a[END] <target>                   3.0489E+00   3.0489E+00  7.836E-05
+ 1@Optics[4]            1@lat::alpha.b[END] <target>                  -3.1896E+00  -3.1896E+00  5.412E-05
+ 1@Optics[1]            1@lat::beta.a[END] <target>                    4.1573E+00   4.1573E+00  9.373E-07
+ 1@Optics[2]            1@lat::beta.b[END] <target>                    6.5151E+00   6.5151E+00  2.916E-07
+ 1@Optics[5]            1@lat::eta.a[END] <target>                     2.7200E-02   2.7200E-02  1.884E-10
+ 1@Optics[6]            1@lat::etap.a[END] <target>                   -1.9800E-02  -1.9800E-02  9.288E-12
+ Twiss_P9_FirstFive[1]  1@M9Q1[K1]                          20.66     -6.0000E-01  -6.0000E-01  0.000E+00
+ Twiss_P9_FirstFive[2]  1@M9Q2[K1]                          24.16      6.0000E-01   5.4052E-01  0.000E+00
+ Constraints                          Ref_Ele    Start_Ele   Ele/S    Meas-or-Lim    Model       Merit      Max_Loc
+ 
+  figure of merit: 3.331979E+02
+ 
+ List of non-zero contributors to the Merit Function:
+ Name                                          Merit           Sigma [= sqrt(Chi^2/N)]
+ Optics.Twiss                                  3.3320E+02      2.0408E+02
