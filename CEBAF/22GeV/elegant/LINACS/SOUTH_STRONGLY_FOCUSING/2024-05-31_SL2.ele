@@ -1,0 +1,38 @@
+&run_setup
+	lattice=2024-05-31_SL.lte,
+	use_beamline=SL,
+	p_central_mev=1749.489126392060371, !From ARC1 exit
+	final=%s.fin
+	parameters=%s.parms
+    centroid=%s.cen
+&end
+&twiss_output
+	filename=%s.twi,
+	matched=0,radiation_integrals=1,
+	beta_x=1.786148088852307e+00, alpha_x=-5.124590234109309e-01, !Optimized by Alex B.
+	beta_y=2.103959936015381e+00, alpha_y=-4.304327123168855e-01
+&end
+&run_control 
+	n_steps=1
+&end
+&floor_coordinates
+	filename=%s.flr,
+	X0=-80.60000000,Y0=100.00000000,Z0=156.75372000,
+	theta0=0,phi0=0
+&end
+&bunched_beam
+	n_particles_per_bunch=1,
+	emit_x=4e-07, emit_y=4e-07,
+	sigma_dp=0.002,sigma_s=0.0,
+	distribution_type[0] = 3*gaussian,
+	distribution_cutoff[0] = 3*3,
+	enforce_rms_values[0]=1,1,1
+	beta_x=1.786148088852307e+00, alpha_x=-5.124590234109309e-01, !Optimized by Alex B.
+	beta_y=2.103959936015381e+00, alpha_y=-4.304327123168855e-01
+&end
+&matrix_output
+	SDDS_output=%s.mat
+&end
+&track
+&end
+	

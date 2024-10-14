@@ -1,0 +1,108 @@
+! ==============================================================================
+! *** OPTICS=REINJ5, 22GEV CEBAF 2024-MAY-31 ***
+! ------------------------------------------------------------------------------
+
+
+! ------------------------------------------------------------------------------
+! constants and global parameters
+! ------------------------------------------------------------------------------
+
+parameter[geometry] = open      ! or closed
+parameter[particle] = electron  ! Default is positron
+mc2 = 0.00051099906             ! rest energy [GeV]
+
+! energy profile
+
+e_nl1 = 0.649489000000000000    !centroid energy into NL1 [GeV]
+e_sl2 = 1.749489126392060371    !centroid energy into SL2 [GeV]
+e_nl3 = 2.849489155200849382    !centroid energy into NL3 [GeV]
+e_sl4 = 3.949489167962193278    !centroid energy into SL4 [GeV]
+e_nl5 = 5.049489175163595974    !centroid energy into NL5 [GeV]
+e_sl6 = 6.149489179788682122    !centroid energy into SL6 [GeV]
+e_nl7 = 7.249489183010239685    !centroid energy into NL7 [GeV]
+e_sl8 = 8.349489185382981304    !centroid energy into SL8 [GeV]
+e_nl9 = 9.449489187203122128    !centroid energy into NL9 [GeV]
+
+! initial conditions (entrance of REINJ5)
+
+emitxn = 2.62e-10 * e_nl5 / mc2 !normalized horizontal emittance [m]
+emityn = 2.29e-10 * e_nl5 / mc2 !normalized vertical emittance [m]
+espread = 0.0001078             !fractional energy spread
+
+reinj5_bx = 2.759828165336033e+01     !twiss beta x [m]
+reinj5_ax = -7.382153472852939e-01    !twiss alpha x [m]
+reinj5_by = 5.082361605499229e+01     !twiss beta y [m] 
+reinj5_ay = 8.426563264943427e-01     !twiss alpha y [m]
+
+beginning[x_position] = 80.6
+beginning[y_position] = 100
+beginning[z_position] = -160.21779
+beginning[theta_position] = 0.0
+beginning[phi_position] = 0.0
+beginning[psi_position] = 0.0
+beginning[s] = 0.0
+beginning[e_tot] = e_nl5 * 1e9
+beginning[beta_a] = reinj5_bx
+beginning[alpha_a] = reinj5_ax
+beginning[beta_b] = reinj5_by
+beginning[alpha_b] = reinj5_ay
+beginning[eta_x] = 0.0
+beginning[etap_x] = 0.0
+
+! ==============================================================================
+! XCORs & YCORs
+! ------------------------------------------------------------------------------
+
+mbt1l00h_3l: hkicker, type = "hkick"
+mbt1l01h_3l: hkicker, type = "hkick"
+mbt1l00v_3l: vkicker, type = "vkick"
+
+! ==============================================================================
+! DRIFTs
+! ------------------------------------------------------------------------------
+
+d3100: drift, l = 0.41771
+d3101: drift, l = 0.224648
+d3102: drift, l = 0.2032
+d3103: drift, l = 0.21969
+d3104: drift, l = 0.461909
+d3105: drift, l = 0.215904
+d3106: drift, l = 0.17411837
+d3107a: drift, l = 0.66280633
+d3108: drift, l = 0.02698874
+d3107b: drift, l = 0.661657151
+
+! ==============================================================================
+! MARKERs
+! ------------------------------------------------------------------------------
+
+ipm3l00: instrument, type = "monitor"
+ipm3l01: instrument, type = "monitor"
+
+! ==============================================================================
+! QUADs
+! ------------------------------------------------------------------------------
+
+mqn1l00: quadrupole, type = "kquad", l = 0.3, b1_gradient = 2.804924069604141
+mqn1l01: quadrupole, type = "kquad", l = 0.3, b1_gradient = -3.901389741632459
+
+! ==============================================================================
+! BENDs
+! ------------------------------------------------------------------------------
+
+mcb1l01_3l: sbend, type = "csbend", l = 0.3668816, angle = -0.002893115550071393, e2 = -0.002893115550071393,
+          hgap = 0.0209
+mcb1l01a_3l: sbend, type = "csbend", l = 0.3668816, angle = 0.002893115550071393, e1 = 0.002893115550071393,
+          hgap = 0.0209
+mca1l01_3l: sbend, type = "csbend", l = 0.3668816, angle = 0.002893115550071393, e2 = 0.002893115550071393, hgap = 0.0209
+mbl0r04_3l: sbend, type = "csbend", l = 0.36918362, angle = -0.002893115550071393, e1 = -0.002893115550071393,
+          hgap = 0.0206375
+
+! ==============================================================================
+! BEAMLINEs
+! ------------------------------------------------------------------------------
+
+reinj5: line=(d3100,mqn1l00,d3101,ipm3l00,d3102,mbt1l00v_3l,d3103,mbt1l00h_3l,d3104,mbt1l01h_3l,d3105,ipm3l01,d3101,
+         mqn1l01,d3106,mcb1l01_3l,d3107a,mcb1l01a_3l,d3108,mca1l01_3l,d3107b,mbl0r04_3l)
+
+use, reinj5
