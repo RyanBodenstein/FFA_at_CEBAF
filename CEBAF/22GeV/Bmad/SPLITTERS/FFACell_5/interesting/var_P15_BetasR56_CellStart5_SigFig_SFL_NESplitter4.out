@@ -1,0 +1,34 @@
+ M15Q1[K1] =  1.74051159386590493E-001   ! Not used in optimizing
+ M15Q2[K1] = -5.99999554608545482E-001   ! Not used in optimizing
+ M15Q3[K1] =  1.75608467296935661E-001   ! Not used in optimizing
+ M15Q4[K1] =  5.28697878193647719E-002
+ M15Q5[K1] = -1.24415407485108889E-001
+ M15Q6[K1] =  1.00910169946594297E-001
+ M15Q7[K1] = -2.73889948975493090E-002
+ M15Q8[K1] = -3.06210988649099514E-001
+ M15Q9[K1] =  4.77095098126244566E-001
+ M15Q10[K1] = -2.97872072831537271E-001
+ 
+ end_file
+ 
+ 
+ ! Top 10
+ 
+ Constraints                            Ref_Ele    Start_Ele   Ele/S    Meas-or-Lim    Model       Merit      Max_Loc
+ 4@Optics[32]             4@lat::beta.b[END] <target>                    1.1607E+01   1.1607E+01  8.078E-18
+ 4@Optics[31]             4@lat::beta.a[END] <target>                    1.5386E+00   1.5386E+00  5.966E-20
+ Twiss_P15_FinalThree[3]  4@M15Q10[K1]                        76.62     -6.0000E-01  -2.9787E-01  0.000E+00
+ Twiss_P15_FinalThree[2]  4@M15Q9[K1]                         72.70      6.0000E-01   4.7710E-01  0.000E+00
+ Twiss_P15_FinalThree[1]  4@M15Q8[K1]                         68.11     -6.0000E-01  -3.0621E-01  0.000E+00
+ Twiss_P15_MiddleFour[4]  4@M15Q7[K1]                         63.04     -6.0000E-01  -2.7389E-02  0.000E+00
+ Twiss_P15_MiddleFour[3]  4@M15Q6[K1]                         62.04      6.0000E-01   1.0091E-01  0.000E+00
+ Twiss_P15_MiddleFour[2]  4@M15Q5[K1]                         54.05     -6.0000E-01  -1.2442E-01  0.000E+00
+ Twiss_P15_MiddleFour[1]  4@M15Q4[K1]                         48.36      6.0000E-01   5.2870E-02  0.000E+00
+ 4@Optics[40]             beta.b <max>            BEGINNING   END        7.0000E+02   7.0000E+02  0.000E+00  D1507#2
+ Constraints                            Ref_Ele    Start_Ele   Ele/S    Meas-or-Lim    Model       Merit      Max_Loc
+ 
+  figure of merit: 8.137593E-18
+ 
+ List of non-zero contributors to the Merit Function:
+ Name                                          Merit           Sigma [= sqrt(Chi^2/N)]
+ Optics.Twiss                                  8.1376E-18      2.0171E-14

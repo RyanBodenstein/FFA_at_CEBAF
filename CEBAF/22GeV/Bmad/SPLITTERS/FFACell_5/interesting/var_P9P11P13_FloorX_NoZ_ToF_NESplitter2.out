@@ -1,0 +1,29 @@
+ O_P11_TOF_B1[STRENGTH11_1] = -1.49225134978342178E+000   ! Not used in optimizing
+ O_P11_TOF_B2[STRENGTH11_2] =  1.66527343231040725E+000   ! Not used in optimizing
+ O_P11_TOF_D1[LENGTH11_1] =  9.00000000000000000E+000   ! Not used in optimizing
+ O_P11_TOF_D2[LENGTH11_2] =  5.42167697621872779E+000   ! Not used in optimizing
+ O_P11_TOF_D3[LENGTH11_3] =  9.88052311117433035E+000   ! Not used in optimizing
+ O_P11_TOF_D4[LENGTH11_4] =  7.44650469947863591E+000   ! Not used in optimizing
+ O_P11_TOF_D5[LENGTH11_5] =  9.29067757864110177E+000   ! Not used in optimizing
+ 
+ end_file
+ 
+ 
+ ! Top 10
+ 
+ Constraints                                      Ref_Ele    Start_Ele   Ele/S    Meas-or-Lim    Model       Merit      Max_Loc
+ 3@ToF[8]           3@lat::floor.x[END] <target>                                  -1.9204E-02  -1.9204E-02  1.733E-23
+ ToF_P13_Drifts[4]  3@O_P13_TOF_D4[LENGTH13_4]                                     1.5000E+01   1.5167E+01  0.000E+00
+ ToF_P13_Drifts[3]  3@O_P13_TOF_D3[LENGTH13_3]                                     4.5000E+00   5.2452E+00  0.000E+00
+ ToF_P13_Drifts[2]  3@O_P13_TOF_D2[LENGTH13_2]                                     3.1000E+00   3.0058E+00  0.000E+00
+ ToF_P13_Drifts[1]  3@O_P13_TOF_D1[LENGTH13_1]                                     3.8000E+00   3.8000E+00  0.000E+00
+ ToF_P13_Bends[2]   3@O_P13_TOF_B2[STRENGTH13_2]                                   1.7000E+00   1.6703E+00  0.000E+00
+ ToF_P13_Bends[1]   3@O_P13_TOF_B1[STRENGTH13_1]                                  -1.7000E+00  -1.6905E+00  0.000E+00
+ 3@ToF[7]           3@lat::time[END] <target>                                      3.1710E-07   3.1710E-07  0.000E+00
+ Constraints                                      Ref_Ele    Start_Ele   Ele/S    Meas-or-Lim    Model       Merit      Max_Loc
+ 
+  figure of merit: 1.733337E-23
+ 
+ List of non-zero contributors to the Merit Function:
+ Name                                          Merit           Sigma [= sqrt(Chi^2/N)]
+ ToF.time                                      1.7333E-23      4.1633E-17

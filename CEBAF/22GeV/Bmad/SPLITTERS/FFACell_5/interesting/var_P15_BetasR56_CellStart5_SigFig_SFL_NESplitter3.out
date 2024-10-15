@@ -1,0 +1,36 @@
+ M13Q1[K1] = -5.53725273615538249E-001   ! Not used in optimizing
+ M13Q2[K1] = -1.16645493530589131E-001   ! Not used in optimizing
+ M13Q3[K1] =  5.25365339814451437E-001   ! Not used in optimizing
+ M13Q4[K1] = -3.75794458485264493E-001   ! Not used in optimizing
+ M13Q5[K1] = -1.96008123427012793E-001   ! Not used in optimizing
+ M13Q6[K1] =  2.63707425199571133E-001   ! Not used in optimizing
+ M13Q7[K1] =  3.29877817019828268E-001   ! Not used in optimizing
+ M13Q8[K1] =  5.99999999999999978E-001   ! Not used in optimizing
+ M13Q9[K1] = -5.53289185355050672E-001   ! Not used in optimizing
+ M13Q10[K1] =  4.33260080284747995E-001   ! Not used in optimizing
+ M13Q11[K1] =  5.87953759895524009E-001   ! Not used in optimizing
+ M13Q12[K1] = -5.77226064101681202E-001   ! Not used in optimizing
+ 
+ end_file
+ 
+ 
+ ! Top 10
+ 
+ Constraints                            Ref_Ele    Start_Ele   Ele/S    Meas-or-Lim    Model       Merit      Max_Loc
+ 4@Optics[32]             4@lat::beta.b[END] <target>                    1.1607E+01   1.1607E+01  8.078E-18
+ 4@Optics[31]             4@lat::beta.a[END] <target>                    1.5386E+00   1.5386E+00  5.966E-20
+ Twiss_P15_FinalThree[3]  4@M15Q10[K1]                        76.62     -6.0000E-01  -2.9787E-01  0.000E+00
+ Twiss_P15_FinalThree[2]  4@M15Q9[K1]                         72.70      6.0000E-01   4.7710E-01  0.000E+00
+ Twiss_P15_FinalThree[1]  4@M15Q8[K1]                         68.11     -6.0000E-01  -3.0621E-01  0.000E+00
+ Twiss_P15_MiddleFour[4]  4@M15Q7[K1]                         63.04     -6.0000E-01  -2.7389E-02  0.000E+00
+ Twiss_P15_MiddleFour[3]  4@M15Q6[K1]                         62.04      6.0000E-01   1.0091E-01  0.000E+00
+ Twiss_P15_MiddleFour[2]  4@M15Q5[K1]                         54.05     -6.0000E-01  -1.2442E-01  0.000E+00
+ Twiss_P15_MiddleFour[1]  4@M15Q4[K1]                         48.36      6.0000E-01   5.2870E-02  0.000E+00
+ 4@Optics[40]             beta.b <max>            BEGINNING   END        7.0000E+02   7.0000E+02  0.000E+00  D1507#2
+ Constraints                            Ref_Ele    Start_Ele   Ele/S    Meas-or-Lim    Model       Merit      Max_Loc
+ 
+  figure of merit: 8.137593E-18
+ 
+ List of non-zero contributors to the Merit Function:
+ Name                                          Merit           Sigma [= sqrt(Chi^2/N)]
+ Optics.Twiss                                  8.1376E-18      2.0171E-14

@@ -1,0 +1,32 @@
+ O_P9_TOF_B1[STRENGTH9_1] =  4.96578718024739962E-001
+ O_P9_TOF_B2[STRENGTH9_2] =  1.20021665231341546E+000
+ O_P9_TOF_B3[STRENGTH9_3] = -1.45133005533527348E+000
+ O_P9_TOF_B4[STRENGTH9_4] =  1.50059089408050816E+000
+ O_P9_TOF_D1[LENGTH9_1] =  2.86061257176762185E+000
+ O_P9_TOF_D2[LENGTH9_2] =  1.97649503874208534E+001
+ O_P9_TOF_D3[LENGTH9_3] =  7.35994936526081212E+000
+ O_P9_TOF_D4[LENGTH9_4] =  5.37898981198739357E+000
+ 
+ end_file
+ 
+ 
+ ! Top 10
+ 
+ Constraints                                    Ref_Ele    Start_Ele   Ele/S    Meas-or-Lim    Model       Merit      Max_Loc
+ 1@ToF[3]           1@lat::floor.z[END] <target>                                 9.4900E+01   9.4860E+01  1.571E-01
+ 1@ToF[9]           3@lat::floor.z[END] <target>                                 9.4900E+01   9.4930E+01  9.258E-02
+ 1@ToF[6]           2@lat::floor.z[END] <target>                                 9.4900E+01   9.4903E+01  8.273E-04
+ 1@ToF[8]           3@lat::orbit.x[END] <target>                                -1.9204E-02  -1.9204E-02  2.390E-19
+ 3@ToF[8]           3@lat::orbit.x[END] <target>                                -1.9204E-02  -1.9204E-02  2.390E-19
+ 1@ToF[5]           2@lat::orbit.x[END] <target>                                -2.5058E-02  -2.5058E-02  1.404E-21
+ 1@ToF[2]           1@lat::orbit.x[END] <target>                                -2.9080E-02  -2.9080E-02  1.378E-21
+ ToF_P13_Drifts[4]  3@O_P13_TOF_D4[LENGTH13_4]                                   1.5000E+01   1.5249E+01  0.000E+00
+ 1@ToF[4]           2@lat::time[END] <target>                                    3.1714E-07   3.1714E-07  0.000E+00
+ 1@ToF[7]           3@lat::time[END] <target>                                    3.1710E-07   3.1710E-07  0.000E+00
+ Constraints                                    Ref_Ele    Start_Ele   Ele/S    Meas-or-Lim    Model       Merit      Max_Loc
+ 
+  figure of merit: 2.505386E-01
+ 
+ List of non-zero contributors to the Merit Function:
+ Name                                          Merit           Sigma [= sqrt(Chi^2/N)]
+ ToF.time                                      2.5054E-01      1.8919E-02

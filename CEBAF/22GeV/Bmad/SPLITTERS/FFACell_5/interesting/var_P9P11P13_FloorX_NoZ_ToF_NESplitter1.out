@@ -1,0 +1,31 @@
+ O_P9_TOF_B1[STRENGTH9_1] =  4.95288804523830728E-001   ! Not used in optimizing
+ O_P9_TOF_B2[STRENGTH9_2] =  1.19013021656125728E+000   ! Not used in optimizing
+ O_P9_TOF_B3[STRENGTH9_3] = -1.43900033753680767E+000   ! Not used in optimizing
+ O_P9_TOF_B4[STRENGTH9_4] =  1.50000000000005684E+000   ! Not used in optimizing
+ O_P9_TOF_D1[LENGTH9_1] =  2.80000000000000204E+000   ! Not used in optimizing
+ O_P9_TOF_D2[LENGTH9_2] =  2.62222424347977867E+000   ! Not used in optimizing
+ O_P9_TOF_D3[LENGTH9_3] =  1.96000000000000014E+001   ! Not used in optimizing
+ O_P9_TOF_D4[LENGTH9_4] =  7.86231675485836057E+000   ! Not used in optimizing
+ O_P9_TOF_D5[LENGTH9_5] =  5.14094610309435485E+000   ! Not used in optimizing
+ 
+ end_file
+ 
+ 
+ ! Top 10
+ 
+ Constraints                                      Ref_Ele    Start_Ele   Ele/S    Meas-or-Lim    Model       Merit      Max_Loc
+ 3@ToF[8]           3@lat::floor.x[END] <target>                                  -1.9204E-02  -1.9204E-02  1.733E-23
+ ToF_P13_Drifts[4]  3@O_P13_TOF_D4[LENGTH13_4]                                     1.5000E+01   1.5167E+01  0.000E+00
+ ToF_P13_Drifts[3]  3@O_P13_TOF_D3[LENGTH13_3]                                     4.5000E+00   5.2452E+00  0.000E+00
+ ToF_P13_Drifts[2]  3@O_P13_TOF_D2[LENGTH13_2]                                     3.1000E+00   3.0058E+00  0.000E+00
+ ToF_P13_Drifts[1]  3@O_P13_TOF_D1[LENGTH13_1]                                     3.8000E+00   3.8000E+00  0.000E+00
+ ToF_P13_Bends[2]   3@O_P13_TOF_B2[STRENGTH13_2]                                   1.7000E+00   1.6703E+00  0.000E+00
+ ToF_P13_Bends[1]   3@O_P13_TOF_B1[STRENGTH13_1]                                  -1.7000E+00  -1.6905E+00  0.000E+00
+ 3@ToF[7]           3@lat::time[END] <target>                                      3.1710E-07   3.1710E-07  0.000E+00
+ Constraints                                      Ref_Ele    Start_Ele   Ele/S    Meas-or-Lim    Model       Merit      Max_Loc
+ 
+  figure of merit: 1.733337E-23
+ 
+ List of non-zero contributors to the Merit Function:
+ Name                                          Merit           Sigma [= sqrt(Chi^2/N)]
+ ToF.time                                      1.7333E-23      4.1633E-17
