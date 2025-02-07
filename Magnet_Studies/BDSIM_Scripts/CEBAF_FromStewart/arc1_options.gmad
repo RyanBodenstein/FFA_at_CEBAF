@@ -1,0 +1,41 @@
+sample,all;
+
+tun : placement, geometryFile="gdml:./atf2_tunnel.gdml", x=0*m, y=0.2*m, z=2*m, sensitive=0;
+
+option,	hStyle=1,
+	beampipeThickness=0.1*mm,
+	outerDiameter=0.5*m,
+	beampipeRadius=3*cm,
+	beampipeThickness=1.5*mm,
+	defaultRangeCut=1*mm, 
+	ngenerate=10000,
+	nturns=1,
+	physicsList="synch_rad em",
+	storeElossGlobal=1,
+	storeElossLocal=1,
+        storeElossLinks=1,
+        elossHistoBinWidth=5*cm,
+	worldMaterial="G4_Galactic";
+
+doseInGy: scorer, type="depositeddose";
+
+phantomMesh: scorermesh, scoreQuantity="doseInGy",
+        nx=1, ny=1, nz=40,
+        xsize=20*cm, ysize=10*cm, zsize=5*cm,
+        x=0, y=0.2, z=2;
+        	
+!option, useScoringMap=1,
+!	nbinsx=50,
+!	nbinsy=50,
+!	nbinsz=10,
+!	xmin = -1*m,
+!	xmax = 1*m,
+!	ymin = -1*m,
+!	ymax = 1*m,
+!	zmin = -3*m,
+!	zmax = 5*m;
+
+!option, storeElossGlobal=1,
+!    storeElossLocal=1,
+!    storeElossLinks=1,
+!    elossHistoBinWidth=5*cm;

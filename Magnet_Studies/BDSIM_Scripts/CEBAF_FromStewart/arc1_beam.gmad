@@ -1,0 +1,13 @@
+
+beam, particle="e-",
+!      energy=1.21299989496419*GeV,
+      energy=6*GeV,  
+      distrType="gausstwiss",
+      emitx=4.212724199044e-10*m,
+      emity=4.212724199044e-10*m,
+      betx=6.28563*m,
+      bety=26.8225*m,
+      alfx=-0.08078,
+      alfy=-1.83571,
+      distrType="gauss";
+

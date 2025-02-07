@@ -1,0 +1,11 @@
+! Fri, 13 Nov 2015 13:02:40 +0000
+! pybdsim.Builder Lattice 
+! number of elements = 540
+! total length       = 200.0 m
+
+!include arc1_components.gmad;
+!include arc1_line.gmad;
+include arc1_lattice.gmad;
+include arc1_beam.gmad;
+include arc1_options.gmad;
+sample, all;
