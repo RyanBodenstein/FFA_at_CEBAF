@@ -1,0 +1,3 @@
+C:\Users\nissen\source\repos\DAQapp\DAQapp\x64\Release\DAQapp.vcxproj.AssemblyReference.cache
+C:\Users\nissen\source\repos\DAQapp\DAQapp\x64\Release\DAQapp.Form1.resources
+C:\Users\nissen\source\repos\DAQapp\DAQapp\x64\Release\DAQapp.vcxproj.GenerateResource.cache

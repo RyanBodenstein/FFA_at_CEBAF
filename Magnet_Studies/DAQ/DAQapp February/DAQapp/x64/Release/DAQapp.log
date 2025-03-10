@@ -1,0 +1,106 @@
+﻿  CppCLR_WinFormsProject.cpp
+C:\Users\nissen\source\repos\DAQapp\DAQapp\CppCLR_WinFormsProject.cpp(31,46): warning C4101: 'msgboxID': unreferenced local variable
+  (compiling source file '/CppCLR_WinFormsProject.cpp')
+  
+C:\Users\nissen\source\repos\DAQapp\DAQapp\CppCLR_WinFormsProject.cpp(71,38): warning C4101: 'ex': unreferenced local variable
+  (compiling source file '/CppCLR_WinFormsProject.cpp')
+  
+C:\Users\nissen\source\repos\DAQapp\DAQapp\CppCLR_WinFormsProject.cpp(126,38): warning C4101: 'ex': unreferenced local variable
+  (compiling source file '/CppCLR_WinFormsProject.cpp')
+  
+C:\Users\nissen\source\repos\DAQapp\DAQapp\CppCLR_WinFormsProject.cpp(187,46): warning C4101: 'ex': unreferenced local variable
+  (compiling source file '/CppCLR_WinFormsProject.cpp')
+  
+C:\Users\nissen\source\repos\DAQapp\DAQapp\CppCLR_WinFormsProject.cpp(340,12): warning C4101: 'hoyr': unreferenced local variable
+  (compiling source file '/CppCLR_WinFormsProject.cpp')
+  
+C:\Users\nissen\source\repos\DAQapp\DAQapp\CppCLR_WinFormsProject.cpp(340,18): warning C4101: 'min': unreferenced local variable
+  (compiling source file '/CppCLR_WinFormsProject.cpp')
+  
+C:\Users\nissen\source\repos\DAQapp\DAQapp\CppCLR_WinFormsProject.cpp(340,23): warning C4101: 'sec': unreferenced local variable
+  (compiling source file '/CppCLR_WinFormsProject.cpp')
+  
+C:\Users\nissen\source\repos\DAQapp\DAQapp\CppCLR_WinFormsProject.cpp(393,12): warning C4101: 'hoyr': unreferenced local variable
+  (compiling source file '/CppCLR_WinFormsProject.cpp')
+  
+C:\Users\nissen\source\repos\DAQapp\DAQapp\CppCLR_WinFormsProject.cpp(393,18): warning C4101: 'min': unreferenced local variable
+  (compiling source file '/CppCLR_WinFormsProject.cpp')
+  
+C:\Users\nissen\source\repos\DAQapp\DAQapp\CppCLR_WinFormsProject.cpp(393,23): warning C4101: 'sec': unreferenced local variable
+  (compiling source file '/CppCLR_WinFormsProject.cpp')
+  
+C:\Users\nissen\source\repos\DAQapp\DAQapp\Form1.h(1869,14): warning C4267: 'initializing': conversion from 'size_t' to 'int', possible loss of data
+  (compiling source file '/CppCLR_WinFormsProject.cpp')
+  
+C:\Users\nissen\source\repos\DAQapp\DAQapp\Form1.h(1891,25): warning C4101: 'ex': unreferenced local variable
+  (compiling source file '/CppCLR_WinFormsProject.cpp')
+  
+C:\Users\nissen\source\repos\DAQapp\DAQapp\Form1.h(1970,13): warning C4267: 'initializing': conversion from 'size_t' to 'int', possible loss of data
+  (compiling source file '/CppCLR_WinFormsProject.cpp')
+  
+C:\Users\nissen\source\repos\DAQapp\DAQapp\Form1.h(2007,16): warning C4267: 'initializing': conversion from 'size_t' to 'int', possible loss of data
+  (compiling source file '/CppCLR_WinFormsProject.cpp')
+  
+C:\Users\nissen\source\repos\DAQapp\DAQapp\Form1.h(2040,16): warning C4267: 'initializing': conversion from 'size_t' to 'int', possible loss of data
+  (compiling source file '/CppCLR_WinFormsProject.cpp')
+  
+C:\Users\nissen\source\repos\DAQapp\DAQapp\Form1.h(2074,16): warning C4267: 'initializing': conversion from 'size_t' to 'int', possible loss of data
+  (compiling source file '/CppCLR_WinFormsProject.cpp')
+  
+C:\Users\nissen\source\repos\DAQapp\DAQapp\Form1.h(2119,15): warning C4267: 'initializing': conversion from 'size_t' to 'int', possible loss of data
+  (compiling source file '/CppCLR_WinFormsProject.cpp')
+  
+C:\Users\nissen\source\repos\DAQapp\DAQapp\Form1.h(1995,35): warning C4101: 'ent': unreferenced local variable
+  (compiling source file '/CppCLR_WinFormsProject.cpp')
+  
+C:\Users\nissen\source\repos\DAQapp\DAQapp\Form1.h(2028,35): warning C4101: 'ent': unreferenced local variable
+  (compiling source file '/CppCLR_WinFormsProject.cpp')
+  
+C:\Users\nissen\source\repos\DAQapp\DAQapp\Form1.h(2062,35): warning C4101: 'ent': unreferenced local variable
+  (compiling source file '/CppCLR_WinFormsProject.cpp')
+  
+C:\Users\nissen\source\repos\DAQapp\DAQapp\Form1.h(2106,35): warning C4101: 'ent': unreferenced local variable
+  (compiling source file '/CppCLR_WinFormsProject.cpp')
+  
+C:\Users\nissen\source\repos\DAQapp\DAQapp\Form1.h(2161,14): warning C4996: 'localtime': This function or variable may be unsafe. Consider using localtime_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+  (compiling source file '/CppCLR_WinFormsProject.cpp')
+  
+C:\Users\nissen\source\repos\DAQapp\DAQapp\Form1.h(2381,17): warning C4267: 'initializing': conversion from 'size_t' to 'int', possible loss of data
+  (compiling source file '/CppCLR_WinFormsProject.cpp')
+  
+C:\Users\nissen\source\repos\DAQapp\DAQapp\Form1.h(2231,37): warning C4101: 'ent': unreferenced local variable
+  (compiling source file '/CppCLR_WinFormsProject.cpp')
+  
+C:\Users\nissen\source\repos\DAQapp\DAQapp\Form1.h(2437,14): warning C4267: 'initializing': conversion from 'size_t' to 'int', possible loss of data
+  (compiling source file '/CppCLR_WinFormsProject.cpp')
+  
+C:\Users\nissen\source\repos\DAQapp\DAQapp\Form1.h(2409,36): warning C4101: 'ent': unreferenced local variable
+  (compiling source file '/CppCLR_WinFormsProject.cpp')
+  
+C:\Users\nissen\source\repos\DAQapp\DAQapp\Form1.h(2418,29): warning C4101: 'ex': unreferenced local variable
+  (compiling source file '/CppCLR_WinFormsProject.cpp')
+  
+C:\Users\nissen\source\repos\DAQapp\DAQapp\Form1.h(2427,38): warning C4101: 'ex': unreferenced local variable
+  (compiling source file '/CppCLR_WinFormsProject.cpp')
+  
+C:\Users\nissen\source\repos\DAQapp\DAQapp\Form1.h(2575,37): warning C4101: 'ent': unreferenced local variable
+  (compiling source file '/CppCLR_WinFormsProject.cpp')
+  
+C:\Users\nissen\source\repos\DAQapp\DAQapp\Form1.h(2596,34): warning C4101: 'ent': unreferenced local variable
+  (compiling source file '/CppCLR_WinFormsProject.cpp')
+  
+C:\Users\nissen\source\repos\DAQapp\DAQapp\Form1.h(2621,13): warning C4996: 'localtime': This function or variable may be unsafe. Consider using localtime_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+  (compiling source file '/CppCLR_WinFormsProject.cpp')
+  
+C:\Users\nissen\source\repos\DAQapp\DAQapp\Form1.h(2873,13): warning C4267: 'initializing': conversion from 'size_t' to 'int', possible loss of data
+  (compiling source file '/CppCLR_WinFormsProject.cpp')
+  
+C:\Users\nissen\source\repos\DAQapp\DAQapp\Form1.h(2854,35): warning C4101: 'ent': unreferenced local variable
+  (compiling source file '/CppCLR_WinFormsProject.cpp')
+  
+C:\Users\nissen\source\repos\DAQapp\DAQapp\Form1.h(2911,13): warning C4996: 'localtime': This function or variable may be unsafe. Consider using localtime_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+  (compiling source file '/CppCLR_WinFormsProject.cpp')
+  
+  .NETFramework,Version=v4.7.2.AssemblyAttributes.cpp
+  AssemblyInfo.obj : MSIL module encountered; incremental linking is disabled for MSIL; performing full link
+  DAQapp.vcxproj -> C:\Users\nissen\source\repos\DAQapp\x64\Release\DAQapp.exe
