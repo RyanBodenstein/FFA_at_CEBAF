@@ -1,0 +1,64 @@
+!&divide_elements name=* divisions=10 &end
+!&change_particle mass_ratio=0.5110034 &end
+
+&run_setup
+	lattice="pLERFtoNL.lte",
+	use_beamline="LERF_TO_NL",
+	p_central_mev=123,
+	final="%s.fin",
+	magnets = %s.mag,
+        default_order = 1,
+        parameters = %s.param
+
+&end
+
+&twiss_output
+    beta_x=4.58380836555537,
+    alpha_x=-1.41421356237309
+    beta_y=4.58380836555537,
+    alpha_y=1.41421356237309
+    eta_x=0,
+    etap_x=0,
+    eta_y=0,
+    etap_y=0,
+    statistics = 1, radiation_integrals=1,
+    matched=0,
+    filename=%s.twi
+&end
+
+
+&run_control
+        n_steps = 1
+&end
+
+
+! ! From the end point of Yves' LERF7 vault deck
+&floor_coordinates
+        X0=-9.711369999999990e+00,
+    Y0=105.0,
+        Z0=1.575920000000000e+02,
+        theta0=-4.43965358979329e-02,
+    phi0=0,
+    psi0=0,
+    filename=%s.flr,        
+    magnet_centers=1,
+&end
+
+&matrix_output
+        SDDS_output = %s.mat,
+        SDDS_output_order = 1
+&end
+
+&twiss_output
+    beta_x=4.58380836555537,
+    alpha_x=-1.41421356237309
+    beta_y=4.58380836555537,
+    alpha_y=1.41421356237309
+    eta_x=0,
+    etap_x=0,
+    eta_y=0,
+    etap_y=0,
+    statistics = 1, radiation_integrals=1,
+    matched=0,
+    filename=%s.twi
+&end
