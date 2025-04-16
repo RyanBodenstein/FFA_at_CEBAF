@@ -1,0 +1,38 @@
+ M17Q1[K1] =  5.99999999999999978E-001
+ M17Q2[K1] = -1.33403550153756323E-001
+ M17Q3[K1] = -4.36092599832971217E-001
+ M17Q4[K1] =  1.61434733360701216E-001
+ M17Q5[K1] =  5.98856725900277054E-001
+ M17Q6[K1] = -4.79233745646530596E-001
+ M17Q7[K1] =  3.69928705465195018E-001
+ M17Q8[K1] =  9.12810814338655720E-003
+ M17Q9[K1] = -4.18961915167109997E-002
+ M17Q10[K1] = -1.25475953488364933E-001
+ M17Q11[K1] = -6.12881098110433717E-002
+ M17Q12[K1] =  1.63769765675414493E-002
+ M17Q13[K1] =  2.32351961811476312E-002
+ M17Q14[K1] =  1.90322660236217162E-001
+ 
+ end_file
+ 
+ 
+ ! Top 10
+ 
+ Constraints                          Ref_Ele    Start_Ele   Ele/S    Meas-or-Lim    Model       Merit      Max_Loc
+ 5@Optics[42]           5@lat::beta.b[END] <target>                    1.4063E+01   1.4063E+01  3.818E-18
+ 5@Optics[41]           5@lat::beta.a[END] <target>                    1.6261E+00   1.6261E+00  7.499E-19
+ 5@Optics[43]           5@lat::alpha.a[END] <target>                   2.5401E-05   2.5401E-05  2.474E-22
+ 5@Optics[44]           5@lat::alpha.b[END] <target>                  -1.3987E-04  -1.3987E-04  3.005E-23
+ 5@Optics[45]           5@lat::eta.a[END] <target>                     6.1641E-02   6.1641E-02  2.123E-24
+ 5@Optics[46]           5@lat::etap.a[END] <target>                   -6.6020E-07  -6.6020E-07  1.595E-26
+ 5@Optics[49]           beta.a <max>            BEGINNING   END        7.0000E+02   2.9238E+02  0.000E+00  M17Q7
+ 5@Optics[50]           beta.b <max>            BEGINNING   END        7.0000E+02   4.0781E+02  0.000E+00  M17Q6
+ Twiss_P17_FirstSix[1]  5@M17Q1[K1]                         36.56      6.0000E-01   6.0000E-01  0.000E+00
+ Twiss_P17_FirstSix[2]  5@M17Q2[K1]                         37.36     -6.0000E-01  -1.3340E-01  0.000E+00
+ Constraints                          Ref_Ele    Start_Ele   Ele/S    Meas-or-Lim    Model       Merit      Max_Loc
+ 
+  figure of merit: 4.568277E-18
+ 
+ List of non-zero contributors to the Merit Function:
+ Name                                          Merit           Sigma [= sqrt(Chi^2/N)]
+ Optics.Twiss                                  4.5683E-18      1.1063E-14

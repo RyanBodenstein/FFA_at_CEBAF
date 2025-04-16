@@ -1,0 +1,34 @@
+ M15Q1[K1] =  1.30550308442489077E-001
+ M15Q2[K1] = -3.72639257695849047E-001
+ M15Q3[K1] =  3.23608774002959898E-001
+ M15Q4[K1] = -2.39000919015834284E-001
+ M15Q5[K1] = -4.20639417831111639E-001
+ M15Q6[K1] = -5.48084938333322294E-002
+ M15Q7[K1] =  3.68673633426828351E-001
+ M15Q8[K1] = -7.49055356808339765E-003
+ M15Q9[K1] = -5.99999999999999978E-001
+ M15Q10[K1] =  3.42008368093945914E-001
+ 
+ end_file
+ 
+ 
+ ! Top 10
+ 
+ Constraints                            Ref_Ele    Start_Ele   Ele/S    Meas-or-Lim    Model       Merit      Max_Loc
+ 4@Optics[32]             4@lat::beta.b[END] <target>                    1.1607E+01   1.1607E+01  1.262E-17
+ 4@Optics[31]             4@lat::beta.a[END] <target>                    1.5386E+00   1.5386E+00  4.437E-19
+ 4@Optics[33]             4@lat::alpha.a[END] <target>                   2.4713E-05   2.4713E-05  1.011E-21
+ 4@Optics[34]             4@lat::alpha.b[END] <target>                  -1.1455E-04  -1.1455E-04  2.577E-22
+ 4@Optics[35]             4@lat::eta.a[END] <target>                     4.8495E-02   4.8495E-02  2.123E-24
+ 4@Optics[36]             4@lat::etap.a[END] <target>                   -5.3096E-07  -5.3096E-07  1.637E-28
+ 4@Optics[39]             beta.a <max>            BEGINNING   END        7.0000E+02   6.8792E+02  0.000E+00  D1505#2
+ 4@Optics[40]             beta.b <max>            BEGINNING   END        7.0000E+02   2.4895E+02  0.000E+00  MCB2
+ Twiss_P15_FirstThree[2]  4@M15Q2[K1]                         31.66     -6.0000E-01  -3.7264E-01  0.000E+00
+ Twiss_P15_FirstThree[1]  4@M15Q1[K1]                         30.86      6.0000E-01   1.3055E-01  0.000E+00
+ Constraints                            Ref_Ele    Start_Ele   Ele/S    Meas-or-Lim    Model       Merit      Max_Loc
+ 
+  figure of merit: 1.306678E-17
+ 
+ List of non-zero contributors to the Merit Function:
+ Name                                          Merit           Sigma [= sqrt(Chi^2/N)]
+ Optics.Twiss                                  1.3067E-17      2.0718E-14

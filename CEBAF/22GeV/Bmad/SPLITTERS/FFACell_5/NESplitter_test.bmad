@@ -1500,6 +1500,15 @@ Pass19[e_tot] = e19
 
 use, Pass9, Pass11, Pass13, Pass15, Pass17, Pass19
 
+! WEAKLY FOCUSING: These files are for perfect Twiss matching (no R56) to 4-6 decimal places:
+
+call, file=interesting/var_P9_TwissDisp_NoR56_CellStart5_SigFig_WEAK_FL_NESplitter1.out
+call, file=interesting/var_P11_TwissDisp_NoR56_CellStart5_SigFig_WEAK_FL_NESplitter2.out
+call, file=interesting/var_P13_TwissDisp_NoR56_CellStart5_SigFig_WEAK_FL_NESplitter3.out
+call, file=interesting/var_P15_TwissDisp_NoR56_CellStart5_SigFig_WEAK_FL_NESplitter4.out
+call, file=interesting/var_P17_TwissDisp_NoR56_CellStart5_SigFig_WEAK_FL_NESplitter5.out
+call, file=interesting/var_P19_TwissDisp_NoR56_CellStart5_SigFig_WEAK_FL_NESplitter6.out
+
 ! These files are for perfect Twiss matching (no R56) to 4-6 decimal places:
 
 !call, file=interesting/var_P9_TwissDisp_NoR56_CellStart5_SigFig_SFL_NESplitter1.out
@@ -1511,12 +1520,12 @@ use, Pass9, Pass11, Pass13, Pass15, Pass17, Pass19
 
 ! These files are for perfect Beta X, Beta Y, and R56 matching:
 
-call, file=interesting/var_P9_BetasR56_CellStart5_SigFig_SFL_NESplitter1.out
-call, file=interesting/var_P11_BetasR56_CellStart5_SigFig_SFL_NESplitter2.out
-call, file=interesting/var_P13_BetasR56_CellStart5_SigFig_SFL_NESplitter3.out
-call, file=interesting/var_P15_BetasR56_CellStart5_SigFig_SFL_NESplitter4.out
-call, file=interesting/var_P17_BetasR56_CellStart5_SigFig_SFL_NESplitter5.out
-call, file=interesting/var_P19_BetasR56_CellStart5_SigFig_SFL_NESplitter6.out
+!call, file=interesting/var_P9_BetasR56_CellStart5_SigFig_SFL_NESplitter1.out
+!call, file=interesting/var_P11_BetasR56_CellStart5_SigFig_SFL_NESplitter2.out
+!call, file=interesting/var_P13_BetasR56_CellStart5_SigFig_SFL_NESplitter3.out
+!call, file=interesting/var_P15_BetasR56_CellStart5_SigFig_SFL_NESplitter4.out
+!call, file=interesting/var_P17_BetasR56_CellStart5_SigFig_SFL_NESplitter5.out
+!call, file=interesting/var_P19_BetasR56_CellStart5_SigFig_SFL_NESplitter6.out
 
 ! These files are for Optics matching without R56, but are a bit outdated:
 
