@@ -92,10 +92,10 @@ angbf0 = angbd0*ratio
 BFLen = 1.40
 
 ! BF inside aperture limit (x1)
-BF_x1 = 0.0541
+BF_x1 = 37.564e-3
 
 ! BF outside aperture limit (x2)
-BF_x2 = 0.025
+BF_x2 = 16.036e-3
 
 ! Uniform drift length (pre-scale)
 DLen = 0.08
@@ -104,10 +104,10 @@ DLen = 0.08
 BDLen = LCEL0 - (BFLen+2.0*DLen)
 
 ! BD inside aperture limit (x1)
-BD_x1 = 0.0473
+BD_x1 = 30.997e-3
 
 ! BD outside aperture limit (x2)
-BD_x2 = -0.0034
+BD_x2 = 12.903e-3
 
 ! -------------------------------------------------------------------
 
@@ -189,31 +189,31 @@ dxD = -.0012/gscale
 ! sagittal length offsets due to muon1 conversion -------------------
 
 ! sagittal offset on BF
-sagF = 0.5*BFL*sinc(0.25*angbf)*sin(0.25*angbf)   
+sagF = 0.5*BFL*sinc(0.25*abs(angbf))*sin(0.25*abs(angbf))
 
 ! sagittal offset of BD
-sagD = 0.5*BDL*sinc(0.25*angbd)*sin(0.25*angbd)    
+sagD = 0.5*BDL*sinc(0.25*abs(angbd))*sin(0.25*abs(angbd))
 
 
 ! coordinate changes due to muon1 conversion ------------------------
 
 ! change in longitudinal position of BF
-dzF = 0.5*BFL*(1-sinc(0.5*angbf))
+dzF = 0.5*BFL*(1-sinc(0.5*abs(angbf)))
 
 ! change in length of BF
-dlF = dzF/cos(0.5*angbf)
+dlF = dzF/cos(0.5*abs(angbf))
 
 ! change in horizontal offset of BF
-dx_dzF = dzF*tan(0.5*angbf)
+dx_dzF = dzF*tan(0.5*abs(angbf))
 
 ! change in longitudinal position of BD
-dzD = 0.5*BDL*(1-sinc(0.5*angbd))
+dzD = 0.5*BDL*(1-sinc(0.5*abs(angbd)))
 
 ! change in length of BD
-dlD = dzD/cos(0.5*angbd)
+dlD = dzD/cos(0.5*abs(angbd))
 
 ! change in horizontal offset of BF
-dx_dzD = dzD*tan(0.5*angbd)
+dx_dzD = dzD*tan(0.5*abs(angbd))
 
 ! -------------------------------------------------------------------
 

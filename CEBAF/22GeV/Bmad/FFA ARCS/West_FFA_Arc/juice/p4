@@ -1,55 +1,92 @@
 parameter[geometry] = Closed          
 
-parameter[p0c]                      = 2.04999999936312E10
+parameter[p0c]                      =  2.04999999936312218E+010
 parameter[particle]                 = Electron
+bmad_com[radiation_damping_on] = T
+bmad_com[radiation_fluctuations_on] = T
 
-beginning[beta_a]    = 2.28739303877949
-beginning[alpha_a]   = 1.36890301161976
-beginning[eta_x]     = 0.0558925826489235
-beginning[etap_x]    = -0.0242251242481417
-beginning[beta_b]    = 7.17180700488253
-beginning[alpha_b]   = -3.57777523301207
-particle_start[x]  = -0.0271138841748744
-particle_start[px] = 0.0106207057835257
-particle_start[pz] = -0.10975609756098
+beginning[beta_a]       =  2.13293625876075854E+000
+beginning[alpha_a]      =  1.29925256892050767E+000
+beginning[eta_x]        =  6.34531909774663228E-002
+beginning[etap_x]       = -2.88196595606471026E-002
+beginning[beta_b]       =  7.54496239519257728E+000
+beginning[alpha_b]      = -3.66637666569859810E+000
+beginning[dbeta_dpz_a]  = -2.86687951269737340E-001
+beginning[dbeta_dpz_b]  =  8.09129018498389030E+000
+beginning[dalpha_dpz_a] = -7.74214835856934513E-001
+beginning[dalpha_dpz_b] = -3.68048321166547510E+000
+beginning[deta_dpz_x]   =  9.30237914737591653E-002
+beginning[detap_dpz_x]  = -4.42698100659548455E-002
+particle_start[x]  = -7.84250612449476948E-003
+particle_start[px] =  3.55696857312645795E-003
+particle_start[pz] = -1.14146341538908333E-001
 
-GD = 53.786019
-GF = -42.9633036
+GD =  5.37860190000000031E+001
+GF = -4.29633036000000033E+001
 
 !-------------------------------------------------------
 
 MK.BEG: Marker
-O0D: Drift, L = 0.0516385822610097
 MK.BPM: Marker, type = "BPM"
-PR_BD_IN: Patch, L = 2.39137080636316E-6, X_PITCH = -3.55330022116839E-3, X_OFFSET = -6.73001347970145E-4
-BDA: SBend, L = 0.189400772676673, K1 = -0.786567943758741, X_OFFSET = -2E-3,
-   DB_FIELD = -0.427623988373398, B1_GRADIENT = 53.786019, field_master = T
-BDB: SBend, L = 0.189400772676673, K1 = -0.786567943758741, X_OFFSET = 4E-4,
-   DB_FIELD = -0.427623988373398, B1_GRADIENT = 53.786019, field_master = T
-BDC: SBend, L = 0.189400772676673, K1 = -0.786567943758741, X_OFFSET = 1.6E-3,
-   DB_FIELD = -0.427623988373398, B1_GRADIENT = 53.786019, field_master = T
-BDBC: SBend, L = 0.189400772676673, K1 = -0.786567943758741, X_OFFSET = 4E-4,
-   DB_FIELD = -0.427623988373398, B1_GRADIENT = 53.786019, field_master = T
-BDAC: SBend, L = 0.189400772676673, K1 = -0.786567943758741, X_OFFSET = -2E-3,
-   DB_FIELD = -0.427623988373398, B1_GRADIENT = 53.786019, field_master = T
-PR_BD_OUT: Patch, L = -2.39137080636316E-6, X_PITCH = -3.55330022116839E-3,
-   X_OFFSET = 6.73001347970145E-4
-O0F: Drift, L = 0.0516012647172833
-PR_BF_IN: Patch, L = 7.70225254880776E-5, X_PITCH = -0.0159898509952577, X_OFFSET = -4.81716857370917E-3
-BFA: SBend, L = 0.301232038038355, K1 = 0.62829631190467, X_OFFSET = -2.5E-3,
-   DB_FIELD = -1.20991583276445, B1_GRADIENT = -42.9633036, field_master = T
-BFB: SBend, L = 0.301232038038355, K1 = 0.62829631190467, X_OFFSET = 5E-4, DB_FIELD = -1.20991583276445,
-   B1_GRADIENT = -42.9633036, field_master = T
-BFC: SBend, L = 0.301232038038355, K1 = 0.62829631190467, X_OFFSET = 2E-3, DB_FIELD = -1.20991583276445,
-   B1_GRADIENT = -42.9633036, field_master = T
-BFBC: SBend, L = 0.301232038038355, K1 = 0.62829631190467, X_OFFSET = 5E-4, DB_FIELD = -1.20991583276445,
-   B1_GRADIENT = -42.9633036, field_master = T
-BFAC: SBend, L = 0.301232038038355, K1 = 0.62829631190467, X_OFFSET = -2.5E-3,
-   DB_FIELD = -1.20991583276445, B1_GRADIENT = -42.9633036, field_master = T
-PR_BF_OUT: Patch, L = -7.70225254880776E-5, X_PITCH = -0.0159898509952577, X_OFFSET = 4.81716857370917E-3
+MK.BD_IN: Marker
+PR_BD_IN: Patch, X_PITCH = -3.55330022116838798E-003
+PX_BD_IN: Patch, X_OFFSET =  6.73001347970145431E-004
+BDA: SBend, L =  1.89400772676672685E-001, K1 = -7.86567943758740507E-001,
+   X_OFFSET = -2.00000000000000004E-003, DB_FIELD = -4.27623988373398156E-001,
+   B1_GRADIENT =  5.37860190000000031E+001, X1_LIMIT =  2.00000000000000011E-001,
+   X2_LIMIT =  1.00000000000000006E-001, y_limit =  1.00000000000000002E-002, field_master = T
+BDB: SBend, L =  1.89400772676672685E-001, K1 = -7.86567943758740507E-001,
+   X_OFFSET =  4.00000000000000019E-004, DB_FIELD = -4.27623988373398156E-001,
+   B1_GRADIENT =  5.37860190000000031E+001, X1_LIMIT =  2.00000000000000011E-001,
+   X2_LIMIT =  1.00000000000000006E-001, y_limit =  1.00000000000000002E-002, field_master = T
+BDC: SBend, L =  1.89400772676672685E-001, K1 = -7.86567943758740507E-001,
+   X_OFFSET =  1.60000000000000008E-003, DB_FIELD = -4.27623988373398156E-001,
+   B1_GRADIENT =  5.37860190000000031E+001, X1_LIMIT =  2.00000000000000011E-001,
+   X2_LIMIT =  1.00000000000000006E-001, y_limit =  1.00000000000000002E-002, field_master = T
+BDBC: SBend, L =  1.89400772676672685E-001, K1 = -7.86567943758740507E-001,
+   X_OFFSET =  4.00000000000000019E-004, DB_FIELD = -4.27623988373398156E-001,
+   B1_GRADIENT =  5.37860190000000031E+001, X1_LIMIT =  2.00000000000000011E-001,
+   X2_LIMIT =  1.00000000000000006E-001, y_limit =  1.00000000000000002E-002, field_master = T
+BDAC: SBend, L =  1.89400772676672685E-001, K1 = -7.86567943758740507E-001,
+   X_OFFSET = -2.00000000000000004E-003, DB_FIELD = -4.27623988373398156E-001,
+   B1_GRADIENT =  5.37860190000000031E+001, X1_LIMIT =  2.00000000000000011E-001,
+   X2_LIMIT =  1.00000000000000006E-001, y_limit =  1.00000000000000002E-002, field_master = T
+PX_BD_OUT: Patch, X_OFFSET = -6.73001347970145431E-004
+PR_BD_OUT: Patch, X_PITCH = -3.55330022116838798E-003
+MK.BD_OUT: Marker
+O0D: Drift, L =  5.16385822610096815E-002
+O0F: Drift, L =  5.16012647172832684E-002
+MK.BF_IN: Marker
+PR_BF_IN: Patch, X_PITCH = -1.59898509952577442E-002
+PX_BF_IN: Patch, X_OFFSET =  4.81716857370917493E-003
+BFA: SBend, L =  3.01232038038354633E-001, K1 =  6.28296311904669724E-001,
+   X_OFFSET = -2.50000000000000005E-003, DB_FIELD = -1.20991583276445391E+000,
+   B1_GRADIENT = -4.29633036000000033E+001, X1_LIMIT =  2.00000000000000011E-001,
+   X2_LIMIT =  1.00000000000000006E-001, y_limit =  1.00000000000000002E-002, field_master = T
+BFB: SBend, L =  3.01232038038354633E-001, K1 =  6.28296311904669724E-001,
+   X_OFFSET =  5.00000000000000010E-004, DB_FIELD = -1.20991583276445391E+000,
+   B1_GRADIENT = -4.29633036000000033E+001, X1_LIMIT =  2.00000000000000011E-001,
+   X2_LIMIT =  1.00000000000000006E-001, y_limit =  1.00000000000000002E-002, field_master = T
+BFC: SBend, L =  3.01232038038354633E-001, K1 =  6.28296311904669724E-001,
+   X_OFFSET =  2.00000000000000004E-003, DB_FIELD = -1.20991583276445391E+000,
+   B1_GRADIENT = -4.29633036000000033E+001, X1_LIMIT =  2.00000000000000011E-001,
+   X2_LIMIT =  1.00000000000000006E-001, y_limit =  1.00000000000000002E-002, field_master = T
+BFBC: SBend, L =  3.01232038038354633E-001, K1 =  6.28296311904669724E-001,
+   X_OFFSET =  5.00000000000000010E-004, DB_FIELD = -1.20991583276445391E+000,
+   B1_GRADIENT = -4.29633036000000033E+001, X1_LIMIT =  2.00000000000000011E-001,
+   X2_LIMIT =  1.00000000000000006E-001, y_limit =  1.00000000000000002E-002, field_master = T
+BFAC: SBend, L =  3.01232038038354633E-001, K1 =  6.28296311904669724E-001,
+   X_OFFSET = -2.50000000000000005E-003, DB_FIELD = -1.20991583276445391E+000,
+   B1_GRADIENT = -4.29633036000000033E+001, X1_LIMIT =  2.00000000000000011E-001,
+   X2_LIMIT =  1.00000000000000006E-001, y_limit =  1.00000000000000002E-002, field_master = T
+PX_BF_OUT: Patch, X_OFFSET = -4.81716857370917493E-003
+PR_BF_OUT: Patch, X_PITCH = -1.59898509952577442E-002
+MK.BF_OUT: Marker
 MK.END: Marker
-BFMG: girder = {PR_BF_IN,BFA,BFB,BFC,BFC,BFBC,BFAC,PR_BF_OUT}, origin_ele = GLOBAL_COORDINATES
-BDMG: girder = {PR_BD_IN,BDA,BDB,BDC,BDC,BDBC,BDAC,PR_BD_OUT}, origin_ele = GLOBAL_COORDINATES
+BDMG: girder = {MK.BD_IN,PR_BD_IN,PX_BD_IN,BDA,BDB,BDC,BDC,BDBC,BDAC,PX_BD_OUT,PR_BD_OUT,MK.BD_OUT},
+   origin_ele = GLOBAL_COORDINATES
+BFMG: girder = {MK.BF_IN,PR_BF_IN,PX_BF_IN,BFA,BFB,BFC,BFC,BFBC,BFAC,PX_BF_OUT,PR_BF_OUT,MK.BF_OUT},
+   origin_ele = GLOBAL_COORDINATES
 
 !-------------------------------------------------------
 ! Overlays, groups, rampers, and superimpose
@@ -65,20 +102,8 @@ CORRGBF: overlay = {BFBC[B1_GRADIENT]: GF+GC, BFAC[B1_GRADIENT]: GF+GC}, var = {
 ! Lattice lines
 
 
-ARC10: line = ( mk.beg, o0d, mk.bpm, pr_bd_in, bda, bdb, bdc, bdc, bdbc, bdac, pr_bd_out, o0d, o0f,
-   mk.bpm, pr_bf_in, bfa, bfb, bfc, bfc, bfbc, bfac, pr_bf_out, o0f, o0d, mk.bpm, pr_bd_in, bda, bdb, bdc,
-   bdc, bdbc, bdac, pr_bd_out, o0d, o0f, mk.bpm, pr_bf_in, bfa, bfb, bfc, bfc, bfbc, bfac, pr_bf_out, o0f,
-   o0d, mk.bpm, pr_bd_in, bda, bdb, bdc, bdc, bdbc, bdac, pr_bd_out, o0d, o0f, mk.bpm, pr_bf_in, bfa, bfb,
-   bfc, bfc, bfbc, bfac, pr_bf_out, o0f, o0d, mk.bpm, pr_bd_in, bda, bdb, bdc, bdc, bdbc, bdac, pr_bd_out,
-   o0d, o0f, mk.bpm, pr_bf_in, bfa, bfb, bfc, bfc, bfbc, bfac, pr_bf_out, o0f, o0d, mk.bpm, pr_bd_in, bda,
-   bdb, bdc, bdc, bdbc, bdac, pr_bd_out, o0d, o0f, mk.bpm, pr_bf_in, bfa, bfb, bfc, bfc, bfbc, bfac,
-   pr_bf_out, o0f, o0d, mk.bpm, pr_bd_in, bda, bdb, bdc, bdc, bdbc, bdac, pr_bd_out, o0d, o0f, mk.bpm,
-   pr_bf_in, bfa, bfb, bfc, bfc, bfbc, bfac, pr_bf_out, o0f, o0d, mk.bpm, pr_bd_in, bda, bdb, bdc, bdc,
-   bdbc, bdac, pr_bd_out, o0d, o0f, mk.bpm, pr_bf_in, bfa, bfb, bfc, bfc, bfbc, bfac, pr_bf_out, o0f, o0d,
-   mk.bpm, pr_bd_in, bda, bdb, bdc, bdc, bdbc, bdac, pr_bd_out, o0d, o0f, mk.bpm, pr_bf_in, bfa, bfb, bfc,
-   bfc, bfbc, bfac, pr_bf_out, o0f, o0d, mk.bpm, pr_bd_in, bda, bdb, bdc, bdc, bdbc, bdac, pr_bd_out, o0d,
-   o0f, mk.bpm, pr_bf_in, bfa, bfb, bfc, bfc, bfbc, bfac, pr_bf_out, o0f, o0d, mk.bpm, pr_bd_in, bda, bdb,
-   bdc, bdc, bdbc, bdac, pr_bd_out, o0d, o0f, mk.bpm, pr_bf_in, bfa, bfb, bfc, bfc, bfbc, bfac, pr_bf_out,
-   o0f, mk.end)
+ARC1: line = ( MK.BEG, MK.BPM, MK.BD_IN, PR_BD_IN, PX_BD_IN, BDA, BDB, BDC, BDC, BDBC, BDAC, PX_BD_OUT,
+   PR_BD_OUT, MK.BD_OUT, O0D, O0F, MK.BPM, MK.BF_IN, PR_BF_IN, PX_BF_IN, BFA, BFB, BFC, BFC, BFBC, BFAC,
+   PX_BF_OUT, PR_BF_OUT, MK.BF_OUT, O0F, O0D, MK.END)
 
-use, ARC10
+use, ARC1

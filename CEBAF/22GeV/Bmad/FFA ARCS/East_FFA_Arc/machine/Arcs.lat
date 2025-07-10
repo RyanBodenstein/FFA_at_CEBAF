@@ -238,12 +238,12 @@ MK.END: marker      ! end of the lattice
 
 ! single cell with two correctors
 ! --------
-cell: line = (o0d, MK.BPM, BDM, o0d, o0f, MK.BPM, BFM, o0f) 
+cell: line = (MK.BPM, BDM, o0d, o0f, MK.BPM, BFM, o0f, o0d) 
 ! --------
 
 ! single cell with one corrector
 ! --------
-cellb: line = (o0d, MK.BPM, BDM, o0d, o0f, BFMb, o0f) 
+cellb: line = (MK.BPM, BDM, o0d, o0f, BFMb, o0f, o0d) 
 ! --------
 
 ! ---------------------------------
