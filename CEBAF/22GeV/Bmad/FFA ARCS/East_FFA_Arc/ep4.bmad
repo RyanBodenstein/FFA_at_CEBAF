@@ -4,21 +4,23 @@
 
 call, file = machine/Arcs.lat
 
+no_digested
 
-parameter[geometry] = open          
+parameter[geometry] = open
 
 parameter[p0c]                      = p_CENT
 parameter[particle]                 = Electron
 
 
 
-beginning[beta_a]    = 2.6034397258576
-beginning[alpha_a]   = 1.39958735297551
-beginning[eta_x]     = 0.0643481330449969
-beginning[etap_x]    = -0.0248853956118689
-beginning[beta_b]    = 8.05205753515128
-beginning[alpha_b]   = -3.6443284888345
-particle_start[x]  = -0.0299863087430663
-particle_start[px] = 0.0106815841563052
+beginning[beta_a]       =  2.41701201785599418E+000
+beginning[alpha_a]      =  1.32208069232979142E+000
+beginning[eta_x]        =  7.11538985145528796E-002
+beginning[etap_x]       = -2.89201773756611810E-002
+beginning[beta_b]       =  8.53909331185776566E+000
+beginning[alpha_b]      = -3.75677939402763439E+000
+
+particle_start[x]  = -1.15087168060279237E-002
+particle_start[px] =  4.68593874006594229E-003
 particle_start[pz] = -0.146766 ! corresponds to 17.15 GeV
 

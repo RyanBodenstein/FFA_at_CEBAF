@@ -2,6 +2,8 @@
 ! File containing pass 2 optics for the east arc
 ! Twiss functions, energies, etc.
 
+no_digested
+
 call, file = machine/Arcs.lat
 
 
@@ -13,13 +15,14 @@ parameter[particle]                 = Electron
 
 
 
-beginning[beta_a]    = 2.95127494069073
-beginning[alpha_a]   = 1.8208079285196
-beginning[eta_x]     = 0.0340008677073184
-beginning[etap_x]    = -0.0115485013128782
-beginning[beta_b]    = 6.48123130236922
-beginning[alpha_b]   = -3.03911875776415
-particle_start[x]  = -0.0409525730004828
-particle_start[px] = 0.0147559319960306
+beginning[beta_a]       =  2.62922180072416589E+000
+beginning[alpha_a]      =  1.68742534240594866E+000
+beginning[eta_x]        =  4.27569233448983066E-002
+beginning[etap_x]       = -1.66764904055427023E-002
+beginning[beta_b]       =  7.04644494625032980E+000
+beginning[alpha_b]      = -3.18116640681445695E+000
+
+particle_start[x]  = -2.41641272311175874E-002
+particle_start[px] =  9.75605781831080134E-003
 particle_start[pz] = -0.365672 ! corresponds to 12.75 GeV
 

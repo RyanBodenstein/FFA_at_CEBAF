@@ -21,3 +21,14 @@ How to run the lattices (generally):
     3. Navigate to that folder from a command line
     4. Type 'tao' at the command prompt and you're in (if you have Bmad installed)
 
+Updates for 2025-07-09:
+
+Three main changes from prior version, for both east and west.
+    1. Cells do not start with a drift, to bring initial optics/offset/trajectory more in line with Stephen's spreadsheets (used for vetting).
+    2. Absolute value signs have been wrapped around the bending angle of the magnet in the formulas that calculate the geometric offsets.
+    3. Apertures have been re-defined to center around the actual orbits.
+Minor changes:
+    1. Fixed the unscaled dxF and dxD values for the east arc parameters.
+    2. I think the original BF x2 aperture that was reported as 0.025 was supposed to be 0.0025, because otherwise the aperture of that magnet was significantly larger - I assumed it was supposed to be 0.0025 when shifting the aperture limits.
+
+Overall, most optics look similar, except that the initial orbit offsets are shifted and the magnetic field seen by the particles is significantly reduced. 

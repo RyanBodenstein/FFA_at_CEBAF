@@ -2,24 +2,24 @@
 ! File containing pass 4 optics for the west arc
 ! Twiss functions, energies, etc.
 
+no_digested
+
 call, file = machine/Arcs.lat
 
-parameter[geometry] = open          
+parameter[geometry] = open
 
 parameter[p0c]                      = p_CENT
 parameter[particle]                 = Electron
 
 
+beginning[beta_a]       =  2.13293625876075854E+000
+beginning[alpha_a]      =  1.29925256892050767E+000
+beginning[eta_x]        =  6.34531909774663228E-002
+beginning[etap_x]       = -2.88196595606471026E-002
+beginning[beta_b]       =  7.54496239519257728E+000
+beginning[alpha_b]      = -3.66637666569859810E+000
 
-
-
-beginning[beta_a]    = 2.28739303877949
-beginning[alpha_a]   = 1.36890301161976
-beginning[eta_x]     = 0.0558925826489235
-beginning[etap_x]    = -0.0242251242481417
-beginning[beta_b]    = 7.17180700488253
-beginning[alpha_b]   = -3.57777523301207
-particle_start[x]  = -0.0271138841748744
-particle_start[px] = 0.0106207057835257
+particle_start[x]  = -7.84250612449476948E-003
+particle_start[px] =  3.55696857312645795E-003
 particle_start[pz] = -0.10975609756098 ! Corresponds to 18.25 GeV
 
