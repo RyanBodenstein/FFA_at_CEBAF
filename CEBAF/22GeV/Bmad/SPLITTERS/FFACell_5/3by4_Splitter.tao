@@ -1,0 +1,78 @@
+place r1134 multiba
+place r1234 multiaa
+place r1334 multietax
+place r1434 multietapx
+place r2134 multibb
+place r2234 multiab
+place r2334 multietay
+place r2434 multietapy
+place r3134 multir56
+place r3234 multiSRELoss
+place r3334 multitime
+place r3434 floor
+
+set region r1134 x1 = 0.05
+set region r1234 x1 = 0.05
+set region r1334 x1 = 0.05
+set region r1434 x1 = 0.05
+set region r1134 x2 = 0.33
+set region r1234 x2 = 0.33
+set region r1334 x2 = 0.33
+set region r1434 x2 = 0.33
+set region r2134 x1 = 0.35
+set region r2234 x1 = 0.35
+set region r2334 x1 = 0.38
+set region r2434 x1 = 0.38
+set region r2134 x2 = 0.67
+set region r2234 x2 = 0.67
+set region r2334 x2 = 0.67
+set region r2434 x2 = 0.67
+set region r3134 x1 = 0.69
+set region r3234 x1 = 0.69
+set region r3334 x1 = 0.72
+set region r3434 x1 = 0.69
+set region r1134 y1 = 0.78
+set region r2134 y1 = 0.78
+set region r3134 y1 = 0.78
+set region r1134 y2 = 0.98
+set region r2134 y2 = 0.98
+set region r3134 y2 = 0.98
+set region r1234 y1 = 0.55
+set region r2234 y1 = 0.55
+set region r3234 y1 = 0.55
+set region r1234 y2 = 0.75
+set region r2234 y2 = 0.75
+set region r3234 y2 = 0.75
+set region r1334 y1 = 0.31
+set region r2334 y1 = 0.31
+set region r3334 y1 = 0.31
+set region r1334 y2 = 0.52
+set region r2334 y2 = 0.52
+set region r3334 y2 = 0.52
+set region r1434 y1 = 0.05
+set region r2434 y1 = 0.05
+set region r3434 y1 = 0.05
+set region r1434 y2 = 0.28
+set region r2434 y2 = 0.28
+set region r3434 y2 = 0.28
+
+set graph floor x2%draw_numbers = F
+set graph r3234 y%label_offset = 0.14
+set graph r2434 y%label_offset = -0.05
+set graph r2334 y%label_offset = 0.15
+set graph r2234 y%label_offset = -0.01
+set graph r1434 y%label_offset = -0.01
+set graph r1334 y%label_offset = -0.01
+set graph r3434 x%label_offset = 0.01
+set graph r3334 x%label_offset = -0.02
+set graph r3234 x%label_offset = -0.03
+set graph r3134 x%label_offset = -0.02
+set graph r2334 x%label_offset = -0.02
+set graph r1334 x%label_offset = -0.02
+set graph r1134 x%label_offset = -0.05
+set graph multiab draw_curve_legend = F
+set graph multiaa draw_curve_legend = F
+set graph multietax draw_curve_legend = F
+set graph multietapx draw_curve_legend = F
+set graph multietay draw_curve_legend = F
+set graph multietapy draw_curve_legend = F

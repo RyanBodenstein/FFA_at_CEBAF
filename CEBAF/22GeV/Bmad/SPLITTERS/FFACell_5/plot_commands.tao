@@ -1,0 +1,10 @@
+set region r1124 x1=0.05
+set region r1224 x1=0.05
+set region r1324 x1=0.05
+set region r1424 x1=0.05
+set region 1124 x1=0.05
+set region 1224 x1=0.05
+set region 1324 x1=0.05
+set region 1424 x1=0.05
+scale *
+set graph multiaa draw_curve_legend = F
