@@ -2,25 +2,34 @@
 ! File containing pass 4 optics for the east arc
 ! Twiss functions, energies, etc.
 
-call, file = machine/Arcs.lat
-
 no_digested
 
-parameter[geometry] = open
+call, file = machine/Arcs.lat
 
-parameter[p0c]                      = p_CENT
+
+parameter[geometry] = Open
+
+parameter[p0c]                      = 650e6+15*1100e6
 parameter[particle]                 = Electron
 
 
 
-beginning[beta_a]       =  2.41701201785599418E+000
-beginning[alpha_a]      =  1.32208069232979142E+000
-beginning[eta_x]        =  7.11538985145528796E-002
-beginning[etap_x]       = -2.89201773756611810E-002
-beginning[beta_b]       =  8.53909331185776566E+000
-beginning[alpha_b]      = -3.75677939402763439E+000
+beginning[beta_a]       =  2.06227649713601435E+000
+beginning[alpha_a]      =  1.32208083425809408E+000
+beginning[eta_x]        =  6.07108978576681654E-002
+beginning[etap_x]       = -2.89201694840466768E-002
+beginning[beta_b]       =  7.28584142481937391E+000
+beginning[alpha_b]      = -3.75677846565088691E+000
+beginning[dbeta_dpz_a]  = -3.70209158677692329E-001
+beginning[dbeta_dpz_b]  =  9.47798557285217669E+000
+beginning[dalpha_dpz_a] = -7.17069746219989312E-001
+beginning[dalpha_dpz_b] = -4.69047037959136048E+000
+beginning[deta_dpz_x]   =  7.86705378914148712E-002
+beginning[detap_dpz_x]  = -3.98710709728807011E-002
 
-particle_start[x]  = -1.15087168060279237E-002
-particle_start[px] =  4.68593874006594229E-003
-particle_start[pz] = -0.146766 ! corresponds to 17.15 GeV
+particle_start[x]  = -1.15087288223982703E-002
+particle_start[px] =  5.49198057220228169E-003
+!particle_start[pz] = -0.146766 ! corresponds to 17.15 GeV
+
+!particle_start[pz] = (sqrt((17094.33e6)^2-m_electron^2)-p_CENT)/p_CENT
 
