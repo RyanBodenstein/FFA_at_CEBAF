@@ -14,8 +14,6 @@
  curve(1:6)%data_type = 'orbit.x' 'orbit.x' 'orbit.x' 'orbit.x' 'orbit.x' 'orbit.x'
  curve(1:6)%ix_universe = 1 2 3 4 5 6
  curve(1:6)%legend_text = '10.55 GeV' '12.75 GeV' '14.95 GeV' '17.15 GeV' '19.35 GeV' '21.55 GeV'
- graph%x%label = "s (m)"
- graph%y%label = "x (m)"
 /
 
 
@@ -35,48 +33,9 @@
  curve(1:6)%data_type = 'beta.a' 'beta.a' 'beta.a' 'beta.a' 'beta.a' 'beta.a'
  curve(1:6)%ix_universe = 1 2 3 4 5 6
  curve(1:6)%legend_text = '10.55 GeV' '12.75 GeV' '14.95 GeV' '17.15 GeV' '19.35 GeV' '21.55 GeV'
- graph%x%label = "s (m)"
- graph%y%label = "\gb\dx\u (m)"
-/
-
-&tao_template_plot
- plot%name = 'all_y_betas'
- plot%n_graph = 1
- plot%x_axis_type = 's'
- plot%autoscale_y = t
-/
- 
-&tao_template_graph
- graph%name = 'all_y_betas'
- graph%type = 'data'
- graph_index=1
- graph%n_curve=6
- curve(1:6)%data_type = 'beta.b' 'beta.b' 'beta.b' 'beta.b' 'beta.b' 'beta.b'
- curve(1:6)%ix_universe = 1 2 3 4 5 6
- curve(1:6)%legend_text = '10.55 GeV' '12.75 GeV' '14.95 GeV' '17.15 GeV' '19.35 GeV' '21.55 GeV'
- graph%x%label = "s (m)"
- graph%y%label = "\gb\dy\u (m)"
-/
-
-&tao_template_plot
- plot%name = 'all_x_etas'
- plot%n_graph = 1
- plot%x_axis_type = 's'
- plot%autoscale_y = t
 /
 
 
-&tao_template_graph
- graph%name = 'all_x_etas'
- graph%type = 'data'
- graph_index=1
- graph%n_curve=6
- curve(1:6)%data_type = 'eta.x' 'eta.x' 'eta.x' 'eta.x' 'eta.x' 'eta.x'
- curve(1:6)%ix_universe = 1 2 3 4 5 6
- curve(1:6)%legend_text = '10.55 GeV' '12.75 GeV' '14.95 GeV' '17.15 GeV' '19.35 GeV' '21.55 GeV'
- graph%x%label = "s (m)"
- graph%y%label = "\gy\dx\u (m)"
-/
 
 &tao_template_plot
  plot%name = 'all_y_orbits'

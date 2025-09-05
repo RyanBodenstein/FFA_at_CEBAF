@@ -32,3 +32,9 @@ Minor changes:
     2. I think the original BF x2 aperture that was reported as 0.025 was supposed to be 0.0025, because otherwise the aperture of that magnet was significantly larger - I assumed it was supposed to be 0.0025 when shifting the aperture limits.
 
 Overall, most optics look similar, except that the initial orbit offsets are shifted and the magnetic field seen by the particles is significantly reduced. 
+
+Updates for 2025-09-05:
+
+Both arcs have switched to changing the reference energy (instead of changing the pz value with a fixed reference energy) to clarify the misunderstanding about different x'/beta_xy values (caused by a lack of conversion, not because they're wrong).
+
+Still using nominal 650 MeV + 1100 MeV/linac, not taking SR energy losses into account.

@@ -13,9 +13,7 @@
  graph%n_curve=6
  curve(1:6)%data_type = 'orbit.x' 'orbit.x' 'orbit.x' 'orbit.x' 'orbit.x' 'orbit.x'
  curve(1:6)%ix_universe = 1 2 3 4 5 6
- curve(1:6)%legend_text = '10.55 GeV' '12.75 GeV' '14.95 GeV' '17.15 GeV' '19.35 GeV' '21.55 GeV'
- graph%x%label = "s (m)"
- graph%y%label = "x (m)"
+ curve(1:6)%legend_text = '11.65 GeV' '13.85 GeV' '16.05 GeV' '18.25 GeV' '20.45 GeV' '22.65 GeV'
 /
 
 
@@ -34,49 +32,10 @@
  graph%n_curve=6
  curve(1:6)%data_type = 'beta.a' 'beta.a' 'beta.a' 'beta.a' 'beta.a' 'beta.a'
  curve(1:6)%ix_universe = 1 2 3 4 5 6
- curve(1:6)%legend_text = '10.55 GeV' '12.75 GeV' '14.95 GeV' '17.15 GeV' '19.35 GeV' '21.55 GeV'
- graph%x%label = "s (m)"
- graph%y%label = "\gb\dx\u (m)"
-/
-
-&tao_template_plot
- plot%name = 'all_y_betas'
- plot%n_graph = 1
- plot%x_axis_type = 's'
- plot%autoscale_y = t
-/
- 
-&tao_template_graph
- graph%name = 'all_y_betas'
- graph%type = 'data'
- graph_index=1
- graph%n_curve=6
- curve(1:6)%data_type = 'beta.b' 'beta.b' 'beta.b' 'beta.b' 'beta.b' 'beta.b'
- curve(1:6)%ix_universe = 1 2 3 4 5 6
- curve(1:6)%legend_text = '10.55 GeV' '12.75 GeV' '14.95 GeV' '17.15 GeV' '19.35 GeV' '21.55 GeV'
- graph%x%label = "s (m)"
- graph%y%label = "\gb\dy\u (m)"
-/
-
-&tao_template_plot
- plot%name = 'all_x_etas'
- plot%n_graph = 1
- plot%x_axis_type = 's'
- plot%autoscale_y = t
+ curve(1:6)%legend_text = '11.65 GeV' '13.85 GeV' '16.05 GeV' '18.25 GeV' '20.45 GeV' '22.65 GeV'
 /
 
 
-&tao_template_graph
- graph%name = 'all_x_etas'
- graph%type = 'data'
- graph_index=1
- graph%n_curve=6
- curve(1:6)%data_type = 'eta.x' 'eta.x' 'eta.x' 'eta.x' 'eta.x' 'eta.x'
- curve(1:6)%ix_universe = 1 2 3 4 5 6
- curve(1:6)%legend_text = '10.55 GeV' '12.75 GeV' '14.95 GeV' '17.15 GeV' '19.35 GeV' '21.55 GeV'
- graph%x%label = "s (m)"
- graph%y%label = "\gy\dx\u (m)"
-/
 
 &tao_template_plot
  plot%name = 'all_y_orbits'
@@ -96,7 +55,7 @@
  graph%n_curve=6
  curve(1:6)%data_type = 'orbit.y' 'orbit.y' 'orbit.y' 'orbit.y' 'orbit.y' 'orbit.y'
  curve(1:6)%ix_universe = 1 2 3 4 5 6
- curve(1:6)%legend_text = '10.55 GeV' '12.75 GeV' '14.95 GeV' '17.15 GeV' '19.35 GeV' '21.55 GeV'
+ curve(1:6)%legend_text = '11.65 GeV' '13.85 GeV' '16.05 GeV' '18.25 GeV' '20.45 GeV' '22.65 GeV'
 /
 
 &tao_template_plot
@@ -166,7 +125,7 @@
   plot_page%size = 650, 800
   plot_page%n_curve_pts = 960
   place(1) = 'layout', 'lat_layout'
-  place(2) = 'r13', 'all_x_betas'
+  place(2) = 'r13', 'beta'
   place(3) = 'r23', 'disp'
   place(4) = 'r33', 'all_x_orbits'
 !  place(1) = 'r11', 'floor_plan'

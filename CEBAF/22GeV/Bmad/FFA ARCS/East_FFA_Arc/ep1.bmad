@@ -7,21 +7,28 @@ no_digested
 call, file = machine/Arcs.lat
 
 
-parameter[geometry] = open         
+parameter[geometry] = Open
 
-parameter[p0c]                      = p_CENT
+parameter[p0c]                      = 650e6+9*1100e6
 parameter[particle]                 = Electron
 
 
 
-beginning[beta_a]       =  3.51197776565366526E+000
-beginning[alpha_a]      =  2.77407341357195047E+000
-beginning[eta_x]        =  2.39432678273200708E-002
-beginning[etap_x]       = -8.62001564595152488E-003
-beginning[beta_b]       =  7.24214800068507092E+000
-beginning[alpha_b]      = -3.37936103146202305E+000
+beginning[beta_a]       =  1.84335701671060437E+000
+beginning[alpha_a]      =  2.77408472432907960E+000
+beginning[eta_x]        =  1.25671998670775775E-002
+beginning[etap_x]       = -8.61998498152753874E-003
+beginning[beta_b]       =  3.80122835649800317E+000
+beginning[alpha_b]      = -3.37936284152609234E+000
+beginning[dbeta_dpz_a]  = -7.64120357640840631E+000
+beginning[dbeta_dpz_b]  = -1.97139624675823910E+000
+beginning[dalpha_dpz_a] = -1.57075924520722054E+001
+beginning[dalpha_dpz_b] =  2.51368787343553279E+000
+beginning[deta_dpz_x]   =  5.23960428668469175E-002
+beginning[detap_dpz_x]  = -4.25867240475604619E-002
 
-particle_start[x]  = -2.78491414506406298E-002
-particle_start[px] =  1.11548132885166337E-002
-particle_start[pz] = -0.475124 ! corresponds to 10.55 GeV
+particle_start[x]  = -2.78491504989667911E-002
+particle_start[px] =  2.12523045026186477E-002
+!particle_start[pz] = -0.475124 ! corresponds to 10.55 GeV
 
+!particle_start[pz] = (sqrt((10494.33e6)^2-m_electron^2)-p_CENT)/p_CENT
