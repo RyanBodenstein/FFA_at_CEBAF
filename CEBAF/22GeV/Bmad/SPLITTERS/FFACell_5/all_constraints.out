@@ -1,0 +1,27 @@
+ 
+ Constraints                            Ref_Ele    Start_Ele   Ele/S    Meas-or-Lim    Model       Merit      Max_Loc
+ 6@Optics[51]             6@lat::beta.a[END] <target>                    1.6824E+00   1.6824E+00  3.155E-20
+ 6@Optics[52]             6@lat::beta.b[END] <target>                    2.2819E+01   2.2819E+01  1.262E-17
+ 6@Optics[53]             6@lat::alpha.a[END] <target>                   2.6113E-05   2.6113E-05  7.736E-24
+ 6@Optics[54]             6@lat::alpha.b[END] <target>                  -2.2893E-04  -2.2893E-04  1.156E-22
+ 6@Optics[58]             6@lat::r.56[END] <target>                      2.8081E-01   2.8081E-01  0.000E+00
+ 6@Optics[59]             beta.a <max>            BEGINNING   END        7.0000E+02   2.9889E+02  0.000E+00  M19Q2
+ 6@Optics[60]             beta.b <max>            BEGINNING   END        7.0000E+02   2.7170E+02  0.000E+00  MCB4B
+ Twiss_P19_FirstFive[1]   6@M19Q1[K1]                         33.36     -6.0000E-01  -4.8216E-01  0.000E+00
+ Twiss_P19_FirstFive[2]   6@M19Q2[K1]                         33.96      6.0000E-01   5.7889E-01  0.000E+00
+ Twiss_P19_FirstFive[3]   6@M19Q3[K1]                         43.86      6.0000E-01   1.2004E-01  0.000E+00
+ Twiss_P19_FirstFive[4]   6@M19Q4[K1]                         44.86     -6.0000E-01  -1.3081E-01  0.000E+00
+ Twiss_P19_FirstFive[5]   6@M19Q5[K1]                         45.86     -6.0000E-01  -1.1678E-01  0.000E+00
+ Twiss_P19_MiddleFive[1]  6@M19Q6[K1]                         61.81      6.0000E-01   6.0000E-01  0.000E+00
+ Twiss_P19_MiddleFive[2]  6@M19Q7[K1]                         62.81      6.0000E-01   3.8708E-01  0.000E+00
+ Twiss_P19_MiddleFive[3]  6@M19Q8[K1]                         63.81     -6.0000E-01  -5.7726E-01  0.000E+00
+ Twiss_P19_MiddleFive[4]  6@M19Q9[K1]                         73.75     -6.0000E-01  -4.7623E-01  0.000E+00
+ Twiss_P19_MiddleFive[5]  6@M19Q10[K1]                        74.75      6.0000E-01   4.5080E-01  0.000E+00
+ Twiss_P19_FinalFive[1]   6@M19Q11[K1]                        78.75      6.0000E-01   5.4774E-01  0.000E+00
+ Twiss_P19_FinalFive[2]   6@M19Q12[K1]                        79.75     -6.0000E-01  -5.4965E-01  0.000E+00
+ Twiss_P19_FinalFive[3]   6@M19Q13[K1]                        80.75      6.0000E-01   1.3657E-01  0.000E+00
+ Twiss_P19_FinalFive[4]   6@M19Q14[K1]                        86.75      6.0000E-01   5.5203E-01  0.000E+00
+ Twiss_P19_FinalFive[5]   6@M19Q15[K1]                        87.75     -6.0000E-01  -4.5654E-01  0.000E+00
+ Constraints                            Ref_Ele    Start_Ele   Ele/S    Meas-or-Lim    Model       Merit      Max_Loc
+ 
+  figure of merit: 1.265345E-17
