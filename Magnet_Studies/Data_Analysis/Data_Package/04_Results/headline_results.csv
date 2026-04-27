@@ -1,0 +1,12 @@
+metric,value,uncertainty,significance,notes
+NdFeB_minus_SmCo_differential_pct,-0.208,0.028,7.6 sigma,"Gain-immune intra-plate differential, N=30 plates"
+N42EH_mean_pct_change,-0.252,0.036,,N=30 tunnel Y-plate samples (outliers excluded)
+N52SH_mean_pct_change,-0.17,0.036,,N=29 tunnel Y-plate samples (outliers excluded)
+SmCo33H_mean_pct_change,0.037,0.031,,N=29 tunnel Y-plate samples (outliers excluded)
+SmCo35_mean_pct_change,-0.044,0.031,,N=30 tunnel Y-plate samples (outliers excluded)
+gain_systematic_cleaned_pct,0.124,0,,"Half-range of session offsets, cleaned (bad baselines + >3% excluded)"
+gain_systematic_uncleaned_pct,0.248,0,,"Half-range of session offsets, all samples"
+temp_coefficient_N42EH_per_C,-0.1,0,,"Manufacturer specification, used for temperature correction"
+temp_coefficient_N52SH_per_C,-0.11,0,,"Manufacturer specification, used for temperature correction"
+temp_coefficient_SmCo33H_per_C,-0.04,0,,"Manufacturer specification, used for temperature correction"
+temp_coefficient_SmCo35_per_C,-0.04,0,,"Manufacturer specification, used for temperature correction"

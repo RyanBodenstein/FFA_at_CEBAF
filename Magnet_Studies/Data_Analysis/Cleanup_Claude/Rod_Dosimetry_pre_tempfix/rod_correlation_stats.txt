@@ -1,0 +1,81 @@
+======================================================================
+DOSE-DEGRADATION CORRELATION COMPARISON
+  OSL body dose (lower bound, with saturation floor)
+  AIdata photon dose (true gamma, from optichromic rods)
+  Lab plates excluded (Y-8,14,27,28,29,31,33,35,37)
+======================================================================
+
+KIRSTEN'S PHOTON DOSE METHODOLOGY (from decipher_guide.txt):
+  All units: krad (rods) or krem (converted from OSL mrem ÷ 1e6)
+  For photons Q=1, so 1 krad = 1 krem = 1000 rem
+
+  Decision tree per swap period:
+  1. Low@600 < 2 krad AND OSL NOT saturated → use OSL reading
+  2. Low@600 < 2 krad AND OSL IS saturated  → use 1.5 krad (MEASUREMENT GAP)
+  3. 2 < Low@600 < 12 krad                  → average 2 Low@600 readings
+  4. Low@600 > 12 AND High@600 > 12         → average 2 High@600 readings
+  5. Higher doses → progressively include Low@656, High@600, High@656
+  6. Very high doses → average Low@656(2) + High@656(2)
+
+  Key: she uses the BEST available reading at each dose level.
+  The 1.5 krad gap value (case 2) is important — it's the interpolated
+  estimate for periods where OSL saturated (>1 krad) but rods are below
+  threshold (<2 krad).
+
+NEUTRON APPROACH (ours, not Kirsten's):
+  We keep our OSL CR-39 neutron pipeline: measured when valid, lower-bound
+  flagged when saturated. Kirsten's approach (1 krem for saturated neutrons)
+  is noted but not adopted. Future NDX data will supplement neutron doses.
+
+========================================
+OSL BODY DOSE (mrem, log10)
+========================================
+
+--- OSL body (all plates) (N=30) ---
+  NdFeB mean          Pearson r=+0.063 (p=0.7417)  Spearman rho=+0.336 (p=0.0697)
+  SmCo mean           Pearson r=-0.008 (p=0.9658)  Spearman rho=+0.003 (p=0.9879)
+  NdFeB-SmCo diff     Pearson r=+0.080 (p=0.6738)  Spearman rho=+0.240 (p=0.2022)
+  N42EH               Pearson r=+0.085 (p=0.6545)  Spearman rho=+0.262 (p=0.1614)
+  N52SH               Pearson r=+0.043 (p=0.8248)  Spearman rho=+0.258 (p=0.1764)
+  SmCo33H             Pearson r=+0.062 (p=0.7512)  Spearman rho=-0.027 (p=0.8911)
+  SmCo35              Pearson r=-0.069 (p=0.7184)  Spearman rho=+0.138 (p=0.4680)
+
+========================================
+AIDATA PHOTON DOSE (Gy, log10)
+========================================
+
+--- AIdata photon (all plates) (N=30) ---
+  NdFeB mean          Pearson r=+0.160 (p=0.3975)  Spearman rho=+0.270 (p=0.1486)
+  SmCo mean           Pearson r=+0.015 (p=0.9377)  Spearman rho=-0.047 (p=0.8054)
+  NdFeB-SmCo diff     Pearson r=+0.177 (p=0.3504)  Spearman rho=+0.229 (p=0.2228)
+  N42EH               Pearson r=+0.174 (p=0.3565)  Spearman rho=+0.228 (p=0.2255)
+  N52SH               Pearson r=+0.135 (p=0.4858)  Spearman rho=+0.165 (p=0.3937)
+  SmCo33H             Pearson r=-0.037 (p=0.8478)  Spearman rho=-0.059 (p=0.7607)
+  SmCo35              Pearson r=+0.054 (p=0.7779)  Spearman rho=+0.095 (p=0.6192)
+
+========================================
+AIDATA NEUTRON DOSE (rem, log10)
+========================================
+
+--- AIdata neutron (all plates) (N=30) ---
+  NdFeB mean          Pearson r=+0.478 (p=0.0076)  Spearman rho=+0.645 (p=0.0001)
+  SmCo mean           Pearson r=+0.193 (p=0.3058)  Spearman rho=+0.161 (p=0.3958)
+  NdFeB-SmCo diff     Pearson r=+0.410 (p=0.0243)  Spearman rho=+0.488 (p=0.0062)
+  N42EH               Pearson r=+0.403 (p=0.0273)  Spearman rho=+0.467 (p=0.0092)
+  N52SH               Pearson r=+0.489 (p=0.0071)  Spearman rho=+0.624 (p=0.0003)
+  SmCo33H             Pearson r=-0.137 (p=0.4799)  Spearman rho=-0.230 (p=0.2310)
+  SmCo35              Pearson r=+0.395 (p=0.0309)  Spearman rho=+0.455 (p=0.0116)
+
+======================================================================
+COMPARISON: Does true gamma dose improve correlation?
+======================================================================
+
+  NdFeB mean:
+    OSL:    Pearson r=+0.063 (p=0.7417), Spearman rho=+0.336 (p=0.0697)
+    AIdata: Pearson r=+0.160 (p=0.3975), Spearman rho=+0.270 (p=0.1486)
+    → OSL has BETTER correlation (|rho| 0.336 vs 0.270)
+
+  NdFeB-SmCo diff:
+    OSL:    Pearson r=+0.080 (p=0.6738), Spearman rho=+0.240 (p=0.2022)
+    AIdata: Pearson r=+0.177 (p=0.3504), Spearman rho=+0.229 (p=0.2228)
+    → Similar correlation strength (|rho| 0.229 vs 0.240)

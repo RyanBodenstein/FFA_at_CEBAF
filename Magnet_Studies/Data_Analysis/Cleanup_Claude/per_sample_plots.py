@@ -10,7 +10,7 @@ For every Y-plate and H-plate, produces a multi-panel figure showing:
 
 Y-plates:  4 rows (one per material slot) × 2 columns per figure, 30 figures
 H-plates:  4 rows (one per pair assembly slot) × 2 columns, with Hn (pair)
-           and An/As (individual magnets) overlaid
+           and An/As (pairs) overlaid
 
 Output: Cleanup_Claude/PerSample_Plots/{Y_Plates,Hn_Plates,Hs_Plates}/
 """
@@ -243,7 +243,7 @@ def build_temperature_lookup():
     # For individual An-XX-YY-Z, use that magnet's own temperatures
     pair_tesla_dir = os.path.join(BASE, 'Pair_Assemblies', 'Teslameter')
 
-    # Build A-sample temperature lookup (individual magnets)
+    # Build A-sample temperature lookup (pairs)
     a_samples = set()
     for f in os.listdir(pair_tesla_dir):
         m = re.match(r'(A[ns]?-\d+-\d+-\d+)_(front|side|top)\.dat$', f)
@@ -519,7 +519,7 @@ def plot_h_plate(plate_num, ns, pair_arrangements, temp_lookup):
                                  markersize=5, capsize=3, linewidth=1.2,
                                  label=f'{h_sample} corr')
 
-        # A-samples (individual magnets in the pair)
+        # A-samples (pairs in the slot)
         a_colors = ['#0077BB', '#CC3311']  # blue, red for magnet 1, 2
         for mag_idx, ac in zip(['1', '2'], a_colors):
             a_sample = f'{a_prefix}-{plate_num}-{slot}-{mag_idx}'
@@ -564,7 +564,7 @@ def plot_h_plate(plate_num, ns, pair_arrangements, temp_lookup):
                         all_temp_dates.append(d)
                         all_temp_vals.append(t)
 
-        # A-sample individual magnet Teslameter (An-XX-YY-1, An-XX-YY-2)
+        # A-sample pair Teslameter (An-XX-YY-1, An-XX-YY-2)
         mag_styles = {
             '1': {'ls': '--', 'alpha': 0.6, 'ms': 4},
             '2': {'ls': ':',  'alpha': 0.5, 'ms': 3},

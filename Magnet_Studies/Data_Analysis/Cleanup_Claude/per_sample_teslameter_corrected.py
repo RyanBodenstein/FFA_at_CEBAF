@@ -11,7 +11,7 @@ where T_measured is that face's own temperature reading (field 4).
 Y-plates:  4 rows (material slots), 1 column per figure
 H-plates:  4 rows (pair assembly slots), 2 columns
            Left: Hn/Hs pair-level Teslameter
-           Right: An/As individual magnet Teslameter (both magnets overlaid)
+           Right: An/As pair Teslameter (both pairs overlaid)
 
 Output: Cleanup_Claude/PerSample_Plots/Teslameter_Corrected/{Y,Hn,Hs}_Plates/
 """
@@ -249,7 +249,7 @@ def plot_h_plate_tesla(plate_num, ns, pair_arrangements):
     """
     One figure per H-plate: 4 rows (pair slots), 2 columns.
     Left: Hn/Hs pair-level Teslameter raw vs corrected.
-    Right: An/As individual magnet Teslameter raw vs corrected.
+    Right: An/As pair Teslameter raw vs corrected.
     """
     h_prefix = f'H{ns}'
     a_prefix = f'A{ns}'
@@ -313,7 +313,7 @@ def plot_h_plate_tesla(plate_num, ns, pair_arrangements):
                     f'{h_sample}{config_label} — Pair Teslameter',
                     show_legend=any_pair)
 
-        # --- Right: A-sample individual magnet Teslameter ---
+        # --- Right: A-sample pair Teslameter ---
         any_indiv = False
         mag_markers_extra = {
             '1': {'suffix': ' (mag1)', 'ms_raw': 3, 'ms_corr': 5,

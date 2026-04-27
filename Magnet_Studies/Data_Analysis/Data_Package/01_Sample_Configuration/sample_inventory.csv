@@ -1,0 +1,1093 @@
+sample_id,sample_type,material,plate,slot,environment,region,config
+Y-1-1,Y,SmCo33H,1,1,tunnel,South Linac,
+Y-1-2,Y,N52SH,1,2,tunnel,South Linac,
+Y-1-3,Y,SmCo35,1,3,tunnel,South Linac,
+Y-1-4,Y,N42EH,1,4,tunnel,South Linac,
+Y-3-1,Y,N42EH,3,1,tunnel,SE Arc,
+Y-3-2,Y,SmCo33H,3,2,tunnel,SE Arc,
+Y-3-3,Y,N52SH,3,3,tunnel,SE Arc,
+Y-3-4,Y,SmCo35,3,4,tunnel,SE Arc,
+Y-4-1,Y,N52SH,4,1,tunnel,North Linac,
+Y-4-2,Y,SmCo35,4,2,tunnel,North Linac,
+Y-4-3,Y,N42EH,4,3,tunnel,North Linac,
+Y-4-4,Y,SmCo33H,4,4,tunnel,North Linac,
+Y-5-1,Y,SmCo33H,5,1,tunnel,South Linac,
+Y-5-2,Y,N52SH,5,2,tunnel,South Linac,
+Y-5-3,Y,SmCo35,5,3,tunnel,South Linac,
+Y-5-4,Y,N42EH,5,4,tunnel,South Linac,
+Y-6-1,Y,SmCo35,6,1,tunnel,NW Arc,
+Y-6-2,Y,N42EH,6,2,tunnel,NW Arc,
+Y-6-3,Y,SmCo33H,6,3,tunnel,NW Arc,
+Y-6-4,Y,N52SH,6,4,tunnel,NW Arc,
+Y-7-1,Y,N42EH,7,1,tunnel,NE Arc,
+Y-7-2,Y,SmCo33H,7,2,tunnel,NE Arc,
+Y-7-3,Y,N52SH,7,3,tunnel,NE Arc,
+Y-7-4,Y,SmCo35,7,4,tunnel,NE Arc,
+Y-9-1,Y,SmCo33H,9,1,tunnel,NE Arc,
+Y-9-2,Y,N52SH,9,2,tunnel,NE Arc,
+Y-9-3,Y,SmCo35,9,3,tunnel,NE Arc,
+Y-9-4,Y,N42EH,9,4,tunnel,NE Arc,
+Y-10-1,Y,SmCo35,10,1,tunnel,SW Arc,
+Y-10-2,Y,N42EH,10,2,tunnel,SW Arc,
+Y-10-3,Y,SmCo33H,10,3,tunnel,SW Arc,
+Y-10-4,Y,N52SH,10,4,tunnel,SW Arc,
+Y-11-1,Y,N42EH,11,1,tunnel,SW Arc,
+Y-11-2,Y,SmCo33H,11,2,tunnel,SW Arc,
+Y-11-3,Y,N52SH,11,3,tunnel,SW Arc,
+Y-11-4,Y,SmCo35,11,4,tunnel,SW Arc,
+Y-12-1,Y,N52SH,12,1,tunnel,Labyrinth,
+Y-12-2,Y,SmCo35,12,2,tunnel,Labyrinth,
+Y-12-3,Y,N42EH,12,3,tunnel,Labyrinth,
+Y-12-4,Y,SmCo33H,12,4,tunnel,Labyrinth,
+Y-13-1,Y,SmCo33H,13,1,tunnel,SW Arc,
+Y-13-2,Y,N52SH,13,2,tunnel,SW Arc,
+Y-13-3,Y,SmCo35,13,3,tunnel,SW Arc,
+Y-13-4,Y,N42EH,13,4,tunnel,SW Arc,
+Y-15-1,Y,N42EH,15,1,tunnel,SE Arc,
+Y-15-2,Y,SmCo33H,15,2,tunnel,SE Arc,
+Y-15-3,Y,N52SH,15,3,tunnel,SE Arc,
+Y-15-4,Y,SmCo35,15,4,tunnel,SE Arc,
+Y-16-1,Y,N52SH,16,1,tunnel,North Linac,
+Y-16-2,Y,SmCo35,16,2,tunnel,North Linac,
+Y-16-3,Y,N42EH,16,3,tunnel,North Linac,
+Y-16-4,Y,SmCo33H,16,4,tunnel,North Linac,
+Y-17-1,Y,SmCo33H,17,1,tunnel,North Linac,
+Y-17-2,Y,N52SH,17,2,tunnel,North Linac,
+Y-17-3,Y,SmCo35,17,3,tunnel,North Linac,
+Y-17-4,Y,N42EH,17,4,tunnel,North Linac,
+Y-18-1,Y,SmCo35,18,1,tunnel,NE Arc,
+Y-18-2,Y,N42EH,18,2,tunnel,NE Arc,
+Y-18-3,Y,SmCo33H,18,3,tunnel,NE Arc,
+Y-18-4,Y,N52SH,18,4,tunnel,NE Arc,
+Y-19-1,Y,N42EH,19,1,tunnel,SW Arc,
+Y-19-2,Y,SmCo33H,19,2,tunnel,SW Arc,
+Y-19-3,Y,N52SH,19,3,tunnel,SW Arc,
+Y-19-4,Y,SmCo35,19,4,tunnel,SW Arc,
+Y-20-1,Y,N52SH,20,1,tunnel,Labyrinth,
+Y-20-2,Y,SmCo35,20,2,tunnel,Labyrinth,
+Y-20-3,Y,N42EH,20,3,tunnel,Labyrinth,
+Y-20-4,Y,SmCo33H,20,4,tunnel,Labyrinth,
+Y-21-1,Y,SmCo33H,21,1,tunnel,NE Arc,
+Y-21-2,Y,N52SH,21,2,tunnel,NE Arc,
+Y-21-3,Y,SmCo35,21,3,tunnel,NE Arc,
+Y-21-4,Y,N42EH,21,4,tunnel,NE Arc,
+Y-22-1,Y,SmCo35,22,1,tunnel,North Linac,
+Y-22-2,Y,N42EH,22,2,tunnel,North Linac,
+Y-22-3,Y,SmCo33H,22,3,tunnel,North Linac,
+Y-22-4,Y,N52SH,22,4,tunnel,North Linac,
+Y-23-1,Y,N42EH,23,1,tunnel,SE Arc,
+Y-23-2,Y,SmCo33H,23,2,tunnel,SE Arc,
+Y-23-3,Y,N52SH,23,3,tunnel,SE Arc,
+Y-23-4,Y,SmCo35,23,4,tunnel,SE Arc,
+Y-24-1,Y,N52SH,24,1,tunnel,South Linac,
+Y-24-2,Y,SmCo35,24,2,tunnel,South Linac,
+Y-24-3,Y,N42EH,24,3,tunnel,South Linac,
+Y-24-4,Y,SmCo33H,24,4,tunnel,South Linac,
+Y-25-1,Y,SmCo33H,25,1,tunnel,NW Arc,
+Y-25-2,Y,N52SH,25,2,tunnel,NW Arc,
+Y-25-3,Y,SmCo35,25,3,tunnel,NW Arc,
+Y-25-4,Y,N42EH,25,4,tunnel,NW Arc,
+Y-26-1,Y,SmCo35,26,1,tunnel,SE Arc,
+Y-26-2,Y,N42EH,26,2,tunnel,SE Arc,
+Y-26-3,Y,SmCo33H,26,3,tunnel,SE Arc,
+Y-26-4,Y,N52SH,26,4,tunnel,SE Arc,
+Y-30-1,Y,SmCo35,30,1,tunnel,South Linac,
+Y-30-2,Y,N42EH,30,2,tunnel,South Linac,
+Y-30-3,Y,SmCo33H,30,3,tunnel,South Linac,
+Y-30-4,Y,N52SH,30,4,tunnel,South Linac,
+Y-32-1,Y,N52SH,32,1,tunnel,SW Arc,
+Y-32-2,Y,SmCo35,32,2,tunnel,SW Arc,
+Y-32-3,Y,N42EH,32,3,tunnel,SW Arc,
+Y-32-4,Y,SmCo33H,32,4,tunnel,SW Arc,
+Y-34-1,Y,SmCo35,34,1,tunnel,NW Arc,
+Y-34-2,Y,N42EH,34,2,tunnel,NW Arc,
+Y-34-3,Y,SmCo33H,34,3,tunnel,NW Arc,
+Y-34-4,Y,N52SH,34,4,tunnel,NW Arc,
+Y-36-1,Y,N52SH,36,1,tunnel,NW Arc,
+Y-36-2,Y,SmCo35,36,2,tunnel,NW Arc,
+Y-36-3,Y,N42EH,36,3,tunnel,NW Arc,
+Y-36-4,Y,SmCo33H,36,4,tunnel,NW Arc,
+Y-38-1,Y,SmCo35,38,1,tunnel,NW Arc,
+Y-38-2,Y,N42EH,38,2,tunnel,NW Arc,
+Y-38-3,Y,SmCo33H,38,3,tunnel,NW Arc,
+Y-38-4,Y,N52SH,38,4,tunnel,NW Arc,
+Y-39-1,Y,N42EH,39,1,tunnel,NE Arc,
+Y-39-2,Y,SmCo33H,39,2,tunnel,NE Arc,
+Y-39-3,Y,N52SH,39,3,tunnel,NE Arc,
+Y-39-4,Y,SmCo35,39,4,tunnel,NE Arc,
+Y-40-1,Y,N52SH,40,1,tunnel,SE Arc,
+Y-40-2,Y,SmCo35,40,2,tunnel,SE Arc,
+Y-40-3,Y,N42EH,40,3,tunnel,SE Arc,
+Y-40-4,Y,SmCo33H,40,4,tunnel,SE Arc,
+Y-8-1,Y,N52SH,8,1,lab,,
+Y-8-2,Y,SmCo35,8,2,lab,,
+Y-8-3,Y,N42EH,8,3,lab,,
+Y-8-4,Y,SmCo33H,8,4,lab,,
+Y-14-1,Y,SmCo35,14,1,lab,,
+Y-14-2,Y,N42EH,14,2,lab,,
+Y-14-3,Y,SmCo33H,14,3,lab,,
+Y-14-4,Y,N52SH,14,4,lab,,
+Y-27-1,Y,N42EH,27,1,lab,,
+Y-27-2,Y,SmCo33H,27,2,lab,,
+Y-27-3,Y,N52SH,27,3,lab,,
+Y-27-4,Y,SmCo35,27,4,lab,,
+Y-28-1,Y,N52SH,28,1,lab,,
+Y-28-2,Y,SmCo35,28,2,lab,,
+Y-28-3,Y,N42EH,28,3,lab,,
+Y-28-4,Y,SmCo33H,28,4,lab,,
+Y-29-1,Y,SmCo33H,29,1,lab,,
+Y-29-2,Y,N52SH,29,2,lab,,
+Y-29-3,Y,SmCo35,29,3,lab,,
+Y-29-4,Y,N42EH,29,4,lab,,
+Y-31-1,Y,N42EH,31,1,lab,,
+Y-31-2,Y,SmCo33H,31,2,lab,,
+Y-31-3,Y,N52SH,31,3,lab,,
+Y-31-4,Y,SmCo35,31,4,lab,,
+Y-33-1,Y,SmCo33H,33,1,lab,,
+Y-33-2,Y,N52SH,33,2,lab,,
+Y-33-3,Y,SmCo35,33,3,lab,,
+Y-33-4,Y,N42EH,33,4,lab,,
+Y-35-1,Y,N42EH,35,1,lab,,
+Y-35-2,Y,SmCo33H,35,2,lab,,
+Y-35-3,Y,N52SH,35,3,lab,,
+Y-35-4,Y,SmCo35,35,4,lab,,
+Y-37-1,Y,SmCo33H,37,1,lab,,
+Y-37-2,Y,N52SH,37,2,lab,,
+Y-37-3,Y,SmCo35,37,3,lab,,
+Y-37-4,Y,N42EH,37,4,lab,,
+Hn-6-1,H,NdFeB,6,1,tunnel,South Linac,Gamma
+An-6-1-1,A,NdFeB,6,1,tunnel,South Linac,Gamma
+An-6-1-2,A,NdFeB,6,1,tunnel,South Linac,Gamma
+Hn-6-2,H,NdFeB,6,2,tunnel,South Linac,Alpha
+An-6-2-1,A,NdFeB,6,2,tunnel,South Linac,Alpha
+An-6-2-2,A,NdFeB,6,2,tunnel,South Linac,Alpha
+Hn-6-3,H,NdFeB,6,3,tunnel,South Linac,Delta
+An-6-3-1,A,NdFeB,6,3,tunnel,South Linac,Delta
+An-6-3-2,A,NdFeB,6,3,tunnel,South Linac,Delta
+Hn-6-4,H,NdFeB,6,4,tunnel,South Linac,Beta
+An-6-4-1,A,NdFeB,6,4,tunnel,South Linac,Beta
+An-6-4-2,A,NdFeB,6,4,tunnel,South Linac,Beta
+Hn-8-1,H,NdFeB,8,1,tunnel,SE Arc,Alpha
+An-8-1-1,A,NdFeB,8,1,tunnel,SE Arc,Alpha
+An-8-1-2,A,NdFeB,8,1,tunnel,SE Arc,Alpha
+Hn-8-2,H,NdFeB,8,2,tunnel,SE Arc,Gamma
+An-8-2-1,A,NdFeB,8,2,tunnel,SE Arc,Gamma
+An-8-2-2,A,NdFeB,8,2,tunnel,SE Arc,Gamma
+Hn-8-3,H,NdFeB,8,3,tunnel,SE Arc,Beta
+An-8-3-1,A,NdFeB,8,3,tunnel,SE Arc,Beta
+An-8-3-2,A,NdFeB,8,3,tunnel,SE Arc,Beta
+Hn-8-4,H,NdFeB,8,4,tunnel,SE Arc,Delta
+An-8-4-1,A,NdFeB,8,4,tunnel,SE Arc,Delta
+An-8-4-2,A,NdFeB,8,4,tunnel,SE Arc,Delta
+Hn-9-1,H,NdFeB,9,1,tunnel,SE Arc,Delta
+An-9-1-1,A,NdFeB,9,1,tunnel,SE Arc,Delta
+An-9-1-2,A,NdFeB,9,1,tunnel,SE Arc,Delta
+Hn-9-2,H,NdFeB,9,2,tunnel,SE Arc,Beta
+An-9-2-1,A,NdFeB,9,2,tunnel,SE Arc,Beta
+An-9-2-2,A,NdFeB,9,2,tunnel,SE Arc,Beta
+Hn-9-3,H,NdFeB,9,3,tunnel,SE Arc,Gamma
+An-9-3-1,A,NdFeB,9,3,tunnel,SE Arc,Gamma
+An-9-3-2,A,NdFeB,9,3,tunnel,SE Arc,Gamma
+Hn-9-4,H,NdFeB,9,4,tunnel,SE Arc,Alpha
+An-9-4-1,A,NdFeB,9,4,tunnel,SE Arc,Alpha
+An-9-4-2,A,NdFeB,9,4,tunnel,SE Arc,Alpha
+Hn-10-1,H,NdFeB,10,1,tunnel,SE Arc,Gamma
+An-10-1-1,A,NdFeB,10,1,tunnel,SE Arc,Gamma
+An-10-1-2,A,NdFeB,10,1,tunnel,SE Arc,Gamma
+Hn-10-2,H,NdFeB,10,2,tunnel,SE Arc,Beta
+An-10-2-1,A,NdFeB,10,2,tunnel,SE Arc,Beta
+An-10-2-2,A,NdFeB,10,2,tunnel,SE Arc,Beta
+Hn-10-3,H,NdFeB,10,3,tunnel,SE Arc,Alpha
+An-10-3-1,A,NdFeB,10,3,tunnel,SE Arc,Alpha
+An-10-3-2,A,NdFeB,10,3,tunnel,SE Arc,Alpha
+Hn-10-4,H,NdFeB,10,4,tunnel,SE Arc,Delta
+An-10-4-1,A,NdFeB,10,4,tunnel,SE Arc,Delta
+An-10-4-2,A,NdFeB,10,4,tunnel,SE Arc,Delta
+Hn-11-1,H,NdFeB,11,1,tunnel,NW Arc,Beta
+An-11-1-1,A,NdFeB,11,1,tunnel,NW Arc,Beta
+An-11-1-2,A,NdFeB,11,1,tunnel,NW Arc,Beta
+Hn-11-2,H,NdFeB,11,2,tunnel,NW Arc,Gamma
+An-11-2-1,A,NdFeB,11,2,tunnel,NW Arc,Gamma
+An-11-2-2,A,NdFeB,11,2,tunnel,NW Arc,Gamma
+Hn-11-3,H,NdFeB,11,3,tunnel,NW Arc,Delta
+An-11-3-1,A,NdFeB,11,3,tunnel,NW Arc,Delta
+An-11-3-2,A,NdFeB,11,3,tunnel,NW Arc,Delta
+Hn-11-4,H,NdFeB,11,4,tunnel,NW Arc,Alpha
+An-11-4-1,A,NdFeB,11,4,tunnel,NW Arc,Alpha
+An-11-4-2,A,NdFeB,11,4,tunnel,NW Arc,Alpha
+Hn-12-1,H,NdFeB,12,1,tunnel,NW Arc,Alpha
+An-12-1-1,A,NdFeB,12,1,tunnel,NW Arc,Alpha
+An-12-1-2,A,NdFeB,12,1,tunnel,NW Arc,Alpha
+Hn-12-2,H,NdFeB,12,2,tunnel,NW Arc,Gamma
+An-12-2-1,A,NdFeB,12,2,tunnel,NW Arc,Gamma
+An-12-2-2,A,NdFeB,12,2,tunnel,NW Arc,Gamma
+Hn-12-3,H,NdFeB,12,3,tunnel,NW Arc,Delta
+An-12-3-1,A,NdFeB,12,3,tunnel,NW Arc,Delta
+An-12-3-2,A,NdFeB,12,3,tunnel,NW Arc,Delta
+Hn-12-4,H,NdFeB,12,4,tunnel,NW Arc,Beta
+An-12-4-1,A,NdFeB,12,4,tunnel,NW Arc,Beta
+An-12-4-2,A,NdFeB,12,4,tunnel,NW Arc,Beta
+Hn-15-1,H,NdFeB,15,1,tunnel,North Linac,Beta
+An-15-1-1,A,NdFeB,15,1,tunnel,North Linac,Beta
+An-15-1-2,A,NdFeB,15,1,tunnel,North Linac,Beta
+Hn-15-2,H,NdFeB,15,2,tunnel,North Linac,Gamma
+An-15-2-1,A,NdFeB,15,2,tunnel,North Linac,Gamma
+An-15-2-2,A,NdFeB,15,2,tunnel,North Linac,Gamma
+Hn-15-3,H,NdFeB,15,3,tunnel,North Linac,Alpha
+An-15-3-1,A,NdFeB,15,3,tunnel,North Linac,Alpha
+An-15-3-2,A,NdFeB,15,3,tunnel,North Linac,Alpha
+Hn-15-4,H,NdFeB,15,4,tunnel,North Linac,Delta
+An-15-4-1,A,NdFeB,15,4,tunnel,North Linac,Delta
+An-15-4-2,A,NdFeB,15,4,tunnel,North Linac,Delta
+Hn-16-1,H,NdFeB,16,1,tunnel,SE Arc,Alpha
+An-16-1-1,A,NdFeB,16,1,tunnel,SE Arc,Alpha
+An-16-1-2,A,NdFeB,16,1,tunnel,SE Arc,Alpha
+Hn-16-2,H,NdFeB,16,2,tunnel,SE Arc,Beta
+An-16-2-1,A,NdFeB,16,2,tunnel,SE Arc,Beta
+An-16-2-2,A,NdFeB,16,2,tunnel,SE Arc,Beta
+Hn-16-3,H,NdFeB,16,3,tunnel,SE Arc,Delta
+An-16-3-1,A,NdFeB,16,3,tunnel,SE Arc,Delta
+An-16-3-2,A,NdFeB,16,3,tunnel,SE Arc,Delta
+Hn-16-4,H,NdFeB,16,4,tunnel,SE Arc,Gamma
+An-16-4-1,A,NdFeB,16,4,tunnel,SE Arc,Gamma
+An-16-4-2,A,NdFeB,16,4,tunnel,SE Arc,Gamma
+Hn-17-1,H,NdFeB,17,1,tunnel,NW Arc,Delta
+An-17-1-1,A,NdFeB,17,1,tunnel,NW Arc,Delta
+An-17-1-2,A,NdFeB,17,1,tunnel,NW Arc,Delta
+Hn-17-2,H,NdFeB,17,2,tunnel,NW Arc,Gamma
+An-17-2-1,A,NdFeB,17,2,tunnel,NW Arc,Gamma
+An-17-2-2,A,NdFeB,17,2,tunnel,NW Arc,Gamma
+Hn-17-3,H,NdFeB,17,3,tunnel,NW Arc,Alpha
+An-17-3-1,A,NdFeB,17,3,tunnel,NW Arc,Alpha
+An-17-3-2,A,NdFeB,17,3,tunnel,NW Arc,Alpha
+Hn-17-4,H,NdFeB,17,4,tunnel,NW Arc,Beta
+An-17-4-1,A,NdFeB,17,4,tunnel,NW Arc,Beta
+An-17-4-2,A,NdFeB,17,4,tunnel,NW Arc,Beta
+Hn-18-1,H,NdFeB,18,1,tunnel,NW Arc,Gamma
+An-18-1-1,A,NdFeB,18,1,tunnel,NW Arc,Gamma
+An-18-1-2,A,NdFeB,18,1,tunnel,NW Arc,Gamma
+Hn-18-2,H,NdFeB,18,2,tunnel,NW Arc,Delta
+An-18-2-1,A,NdFeB,18,2,tunnel,NW Arc,Delta
+An-18-2-2,A,NdFeB,18,2,tunnel,NW Arc,Delta
+Hn-18-3,H,NdFeB,18,3,tunnel,NW Arc,Alpha
+An-18-3-1,A,NdFeB,18,3,tunnel,NW Arc,Alpha
+An-18-3-2,A,NdFeB,18,3,tunnel,NW Arc,Alpha
+Hn-18-4,H,NdFeB,18,4,tunnel,NW Arc,Beta
+An-18-4-1,A,NdFeB,18,4,tunnel,NW Arc,Beta
+An-18-4-2,A,NdFeB,18,4,tunnel,NW Arc,Beta
+Hn-19-1,H,NdFeB,19,1,tunnel,South Linac,Beta
+An-19-1-1,A,NdFeB,19,1,tunnel,South Linac,Beta
+An-19-1-2,A,NdFeB,19,1,tunnel,South Linac,Beta
+Hn-19-2,H,NdFeB,19,2,tunnel,South Linac,Delta
+An-19-2-1,A,NdFeB,19,2,tunnel,South Linac,Delta
+An-19-2-2,A,NdFeB,19,2,tunnel,South Linac,Delta
+Hn-19-3,H,NdFeB,19,3,tunnel,South Linac,Gamma
+An-19-3-1,A,NdFeB,19,3,tunnel,South Linac,Gamma
+An-19-3-2,A,NdFeB,19,3,tunnel,South Linac,Gamma
+Hn-19-4,H,NdFeB,19,4,tunnel,South Linac,Alpha
+An-19-4-1,A,NdFeB,19,4,tunnel,South Linac,Alpha
+An-19-4-2,A,NdFeB,19,4,tunnel,South Linac,Alpha
+Hn-20-1,H,NdFeB,20,1,tunnel,North Linac,Alpha
+An-20-1-1,A,NdFeB,20,1,tunnel,North Linac,Alpha
+An-20-1-2,A,NdFeB,20,1,tunnel,North Linac,Alpha
+Hn-20-2,H,NdFeB,20,2,tunnel,North Linac,Delta
+An-20-2-1,A,NdFeB,20,2,tunnel,North Linac,Delta
+An-20-2-2,A,NdFeB,20,2,tunnel,North Linac,Delta
+Hn-20-3,H,NdFeB,20,3,tunnel,North Linac,Gamma
+An-20-3-1,A,NdFeB,20,3,tunnel,North Linac,Gamma
+An-20-3-2,A,NdFeB,20,3,tunnel,North Linac,Gamma
+Hn-20-4,H,NdFeB,20,4,tunnel,North Linac,Beta
+An-20-4-1,A,NdFeB,20,4,tunnel,North Linac,Beta
+An-20-4-2,A,NdFeB,20,4,tunnel,North Linac,Beta
+Hn-37-1,H,NdFeB,37,1,tunnel,SE Arc,Delta
+An-37-1-1,A,NdFeB,37,1,tunnel,SE Arc,Delta
+An-37-1-2,A,NdFeB,37,1,tunnel,SE Arc,Delta
+Hn-37-2,H,NdFeB,37,2,tunnel,SE Arc,Beta
+An-37-2-1,A,NdFeB,37,2,tunnel,SE Arc,Beta
+An-37-2-2,A,NdFeB,37,2,tunnel,SE Arc,Beta
+Hn-37-3,H,NdFeB,37,3,tunnel,SE Arc,Alpha
+An-37-3-1,A,NdFeB,37,3,tunnel,SE Arc,Alpha
+An-37-3-2,A,NdFeB,37,3,tunnel,SE Arc,Alpha
+Hn-37-4,H,NdFeB,37,4,tunnel,SE Arc,Gamma
+An-37-4-1,A,NdFeB,37,4,tunnel,SE Arc,Gamma
+An-37-4-2,A,NdFeB,37,4,tunnel,SE Arc,Gamma
+Hn-39-1,H,NdFeB,39,1,tunnel,NW Arc,Beta
+An-39-1-1,A,NdFeB,39,1,tunnel,NW Arc,Beta
+An-39-1-2,A,NdFeB,39,1,tunnel,NW Arc,Beta
+Hn-39-2,H,NdFeB,39,2,tunnel,NW Arc,Alpha
+An-39-2-1,A,NdFeB,39,2,tunnel,NW Arc,Alpha
+An-39-2-2,A,NdFeB,39,2,tunnel,NW Arc,Alpha
+Hn-39-3,H,NdFeB,39,3,tunnel,NW Arc,Delta
+An-39-3-1,A,NdFeB,39,3,tunnel,NW Arc,Delta
+An-39-3-2,A,NdFeB,39,3,tunnel,NW Arc,Delta
+Hn-39-4,H,NdFeB,39,4,tunnel,NW Arc,Gamma
+An-39-4-1,A,NdFeB,39,4,tunnel,NW Arc,Gamma
+An-39-4-2,A,NdFeB,39,4,tunnel,NW Arc,Gamma
+Hs-1-1,H,SmCo,1,1,tunnel,SW Arc,Alpha
+As-1-1-1,A,SmCo,1,1,tunnel,SW Arc,Alpha
+As-1-1-2,A,SmCo,1,1,tunnel,SW Arc,Alpha
+Hs-1-2,H,SmCo,1,2,tunnel,SW Arc,Beta
+As-1-2-1,A,SmCo,1,2,tunnel,SW Arc,Beta
+As-1-2-2,A,SmCo,1,2,tunnel,SW Arc,Beta
+Hs-1-3,H,SmCo,1,3,tunnel,SW Arc,Gamma
+As-1-3-1,A,SmCo,1,3,tunnel,SW Arc,Gamma
+As-1-3-2,A,SmCo,1,3,tunnel,SW Arc,Gamma
+Hs-1-4,H,SmCo,1,4,tunnel,SW Arc,Delta
+As-1-4-1,A,SmCo,1,4,tunnel,SW Arc,Delta
+As-1-4-2,A,SmCo,1,4,tunnel,SW Arc,Delta
+Hs-2-1,H,SmCo,2,1,tunnel,SW Arc,Beta
+As-2-1-1,A,SmCo,2,1,tunnel,SW Arc,Beta
+As-2-1-2,A,SmCo,2,1,tunnel,SW Arc,Beta
+Hs-2-2,H,SmCo,2,2,tunnel,SW Arc,Alpha
+As-2-2-1,A,SmCo,2,2,tunnel,SW Arc,Alpha
+As-2-2-2,A,SmCo,2,2,tunnel,SW Arc,Alpha
+Hs-2-3,H,SmCo,2,3,tunnel,SW Arc,Gamma
+As-2-3-1,A,SmCo,2,3,tunnel,SW Arc,Gamma
+As-2-3-2,A,SmCo,2,3,tunnel,SW Arc,Gamma
+Hs-2-4,H,SmCo,2,4,tunnel,SW Arc,Delta
+As-2-4-1,A,SmCo,2,4,tunnel,SW Arc,Delta
+As-2-4-2,A,SmCo,2,4,tunnel,SW Arc,Delta
+Hs-3-1,H,SmCo,3,1,tunnel,SW Arc,Gamma
+As-3-1-1,A,SmCo,3,1,tunnel,SW Arc,Gamma
+As-3-1-2,A,SmCo,3,1,tunnel,SW Arc,Gamma
+Hs-3-2,H,SmCo,3,2,tunnel,SW Arc,Alpha
+As-3-2-1,A,SmCo,3,2,tunnel,SW Arc,Alpha
+As-3-2-2,A,SmCo,3,2,tunnel,SW Arc,Alpha
+Hs-3-3,H,SmCo,3,3,tunnel,SW Arc,Beta
+As-3-3-1,A,SmCo,3,3,tunnel,SW Arc,Beta
+As-3-3-2,A,SmCo,3,3,tunnel,SW Arc,Beta
+Hs-3-4,H,SmCo,3,4,tunnel,SW Arc,Delta
+As-3-4-1,A,SmCo,3,4,tunnel,SW Arc,Delta
+As-3-4-2,A,SmCo,3,4,tunnel,SW Arc,Delta
+Hs-4-1,H,SmCo,4,1,tunnel,Labyrinth,Delta
+As-4-1-1,A,SmCo,4,1,tunnel,Labyrinth,Delta
+As-4-1-2,A,SmCo,4,1,tunnel,Labyrinth,Delta
+Hs-4-2,H,SmCo,4,2,tunnel,Labyrinth,Alpha
+As-4-2-1,A,SmCo,4,2,tunnel,Labyrinth,Alpha
+As-4-2-2,A,SmCo,4,2,tunnel,Labyrinth,Alpha
+Hs-4-3,H,SmCo,4,3,tunnel,Labyrinth,Beta
+As-4-3-1,A,SmCo,4,3,tunnel,Labyrinth,Beta
+As-4-3-2,A,SmCo,4,3,tunnel,Labyrinth,Beta
+Hs-4-4,H,SmCo,4,4,tunnel,Labyrinth,Gamma
+As-4-4-1,A,SmCo,4,4,tunnel,Labyrinth,Gamma
+As-4-4-2,A,SmCo,4,4,tunnel,Labyrinth,Gamma
+Hs-5-1,H,SmCo,5,1,tunnel,Labyrinth,Alpha
+As-5-1-1,A,SmCo,5,1,tunnel,Labyrinth,Alpha
+As-5-1-2,A,SmCo,5,1,tunnel,Labyrinth,Alpha
+Hs-5-2,H,SmCo,5,2,tunnel,Labyrinth,Gamma
+As-5-2-1,A,SmCo,5,2,tunnel,Labyrinth,Gamma
+As-5-2-2,A,SmCo,5,2,tunnel,Labyrinth,Gamma
+Hs-5-3,H,SmCo,5,3,tunnel,Labyrinth,Beta
+As-5-3-1,A,SmCo,5,3,tunnel,Labyrinth,Beta
+As-5-3-2,A,SmCo,5,3,tunnel,Labyrinth,Beta
+Hs-5-4,H,SmCo,5,4,tunnel,Labyrinth,Delta
+As-5-4-1,A,SmCo,5,4,tunnel,Labyrinth,Delta
+As-5-4-2,A,SmCo,5,4,tunnel,Labyrinth,Delta
+Hs-6-1,H,SmCo,6,1,tunnel,NE Arc,Beta
+As-6-1-1,A,SmCo,6,1,tunnel,NE Arc,Beta
+As-6-1-2,A,SmCo,6,1,tunnel,NE Arc,Beta
+Hs-6-2,H,SmCo,6,2,tunnel,NE Arc,Alpha
+As-6-2-1,A,SmCo,6,2,tunnel,NE Arc,Alpha
+As-6-2-2,A,SmCo,6,2,tunnel,NE Arc,Alpha
+Hs-6-3,H,SmCo,6,3,tunnel,NE Arc,Delta
+As-6-3-1,A,SmCo,6,3,tunnel,NE Arc,Delta
+As-6-3-2,A,SmCo,6,3,tunnel,NE Arc,Delta
+Hs-6-4,H,SmCo,6,4,tunnel,NE Arc,Gamma
+As-6-4-1,A,SmCo,6,4,tunnel,NE Arc,Gamma
+As-6-4-2,A,SmCo,6,4,tunnel,NE Arc,Gamma
+Hs-7-1,H,SmCo,7,1,tunnel,North Linac,Gamma
+As-7-1-1,A,SmCo,7,1,tunnel,North Linac,Gamma
+As-7-1-2,A,SmCo,7,1,tunnel,North Linac,Gamma
+Hs-7-2,H,SmCo,7,2,tunnel,North Linac,Alpha
+As-7-2-1,A,SmCo,7,2,tunnel,North Linac,Alpha
+As-7-2-2,A,SmCo,7,2,tunnel,North Linac,Alpha
+Hs-7-3,H,SmCo,7,3,tunnel,North Linac,Beta
+As-7-3-1,A,SmCo,7,3,tunnel,North Linac,Beta
+As-7-3-2,A,SmCo,7,3,tunnel,North Linac,Beta
+Hs-7-4,H,SmCo,7,4,tunnel,North Linac,Delta
+As-7-4-1,A,SmCo,7,4,tunnel,North Linac,Delta
+As-7-4-2,A,SmCo,7,4,tunnel,North Linac,Delta
+Hs-10-1,H,SmCo,10,1,tunnel,SW Arc,Beta
+As-10-1-1,A,SmCo,10,1,tunnel,SW Arc,Beta
+As-10-1-2,A,SmCo,10,1,tunnel,SW Arc,Beta
+Hs-10-2,H,SmCo,10,2,tunnel,SW Arc,Gamma
+As-10-2-1,A,SmCo,10,2,tunnel,SW Arc,Gamma
+As-10-2-2,A,SmCo,10,2,tunnel,SW Arc,Gamma
+Hs-10-3,H,SmCo,10,3,tunnel,SW Arc,Delta
+As-10-3-1,A,SmCo,10,3,tunnel,SW Arc,Delta
+As-10-3-2,A,SmCo,10,3,tunnel,SW Arc,Delta
+Hs-10-4,H,SmCo,10,4,tunnel,SW Arc,Alpha
+As-10-4-1,A,SmCo,10,4,tunnel,SW Arc,Alpha
+As-10-4-2,A,SmCo,10,4,tunnel,SW Arc,Alpha
+Hs-12-1,H,SmCo,12,1,tunnel,NE Arc,Delta
+As-12-1-1,A,SmCo,12,1,tunnel,NE Arc,Delta
+As-12-1-2,A,SmCo,12,1,tunnel,NE Arc,Delta
+Hs-12-2,H,SmCo,12,2,tunnel,NE Arc,Beta
+As-12-2-1,A,SmCo,12,2,tunnel,NE Arc,Beta
+As-12-2-2,A,SmCo,12,2,tunnel,NE Arc,Beta
+Hs-12-3,H,SmCo,12,3,tunnel,NE Arc,Gamma
+As-12-3-1,A,SmCo,12,3,tunnel,NE Arc,Gamma
+As-12-3-2,A,SmCo,12,3,tunnel,NE Arc,Gamma
+Hs-12-4,H,SmCo,12,4,tunnel,NE Arc,Alpha
+As-12-4-1,A,SmCo,12,4,tunnel,NE Arc,Alpha
+As-12-4-2,A,SmCo,12,4,tunnel,NE Arc,Alpha
+Hs-13-1,H,SmCo,13,1,tunnel,South Linac,Alpha
+As-13-1-1,A,SmCo,13,1,tunnel,South Linac,Alpha
+As-13-1-2,A,SmCo,13,1,tunnel,South Linac,Alpha
+Hs-13-2,H,SmCo,13,2,tunnel,South Linac,Beta
+As-13-2-1,A,SmCo,13,2,tunnel,South Linac,Beta
+As-13-2-2,A,SmCo,13,2,tunnel,South Linac,Beta
+Hs-13-3,H,SmCo,13,3,tunnel,South Linac,Delta
+As-13-3-1,A,SmCo,13,3,tunnel,South Linac,Delta
+As-13-3-2,A,SmCo,13,3,tunnel,South Linac,Delta
+Hs-13-4,H,SmCo,13,4,tunnel,South Linac,Gamma
+As-13-4-1,A,SmCo,13,4,tunnel,South Linac,Gamma
+As-13-4-2,A,SmCo,13,4,tunnel,South Linac,Gamma
+Hs-14-1,H,SmCo,14,1,tunnel,NE Arc,Beta
+As-14-1-1,A,SmCo,14,1,tunnel,NE Arc,Beta
+As-14-1-2,A,SmCo,14,1,tunnel,NE Arc,Beta
+Hs-14-2,H,SmCo,14,2,tunnel,NE Arc,Gamma
+As-14-2-1,A,SmCo,14,2,tunnel,NE Arc,Gamma
+As-14-2-2,A,SmCo,14,2,tunnel,NE Arc,Gamma
+Hs-14-3,H,SmCo,14,3,tunnel,NE Arc,Alpha
+As-14-3-1,A,SmCo,14,3,tunnel,NE Arc,Alpha
+As-14-3-2,A,SmCo,14,3,tunnel,NE Arc,Alpha
+Hs-14-4,H,SmCo,14,4,tunnel,NE Arc,Delta
+As-14-4-1,A,SmCo,14,4,tunnel,NE Arc,Delta
+As-14-4-2,A,SmCo,14,4,tunnel,NE Arc,Delta
+Hs-15-1,H,SmCo,15,1,tunnel,North Linac,Gamma
+As-15-1-1,A,SmCo,15,1,tunnel,North Linac,Gamma
+As-15-1-2,A,SmCo,15,1,tunnel,North Linac,Gamma
+Hs-15-2,H,SmCo,15,2,tunnel,North Linac,Beta
+As-15-2-1,A,SmCo,15,2,tunnel,North Linac,Beta
+As-15-2-2,A,SmCo,15,2,tunnel,North Linac,Beta
+Hs-15-3,H,SmCo,15,3,tunnel,North Linac,Delta
+As-15-3-1,A,SmCo,15,3,tunnel,North Linac,Delta
+As-15-3-2,A,SmCo,15,3,tunnel,North Linac,Delta
+Hs-15-4,H,SmCo,15,4,tunnel,North Linac,Alpha
+As-15-4-1,A,SmCo,15,4,tunnel,North Linac,Alpha
+As-15-4-2,A,SmCo,15,4,tunnel,North Linac,Alpha
+Hs-16-1,H,SmCo,16,1,tunnel,NE Arc,Delta
+As-16-1-1,A,SmCo,16,1,tunnel,NE Arc,Delta
+As-16-1-2,A,SmCo,16,1,tunnel,NE Arc,Delta
+Hs-16-2,H,SmCo,16,2,tunnel,NE Arc,Beta
+As-16-2-1,A,SmCo,16,2,tunnel,NE Arc,Beta
+As-16-2-2,A,SmCo,16,2,tunnel,NE Arc,Beta
+Hs-16-3,H,SmCo,16,3,tunnel,NE Arc,Gamma
+As-16-3-1,A,SmCo,16,3,tunnel,NE Arc,Gamma
+As-16-3-2,A,SmCo,16,3,tunnel,NE Arc,Gamma
+Hs-16-4,H,SmCo,16,4,tunnel,NE Arc,Alpha
+As-16-4-1,A,SmCo,16,4,tunnel,NE Arc,Alpha
+As-16-4-2,A,SmCo,16,4,tunnel,NE Arc,Alpha
+Hs-17-1,H,SmCo,17,1,tunnel,SW Arc,Alpha
+As-17-1-1,A,SmCo,17,1,tunnel,SW Arc,Alpha
+As-17-1-2,A,SmCo,17,1,tunnel,SW Arc,Alpha
+Hs-17-2,H,SmCo,17,2,tunnel,SW Arc,Delta
+As-17-2-1,A,SmCo,17,2,tunnel,SW Arc,Delta
+As-17-2-2,A,SmCo,17,2,tunnel,SW Arc,Delta
+Hs-17-3,H,SmCo,17,3,tunnel,SW Arc,Gamma
+As-17-3-1,A,SmCo,17,3,tunnel,SW Arc,Gamma
+As-17-3-2,A,SmCo,17,3,tunnel,SW Arc,Gamma
+Hs-17-4,H,SmCo,17,4,tunnel,SW Arc,Beta
+As-17-4-1,A,SmCo,17,4,tunnel,SW Arc,Beta
+As-17-4-2,A,SmCo,17,4,tunnel,SW Arc,Beta
+Hs-18-1,H,SmCo,18,1,tunnel,South Linac,Beta
+As-18-1-1,A,SmCo,18,1,tunnel,South Linac,Beta
+As-18-1-2,A,SmCo,18,1,tunnel,South Linac,Beta
+Hs-18-2,H,SmCo,18,2,tunnel,South Linac,Delta
+As-18-2-1,A,SmCo,18,2,tunnel,South Linac,Delta
+As-18-2-2,A,SmCo,18,2,tunnel,South Linac,Delta
+Hs-18-3,H,SmCo,18,3,tunnel,South Linac,Gamma
+As-18-3-1,A,SmCo,18,3,tunnel,South Linac,Gamma
+As-18-3-2,A,SmCo,18,3,tunnel,South Linac,Gamma
+Hs-18-4,H,SmCo,18,4,tunnel,South Linac,Alpha
+As-18-4-1,A,SmCo,18,4,tunnel,South Linac,Alpha
+As-18-4-2,A,SmCo,18,4,tunnel,South Linac,Alpha
+Hs-20-1,H,SmCo,20,1,tunnel,NE Arc,Delta
+As-20-1-1,A,SmCo,20,1,tunnel,NE Arc,Delta
+As-20-1-2,A,SmCo,20,1,tunnel,NE Arc,Delta
+Hs-20-2,H,SmCo,20,2,tunnel,NE Arc,Gamma
+As-20-2-1,A,SmCo,20,2,tunnel,NE Arc,Gamma
+As-20-2-2,A,SmCo,20,2,tunnel,NE Arc,Gamma
+Hs-20-3,H,SmCo,20,3,tunnel,NE Arc,Alpha
+As-20-3-1,A,SmCo,20,3,tunnel,NE Arc,Alpha
+As-20-3-2,A,SmCo,20,3,tunnel,NE Arc,Alpha
+Hs-20-4,H,SmCo,20,4,tunnel,NE Arc,Beta
+As-20-4-1,A,SmCo,20,4,tunnel,NE Arc,Beta
+As-20-4-2,A,SmCo,20,4,tunnel,NE Arc,Beta
+Hn-1-1,H,NdFeB,1,1,lab,,Delta
+An-1-1-1,A,NdFeB,1,1,lab,,Delta
+An-1-1-2,A,NdFeB,1,1,lab,,Delta
+Hn-1-2,H,NdFeB,1,2,lab,,Alpha
+An-1-2-1,A,NdFeB,1,2,lab,,Alpha
+An-1-2-2,A,NdFeB,1,2,lab,,Alpha
+Hn-1-3,H,NdFeB,1,3,lab,,Beta
+An-1-3-1,A,NdFeB,1,3,lab,,Beta
+An-1-3-2,A,NdFeB,1,3,lab,,Beta
+Hn-1-4,H,NdFeB,1,4,lab,,Gamma
+An-1-4-1,A,NdFeB,1,4,lab,,Gamma
+An-1-4-2,A,NdFeB,1,4,lab,,Gamma
+Hn-2-1,H,NdFeB,2,1,lab,,Gamma
+An-2-1-1,A,NdFeB,2,1,lab,,Gamma
+An-2-1-2,A,NdFeB,2,1,lab,,Gamma
+Hn-2-2,H,NdFeB,2,2,lab,,Alpha
+An-2-2-1,A,NdFeB,2,2,lab,,Alpha
+An-2-2-2,A,NdFeB,2,2,lab,,Alpha
+Hn-2-3,H,NdFeB,2,3,lab,,Beta
+An-2-3-1,A,NdFeB,2,3,lab,,Beta
+An-2-3-2,A,NdFeB,2,3,lab,,Beta
+Hn-2-4,H,NdFeB,2,4,lab,,Delta
+An-2-4-1,A,NdFeB,2,4,lab,,Delta
+An-2-4-2,A,NdFeB,2,4,lab,,Delta
+Hn-3-1,H,NdFeB,3,1,lab,,Beta
+An-3-1-1,A,NdFeB,3,1,lab,,Beta
+An-3-1-2,A,NdFeB,3,1,lab,,Beta
+Hn-3-2,H,NdFeB,3,2,lab,,Alpha
+An-3-2-1,A,NdFeB,3,2,lab,,Alpha
+An-3-2-2,A,NdFeB,3,2,lab,,Alpha
+Hn-3-3,H,NdFeB,3,3,lab,,Gamma
+An-3-3-1,A,NdFeB,3,3,lab,,Gamma
+An-3-3-2,A,NdFeB,3,3,lab,,Gamma
+Hn-3-4,H,NdFeB,3,4,lab,,Delta
+An-3-4-1,A,NdFeB,3,4,lab,,Delta
+An-3-4-2,A,NdFeB,3,4,lab,,Delta
+Hn-5-1,H,NdFeB,5,1,lab,,Delta
+An-5-1-1,A,NdFeB,5,1,lab,,Delta
+An-5-1-2,A,NdFeB,5,1,lab,,Delta
+Hn-5-2,H,NdFeB,5,2,lab,,Alpha
+An-5-2-1,A,NdFeB,5,2,lab,,Alpha
+An-5-2-2,A,NdFeB,5,2,lab,,Alpha
+Hn-5-3,H,NdFeB,5,3,lab,,Gamma
+An-5-3-1,A,NdFeB,5,3,lab,,Gamma
+An-5-3-2,A,NdFeB,5,3,lab,,Gamma
+Hn-5-4,H,NdFeB,5,4,lab,,Beta
+An-5-4-1,A,NdFeB,5,4,lab,,Beta
+An-5-4-2,A,NdFeB,5,4,lab,,Beta
+Hn-7-1,H,NdFeB,7,1,lab,,Beta
+An-7-1-1,A,NdFeB,7,1,lab,,Beta
+An-7-1-2,A,NdFeB,7,1,lab,,Beta
+Hn-7-2,H,NdFeB,7,2,lab,,Alpha
+An-7-2-1,A,NdFeB,7,2,lab,,Alpha
+An-7-2-2,A,NdFeB,7,2,lab,,Alpha
+Hn-7-3,H,NdFeB,7,3,lab,,Delta
+An-7-3-1,A,NdFeB,7,3,lab,,Delta
+An-7-3-2,A,NdFeB,7,3,lab,,Delta
+Hn-7-4,H,NdFeB,7,4,lab,,Gamma
+An-7-4-1,A,NdFeB,7,4,lab,,Gamma
+An-7-4-2,A,NdFeB,7,4,lab,,Gamma
+Hn-13-1,H,NdFeB,13,1,lab,,Delta
+An-13-1-1,A,NdFeB,13,1,lab,,Delta
+An-13-1-2,A,NdFeB,13,1,lab,,Delta
+Hn-13-2,H,NdFeB,13,2,lab,,Beta
+An-13-2-1,A,NdFeB,13,2,lab,,Beta
+An-13-2-2,A,NdFeB,13,2,lab,,Beta
+Hn-13-3,H,NdFeB,13,3,lab,,Alpha
+An-13-3-1,A,NdFeB,13,3,lab,,Alpha
+An-13-3-2,A,NdFeB,13,3,lab,,Alpha
+Hn-13-4,H,NdFeB,13,4,lab,,Gamma
+An-13-4-1,A,NdFeB,13,4,lab,,Gamma
+An-13-4-2,A,NdFeB,13,4,lab,,Gamma
+Hn-14-1,H,NdFeB,14,1,lab,,Gamma
+An-14-1-1,A,NdFeB,14,1,lab,,Gamma
+An-14-1-2,A,NdFeB,14,1,lab,,Gamma
+Hn-14-2,H,NdFeB,14,2,lab,,Beta
+An-14-2-1,A,NdFeB,14,2,lab,,Beta
+An-14-2-2,A,NdFeB,14,2,lab,,Beta
+Hn-14-3,H,NdFeB,14,3,lab,,Delta
+An-14-3-1,A,NdFeB,14,3,lab,,Delta
+An-14-3-2,A,NdFeB,14,3,lab,,Delta
+Hn-14-4,H,NdFeB,14,4,lab,,Alpha
+An-14-4-1,A,NdFeB,14,4,lab,,Alpha
+An-14-4-2,A,NdFeB,14,4,lab,,Alpha
+Hn-21-1,H,NdFeB,21,1,lab,,Delta
+An-21-1-1,A,NdFeB,21,1,lab,,Delta
+An-21-1-2,A,NdFeB,21,1,lab,,Delta
+Hn-21-2,H,NdFeB,21,2,lab,,Gamma
+An-21-2-1,A,NdFeB,21,2,lab,,Gamma
+An-21-2-2,A,NdFeB,21,2,lab,,Gamma
+Hn-21-3,H,NdFeB,21,3,lab,,Beta
+An-21-3-1,A,NdFeB,21,3,lab,,Beta
+An-21-3-2,A,NdFeB,21,3,lab,,Beta
+Hn-21-4,H,NdFeB,21,4,lab,,Alpha
+An-21-4-1,A,NdFeB,21,4,lab,,Alpha
+An-21-4-2,A,NdFeB,21,4,lab,,Alpha
+Hn-22-1,H,NdFeB,22,1,lab,,Gamma
+An-22-1-1,A,NdFeB,22,1,lab,,Gamma
+An-22-1-2,A,NdFeB,22,1,lab,,Gamma
+Hn-22-2,H,NdFeB,22,2,lab,,Delta
+An-22-2-1,A,NdFeB,22,2,lab,,Delta
+An-22-2-2,A,NdFeB,22,2,lab,,Delta
+Hn-22-3,H,NdFeB,22,3,lab,,Beta
+An-22-3-1,A,NdFeB,22,3,lab,,Beta
+An-22-3-2,A,NdFeB,22,3,lab,,Beta
+Hn-22-4,H,NdFeB,22,4,lab,,Alpha
+An-22-4-1,A,NdFeB,22,4,lab,,Alpha
+An-22-4-2,A,NdFeB,22,4,lab,,Alpha
+Hn-23-1,H,NdFeB,23,1,lab,,Beta
+An-23-1-1,A,NdFeB,23,1,lab,,Beta
+An-23-1-2,A,NdFeB,23,1,lab,,Beta
+Hn-23-2,H,NdFeB,23,2,lab,,Delta
+An-23-2-1,A,NdFeB,23,2,lab,,Delta
+An-23-2-2,A,NdFeB,23,2,lab,,Delta
+Hn-23-3,H,NdFeB,23,3,lab,,Alpha
+An-23-3-1,A,NdFeB,23,3,lab,,Alpha
+An-23-3-2,A,NdFeB,23,3,lab,,Alpha
+Hn-23-4,H,NdFeB,23,4,lab,,Gamma
+An-23-4-1,A,NdFeB,23,4,lab,,Gamma
+An-23-4-2,A,NdFeB,23,4,lab,,Gamma
+Hn-25-1,H,NdFeB,25,1,lab,,Delta
+An-25-1-1,A,NdFeB,25,1,lab,,Delta
+An-25-1-2,A,NdFeB,25,1,lab,,Delta
+Hn-25-2,H,NdFeB,25,2,lab,,Alpha
+An-25-2-1,A,NdFeB,25,2,lab,,Alpha
+An-25-2-2,A,NdFeB,25,2,lab,,Alpha
+Hn-25-3,H,NdFeB,25,3,lab,,Beta
+An-25-3-1,A,NdFeB,25,3,lab,,Beta
+An-25-3-2,A,NdFeB,25,3,lab,,Beta
+Hn-25-4,H,NdFeB,25,4,lab,,Gamma
+An-25-4-1,A,NdFeB,25,4,lab,,Gamma
+An-25-4-2,A,NdFeB,25,4,lab,,Gamma
+Hn-26-1,H,NdFeB,26,1,lab,,Gamma
+An-26-1-1,A,NdFeB,26,1,lab,,Gamma
+An-26-1-2,A,NdFeB,26,1,lab,,Gamma
+Hn-26-2,H,NdFeB,26,2,lab,,Beta
+An-26-2-1,A,NdFeB,26,2,lab,,Beta
+An-26-2-2,A,NdFeB,26,2,lab,,Beta
+Hn-26-3,H,NdFeB,26,3,lab,,Alpha
+An-26-3-1,A,NdFeB,26,3,lab,,Alpha
+An-26-3-2,A,NdFeB,26,3,lab,,Alpha
+Hn-26-4,H,NdFeB,26,4,lab,,Delta
+An-26-4-1,A,NdFeB,26,4,lab,,Delta
+An-26-4-2,A,NdFeB,26,4,lab,,Delta
+Hn-27-1,H,NdFeB,27,1,lab,,Beta
+An-27-1-1,A,NdFeB,27,1,lab,,Beta
+An-27-1-2,A,NdFeB,27,1,lab,,Beta
+Hn-27-2,H,NdFeB,27,2,lab,,Alpha
+An-27-2-1,A,NdFeB,27,2,lab,,Alpha
+An-27-2-2,A,NdFeB,27,2,lab,,Alpha
+Hn-27-3,H,NdFeB,27,3,lab,,Gamma
+An-27-3-1,A,NdFeB,27,3,lab,,Gamma
+An-27-3-2,A,NdFeB,27,3,lab,,Gamma
+Hn-27-4,H,NdFeB,27,4,lab,,Delta
+An-27-4-1,A,NdFeB,27,4,lab,,Delta
+An-27-4-2,A,NdFeB,27,4,lab,,Delta
+Hn-28-1,H,NdFeB,28,1,lab,,Alpha
+An-28-1-1,A,NdFeB,28,1,lab,,Alpha
+An-28-1-2,A,NdFeB,28,1,lab,,Alpha
+Hn-28-2,H,NdFeB,28,2,lab,,Gamma
+An-28-2-1,A,NdFeB,28,2,lab,,Gamma
+An-28-2-2,A,NdFeB,28,2,lab,,Gamma
+Hn-28-3,H,NdFeB,28,3,lab,,Beta
+An-28-3-1,A,NdFeB,28,3,lab,,Beta
+An-28-3-2,A,NdFeB,28,3,lab,,Beta
+Hn-28-4,H,NdFeB,28,4,lab,,Delta
+An-28-4-1,A,NdFeB,28,4,lab,,Delta
+An-28-4-2,A,NdFeB,28,4,lab,,Delta
+Hn-29-1,H,NdFeB,29,1,lab,,Delta
+An-29-1-1,A,NdFeB,29,1,lab,,Delta
+An-29-1-2,A,NdFeB,29,1,lab,,Delta
+Hn-29-2,H,NdFeB,29,2,lab,,Alpha
+An-29-2-1,A,NdFeB,29,2,lab,,Alpha
+An-29-2-2,A,NdFeB,29,2,lab,,Alpha
+Hn-29-3,H,NdFeB,29,3,lab,,Gamma
+An-29-3-1,A,NdFeB,29,3,lab,,Gamma
+An-29-3-2,A,NdFeB,29,3,lab,,Gamma
+Hn-29-4,H,NdFeB,29,4,lab,,Beta
+An-29-4-1,A,NdFeB,29,4,lab,,Beta
+An-29-4-2,A,NdFeB,29,4,lab,,Beta
+Hn-30-1,H,NdFeB,30,1,lab,,Gamma
+An-30-1-1,A,NdFeB,30,1,lab,,Gamma
+An-30-1-2,A,NdFeB,30,1,lab,,Gamma
+Hn-30-2,H,NdFeB,30,2,lab,,Beta
+An-30-2-1,A,NdFeB,30,2,lab,,Beta
+An-30-2-2,A,NdFeB,30,2,lab,,Beta
+Hn-30-3,H,NdFeB,30,3,lab,,Delta
+An-30-3-1,A,NdFeB,30,3,lab,,Delta
+An-30-3-2,A,NdFeB,30,3,lab,,Delta
+Hn-30-4,H,NdFeB,30,4,lab,,Alpha
+An-30-4-1,A,NdFeB,30,4,lab,,Alpha
+An-30-4-2,A,NdFeB,30,4,lab,,Alpha
+Hn-31-1,H,NdFeB,31,1,lab,,Beta
+An-31-1-1,A,NdFeB,31,1,lab,,Beta
+An-31-1-2,A,NdFeB,31,1,lab,,Beta
+Hn-31-2,H,NdFeB,31,2,lab,,Gamma
+An-31-2-1,A,NdFeB,31,2,lab,,Gamma
+An-31-2-2,A,NdFeB,31,2,lab,,Gamma
+Hn-31-3,H,NdFeB,31,3,lab,,Delta
+An-31-3-1,A,NdFeB,31,3,lab,,Delta
+An-31-3-2,A,NdFeB,31,3,lab,,Delta
+Hn-31-4,H,NdFeB,31,4,lab,,Alpha
+An-31-4-1,A,NdFeB,31,4,lab,,Alpha
+An-31-4-2,A,NdFeB,31,4,lab,,Alpha
+Hn-32-1,H,NdFeB,32,1,lab,,Alpha
+An-32-1-1,A,NdFeB,32,1,lab,,Alpha
+An-32-1-2,A,NdFeB,32,1,lab,,Alpha
+Hn-32-2,H,NdFeB,32,2,lab,,Beta
+An-32-2-1,A,NdFeB,32,2,lab,,Beta
+An-32-2-2,A,NdFeB,32,2,lab,,Beta
+Hn-32-3,H,NdFeB,32,3,lab,,Delta
+An-32-3-1,A,NdFeB,32,3,lab,,Delta
+An-32-3-2,A,NdFeB,32,3,lab,,Delta
+Hn-32-4,H,NdFeB,32,4,lab,,Gamma
+An-32-4-1,A,NdFeB,32,4,lab,,Gamma
+An-32-4-2,A,NdFeB,32,4,lab,,Gamma
+Hn-33-1,H,NdFeB,33,1,lab,,Delta
+An-33-1-1,A,NdFeB,33,1,lab,,Delta
+An-33-1-2,A,NdFeB,33,1,lab,,Delta
+Hn-33-2,H,NdFeB,33,2,lab,,Gamma
+An-33-2-1,A,NdFeB,33,2,lab,,Gamma
+An-33-2-2,A,NdFeB,33,2,lab,,Gamma
+Hn-33-3,H,NdFeB,33,3,lab,,Beta
+An-33-3-1,A,NdFeB,33,3,lab,,Beta
+An-33-3-2,A,NdFeB,33,3,lab,,Beta
+Hn-33-4,H,NdFeB,33,4,lab,,Alpha
+An-33-4-1,A,NdFeB,33,4,lab,,Alpha
+An-33-4-2,A,NdFeB,33,4,lab,,Alpha
+Hn-34-1,H,NdFeB,34,1,lab,,Gamma
+An-34-1-1,A,NdFeB,34,1,lab,,Gamma
+An-34-1-2,A,NdFeB,34,1,lab,,Gamma
+Hn-34-2,H,NdFeB,34,2,lab,,Delta
+An-34-2-1,A,NdFeB,34,2,lab,,Delta
+An-34-2-2,A,NdFeB,34,2,lab,,Delta
+Hn-34-3,H,NdFeB,34,3,lab,,Alpha
+An-34-3-1,A,NdFeB,34,3,lab,,Alpha
+An-34-3-2,A,NdFeB,34,3,lab,,Alpha
+Hn-34-4,H,NdFeB,34,4,lab,,Beta
+An-34-4-1,A,NdFeB,34,4,lab,,Beta
+An-34-4-2,A,NdFeB,34,4,lab,,Beta
+Hn-35-1,H,NdFeB,35,1,lab,,Beta
+An-35-1-1,A,NdFeB,35,1,lab,,Beta
+An-35-1-2,A,NdFeB,35,1,lab,,Beta
+Hn-35-2,H,NdFeB,35,2,lab,,Delta
+An-35-2-1,A,NdFeB,35,2,lab,,Delta
+An-35-2-2,A,NdFeB,35,2,lab,,Delta
+Hn-35-3,H,NdFeB,35,3,lab,,Alpha
+An-35-3-1,A,NdFeB,35,3,lab,,Alpha
+An-35-3-2,A,NdFeB,35,3,lab,,Alpha
+Hn-35-4,H,NdFeB,35,4,lab,,Gamma
+An-35-4-1,A,NdFeB,35,4,lab,,Gamma
+An-35-4-2,A,NdFeB,35,4,lab,,Gamma
+Hn-36-1,H,NdFeB,36,1,lab,,Alpha
+An-36-1-1,A,NdFeB,36,1,lab,,Alpha
+An-36-1-2,A,NdFeB,36,1,lab,,Alpha
+Hn-36-2,H,NdFeB,36,2,lab,,Delta
+An-36-2-1,A,NdFeB,36,2,lab,,Delta
+An-36-2-2,A,NdFeB,36,2,lab,,Delta
+Hn-36-3,H,NdFeB,36,3,lab,,Gamma
+An-36-3-1,A,NdFeB,36,3,lab,,Gamma
+An-36-3-2,A,NdFeB,36,3,lab,,Gamma
+Hn-36-4,H,NdFeB,36,4,lab,,Beta
+An-36-4-1,A,NdFeB,36,4,lab,,Beta
+An-36-4-2,A,NdFeB,36,4,lab,,Beta
+Hn-38-1,H,NdFeB,38,1,lab,,Gamma
+An-38-1-1,A,NdFeB,38,1,lab,,Gamma
+An-38-1-2,A,NdFeB,38,1,lab,,Gamma
+Hn-38-2,H,NdFeB,38,2,lab,,Alpha
+An-38-2-1,A,NdFeB,38,2,lab,,Alpha
+An-38-2-2,A,NdFeB,38,2,lab,,Alpha
+Hn-38-3,H,NdFeB,38,3,lab,,Delta
+An-38-3-1,A,NdFeB,38,3,lab,,Delta
+An-38-3-2,A,NdFeB,38,3,lab,,Delta
+Hn-38-4,H,NdFeB,38,4,lab,,Beta
+An-38-4-1,A,NdFeB,38,4,lab,,Beta
+An-38-4-2,A,NdFeB,38,4,lab,,Beta
+Hn-40-1,H,NdFeB,40,1,lab,,Alpha
+An-40-1-1,A,NdFeB,40,1,lab,,Alpha
+An-40-1-2,A,NdFeB,40,1,lab,,Alpha
+Hn-40-2,H,NdFeB,40,2,lab,,Delta
+An-40-2-1,A,NdFeB,40,2,lab,,Delta
+An-40-2-2,A,NdFeB,40,2,lab,,Delta
+Hn-40-3,H,NdFeB,40,3,lab,,Beta
+An-40-3-1,A,NdFeB,40,3,lab,,Beta
+An-40-3-2,A,NdFeB,40,3,lab,,Beta
+Hn-40-4,H,NdFeB,40,4,lab,,Gamma
+An-40-4-1,A,NdFeB,40,4,lab,,Gamma
+An-40-4-2,A,NdFeB,40,4,lab,,Gamma
+Hs-8-1,H,SmCo,8,1,lab,,Delta
+As-8-1-1,A,SmCo,8,1,lab,,Delta
+As-8-1-2,A,SmCo,8,1,lab,,Delta
+Hs-8-2,H,SmCo,8,2,lab,,Alpha
+As-8-2-1,A,SmCo,8,2,lab,,Alpha
+As-8-2-2,A,SmCo,8,2,lab,,Alpha
+Hs-8-3,H,SmCo,8,3,lab,,Gamma
+As-8-3-1,A,SmCo,8,3,lab,,Gamma
+As-8-3-2,A,SmCo,8,3,lab,,Gamma
+Hs-8-4,H,SmCo,8,4,lab,,Beta
+As-8-4-1,A,SmCo,8,4,lab,,Beta
+As-8-4-2,A,SmCo,8,4,lab,,Beta
+Hs-9-1,H,SmCo,9,1,lab,,Alpha
+As-9-1-1,A,SmCo,9,1,lab,,Alpha
+As-9-1-2,A,SmCo,9,1,lab,,Alpha
+Hs-9-2,H,SmCo,9,2,lab,,Gamma
+As-9-2-1,A,SmCo,9,2,lab,,Gamma
+As-9-2-2,A,SmCo,9,2,lab,,Gamma
+Hs-9-3,H,SmCo,9,3,lab,,Delta
+As-9-3-1,A,SmCo,9,3,lab,,Delta
+As-9-3-2,A,SmCo,9,3,lab,,Delta
+Hs-9-4,H,SmCo,9,4,lab,,Beta
+As-9-4-1,A,SmCo,9,4,lab,,Beta
+As-9-4-2,A,SmCo,9,4,lab,,Beta
+Hs-11-1,H,SmCo,11,1,lab,,Gamma
+As-11-1-1,A,SmCo,11,1,lab,,Gamma
+As-11-1-2,A,SmCo,11,1,lab,,Gamma
+Hs-11-2,H,SmCo,11,2,lab,,Beta
+As-11-2-1,A,SmCo,11,2,lab,,Beta
+As-11-2-2,A,SmCo,11,2,lab,,Beta
+Hs-11-3,H,SmCo,11,3,lab,,Alpha
+As-11-3-1,A,SmCo,11,3,lab,,Alpha
+As-11-3-2,A,SmCo,11,3,lab,,Alpha
+Hs-11-4,H,SmCo,11,4,lab,,Delta
+As-11-4-1,A,SmCo,11,4,lab,,Delta
+As-11-4-2,A,SmCo,11,4,lab,,Delta
+Hs-19-1,H,SmCo,19,1,lab,,Gamma
+As-19-1-1,A,SmCo,19,1,lab,,Gamma
+As-19-1-2,A,SmCo,19,1,lab,,Gamma
+Hs-19-2,H,SmCo,19,2,lab,,Delta
+As-19-2-1,A,SmCo,19,2,lab,,Delta
+As-19-2-2,A,SmCo,19,2,lab,,Delta
+Hs-19-3,H,SmCo,19,3,lab,,Alpha
+As-19-3-1,A,SmCo,19,3,lab,,Alpha
+As-19-3-2,A,SmCo,19,3,lab,,Alpha
+Hs-19-4,H,SmCo,19,4,lab,,Beta
+As-19-4-1,A,SmCo,19,4,lab,,Beta
+As-19-4-2,A,SmCo,19,4,lab,,Beta
+Hs-21-1,H,SmCo,21,1,lab,,Alpha
+As-21-1-1,A,SmCo,21,1,lab,,Alpha
+As-21-1-2,A,SmCo,21,1,lab,,Alpha
+Hs-21-2,H,SmCo,21,2,lab,,Delta
+As-21-2-1,A,SmCo,21,2,lab,,Delta
+As-21-2-2,A,SmCo,21,2,lab,,Delta
+Hs-21-3,H,SmCo,21,3,lab,,Beta
+As-21-3-1,A,SmCo,21,3,lab,,Beta
+As-21-3-2,A,SmCo,21,3,lab,,Beta
+Hs-21-4,H,SmCo,21,4,lab,,Gamma
+As-21-4-1,A,SmCo,21,4,lab,,Gamma
+As-21-4-2,A,SmCo,21,4,lab,,Gamma
+Hs-22-1,H,SmCo,22,1,lab,,Beta
+As-22-1-1,A,SmCo,22,1,lab,,Beta
+As-22-1-2,A,SmCo,22,1,lab,,Beta
+Hs-22-2,H,SmCo,22,2,lab,,Delta
+As-22-2-1,A,SmCo,22,2,lab,,Delta
+As-22-2-2,A,SmCo,22,2,lab,,Delta
+Hs-22-3,H,SmCo,22,3,lab,,Alpha
+As-22-3-1,A,SmCo,22,3,lab,,Alpha
+As-22-3-2,A,SmCo,22,3,lab,,Alpha
+Hs-22-4,H,SmCo,22,4,lab,,Gamma
+As-22-4-1,A,SmCo,22,4,lab,,Gamma
+As-22-4-2,A,SmCo,22,4,lab,,Gamma
+Hs-23-1,H,SmCo,23,1,lab,,Gamma
+As-23-1-1,A,SmCo,23,1,lab,,Gamma
+As-23-1-2,A,SmCo,23,1,lab,,Gamma
+Hs-23-2,H,SmCo,23,2,lab,,Delta
+As-23-2-1,A,SmCo,23,2,lab,,Delta
+As-23-2-2,A,SmCo,23,2,lab,,Delta
+Hs-23-3,H,SmCo,23,3,lab,,Beta
+As-23-3-1,A,SmCo,23,3,lab,,Beta
+As-23-3-2,A,SmCo,23,3,lab,,Beta
+Hs-23-4,H,SmCo,23,4,lab,,Alpha
+As-23-4-1,A,SmCo,23,4,lab,,Alpha
+As-23-4-2,A,SmCo,23,4,lab,,Alpha
+Hs-24-1,H,SmCo,24,1,lab,,Delta
+As-24-1-1,A,SmCo,24,1,lab,,Delta
+As-24-1-2,A,SmCo,24,1,lab,,Delta
+Hs-24-2,H,SmCo,24,2,lab,,Gamma
+As-24-2-1,A,SmCo,24,2,lab,,Gamma
+As-24-2-2,A,SmCo,24,2,lab,,Gamma
+Hs-24-3,H,SmCo,24,3,lab,,Beta
+As-24-3-1,A,SmCo,24,3,lab,,Beta
+As-24-3-2,A,SmCo,24,3,lab,,Beta
+Hs-24-4,H,SmCo,24,4,lab,,Alpha
+As-24-4-1,A,SmCo,24,4,lab,,Alpha
+As-24-4-2,A,SmCo,24,4,lab,,Alpha
+Hs-25-1,H,SmCo,25,1,lab,,Alpha
+As-25-1-1,A,SmCo,25,1,lab,,Alpha
+As-25-1-2,A,SmCo,25,1,lab,,Alpha
+Hs-25-2,H,SmCo,25,2,lab,,Beta
+As-25-2-1,A,SmCo,25,2,lab,,Beta
+As-25-2-2,A,SmCo,25,2,lab,,Beta
+Hs-25-3,H,SmCo,25,3,lab,,Gamma
+As-25-3-1,A,SmCo,25,3,lab,,Gamma
+As-25-3-2,A,SmCo,25,3,lab,,Gamma
+Hs-25-4,H,SmCo,25,4,lab,,Delta
+As-25-4-1,A,SmCo,25,4,lab,,Delta
+As-25-4-2,A,SmCo,25,4,lab,,Delta
+Hs-26-1,H,SmCo,26,1,lab,,Beta
+As-26-1-1,A,SmCo,26,1,lab,,Beta
+As-26-1-2,A,SmCo,26,1,lab,,Beta
+Hs-26-2,H,SmCo,26,2,lab,,Alpha
+As-26-2-1,A,SmCo,26,2,lab,,Alpha
+As-26-2-2,A,SmCo,26,2,lab,,Alpha
+Hs-26-3,H,SmCo,26,3,lab,,Delta
+As-26-3-1,A,SmCo,26,3,lab,,Delta
+As-26-3-2,A,SmCo,26,3,lab,,Delta
+Hs-26-4,H,SmCo,26,4,lab,,Gamma
+As-26-4-1,A,SmCo,26,4,lab,,Gamma
+As-26-4-2,A,SmCo,26,4,lab,,Gamma
+Hs-27-1,H,SmCo,27,1,lab,,Gamma
+As-27-1-1,A,SmCo,27,1,lab,,Gamma
+As-27-1-2,A,SmCo,27,1,lab,,Gamma
+Hs-27-2,H,SmCo,27,2,lab,,Alpha
+As-27-2-1,A,SmCo,27,2,lab,,Alpha
+As-27-2-2,A,SmCo,27,2,lab,,Alpha
+Hs-27-3,H,SmCo,27,3,lab,,Beta
+As-27-3-1,A,SmCo,27,3,lab,,Beta
+As-27-3-2,A,SmCo,27,3,lab,,Beta
+Hs-27-4,H,SmCo,27,4,lab,,Delta
+As-27-4-1,A,SmCo,27,4,lab,,Delta
+As-27-4-2,A,SmCo,27,4,lab,,Delta
+Hs-28-1,H,SmCo,28,1,lab,,Delta
+As-28-1-1,A,SmCo,28,1,lab,,Delta
+As-28-1-2,A,SmCo,28,1,lab,,Delta
+Hs-28-2,H,SmCo,28,2,lab,,Beta
+As-28-2-1,A,SmCo,28,2,lab,,Beta
+As-28-2-2,A,SmCo,28,2,lab,,Beta
+Hs-28-3,H,SmCo,28,3,lab,,Gamma
+As-28-3-1,A,SmCo,28,3,lab,,Gamma
+As-28-3-2,A,SmCo,28,3,lab,,Gamma
+Hs-28-4,H,SmCo,28,4,lab,,Alpha
+As-28-4-1,A,SmCo,28,4,lab,,Alpha
+As-28-4-2,A,SmCo,28,4,lab,,Alpha
+Hs-29-1,H,SmCo,29,1,lab,,Alpha
+As-29-1-1,A,SmCo,29,1,lab,,Alpha
+As-29-1-2,A,SmCo,29,1,lab,,Alpha
+Hs-29-2,H,SmCo,29,2,lab,,Gamma
+As-29-2-1,A,SmCo,29,2,lab,,Gamma
+As-29-2-2,A,SmCo,29,2,lab,,Gamma
+Hs-29-3,H,SmCo,29,3,lab,,Delta
+As-29-3-1,A,SmCo,29,3,lab,,Delta
+As-29-3-2,A,SmCo,29,3,lab,,Delta
+Hs-29-4,H,SmCo,29,4,lab,,Beta
+As-29-4-1,A,SmCo,29,4,lab,,Beta
+As-29-4-2,A,SmCo,29,4,lab,,Beta
+Hs-30-1,H,SmCo,30,1,lab,,Beta
+As-30-1-1,A,SmCo,30,1,lab,,Beta
+As-30-1-2,A,SmCo,30,1,lab,,Beta
+Hs-30-2,H,SmCo,30,2,lab,,Delta
+As-30-2-1,A,SmCo,30,2,lab,,Delta
+As-30-2-2,A,SmCo,30,2,lab,,Delta
+Hs-30-3,H,SmCo,30,3,lab,,Gamma
+As-30-3-1,A,SmCo,30,3,lab,,Gamma
+As-30-3-2,A,SmCo,30,3,lab,,Gamma
+Hs-30-4,H,SmCo,30,4,lab,,Alpha
+As-30-4-1,A,SmCo,30,4,lab,,Alpha
+As-30-4-2,A,SmCo,30,4,lab,,Alpha
+Hs-31-1,H,SmCo,31,1,lab,,Gamma
+As-31-1-1,A,SmCo,31,1,lab,,Gamma
+As-31-1-2,A,SmCo,31,1,lab,,Gamma
+Hs-31-2,H,SmCo,31,2,lab,,Delta
+As-31-2-1,A,SmCo,31,2,lab,,Delta
+As-31-2-2,A,SmCo,31,2,lab,,Delta
+Hs-31-3,H,SmCo,31,3,lab,,Beta
+As-31-3-1,A,SmCo,31,3,lab,,Beta
+As-31-3-2,A,SmCo,31,3,lab,,Beta
+Hs-31-4,H,SmCo,31,4,lab,,Alpha
+As-31-4-1,A,SmCo,31,4,lab,,Alpha
+As-31-4-2,A,SmCo,31,4,lab,,Alpha
+Hs-32-1,H,SmCo,32,1,lab,,Delta
+As-32-1-1,A,SmCo,32,1,lab,,Delta
+As-32-1-2,A,SmCo,32,1,lab,,Delta
+Hs-32-2,H,SmCo,32,2,lab,,Beta
+As-32-2-1,A,SmCo,32,2,lab,,Beta
+As-32-2-2,A,SmCo,32,2,lab,,Beta
+Hs-32-3,H,SmCo,32,3,lab,,Alpha
+As-32-3-1,A,SmCo,32,3,lab,,Alpha
+As-32-3-2,A,SmCo,32,3,lab,,Alpha
+Hs-32-4,H,SmCo,32,4,lab,,Gamma
+As-32-4-1,A,SmCo,32,4,lab,,Gamma
+As-32-4-2,A,SmCo,32,4,lab,,Gamma
+Hs-33-1,H,SmCo,33,1,lab,,Alpha
+As-33-1-1,A,SmCo,33,1,lab,,Alpha
+As-33-1-2,A,SmCo,33,1,lab,,Alpha
+Hs-33-2,H,SmCo,33,2,lab,,Delta
+As-33-2-1,A,SmCo,33,2,lab,,Delta
+As-33-2-2,A,SmCo,33,2,lab,,Delta
+Hs-33-3,H,SmCo,33,3,lab,,Beta
+As-33-3-1,A,SmCo,33,3,lab,,Beta
+As-33-3-2,A,SmCo,33,3,lab,,Beta
+Hs-33-4,H,SmCo,33,4,lab,,Gamma
+As-33-4-1,A,SmCo,33,4,lab,,Gamma
+As-33-4-2,A,SmCo,33,4,lab,,Gamma
+Hs-34-1,H,SmCo,34,1,lab,,Beta
+As-34-1-1,A,SmCo,34,1,lab,,Beta
+As-34-1-2,A,SmCo,34,1,lab,,Beta
+Hs-34-2,H,SmCo,34,2,lab,,Gamma
+As-34-2-1,A,SmCo,34,2,lab,,Gamma
+As-34-2-2,A,SmCo,34,2,lab,,Gamma
+Hs-34-3,H,SmCo,34,3,lab,,Alpha
+As-34-3-1,A,SmCo,34,3,lab,,Alpha
+As-34-3-2,A,SmCo,34,3,lab,,Alpha
+Hs-34-4,H,SmCo,34,4,lab,,Delta
+As-34-4-1,A,SmCo,34,4,lab,,Delta
+As-34-4-2,A,SmCo,34,4,lab,,Delta
+Hs-35-1,H,SmCo,35,1,lab,,Gamma
+As-35-1-1,A,SmCo,35,1,lab,,Gamma
+As-35-1-2,A,SmCo,35,1,lab,,Gamma
+Hs-35-2,H,SmCo,35,2,lab,,Alpha
+As-35-2-1,A,SmCo,35,2,lab,,Alpha
+As-35-2-2,A,SmCo,35,2,lab,,Alpha
+Hs-35-3,H,SmCo,35,3,lab,,Delta
+As-35-3-1,A,SmCo,35,3,lab,,Delta
+As-35-3-2,A,SmCo,35,3,lab,,Delta
+Hs-35-4,H,SmCo,35,4,lab,,Beta
+As-35-4-1,A,SmCo,35,4,lab,,Beta
+As-35-4-2,A,SmCo,35,4,lab,,Beta
+Hs-36-1,H,SmCo,36,1,lab,,Delta
+As-36-1-1,A,SmCo,36,1,lab,,Delta
+As-36-1-2,A,SmCo,36,1,lab,,Delta
+Hs-36-2,H,SmCo,36,2,lab,,Gamma
+As-36-2-1,A,SmCo,36,2,lab,,Gamma
+As-36-2-2,A,SmCo,36,2,lab,,Gamma
+Hs-36-3,H,SmCo,36,3,lab,,Alpha
+As-36-3-1,A,SmCo,36,3,lab,,Alpha
+As-36-3-2,A,SmCo,36,3,lab,,Alpha
+Hs-36-4,H,SmCo,36,4,lab,,Beta
+As-36-4-1,A,SmCo,36,4,lab,,Beta
+As-36-4-2,A,SmCo,36,4,lab,,Beta
+Hs-37-1,H,SmCo,37,1,lab,,Alpha
+As-37-1-1,A,SmCo,37,1,lab,,Alpha
+As-37-1-2,A,SmCo,37,1,lab,,Alpha
+Hs-37-2,H,SmCo,37,2,lab,,Delta
+As-37-2-1,A,SmCo,37,2,lab,,Delta
+As-37-2-2,A,SmCo,37,2,lab,,Delta
+Hs-37-3,H,SmCo,37,3,lab,,Gamma
+As-37-3-1,A,SmCo,37,3,lab,,Gamma
+As-37-3-2,A,SmCo,37,3,lab,,Gamma
+Hs-37-4,H,SmCo,37,4,lab,,Beta
+As-37-4-1,A,SmCo,37,4,lab,,Beta
+As-37-4-2,A,SmCo,37,4,lab,,Beta
+Hs-38-1,H,SmCo,38,1,lab,,Beta
+As-38-1-1,A,SmCo,38,1,lab,,Beta
+As-38-1-2,A,SmCo,38,1,lab,,Beta
+Hs-38-2,H,SmCo,38,2,lab,,Delta
+As-38-2-1,A,SmCo,38,2,lab,,Delta
+As-38-2-2,A,SmCo,38,2,lab,,Delta
+Hs-38-3,H,SmCo,38,3,lab,,Alpha
+As-38-3-1,A,SmCo,38,3,lab,,Alpha
+As-38-3-2,A,SmCo,38,3,lab,,Alpha
+Hs-38-4,H,SmCo,38,4,lab,,Gamma
+As-38-4-1,A,SmCo,38,4,lab,,Gamma
+As-38-4-2,A,SmCo,38,4,lab,,Gamma
+Hs-39-1,H,SmCo,39,1,lab,,Gamma
+As-39-1-1,A,SmCo,39,1,lab,,Gamma
+As-39-1-2,A,SmCo,39,1,lab,,Gamma
+Hs-39-2,H,SmCo,39,2,lab,,Beta
+As-39-2-1,A,SmCo,39,2,lab,,Beta
+As-39-2-2,A,SmCo,39,2,lab,,Beta
+Hs-39-3,H,SmCo,39,3,lab,,Alpha
+As-39-3-1,A,SmCo,39,3,lab,,Alpha
+As-39-3-2,A,SmCo,39,3,lab,,Alpha
+Hs-39-4,H,SmCo,39,4,lab,,Delta
+As-39-4-1,A,SmCo,39,4,lab,,Delta
+As-39-4-2,A,SmCo,39,4,lab,,Delta
+Hs-40-1,H,SmCo,40,1,lab,,Delta
+As-40-1-1,A,SmCo,40,1,lab,,Delta
+As-40-1-2,A,SmCo,40,1,lab,,Delta
+Hs-40-2,H,SmCo,40,2,lab,,Alpha
+As-40-2-1,A,SmCo,40,2,lab,,Alpha
+As-40-2-2,A,SmCo,40,2,lab,,Alpha
+Hs-40-3,H,SmCo,40,3,lab,,Beta
+As-40-3-1,A,SmCo,40,3,lab,,Beta
+As-40-3-2,A,SmCo,40,3,lab,,Beta
+Hs-40-4,H,SmCo,40,4,lab,,Gamma
+As-40-4-1,A,SmCo,40,4,lab,,Gamma
+As-40-4-2,A,SmCo,40,4,lab,,Gamma

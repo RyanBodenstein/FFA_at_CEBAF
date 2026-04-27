@@ -1,0 +1,313 @@
+Loading degradation data...
+  118 clean Y-plate samples, 30 intra-plate diffs
+  Gain systematic (cleaned): ±0.1239%
+  Gain systematic (uncleaned): ±0.2483%
+
+Loading H-plate degradation...
+  Temperature lookup: 1333 (sample, date) entries
+  87 H-plate pair assemblies (85 clean, 2 outliers, 33 excluded)
+
+Loading A-sample degradation...
+  202 A-samples (202 clean, 202 temp-corrected)
+
+Loading dose data...
+  30 Y-plate cumulative dose records
+  60 total plates in dose data
+  60 plates in timeline
+
+Merging Y-plates...
+  Merged 30 Y-plates
+  Wrote: /Users/ryanmb/Documents/LDRD/Claude_Analysis1/Cleanup_Claude/Dosimetry/OSL_Area/dose_vs_degradation.csv (30 rows)
+
+================================================================================
+MERGED DOSE-DEGRADATION TABLE (sorted by body dose)
+  Body dose in Sv (dose equivalent); 1 mrem = 0.01 mSv = 10 μSv
+  Neutron: dose equivalent (mrem/Sv), NOT absorbed dose — Q ≈ 5–20
+================================================================================
+Plate  Region          Line     Body(mrem) Body(Sv)   Neut(mrem)   NdFeB%    SmCo%    Diff% Sat?
+-------------------------------------------------------------------------------------------------------------------
+Y-24   South Linac        0 >   14,019,799    140.2       19,760   -0.140    0.011   -0.151
+Y-16   North Linac        0 >   13,143,598    131.4       27,970   -0.062    0.076   -0.139
+Y-22   North Linac        0 >   13,078,025    130.8       10,100   -0.133    0.077   -0.211
+Y-17   North Linac        0 >   13,000,114    130.0            0   -0.200   -0.021   -0.179
+Y-30   South Linac        0 >   11,181,769    111.8        1,850   -0.118   -0.114   -0.004
+Y-1    South Linac        0 >   11,149,034    111.5        1,830   -0.191    0.095   -0.286
+Y-5    South Linac        0 >    8,468,608     84.7       55,540   -0.128    0.172   -0.300
+Y-9    NE Arc             5 >    7,534,059     75.3       10,130   -0.510   -0.124   -0.386
+Y-21   NE Arc             4 >    7,508,147     75.1       12,870   -0.406   -0.088   -0.318
+Y-18   NE Arc             3 >    6,903,455     69.0       27,300   -0.299   -0.162   -0.137
+Y-19   SW Arc             3 >    6,657,281     66.6        7,880   -0.485   -0.119   -0.367
+Y-34   NW Arc             5 >    6,569,021     65.7        9,160   -0.372   -0.105   -0.267
+Y-10   SW Arc             4 >    6,566,550     65.7       13,630   -0.124   -0.005   -0.118
+Y-7    NE Arc             2 >    6,547,939     65.5       19,800   -0.463   -0.142   -0.321
+Y-11   SW Arc             5 >    6,544,923     65.4       21,200   -0.160   -0.032   -0.128
+Y-25   NW Arc             4 >    6,528,261     65.3        8,720   -0.368   -0.122   -0.246
+Y-36   NW Arc             3 >    6,371,355     63.7        9,550   -0.270    0.098   -0.368
+Y-32   SW Arc             2 >    6,190,535     61.9       30,130   -0.544   -0.141   -0.403
+Y-6    NW Arc             2 >    6,125,186     61.3       13,490   -0.342    0.052   -0.393
+Y-23   SE Arc             3 >    4,299,449     43.0       31,800   -0.138   -0.077   -0.060
+Y-39   NE Arc             1 >    3,197,657     32.0       15,030   -0.766    0.005   -0.770
+Y-13   SW Arc             1      3,022,399     30.2       24,040   -0.740   -0.418   -0.322
+Y-3    SE Arc             2 >    2,750,568     27.5       21,770   -0.211   -0.062   -0.149
+Y-26   SE Arc             4      1,726,554     17.3       24,230   -0.145    0.001   -0.146
+Y-40   SE Arc             5      1,393,390     13.9       21,730   -0.222    0.007   -0.229
+Y-15   SE Arc             1      1,193,510     11.9       19,520   -0.297   -0.022   -0.276
+Y-38   NW Arc             1        970,933      9.7        8,150   -0.413    0.127   -0.540
+Y-4    North Linac        0        913,801      9.1       54,170   -0.219    0.166   -0.385
+Y-20   Labyrinth          0        126,601      1.3       19,290   -0.253   -0.037   -0.216
+Y-12   Labyrinth          0         59,681      0.6       28,430   -0.234   -0.078   -0.156
+
+======================================================================
+DOSE-DEGRADATION CORRELATIONS
+======================================================================
+
+--- All 30 plates (N=30) (22/30 are LOWER BOUNDS from saturated OSL) ---
+  NdFeB mean          Pearson r=0.063 (p=0.742)  Spearman ρ=0.336 (p=0.070)
+  SmCo mean           Pearson r=-0.008 (p=0.966)  Spearman ρ=0.003 (p=0.988)
+  NdFeB-SmCo diff     Pearson r=0.080 (p=0.674)  Spearman ρ=0.240 (p=0.202)
+  N42EH               Pearson r=0.085 (p=0.655)  Spearman ρ=0.262 (p=0.161)
+  N52SH               Pearson r=0.043 (p=0.825)  Spearman ρ=0.258 (p=0.176)
+  SmCo33H             Pearson r=0.062 (p=0.751)  Spearman ρ=-0.027 (p=0.891)
+  SmCo35              Pearson r=-0.069 (p=0.718)  Spearman ρ=0.138 (p=0.468)
+
+--- Unsaturated only (N=8) ---
+  NdFeB mean          Pearson r=-0.395 (p=0.333)  Spearman ρ=-0.119 (p=0.779)
+  SmCo mean           Pearson r=-0.164 (p=0.699)  Spearman ρ=-0.071 (p=0.867)
+  NdFeB-SmCo diff     Pearson r=-0.347 (p=0.400)  Spearman ρ=-0.071 (p=0.867)
+  N42EH               Pearson r=-0.390 (p=0.340)  Spearman ρ=-0.119 (p=0.779)
+  N52SH               Pearson r=-0.342 (p=0.408)  Spearman ρ=-0.286 (p=0.493)
+  SmCo33H             Pearson r=-0.097 (p=0.836)  Spearman ρ=-0.179 (p=0.702)
+  SmCo35              Pearson r=-0.176 (p=0.676)  Spearman ρ=-0.119 (p=0.779)
+
+--- Neutron dose only (all 30 plates) ---
+  NdFeB mean          Pearson r=-0.083 (p=0.662)  Spearman ρ=0.156 (p=0.412)
+  SmCo mean           Pearson r=-0.007 (p=0.972)  Spearman ρ=-0.003 (p=0.988)
+  NdFeB-SmCo diff     Pearson r=-0.093 (p=0.626)  Spearman ρ=0.156 (p=0.409)
+
+======================================================================
+CORRELATIONS BY RADIATION TYPE
+======================================================================
+
+--- Photon dose (excluding photon-saturated) (N=30) ---
+  NdFeB mean          Pearson r=-0.410 (p=0.024)  Spearman ρ=-0.442 (p=0.015) *
+  SmCo mean           Pearson r=-0.167 (p=0.378)  Spearman ρ=-0.179 (p=0.344)  
+  NdFeB−SmCo diff     Pearson r=-0.351 (p=0.057)  Spearman ρ=-0.343 (p=0.063)  
+
+--- Neutron (total) dose  (N=30) ---
+  NdFeB mean          Pearson r=-0.083 (p=0.662)  Spearman ρ=+0.156 (p=0.412)  
+  SmCo mean           Pearson r=-0.007 (p=0.972)  Spearman ρ=-0.003 (p=0.988)  
+  NdFeB−SmCo diff     Pearson r=-0.093 (p=0.626)  Spearman ρ=+0.156 (p=0.409)  
+
+--- Fast neutron dose  (N=30) ---
+  NdFeB mean          Pearson r=-0.080 (p=0.674)  Spearman ρ=+0.172 (p=0.362)  
+  SmCo mean           Pearson r=-0.004 (p=0.982)  Spearman ρ=+0.018 (p=0.925)  
+  NdFeB−SmCo diff     Pearson r=-0.091 (p=0.633)  Spearman ρ=+0.165 (p=0.383)  
+
+--- Thermal neutron dose  (N=30) ---
+  NdFeB mean          Pearson r=-0.113 (p=0.551)  Spearman ρ=+0.077 (p=0.684)  
+  SmCo mean           Pearson r=-0.038 (p=0.841)  Spearman ρ=-0.073 (p=0.700)  
+  NdFeB−SmCo diff     Pearson r=-0.103 (p=0.587)  Spearman ρ=+0.118 (p=0.533)  
+
+--- Beta dose (plates with beta > 0 only) (N=24) ---
+  NdFeB mean          Pearson r=+0.492 (p=0.015)  Spearman ρ=+0.585 (p=0.003) *
+  SmCo mean           Pearson r=+0.464 (p=0.022)  Spearman ρ=+0.447 (p=0.029) *
+  NdFeB−SmCo diff     Pearson r=+0.224 (p=0.293)  Spearman ρ=+0.320 (p=0.128)  
+
+--- Total body dose  (N=30) ---
+  NdFeB mean          Pearson r=+0.063 (p=0.742)  Spearman ρ=+0.336 (p=0.070)  
+  SmCo mean           Pearson r=-0.008 (p=0.966)  Spearman ρ=+0.003 (p=0.988)  
+  NdFeB−SmCo diff     Pearson r=+0.080 (p=0.674)  Spearman ρ=+0.240 (p=0.202)  
+
+======================================================================
+VERIFICATION CHECKS
+======================================================================
+
+1. Merge count: 30 Y-plates
+
+2. NDX linac plates (should be saturated + high degradation):
+   Y-16: dose=13,143,598 mrem (sat=True), NdFeB=-0.062%
+   Y-17: dose=13,000,114 mrem (sat=True), NdFeB=-0.200%
+   Y-22: dose=13,078,025 mrem (sat=True), NdFeB=-0.133%
+
+3. Dose ranking (arc vs linac):
+   Arc mean:   4,930,059 mrem = 49.3 Sv (N=20)
+   Linac mean: 10,619,344 mrem = 106.2 Sv (N=8)
+   Arc/Linac ratio: 0.5
+   Arc NdFeB mean:   -0.364%
+   Linac NdFeB mean: -0.149%
+   Both higher dose AND more degradation in arcs? CHECK
+
+Merging H-plates...
+  Merged 85 H-plate pair assemblies with dose data
+
+================================================================================
+H-PLATE PAIR ASSEMBLY DOSE-DEGRADATION TABLE
+  Note: H-plates have FULL ±0.248% gain systematic (no intra-plate differential)
+================================================================================
+Sample     Material Config Region          Line     Body(mrem) Body(Sv)     Pct% Sat?
+----------------------------------------------------------------------------------------------------
+Hn-6-1     NdFeB    Gamma  South Linac        0 >   11,204,456    112.0  +0.691
+Hn-6-2     NdFeB    Alpha  South Linac        0 >   11,204,456    112.0  +0.266
+Hn-6-3     NdFeB    Delta  South Linac        0 >   11,204,456    112.0  +0.256
+Hn-8-1     NdFeB    Alpha  SE Arc             5      1,329,784     13.3  +0.143
+Hn-8-2     NdFeB    Gamma  SE Arc             5      1,329,784     13.3  -0.011
+Hn-8-4     NdFeB    Delta  SE Arc             5      1,329,784     13.3  +0.035
+Hn-9-1     NdFeB    Delta  SE Arc             3 >    3,258,039     32.6  +0.048
+Hn-10-1    NdFeB    Gamma  SE Arc             1      1,036,014     10.4  -0.419
+Hn-10-3    NdFeB    Alpha  SE Arc             1      1,036,014     10.4  -0.057
+Hn-10-4    NdFeB    Delta  SE Arc             1      1,036,014     10.4  +0.041
+Hn-11-2    NdFeB    Gamma  NW Arc             4 >    6,381,521     63.8  +0.344
+Hn-11-3    NdFeB    Delta  NW Arc             4 >    6,381,521     63.8  -0.007
+Hn-11-4    NdFeB    Alpha  NW Arc             4 >    6,381,521     63.8  +0.110
+Hn-12-1    NdFeB    Alpha  NW Arc             1        820,414      8.2  +0.089
+Hn-12-2    NdFeB    Gamma  NW Arc             1        820,414      8.2  -0.298
+Hn-12-3    NdFeB    Delta  NW Arc             1        820,414      8.2  +0.101
+Hn-15-2    NdFeB    Gamma  North Linac        0 >   12,073,503    120.7  -1.162
+Hn-15-3    NdFeB    Alpha  North Linac        0 >   12,073,503    120.7  +0.241
+Hn-15-4    NdFeB    Delta  North Linac        0 >   12,073,503    120.7  +0.052
+Hn-16-1    NdFeB    Alpha  SE Arc             2      1,954,162     19.5  -0.076
+Hn-16-3    NdFeB    Delta  SE Arc             2      1,954,162     19.5  +0.674
+Hn-16-4    NdFeB    Gamma  SE Arc             2      1,954,162     19.5  -0.304
+Hn-17-1    NdFeB    Delta  NW Arc             3 >    6,315,114     63.2  -0.143
+Hn-17-2    NdFeB    Gamma  NW Arc             3 >    6,315,114     63.2  +0.052
+Hn-17-3    NdFeB    Alpha  NW Arc             3 >    6,315,114     63.2  -0.293
+Hn-19-2    NdFeB    Delta  South Linac        0 >    7,211,198     72.1  +0.201
+Hn-19-3    NdFeB    Gamma  South Linac        0 >    7,211,198     72.1  -0.219
+Hn-19-4    NdFeB    Alpha  South Linac        0 >    7,211,198     72.1  +0.296
+Hn-20-1    NdFeB    Alpha  North Linac        0 >   13,015,747    130.2  +0.179
+Hn-20-2    NdFeB    Delta  North Linac        0 >   13,015,747    130.2  +0.206
+Hn-20-3    NdFeB    Gamma  North Linac        0 >   13,015,747    130.2  +0.088
+Hn-37-1    NdFeB    Delta  SE Arc             4      1,031,728     10.3  -0.063
+Hn-37-3    NdFeB    Alpha  SE Arc             4      1,031,728     10.3  -0.017
+Hn-37-4    NdFeB    Gamma  SE Arc             4      1,031,728     10.3  -0.143
+Hn-39-2    NdFeB    Alpha  NW Arc             2 >    5,729,193     57.3  +0.062
+Hn-39-3    NdFeB    Delta  NW Arc             2 >    5,729,193     57.3  -0.030
+Hn-39-4    NdFeB    Gamma  NW Arc             2 >    5,729,193     57.3  +0.020
+Hs-1-1     SmCo     Alpha  SW Arc             1      1,759,550     17.6  -0.249
+Hs-1-3     SmCo     Gamma  SW Arc             1      1,759,550     17.6  +0.001
+Hs-1-4     SmCo     Delta  SW Arc             1      1,759,550     17.6  -0.086
+Hs-2-2     SmCo     Alpha  SW Arc             2 >    5,831,687     58.3  -0.054
+Hs-2-3     SmCo     Gamma  SW Arc             2 >    5,831,687     58.3  +0.664
+Hs-2-4     SmCo     Delta  SW Arc             2 >    5,831,687     58.3  -0.059
+Hs-3-1     SmCo     Gamma  SW Arc             5 >    6,488,436     64.9  +0.554
+Hs-3-2     SmCo     Alpha  SW Arc             5 >    6,488,436     64.9  +0.451
+Hs-3-4     SmCo     Delta  SW Arc             5 >    6,488,436     64.9  +0.038
+Hs-4-1     SmCo     Delta  Labyrinth          0         59,086      0.6  +0.117
+Hs-4-2     SmCo     Alpha  Labyrinth          0         59,086      0.6  +0.136
+Hs-4-4     SmCo     Gamma  Labyrinth          0         59,086      0.6  +0.861
+Hs-5-1     SmCo     Alpha  Labyrinth          0        132,462      1.3  +0.166
+Hs-5-2     SmCo     Gamma  Labyrinth          0        132,462      1.3  +0.381
+Hs-5-4     SmCo     Delta  Labyrinth          0        132,462      1.3  +0.356
+Hs-6-2     SmCo     Alpha  NE Arc             4 >    7,437,063     74.4  +0.014
+Hs-6-3     SmCo     Delta  NE Arc             4 >    7,437,063     74.4  -0.059
+Hs-6-4     SmCo     Gamma  NE Arc             4 >    7,437,063     74.4  +0.426
+Hs-7-1     SmCo     Gamma  North Linac        0        814,768      8.1  +1.179
+Hs-7-2     SmCo     Alpha  North Linac        0        814,768      8.1  +0.209
+Hs-7-4     SmCo     Delta  North Linac        0        814,768      8.1  +0.463
+Hs-10-2    SmCo     Gamma  SW Arc             4 >    6,555,763     65.6  -0.527
+Hs-10-3    SmCo     Delta  SW Arc             4 >    6,555,763     65.6  +0.010
+Hs-10-4    SmCo     Alpha  SW Arc             4 >    6,555,763     65.6  +0.127
+Hs-12-1    SmCo     Delta  NE Arc             1      1,820,961     18.2  -0.368
+Hs-12-3    SmCo     Gamma  NE Arc             1      1,820,961     18.2  -0.640
+Hs-12-4    SmCo     Alpha  NE Arc             1      1,820,961     18.2  -0.240
+Hs-13-1    SmCo     Alpha  South Linac        0 >   14,019,245    140.2  +0.207
+Hs-13-3    SmCo     Delta  South Linac        0 >   14,019,245    140.2  +0.306
+Hs-13-4    SmCo     Gamma  South Linac        0 >   14,019,245    140.2  -0.013
+Hs-14-2    SmCo     Gamma  NE Arc             5 >    7,456,571     74.6  +1.354
+Hs-14-3    SmCo     Alpha  NE Arc             5 >    7,456,571     74.6  +0.050
+Hs-14-4    SmCo     Delta  NE Arc             5 >    7,456,571     74.6  +0.109
+Hs-15-1    SmCo     Gamma  North Linac        0 >   13,114,526    131.1  +0.294
+Hs-15-3    SmCo     Delta  North Linac        0 >   13,114,526    131.1  +0.110
+Hs-15-4    SmCo     Alpha  North Linac        0 >   13,114,526    131.1  +0.171
+Hs-16-1    SmCo     Delta  NE Arc             2 >    6,232,915     62.3  -0.165
+Hs-16-3    SmCo     Gamma  NE Arc             2 >    6,232,915     62.3  -0.879
+Hs-16-4    SmCo     Alpha  NE Arc             2 >    6,232,915     62.3  -0.089
+Hs-17-1    SmCo     Alpha  SW Arc             3 >    6,452,257     64.5  -0.113
+Hs-17-2    SmCo     Delta  SW Arc             3 >    6,452,257     64.5  +0.999
+Hs-17-3    SmCo     Gamma  SW Arc             3 >    6,452,257     64.5  +0.793
+Hs-18-2    SmCo     Delta  South Linac        0 >   11,129,748    111.3  +0.105
+Hs-18-3    SmCo     Gamma  South Linac        0 >   11,129,748    111.3  +0.125
+Hs-18-4    SmCo     Alpha  South Linac        0 >   11,129,748    111.3  +0.036
+Hs-20-1    SmCo     Delta  NE Arc             3 >    6,932,568     69.3  +0.021
+Hs-20-2    SmCo     Gamma  NE Arc             3 >    6,932,568     69.3  -0.281
+Hs-20-3    SmCo     Alpha  NE Arc             3 >    6,932,568     69.3  +0.071
+
+  H-plate NdFeB (N=37): mean=0.026% ± 0.050%
+
+  H-plate SmCo (N=48): mean=0.148% ± 0.061%
+
+Merging A-samples...
+  Merged 202 A-samples with dose data
+
+================================================================================
+A-SAMPLE DOSE-DEGRADATION SUMMARY
+  Note: A-samples = individual magnets from H-plate pairs, measured disassembled
+  Same dose as parent H-plate (co-located dosimeter)
+================================================================================
+
+  A-sample NdFeB (N=90 temp-corrected): mean=0.085% ± 0.022%
+
+  A-sample SmCo (N=112 temp-corrected): mean=0.067% ± 0.016%
+
+  Regional breakdown (temp-corrected only):
+  Region         NdFeB  SmCo     NdFeB%      SmCo%
+  NE Arc             0    35          —      0.008
+  NW Arc            28     0     -0.029          —
+  SE Arc            35     0      0.036          —
+  SW Arc             0    35          —     -0.002
+  North Linac       13    14      0.220      0.159
+  South Linac       14    14      0.313      0.209
+  Labyrinth          0    14          —      0.153
+
+======================================================================
+COMBINED Y + H + A NdFeB DOSE-DEGRADATION COMPARISON
+======================================================================
+  Y-plate NdFeB (intra-plate) (N=30):
+    Mean: -0.298% ± 0.033%  |  Spearman ρ=0.336 (p=0.070)
+  H-plate NdFeB (pair assembly) (N=37):
+    Mean: 0.026% ± 0.050%  |  Spearman ρ=0.413 (p=0.011)
+  A-sample NdFeB (temp-corrected) (N=90):
+    Mean: 0.085% ± 0.022%  |  Spearman ρ=0.549 (p=0.000)
+
+Generating plots...
+  Saved: /Users/ryanmb/Documents/LDRD/Claude_Analysis1/Cleanup_Claude/Dosimetry/OSL_Area/dose_vs_degradation_scatter.png
+  Saved: /Users/ryanmb/Documents/LDRD/Claude_Analysis1/Cleanup_Claude/Dosimetry/OSL_Area/dose_by_region.png
+
+--- Regional dose vs degradation ---
+Region             Dose(mrem) Dose(Sv)     NdFeB%      SmCo%      Diff%
+Arcs (all)          4,930,059     49.3     -0.364     -0.066     -0.297
+North Linac        10,033,884    100.3     -0.154      0.075     -0.228
+South Linac        11,204,802    112.0     -0.144      0.041     -0.185
+Labyrinth              93,141      0.9     -0.244     -0.058     -0.186
+  Saved: /Users/ryanmb/Documents/LDRD/Claude_Analysis1/Cleanup_Claude/Dosimetry/OSL_Area/dose_vs_line_position.png
+
+--- Line position (arcs only, N=4 stacks per line) ---
+Line  MeanDose(mrem) Dose(Sv)   NdFeB%    Diff%    N_plates
+  1       2,096,125     21.0    -0.554    -0.477   4
+  2       5,403,557     54.0    -0.390    -0.317   4
+  3       6,057,885     60.6    -0.298    -0.233   4
+  4       5,582,378     55.8    -0.261    -0.207   4
+  5       5,510,348     55.1    -0.316    -0.253   4
+  Saved: /Users/ryanmb/Documents/LDRD/Claude_Analysis1/Cleanup_Claude/Dosimetry/OSL_Area/dose_vs_differential.png
+  Saved: /Users/ryanmb/Documents/LDRD/Claude_Analysis1/Cleanup_Claude/Dosimetry/OSL_Area/dose_timeline_overlay.png
+  Saved: /Users/ryanmb/Documents/LDRD/Claude_Analysis1/Cleanup_Claude/Dosimetry/OSL_Area/dose_by_radiation_type_ndfeb.png
+  Saved: /Users/ryanmb/Documents/LDRD/Claude_Analysis1/Cleanup_Claude/Dosimetry/OSL_Area/dose_by_radiation_type_differential.png
+  Saved: /Users/ryanmb/Documents/LDRD/Claude_Analysis1/Cleanup_Claude/Dosimetry/OSL_Area/dose_regional_composition.png
+
+--- Regional dose composition ---
+  All values: dose equiv (mrem) → absorbed dose (Gy) using Q factors:
+  Photon Q=1, Beta Q=1, Fast n Q=10, Thermal n Q=2.5
+Region                Photon (Gy)     Fast n (mGy)    Therm n (mGy)   NdFeB%
+Arcs (all)       1,078,217 /  10.8Gy   16,136 / 16.1mGy    1,369 / 5.48mGy   -0.364
+North Linac       192,548 /   1.9Gy   21,558 / 21.6mGy    1,502 / 6.01mGy   -0.154
+South Linac       314,814 /   3.1Gy   18,395 / 18.4mGy    1,350 / 5.40mGy   -0.144
+Labyrinth          69,281 /   0.7Gy   21,870 / 21.9mGy    1,990 / 7.96mGy   -0.244
+
+  Estimated total absorbed dose (Gy) = photon + fast_n + therm_n + beta:
+  Arcs (all)        11.15 Gy  (photon 10.78 + fast_n 0.0161 + therm_n 0.00548 + beta 0.343)
+  North Linac       2.64 Gy  (photon 1.93 + fast_n 0.0216 + therm_n 0.00601 + beta 0.683)
+  South Linac       6.87 Gy  (photon 3.15 + fast_n 0.0184 + therm_n 0.00540 + beta 3.702)
+  Labyrinth         0.72 Gy  (photon 0.69 + fast_n 0.0219 + therm_n 0.00796 + beta 0.000)
+  Saved: /Users/ryanmb/Documents/LDRD/Claude_Analysis1/Cleanup_Claude/Dosimetry/OSL_Area/dose_vs_degradation_YHA.png
+
+Done! All outputs in: /Users/ryanmb/Documents/LDRD/Claude_Analysis1/Cleanup_Claude/Dosimetry/OSL_Area
