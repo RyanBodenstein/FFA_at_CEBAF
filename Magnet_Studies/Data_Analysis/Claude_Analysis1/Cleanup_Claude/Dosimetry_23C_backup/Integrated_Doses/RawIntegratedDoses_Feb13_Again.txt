@@ -1,0 +1,42 @@
+Feb13_1L07_Gamma_Neutron_Integrated_Again.txt
+Integrated sum = 63,379,687
+Integrated sum = 1,112,371.2
+Feb13_1L11_Gamma_Neutron_Integrated_Again.txt
+Integrated sum = 70,648,362
+Integrated sum = 2,626,887.2
+Feb13_1L15_Gamma_Neutron_Integrated_Again.txt
+Integrated sum = 7,867,884.3
+Integrated sum = 9,944.2357
+Feb13_1L23_Gamma_Neutron_Integrated_Again.txt
+Integrated sum = 29,403,803
+Integrated sum = -7.6532836e+13
+Feb13_1L24_Gamma_Neutron_Integrated_Again.txt
+Integrated sum = 35,704,560
+Integrated sum = 2,338,819.3
+Feb13_1L26_Gamma_Neutron_Integrated_Again.txt
+Integrated sum = 15,981,461
+Integrated sum = 610,717.86
+Feb13_2L04_Gamma_Neutron_Integrated_Again.txt
+Integrated sum = 851,274.49
+Integrated sum = -3.6515987e+22
+Feb13_2L07_Gamma_Neutron_Integrated_Again.txt
+Integrated sum = 9,348,351.6
+Integrated sum = 4,082.8377
+Feb13_2L08_Gamma_Neutron_Integrated_Again.txt
+Integrated sum = 6.4453121e+12
+Integrated sum = -6.1119867e+10
+Feb13_2L17_Gamma_Neutron_Integrated_Again.txt
+Integrated sum = 1,892,752.7
+Integrated sum = 15,279.286
+Feb13_2L22_Gamma_Neutron_Integrated_Again.txt
+Integrated sum = 32,498,835
+Integrated sum = 2,401,465.8
+Feb13_2L23_Gamma_Neutron_Integrated_Again.txt
+Integrated sum = 58,340,245
+Integrated sum = 4,294,137.9
+Feb13_2L24_Gamma_Neutron_Integrated_Again.txt
+Integrated sum = 56,837,528
+Integrated sum = 4,649,769.3
+Feb13_2S01_Gamma_Neutron_Integrated_Again.txt
+Integrated sum = 609,475.26
+Integrated sum = 12,710.047

@@ -1,0 +1,305 @@
+% !TeX spellcheck = en_GB
+% !TeX program = lualatex
+%
+% v 2.3  Feb 2019   Volker RW Schaa
+%		# changes in the collaboration therefore updated file "jacow-collaboration.tex"
+%		# all References with DOIs have their period/full stop before the DOI (after pp. or year)
+%		# in the author/affiliation block all ZIP codes in square brackets removed as it was not %         understood as optional parameter and ZIP codes had bin put in brackets
+%       # References to the current IPAC are changed to "IPAC'19, Melbourne, Australia"
+%       # font for ‘url’ style changed to ‘newtxtt’ as it is easier to distinguish "O" and "0"
+%
+\documentclass[a4paper,
+               %boxit,        % check whether paper is inside correct margins
+               %titlepage,    % separate title page
+               %refpage       % separate references
+               %biblatex,     % biblatex is used
+               %keeplastbox,   % flushend option: not to un-indent last line in References
+               %nospread,     % flushend option: do not fill with whitespace to balance columns
+               %hyphens,      % allow \url to hyphenate at "-" (hyphens)
+               %xetex,        % use XeLaTeX to process the file
+               %luatex,       % use LuaLaTeX to process the file
+               ]{jacow}
+%
+% ONLY FOR \footnote in table/tabular
+%
+\usepackage{pdfpages,multirow,ragged2e} %
+%
+% CHANGE SEQUENCE OF GRAPHICS EXTENSION TO BE EMBEDDED
+% ----------------------------------------------------
+% test for XeTeX where the sequence is by default eps-> pdf, jpg, png, pdf, ...
+%    and the JACoW template provides JACpic2v3.eps and JACpic2v3.jpg which
+%    might generates errors, therefore PNG and JPG first
+%
+\makeatletter%
+	\ifboolexpr{bool{xetex}}
+	 {\renewcommand{\Gin@extensions}{.pdf,%
+	                    .png,.jpg,.bmp,.pict,.tif,.psd,.mac,.sga,.tga,.gif,%
+	                    .eps,.ps,%
+	                    }}{}
+\makeatother
+
+% CHECK FOR XeTeX/LuaTeX BEFORE DEFINING AN INPUT ENCODING
+% --------------------------------------------------------
+%   utf8  is default for XeTeX/LuaTeX
+%   utf8  in LaTeX only realises a small portion of codes
+%
+\ifboolexpr{bool{xetex} or bool{luatex}} % test for XeTeX/LuaTeX
+ {}                                      % input encoding is utf8 by default
+ {\usepackage[utf8]{inputenc}}           % switch to utf8
+
+\usepackage[USenglish]{babel}
+
+%
+% if BibLaTeX is used
+%
+\ifboolexpr{bool{jacowbiblatex}}%
+ {%
+  \addbibresource{jacow-test.bib}
+  \addbibresource{biblatex-examples.bib}
+ }{}
+\listfiles
+
+%%
+%%   Lengths for the spaces in the title
+%%   \setlength\titleblockstartskip{..}  %before title, default 3pt
+%%   \setlength\titleblockmiddleskip{..} %between title + author, default 1em
+%%   \setlength\titleblockendskip{..}    %afterauthor, default 1em
+
+\begin{document}
+
+\title{Status of Permanent Magnet Radiation Resiliency Studies at CEBAF\thanks{Authored by Jefferson Science Associates, LLC under U.S. DOE Contract No. DE-AC05-06OR23177. The research described in this work was conducted under the Laboratory Directed Research and Development Program at Thomas Jefferson National Accelerator Facility for the U.S. Department of Energy.}}
+
+\author{R.M. Bodenstein\thanks{ryanmb@jlab.org}, C. Decker, K.E. Deitrick, B.R. Gamage, J.F. Gubeli, D. Hamlette, M. Janak,\\ K. Jordan, S. Lee, J. Meyers, B. Mosbrucker, I. Neththikumara,  E. Nissen, V. Okey-Ejiowhor,\\ J. Samari, S. Shriner, M. Smith, N. Wilson,\\ Thomas Jefferson National Accelerator Facility, Newport News, VA, USA \\
+S.J. Brooks, Brookhaven National Lab, Upton, NY, USA \\
+S. Boogert, Cockcroft Institute, Daresbury, UK\\
+W. Shields, Royal Holloway University London, Egham, UK\\
+B. Shepherd, STFC, Daresbury, UK\\
+L. Nevay, CERN, Meyrin, Switzerland
+    }
+	
+\maketitle
+
+%
+\begin{abstract}
+An ongoing investigation for the future of Jefferson Lab’s Continuous Electron Beam Accelerator Facility (CEBAF) lies in upgrading its maximum nominal energy using Fixed-Field Alternating-gradient (FFA) technology for its recirculating arcs, using permanent magnets for the FFA arcs. A common concern among the community is the degradation of these permanent magnets during operation due to the radiation environment in which they will be present. This work, funded by a Laboratory Directed R\&D grant, aims to measure the permanent magnet degradation in the CEBAF tunnel enclosure, and extrapolate to the energies expected from the upgrade. We present the latest results of this study, as well as plans moving forward.
+\end{abstract}
+
+\section{Background}
+
+The FFA@CEBAF energy upgrade feasibility study aims to increase the CEBAF electron beam energy from \SI{12}{GeV} to over \SI{20}{GeV} using Fixed Field, Alternating gradient (FFA) permanent magnet arcs \cite{Khan:ipac2024-mopr08}. The proposed permanent magnets have not yet been tested in a radiation environment comparable to that of CEBAF at these higher energies. To address this, samples of several magnet materials were placed in thirty different radiation regions of the operational \SI{12}{GeV} CEBAF. Data from these tests, combined with simulations, external studies, and calculations, will inform assessments of radiation hardness and material lifetime for the FFA arcs.
+
+This Laboratory Directed R\&D (LDRD) project provides critical input into the FFA magnet design prior to manufacture and procurement. While previous studies have explored related issues \cite{Shepherd:Radiation}, many have covered only limited portions of the relevant parameter space. Our work offers essential data on the performance of permanent magnets in conditions closely matching those expected in the upgraded CEBAF, contributing both to the FFA@CEBAF design effort and to broader research on radiation-induced magnet degradation.
+
+\section{Methodology}
+\subsection{Hardware and Measurements}
+After placing dosimetry (optichromic rods and optically stimulated luminescence (OSL) area monitors) to map expected dose ranges throughout the CEBAF enclosure \cite{Bodenstein:ipac2025-thpb093, Bodenstein:ipac2024-thps58}, thirty locations were selected with suitable neutron and gamma radiation levels for this study. Site requirements included a range of doses, regular accessibility, and minimal risk of dosimeter saturation. In high-dose areas, locations near live-readback systems, such as the lab's Neutron Dose Rate Meter with Extended Capabilities (NDX) \cite{NDX}, were prioritized to provide dose estimates if passive dosimeters saturate. Calibration dosimetry was deployed with RF on but before beam operations to identify systematic offsets for error analysis.
+
+Neodymium Iron Boron (NdFeB) and Samarium Cobalt (SmCo) are the primary permanent magnet materials used in accelerators. Brookhaven has assumed NdFeB grade N42EH for the prototype FFA magnet design \cite{Brooks:IPAC22-THPOTK011}. For comparative studies, we selected N42EH, N52SH, SmCo33H, and SmCo35. Sample details and rationale are provided in \cite{Bodenstein:ipac2024-thps58}.
+
+Given the small expected changes between measurements, high-precision equipment is required. Point measurements use a Teslameter (Senis 3MH6 with a C-type, three-component Hall probe \cite{Senis}) with $0.005\%$ digital accuracy. For integrated field measurements, a precision Helmholtz coil system (Magnetic Instrumentation Model HCP with Rotator and Model 2130 Digital Fluxmeter \cite{Helmholtz}) is used. Both systems are mounted on portable lab carts for in-situ measurements during accelerator downtimes, ensuring no activated materials leave the enclosure.
+
+To improve reproducibility, we developed 3D printed mounts for both the magnet samples and the Teslameter probe \cite{Nissen:IPAC24-THPS59, Nissen:NAPAC25-WEP037}. These mounts ensure consistent sample placement and probe alignment, reducing human error and aiding data organization.
+
+Demagnetization in Halbach assemblies is affected by interactions between magnet wedges \cite{Brooks:IPAC22-THPOTK011, Brooks:IPAC23-WEPM128}. The key factor is the strength of the reverse H-field, which opposes the magnetization direction.
+
+To study this, we constructed sample assemblies that approximate different regions of Halbach arrays. Figure \ref{fig:AssemblyDiag} illustrates the configurations. A single magnet cross-section is shown at the top, with magnetization indicated by the white arrow. The next image down shows a pair assembly with aligned fields (Delta configuration), followed by configurations where the second pair is placed at 0\textdegree~(Alpha), 90\textdegree~(Gamma), or 180\textdegree~(Beta) relative to the first.
+
+\begin{figure}[!htb]
+    \centering
+    \includegraphics*[width=.4\columnwidth]{WEAN02_f1.pdf}
+    \caption{Magnet sample alignments for reverse-flux demagnetization studies. The white arrow indicates the direction of magnetization in the samples.}
+    \label{fig:AssemblyDiag}
+\end{figure}
+
+Data is collected during all planned accelerator downtimes, as well as opportunistically during some unplanned maintenance periods. This requires careful scheduling and tracking of sample site measurements over time.
+
+\subsection{Simulations and Calculations} 
+
+Estimating long-term degradation of permanent magnets in the CEBAF enclosure requires understanding both the radiation environment and relevant operating conditions, such as temperature, beam energy, and secondary particle deposition. To study this, we simulate magnets across a range of beam energies, positions, configurations, and assembly types using BDSIM (Beam Delivery Simulation) \cite{NEVAY:BDSIM}, which is based on GEANT4 \cite{GEANT4}. BDSIM is well-suited for this work due to its ability to import full beamline geometries and handle complex, custom shapes.
+
+These simulations allow us to identify the magnets most susceptible to radiation damage and generate detailed dose maps, including both intensity and spatial distribution. By modeling variations in material, geometry, and assembly, we correlate the simulation results with experimental data and extrapolate degradation trends for individual magnets, assemblies, and the full FFA@CEBAF system.
+
+
+\section{Current Status}
+
+\subsection{Hardware}
+
+\subsubsection{Sample Installation}
+Despite operational delays at CEBAF, all magnet samples have had baseline measurements and are now installed at thirty sites in the CEBAF tunnel. Twenty sites are in the recirculating arcs, arranged in stacks of five (one per energy pass). Two sites are located in the entrance labyrinths for very low-dose exposure, and the remaining eight are near the LINACs, primarily adjacent to cryomodules.
+
+Sample placement was carefully planned to avoid impacting beam operations. Field maps and simulations confirm that any effects on the beam are negligible. All installations were completed prior to beam restoration following a long maintenance period, allowing for correction of any small fields during system spin-up.
+
+\subsubsection{Mobile Measurement Rigs}
+The mobile measurement rigs are fully operational, including the 3D printed holders, measurement systems, QR-code data tracking, custom DAQ, and measurement protocols.
+
+The Teslameter and Helmholtz coil are mounted on separate lab carts. Each sample plate is removed from its mount for measurements and then reinstalled. The DAQ allows for flexible operation, supporting full measurements, partial measurements, or dosimetry swaps—performed during every access. Each sample plate is tracked with its own dedicated dosimetry. For further details on the measurement systems, the authors point to these proceedings \cite{Nissen:IPAC24-THPS59, Nissen:NAPAC25-WEP037}.
+
+\subsection{Measurements}
+
+\subsubsection{Dosimetry}
+Dose data has been collected periodically since January 2025. While there have been significant delays in receiving some OSL dosimeter data, the delivered results that are not saturated appear consistent with expectations. Optichromic rod data has been collected and is continuously processed on-site, with error analysis underway as well as calibrations using the live-readback dosimetry in the accelerator tunnel. 
+
+\subsubsection{Helmholtz Coil}
+Following a late beam restoration after the extended Scheduled Accelerator Maintenance (SAM) period, Helmholtz coil measurements have commenced. Each sample has been measured multiple times. When possible, pair assemblies are disassembled so that individual magnets can be measured; otherwise, the full assembly is measured as a unit. All single samples are measured individually.
+
+Error analysis is ongoing, and the current dataset is insufficient to support firm conclusions. Nevertheless, initial raw measurements suggest possible degradation of the magnetic moments in most samples.
+
+Figure \ref{fig:SingleSamp_Date} shows all four materials on the single-sample plate at this location. The SmCo samples appear to degrade less than the NdFeB samples, a trend that seems consistent across all samples investigated.
+
+\begin{figure}[!htb]
+\centering
+\includegraphics*[width=1\columnwidth]{WEAN02_f2.pdf}
+\caption{Percent difference of raw Helmholtz coil measurements as a function of measurement date for single samples in the Northwest Arc, fourth pass.}
+\label{fig:SingleSamp_Date}
+\end{figure}
+
+Figure \ref{fig:Assemb_Samp_Date} shows the different NdFeB pairs located at the same site as the single samples in Fig. \ref{fig:SingleSamp_Date}. Most assemblies exhibit similar apparent degradation rates, with the exception of “Beta,” which contains a quadrupole component due to pair alignment. Helmholtz coil measurements are less reliable for the “Beta” configuration and will need to be supplemented with Teslameter measurements.
+
+\begin{figure}[!htb]
+\centering
+\includegraphics*[width=1\columnwidth]{WEAN02_f3.pdf}
+\caption{Percent difference of raw Helmholtz coil measurements as a function of measurement date for pair assemblies in the Northwest Arc, fourth pass.}
+\label{fig:Assemb_Samp_Date}
+\end{figure}
+
+\subsubsection{Teslameter}
+The samples were measured with the Teslameter for baseline data. However, the Hall probe’s ceramic head broke after these measurements, as did the replacement. New probes have arrived, and a protective holder cap has been fabricated to mitigate this issue. Small differences introduced by the new setup will be carefully accounted for in the error propagation analysis, once it takes place. Measurements in the tunnel enclosure have commenced, though there is not yet enough data to report.
+
+\subsection{Simulations and Calculations}
+
+BDSIM simulations are progressing \cite{Gamage:IPAC24-THPS57,Gamage:NAPAC25-WEP074}, with ongoing efforts to translate the current CEBAF beamlines from \texttt{elegant} \cite{Borland:elegant} to BDSIM. Work is focused on incorporating correct apertures, element geometries, and the multipass nature of CEBAF's recirculation arcs.
+
+\begin{figure}[!htb]
+    \centering
+    \includegraphics*[width=1\columnwidth]{WEAN02_f4.png}
+    \caption{An example of CEBAF's lowest-energy arc in BDSIM. A large vertical steering error and synchrotron radiation are included.}
+    \label{fig:BDSIM_Arc1}
+\end{figure}
+
+Most of the machine is straightforward to simulate, though modeling the cryomodules, particularly non-beam-induced field emission, has proven challenging. CAD imports also present difficulties due to overlaps in complex designs. These are secondary concerns, as the primary priority is simulating the recirculating arcs, where synchrotron radiation dominates (Figure \ref{fig:BDSIM_Arc1}).
+
+Once the simulation setup is complete, measured dose data will be compared to simulation results. The models will be adjusted until an acceptable level of agreement is reached, though the exact threshold is still under discussion due to the large uncertainties in radiation measurements.
+
+After achieving this baseline agreement, simulations will be expanded to the higher energies anticipated in the upgraded CEBAF. Combined with measurement-based models, these results will be used to predict magnet doses and estimate degradation rates in the new machine.
+
+\section{CONCLUSION}
+
+The project is well underway, with data collection actively progressing. Despite some delays due to operational and equipment issues, measurements continue, with initial results showing overall consistency with each other. A recent lab review commended the effort, stating it "congratulates the magnet team on the well thought out and implemented magnet irradiation measurement program" \cite{JLAAC2025:Private}.
+
+Data collection will proceed in parallel with ongoing error analysis and simulation work. As the study evolves, the resulting model will be refined and compared to similar efforts.
+
+\section{ACKNOWLEDGEMENTS}
+In addition to those listed as co-authors, we would like to thank the support of the CEBAF Operations and Operability groups, the Radiation Control Group, and the Installation Group.
+
+%
+% only for "biblatex"
+%
+\ifboolexpr{bool{jacowbiblatex}}%
+	{\printbibliography}%
+	{%
+	% "biblatex" is not used, go the "manual" way
+	
+	\begin{thebibliography}{99}   % Use for  10-99  references
+	%\begin{thebibliography}{9} % Use for 1-9 references
+
+        \bibitem{Khan:ipac2024-mopr08}
+            D. Khan \emph{et al.},
+            ``Current status of the FFA@CEBAF energy upgrade'',
+            in \emph{Proc. IPAC'24}, Nashville, TN, May 2024, pp. 474-477.
+            \url{doi:10.18429/JACoW-IPAC2024-MOPR08}
+
+        \bibitem{Shepherd:Radiation}
+           B. Shepherd,
+           \textquotedblleft{Radiation damage to permanent magnet materials: A survey of experimental results}\textquotedblright,
+           in \emph{CERN-ACC-2018-0029, CLIC-Note-1079}, CERN, Meyrin, Switzerland, 2018.
+           \url{https://cds.cern.ch/record/2642418}
+
+        \bibitem{Bodenstein:ipac2025-thpb093}
+             R.M. Bodenstein \emph{et al.},
+            ``Current status of permanent magnet radiation resiliency studies at CEBAF'',
+            in \emph{Proc. IPAC'25}, Taipei, Taiwan, Jun. 2025, pp. 2664-2667.
+            \url{doi:10.18429/JACoW-IPAC25-THPB093}
+       
+        \bibitem{Bodenstein:ipac2024-thps58}
+            R.M. Bodenstein \emph{et al.},
+            ``Permanent magnet resiliency in CEBAF’s radiation environment: LDRD grant status and plans'',
+            in \emph{Proc. IPAC'24}, Nashville, TN, May 2024, pp. 3875-3878.
+            \url{doi:10.18429/JACoW-IPAC2024-THPS58}
+
+        \bibitem{NDX}
+           P.V. Degtiarenko,
+           \textquotedblleft{Neutron detector and dose rate meter using beryllium-loaded materials}\textquotedblright,
+           in \emph{US Patent Number 10281600B2}, 2019.
+           \url{https://www.osti.gov/servlets/purl/1568305}
+
+        \bibitem{Brooks:IPAC22-THPOTK011}
+           S. J. Brooks and S. A. Bogacz,
+           \textquotedblleft{Permanent Magnets for the CEBAF 24GeV Upgrade}\textquotedblright,
+           in \emph{Proc. IPAC’22}, Bangkok, Thailand, Jun. 2022, pp. 2792--2795.
+           \url{doi:10.18429/JACoW-IPAC2022-THPOTK011}
+
+        \bibitem{Senis}
+            \textquotedblleft{3MH6 High-Precision, Low-Noise Teslameter}\textquotedblright, \url{https://www.senis.swiss/magnetometers/teslameter-digital/3mh6-high-precision-low-noise-teslameter/}
+
+        \bibitem{Helmholtz}
+            \textquotedblleft{Model HCP Precision Helmholtz Coil Series With Rotator}\textquotedblright, \url{https://maginst.com/products/measurement-and-testing/precision-helmholtz-coils/}
+
+        \bibitem{Nissen:IPAC24-THPS59}
+            E. Nissen \emph{et al.},
+            ``Design and instrumentation for permanent magnet samples exposed to a radiation environment'',
+            in \emph{Proc. IPAC'24}, Nashville, TN, May 2024, pp. 3879-3881.
+            \url{doi:10.18429/JACoW-IPAC2024-THPS59}
+
+        \bibitem{Nissen:NAPAC25-WEP037}
+            E. Nissen \emph{et al.},
+            ``Final Design And First Use Of In-Situ Measuring Apparatus For Measurement Of Permanent Magnet Resiliency In CEBAF’s Radiation Environment'',
+            in \emph{these Proc. NAPAC'25}, Sacramento, CA, USA, Aug 2025, WEP037.
+
+        \bibitem{Brooks:IPAC23-WEPM128}
+            S. Brooks,
+            \textquotedblleft{Open-midplane gradient permanent magnet with 1.53 T peak field}\textquotedblright,
+            in \emph{Proc. IPAC’23}, Venice, Italy, May 2023, pp. 3870--3873.
+            \url{doi:10.18429/JACoW-IPAC2023-WEPM128}
+ 
+        \bibitem{NEVAY:BDSIM}
+            L.J. Nevay \emph{et al.},
+            \textquotedblleft{BDSIM: An accelerator tracking code with particle–matter interactions}\textquotedblright,
+            in \emph{Computer Physics Communications}, 2020, Vol. 252, pp. 107200.
+            \url{doi:10.1016/j.cpc.2020.107200}
+
+        \bibitem{GEANT4}
+            S. Agostinelli \emph{et al.},
+            \textquotedblleft{Geant4—a simulation toolkit}\textquotedblright,
+            in \emph{Nuclear Instruments and Methods in Physics Research Section A: Accelerators, Spectrometers, Detectors and Associated Equipment}, 2003, Vol. 506, No. 3, pp. 250--303.
+            \url{doi:10.1016/S0168-9002(03)01368-8}
+
+        \bibitem{Gamage:IPAC24-THPS57}
+              B. Gamage \emph{et al.},
+            ``Radiation dose simulations for Jefferson Lab’s permanent magnet resiliency LDRD study'',
+            in \emph{Proc. IPAC'24}, Nashville, TN, May 2024, pp. 3872-3874.
+            \url{doi:10.18429/JACoW-IPAC2024-THPS57}
+
+        \bibitem{Gamage:NAPAC25-WEP074}
+            B.R. Gamage \emph{et al.},
+            ``Radiation Dose Simulations on Permanent Magnets for the CEBAF Energy Upgrade'',
+            in \emph{these Proc. NAPAC'25}, Sacramento, CA, USA, Aug 2025, WEP074.
+
+        \bibitem{Borland:elegant}
+            M. Borland,
+            \textquotedblleft{ELEGANT: A flexible SDDS-compliant code for accelerator simulation}\textquotedblright,
+            \url{doi:10.2172/761286}
+
+        \bibitem{JLAAC2025:Private}
+            Jefferson Lab Accelerator Advisory Committee (JLAAC) Summary Discussion, May 2025, unpublished.
+        
+	\end{thebibliography}
+} % end \ifboolexpr
+%
+% for use as JACoW template the inclusion of the ANNEX parts have been commented out
+% to generate the complete documentation please remove the "%" of the next two commands
+% 
+%%%\newpage
+
+%%%\include{annexes-A4}
+
+\end{document}

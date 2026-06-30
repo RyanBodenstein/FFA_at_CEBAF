@@ -1,0 +1,274 @@
+{\rtf1\ansi\ansicpg1252\cocoartf2822
+\cocoatextscaling0\cocoaplatform0{\fonttbl\f0\fswiss\fcharset0 Helvetica;\f1\fnil\fcharset0 Menlo-Regular;\f2\fnil\fcharset0 Menlo-Bold;
+}
+{\colortbl;\red255\green255\blue255;\red0\green0\blue0;\red131\green224\blue128;\red152\green152\blue152;
+\red229\green133\blue136;\red255\green255\blue255;\red254\green217\blue21;\red153\green153\blue153;\red230\green230\blue230;
+}
+{\*\expandedcolortbl;;\csgray\c0;\cssrgb\c57402\c88923\c57217;\cssrgb\c66083\c66083\c66083;
+\cssrgb\c92366\c60262\c60108;\cspthree\c100000\c100000\c100000;\cssrgb\c100000\c87070\c8773;\csgenericrgb\c60000\c60000\c60000;\csgenericrgb\c90000\c90000\c90000;
+}
+\margl1440\margr1440\vieww22700\viewh8500\viewkind0
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+
+\f0\fs24 \cf0 Claude Notes:\
+\
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural\partightenfactor0
+
+\f1\fs22 \cf2 \CocoaLigature0 (base) ACCRYANMB-MBP:~ ryanmb$ claude --help\
+Usage: claude [options] [command] [prompt]\
+\
+Claude Code - starts an interactive session by default, use -p/--print for non-interactive output\
+\
+Arguments:\
+  prompt                                            Your prompt\
+\
+Options:\
+  --add-dir <directories...>                        Additional directories to allow tool access to\
+  --agent <agent>                                   Agent for the current session. Overrides the 'agent' setting.\
+  --agents <json>                                   JSON object defining custom agents (e.g. '\{"reviewer": \{"description": "Reviews code", "prompt":\
+                                                    "You are a code reviewer"\}\}')\
+  --allow-dangerously-skip-permissions              Enable bypassing all permission checks as an option, without it being enabled by default.\
+                                                    Recommended only for sandboxes with no internet access.\
+  --allowedTools, --allowed-tools <tools...>        Comma or space-separated list of tool names to allow (e.g. "Bash(git:*) Edit")\
+  --append-system-prompt <prompt>                   Append a system prompt to the default system prompt\
+  --betas <betas...>                                Beta headers to include in API requests (API key users only)\
+  --chrome                                          Enable Claude in Chrome integration\
+  -c, --continue                                    Continue the most recent conversation in the current directory\
+  --dangerously-skip-permissions                    Bypass all permission checks. Recommended only for sandboxes with no internet access.\
+  -d, --debug [filter]                              Enable debug mode with optional category filtering (e.g., "api,hooks" or "!1p,!file")\
+  --debug-file <path>                               Write debug logs to a specific file path (implicitly enables debug mode)\
+  --disable-slash-commands                          Disable all skills\
+  --disallowedTools, --disallowed-tools <tools...>  Comma or space-separated list of tool names to deny (e.g. "Bash(git:*) Edit")\
+  --effort <level>                                  Effort level for the current session (low, medium, high)\
+  --fallback-model <model>                          Enable automatic fallback to specified model when default model is overloaded (only works with\
+                                                    --print)\
+  --file <specs...>                                 File resources to download at startup. Format: file_id:relative_path (e.g., --file\
+                                                    file_abc:doc.txt file_def:img.png)\
+  --fork-session                                    When resuming, create a new session ID instead of reusing the original (use with --resume or\
+                                                    --continue)\
+  --from-pr [value]                                 Resume a session linked to a PR by PR number/URL, or open interactive picker with optional\
+                                                    search term\
+  -h, --help                                        Display help for command\
+  --ide                                             Automatically connect to IDE on startup if exactly one valid IDE is available\
+  --include-partial-messages                        Include partial message chunks as they arrive (only works with --print and\
+                                                    --output-format=stream-json)\
+  --input-format <format>                           Input format (only works with --print): "text" (default), or "stream-json" (realtime streaming\
+                                                    input) (choices: "text", "stream-json")\
+  --json-schema <schema>                            JSON Schema for structured output validation. Example:\
+                                                    \{"type":"object","properties":\{"name":\{"type":"string"\}\},"required":["name"]\}\
+  --max-budget-usd <amount>                         Maximum dollar amount to spend on API calls (only works with --print)\
+  --mcp-config <configs...>                         Load MCP servers from JSON files or strings (space-separated)\
+  --mcp-debug                                       [DEPRECATED. Use --debug instead] Enable MCP debug mode (shows MCP server errors)\
+  --model <model>                                   Model for the current session. Provide an alias for the latest model (e.g. 'sonnet' or 'opus')\
+                                                    or a model's full name (e.g. 'claude-sonnet-4-6').\
+  --no-chrome                                       Disable Claude in Chrome integration\
+  --no-session-persistence                          Disable session persistence - sessions will not be saved to disk and cannot be resumed (only\
+                                                    works with --print)\
+  --output-format <format>                          Output format (only works with --print): "text" (default), "json" (single result), or\
+                                                    "stream-json" (realtime streaming) (choices: "text", "json", "stream-json")\
+  --permission-mode <mode>                          Permission mode to use for the session (choices: "acceptEdits", "bypassPermissions", "default",\
+                                                    "dontAsk", "plan")\
+  --plugin-dir <paths...>                           Load plugins from directories for this session only (repeatable)\
+  -p, --print                                       Print response and exit (useful for pipes). Note: The workspace trust dialog is skipped when\
+                                                    Claude is run with the -p mode. Only use this flag in directories you trust.\
+  --replay-user-messages                            Re-emit user messages from stdin back on stdout for acknowledgment (only works with\
+                                                    --input-format=stream-json and --output-format=stream-json)\
+  -r, --resume [value]                              Resume a conversation by session ID, or open interactive picker with optional search term\
+  --session-id <uuid>                               Use a specific session ID for the conversation (must be a valid UUID)\
+  --setting-sources <sources>                       Comma-separated list of setting sources to load (user, project, local).\
+  --settings <file-or-json>                         Path to a settings JSON file or a JSON string to load additional settings from\
+  --strict-mcp-config                               Only use MCP servers from --mcp-config, ignoring all other MCP configurations\
+  --system-prompt <prompt>                          System prompt to use for the session\
+  --tmux                                            Create a tmux session for the worktree (requires --worktree). Uses iTerm2 native panes when\
+                                                    available; use --tmux=classic for traditional tmux.\
+  --tools <tools...>                                Specify the list of available tools from the built-in set. Use "" to disable all tools,\
+                                                    "default" to use all tools, or specify tool names (e.g. "Bash,Edit,Read").\
+  --verbose                                         Override verbose mode setting from config\
+  -v, --version                                     Output the version number\
+  -w, --worktree [name]                             Create a new git worktree for this session (optionally specify a name)\
+\
+Commands:\
+  agents [options]                                  List configured agents\
+  auth                                              Manage authentication\
+  doctor                                            Check the health of your Claude Code auto-updater\
+  install [options] [target]                        Install Claude Code native build. Use [target] to specify version (stable, latest, or specific\
+                                                    version)\
+  mcp                                               Configure and manage MCP servers\
+  plugin                                            Manage Claude Code plugins\
+  setup-token                                       Set up a long-lived authentication token (requires Claude subscription)\
+  update|upgrade                                    Check for updates and install if available\
+(base) ACCRYANMB-MBP:~ ryanmb$ echo 'export PATH="$HOME/.local/bin:$PATH"' >> ~/.zshrc && source ~/.zshrc\
+(base) ACCRYANMB-MBP:~ ryanmb$ echo 'export PATH="$HOME/.local/bin:$PATH"' >> ~/.zshrc && source ~/.zshrc\
+(base) ACCRYANMB-MBP:~ ryanmb$ exit\
+logout\
+\
+Saving session...\
+...copying shared history...\
+...saving history...truncating history files...\
+...completed.\
+Deleting expired sessions...55 completed.\
+[ACCRYANMB-MBP:~] ryanmb% echo 'export PATH="$HOME/.local/bin:$PATH"' >> ~/.zshrc && source ~/.zshrc\
+export: Command not found.\
+export: Command not found.\
+export: Command not found.\
+export: Command not found.\
+[ACCRYANMB-MBP:~] ryanmb% claude --help\
+claude: Command not found.\
+[ACCRYANMB-MBP:~] ryanmb% /bin/bash -l\
+Restored session: Tue Mar  3 12:00:59 EST 2026\
+bash: [: -v: unary operator expected\
+\
+The default interactive shell is now zsh.\
+To update your account to use zsh, please run `chsh -s /bin/zsh`.\
+For more details, please visit https://support.apple.com/kb/HT208050.\
+(base) ACCRYANMB-MBP:~ ryanmb$ claude --help\
+bash: claude: command not found\
+(base) ACCRYANMB-MBP:~ ryanmb$ rm -f ~/.local/bin/claude\
+(base) ACCRYANMB-MBP:~ ryanmb$ grep -v '.local/bin' ~/.zshrc > /tmp/zshrc_clean && mv /tmp/zshrc_clean ~/.zshrc\
+(base) ACCRYANMB-MBP:~ ryanmb$ grep -v '.local/bin' ~/.bashrc > /tmp/bashrc_clean && mv /tmp/bashrc_clean ~/.bashrc\
+(base) ACCRYANMB-MBP:~ ryanmb$ curl -fsSL https://claude.ai/install.sh | INSTALL_DIR=/usr/local/bin bash\
+Setting up Claude Code...\
+\
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural\partightenfactor0
+\cf3 \uc0\u10004  
+\f2\b \cf3 Claude Code successfully installed!
+\f1\b0 \cf2         \
+                                                                         \
+  \cf4 Version: \cf5 2.1.63\cf2 \
+                                                                                                        \
+  \cf4 Location: \cf6 ~/.local/bin/claude\cf2 \
+\
+\
+  \cf4 Next:\cf2  \cf4 Run\cf2  
+\f2\b \cf5 claude
+\f1\b0 \cf2  
+\f2\b \cf5 --help
+\f1\b0 \cf4  to\cf2  \cf4 get\cf2  \cf4 started\cf2 \
+\
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural\partightenfactor0
+\cf7 \uc0\u9888 \cf2  \cf7 Setup\cf2  \cf7 notes:\cf2 \
+  \cf4 \'95\cf2  \cf4 Native\cf2  \cf4 installation\cf2  \cf4 exists\cf2  \cf4 but\cf2  \cf4 ~/.local/bin\cf2  \cf4 is\cf2  \cf4 not\cf2  \cf4 in\cf2  \cf4 your\cf2  \cf4 PATH.\cf2  \cf4 Run:\cf2 \
+\
+  \cf4 echo\cf2  \cf4 'export\cf2  \cf4 PATH="$HOME/.local/bin:$PATH"'\cf2  \cf4 >>\cf2  \cf4 your\cf2  \cf4 shell\cf2  \cf4 config\cf2  \cf4 file\cf2  \cf4 &&\cf2  \cf4 source\cf2  \cf4 your\cf2  \cf4 shell\cf2  \cf4 config\cf2  \cf4 file\cf2 \
+\
+\
+\uc0\u9989  Installation complete!\
+\
+(base) ACCRYANMB-MBP:~ ryanmb$ curl -fsSL https://claude.ai/install.sh | bash\
+Setting up Claude Code...\
+\
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural\partightenfactor0
+\cf3 \uc0\u10004  
+\f2\b \cf3 Claude Code successfully installed!
+\f1\b0 \cf2         \
+                                                                         \
+  \cf4 Version: \cf5 2.1.63\cf2 \
+                                                                                                        \
+  \cf4 Location: \cf6 ~/.local/bin/claude\cf2 \
+\
+\
+  \cf4 Next:\cf2  \cf4 Run\cf2  
+\f2\b \cf5 claude
+\f1\b0 \cf2  
+\f2\b \cf5 --help
+\f1\b0 \cf4  to\cf2  \cf4 get\cf2  \cf4 started\cf2 \
+\
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural\partightenfactor0
+\cf7 \uc0\u9888 \cf2  \cf7 Setup\cf2  \cf7 notes:\cf2 \
+  \cf4 \'95\cf2  \cf4 Native\cf2  \cf4 installation\cf2  \cf4 exists\cf2  \cf4 but\cf2  \cf4 ~/.local/bin\cf2  \cf4 is\cf2  \cf4 not\cf2  \cf4 in\cf2  \cf4 your\cf2  \cf4 PATH.\cf2  \cf4 Run:\cf2 \
+\
+  \cf4 echo\cf2  \cf4 'export\cf2  \cf4 PATH="$HOME/.local/bin:$PATH"'\cf2  \cf4 >>\cf2  \cf4 your\cf2  \cf4 shell\cf2  \cf4 config\cf2  \cf4 file\cf2  \cf4 &&\cf2  \cf4 source\cf2  \cf4 your\cf2  \cf4 shell\cf2  \cf4 config\cf2  \cf4 file\cf2 \
+\
+\
+\uc0\u9989  Installation complete!\
+\
+(base) ACCRYANMB-MBP:~ ryanmb$ cp ~/.local/bin/claude /usr/local/bin/claude\
+cp: /usr/local/bin/claude: Permission denied\
+(base) ACCRYANMB-MBP:~ ryanmb$ sudo cp ~/.local/bin/claude /usr/local/bin/claude\
+Enter PIN for 'Certificate For PIV Authentication (ryanmb)': \
+(base) ACCRYANMB-MBP:~ ryanmb$ claude --help\
+Usage: claude [options] [command] [prompt]\
+\
+Claude Code - starts an interactive session by default, use -p/--print for non-interactive output\
+\
+Arguments:\
+  prompt                                            Your prompt\
+\
+Options:\
+  --add-dir <directories...>                        Additional directories to allow tool access to\
+  --agent <agent>                                   Agent for the current session. Overrides the 'agent' setting.\
+  --agents <json>                                   JSON object defining custom agents (e.g. '\{"reviewer": \{"description": "Reviews code", "prompt":\
+                                                    "You are a code reviewer"\}\}')\
+  --allow-dangerously-skip-permissions              Enable bypassing all permission checks as an option, without it being enabled by default.\
+                                                    Recommended only for sandboxes with no internet access.\
+  --allowedTools, --allowed-tools <tools...>        Comma or space-separated list of tool names to allow (e.g. "Bash(git:*) Edit")\
+  --append-system-prompt <prompt>                   Append a system prompt to the default system prompt\
+  --betas <betas...>                                Beta headers to include in API requests (API key users only)\
+  --chrome                                          Enable Claude in Chrome integration\
+  -c, --continue                                    Continue the most recent conversation in the current directory\
+  --dangerously-skip-permissions                    Bypass all permission checks. Recommended only for sandboxes with no internet access.\
+  -d, --debug [filter]                              Enable debug mode with optional category filtering (e.g., "api,hooks" or "!1p,!file")\
+  --debug-file <path>                               Write debug logs to a specific file path (implicitly enables debug mode)\
+  --disable-slash-commands                          Disable all skills\
+  --disallowedTools, --disallowed-tools <tools...>  Comma or space-separated list of tool names to deny (e.g. "Bash(git:*) Edit")\
+  --effort <level>                                  Effort level for the current session (low, medium, high)\
+  --fallback-model <model>                          Enable automatic fallback to specified model when default model is overloaded (only works with\
+                                                    --print)\
+  --file <specs...>                                 File resources to download at startup. Format: file_id:relative_path (e.g., --file\
+                                                    file_abc:doc.txt file_def:img.png)\
+  --fork-session                                    When resuming, create a new session ID instead of reusing the original (use with --resume or\
+                                                    --continue)\
+  --from-pr [value]                                 Resume a session linked to a PR by PR number/URL, or open interactive picker with optional\
+                                                    search term\
+  -h, --help                                        Display help for command\
+  --ide                                             Automatically connect to IDE on startup if exactly one valid IDE is available\
+  --include-partial-messages                        Include partial message chunks as they arrive (only works with --print and\
+                                                    --output-format=stream-json)\
+  --input-format <format>                           Input format (only works with --print): "text" (default), or "stream-json" (realtime streaming\
+                                                    input) (choices: "text", "stream-json")\
+  --json-schema <schema>                            JSON Schema for structured output validation. Example:\
+                                                    \{"type":"object","properties":\{"name":\{"type":"string"\}\},"required":["name"]\}\
+  --max-budget-usd <amount>                         Maximum dollar amount to spend on API calls (only works with --print)\
+  --mcp-config <configs...>                         Load MCP servers from JSON files or strings (space-separated)\
+  --mcp-debug                                       [DEPRECATED. Use --debug instead] Enable MCP debug mode (shows MCP server errors)\
+  --model <model>                                   Model for the current session. Provide an alias for the latest model (e.g. 'sonnet' or 'opus')\
+                                                    or a model's full name (e.g. 'claude-sonnet-4-6').\
+  --no-chrome                                       Disable Claude in Chrome integration\
+  --no-session-persistence                          Disable session persistence - sessions will not be saved to disk and cannot be resumed (only\
+                                                    works with --print)\
+  --output-format <format>                          Output format (only works with --print): "text" (default), "json" (single result), or\
+                                                    "stream-json" (realtime streaming) (choices: "text", "json", "stream-json")\
+  --permission-mode <mode>                          Permission mode to use for the session (choices: "acceptEdits", "bypassPermissions", "default",\
+                                                    "dontAsk", "plan")\
+  --plugin-dir <paths...>                           Load plugins from directories for this session only (repeatable)\
+  -p, --print                                       Print response and exit (useful for pipes). Note: The workspace trust dialog is skipped when\
+                                                    Claude is run with the -p mode. Only use this flag in directories you trust.\
+  --replay-user-messages                            Re-emit user messages from stdin back on stdout for acknowledgment (only works with\
+                                                    --input-format=stream-json and --output-format=stream-json)\
+  -r, --resume [value]                              Resume a conversation by session ID, or open interactive picker with optional search term\
+  --session-id <uuid>                               Use a specific session ID for the conversation (must be a valid UUID)\
+  --setting-sources <sources>                       Comma-separated list of setting sources to load (user, project, local).\
+  --settings <file-or-json>                         Path to a settings JSON file or a JSON string to load additional settings from\
+  --strict-mcp-config                               Only use MCP servers from --mcp-config, ignoring all other MCP configurations\
+  --system-prompt <prompt>                          System prompt to use for the session\
+  --tmux                                            Create a tmux session for the worktree (requires --worktree). Uses iTerm2 native panes when\
+                                                    available; use --tmux=classic for traditional tmux.\
+  --tools <tools...>                                Specify the list of available tools from the built-in set. Use "" to disable all tools,\
+                                                    "default" to use all tools, or specify tool names (e.g. "Bash,Edit,Read").\
+  --verbose                                         Override verbose mode setting from config\
+  -v, --version                                     Output the version number\
+  -w, --worktree [name]                             Create a new git worktree for this session (optionally specify a name)\
+\
+Commands:\
+  agents [options]                                  List configured agents\
+  auth                                              Manage authentication\
+  doctor                                            Check the health of your Claude Code auto-updater\
+  install [options] [target]                        Install Claude Code native build. Use [target] to specify version (stable, latest, or specific\
+                                                    version)\
+  mcp                                               Configure and manage MCP servers\
+  plugin                                            Manage Claude Code plugins\
+  setup-token                                       Set up a long-lived authentication token (requires Claude subscription)\
+  update|upgrade                                    Check for updates and install if available\
+(base) ACCRYANMB-MBP:~ ryanmb$ \
+\cf8 \cb9   [Restored Mar 31, 2026 at 7:08:48\uc0\u8239 AM]\cf2 \
+\cb1 Last login: Tue Mar 31 07:08:48 on ttys004}

@@ -1,0 +1,31 @@
+All numbers should be exported, with two additional columns - running totals of photons and neutrons. All units should converted to rem. TLD info is given in mrem, so it needs to be divided by 1e3, while the rod data is given in krad, so multiplied by 1e3 (for photons, 1 rad = 1 rem - not so for neutrons, and likely to be a headache when we get to publishing)
+
+Text file Output:
+
+DATE	NEUTRON CONTRIBUTION	OSL (PHOTON)	LOW@600-1	LOW@600-2	LOW@656-1	LOW@656-2	HIGH@600-1	HIGH@600-2	HIGH@656-1	HIGH@656-2	RUNNING NEUTRON TOTAL		RUNNING PHOTON TOTAL
+
+
+Neutrons:
+
+If the neutrons are saturated, 1 krem should be used as the dose
+
+Photons:
+
+We're examining nine numbers, but it's really five categories, with all but one having two entries. Despite everything, I'm doing this in krem, because that's the rod units.
+
+OSL (whole body)	Low@600 (2)	Low@656 (2)	High@600 (2)	High@656 (2)
+
+If Low@600 < 2 and OSL NOT saturated:
+	OSL is only valid number
+If Low@600 < 2 and OSL is saturated:
+	Dose is 1.5 krad (this is a measurement gap, where the OSL doesn't go past 1 krad and the rod doesn't go below 2 krad)
+If 2 < Low@600 < 12:
+	Take average of 2 Low@600 readings
+If Low@600 > 12 and Low@656 < 30 and High@600 > 12:
+	Take average of 2 High@600 readings
+If Low@600 > 12 and Low@656 > 30 and 12 < High@600 < 200 and High@656 < 132:
+	Take average of 2 Low@656 and 2 High@600
+If Low@600 > 12 and Low@656 > 30 and 12 < High@600 < 200 and High@656 > 132:
+	Take average of 2 Low@656, 2 High@600, and 2 High@656
+If Low@600 > 12 and Low@656 > 30 and High@600 > 200 and High@656 > 132:
+	Take average of 2 Low@656 and 2 High@656

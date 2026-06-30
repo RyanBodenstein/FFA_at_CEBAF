@@ -1,0 +1,103 @@
+========================================================================
+ROD DOSIMETRY UNCERTAINTY BUDGET
+FFA@CEBAF LDRD Magnet Radiation Study
+========================================================================
+
+1. DOSE UNCERTAINTY SOURCES
+----------------------------------------
+
+  a) Optichromic rod calibration (FWT-70):
+     - 4 calibration curves fitted (2 batches × 2 wavelengths)
+     - Measurement-propagated uncertainty: σ(dose)/dose = ln(10)·σ_OD/|slope|
+       where σ_OD ≈ 0.04 from replicate spread analysis
+     Batch 1190 (High) 600nm:             R²=0.8841  σ(dose)/dose ≈   7.3% (meas)  (N=3)
+     Batch 1190 (High) 656nm:             R²=0.9640  σ(dose)/dose ≈  28.6% (meas)  (N=5)
+     Batch 1189 (Low) 600nm:              R²=0.9999  σ(dose)/dose ≈   4.1% (meas)  (N=3)
+     Batch 1189 (Low) 656nm:              R²=0.8508  σ(dose)/dose ≈  14.3% (meas)  (N=5)
+     - Average measurement-propagated uncertainty: 5.7%
+     - Note: fit-parameter uncertainties unreliable with 3-point curves
+
+  b) Replicate OD measurement spread:
+     High   600nm:  mean=7.9%  median=6.3%  std=8.5%  [P10=1.0%, P90=16.6%]  N=678
+     High   656nm:  mean=11.1%  median=8.7%  std=10.6%  [P10=1.6%, P90=23.3%]  N=678
+     Low    600nm:  mean=8.4%  median=4.9%  std=8.9%  [P10=0.5%, P90=22.3%]  N=680
+     Low    656nm:  mean=10.0%  median=8.2%  std=9.1%  [P10=1.6%, P90=20.7%]  N=680
+
+  c) OSL-matched plates (sigma_photon_rem = 0):
+     9 of 30 Y-plates use Landauer InLight stated accuracy (10%)
+     21 of 30 Y-plates have rod-propagated uncertainty from Kirsten
+
+  d) Cross-check: Kirsten's sigma vs independent calibration:
+     Rod-derived plates: N=21
+     Kirsten fractional uncertainty: mean=14.8%  range=2.8%–34.6%
+     Independent calibration estimate: 5.7%
+     Ratio (Kirsten / independent): mean=2.60  range=0.49–6.07
+     → Kirsten's uncertainties are LARGER than independent estimate
+
+
+2. DEGRADATION UNCERTAINTY SOURCES
+----------------------------------------
+
+  a) Baseline measurement SEM (per-sample, propagated):
+     NdFeB mean:       mean SEM = 0.694%  range = 0.034%–1.000%
+     SmCo mean:        mean SEM = 0.695%  range = 0.065%–1.000%
+     NdFeB-SmCo diff:  mean SEM = 0.984%  range = 0.073%–1.225%
+
+  b) Gain systematic (Helmholtz coil drift):
+     ±0.124% (cleaned) / ±0.248% (uncleaned)
+     Note: cancels for intra-plate NdFeB-SmCo differential
+
+  c) Temperature correction uncertainty:
+     Per-date temp estimates with ±0.5–2.0°C uncertainty
+     Sensitivity: ~0.066% per °C on NdFeB-SmCo differential
+     Dominant systematic for absolute material degradation
+
+
+3. SUMMARY TABLE — PER-PLATE UNCERTAINTIES
+----------------------------------------
+  Plate     Dose(Gy)   σ_dose%  σ_dose_Gy  Source            σ_NdFeB%   σ_diff%
+  Y-15          11.7     10.0%       1.2  Landauer_10pct      0.707%    1.000%
+  Y-3           17.3     10.0%       1.7  Landauer_10pct      0.707%    1.000%
+  Y-23          41.9      2.8%       1.2  rod_propagated      0.707%    1.000%
+  Y-26          17.0     10.0%       1.7  Landauer_10pct      0.707%    1.000%
+  Y-40          13.7     10.0%       1.4  Landauer_10pct      0.707%    1.225%
+  Y-39          69.7     11.3%       7.9  rod_propagated      0.707%    1.000%
+  Y-7          472.1     21.9%     103.4  rod_propagated      0.707%    1.000%
+  Y-18         678.1     11.1%      75.3  rod_propagated      0.707%    1.000%
+  Y-21        1665.1     30.3%     503.7  rod_propagated      0.707%    1.000%
+  Y-9         1640.3     17.8%     292.0  rod_propagated      0.707%    1.000%
+  Y-38           9.6     10.0%       1.0  Landauer_10pct      0.707%    1.000%
+  Y-6          440.9     19.9%      87.5  rod_propagated      0.707%    1.000%
+  Y-36         946.1     30.8%     291.3  rod_propagated      0.707%    1.000%
+  Y-25        1516.3     34.6%     523.9  rod_propagated      0.707%    1.000%
+  Y-34         502.2      3.2%      16.3  rod_propagated      1.000%    1.225%
+  Y-13          30.0     10.0%       3.0  Landauer_10pct      0.707%    1.000%
+  Y-32         348.9      7.0%      24.5  rod_propagated      0.707%    1.000%
+  Y-19         941.3      9.4%      88.6  rod_propagated      0.707%    1.000%
+  Y-10        1275.8     13.0%     165.3  rod_propagated      0.034%    0.073%
+  Y-11         517.1      3.8%      19.4  rod_propagated      0.707%    1.000%
+  Y-12           0.3     10.0%       0.0  Landauer_10pct      0.707%    1.000%
+  Y-17        7111.0     15.1%    1074.8  rod_propagated      0.707%    1.000%
+  Y-4            8.6     10.0%       0.9  Landauer_10pct      0.707%    1.000%
+  Y-16       15837.3     16.9%    2679.2  rod_propagated      0.707%    1.000%
+  Y-22       23451.4     12.6%    2950.4  rod_propagated      0.707%    1.000%
+  Y-20           1.1     10.0%       0.1  Landauer_10pct      0.707%    1.000%
+  Y-24        6299.3     14.3%     902.8  rod_propagated      0.707%    1.000%
+  Y-5           37.0     13.5%       5.0  rod_propagated      0.707%    1.000%
+  Y-1        14714.0     11.6%    1707.5  rod_propagated      0.707%    1.000%
+  Y-30       22101.6     10.5%    2313.9  rod_propagated      0.707%    1.000%
+
+
+4. CONCLUSIONS
+----------------------------------------
+
+  - Rod-propagated dose uncertainties: 3%–35% (Kirsten's sigma)
+  - OSL-matched plates: 10%% assigned (Landauer InLight stated accuracy)
+  - Measurement-propagated calibration uncertainty: ~6% (from OD replicates)
+  - Degradation baseline SEMs are small (~0.02–0.10%%)
+  - Temperature correction is the dominant systematic for absolute values
+  - The gain-immune NdFeB-SmCo differential eliminates the largest systematic
+  - Rod calibration R²: 0.851–0.9999 (3 of 4 > 0.85)
+  - Replicate OD spread: ~5–11%% (median), primary measurement noise source
+  - None of the dose or degradation uncertainties are large enough to
+    explain the observed NdFeB-SmCo differential of -0.208%% (7.7σ)

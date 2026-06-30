@@ -1,0 +1,456 @@
+Naming Normalization Log
+======================================================================
+
+FLAG: 'A-2-1-1_front.dat' has ambiguous 'A-' prefix (could be An or As)
+FLAG: 'A-2-1-1_helmholtz.dat' has ambiguous 'A-' prefix (could be An or As)
+FLAG: 'A-2-1-1_side.dat' has ambiguous 'A-' prefix (could be An or As)
+FLAG: 'A-2-1-1_top.dat' has ambiguous 'A-' prefix (could be An or As)
+FLAG: 'A-2-1-2_front.dat' has ambiguous 'A-' prefix (could be An or As)
+FLAG: 'A-2-1-2_helmholtz.dat' has ambiguous 'A-' prefix (could be An or As)
+FLAG: 'A-2-1-2_side.dat' has ambiguous 'A-' prefix (could be An or As)
+FLAG: 'A-2-1-2_top.dat' has ambiguous 'A-' prefix (could be An or As)
+FLAG: 'A-2-2-1_front.dat' has ambiguous 'A-' prefix (could be An or As)
+FLAG: 'A-2-2-1_helmholtz.dat' has ambiguous 'A-' prefix (could be An or As)
+FLAG: 'A-2-2-1_side.dat' has ambiguous 'A-' prefix (could be An or As)
+FLAG: 'A-2-2-1_top.dat' has ambiguous 'A-' prefix (could be An or As)
+FLAG: 'A-2-2-2_front.dat' has ambiguous 'A-' prefix (could be An or As)
+FLAG: 'A-2-2-2_helmholtz.dat' has ambiguous 'A-' prefix (could be An or As)
+FLAG: 'A-2-2-2_side.dat' has ambiguous 'A-' prefix (could be An or As)
+FLAG: 'A-2-2-2_top.dat' has ambiguous 'A-' prefix (could be An or As)
+FLAG: 'A-2-3-1_front.dat' has ambiguous 'A-' prefix (could be An or As)
+FLAG: 'A-2-3-1_helmholtz.dat' has ambiguous 'A-' prefix (could be An or As)
+FLAG: 'A-2-3-1_side.dat' has ambiguous 'A-' prefix (could be An or As)
+FLAG: 'A-2-3-1_top.dat' has ambiguous 'A-' prefix (could be An or As)
+FLAG: 'A-2-3-2_front.dat' has ambiguous 'A-' prefix (could be An or As)
+FLAG: 'A-2-3-2_helmholtz.dat' has ambiguous 'A-' prefix (could be An or As)
+FLAG: 'A-2-3-2_side.dat' has ambiguous 'A-' prefix (could be An or As)
+FLAG: 'A-2-3-2_top.dat' has ambiguous 'A-' prefix (could be An or As)
+FLAG: 'A-2-4-1_front.dat' has ambiguous 'A-' prefix (could be An or As)
+FLAG: 'A-2-4-1_helmholtz.dat' has ambiguous 'A-' prefix (could be An or As)
+FLAG: 'A-2-4-1_side.dat' has ambiguous 'A-' prefix (could be An or As)
+FLAG: 'A-2-4-1_top.dat' has ambiguous 'A-' prefix (could be An or As)
+FLAG: 'A-2-4-2_front.dat' has ambiguous 'A-' prefix (could be An or As)
+FLAG: 'A-2-4-2_helmholtz.dat' has ambiguous 'A-' prefix (could be An or As)
+FLAG: 'A-2-4-2_side.dat' has ambiguous 'A-' prefix (could be An or As)
+FLAG: 'A-2-4-2_top.dat' has ambiguous 'A-' prefix (could be An or As)
+FLAG: 'An--1-1_front.dat' has missing plate number (An--X-Y pattern)
+FLAG: 'An--1-1_side.dat' has missing plate number (An--X-Y pattern)
+FLAG: 'An--1-1_top.dat' has missing plate number (An--X-Y pattern)
+FLAG: 'An--1-2_front.dat' has missing plate number (An--X-Y pattern)
+FLAG: 'An--1-2_side.dat' has missing plate number (An--X-Y pattern)
+FLAG: 'An--1-2_top.dat' has missing plate number (An--X-Y pattern)
+FLAG: 'An--2-1_front.dat' has missing plate number (An--X-Y pattern)
+FLAG: 'An--2-1_side.dat' has missing plate number (An--X-Y pattern)
+FLAG: 'An--2-1_top.dat' has missing plate number (An--X-Y pattern)
+FLAG: 'An--2-2_front.dat' has missing plate number (An--X-Y pattern)
+FLAG: 'An--2-2_side.dat' has missing plate number (An--X-Y pattern)
+FLAG: 'An--2-2_top.dat' has missing plate number (An--X-Y pattern)
+FLAG: 'An--3-1_front.dat' has missing plate number (An--X-Y pattern)
+FLAG: 'An--3-1_side.dat' has missing plate number (An--X-Y pattern)
+FLAG: 'An--3-1_top.dat' has missing plate number (An--X-Y pattern)
+FLAG: 'An--3-2_front.dat' has missing plate number (An--X-Y pattern)
+FLAG: 'An--3-2_side.dat' has missing plate number (An--X-Y pattern)
+FLAG: 'An--3-2_top.dat' has missing plate number (An--X-Y pattern)
+FLAG: 'An--4-1_front.dat' has missing plate number (An--X-Y pattern)
+FLAG: 'An--4-1_side.dat' has missing plate number (An--X-Y pattern)
+FLAG: 'An--4-1_top.dat' has missing plate number (An--X-Y pattern)
+FLAG: 'An--4-2_front.dat' has missing plate number (An--X-Y pattern)
+FLAG: 'An--4-2_side.dat' has missing plate number (An--X-Y pattern)
+FLAG: 'An--4-2_top.dat' has missing plate number (An--X-Y pattern)
+FLAG: 'An-15-2_front.dat' looks like H-type name but has An prefix
+FLAG: 'An-15-2_side.dat' looks like H-type name but has An prefix
+FLAG: 'An-15-2_top.dat' looks like H-type name but has An prefix
+FLAG: 'An-plate-1-1_front.dat' has 'plate' placeholder instead of plate number
+FLAG: 'An-plate-1-1_helmholtz.dat' has 'plate' placeholder instead of plate number
+FLAG: 'An-plate-1-1_side.dat' has 'plate' placeholder instead of plate number
+FLAG: 'An-plate-1-1_top.dat' has 'plate' placeholder instead of plate number
+FLAG: 'An-plate-1-2_front.dat' has 'plate' placeholder instead of plate number
+FLAG: 'An-plate-1-2_helmholtz.dat' has 'plate' placeholder instead of plate number
+FLAG: 'An-plate-1-2_side.dat' has 'plate' placeholder instead of plate number
+FLAG: 'An-plate-1-2_top.dat' has 'plate' placeholder instead of plate number
+FLAG: 'An-plate-2-1_front.dat' has 'plate' placeholder instead of plate number
+FLAG: 'An-plate-2-1_helmholtz.dat' has 'plate' placeholder instead of plate number
+FLAG: 'An-plate-2-1_side.dat' has 'plate' placeholder instead of plate number
+FLAG: 'An-plate-2-1_top.dat' has 'plate' placeholder instead of plate number
+FLAG: 'An-plate-2-2_front.dat' has 'plate' placeholder instead of plate number
+FLAG: 'An-plate-2-2_helmholtz.dat' has 'plate' placeholder instead of plate number
+FLAG: 'An-plate-2-2_side.dat' has 'plate' placeholder instead of plate number
+FLAG: 'An-plate-2-2_top.dat' has 'plate' placeholder instead of plate number
+FLAG: 'An-plate-3-1_front.dat' has 'plate' placeholder instead of plate number
+FLAG: 'An-plate-3-1_helmholtz.dat' has 'plate' placeholder instead of plate number
+FLAG: 'An-plate-3-1_side.dat' has 'plate' placeholder instead of plate number
+FLAG: 'An-plate-3-1_top.dat' has 'plate' placeholder instead of plate number
+FLAG: 'An-plate-3-2_front.dat' has 'plate' placeholder instead of plate number
+FLAG: 'An-plate-3-2_helmholtz.dat' has 'plate' placeholder instead of plate number
+FLAG: 'An-plate-3-2_side.dat' has 'plate' placeholder instead of plate number
+FLAG: 'An-plate-3-2_top.dat' has 'plate' placeholder instead of plate number
+FLAG: 'An-plate-4-1_front.dat' has 'plate' placeholder instead of plate number
+FLAG: 'An-plate-4-1_helmholtz.dat' has 'plate' placeholder instead of plate number
+FLAG: 'An-plate-4-1_side.dat' has 'plate' placeholder instead of plate number
+FLAG: 'An-plate-4-1_top.dat' has 'plate' placeholder instead of plate number
+FLAG: 'An-plate-4-2_front.dat' has 'plate' placeholder instead of plate number
+FLAG: 'An-plate-4-2_helmholtz.dat' has 'plate' placeholder instead of plate number
+FLAG: 'An-plate-4-2_side.dat' has 'plate' placeholder instead of plate number
+FLAG: 'An-plate-4-2_top.dat' has 'plate' placeholder instead of plate number
+FLAG: 'An-pplate-1-1_front.dat' has 'plate' placeholder instead of plate number
+FLAG: 'An-pplate-1-1_side.dat' has 'plate' placeholder instead of plate number
+FLAG: 'An-pplate-1-1_top.dat' has 'plate' placeholder instead of plate number
+FLAG: 'An-pplate-1-2_front.dat' has 'plate' placeholder instead of plate number
+FLAG: 'An-pplate-1-2_side.dat' has 'plate' placeholder instead of plate number
+FLAG: 'An-pplate-1-2_top.dat' has 'plate' placeholder instead of plate number
+FLAG: 'An-pplate-2-1_front.dat' has 'plate' placeholder instead of plate number
+FLAG: 'An-pplate-2-1_side.dat' has 'plate' placeholder instead of plate number
+FLAG: 'An-pplate-2-1_top.dat' has 'plate' placeholder instead of plate number
+FLAG: 'An-pplate-2-2_front.dat' has 'plate' placeholder instead of plate number
+FLAG: 'An-pplate-2-2_side.dat' has 'plate' placeholder instead of plate number
+FLAG: 'An-pplate-2-2_top.dat' has 'plate' placeholder instead of plate number
+FLAG: 'An-pplate-3-1_front.dat' has 'plate' placeholder instead of plate number
+FLAG: 'An-pplate-3-1_side.dat' has 'plate' placeholder instead of plate number
+FLAG: 'An-pplate-3-1_top.dat' has 'plate' placeholder instead of plate number
+FLAG: 'An-pplate-3-2_front.dat' has 'plate' placeholder instead of plate number
+FLAG: 'An-pplate-3-2_side.dat' has 'plate' placeholder instead of plate number
+FLAG: 'An-pplate-3-2_top.dat' has 'plate' placeholder instead of plate number
+FLAG: 'An-pplate-4-1_front.dat' has 'plate' placeholder instead of plate number
+FLAG: 'An-pplate-4-1_side.dat' has 'plate' placeholder instead of plate number
+FLAG: 'An-pplate-4-1_top.dat' has 'plate' placeholder instead of plate number
+FLAG: 'An-pplate-4-2_front.dat' has 'plate' placeholder instead of plate number
+FLAG: 'An-pplate-4-2_side.dat' has 'plate' placeholder instead of plate number
+FLAG: 'An-pplate-4-2_top.dat' has 'plate' placeholder instead of plate number
+FLAG: 'Anplate-1-1_front.dat' has 'plate' placeholder instead of plate number
+FLAG: 'Anplate-1-1_side.dat' has 'plate' placeholder instead of plate number
+FLAG: 'Anplate-1-1_top.dat' has 'plate' placeholder instead of plate number
+FLAG: 'Anplate-1-2_front.dat' has 'plate' placeholder instead of plate number
+FLAG: 'Anplate-1-2_side.dat' has 'plate' placeholder instead of plate number
+FLAG: 'Anplate-1-2_top.dat' has 'plate' placeholder instead of plate number
+FLAG: 'Anplate-2-1_front.dat' has 'plate' placeholder instead of plate number
+FLAG: 'Anplate-2-1_side.dat' has 'plate' placeholder instead of plate number
+FLAG: 'Anplate-2-1_top.dat' has 'plate' placeholder instead of plate number
+FLAG: 'Anplate-2-2_front.dat' has 'plate' placeholder instead of plate number
+FLAG: 'Anplate-2-2_side.dat' has 'plate' placeholder instead of plate number
+FLAG: 'Anplate-2-2_top.dat' has 'plate' placeholder instead of plate number
+FLAG: 'Anplate-3-1_front.dat' has 'plate' placeholder instead of plate number
+FLAG: 'Anplate-3-1_side.dat' has 'plate' placeholder instead of plate number
+FLAG: 'Anplate-3-1_top.dat' has 'plate' placeholder instead of plate number
+FLAG: 'Anplate-3-2_front.dat' has 'plate' placeholder instead of plate number
+FLAG: 'Anplate-3-2_side.dat' has 'plate' placeholder instead of plate number
+FLAG: 'Anplate-3-2_top.dat' has 'plate' placeholder instead of plate number
+FLAG: 'Anplate-4-1_front.dat' has 'plate' placeholder instead of plate number
+FLAG: 'Anplate-4-1_side.dat' has 'plate' placeholder instead of plate number
+FLAG: 'Anplate-4-1_top.dat' has 'plate' placeholder instead of plate number
+FLAG: 'Anplate-4-2_front.dat' has 'plate' placeholder instead of plate number
+FLAG: 'Anplate-4-2_side.dat' has 'plate' placeholder instead of plate number
+FLAG: 'Anplate-4-2_top.dat' has 'plate' placeholder instead of plate number
+FLAG: 'As-plate-1-1_front.dat' has 'plate' placeholder instead of plate number
+FLAG: 'As-plate-1-1_helmholtz.dat' has 'plate' placeholder instead of plate number
+FLAG: 'As-plate-1-1_side.dat' has 'plate' placeholder instead of plate number
+FLAG: 'As-plate-1-1_top.dat' has 'plate' placeholder instead of plate number
+FLAG: 'As-plate-1-2_front.dat' has 'plate' placeholder instead of plate number
+FLAG: 'As-plate-1-2_helmholtz.dat' has 'plate' placeholder instead of plate number
+FLAG: 'As-plate-1-2_side.dat' has 'plate' placeholder instead of plate number
+FLAG: 'As-plate-1-2_top.dat' has 'plate' placeholder instead of plate number
+FLAG: 'As-plate-2-1_front.dat' has 'plate' placeholder instead of plate number
+FLAG: 'As-plate-2-1_helmholtz.dat' has 'plate' placeholder instead of plate number
+FLAG: 'As-plate-2-1_side.dat' has 'plate' placeholder instead of plate number
+FLAG: 'As-plate-2-1_top.dat' has 'plate' placeholder instead of plate number
+FLAG: 'As-plate-2-2_front.dat' has 'plate' placeholder instead of plate number
+FLAG: 'As-plate-2-2_helmholtz.dat' has 'plate' placeholder instead of plate number
+FLAG: 'As-plate-2-2_side.dat' has 'plate' placeholder instead of plate number
+FLAG: 'As-plate-2-2_top.dat' has 'plate' placeholder instead of plate number
+FLAG: 'As-plate-3-1_front.dat' has 'plate' placeholder instead of plate number
+FLAG: 'As-plate-3-1_helmholtz.dat' has 'plate' placeholder instead of plate number
+FLAG: 'As-plate-3-1_side.dat' has 'plate' placeholder instead of plate number
+FLAG: 'As-plate-3-1_top.dat' has 'plate' placeholder instead of plate number
+FLAG: 'As-plate-3-2_front.dat' has 'plate' placeholder instead of plate number
+FLAG: 'As-plate-3-2_helmholtz.dat' has 'plate' placeholder instead of plate number
+FLAG: 'As-plate-3-2_side.dat' has 'plate' placeholder instead of plate number
+FLAG: 'As-plate-3-2_top.dat' has 'plate' placeholder instead of plate number
+FLAG: 'As-plate-4-1_front.dat' has 'plate' placeholder instead of plate number
+FLAG: 'As-plate-4-1_helmholtz.dat' has 'plate' placeholder instead of plate number
+FLAG: 'As-plate-4-1_side.dat' has 'plate' placeholder instead of plate number
+FLAG: 'As-plate-4-1_top.dat' has 'plate' placeholder instead of plate number
+FLAG: 'As-plate-4-2_front.dat' has 'plate' placeholder instead of plate number
+FLAG: 'As-plate-4-2_helmholtz.dat' has 'plate' placeholder instead of plate number
+FLAG: 'As-plate-4-2_side.dat' has 'plate' placeholder instead of plate number
+FLAG: 'As-plate-4-2_top.dat' has 'plate' placeholder instead of plate number
+FLAG: 'H-13-1_front.dat' has ambiguous 'H-' prefix (could be Hn or Hs)
+FLAG: 'H-13-1_side.dat' has ambiguous 'H-' prefix (could be Hn or Hs)
+FLAG: 'H-13-1_top.dat' has ambiguous 'H-' prefix (could be Hn or Hs)
+FLAG: 'H-13-2_front.dat' has ambiguous 'H-' prefix (could be Hn or Hs)
+FLAG: 'H-13-2_side.dat' has ambiguous 'H-' prefix (could be Hn or Hs)
+FLAG: 'H-13-2_top.dat' has ambiguous 'H-' prefix (could be Hn or Hs)
+FLAG: 'H-13-3_front.dat' has ambiguous 'H-' prefix (could be Hn or Hs)
+FLAG: 'H-13-3_side.dat' has ambiguous 'H-' prefix (could be Hn or Hs)
+FLAG: 'H-13-3_top.dat' has ambiguous 'H-' prefix (could be Hn or Hs)
+FLAG: 'H-13-4_front.dat' has ambiguous 'H-' prefix (could be Hn or Hs)
+FLAG: 'H-13-4_side.dat' has ambiguous 'H-' prefix (could be Hn or Hs)
+FLAG: 'H-13-4_top.dat' has ambiguous 'H-' prefix (could be Hn or Hs)
+FLAG: 'H-15-1_front.dat' has ambiguous 'H-' prefix (could be Hn or Hs)
+FLAG: 'H-15-1_side.dat' has ambiguous 'H-' prefix (could be Hn or Hs)
+FLAG: 'H-15-1_top.dat' has ambiguous 'H-' prefix (could be Hn or Hs)
+FLAG: 'H-15-2_front.dat' has ambiguous 'H-' prefix (could be Hn or Hs)
+FLAG: 'H-15-2_side.dat' has ambiguous 'H-' prefix (could be Hn or Hs)
+FLAG: 'H-15-2_top.dat' has ambiguous 'H-' prefix (could be Hn or Hs)
+FLAG: 'H-15-3_front.dat' has ambiguous 'H-' prefix (could be Hn or Hs)
+FLAG: 'H-15-3_side.dat' has ambiguous 'H-' prefix (could be Hn or Hs)
+FLAG: 'H-15-3_top.dat' has ambiguous 'H-' prefix (could be Hn or Hs)
+FLAG: 'H-15-4_front.dat' has ambiguous 'H-' prefix (could be Hn or Hs)
+FLAG: 'H-15-4_side.dat' has ambiguous 'H-' prefix (could be Hn or Hs)
+FLAG: 'H-15-4_top.dat' has ambiguous 'H-' prefix (could be Hn or Hs)
+FLAG: 'H-18-1_front.dat' has ambiguous 'H-' prefix (could be Hn or Hs)
+FLAG: 'H-18-1_side.dat' has ambiguous 'H-' prefix (could be Hn or Hs)
+FLAG: 'H-18-1_top.dat' has ambiguous 'H-' prefix (could be Hn or Hs)
+FLAG: 'H-18-2_front.dat' has ambiguous 'H-' prefix (could be Hn or Hs)
+FLAG: 'H-18-2_side.dat' has ambiguous 'H-' prefix (could be Hn or Hs)
+FLAG: 'H-18-2_top.dat' has ambiguous 'H-' prefix (could be Hn or Hs)
+FLAG: 'H-18-3_front.dat' has ambiguous 'H-' prefix (could be Hn or Hs)
+FLAG: 'H-18-3_side.dat' has ambiguous 'H-' prefix (could be Hn or Hs)
+FLAG: 'H-18-3_top.dat' has ambiguous 'H-' prefix (could be Hn or Hs)
+FLAG: 'H-18-4_front.dat' has ambiguous 'H-' prefix (could be Hn or Hs)
+FLAG: 'H-18-4_side.dat' has ambiguous 'H-' prefix (could be Hn or Hs)
+FLAG: 'H-18-4_top.dat' has ambiguous 'H-' prefix (could be Hn or Hs)
+FLAG: 'H-19-1_front.dat' has ambiguous 'H-' prefix (could be Hn or Hs)
+FLAG: 'H-19-1_side.dat' has ambiguous 'H-' prefix (could be Hn or Hs)
+FLAG: 'H-19-1_top.dat' has ambiguous 'H-' prefix (could be Hn or Hs)
+FLAG: 'H-19-2_front.dat' has ambiguous 'H-' prefix (could be Hn or Hs)
+FLAG: 'H-19-2_side.dat' has ambiguous 'H-' prefix (could be Hn or Hs)
+FLAG: 'H-19-2_top.dat' has ambiguous 'H-' prefix (could be Hn or Hs)
+FLAG: 'H-19-3_front.dat' has ambiguous 'H-' prefix (could be Hn or Hs)
+FLAG: 'H-19-3_side.dat' has ambiguous 'H-' prefix (could be Hn or Hs)
+FLAG: 'H-19-3_top.dat' has ambiguous 'H-' prefix (could be Hn or Hs)
+FLAG: 'H-19-4_front.dat' has ambiguous 'H-' prefix (could be Hn or Hs)
+FLAG: 'H-19-4_side.dat' has ambiguous 'H-' prefix (could be Hn or Hs)
+FLAG: 'H-19-4_top.dat' has ambiguous 'H-' prefix (could be Hn or Hs)
+FLAG: 'H-2-1_front.dat' has ambiguous 'H-' prefix (could be Hn or Hs)
+FLAG: 'H-2-1_side.dat' has ambiguous 'H-' prefix (could be Hn or Hs)
+FLAG: 'H-2-1_top.dat' has ambiguous 'H-' prefix (could be Hn or Hs)
+FLAG: 'H-2-2_front.dat' has ambiguous 'H-' prefix (could be Hn or Hs)
+FLAG: 'H-2-2_side.dat' has ambiguous 'H-' prefix (could be Hn or Hs)
+FLAG: 'H-2-2_top.dat' has ambiguous 'H-' prefix (could be Hn or Hs)
+FLAG: 'H-2-3_front.dat' has ambiguous 'H-' prefix (could be Hn or Hs)
+FLAG: 'H-2-3_side.dat' has ambiguous 'H-' prefix (could be Hn or Hs)
+FLAG: 'H-2-3_top.dat' has ambiguous 'H-' prefix (could be Hn or Hs)
+FLAG: 'H-2-4_front.dat' has ambiguous 'H-' prefix (could be Hn or Hs)
+FLAG: 'H-2-4_side.dat' has ambiguous 'H-' prefix (could be Hn or Hs)
+FLAG: 'H-2-4_top.dat' has ambiguous 'H-' prefix (could be Hn or Hs)
+FLAG: 'H-2-5_front.dat' has ambiguous 'H-' prefix (could be Hn or Hs)
+FLAG: 'H-2-5_side.dat' has ambiguous 'H-' prefix (could be Hn or Hs)
+FLAG: 'H-2-5_top.dat' has ambiguous 'H-' prefix (could be Hn or Hs)
+FLAG: 'H-20-1_front.dat' has ambiguous 'H-' prefix (could be Hn or Hs)
+FLAG: 'H-20-1_side.dat' has ambiguous 'H-' prefix (could be Hn or Hs)
+FLAG: 'H-20-1_top.dat' has ambiguous 'H-' prefix (could be Hn or Hs)
+FLAG: 'H-20-2_front.dat' has ambiguous 'H-' prefix (could be Hn or Hs)
+FLAG: 'H-20-2_side.dat' has ambiguous 'H-' prefix (could be Hn or Hs)
+FLAG: 'H-20-2_top.dat' has ambiguous 'H-' prefix (could be Hn or Hs)
+FLAG: 'H-20-3_front.dat' has ambiguous 'H-' prefix (could be Hn or Hs)
+FLAG: 'H-20-3_side.dat' has ambiguous 'H-' prefix (could be Hn or Hs)
+FLAG: 'H-20-3_top.dat' has ambiguous 'H-' prefix (could be Hn or Hs)
+FLAG: 'H-20-4_front.dat' has ambiguous 'H-' prefix (could be Hn or Hs)
+FLAG: 'H-20-4_side.dat' has ambiguous 'H-' prefix (could be Hn or Hs)
+FLAG: 'H-20-4_top.dat' has ambiguous 'H-' prefix (could be Hn or Hs)
+FLAG: 'H-23-1_front.dat' has ambiguous 'H-' prefix (could be Hn or Hs)
+FLAG: 'H-23-1_side.dat' has ambiguous 'H-' prefix (could be Hn or Hs)
+FLAG: 'H-23-1_top.dat' has ambiguous 'H-' prefix (could be Hn or Hs)
+FLAG: 'H-23-2_front.dat' has ambiguous 'H-' prefix (could be Hn or Hs)
+FLAG: 'H-23-2_side.dat' has ambiguous 'H-' prefix (could be Hn or Hs)
+FLAG: 'H-23-2_top.dat' has ambiguous 'H-' prefix (could be Hn or Hs)
+FLAG: 'H-23-3_front.dat' has ambiguous 'H-' prefix (could be Hn or Hs)
+FLAG: 'H-23-3_side.dat' has ambiguous 'H-' prefix (could be Hn or Hs)
+FLAG: 'H-23-3_top.dat' has ambiguous 'H-' prefix (could be Hn or Hs)
+FLAG: 'H-23-4_front.dat' has ambiguous 'H-' prefix (could be Hn or Hs)
+FLAG: 'H-23-4_side.dat' has ambiguous 'H-' prefix (could be Hn or Hs)
+FLAG: 'H-23-4_top.dat' has ambiguous 'H-' prefix (could be Hn or Hs)
+FLAG: 'H-4-1_front.dat' has ambiguous 'H-' prefix (could be Hn or Hs)
+FLAG: 'H-4-1_side.dat' has ambiguous 'H-' prefix (could be Hn or Hs)
+FLAG: 'H-4-1_top.dat' has ambiguous 'H-' prefix (could be Hn or Hs)
+FLAG: 'H-4-2_front.dat' has ambiguous 'H-' prefix (could be Hn or Hs)
+FLAG: 'H-4-2_side.dat' has ambiguous 'H-' prefix (could be Hn or Hs)
+FLAG: 'H-4-2_top.dat' has ambiguous 'H-' prefix (could be Hn or Hs)
+FLAG: 'H-4-3_front.dat' has ambiguous 'H-' prefix (could be Hn or Hs)
+FLAG: 'H-4-3_side.dat' has ambiguous 'H-' prefix (could be Hn or Hs)
+FLAG: 'H-4-3_top.dat' has ambiguous 'H-' prefix (could be Hn or Hs)
+FLAG: 'H-4-4_front.dat' has ambiguous 'H-' prefix (could be Hn or Hs)
+FLAG: 'H-4-4_side.dat' has ambiguous 'H-' prefix (could be Hn or Hs)
+FLAG: 'H-4-4_top.dat' has ambiguous 'H-' prefix (could be Hn or Hs)
+FLAG: 'H-5-1_front.dat' has ambiguous 'H-' prefix (could be Hn or Hs)
+FLAG: 'H-5-1_side.dat' has ambiguous 'H-' prefix (could be Hn or Hs)
+FLAG: 'H-5-1_top.dat' has ambiguous 'H-' prefix (could be Hn or Hs)
+FLAG: 'H-5-2_front.dat' has ambiguous 'H-' prefix (could be Hn or Hs)
+FLAG: 'H-5-2_side.dat' has ambiguous 'H-' prefix (could be Hn or Hs)
+FLAG: 'H-5-2_top.dat' has ambiguous 'H-' prefix (could be Hn or Hs)
+FLAG: 'H-5-3_front.dat' has ambiguous 'H-' prefix (could be Hn or Hs)
+FLAG: 'H-5-3_side.dat' has ambiguous 'H-' prefix (could be Hn or Hs)
+FLAG: 'H-5-3_top.dat' has ambiguous 'H-' prefix (could be Hn or Hs)
+FLAG: 'H-5-4_front.dat' has ambiguous 'H-' prefix (could be Hn or Hs)
+FLAG: 'H-5-4_side.dat' has ambiguous 'H-' prefix (could be Hn or Hs)
+FLAG: 'H-5-4_top.dat' has ambiguous 'H-' prefix (could be Hn or Hs)
+FLAG: 'H-6-1_front.dat' has ambiguous 'H-' prefix (could be Hn or Hs)
+FLAG: 'H-6-1_side.dat' has ambiguous 'H-' prefix (could be Hn or Hs)
+FLAG: 'H-6-1_top.dat' has ambiguous 'H-' prefix (could be Hn or Hs)
+FLAG: 'H-6-2_front.dat' has ambiguous 'H-' prefix (could be Hn or Hs)
+FLAG: 'H-6-2_side.dat' has ambiguous 'H-' prefix (could be Hn or Hs)
+FLAG: 'H-6-2_top.dat' has ambiguous 'H-' prefix (could be Hn or Hs)
+FLAG: 'H-6-3_front.dat' has ambiguous 'H-' prefix (could be Hn or Hs)
+FLAG: 'H-6-3_side.dat' has ambiguous 'H-' prefix (could be Hn or Hs)
+FLAG: 'H-6-3_top.dat' has ambiguous 'H-' prefix (could be Hn or Hs)
+FLAG: 'H-6-4_front.dat' has ambiguous 'H-' prefix (could be Hn or Hs)
+FLAG: 'H-6-4_side.dat' has ambiguous 'H-' prefix (could be Hn or Hs)
+FLAG: 'H-6-4_top.dat' has ambiguous 'H-' prefix (could be Hn or Hs)
+FLAG: 'H-7-1_front.dat' has ambiguous 'H-' prefix (could be Hn or Hs)
+FLAG: 'H-7-1_side.dat' has ambiguous 'H-' prefix (could be Hn or Hs)
+FLAG: 'H-7-1_top.dat' has ambiguous 'H-' prefix (could be Hn or Hs)
+FLAG: 'H-7-2_front.dat' has ambiguous 'H-' prefix (could be Hn or Hs)
+FLAG: 'H-7-2_side.dat' has ambiguous 'H-' prefix (could be Hn or Hs)
+FLAG: 'H-7-2_top.dat' has ambiguous 'H-' prefix (could be Hn or Hs)
+FLAG: 'H-7-3_front.dat' has ambiguous 'H-' prefix (could be Hn or Hs)
+FLAG: 'H-7-3_side.dat' has ambiguous 'H-' prefix (could be Hn or Hs)
+FLAG: 'H-7-3_top.dat' has ambiguous 'H-' prefix (could be Hn or Hs)
+FLAG: 'H-7-4_front.dat' has ambiguous 'H-' prefix (could be Hn or Hs)
+FLAG: 'H-7-4_side.dat' has ambiguous 'H-' prefix (could be Hn or Hs)
+FLAG: 'H-7-4_top.dat' has ambiguous 'H-' prefix (could be Hn or Hs)
+FLAG: 'Hn-plate-1_front.dat' has 'plate' placeholder instead of plate number
+FLAG: 'Hn-plate-1_helmholtz.dat' has 'plate' placeholder instead of plate number
+FLAG: 'Hn-plate-1_side.dat' has 'plate' placeholder instead of plate number
+FLAG: 'Hn-plate-1_top.dat' has 'plate' placeholder instead of plate number
+FLAG: 'Hn-plate-2_front.dat' has 'plate' placeholder instead of plate number
+FLAG: 'Hn-plate-2_helmholtz.dat' has 'plate' placeholder instead of plate number
+FLAG: 'Hn-plate-2_side.dat' has 'plate' placeholder instead of plate number
+FLAG: 'Hn-plate-2_top.dat' has 'plate' placeholder instead of plate number
+FLAG: 'Hn-plate-3_front.dat' has 'plate' placeholder instead of plate number
+FLAG: 'Hn-plate-3_helmholtz.dat' has 'plate' placeholder instead of plate number
+FLAG: 'Hn-plate-3_side.dat' has 'plate' placeholder instead of plate number
+FLAG: 'Hn-plate-3_top.dat' has 'plate' placeholder instead of plate number
+FLAG: 'Hn-plate-4_front.dat' has 'plate' placeholder instead of plate number
+FLAG: 'Hn-plate-4_helmholtz.dat' has 'plate' placeholder instead of plate number
+FLAG: 'Hn-plate-4_side.dat' has 'plate' placeholder instead of plate number
+FLAG: 'Hn-plate-4_top.dat' has 'plate' placeholder instead of plate number
+FLAG: 'Hnplate-1_front.dat' has 'plate' placeholder instead of plate number
+FLAG: 'Hnplate-1_side.dat' has 'plate' placeholder instead of plate number
+FLAG: 'Hnplate-1_top.dat' has 'plate' placeholder instead of plate number
+FLAG: 'Hnplate-2_front.dat' has 'plate' placeholder instead of plate number
+FLAG: 'Hnplate-2_side.dat' has 'plate' placeholder instead of plate number
+FLAG: 'Hnplate-2_top.dat' has 'plate' placeholder instead of plate number
+FLAG: 'Hnplate-3_front.dat' has 'plate' placeholder instead of plate number
+FLAG: 'Hnplate-3_side.dat' has 'plate' placeholder instead of plate number
+FLAG: 'Hnplate-3_top.dat' has 'plate' placeholder instead of plate number
+FLAG: 'Hnplate-4_front.dat' has 'plate' placeholder instead of plate number
+FLAG: 'Hnplate-4_side.dat' has 'plate' placeholder instead of plate number
+FLAG: 'Hnplate-4_top.dat' has 'plate' placeholder instead of plate number
+FLAG: 'Hs-plate-1_front.dat' has 'plate' placeholder instead of plate number
+FLAG: 'Hs-plate-1_helmholtz.dat' has 'plate' placeholder instead of plate number
+FLAG: 'Hs-plate-1_side.dat' has 'plate' placeholder instead of plate number
+FLAG: 'Hs-plate-1_top.dat' has 'plate' placeholder instead of plate number
+FLAG: 'Hs-plate-2_front.dat' has 'plate' placeholder instead of plate number
+FLAG: 'Hs-plate-2_helmholtz.dat' has 'plate' placeholder instead of plate number
+FLAG: 'Hs-plate-2_side.dat' has 'plate' placeholder instead of plate number
+FLAG: 'Hs-plate-2_top.dat' has 'plate' placeholder instead of plate number
+FLAG: 'Hs-plate-3_front.dat' has 'plate' placeholder instead of plate number
+FLAG: 'Hs-plate-3_helmholtz.dat' has 'plate' placeholder instead of plate number
+FLAG: 'Hs-plate-3_side.dat' has 'plate' placeholder instead of plate number
+FLAG: 'Hs-plate-3_top.dat' has 'plate' placeholder instead of plate number
+FLAG: 'Hs-plate-4_front.dat' has 'plate' placeholder instead of plate number
+FLAG: 'Hs-plate-4_helmholtz.dat' has 'plate' placeholder instead of plate number
+FLAG: 'Hs-plate-4_side.dat' has 'plate' placeholder instead of plate number
+FLAG: 'Hs-plate-4_top.dat' has 'plate' placeholder instead of plate number
+FLAG: 'Y-plate-1_front.dat' has 'plate' placeholder instead of plate number
+FLAG: 'Y-plate-1_helmholtz.dat' has 'plate' placeholder instead of plate number
+FLAG: 'Y-plate-1_side.dat' has 'plate' placeholder instead of plate number
+FLAG: 'Y-plate-1_top.dat' has 'plate' placeholder instead of plate number
+FLAG: 'Y-plate-2_front.dat' has 'plate' placeholder instead of plate number
+FLAG: 'Y-plate-2_helmholtz.dat' has 'plate' placeholder instead of plate number
+FLAG: 'Y-plate-2_side.dat' has 'plate' placeholder instead of plate number
+FLAG: 'Y-plate-2_top.dat' has 'plate' placeholder instead of plate number
+FLAG: 'Y-plate-3_front.dat' has 'plate' placeholder instead of plate number
+FLAG: 'Y-plate-3_helmholtz.dat' has 'plate' placeholder instead of plate number
+FLAG: 'Y-plate-3_side.dat' has 'plate' placeholder instead of plate number
+FLAG: 'Y-plate-3_top.dat' has 'plate' placeholder instead of plate number
+FLAG: 'Y-plate-4_front.dat' has 'plate' placeholder instead of plate number
+FLAG: 'Y-plate-4_helmholtz.dat' has 'plate' placeholder instead of plate number
+FLAG: 'Y-plate-4_side.dat' has 'plate' placeholder instead of plate number
+FLAG: 'Y-plate-4_top.dat' has 'plate' placeholder instead of plate number
+SKIP: Bare/incomplete name '-1_front.dat' (sample='-1')
+SKIP: Bare/incomplete name '-1_helmholtz.dat' (sample='-1')
+SKIP: Bare/incomplete name '-1_side.dat' (sample='-1')
+SKIP: Bare/incomplete name '-1_top.dat' (sample='-1')
+SKIP: Bare/incomplete name '-2_front.dat' (sample='-2')
+SKIP: Bare/incomplete name '-2_helmholtz.dat' (sample='-2')
+SKIP: Bare/incomplete name '-2_side.dat' (sample='-2')
+SKIP: Bare/incomplete name '-2_top.dat' (sample='-2')
+SKIP: Bare/incomplete name '-3_front.dat' (sample='-3')
+SKIP: Bare/incomplete name '-3_helmholtz.dat' (sample='-3')
+SKIP: Bare/incomplete name '-3_side.dat' (sample='-3')
+SKIP: Bare/incomplete name '-3_top.dat' (sample='-3')
+SKIP: Bare/incomplete name '-4_front.dat' (sample='-4')
+SKIP: Bare/incomplete name '-4_helmholtz.dat' (sample='-4')
+SKIP: Bare/incomplete name '-4_side.dat' (sample='-4')
+SKIP: Bare/incomplete name '-4_top.dat' (sample='-4')
+SKIP: Bare/incomplete name '_front.dat' (sample='')
+SKIP: Bare/incomplete name '_helmholtz.dat' (sample='')
+SKIP: Bare/incomplete name '_side.dat' (sample='')
+SKIP: Bare/incomplete name '_top.dat' (sample='')
+SKIP: Cannot classify sample 'Anplate-1-1' (mtype=front)
+SKIP: Cannot classify sample 'Anplate-1-1' (mtype=side)
+SKIP: Cannot classify sample 'Anplate-1-1' (mtype=top)
+SKIP: Cannot classify sample 'Anplate-1-2' (mtype=front)
+SKIP: Cannot classify sample 'Anplate-1-2' (mtype=side)
+SKIP: Cannot classify sample 'Anplate-1-2' (mtype=top)
+SKIP: Cannot classify sample 'Anplate-2-1' (mtype=front)
+SKIP: Cannot classify sample 'Anplate-2-1' (mtype=side)
+SKIP: Cannot classify sample 'Anplate-2-1' (mtype=top)
+SKIP: Cannot classify sample 'Anplate-2-2' (mtype=front)
+SKIP: Cannot classify sample 'Anplate-2-2' (mtype=side)
+SKIP: Cannot classify sample 'Anplate-2-2' (mtype=top)
+SKIP: Cannot classify sample 'Anplate-3-1' (mtype=front)
+SKIP: Cannot classify sample 'Anplate-3-1' (mtype=side)
+SKIP: Cannot classify sample 'Anplate-3-1' (mtype=top)
+SKIP: Cannot classify sample 'Anplate-3-2' (mtype=front)
+SKIP: Cannot classify sample 'Anplate-3-2' (mtype=side)
+SKIP: Cannot classify sample 'Anplate-3-2' (mtype=top)
+SKIP: Cannot classify sample 'Anplate-4-1' (mtype=front)
+SKIP: Cannot classify sample 'Anplate-4-1' (mtype=side)
+SKIP: Cannot classify sample 'Anplate-4-1' (mtype=top)
+SKIP: Cannot classify sample 'Anplate-4-2' (mtype=front)
+SKIP: Cannot classify sample 'Anplate-4-2' (mtype=side)
+SKIP: Cannot classify sample 'Anplate-4-2' (mtype=top)
+SKIP: Cannot classify sample 'Hnplate-1' (mtype=front)
+SKIP: Cannot classify sample 'Hnplate-1' (mtype=side)
+SKIP: Cannot classify sample 'Hnplate-1' (mtype=top)
+SKIP: Cannot classify sample 'Hnplate-2' (mtype=front)
+SKIP: Cannot classify sample 'Hnplate-2' (mtype=side)
+SKIP: Cannot classify sample 'Hnplate-2' (mtype=top)
+SKIP: Cannot classify sample 'Hnplate-3' (mtype=front)
+SKIP: Cannot classify sample 'Hnplate-3' (mtype=side)
+SKIP: Cannot classify sample 'Hnplate-3' (mtype=top)
+SKIP: Cannot classify sample 'Hnplate-4' (mtype=front)
+SKIP: Cannot classify sample 'Hnplate-4' (mtype=side)
+SKIP: Cannot classify sample 'Hnplate-4' (mtype=top)
+SKIP: Cannot classify sample 'test' (mtype=front)
+SKIP: Cannot classify sample 'test' (mtype=side)
+SKIP: Cannot classify sample 'test' (mtype=top)
+SKIP: Cannot parse measurement type from '04082025.dat'
+SKIP: Cannot parse measurement type from '04232025.dat'
+SKIP: Cannot parse measurement type from '7282025.dat'
+SKIP: Cannot parse measurement type from 'August272025Helmholtz.dat'
+SKIP: Cannot parse measurement type from 'August272025teslameter.dat'
+SKIP: Cannot parse measurement type from 'December-17-2025_Helmholtz_Lab5_Testing.dat'
+SKIP: Cannot parse measurement type from 'DosimetrySep10.dat'
+SKIP: Cannot parse measurement type from 'January-08-2026_Teslameter.dat'
+SKIP: Cannot parse measurement type from 'January-12-2026_Teslameter.dat'
+SKIP: Cannot parse measurement type from 'Jul17.dat'
+SKIP: Cannot parse measurement type from 'July30Helmholtz.dat'
+SKIP: Cannot parse measurement type from 'July30Teslameter.dat'
+SKIP: Cannot parse measurement type from 'MAY212025.dat'
+SKIP: Cannot parse measurement type from 'October-03-2025.dat'
+SKIP: Cannot parse measurement type from 'October-03-2025_Teslameter.dat'
+SKIP: Cannot parse measurement type from 'October-07-2025_Teslameter.dat'
+SKIP: Cannot parse measurement type from 'October-10-2025_Teslameter.dat'
+SKIP: Cannot parse measurement type from 'October-20-2025_Teslameter.dat'
+SKIP: Cannot parse measurement type from 'October-21-2025_Helmholtz.dat'
+SKIP: Cannot parse measurement type from 'October-21-2025_Teslameter.dat'
+SKIP: Cannot parse measurement type from 'October-23-2025_Helmholtz.dat'
+SKIP: Cannot parse measurement type from 'October-23-2025_Teslameter.dat'
+SKIP: Cannot parse measurement type from 'October-29-2025_Helmholtz.dat'
+SKIP: Cannot parse measurement type from 'October-29-2025_Teslameter.dat'
+SKIP: Cannot parse measurement type from 'Y-1-1_side_first attempt.dat'
+SKIP: Cannot parse measurement type from 'Y-1-1_side_offon.dat'
+SKIP: Cannot parse measurement type from 'editlogtest.dat'
+SKIP: Cannot parse measurement type from 'testlog.dat'

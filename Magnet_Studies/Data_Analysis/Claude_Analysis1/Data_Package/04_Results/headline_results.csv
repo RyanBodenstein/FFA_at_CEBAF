@@ -1,0 +1,25 @@
+metric,value,uncertainty,significance,notes
+NdFeB_minus_SmCo_differential_pct,-0.208,0.028,7.6 sigma,"Gain-immune intra-plate differential, N=30 plates"
+lab_control_differential_pct,-0.007,0.038,0.2 sigma,"Lab Y-plate differential (no radiation), N=9 plates"
+tunnel_minus_lab_excess_pct,-0.202,0.047,4.3 sigma,Tunnel differential minus lab differential
+N42EH_mean_pct_change,-0.252,0.036,,N=30 tunnel Y-plate samples (outliers excluded)
+N52SH_mean_pct_change,-0.17,0.036,,N=29 tunnel Y-plate samples (outliers excluded)
+SmCo33H_mean_pct_change,0.037,0.031,,N=29 tunnel Y-plate samples (outliers excluded)
+SmCo35_mean_pct_change,-0.044,0.031,,N=30 tunnel Y-plate samples (outliers excluded)
+gain_systematic_cleaned_pct,0.124,0,,"Half-range of session offsets, cleaned (bad baselines + >3% excluded)"
+gain_systematic_uncleaned_pct,0.248,0,,"Half-range of session offsets, all samples"
+temp_coefficient_N42EH_per_C,-0.1,0,,"Manufacturer specification, used for temperature correction"
+temp_coefficient_N52SH_per_C,-0.11,0,,"Manufacturer specification, used for temperature correction"
+temp_coefficient_SmCo33H_per_C,-0.04,0,,"Manufacturer specification, used for temperature correction"
+temp_coefficient_SmCo35_per_C,-0.04,0,,"Manufacturer specification, used for temperature correction"
+differential_temp_sensitivity_pct_per_C,0.065,0,,"mean(NdFeB alpha) - mean(SmCo alpha), determines temp systematic on differential"
+temp_systematic_pct,0.033,0,,Temperature correction systematic on differential (half-range of v2-v3 spread)
+alpha_uncertainty_systematic_pct,0.014,0,,Alpha coefficient uncertainty propagated to differential
+total_systematic_pct,0.036,0,,sqrt(temp_systematic^2 + alpha_systematic^2)
+combined_uncertainty_pct,0.045,0,4.6 sigma,"sqrt(stat^2 + syst^2), stat=0.028, syst=0.036"
+gamma_vs_ndfeb_mean_spearman_rho,0.125,0.5096,p=0.5096,"Spearman rho of log10(AIdata photon (Gy)) vs NdFeB mean degradation, N=30"
+gamma_vs_smco_mean_spearman_rho,-0.093,0.6258,p=0.6258,"Spearman rho of log10(AIdata photon (Gy)) vs SmCo mean degradation, N=30"
+gamma_vs_differential_spearman_rho,0.21,0.2658,p=0.2658,"Spearman rho of log10(AIdata photon (Gy)) vs NdFeB-SmCo differential, N=30"
+neutron_vs_ndfeb_mean_spearman_rho,0.459,0.0108,p=0.0108,"Spearman rho of log10(AIdata neutron (rem)) vs NdFeB mean degradation, N=30"
+neutron_vs_smco_mean_spearman_rho,0.089,0.6392,p=0.6392,"Spearman rho of log10(AIdata neutron (rem)) vs SmCo mean degradation, N=30"
+neutron_vs_differential_spearman_rho,0.389,0.0338,p=0.0338,"Spearman rho of log10(AIdata neutron (rem)) vs NdFeB-SmCo differential, N=30"

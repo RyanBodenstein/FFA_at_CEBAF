@@ -1,0 +1,157 @@
+plate,slot,sample_id,material,region,line_position,environment,baseline_mean_mWC,latest_mWC,pct_change,baseline_sem_pct,n_baseline,n_baseline_sessions,is_outlier
+1,1,Y-1-1,SmCo33H,South Linac,0,tunnel,1.0377,1.0399,0.2173,1.0,1,1,False
+1,2,Y-1-2,N52SH,South Linac,0,tunnel,1.311,1.3086,-0.1848,1.0,1,1,False
+1,3,Y-1-3,SmCo35,South Linac,0,tunnel,1.0857,1.0857,0.0074,1.0,1,1,False
+1,4,Y-1-4,N42EH,South Linac,0,tunnel,1.1774,1.1769,-0.0401,1.0,1,1,False
+10,1,Y-10-1,SmCo35,SW Arc,4,tunnel,1.0844,1.0846,0.0157,0.0579,2,2,False
+10,2,Y-10-2,N42EH,SW Arc,4,tunnel,1.1733,1.172,-0.1102,0.0283,2,2,False
+10,3,Y-10-3,SmCo33H,SW Arc,4,tunnel,1.0356,1.0359,0.0278,0.1172,3,2,False
+10,4,Y-10-4,N52SH,SW Arc,4,tunnel,1.3049,1.3044,-0.035,0.061,3,2,False
+11,1,Y-11-1,N42EH,SW Arc,5,tunnel,1.176,1.1757,-0.024,1.0,1,1,False
+11,2,Y-11-2,SmCo33H,SW Arc,5,tunnel,1.0403,1.0408,0.0514,1.0,1,1,False
+11,3,Y-11-3,N52SH,SW Arc,5,tunnel,1.3113,1.3115,0.0134,1.0,1,1,False
+11,4,Y-11-4,SmCo35,SW Arc,5,tunnel,1.0845,1.0843,-0.0246,1.0,1,1,False
+12,1,Y-12-1,N52SH,Labyrinth,0,tunnel,1.3125,1.3118,-0.0507,1.0,1,1,False
+12,2,Y-12-2,SmCo35,Labyrinth,0,tunnel,1.0808,1.0813,0.0524,1.0,1,1,False
+12,3,Y-12-3,N42EH,Labyrinth,0,tunnel,1.1833,1.1812,-0.1805,1.0,1,1,False
+12,4,Y-12-4,SmCo33H,Labyrinth,0,tunnel,1.0388,1.0382,-0.0537,1.0,1,1,False
+13,1,Y-13-1,SmCo33H,SW Arc,1,tunnel,1.0415,1.0374,-0.397,1.0,1,1,False
+13,2,Y-13-2,N52SH,SW Arc,1,tunnel,1.3125,1.3035,-0.6844,1.0,1,1,False
+13,3,Y-13-3,SmCo35,SW Arc,1,tunnel,1.0819,1.0764,-0.5006,1.0,1,1,False
+13,4,Y-13-4,N42EH,SW Arc,1,tunnel,1.1745,1.1654,-0.7704,1.0,1,1,False
+15,1,Y-15-1,N42EH,SE Arc,1,tunnel,1.1821,1.179,-0.2615,1.0,1,1,False
+15,2,Y-15-2,SmCo33H,SE Arc,1,tunnel,1.0379,1.039,0.1037,1.0,1,1,False
+15,3,Y-15-3,N52SH,SE Arc,1,tunnel,1.3108,1.3099,-0.0686,1.0,1,1,False
+15,4,Y-15-4,SmCo35,SE Arc,1,tunnel,1.0792,1.0787,-0.0523,1.0,1,1,False
+16,1,Y-16-1,N52SH,North Linac,0,tunnel,1.3137,1.3131,-0.0437,1.0,1,1,False
+16,2,Y-16-2,SmCo35,North Linac,0,tunnel,1.0823,1.0831,0.0784,1.0,1,1,False
+16,3,Y-16-3,N42EH,North Linac,0,tunnel,1.1745,1.1733,-0.1002,1.0,1,1,False
+16,4,Y-16-4,SmCo33H,North Linac,0,tunnel,1.0408,1.0416,0.0813,1.0,1,1,False
+17,1,Y-17-1,SmCo33H,North Linac,0,tunnel,1.0437,1.0441,0.0387,1.0,1,1,False
+17,2,Y-17-2,N52SH,North Linac,0,tunnel,1.3082,1.3109,0.2094,1.0,1,1,False
+17,3,Y-17-3,SmCo35,North Linac,0,tunnel,1.0797,1.0799,0.0189,1.0,1,1,False
+17,4,Y-17-4,N42EH,North Linac,0,tunnel,1.1759,1.1739,-0.1651,1.0,1,1,False
+18,1,Y-18-1,SmCo35,NE Arc,3,tunnel,1.0813,1.0779,-0.3191,1.0,1,1,False
+18,2,Y-18-2,N42EH,NE Arc,3,tunnel,1.1754,1.1712,-0.3518,1.0,1,1,False
+18,3,Y-18-3,SmCo33H,NE Arc,3,tunnel,1.0405,1.0403,-0.018,1.0,1,1,False
+18,4,Y-18-4,N52SH,NE Arc,3,tunnel,1.309,1.3067,-0.1765,1.0,1,1,False
+19,1,Y-19-1,N42EH,SW Arc,3,tunnel,1.1769,1.1719,-0.4236,1.0,1,1,False
+19,2,Y-19-2,SmCo33H,SW Arc,3,tunnel,1.0409,1.0401,-0.0768,1.0,1,1,False
+19,3,Y-19-3,N52SH,SW Arc,3,tunnel,1.3086,1.3045,-0.3137,1.0,1,1,False
+19,4,Y-19-4,SmCo35,SW Arc,3,tunnel,1.0809,1.0799,-0.0927,1.0,1,1,False
+20,1,Y-20-1,N52SH,Labyrinth,0,tunnel,1.3136,1.3115,-0.1607,1.0,1,1,False
+20,2,Y-20-2,SmCo35,Labyrinth,0,tunnel,1.0798,1.0785,-0.1202,1.0,1,1,False
+20,3,Y-20-3,N42EH,Labyrinth,0,tunnel,1.1749,1.1719,-0.2492,1.0,1,1,False
+20,4,Y-20-4,SmCo33H,Labyrinth,0,tunnel,1.0418,1.0424,0.0619,1.0,1,1,False
+21,1,Y-21-1,SmCo33H,NE Arc,4,tunnel,1.039,1.0384,-0.059,1.0,1,1,False
+21,2,Y-21-2,N52SH,NE Arc,4,tunnel,1.3087,1.3059,-0.2096,1.0,1,1,False
+21,3,Y-21-3,SmCo35,NE Arc,4,tunnel,1.083,1.0828,-0.0167,1.0,1,1,False
+21,4,Y-21-4,N42EH,NE Arc,4,tunnel,1.1789,1.1756,-0.28,1.0,1,1,False
+22,1,Y-22-1,SmCo35,North Linac,0,tunnel,1.0801,1.0826,0.2348,1.0,1,1,False
+22,2,Y-22-2,N42EH,North Linac,0,tunnel,1.177,1.1761,-0.0742,1.0,1,1,False
+22,3,Y-22-3,SmCo33H,North Linac,0,tunnel,1.0425,1.0424,-0.0136,1.0,1,1,False
+22,4,Y-22-4,N52SH,North Linac,0,tunnel,1.309,1.3089,-0.0087,1.0,1,1,False
+23,1,Y-23-1,N42EH,SE Arc,3,tunnel,1.1773,1.1757,-0.1364,1.0,1,1,False
+23,2,Y-23-2,SmCo33H,SE Arc,3,tunnel,1.04,1.039,-0.0928,1.0,1,1,False
+23,3,Y-23-3,N52SH,SE Arc,3,tunnel,1.3127,1.3119,-0.0583,1.0,1,1,False
+23,4,Y-23-4,SmCo35,SE Arc,3,tunnel,1.0799,1.0796,-0.0308,1.0,1,1,False
+24,1,Y-24-1,N52SH,South Linac,0,tunnel,1.3105,1.3105,-0.0008,1.0,1,1,False
+24,2,Y-24-2,SmCo35,South Linac,0,tunnel,1.0794,1.0804,0.098,1.0,1,1,False
+24,3,Y-24-3,N42EH,South Linac,0,tunnel,1.1842,1.183,-0.1022,1.0,1,1,False
+24,4,Y-24-4,SmCo33H,South Linac,0,tunnel,1.039,1.039,-0.0035,1.0,1,1,False
+25,1,Y-25-1,SmCo33H,NW Arc,4,tunnel,1.0439,1.0448,0.0846,1.0,1,1,False
+25,2,Y-25-2,N52SH,NW Arc,4,tunnel,1.3103,1.3083,-0.1517,1.0,1,1,False
+25,3,Y-25-3,SmCo35,NW Arc,4,tunnel,1.0822,1.0804,-0.1662,1.0,1,1,False
+25,4,Y-25-4,N42EH,NW Arc,4,tunnel,1.1779,1.1744,-0.2948,1.0,1,1,False
+26,1,Y-26-1,SmCo35,SE Arc,4,tunnel,1.0811,1.0822,0.105,1.0,1,1,False
+26,2,Y-26-2,N42EH,SE Arc,4,tunnel,1.1768,1.1766,-0.0177,1.0,1,1,False
+26,3,Y-26-3,SmCo33H,SE Arc,4,tunnel,1.0371,1.037,-0.0099,1.0,1,1,False
+26,4,Y-26-4,N52SH,SE Arc,4,tunnel,1.3096,1.3098,0.019,1.0,1,1,False
+3,1,Y-3-1,N42EH,SE Arc,2,tunnel,1.1748,1.173,-0.1515,1.0,1,1,False
+3,2,Y-3-2,SmCo33H,SE Arc,2,tunnel,1.0376,1.0382,0.0636,1.0,1,1,False
+3,3,Y-3-3,N52SH,SE Arc,2,tunnel,1.3113,1.3097,-0.1237,1.0,1,1,False
+3,4,Y-3-4,SmCo35,SE Arc,2,tunnel,1.0808,1.0795,-0.122,1.0,1,1,False
+30,1,Y-30-1,SmCo35,South Linac,0,tunnel,1.0816,1.0806,-0.0875,1.0,1,1,False
+30,2,Y-30-2,N42EH,South Linac,0,tunnel,1.1839,1.18,-0.3302,1.0,1,1,False
+30,3,Y-30-3,SmCo33H,South Linac,0,tunnel,1.0397,1.0373,-0.2338,1.0,1,1,False
+30,4,Y-30-4,N52SH,South Linac,0,tunnel,1.309,1.3055,-0.2672,1.0,1,1,False
+32,1,Y-32-1,N52SH,SW Arc,2,tunnel,1.31,1.3045,-0.4159,1.0,1,1,False
+32,2,Y-32-2,SmCo35,SW Arc,2,tunnel,1.0807,1.0783,-0.2235,1.0,1,1,False
+32,3,Y-32-3,N42EH,SW Arc,2,tunnel,1.1765,1.1711,-0.455,1.0,1,1,False
+32,4,Y-32-4,SmCo33H,SW Arc,2,tunnel,1.0414,1.0413,-0.005,1.0,1,1,False
+34,1,Y-34-1,SmCo35,NW Arc,5,tunnel,1.0854,1.0852,-0.0196,1.0,1,1,False
+34,2,Y-34-2,N42EH,NW Arc,5,tunnel,1.1833,1.1808,-0.2082,1.0,1,1,False
+34,3,Y-34-3,SmCo33H,NW Arc,5,tunnel,1.0405,1.04,-0.0481,1.0,1,1,False
+34,4,Y-34-4,N52SH,NW Arc,5,tunnel,1.1775,1.3103,11.2819,1.0,1,1,True
+36,1,Y-36-1,N52SH,NW Arc,3,tunnel,1.312,1.3094,-0.1962,1.0,1,1,False
+36,2,Y-36-2,SmCo35,NW Arc,3,tunnel,1.0841,1.0834,-0.0634,1.0,1,1,False
+36,3,Y-36-3,N42EH,NW Arc,3,tunnel,1.1839,1.1813,-0.2166,1.0,1,1,False
+36,4,Y-36-4,SmCo33H,NW Arc,3,tunnel,1.0372,1.0396,0.2305,1.0,1,1,False
+38,1,Y-38-1,SmCo35,NW Arc,1,tunnel,1.0813,1.081,-0.0216,1.0,1,1,False
+38,2,Y-38-2,N42EH,NW Arc,1,tunnel,1.1839,1.1798,-0.3485,1.0,1,1,False
+38,3,Y-38-3,SmCo33H,NW Arc,1,tunnel,1.0362,1.0392,0.2929,1.0,1,1,False
+38,4,Y-38-4,N52SH,NW Arc,1,tunnel,1.3107,1.3055,-0.3997,1.0,1,1,False
+39,1,Y-39-1,N42EH,NE Arc,1,tunnel,1.1839,1.1742,-0.8218,1.0,1,1,False
+39,2,Y-39-2,SmCo33H,NE Arc,1,tunnel,1.0338,1.0381,0.4216,1.0,1,1,False
+39,3,Y-39-3,N52SH,NE Arc,1,tunnel,1.3118,1.3047,-0.5429,1.0,1,1,False
+39,4,Y-39-4,SmCo35,NE Arc,1,tunnel,1.0816,1.0783,-0.2986,1.0,1,1,False
+4,1,Y-4-1,N52SH,North Linac,0,tunnel,1.311,1.311,0.0027,1.0,1,1,False
+4,2,Y-4-2,SmCo35,North Linac,0,tunnel,1.0772,1.0815,0.4006,1.0,1,1,False
+4,3,Y-4-3,N42EH,North Linac,0,tunnel,1.1897,1.1853,-0.3742,1.0,1,1,False
+4,4,Y-4-4,SmCo33H,North Linac,0,tunnel,1.0411,1.0407,-0.0368,1.0,1,1,False
+40,1,Y-40-1,N52SH,SE Arc,5,tunnel,1.3125,1.3112,-0.1005,1.0,1,1,False
+40,2,Y-40-2,SmCo35,SE Arc,5,tunnel,1.0837,1.0842,0.0526,1.0,1,1,False
+40,3,Y-40-3,N42EH,SE Arc,5,tunnel,1.1852,1.1843,-0.0756,1.0,1,1,False
+40,4,Y-40-4,SmCo33H,SE Arc,5,tunnel,1.1101,1.0419,-6.1428,1.0,1,1,True
+5,1,Y-5-1,SmCo33H,South Linac,0,tunnel,1.0378,1.0418,0.3885,1.0,1,1,False
+5,2,Y-5-2,N52SH,South Linac,0,tunnel,1.3131,1.3124,-0.0514,1.0,1,1,False
+5,3,Y-5-3,SmCo35,South Linac,0,tunnel,1.0801,1.0804,0.0299,1.0,1,1,False
+5,4,Y-5-4,N42EH,South Linac,0,tunnel,1.1795,1.1789,-0.0506,1.0,1,1,False
+6,1,Y-6-1,SmCo35,NW Arc,2,tunnel,1.0826,1.0835,0.0803,1.0,1,1,False
+6,2,Y-6-2,N42EH,NW Arc,2,tunnel,1.1715,1.1679,-0.3025,1.0,1,1,False
+6,3,Y-6-3,SmCo33H,NW Arc,2,tunnel,1.0424,1.0435,0.103,1.0,1,1,False
+6,4,Y-6-4,N52SH,NW Arc,2,tunnel,1.3085,1.307,-0.1085,1.0,1,1,False
+7,1,Y-7-1,N42EH,NE Arc,2,tunnel,1.1754,1.1705,-0.4155,1.0,1,1,False
+7,2,Y-7-2,SmCo33H,NE Arc,2,tunnel,1.0399,1.0391,-0.0751,1.0,1,1,False
+7,3,Y-7-3,N52SH,NE Arc,2,tunnel,1.3119,1.3065,-0.4116,1.0,1,1,False
+7,4,Y-7-4,SmCo35,NE Arc,2,tunnel,1.082,1.0805,-0.1409,1.0,1,1,False
+9,1,Y-9-1,SmCo33H,NE Arc,5,tunnel,1.0372,1.0375,0.0343,1.0,1,1,False
+9,2,Y-9-2,N52SH,NE Arc,5,tunnel,1.3155,1.31,-0.4219,1.0,1,1,False
+9,3,Y-9-3,SmCo35,NE Arc,5,tunnel,1.079,1.0767,-0.2065,1.0,1,1,False
+9,4,Y-9-4,N42EH,NE Arc,5,tunnel,1.1755,1.1729,-0.219,1.0,1,1,False
+8,1,Y-8-1,N52SH,,0,lab,1.2997,1.304,0.3292,0.0,1,1,False
+8,2,Y-8-2,SmCo35,,0,lab,1.0777,1.0764,-0.1218,0.0,1,1,False
+8,3,Y-8-3,N42EH,,0,lab,1.1734,1.1725,-0.0806,0.0,1,1,False
+8,4,Y-8-4,SmCo33H,,0,lab,1.0379,1.0365,-0.1286,0.0,1,1,False
+14,1,Y-14-1,SmCo35,,0,lab,1.0799,1.0803,0.0386,0.0,1,1,False
+14,2,Y-14-2,N42EH,,0,lab,1.1762,1.176,-0.0181,0.0,1,1,False
+14,3,Y-14-3,SmCo33H,,0,lab,1.041,1.0415,0.0489,0.0,1,1,False
+14,4,Y-14-4,N52SH,,0,lab,1.3097,1.3098,0.0092,0.0,1,1,False
+27,1,Y-27-1,N42EH,,0,lab,1.1829,1.1826,-0.0177,0.0,1,1,False
+27,2,Y-27-2,SmCo33H,,0,lab,1.04,1.0409,0.0874,0.0,1,1,False
+27,3,Y-27-3,N52SH,,0,lab,1.3096,1.3099,0.0245,0.0,1,1,False
+27,4,Y-27-4,SmCo35,,0,lab,1.0814,1.0824,0.0941,0.0,1,1,False
+28,1,Y-28-1,N52SH,,0,lab,1.308,1.3088,0.0629,0.0,1,1,False
+28,2,Y-28-2,SmCo35,,0,lab,1.0789,1.0792,0.0293,0.0,1,1,False
+28,3,Y-28-3,N42EH,,0,lab,1.1712,1.1715,0.0245,0.0,1,1,False
+28,4,Y-28-4,SmCo33H,,0,lab,1.0404,1.0412,0.0778,0.0,1,1,False
+29,1,Y-29-1,SmCo33H,,0,lab,1.0403,1.0405,0.02,0.0,1,1,False
+29,2,Y-29-2,N52SH,,0,lab,1.3072,1.307,-0.0139,0.0,1,1,False
+29,3,Y-29-3,SmCo35,,0,lab,1.0751,1.0771,0.1877,0.0,1,1,False
+29,4,Y-29-4,N42EH,,0,lab,1.1787,1.1788,0.0076,0.0,1,1,False
+31,1,Y-31-1,N42EH,,0,lab,1.1766,1.1745,-0.18,0.0,1,1,False
+31,2,Y-31-2,SmCo33H,,0,lab,1.041,1.0409,-0.0088,0.0,1,1,False
+31,3,Y-31-3,N52SH,,0,lab,1.31,1.3081,-0.1439,0.0,1,1,False
+31,4,Y-31-4,SmCo35,,0,lab,1.0816,1.081,-0.054,0.0,1,1,False
+33,1,Y-33-1,SmCo33H,,0,lab,1.0408,1.0413,0.0489,0.0,1,1,False
+33,2,Y-33-2,N52SH,,0,lab,1.3104,1.311,0.0475,0.0,1,1,False
+33,3,Y-33-3,SmCo35,,0,lab,1.0842,1.0836,-0.0539,0.0,1,1,False
+33,4,Y-33-4,N42EH,,0,lab,1.1725,1.1727,0.0159,0.0,1,1,False
+35,1,Y-35-1,N42EH,,0,lab,1.1837,1.1836,-0.0092,0.0,1,1,False
+35,2,Y-35-2,SmCo33H,,0,lab,1.0402,1.0402,0.0008,0.0,1,1,False
+35,3,Y-35-3,N52SH,,0,lab,1.3105,1.3114,0.0705,0.0,1,1,False
+35,4,Y-35-4,SmCo35,,0,lab,1.0812,1.082,0.0756,0.0,1,1,False
+37,1,Y-37-1,SmCo33H,,0,lab,1.041,1.0413,0.0296,0.0,1,1,False
+37,2,Y-37-2,N52SH,,0,lab,1.3103,1.3109,0.0475,0.0,1,1,False
+37,3,Y-37-3,SmCo35,,0,lab,1.0811,1.081,-0.0078,0.0,1,1,False
+37,4,Y-37-4,N42EH,,0,lab,1.1811,1.1818,0.0671,0.0,1,1,False

@@ -1,0 +1,649 @@
+\documentclass[11pt,letterpaper]{article}
+
+% --- Packages ---
+\usepackage[margin=1in]{geometry}
+\usepackage{booktabs}
+\usepackage[colorlinks=true,linkcolor=blue,urlcolor=blue,citecolor=blue]{hyperref}
+\usepackage{amsmath}
+\usepackage{listings}
+\usepackage{xcolor}
+\usepackage{graphicx}
+\usepackage{siunitx}
+\usepackage{enumitem}
+\usepackage{longtable}
+\usepackage{caption}
+
+% --- Listings style ---
+\lstset{
+  basicstyle=\ttfamily\small,
+  backgroundcolor=\color{gray!10},
+  frame=single,
+  framerule=0pt,
+  breaklines=true,
+  columns=fullflexible,
+  keepspaces=true,
+  aboveskip=1em,
+  belowskip=1em,
+}
+
+% --- siunitx setup ---
+\sisetup{
+  per-mode=symbol,
+  detect-all,
+}
+
+% --- Title ---
+\title{Summer Measurement Plan: Concrete Goals for 2026}
+\author{LDRD FFA@CEBAF Permanent Magnet Radiation Damage Study}
+\date{June 2026}
+
+\begin{document}
+\maketitle
+
+\noindent\textbf{Interns:} Moishe, Evelyn \\
+\textbf{Duration:} ${\sim}$10 weeks (June--August 2026)
+
+\bigskip\noindent\textbf{Figures:} This document references PNG files from the
+project. For Overleaf, upload them to the same directory as this \texttt{.tex}
+file. Source locations relative to \texttt{Claude\_Analysis1/}:
+\begin{itemize}[nosep]
+  \item \texttt{2026\_Data\_Run/Analysis/} (C2-series, JA-series)
+\end{itemize}
+
+\tableofcontents
+\newpage
+
+%=============================================================================
+\section{Overview}
+\label{sec:overview}
+%=============================================================================
+
+This plan has two complementary goals:
+
+\begin{enumerate}
+  \item \textbf{Improve measurement reliability:} Accumulate multi-session
+    baselines, characterize temperature sensors, and quantify noise floors for
+    both Helmholtz and Teslameter instruments.
+
+  \item \textbf{Enable dual-measurement publications:} Get the Teslameter
+    precise enough to serve as an independent primary measurement, not just a
+    cross-check. If we can show demagnetization in both integrated moment
+    (Helmholtz) and spatially-resolved point field (Teslameter), across all
+    three sample types (Y-plates, H-plates, A-samples), we are positioned for
+    high-impact journal publications. H-plates are especially important because
+    they directly represent Halbach/FFA magnet geometry.
+\end{enumerate}
+
+The plan is organized into 6 priorities. All priorities can overlap; the ordering
+reflects when each should start.
+
+\subsection{Equipment Available}
+
+\begin{itemize}[nosep]
+  \item Helmholtz coil + Fluxmeter Model 2130 (integrated magnetic moment, mWC)
+  \item SENIS 3MH6-E Teslameter + Hall Probe Type C (3-axis field, mT)
+  \item Arduino AM2302 temperature/humidity sensor (ambient temp + RH)
+  \item 3D-printed Teslameter sample rigs (top, front, side faces)
+  \item Lab Y-plates: Y-\{8,\,14,\,27,\,28,\,29,\,31,\,33,\,35,\,37\} (9
+    plates, 36 slots)
+  \item Lab H-plates: 24 north + 24 south (48 plates, 192 slots)
+  \item Lab A-samples: all lab A-sample pairs
+\end{itemize}
+
+\subsection{General Protocol (Every Session)}
+
+\begin{enumerate}[nosep]
+  \item Power on Helmholtz and Teslameter. Allow 15+ minutes for thermal
+    equilibration.
+  \item Start Arduino sensor logging.
+  \item Measure Y-14 calibration plate (all 4 slots, Helmholtz + Teslameter top).
+  \item Measure all scheduled samples.
+  \item Measure Y-14 again at end of session.
+  \item Record session notes: start/end times, any anomalies, room conditions.
+  \item Verify all data files saved and named correctly before shutdown.
+\end{enumerate}
+
+Figure~\ref{fig:c2-cal} shows the Y-14 repeatability achieved in April 2026.
+
+\begin{figure}[htbp]
+  \centering
+  \includegraphics[width=0.85\textwidth]{C2-1_calibration_repeatability.png}
+  \caption{Y-14 calibration plate repeatability from the April 2026 measurement
+    campaign. Corrected std per slot: 0.06--0.27\%.}
+  \label{fig:c2-cal}
+\end{figure}
+
+
+%=============================================================================
+\section{Priority 1: Lab Control Baseline Accumulation (Weeks 1--5)}
+\label{sec:p1}
+%=============================================================================
+
+\subsection{Goal}
+
+Measure every lab plate in 5--10 independent sessions to build a high-statistics
+baseline that reduces per-plate noise as $1/\sqrt{N}$.
+
+\subsection{What to Measure}
+
+\begin{table}[htbp]
+\centering
+\caption{Per-session measurement counts for Priority~1.}
+\label{tab:p1-counts}
+\begin{tabular}{@{}lccc@{}}
+\toprule
+Sample type & Count & Slots per plate & Total measurements per session \\
+\midrule
+Lab Y-plates  & 9  & 4 & 36 Helmholtz + 36 Teslameter (top) \\
+Lab H-plates  & 48 & 4 & 192 Helmholtz + 192 Teslameter (top) \\
+Lab A-samples & All pairs & 2 per pair & ${\sim}$96 Helmholtz + ${\sim}$96 Teslameter \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\textbf{Instruments per sample:} Helmholtz (mWC) + Teslameter top face + Arduino
+temp.
+
+\subsection{Cadence}
+
+${\sim}$2 sessions per week for 5 weeks = 10 sessions.
+
+Each session takes approximately:
+\begin{itemize}[nosep]
+  \item Y-plates: 9 plates $\times$ 4 slots $\times$ ${\sim}$2 min = ${\sim}$72 min
+  \item H-plates: 48 plates $\times$ 4 slots $\times$ ${\sim}$1.5 min = ${\sim}$288 min (${\sim}$5 hours)
+  \item A-samples: ${\sim}$96 pairs $\times$ ${\sim}$1.5 min = ${\sim}$144 min (${\sim}$2.5 hours)
+  \item Y-14 calibration: 2 $\times$ ${\sim}$8 min = 16 min
+  \item Total: ${\sim}$8--9 hours per full session
+\end{itemize}
+
+\textbf{Recommendation:} Split into half-sessions if needed. Y-plates + Y-14 cal
+can be a morning session (${\sim}$1.5 hours). H-plates can be an afternoon
+session. A-samples on alternating days.
+
+\textbf{Important:} Do not neglect H-plates and A-samples in favor of Y-plates.
+For the broader publication goals, H-plate and A-sample baselines are equally
+critical. H-plates demonstrate degradation in Halbach (FFA-relevant) geometry;
+A-samples provide paired field-vs-zero-field comparisons. Both need the same
+multi-session baseline accumulation as Y-plates. The weekly schedule should
+ensure all three sample types get equal attention.
+
+\subsection{Statistical Target}
+
+With $N=10$ independent sessions per lab Y-plate:
+
+\begin{table}[htbp]
+\centering
+\caption{Statistical improvement from multi-session baselines.}
+\label{tab:p1-stats}
+\begin{tabular}{@{}lccc@{}}
+\toprule
+Metric & Current ($N \sim 1$--$2$) & Target ($N=10$) & Improvement \\
+\midrule
+Per-plate baseline std & ${\sim}$0.2--0.3\% & ${\sim}$0.2--0.3\% (unchanged) & -- \\
+Per-plate baseline SEM & ${\sim}$0.2--0.3\% & ${\sim}$0.06--0.10\%            & 3--5$\times$ \\
+Lab fleet differential SEM & 0.038\%        & ${\sim}$0.012\%                 & ${\sim}3\times$ \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+The lab null becomes definitive: if the lab differential is truly zero, we will
+measure $0.000\% \pm 0.012\%$, ruling out any hidden systematic $>$0.024\%
+($2\sigma$).
+
+\subsection{Data Naming Convention}
+
+Follow existing convention: \texttt{\{sample\_id\}\_helmholtzTemp.dat} for
+Arduino data, \texttt{\{sample\_id\}.dat} for Helmholtz,
+\texttt{\{sample\_id\}\_\{face\}.dat} for Teslameter.
+
+Organize by date: \texttt{2026\_Data\_Run/YYYY-MM-DD\_Helmholtz/} and
+\texttt{2026\_Data\_Run/YYYY-MM-DD\_Teslameter/}.
+
+
+%=============================================================================
+\section{Priority 2: Temperature Cross-Calibration (Weeks 2--5)}
+\label{sec:p2}
+%=============================================================================
+
+\subsection{Goal}
+
+Characterize the systematic difference between the Arduino AM2302 ambient sensor
+and the Teslameter probe temperature, as a function of temperature, time of day,
+and humidity.
+
+\subsection{Protocol}
+
+Measure Y-14 (calibration plate, all 4 slots) at multiple times throughout the
+day for 5+ separate days:
+
+\begin{table}[htbp]
+\centering
+\caption{Temperature cross-calibration measurement schedule.}
+\label{tab:p2-schedule}
+\begin{tabular}{@{}lp{9cm}@{}}
+\toprule
+Time & Purpose \\
+\midrule
+Morning (07:00--08:00)     & Cold start; largest expected sensor disagreement (sample may lag air) \\
+Mid-morning (09:00--10:00) & Room warming up \\
+Midday (12:00--13:00)      & Near steady-state \\
+Afternoon (15:00--16:00)   & Warmest; sensors likely most equilibrated \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+For each measurement:
+\begin{enumerate}[nosep]
+  \item Record Arduino temperature and humidity (from \texttt{*\_helmholtzTemp.dat})
+  \item Record Teslameter temperature (from \texttt{*\_top.dat})
+  \item Note time since power-on of instruments
+  \item Note time since samples were placed on bench (equilibration time)
+\end{enumerate}
+
+\subsection{Days to Target}
+
+\begin{itemize}[nosep]
+  \item At least 2 ``cold start'' days: arrive early, measure before room warms up
+  \item At least 2 ``hot'' days: ambient $>$\SI{27}{\degreeCelsius} (expected in July--August)
+  \item At least 1 day with humidity $>$55\% (if possible)
+  \item At least 5 total days with 3+ measurements per day
+\end{itemize}
+
+\subsection{Deliverables}
+
+\begin{enumerate}[nosep]
+  \item Characterization of the Arduino--Teslameter offset: is it constant,
+    linear in temperature, or more complex? (Do NOT assume either sensor is
+    ground truth.)
+  \item Assessment of which sensor (or combination) better predicts Helmholtz
+    residuals after temperature correction.
+  \item Humidity effect: does humidity correlate with temperature disagreement?
+  \item Equilibration study: how long after placing samples on the bench do the
+    two sensors converge? This constrains whether the offset is due to sample
+    thermal lag vs sensor bias.
+  \item Draft recommendation: what temperature source should be used for the
+    correction formula, and with what estimated uncertainty?
+\end{enumerate}
+
+\textbf{Key caution:} The Arduino measures ambient air temperature, which can be
+influenced by cross-breezes, laptop fans, HVAC airflow, and distance from the
+sample. The Teslameter probe is in contact with the magnet surface, so it may be
+closer to the actual sample temperature in some conditions. Do not assume either
+is ``correct'' without evidence.
+
+\subsection{Statistical Target}
+
+Understand the offset well enough to reduce temperature uncertainty to
+$<$\SI{0.3}{\degreeCelsius}, which would bring the temperature systematic on the
+differential from $\pm 0.033\%$ to $\pm 0.020\%$.
+
+
+%=============================================================================
+\section{Priority 3: Teslameter Repeatability Study (Weeks 3--7)}
+\label{sec:p3}
+%=============================================================================
+
+\subsection{Goal}
+
+Quantify the Teslameter positioning noise per face, per material, per sample,
+using a remove-and-reinsert protocol.
+
+\subsection{Sample Selection}
+
+8 representative samples spanning all three sample types and all four materials:
+
+\begin{table}[htbp]
+\centering
+\caption{Samples for Teslameter repeatability study.}
+\label{tab:p3-samples}
+\begin{tabular}{@{}clllp{5cm}@{}}
+\toprule
+\# & Sample & Type & Material & Why \\
+\midrule
+1 & Y-14-1 & Y-plate       & (check assignment) & Calibration plate, well-characterized \\
+2 & Y-14-2 & Y-plate       & (check assignment) & Same plate, different material \\
+3 & Y-14-3 & Y-plate       & (check assignment) & Same plate, different material \\
+4 & Y-14-4 & Y-plate       & (check assignment) & Same plate, different material \\
+5 & One lab Hn & H-plate (north) & Mixed & Different rig geometry from Y-plates \\
+6 & One lab Hs & H-plate (south) & Mixed & North vs south comparison \\
+7 & One A-sample pair & A-sample & NdFeB & Smallest sample, potentially worst positioning \\
+8 & One A-sample pair & A-sample & SmCo & Material comparison for A-samples \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+Including H-plate and A-sample geometries is essential because the rig
+positioning noise may differ by sample type (different rig, different magnet
+shape, different field gradients). If we only characterize Y-plate noise, we
+cannot make claims about Teslameter precision on H-plates or A-samples.
+
+\subsection{Protocol (Per Sample, Per Day)}
+
+\begin{enumerate}[nosep]
+  \item Insert sample into rig for top face measurement
+  \item Record Teslameter reading ($B_x$, $B_y$, $B_z$, $T$)
+  \item Remove sample completely from rig
+  \item Re-insert sample
+  \item Record reading again
+  \item Repeat steps 3--5 until you have 10 readings per face
+  \item Move to front face rig; repeat 10$\times$
+  \item Move to side face rig; repeat 10$\times$
+  \item Total: 30 readings per sample per day
+\end{enumerate}
+
+\subsection{Schedule}
+
+Run on 3 different days (ideally different weeks) to test day-to-day
+reproducibility.
+
+Total: 8 samples $\times$ 3 faces $\times$ 10 insertions $\times$ 3 days = 720
+readings. Time estimate: ${\sim}$10 min per sample per face per day, ${\sim}$4
+hours per day, ${\sim}$12 hours total across 3 days.
+
+\subsection{Analysis}
+
+For each sample/face combination:
+\begin{itemize}[nosep]
+  \item Mean, std, CV (coefficient of variation $= \mathrm{std}/\mathrm{mean} \times 100\%$)
+  \item Within-day vs between-day variance (is day-to-day variation larger?)
+  \item Compare to existing estimates (top 0.14--0.29\%, front 0.57--0.91\%, side
+    0.90--1.90\%)
+\end{itemize}
+
+\subsection{Decision Point}
+
+If top-face CV $< 0.15\%$: current rig is adequate for top-face trend tracking.
+If top-face CV $> 0.30\%$: pursue machined jig (Priority~6 stretch goal).
+
+
+%=============================================================================
+\section{Priority 4: Helmholtz Repeatability Study (Weeks 5--8)}
+\label{sec:p4}
+%=============================================================================
+
+\subsection{Goal}
+
+Quantify the single-insertion reproducibility of the Helmholtz coil measurement.
+
+\subsection{Samples}
+
+\begin{itemize}[nosep]
+  \item Y-14 (calibration plate, all 4 slots)
+  \item 2 additional lab Y-plates (e.g., Y-8, Y-27): 8 more slots
+  \item Total: 12 slots
+\end{itemize}
+
+\subsection{Protocol (Per Session)}
+
+\begin{enumerate}[nosep]
+  \item Measure all 12 slots normally (insert, record mWC, remove)
+  \item Re-measure all 12 slots (insert, record mWC, remove)
+  \item Repeat until each slot has 10 readings in the same session
+  \item Record Arduino temperature throughout (should be stable if room is
+    equilibrated)
+  \item Total: 120 Helmholtz readings in a single session
+\end{enumerate}
+
+\subsection{Time Estimate}
+
+${\sim}$1 minute per insertion $\times$ 120 insertions = ${\sim}$2 hours per
+session. Do 2--3 sessions on different days.
+
+\subsection{Analysis}
+
+For each slot:
+\begin{itemize}[nosep]
+  \item 10-reading mean, std, CV
+  \item Compare to nominal instrument accuracy (0.05\%)
+  \item Check for systematic drift within the 10-reading sequence (does the
+    reading drift up or down as the session progresses?)
+\end{itemize}
+
+\subsection{Expected Result}
+
+Single-insertion std of 0.02--0.05\%. This would confirm that Helmholtz
+positioning noise is negligible compared to gain drift (0.5--0.7\%) and
+statistical scatter (0.17--0.20\%).
+
+
+%=============================================================================
+\section{Priority 5: Environmental Monitoring (Weeks 6--9)}
+\label{sec:p5}
+%=============================================================================
+
+\subsection{Goal}
+
+Characterize how room environment (temperature, humidity) varies during
+measurement sessions and how it correlates with Helmholtz readings.
+
+\subsection{Protocol}
+
+\begin{enumerate}[nosep]
+  \item Arduino sensor logs continuously during all measurement sessions (it
+    should already be doing this for Priority~1)
+  \item Additionally, run Arduino logging on 3--5 non-measurement days to capture
+    baseline environmental patterns
+  \item Record HVAC status (on/off, set point) if accessible
+\end{enumerate}
+
+\subsection{Analysis}
+
+\begin{itemize}[nosep]
+  \item Temperature profile: typical daily range, rate of change, time-of-day
+    pattern
+  \item Humidity profile: range, correlation with temperature
+  \item Helmholtz drift within sessions vs temperature change
+  \item Is there a measurable correlation between Helmholtz reading and Arduino
+    temperature beyond what the temperature correction formula predicts?
+\end{itemize}
+
+Figure~\ref{fig:c2-temp} shows the temperature swing from the April 2026 campaign
+as an example of the variability that must be characterized.
+
+\subsection{Deliverable}
+
+Environmental characterization report with plots:
+\begin{itemize}[nosep]
+  \item Temperature vs time-of-day (5+ days overlaid)
+  \item Humidity vs time-of-day
+  \item Helmholtz residual (after temp correction) vs session temperature change
+  \item Thermal equilibration timescale for samples (from Priority~2 data)
+\end{itemize}
+
+\begin{figure}[htbp]
+  \centering
+  \includegraphics[width=0.85\textwidth]{C2-2_temperature_evolution.png}
+  \caption{Temperature evolution during the April 2026 measurement campaign
+    (Campaign~2). An \SI{8.6}{\degreeCelsius} swing was observed over the
+    measurement day.}
+  \label{fig:c2-temp}
+\end{figure}
+
+
+%=============================================================================
+\section{Priority 6: Improved-Protocol Re-measurement (Weeks 8--10)}
+\label{sec:p6}
+%=============================================================================
+
+\subsection{Goal}
+
+If Priorities 1--4 are complete, re-measure all 30 tunnel Y-plates using the
+improved protocol (multi-insertion Helmholtz, dual temperature sensors, Y-14
+calibration at start and end).
+
+\subsection{Protocol}
+
+For each tunnel Y-plate (4 slots):
+\begin{enumerate}[nosep]
+  \item Helmholtz: 3 insertions per slot, record all 3 readings
+  \item Arduino temperature recorded for each insertion
+  \item Teslameter top face: 3 insertions per slot
+  \item Y-14 measured at start and end of every batch of 5 plates
+\end{enumerate}
+
+\subsection{Deliverable}
+
+``C2 improved'' dataset: 120 tunnel Y-plate measurements with:
+\begin{itemize}[nosep]
+  \item Multi-insertion Helmholtz means and stds
+  \item Dual temperature readings
+  \item Y-14 calibration brackets
+  \item Full Arduino environmental log
+\end{itemize}
+
+\subsection{Time Estimate}
+
+30 plates $\times$ 4 slots $\times$ 3 insertions $\times$ ${\sim}$2 min =
+${\sim}$12 hours of Helmholtz. Plus Teslameter: ${\sim}$12 hours. Plus
+calibration: ${\sim}$3 hours. Total: ${\sim}$27 hours, spread over ${\sim}$4
+days.
+
+
+%=============================================================================
+\section{Stretch Goals (If Time Permits)}
+\label{sec:stretch}
+%=============================================================================
+
+\subsection{S1: Prototype Machined Teslameter Jig}
+
+If Priority~3 shows top-face CV $> 0.30\%$, design and fabricate an aluminum jig
+for top-face measurements. Requirements:
+\begin{itemize}[nosep]
+  \item Repeatable sample positioning to $<$\SI{0.05}{\milli\meter}
+  \item Easy insertion/removal (no tools required during measurement)
+  \item Compatible with Y-plate and H-plate sample dimensions
+\end{itemize}
+
+This is the single highest-leverage stretch goal: if the rig is the noise
+bottleneck, fixing it unlocks the Teslameter as a primary science measurement.
+
+\subsection{S2: Humidity--Field Investigation}
+
+With Arduino humidity data: is there a measurable correlation between relative
+humidity and Helmholtz or Teslameter readings? Anecdotally, magnetic measurements
+can be affected by condensation or air moisture, but this has never been tested
+on our setup.
+
+\subsection{S3: Tunnel H-Plate and A-Sample Re-measurement}
+
+Re-measure all tunnel H-plates and A-samples with the improved protocol
+(multi-insertion, dual temp sensors). Combined with the lab baselines from
+Priority~1 and the Teslameter noise characterization from Priority~3, this
+creates a dataset suitable for dual-measurement (point + integrated) publication
+on H-plate and A-sample degradation.
+
+
+%=============================================================================
+\section{Weekly Schedule Template}
+\label{sec:schedule}
+%=============================================================================
+
+\begin{longtable}{@{}cp{2.8cm}p{2.4cm}p{2.4cm}p{2.8cm}@{}}
+\caption{Weekly schedule template. P1 = Baselines, P2 = Temp Cal, P3 = Teslameter
+  Repeatability.} \label{tab:schedule} \\
+\toprule
+Week & P1 (Baselines) & P2 (Temp Cal) & P3 (Tesla Rep.) & Other \\
+\midrule
+\endfirsthead
+\toprule
+Week & P1 (Baselines) & P2 (Temp Cal) & P3 (Tesla Rep.) & Other \\
+\midrule
+\endhead
+1  & Sessions 1--2 (Y + Y-14 cal; learn protocol) & -- & -- & Training, setup \\
+2  & Sessions 3--4 (Y + H-plates) & Start temp cal & -- & -- \\
+3  & Sessions 5--6 (Y + H + A, full) & Continue temp cal & Start repeatability & -- \\
+4  & Sessions 7--8 (Y + H + A, full) & Wrap up temp cal & Continue repeatability & -- \\
+5  & Sessions 9--10 (Y + H + A, full) & Final day if needed & Continue repeatability & Start P4 pilot \\
+6  & Catch-up if needed & -- & Wrap up & Helmholtz repeatability \\
+7  & Additional H/A sessions if behind & -- & Analysis + writeup & Helmholtz repeatability \\
+8  & -- & -- & -- & Begin improved re-measurement \\
+9  & Wrap-up & -- & -- & Improved re-measurement \\
+10 & -- & -- & -- & Final analysis, reports \\
+\bottomrule
+\end{longtable}
+
+Note: Weeks 1--2 ramp up gradually (Y-plates first to learn the protocol, then
+add H-plates and A-samples). By week~3, every session should include all three
+sample types. Do not let H-plates and A-samples fall behind Y-plates.
+
+
+%=============================================================================
+\section{Success Metrics}
+\label{sec:success}
+%=============================================================================
+
+By the end of summer, we should have:
+
+\begin{enumerate}
+  \item \textbf{10 independent measurement sessions} for all 9 lab Y-plates, all
+    48 lab H-plates, and lab A-samples, producing a lab Y-plate differential SEM
+    of ${\sim}$0.012\% and meaningful H-plate/A-sample baselines
+
+  \item \textbf{Temperature cross-calibration} characterizing the
+    Arduino--Teslameter offset with a clear recommendation for which sensor (or
+    combination) to use, targeting temperature uncertainty
+    $<$\SI{0.3}{\degreeCelsius} ($\pm 0.020\%$ on differential)
+
+  \item \textbf{Teslameter positioning noise} quantified per face, per material,
+    per sample type (Y, H, A), from a 720-reading dataset across 3 days.
+    Determines whether the Teslameter can serve as an independent primary
+    measurement for publication.
+
+  \item \textbf{Helmholtz single-insertion std} measured (expect 0.02--0.05\%),
+    confirming negligible positioning noise
+
+  \item \textbf{Environmental characterization} showing typical
+    temperature/humidity patterns during measurement sessions
+
+  \item (Stretch) \textbf{Improved-protocol tunnel Y-plate dataset} for C2
+    comparison
+\end{enumerate}
+
+\subsection{Publication Readiness Checkpoint}
+
+At the end of the summer, evaluate:
+\begin{itemize}[nosep]
+  \item Can we show consistent demagnetization in both Helmholtz and Teslameter
+    data on Y-plates? (Requires top-face Teslameter noise $<$0.15\%)
+  \item Do H-plate results, measured with improved baselines and both
+    instruments, support the Y-plate story? (Requires multi-session H-plate
+    baselines)
+  \item Are A-sample paired comparisons informative? (Requires A-sample
+    baselines)
+\end{itemize}
+
+If all three are ``yes,'' we have the dataset for a high-impact journal paper
+showing dual-measurement, multi-geometry evidence for radiation-induced permanent
+magnet demagnetization in an operating accelerator.
+
+
+%=============================================================================
+\section{Important Reminders}
+\label{sec:reminders}
+%=============================================================================
+
+\begin{itemize}
+  \item \textbf{Y-14 is the calibration plate.} Measure it at the start and end
+    of EVERY session. It is the anchor for all cross-session comparisons.
+
+  \item \textbf{Arduino sensor must be on for ALL Helmholtz measurements.} This
+    is the only way to get synchronous ambient temperature.
+
+  \item \textbf{1337 = missing data.} If a measurement fails, record 1337 (not 0,
+    not blank). The analysis scripts know to skip this value.
+
+  \item \textbf{Record anomalies.} If something unusual happens (power glitch,
+    sample dropped, instrument reset), note it in the session log with the time.
+    Better to have too many notes than too few.
+
+  \item \textbf{Do not mix sessions.} All 4 slots of a Y-plate must be measured
+    in the same session. If you cannot finish a plate, restart it in the next
+    session.
+
+  \item \textbf{Save data immediately.} After each plate, verify the data file
+    was saved. Data loss from a 9-hour session would be devastating.
+\end{itemize}
+
+
+\end{document}

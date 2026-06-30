@@ -1,0 +1,108 @@
+======================================================================
+Temperature Sensor Cross-Calibration Summary
+Arduino AM2302 vs Teslameter Probe (SENIS 3MH6-E)
+June 2-3, 2026 Measurement Campaign
+======================================================================
+
+FLEET STATISTICS (492 matched pairs)
+----------------------------------------
+Arduino temperature range:    20.3 - 29.5 C
+Teslameter temperature range: 21.6 - 30.5 C
+Humidity range:               26.0 - 52.8 %
+Time gap (Arduino-Tesla):     median 104 sec, max 299 sec
+
+RESIDUAL (Teslameter - Arduino)
+----------------------------------------
+Mean:   +0.997 C
+Std:    0.736 C
+Median: +0.932 C
+Min:    -1.008 C
+Max:    +3.427 C
+IQR:    0.979 C (Q1=0.475, Q3=1.454)
+
+LINEAR FIT: T_tesla = a * T_arduino + b
+----------------------------------------
+a (slope):     0.7073
+b (intercept): 9.052 C
+Fit residual std: 0.618 C
+
+PER-DATE BREAKDOWN
+----------------------------------------
+
+  2026-06-01 (N=3)
+    Arduino:  21.1 - 21.6 C (mean 21.4)
+    Tesla:    21.6 - 22.6 C (mean 22.1)
+    Residual: mean +0.740, std 0.226 C
+    Humidity: 51.8 - 52.8 %
+
+  2026-06-02 (N=352)
+    Arduino:  20.3 - 29.5 C (mean 27.9)
+    Tesla:    22.7 - 30.5 C (mean 28.8)
+    Residual: mean +0.915, std 0.626 C
+    Humidity: 26.0 - 49.1 %
+
+  2026-06-03 (N=137)
+    Arduino:  22.6 - 28.5 C (mean 26.8)
+    Tesla:    24.0 - 29.5 C (mean 28.0)
+    Residual: mean +1.213, std 0.936 C
+    Humidity: 32.2 - 44.5 %
+
+
+Y-14 CALIBRATION PLATE DETAIL
+----------------------------------------
+Sample       Date       Ard.Time     Ard(C)   Tes(C)   Res(C)    RH(%)
+Y-14-1       2026-06-03 07:26:55       22.6     24.0     1.39     44.5
+Y-14-2       2026-06-03 07:27:23       22.8     24.0     1.18     41.7
+Y-14-3       2026-06-03 07:27:57       22.8     24.8     1.97     41.3
+Y-14-4       2026-06-03 07:28:31       22.9     24.9     2.02     41.2
+Y-14-1       2026-06-03 08:32:26       27.4     27.9     0.46     32.5
+Y-14-2       2026-06-03 08:32:49       27.5     27.4    -0.13     32.2
+Y-14-3       2026-06-03 08:33:29       27.5     27.6     0.14     32.4
+Y-14-4       2026-06-03 08:33:58       27.5     27.5    -0.02     32.2
+Y-14-1       2026-06-02 09:04:08       20.3     22.7     2.38     48.5
+Y-14-3       2026-06-02 09:04:35       23.0     24.1     1.09     48.9
+Y-14-4       2026-06-02 09:04:57       23.2     24.1     0.93     49.1
+Y-14-2       2026-06-02 09:05:23       23.4     23.3    -0.08     48.4
+Y-14-1       2026-06-03 09:24:49       28.5     28.3    -0.15     35.9
+Y-14-2       2026-06-03 09:25:18       28.5     28.4    -0.09     35.9
+Y-14-3       2026-06-03 09:25:45       28.5     28.6     0.12     35.7
+Y-14-4       2026-06-03 09:26:11       28.5     28.3    -0.24     35.7
+Y-14-1       2026-06-01 10:43:22       21.1     21.6     0.53     52.8
+Y-14-2       2026-06-01 10:45:32       21.5     22.2     0.71     52.5
+Y-14-3       2026-06-01 10:52:01       21.6     22.6     0.98     51.8
+
+  Y-14 residual: mean +0.694, std 0.816, range 2.619 C
+
+
+TEMPERATURE-DEPENDENT BIAS ANALYSIS
+----------------------------------------
+Low temp (<24 C):  N=17, mean residual = +1.874 C
+High temp (>=27 C): N=401, mean residual = +0.860 C
+Difference: 1.014 C (Teslameter converges at high T)
+
+
+HUMIDITY CORRELATION
+----------------------------------------
+Spearman rho (humidity vs residual): 0.144 (p = 0.001)
+Spearman rho (arduino temp vs humidity): -0.624 (p = 0.000)
+Note: humidity and temperature are strongly anticorrelated in these data,
+so humidity-residual correlation may be confounded by temperature.
+
+
+IMPLICATIONS FOR TEMPERATURE CORRECTION
+----------------------------------------
+Current differential temp sensitivity: 0.066%%/C
+Mean residual (0.997 C) -> differential bias: 0.0658%
+Residual std (0.736 C) -> differential uncertainty: +/-0.0486%
+
+NOTE: Neither sensor directly measures the sample's internal temperature.
+  - Arduino AM2302: measures ambient air (may be affected by drafts,
+    laptop fans, HVAC airflow; +/-0.5 C spec accuracy)
+  - Teslameter probe: in contact with sample surface (may include
+    self-heating bias, but physically closer to sample temperature)
+  - Which is the better proxy for the temperature correction is an
+    OPEN QUESTION to be resolved by the summer cross-calibration study.
+  - AM2302 advantage: synchronous with Helmholtz measurement time
+  - Teslameter advantage: in thermal contact with the actual sample
+  - Target: reduce temperature uncertainty to +/-0.3 C by understanding
+    and modeling the offset, regardless of which sensor is primary.

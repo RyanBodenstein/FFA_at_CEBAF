@@ -1,0 +1,121 @@
+plate,period,rod_id,badge_serial,is_lab,rod_dose_krad,rod_valid,osl_body_mrem,osl_saturated,dose_gy,dose_source,c1_gamma_gy,c1_neutron_rem,notes
+Y-23,jan,R-681,XA01359204J,False,2.293,True,0,False,0.0000,osl_preferred,41.9,31.8,rod borderline (2.3 krad) but OSL says 0 mrem; rod-OSL discrepancy ~infx; OSL preferred
+Y-19,jan,R-682,XA005386690,False,1.559,False,10,False,0.0001,osl,941.3,3282.1,rod < 2 krad; OSL not saturated; using OSL
+Y-13,jan,R-683,XA01116950L,False,2.219,True,7,False,0.0001,osl_preferred,30.0,24.0,rod borderline (2.2 krad) but OSL says 7 mrem; rod-OSL discrepancy ~317000x; OSL preferred
+Y-39,jan,R-684,XA011296859,False,2.655,True,5,False,0.0001,osl_preferred,69.7,15.0,rod borderline (2.7 krad) but OSL says 5 mrem; rod-OSL discrepancy ~531000x; OSL preferred
+Y-16,jan,R-685,XA007804369,False,1.889,False,62,False,0.0006,osl,15837.4,105445.8,rod < 2 krad; OSL not saturated; using OSL
+Hs-10,jan,R-686,XA02484709V,False,1.218,False,6,False,0.0001,osl,889.5,31.2,rod < 2 krad; OSL not saturated; using OSL
+Hn-9,jan,R-687,XA00201372Z,False,1.655,False,10,False,0.0001,osl,27.3,27.4,rod < 2 krad; OSL not saturated; using OSL
+Hs-4,jan,R-688,XA00758581A,False,1.484,False,22,False,0.0002,osl,0.3,1027.5,rod < 2 krad; OSL not saturated; using OSL
+Hn-20,jan,R-689,XA01118914F,False,1.208,False,24,False,0.0002,osl,5295.1,34485.3,rod < 2 krad; OSL not saturated; using OSL
+Y-25,jan,R-690,XA02833887W,False,1.527,False,5,False,0.0001,osl,1516.3,8.7,rod < 2 krad; OSL not saturated; using OSL
+Hn-6,jan,R-691,XA01834138E,False,0.357,False,60,False,0.0006,osl,13180.4,87867.8,rod < 2 krad; OSL not saturated; using OSL
+Hs-12,jan,R-692,XA021955651,False,2.282,True,8,False,0.0001,osl_preferred,18.1,16.3,rod borderline (2.3 krad) but OSL says 8 mrem; rod-OSL discrepancy ~285250x; OSL preferred
+Hs-14,jan,R-693,XA01010145Z,False,1.304,False,9,False,0.0001,osl,2668.8,16.8,rod < 2 krad; OSL not saturated; using OSL
+Hs-13,jan,R-694,XA005647159,False,1.133,False,35,False,0.0004,osl,4902.4,32318.0,rod < 2 krad; OSL not saturated; using OSL
+Hn-8,jan,R-695,XA00822408H,False,1.336,False,6,False,0.0001,osl,13.1,22.3,rod < 2 krad; OSL not saturated; using OSL
+Y-4,jan,R-696,XA02325654E,False,1.272,False,28,False,0.0003,osl,8.6,54.2,rod < 2 krad; OSL not saturated; using OSL
+Y-17,jan,R-697,XA00841262O,False,1.346,False,26,False,0.0003,osl,7111.0,47406.7,rod < 2 krad; OSL not saturated; using OSL
+Y-20,jan,R-698,XA007528927,False,0.282,False,21,False,0.0002,osl,1.1,19.3,rod < 2 krad; OSL not saturated; using OSL
+Y-32,jan,R-699,XA01137376E,False,2.453,True,7,False,0.0001,osl_preferred,348.9,30.1,rod borderline (2.5 krad) but OSL says 7 mrem; rod-OSL discrepancy ~350429x; OSL preferred
+Hs-15,jan,R-700,XA008555937,False,0.921,False,63,False,0.0006,osl,11749.4,78349.1,rod < 2 krad; OSL not saturated; using OSL
+Y-11,jan,R-701,XA009982353,False,1.048,False,0,False,0.0000,osl,517.1,21.2,rod < 2 krad; OSL not saturated; using OSL
+Y-30,jan,R-702,XA00773767X,False,1.336,False,48,False,0.0005,osl,22101.6,147342.6,rod < 2 krad; OSL not saturated; using OSL
+Hn-15,jan,R-703,XA00568241K,False,0.974,False,30,False,0.0003,osl,21589.6,143930.8,rod < 2 krad; OSL not saturated; using OSL
+Hs-3,jan,R-704,XA02448016I,False,1.697,False,0,False,0.0000,osl,284.9,19.9,rod < 2 krad; OSL not saturated; using OSL
+Y-24,jan,R-705,XA021953192,False,0.431,False,39,False,0.0004,osl,6299.3,41250.9,rod < 2 krad; OSL not saturated; using OSL
+Y-1,jan,R-706,XA005424599,False,1.495,False,40,False,0.0004,osl,14714.0,98091.7,rod < 2 krad; OSL not saturated; using OSL
+Y-12,jan,R-707,XA008617175,False,1.995,False,13,False,0.0001,osl,0.3,1028.4,rod < 2 krad; OSL not saturated; using OSL
+Y-9,jan,R-708,XA01438948X,False,2.346,True,11,False,0.0001,osl_preferred,1640.3,10.1,rod borderline (2.3 krad) but OSL says 11 mrem; rod-OSL discrepancy ~213273x; OSL preferred
+Hs-7,jan,R-709,XA00347771E,False,0.431,False,10,False,0.0001,osl,7.8,2034.2,rod < 2 krad; OSL not saturated; using OSL
+Y-7,jan,R-710,XA002784748,False,1.868,False,0,False,0.0000,osl,472.1,19.8,rod < 2 krad; OSL not saturated; using OSL
+Y-3,jan,R-711,XA00343453M,False,1.250,False,10,False,0.0001,osl,17.3,21.8,rod < 2 krad; OSL not saturated; using OSL
+Y-5,jan,R-712,XA02263060S,False,0.282,False,26,False,0.0003,osl,37.0,49.2,rod < 2 krad; OSL not saturated; using OSL
+Hn-17,jan,R-713,XA01089004K,False,1.336,False,0,False,0.0000,osl,537.0,18.8,rod < 2 krad; OSL not saturated; using OSL
+Y-34,jan,R-714,XA01802805H,False,0.995,False,6,False,0.0001,osl,502.2,9.2,rod < 2 krad; OSL not saturated; using OSL
+Y-18,jan,R-715,XA003438592,False,1.538,False,6,False,0.0001,osl,678.1,27.3,rod < 2 krad; OSL not saturated; using OSL
+Y-15,jan,R-716,XA00576889O,False,2.165,True,6,False,0.0001,osl_preferred,11.7,19.5,rod borderline (2.2 krad) but OSL says 6 mrem; rod-OSL discrepancy ~360833x; OSL preferred
+Y-26,jan,R-717,XA02551613G,False,1.836,False,10,False,0.0001,osl,17.0,24.2,rod < 2 krad; OSL not saturated; using OSL
+Hs-17,jan,R-718,XA03481378Z,False,1.495,False,11,False,0.0001,osl,624.8,1945.0,rod < 2 krad; OSL not saturated; using OSL
+Hn-12,jan,R-719,XA00803088K,False,2.697,True,0,False,0.0000,osl_preferred,8.1,8.0,rod borderline (2.7 krad) but OSL says 0 mrem; rod-OSL discrepancy ~infx; OSL preferred
+Hn-39,jan,R-720,XA00024736I,False,1.399,False,7,False,0.0001,osl,191.3,22.9,rod < 2 krad; OSL not saturated; using OSL
+Hs-18,jan,R-721,XA025359841,False,0.452,False,71,False,0.0007,osl,19148.9,127658.3,rod < 2 krad; OSL not saturated; using OSL
+Hs-1,jan,R-722,XA00788990X,False,2.644,True,6,False,0.0001,osl_preferred,17.3,29.7,rod borderline (2.6 krad) but OSL says 6 mrem; rod-OSL discrepancy ~440667x; OSL preferred
+Hs-2,jan,R-723,XA02712302U,False,2.772,True,5,False,0.0001,osl_preferred,228.9,24.2,rod borderline (2.8 krad) but OSL says 5 mrem; rod-OSL discrepancy ~554400x; OSL preferred
+Hs-5,jan,R-724,XA00690994W,False,0.729,False,22,False,0.0002,osl,1.1,17.8,rod < 2 krad; OSL not saturated; using OSL
+Y-36,jan,R-725,XA02444336E,False,2.091,True,6,False,0.0001,osl_preferred,946.1,9.6,rod borderline (2.1 krad) but OSL says 6 mrem; rod-OSL discrepancy ~348500x; OSL preferred
+Y-10,jan,R-726,XA000948437,False,1.133,False,9,False,0.0001,osl,1275.8,1507.1,rod < 2 krad; OSL not saturated; using OSL
+Hs-16,jan,R-727,XA022945536,False,2.006,True,0,False,0.0000,osl_preferred,341.9,21.8,rod borderline (2.0 krad) but OSL says 0 mrem; rod-OSL discrepancy ~infx; OSL preferred
+Y-38,jan,R-728,XA02140783E,False,2.112,True,11,False,0.0001,osl_preferred,9.6,8.2,rod borderline (2.1 krad) but OSL says 11 mrem; rod-OSL discrepancy ~192000x; OSL preferred
+Hn-16,jan,R-729,XA02276344B,False,1.591,False,15,False,0.0002,osl,19.3,22.1,rod < 2 krad; OSL not saturated; using OSL
+Y-22,jan,R-730,XA00078083J,False,0.516,False,31,False,0.0003,osl,23451.4,156342.9,rod < 2 krad; OSL not saturated; using OSL
+Hn-37,jan,R-731,XA008449932,False,2.165,True,10,False,0.0001,osl_preferred,10.1,23.1,rod borderline (2.2 krad) but OSL says 10 mrem; rod-OSL discrepancy ~216500x; OSL preferred
+Y-40,jan,R-732,XA01278344B,False,0.899,False,10,False,0.0001,osl,13.7,21.7,rod < 2 krad; OSL not saturated; using OSL
+Y-21,jan,R-733,XA01800162X,False,1.453,False,12,False,0.0001,osl,1665.1,12.9,rod < 2 krad; OSL not saturated; using OSL
+Y-6,jan,R-734,XA016207976,False,1.346,False,8,False,0.0001,osl,440.9,13.5,rod < 2 krad; OSL not saturated; using OSL
+Hn-18,jan,R-735,XA010035004,False,1.740,False,6,False,0.0001,osl,393.8,13.9,rod < 2 krad; OSL not saturated; using OSL
+Hn-19,jan,R-736,XA01819758Z,False,0.261,False,21,False,0.0002,osl,30.0,49.5,rod < 2 krad; OSL not saturated; using OSL
+Hs-20,jan,R-737,XA01094391E,False,2.708,True,9,False,0.0001,osl_preferred,586.4,1014.9,rod borderline (2.7 krad) but OSL says 9 mrem; rod-OSL discrepancy ~300889x; OSL preferred
+Hs-6,jan,R-738,XA01184002S,False,1.591,False,6,False,0.0001,osl,895.3,1006.0,rod < 2 krad; OSL not saturated; using OSL
+Hn-10,jan,R-739,XA00542333P,False,,False,6,False,0.0001,osl_only,10.2,16.5,no rod data; using OSL
+Hn-11,jan,R-740,XA01545170Q,False,1.144,False,0,False,0.0000,osl,744.7,13.6,rod < 2 krad; OSL not saturated; using OSL
+Hs-4,apr,R-741,XA01045544I,False,1.612,False,,False,0.0000,below_detection,0.3,1027.5,"rod < 2 krad, no OSL available"
+Y-12,apr,R-742,XA00739768X,False,1.750,False,,False,0.0000,below_detection,0.3,1028.4,"rod < 2 krad, no OSL available"
+Y-22,apr,R-743,XA02376172F,False,0.984,False,,False,0.0000,below_detection,23451.4,156342.9,"rod < 2 krad, no OSL available"
+Y-16,apr,R-744,XA02435949W,False,0.984,False,,False,0.0000,below_detection,15837.4,105445.8,"rod < 2 krad, no OSL available"
+Hn-20,apr,R-745,XA02475363A,False,36.277,True,,False,362.7700,rod,5295.1,34485.3,rod only (no April OSL)
+Y-17,apr,R-746,XA005564577,False,56.633,True,,False,566.3300,rod,7111.0,47406.7,Low range saturating; using High@600; rod only (no April OSL)
+Hn-15,apr,R-747,XA02730923C,False,0.197,False,,False,0.0000,below_detection,21589.6,143930.8,"rod < 2 krad, no OSL available"
+Y-1,apr,R-748,XA028866017,False,0.144,False,,False,0.0000,below_detection,14714.0,98091.7,"rod < 2 krad, no OSL available"
+Hn-6,apr,R-749,XA00341631Q,False,0.931,False,,False,0.0000,below_detection,13180.4,87867.8,"rod < 2 krad, no OSL available"
+Hs-5,apr,R-750,XA010897335,False,1.250,False,,False,0.0000,below_detection,1.1,17.8,"rod < 2 krad, no OSL available"
+Hs-13,apr,R-751,XA00941309D,False,9.294,True,,False,92.9400,rod,4902.4,32318.0,rod only (no April OSL)
+Y-5,apr,R-752,XA00870560H,False,4.889,True,,False,48.8900,rod,37.0,49.2,rod only (no April OSL)
+Hs-7,apr,R-753,XA01418404N,False,0.133,False,,False,0.0000,below_detection,7.8,2034.2,"rod < 2 krad, no OSL available"
+Y-20,apr,R-754,XA01769201J,False,1.112,False,,False,0.0000,below_detection,1.1,19.3,"rod < 2 krad, no OSL available"
+Hs-3,apr,R-755,XA018655454,False,0.431,False,,False,0.0000,below_detection,284.9,19.9,"rod < 2 krad, no OSL available"
+Y-10,apr,R-756,XA019831748,False,0.367,False,,False,0.0000,below_detection,1275.8,1507.1,"rod < 2 krad, no OSL available"
+Y-11,apr,R-757,XA00833246I,False,0.346,False,,False,0.0000,below_detection,517.1,21.2,"rod < 2 krad, no OSL available"
+Y-24,apr,R-758,XA00993687R,False,44.277,True,,False,442.7700,rod,6299.3,41250.9,Low range saturating; using High@600; rod only (no April OSL)
+Y-30,apr,R-759,XA02823325I,False,0.665,False,,False,0.0000,below_detection,22101.6,147342.6,"rod < 2 krad, no OSL available"
+Hs-17,apr,R-760,XA00181225L,False,0.655,False,,False,0.0000,below_detection,624.8,1945.0,"rod < 2 krad, no OSL available"
+Hs-18,apr,R-761,XA02898988B,False,1.218,False,,False,0.0000,below_detection,19148.9,127658.3,"rod < 2 krad, no OSL available"
+Y-32,apr,R-762,XA006556466,False,1.506,False,,False,0.0000,below_detection,348.9,30.1,"rod < 2 krad, no OSL available"
+Y-13,apr,R-763,XA012597660,False,2.027,True,,False,20.2700,rod,30.0,24.0,rod only (no April OSL)
+Y-19,apr,R-764,XA02228302R,False,0.612,False,,False,0.0000,below_detection,941.3,3282.1,"rod < 2 krad, no OSL available"
+Hs-10,apr,R-765,XA01674699Q,False,0.527,False,,False,0.0000,below_detection,889.5,31.2,"rod < 2 krad, no OSL available"
+Y-4,apr,R-766,XA02902414N,False,0.261,False,,False,0.0000,below_detection,8.6,54.2,"rod < 2 krad, no OSL available"
+Hs-15,apr,R-767,XA02225799Z,False,1.123,False,,False,0.0000,below_detection,11749.4,78349.1,"rod < 2 krad, no OSL available"
+Hn-19,apr,R-768,XA00698736U,False,3.804,True,,False,38.0400,rod,30.0,49.5,rod only (no April OSL)
+Hs-2,apr,R-769,XA00922220Y,False,0.889,False,,False,0.0000,below_detection,228.9,24.2,"rod < 2 krad, no OSL available"
+Hs-1,apr,R-770,XA008845081,False,1.868,False,,False,0.0000,below_detection,17.3,29.7,"rod < 2 krad, no OSL available"
+Y-36,apr,R-771,XA00230973G,False,1.272,False,,False,0.0000,below_detection,946.1,9.6,"rod < 2 krad, no OSL available"
+Hn-18,apr,R-772,XA02788041E,False,0.910,False,,False,0.0000,below_detection,393.8,13.9,"rod < 2 krad, no OSL available"
+Hn-11,apr,R-773,XA02903663F,False,1.729,False,,False,0.0000,below_detection,744.7,13.6,"rod < 2 krad, no OSL available"
+Hn-39,apr,R-774,XA020465958,False,0.857,False,,False,0.0000,below_detection,191.3,22.9,"rod < 2 krad, no OSL available"
+Y-34,apr,R-775,XA024862184,False,0.538,False,,False,0.0000,below_detection,502.2,9.2,"rod < 2 krad, no OSL available"
+Y-6,apr,R-776,XA01967872Y,False,0.814,False,,False,0.0000,below_detection,440.9,13.5,"rod < 2 krad, no OSL available"
+Y-25,apr,R-777,XA009257087,False,1.399,False,,False,0.0000,below_detection,1516.3,8.7,"rod < 2 krad, no OSL available"
+Hn-8,apr,R-778,XA000990587,False,2.751,True,,False,27.5100,rod,13.1,22.3,rod only (no April OSL)
+Hn-17,apr,R-779,XA00798647S,False,1.463,False,,False,0.0000,below_detection,537.0,18.8,"rod < 2 krad, no OSL available"
+Hn-37,apr,R-780,XA00632942F,False,2.059,True,,False,20.5900,rod,10.1,23.1,rod only (no April OSL)
+Y-40,apr,R-781,XA02811672H,False,4.208,True,,False,42.0800,rod,13.7,21.7,rod only (no April OSL)
+Hn-12,apr,R-782,XA01509971C,False,1.059,False,,False,0.0000,below_detection,8.1,8.0,"rod < 2 krad, no OSL available"
+Hn-16,apr,R-783,XA00738050T,False,1.272,False,,False,0.0000,below_detection,19.3,22.1,"rod < 2 krad, no OSL available"
+Y-23,apr,R-784,XA018983706,False,1.836,False,,False,0.0000,below_detection,41.9,31.8,"rod < 2 krad, no OSL available"
+Y-3,apr,R-785,XA01255380M,False,0.814,False,,False,0.0000,below_detection,17.3,21.8,"rod < 2 krad, no OSL available"
+Hn-10,apr,R-786,XA01153486B,False,1.740,False,,False,0.0000,below_detection,10.2,16.5,"rod < 2 krad, no OSL available"
+Y-9,apr,R-787,XA00675117D,False,1.218,False,,False,0.0000,below_detection,1640.3,10.1,"rod < 2 krad, no OSL available"
+Y-21,apr,R-788,XA00835394D,False,1.516,False,,False,0.0000,below_detection,1665.1,12.9,"rod < 2 krad, no OSL available"
+Hn-9,apr,R-789,XA02138316H,False,2.197,True,,False,21.9700,rod,27.3,27.4,rod only (no April OSL)
+Y-15,apr,R-790,XA02534296B,False,1.782,False,,False,0.0000,below_detection,11.7,19.5,"rod < 2 krad, no OSL available"
+Y-18,apr,R-791,XA02584865U,False,1.729,False,,False,0.0000,below_detection,678.1,27.3,"rod < 2 krad, no OSL available"
+Hs-20,apr,R-792,XA00922952D,False,1.527,False,,False,0.0000,below_detection,586.4,1014.9,"rod < 2 krad, no OSL available"
+Hs-14,apr,R-793,XA029057475,False,1.570,False,,False,0.0000,below_detection,2668.8,16.8,"rod < 2 krad, no OSL available"
+Hs-6,apr,R-794,XA04194905W,False,1.516,False,,False,0.0000,below_detection,895.3,1006.0,"rod < 2 krad, no OSL available"
+Hs-16,apr,R-795,XA01919262J,False,2.272,True,,False,22.7200,rod,341.9,21.8,rod only (no April OSL)
+Y-7,apr,R-796,XA006823956,False,2.123,True,,False,21.2300,rod,472.1,19.8,rod only (no April OSL)
+Y-38,apr,R-797,XA008571959,False,1.378,False,,False,0.0000,below_detection,9.6,8.2,"rod < 2 krad, no OSL available"
+Y-39,apr,R-798,XA00266261N,False,1.218,False,,False,0.0000,below_detection,69.7,15.0,"rod < 2 krad, no OSL available"
+Hs-12,apr,R-799,XA01146103U,False,1.378,False,,False,0.0000,below_detection,18.1,16.3,"rod < 2 krad, no OSL available"
+Y-26,apr,R-800,XA00024527L,False,2.059,True,,False,20.5900,rod,17.0,24.2,rod only (no April OSL)

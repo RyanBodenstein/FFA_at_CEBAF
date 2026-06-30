@@ -1,0 +1,277 @@
+% !TeX spellcheck = en_GB
+%
+\documentclass[a4paper,
+               %boxit,        % check whether paper is inside correct margins
+               %titlepage,    % separate title page
+               %refpage       % separate references
+               %biblatex,     % biblatex is used
+               %keeplastbox,   % flushend option: not to un-indent last line in References
+               %nospread,     % flushend option: do not fill with whitespace to balance columns
+               %hyphens,      % allow \url to hyphenate at "-" (hyphens)
+               %xetex,        % use XeLaTeX to process the file
+               %luatex,       % use LuaLaTeX to process the file
+               ]{jacow}
+%
+\usepackage{pdfpages,multirow,ragged2e} %
+%
+\makeatletter%
+    \ifboolexpr{bool{xetex}}
+     {\renewcommand{\Gin@extensions}{.pdf,%
+                        .png,.jpg,.bmp,.pict,.tif,.psd,.mac,.sga,.tga,.gif,%
+                        .eps,.ps,%
+                        }}{}
+\makeatother
+
+\ifboolexpr{bool{xetex} or bool{luatex}} % test for XeTeX/LuaTeX
+ {}                                      % input encoding is utf8 by default
+ {\usepackage[utf8]{inputenc}}           % switch to utf8
+
+\usepackage[USenglish]{babel}
+
+%
+% if BibLaTeX is used
+%
+\ifboolexpr{bool{jacowbiblatex}}%
+ {%
+  \addbibresource{jacow-test.bib}
+  \addbibresource{biblatex-examples.bib}
+ }{}
+\listfiles
+
+\begin{document}
+
+\title{Status Update of Permanent Magnet Radiation Resiliency Studies at CEBAF%
+\thanks{Authored by Jefferson Science Associates, LLC under U.S. DOE Contract No. DE-AC05-06OR23177. The research described in this work was conducted under the Laboratory Directed Research and Development Program at Thomas Jefferson National Accelerator Facility for the U.S. Department of Energy.}}
+
+\author{R.M. Bodenstein\thanks{ryanmb@jlab.org}, C. Decker, K.E. Deitrick, B.R. Gamage, J.F. Gubeli, D. Hamlette, M. Janak,\\ K. Jordan, S. Lee, C. Matthews, M. Mason, J. Meyers, B. Mosbrucker, I. Neththikumara,\\  E. Nissen, V. Okey-Ejiowhor, J. Samari, S. Shriner, M. Smith, A. Ramirez, D. Thomas, N. Wilson,\\ Thomas Jefferson National Accelerator Facility, Newport News, VA, USA \\
+S.J. Brooks, Brookhaven National Lab, Upton, NY, USA \\
+S. Boogert, Cockcroft Institute, Daresbury, UK\\
+W. Shields, Royal Holloway University London, Egham, UK\\
+B. Shepherd, STFC, Daresbury, UK
+    }
+
+\maketitle
+
+%
+\begin{abstract}
+The proposed energy upgrade of the Continuous Electron Beam Accelerator Facility (CEBAF) incorporates Fixed-Field Alternating-gradient (FFA) arcs utilizing permanent magnet technology. Given the radiation environment within the CEBAF tunnel enclosure, validating the long-term magnetic stability of these materials is a critical step for the project's technical feasibility. This contribution presents an overview of the ongoing permanent magnet radiation resiliency program at Jefferson Lab. We briefly review the experimental methodology used to monitor demagnetization in situ and summarize the operational experience from the initial data-taking campaign. Furthermore, we discuss the upgrades implemented for the second exposure campaign, currently underway, which aims to refine dose correlation and reduce systematic uncertainties. We report on the general status of the program and the roadmap for certifying permanent magnet optics for the proposed upgrade energies.
+\end{abstract}
+
+\section{INTRODUCTION}
+
+The Continuous Electron Beam Accelerator Facility (CEBAF) at Jefferson Lab delivers a \SI{12}{GeV} electron beam through a pair of superconducting linacs and recirculating arcs. The FFA@CEBAF energy upgrade study proposes increasing the beam energy beyond \SI{20}{GeV} by replacing the conventional electromagnetic arcs with Fixed Field, Alternating gradient (FFA) arcs based on permanent magnet technology~\cite{Khan:ipac2024-mopr08}.
+
+Understanding their long-term radiation stability of permanent magnets in the CEBAF tunnel environment is critical for the project's technical feasibility. Radiation-induced demagnetization is a well-studied phenomenon in accelerator contexts, particularly for undulator magnets at light sources~\cite{Bizen:2016}. The damage hierarchy is established: protons cause the most damage, followed by neutrons, then electrons, with gamma radiation causing the least~\cite{Shepherd:Radiation, Shen:2018}. However, prior studies have typically used small sample sets ($N \leq 12$), operated at doses far exceeding the CEBAF environment, or studied only a single material family.
+
+This LDRD project addresses all three limitations by deploying 60 sample plates carrying 540 individual magnets, spanning two NdFeB and two SmCo grades, in the operational tunnel for 18 months. An additional 57 plates serve as unexposed laboratory controls. The co-location of radiation-sensitive NdFeB with radiation-hard SmCo on each plate enables a gain-immune intra-plate differential measurement that cancels instrumental drift and isolates radiation-induced changes.
+
+This paper reports the preliminary results from the first data-taking campaign and describes preparations for the second campaign. Prior LDRD publications~\cite{Bodenstein:ipac2024-thps58, Bodenstein:ipac2025-thpb093, Bodenstein:napac25-wean02} cover the experimental design, dosimetry, simulations, and measurement apparatus in detail.
+
+\section{EXPERIMENTAL OVERVIEW}
+
+\subsection{Sample Design}
+
+Thirty Y-plates, each carrying four randomized permanent magnet samples (two NdFeB grades: N42EH and N52SH; two SmCo grades: SmCo33H and SmCo35), were deployed at seven tunnel regions (four recirculating arcs, two linacs, and two labyrinths) for approximately 18 months. Nine identical Y-plates remained in the laboratory as unexposed controls. The randomized co-location of all four materials on each plate is central to the analysis: the intra-plate differential between the radiation-sensitive NdFeB and radiation-hard SmCo cancels the dominant Helmholtz coil gain drift (${\pm}0.124\%$) by construction, enabling sub-percent detection sensitivity.
+
+Additionally, pair assemblies (H-plates) with controlled magnetic configurations (aligned, antiparallel, and perpendicular) approximate different field orientations within a Halbach array~\cite{Brooks:IPAC22-THPOTK011, Brooks:IPAC23-WEPM128}, providing data relevant to multifunction FFA magnet design.
+
+\begin{figure*}[!tbh]
+    \centering
+    \includegraphics*[trim=0.cm 0.0cm 0.0cm 0.0cm,clip,width=1.\textwidth]{IPAC26_f1.png}
+    \caption{Mean percentage change in magnetic moment for each material grade. Error bars: ${\pm}1$ SEM. The NdFeB--SmCo differential is the gain-immune headline result.}
+    \label{fig:materials}
+    \vspace{-12pt}
+\end{figure*}
+
+\subsection{Measurement and Dosimetry}
+
+Magnetic moments are measured with a precision Helmholtz coil system~\cite{Helmholtz} and point fields with a Senis 3MH6 Teslameter~\cite{Senis}, both mounted on mobile carts for in-situ tunnel access during accelerator downtime~\cite{Nissen:IPAC24-THPS59, Nissen:NAPAC25-WEP037}. Each plate is tracked with co-located dosimetry: optically stimulated luminescence (OSL) area monitors for photon and neutron dose, and FWT-70 optichromic rods for high-dose gamma fields~\cite{Bodenstein:ipac2024-thps58}. Gamma doses span five orders of magnitude, from 0.3~Gy (labyrinths) to 23,000~Gy (linac positions).
+
+\begin{figure*}[!tbh]
+    \centering
+    \includegraphics*[trim=0.cm 1.cm 0.0cm 0.0cm,clip,width=1.\textwidth]{IPAC26_f3.png}
+    \caption{Sample-by-sample NdFeB degradation sorted by magnitude, grouped by tunnel region. The mean is $-0.21\%$, but peak degradation reaches $-0.82\%$. The gray band indicates the ${\pm}0.12\%$ gain systematic.}
+    \label{fig:waterfall}
+    \vspace{-12pt}
+\end{figure*}
+
+\section{FIRST CAMPAIGN RESULTS}
+
+\subsection{Headline Result}
+
+The NdFeB-minus-SmCo intra-plate differential across 30 tunnel Y-plates is
+\begin{equation}
+\delta = -0.208\% \pm 0.028\%~\text{(stat)} \pm 0.033\%~\text{(syst)},
+\end{equation}
+corresponding to $7.6\sigma$ statistical and $4.6\sigma$ combined significance. The nine lab control plates yield a null differential of $-0.007\% \pm 0.038\%$ ($0.2\sigma$), confirming that the measurement system introduces no material-dependent bias. The tunnel-minus-lab excess is independently significant at $4.3\sigma$.
+
+Table~\ref{tab:results} and Figure~\ref{fig:materials} show the per-material results. Both NdFeB grades exhibit negative shifts (demagnetization), while both SmCo grades are consistent with zero, as the thermal spike model predicts for SmCo's higher Curie temperature (700--850$^\circ$C vs.\ 310--350$^\circ$C) and anisotropy field.
+
+\begin{table}[!htb]
+\centering
+\caption{Per-Material Mean Change (Tunnel Y-Plates, $N=30$)}
+\label{tab:results}
+\begin{tabular}{lccc}
+\hline
+\textbf{Grade} & \textbf{Family} & \textbf{Mean $\Delta$ (\%)} & \textbf{Stat.\ Sig.} \\
+\hline
+N42EH   & NdFeB & $-0.252 \pm 0.036$ & $7.0\sigma$ \\
+N52SH   & NdFeB & $-0.170 \pm 0.036$ & $4.8\sigma$ \\
+SmCo33H & SmCo  & $+0.037 \pm 0.031$ & $1.2\sigma$ \\
+SmCo35  & SmCo  & $-0.044 \pm 0.031$ & $1.4\sigma$ \\
+\hline
+\end{tabular}
+\end{table}
+
+\subsection{Dose Correlations}
+
+Correlating the gain-immune differential with co-located dosimetry reveals a clear hierarchy. Gamma dose (spanning 0.3--23,000~Gy) shows no correlation with degradation (Spearman $\rho = 0.21$, $p = 0.27$). In contrast, neutron dose correlates significantly ($\rho = 0.39$, $p = 0.03$ for the differential; $\rho = 0.46$, $p = 0.01$ for NdFeB alone). This is the first in-situ accelerator confirmation of the neutron-dominated damage hierarchy established in deliberate irradiation studies~\cite{Shen:2018, Bizen:2016}.
+
+The gamma null is itself a positive finding: at doses up to 23~kGy, purely ionizing radiation produces no detectable demagnetization, consistent with the 7~MGy gamma null reported by Alderman et~al.~\cite{Alderman:ANL}. This constrains the damage mechanism to hadronic interactions, principally nuclear displacement cascades and neutron capture.
+
+\subsection{Grade Dependence}
+
+An unexpected observation is that N42EH ($-0.252\%$) degrades more than N52SH ($-0.170\%$), despite N42EH's higher intrinsic coercivity ($H_{ci} \geq 30$~kOe vs.\ ${\geq}19$~kOe). Composition data from the manufacturer reveals that the two NdFeB grades differ in their heavy rare-earth content, particularly dysprosium, which has a very large thermal neutron capture cross-section. We are investigating whether Dy-bearing nuclear reactions in the grain-boundary phase contribute to the observed inversion; a detailed quantitative analysis will be presented in a forthcoming publication.
+
+SmCo shows zero degradation despite containing samarium, which also has a large neutron capture cross-section. This indicates that neutron capture alone is insufficient to cause demagnetization; the host lattice must also be intrinsically vulnerable to the resulting energy deposition. SmCo's immunity is consistent with its much higher Curie temperature and magnetocrystalline anisotropy.
+
+\section{IMPLICATIONS FOR FFA MAGNETS}
+
+Although the mean NdFeB degradation is $-0.21\%$, Figure~\ref{fig:waterfall} shows that individual samples span a wide range, with peak degradation reaching $-0.82\%$. For Halbach array design, the relevant metric is not the fleet average but the worst-case wedge-to-wedge gradient across a single magnet assembly. Adjacent wedges carry reverse flux and are not equivalently exposed to the radiation field; non-uniform degradation introduces higher-order multipole errors (sextupole, octupole) that the per-sample average understates~\cite{Brooks:IPAC23-WEPM128}. For multifunction FFA magnets, even small differential degradation between multipole components impact the optics. With more than 70 cells per FFA arc, systematic patterns are magnified through the lattice.
+
+Our H-plate configurations (aligned, antiparallel, perpendicular) were designed to probe orientation-dependent effects relevant to Halbach wedge geometry. Current data cannot resolve configuration-dependent differences due to baseline limitations, but this remains a priority for the second campaign.
+
+\section{SECOND CAMPAIGN AND OUTLOOK}
+
+The first campaign established that radiation-induced demagnetization occurs at CEBAF dose levels and is neutron-correlated. The second campaign, now underway, targets three goals:
+
+\begin{enumerate}
+\item \textbf{Reduce systematic uncertainties.} Multi-point baselines, improved temperature tracking, and a prospective blind analysis protocol address the dominant temperature-correction systematic (${\pm}0.033\%$).
+\item \textbf{Establish a dose-response curve.} Integration of facility neutron detector (NDX) data~\cite{NDX} with per-plate dosimetry aims to produce a monotonic degradation-vs.-fluence relationship.
+\item \textbf{Confirm cumulative damage.} If the differential deepens after the second exposure period, this provides definitive evidence of progressive, dose-dependent degradation.
+\end{enumerate}
+
+In parallel, BDSIM/GEANT4 simulations~\cite{NEVAY:BDSIM, GEANT4, Gamage:IPAC24-THPS57, Gamage:NAPAC25-WEP074} of the CEBAF beamline are progressing toward predicting the neutron fluence and energy spectrum at each plate location, enabling first-principles comparison with the measured degradation. Once validated against the current CEBAF lattice, these simulations will be extended to the upgrade energies.
+
+\section{CONCLUSION}
+
+This study represents the world's largest investigation of radiation-induced permanent magnet demagnetization, with 540 individual magnets deployed in the CEBAF tunnel, exceeding prior published sample sizes by an order of magnitude. The first campaign has produced a statistically significant detection of sub-percent demagnetization in a real accelerator environment, identified neutron fluence as the correlating dose quantity, and revealed an unexpected dependence on NdFeB grade that appears linked to heavy rare-earth composition. These results inform FFA magnet material selection and siting at CEBAF. The second campaign is underway with improved protocols targeting reduced systematics and a dose-response curve.
+
+\section{ACKNOWLEDGEMENTS}
+In addition to those listed as co-authors, we would like to thank the CEBAF Radiation Control Group, CEBAF Operations and Operability, and the Installation Group.
+
+%
+\ifboolexpr{bool{jacowbiblatex}}%
+    {\printbibliography}%
+    {%
+
+    \begin{thebibliography}{99}   % Use for  10-99  references
+
+        \bibitem{Khan:ipac2024-mopr08}
+            D. Khan \emph{et al.},
+            ``Current status of the FFA@CEBAF energy upgrade'',
+            in \emph{Proc. IPAC'24}, Nashville, TN, May 2024, pp. 474--477.
+            \url{doi:10.18429/JACoW-IPAC2024-MOPR08}
+
+        \bibitem{Shepherd:Radiation}
+           B. Shepherd,
+           ``Radiation damage to permanent magnet materials: A survey of experimental results'',
+           in \emph{CERN-ACC-2018-0029, CLIC-Note-1079}, CERN, 2018.
+           \url{https://cds.cern.ch/record/2642418}
+
+        \bibitem{Shen:2018}
+            T. Shen \emph{et al.},
+            ``A review of radiation-induced demagnetization of permanent magnets'',
+            in \emph{J. Nucl. Mater.}, vol.~503, 2018, pp. 42--48.
+            \url{doi:10.1016/j.jnucmat.2018.02.037}
+
+        \bibitem{Alderman:ANL}
+            J. Alderman \emph{et al.},
+            ``Irradiation of Nd-Fe-B with APS Bending Magnet Radiation'',
+            Argonne National Laboratory, unpublished.
+
+        \bibitem{Bizen:2016}
+            T. Bizen \emph{et al.},
+            ``Radiation-induced magnetization reversal causing a large flux loss in undulator permanent magnets'',
+            in \emph{Sci. Rep.}, vol.~6, 2016, p.~37937.
+            \url{doi:10.1038/srep37937}
+
+        \bibitem{Bodenstein:ipac2024-thps58}
+            R.M. Bodenstein \emph{et al.},
+            ``Permanent magnet resiliency in CEBAF's radiation environment: LDRD grant status and plans'',
+            in \emph{Proc. IPAC'24}, Nashville, TN, May 2024, pp. 3875--3878.
+            \url{doi:10.18429/JACoW-IPAC2024-THPS58}
+
+        \bibitem{Bodenstein:ipac2025-thpb093}
+             R.M. Bodenstein \emph{et al.},
+            ``Current status of permanent magnet radiation resiliency studies at CEBAF'',
+            in \emph{Proc. IPAC'25}, Taipei, Taiwan, Jun. 2025, pp. 2664--2667.
+            \url{doi:10.18429/JACoW-IPAC25-THPB093}
+
+        \bibitem{Bodenstein:napac25-wean02}
+            R.M. Bodenstein \emph{et al.},
+            ``Status of permanent magnet radiation resiliency studies at CEBAF'',
+            in \emph{Proc. NAPAC'25}, Sacramento, CA, Aug. 2025, WEAN02.
+
+        \bibitem{Brooks:IPAC22-THPOTK011}
+           S.J. Brooks and S.A. Bogacz,
+           ``Permanent Magnets for the CEBAF 24GeV Upgrade'',
+           in \emph{Proc. IPAC'22}, Bangkok, Thailand, Jun. 2022, pp. 2792--2795.
+           \url{doi:10.18429/JACoW-IPAC2022-THPOTK011}
+
+        \bibitem{Brooks:IPAC23-WEPM128}
+            S. Brooks,
+            ``Open-midplane gradient permanent magnet with 1.53 T peak field'',
+            in \emph{Proc. IPAC'23}, Venice, Italy, May 2023, pp. 3870--3873.
+            \url{doi:10.18429/JACoW-IPAC2023-WEPM128}
+
+        \bibitem{Helmholtz}
+            ``Model HCP Precision Helmholtz Coil Series With Rotator'', \url{https://maginst.com/products/measurement-and-testing/precision-helmholtz-coils/}
+
+        \bibitem{Senis}
+            ``3MH6 High-Precision, Low-Noise Teslameter'', \url{https://www.senis.swiss/magnetometers/teslameter-digital/3mh6-high-precision-low-noise-teslameter/}
+
+        \bibitem{Nissen:IPAC24-THPS59}
+            E. Nissen \emph{et al.},
+            ``Design and instrumentation for permanent magnet samples exposed to a radiation environment'',
+            in \emph{Proc. IPAC'24}, Nashville, TN, May 2024, pp. 3879--3881.
+            \url{doi:10.18429/JACoW-IPAC2024-THPS59}
+
+        \bibitem{Nissen:NAPAC25-WEP037}
+            E. Nissen \emph{et al.},
+            ``Final design and first use of in-situ measuring apparatus for measurement of permanent magnet resiliency in CEBAF's radiation environment'',
+            in \emph{Proc. NAPAC'25}, Sacramento, CA, Aug. 2025, WEP037.
+
+        \bibitem{NDX}
+           P.V. Degtiarenko,
+           ``Neutron detector and dose rate meter using beryllium-loaded materials'',
+           in \emph{US Patent Number 10281600B2}, 2019.
+           \url{https://www.osti.gov/servlets/purl/1568305}
+
+        \bibitem{NEVAY:BDSIM}
+            L.J. Nevay \emph{et al.},
+            ``BDSIM: An accelerator tracking code with particle--matter interactions'',
+            in \emph{Comput. Phys. Commun.}, vol.~252, 2020, p.~107200.
+            \url{doi:10.1016/j.cpc.2020.107200}
+
+        \bibitem{GEANT4}
+            S. Agostinelli \emph{et al.},
+            ``Geant4---a simulation toolkit'',
+            in \emph{Nucl. Instrum. Methods Phys. Res. A}, vol.~506, no.~3, 2003, pp. 250--303.
+            \url{doi:10.1016/S0168-9002(03)01368-8}
+
+        \bibitem{Gamage:IPAC24-THPS57}
+              B. Gamage \emph{et al.},
+            ``Radiation dose simulations for Jefferson Lab's permanent magnet resiliency LDRD study'',
+            in \emph{Proc. IPAC'24}, Nashville, TN, May 2024, pp. 3872--3874.
+            \url{doi:10.18429/JACoW-IPAC2024-THPS57}
+
+        \bibitem{Gamage:NAPAC25-WEP074}
+            B.R. Gamage \emph{et al.},
+            ``Radiation dose simulations on permanent magnets for the CEBAF energy upgrade'',
+            in \emph{Proc. NAPAC'25}, Sacramento, CA, Aug. 2025, WEP074.
+
+    \end{thebibliography}
+} % end \ifboolexpr
+
+\end{document}

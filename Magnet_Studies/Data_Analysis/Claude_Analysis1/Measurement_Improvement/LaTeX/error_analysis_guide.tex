@@ -1,0 +1,1423 @@
+\documentclass[11pt,letterpaper]{article}
+
+% --- Packages ---
+\usepackage[margin=1in]{geometry}
+\usepackage{booktabs}
+\usepackage[colorlinks=true,linkcolor=blue,urlcolor=blue,citecolor=blue]{hyperref}
+\usepackage{amsmath}
+\usepackage{listings}
+\usepackage{xcolor}
+\usepackage{graphicx}
+\usepackage{siunitx}
+\usepackage{enumitem}
+\usepackage{longtable}
+\usepackage{caption}
+
+% --- Listings style ---
+\lstset{
+  basicstyle=\ttfamily\small,
+  backgroundcolor=\color{gray!10},
+  frame=single,
+  framerule=0pt,
+  breaklines=true,
+  columns=fullflexible,
+  keepspaces=true,
+  aboveskip=1em,
+  belowskip=1em,
+}
+
+% --- siunitx setup ---
+\sisetup{
+  per-mode=symbol,
+  detect-all,
+}
+
+% --- Title ---
+\title{Error Analysis Reference Guide}
+\author{LDRD FFA@CEBAF Permanent Magnet Radiation Damage Study}
+\date{June 2026}
+
+\begin{document}
+\maketitle
+
+\noindent\textbf{Audience:} Summer interns and new team members.
+
+\bigskip\noindent\textbf{Figures:} This document references PNG files from the
+project. For Overleaf, upload them to the same directory as this \texttt{.tex}
+file (or a \texttt{figures/} subdirectory and adjust paths). Source locations
+relative to the project root (\texttt{Claude\_Analysis1/}):
+\begin{itemize}[nosep]
+  \item \texttt{Cleanup\_Claude/Presentation\_Plots/} (P-series)
+  \item \texttt{Cleanup\_Claude/Within\_Session\_Drift/} (WSD-series)
+  \item \texttt{Technical\_Note/figures/} (S-series, duplicates of P-series)
+  \item \texttt{Measurement\_Improvement/} (TC-series)
+\end{itemize}
+
+\tableofcontents
+\newpage
+
+%=============================================================================
+\section{Overview and Context}
+\label{sec:overview}
+%=============================================================================
+
+\subsection{What Are We Measuring?}
+
+This experiment measures whether radiation in the CEBAF accelerator tunnel at
+Jefferson Lab causes permanent magnets to lose their magnetization. This matters
+because the proposed FFA (Fixed Field Alternating-gradient) accelerator upgrade
+would use permanent magnets extensively, and they need to survive the tunnel
+radiation environment for decades.
+
+\subsection{The Physical Setup}
+
+We deployed 30 ``Y-plates'' in the CEBAF tunnel at 8 different locations for
+approximately 12 months (January 2025 to January 2026). Each Y-plate holds
+exactly 4 permanent magnets, one of each grade:
+
+\begin{table}[htbp]
+\centering
+\caption{Material grades deployed on each Y-plate.}
+\label{tab:materials}
+\begin{tabular}{@{}lll@{}}
+\toprule
+Material & Family & Why it matters \\
+\midrule
+\textbf{N42EH}  & NdFeB (neodymium)       & Strong, radiation-sensitive, contains 1--2\% dysprosium \\
+\textbf{N52SH}  & NdFeB (neodymium)       & Strongest grade, radiation-sensitive, 0\% dysprosium \\
+\textbf{SmCo33H}& SmCo (samarium cobalt)  & Radiation-hard control, lower field \\
+\textbf{SmCo35} & SmCo (samarium cobalt)  & Radiation-hard control, lower field \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+The 4 material slots on each plate are randomized (not always in the same order)
+across 4 cyclic patterns (P1 through P4, with 8, 8, 7, and 7 plates each).
+
+An additional 9 Y-plates are kept in the lab as unexposed controls:
+Y-\{8,\,14,\,27,\,28,\,29,\,31,\,33,\,35,\,37\}. These never see tunnel
+radiation and serve as our ``null experiment.''
+
+There are also H-plates (Halbach-style assemblies, 4 slots each in
+Alpha/Beta/Gamma/Delta configurations) and A-samples (small paired magnets).
+The Y-plates are the primary discovery measurement because of the gain-immune
+differential technique. However, the H-plates and A-samples are critical for the
+broader science story: H-plates directly demonstrate degradation behavior in
+Halbach field geometries (the actual FFA use case), and A-samples provide paired
+field-vs-zero-field comparisons. For high-impact publications, demonstrating
+consistent results across all three sample types, using both integrated moment
+(Helmholtz) and spatially-resolved point field (Teslameter) measurements, is the
+goal.
+
+\subsection{What ``Percent Change'' Means}
+
+For every magnet sample, we measure its magnetic moment before deployment (the
+``baseline'') and after deployment. The percent change is:
+
+\begin{equation*}
+\Delta_i = \frac{H_{\mathrm{latest}} - H_{\mathrm{baseline}}}{H_{\mathrm{baseline}}} \times 100\%
+\end{equation*}
+
+where $H$ is the Helmholtz coil reading in milliWeber-centimeters (mWC),
+corrected to a common reference temperature of \SI{20}{\degreeCelsius}.
+
+\begin{itemize}[nosep]
+  \item \textbf{Negative $\Delta$} = demagnetization (lost field). This is what
+    we expect from radiation damage.
+  \item \textbf{Positive $\Delta$} = apparent gain. Usually noise or a
+    measurement artifact, but can indicate thermal aging recovery in SmCo.
+  \item \textbf{Zero $\Delta$} = no change, within noise.
+\end{itemize}
+
+Our headline result: NdFeB magnets lost ${\sim}0.17$--$0.25\%$ of their field
+after 12 months in the tunnel. SmCo magnets showed no statistically significant
+change. The difference between these (the ``differential'') is $-0.208\%$,
+detected at $7.6\sigma$ statistical significance
+(Figure~\ref{fig:material-comparison}).
+
+\subsection{Sample Types Quick Reference}
+
+\begin{table}[htbp]
+\centering
+\caption{Sample naming conventions.}
+\label{tab:sample-types}
+\begin{tabular}{@{}llll@{}}
+\toprule
+Type & Format & Example & Description \\
+\midrule
+Y-plate  & Y-\{plate\}-\{slot\}            & Y-17-3     & Tunnel/lab plate, slot 1--4 \\
+H-plate  & H\{n/s\}-\{plate\}-\{slot\}     & Hn-10-2    & Halbach north/south, slot 1--4 \\
+A-sample & A\{n/s\}-\{plate\}-\{slot\}-\{pair\} & An-10-2-1 & Small paired magnet \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+The sentinel value \textbf{1337} in any data file means ``no measurement''
+(excluded from all calculations).
+
+\begin{figure}[htbp]
+  \centering
+  \includegraphics[width=0.85\textwidth]{P1_material_comparison.png}
+  \caption{Campaign~1 percent change distributions by material grade. NdFeB
+    grades (N42EH, N52SH) show net negative shifts; SmCo grades (SmCo33H,
+    SmCo35) cluster near zero.}
+  \label{fig:material-comparison}
+\end{figure}
+
+
+%=============================================================================
+\section{Instruments}
+\label{sec:instruments}
+%=============================================================================
+
+We use two complementary instruments. They measure different physical quantities
+and have very different noise characteristics.
+
+\subsection{Helmholtz Coil + Fluxmeter (Model 2130)}
+\label{sec:helmholtz}
+
+\textbf{What it measures:} The total magnetic moment of a sample by integrating
+the flux change when the sample is inserted into a calibrated Helmholtz coil
+pair.
+
+\textbf{Output units:} milliWeber-centimeters (mWC), proportional to the
+sample's total dipole moment.
+
+\textbf{Key specifications:}
+\begin{itemize}[nosep]
+  \item DC accuracy: 0.050\% typical, 0.100\% maximum (of full scale)
+  \item 12 ranges: \num{100}\,kMT to \num{100}\,MMT, with $4\tfrac{3}{4}$ digit resolution
+  \item Auto drift compensation ($\pm 1\%$ of range)
+  \item Position-independent: reading is ``fairly independent of sample position
+    within the coils'' as long as the sample is approximately centered
+\end{itemize}
+
+\textbf{Why we use it:} The Helmholtz measurement integrates over the entire
+sample volume, so it gives a true total-moment measurement that is insensitive
+to exactly where the magnet sits inside the coil. This is crucial because our
+samples are hand-inserted.
+
+\textbf{The big catch: gain drift.} The fluxmeter output drifts by
+0.5--0.7\% from session to session. This is NOT the instrument's intrinsic
+accuracy (which is 0.05\%); it comes from drifting coil parameters, cable
+connections, and electronics temperature. This drift is the single largest
+systematic error for any individual magnet measurement. The intra-plate
+differential technique (Section~\ref{sec:differential}) eliminates it.
+
+\textbf{Data file format:} Tab-separated \texttt{.dat} files with columns:
+
+\begin{lstlisting}
+date    time    dosimeter_id    rod_id    value unit
+2026-06-02  09:21:19  XA01080034Q  R-825  0.9123 mWC
+\end{lstlisting}
+
+\subsection{Teslameter (SENIS 3MH6-E) + Hall Probe Type C}
+\label{sec:teslameter}
+
+\textbf{What it measures:} The magnetic field vector at a single point on the
+magnet surface, using a 3-axis CMOS Hall sensor.
+
+\textbf{Output units:} milliTesla (mT) for each axis ($B_x$, $B_y$, $B_z$).
+The magnitude $|B| = \sqrt{B_x^2 + B_y^2 + B_z^2}$ is also computed.
+
+\textbf{Key specifications:}
+\begin{itemize}[nosep]
+  \item DC accuracy: 0.01\% (\SI{100}{ppm}) at $\pm$\SI{0.1}{\tesla}/\SI{0.5}{\tesla}/\SI{2}{\tesla} ranges
+  \item Temperature stability: $<$\SI{20}{ppm/\degreeCelsius}
+  \item Resolution: ${\sim}$\SI{1}{\micro\tesla} RMS at \SI{10}{SPS} (${\sim}$\SI{0.5}{ppm})
+  \item 3-axis CMOS Hall probe, sensing volume ${\sim}100 \times 10 \times \SI{100}{\micro\meter\cubed}$
+  \item Built-in temperature sensor (reads probe junction temperature)
+  \item Calibration stored in probe EEPROM; maintains \SI{100}{ppm} on probe swap
+\end{itemize}
+
+\textbf{Why we use it:} Two reasons:
+\begin{enumerate}[nosep]
+  \item \textbf{Temperature:} The built-in probe temperature is our primary
+    temperature measurement for the Helmholtz temperature correction
+    (Section~\ref{sec:tempcorr}).
+  \item \textbf{Independent cross-check:} Field measurements on three faces
+    (top, front, side) provide an independent check on demagnetization trends.
+\end{enumerate}
+
+\textbf{The big catch: positioning noise.} The Teslameter measures field at a
+single point. If the sample sits \SI{0.1}{\milli\meter} differently in the
+3D-printed rig, the field at the probe location changes. This ``positioning
+noise'' dominates the Teslameter error budget (0.14--1.90\% depending on face;
+see Section~\ref{sec:positioning}).
+
+\textbf{Data file format:} Tab-separated \texttt{.dat} files:
+
+\begin{lstlisting}
+date    time    dosimeter_id    rod_id    Bx    By    Bz    temp_C
+2026-06-02  09:24:59  XA01080034Q  R-825  -180.053  -4.250  -3.566  26.708
+\end{lstlisting}
+
+\subsection{Arduino AM2302 Temperature/Humidity Sensor (NEW, June 2026)}
+\label{sec:arduino}
+
+\textbf{What it measures:} Ambient air temperature and relative humidity near
+the Helmholtz coil setup, via an ASAIR AM2302 (DHT22-equivalent) digital sensor
+connected to an Arduino.
+
+\textbf{Output units:} Temperature in degrees Celsius, relative humidity in
+percent.
+
+\textbf{Key specifications:}
+\begin{itemize}[nosep]
+  \item Temperature accuracy: $\pm$\SI{0.5}{\degreeCelsius}
+  \item Temperature resolution: \SI{0.1}{\degreeCelsius}
+  \item Response time: ${\sim}$\SI{2}{\second} (thermal time constant)
+  \item Humidity accuracy: $\pm$2--3\% RH
+  \item Humidity range: 0--100\% RH
+  \item Update interval: ${\sim}$\SI{2}{\second}
+\end{itemize}
+
+\textbf{Why we added it:} The Teslameter's temperature reading comes from the
+Hall probe junction, which is pressed against (or near) the magnet surface. This
+means the ``temperature'' it reports is influenced by the magnet's temperature
+(which may lag behind room temperature) and possibly by Joule heating in the
+probe itself. The AM2302 measures ambient air temperature near the setup, which
+is an independent data point.
+
+\textbf{Important caveat:} Neither sensor directly measures the sample's true
+internal temperature, which is what the temperature correction formula actually
+needs. The Teslameter probe is in thermal contact with the sample surface, so it
+may be closer to the sample temperature; the Arduino sensor measures the
+surrounding air, which could differ from the sample temperature if the sample
+hasn't fully equilibrated, or could be influenced by drafts, laptop fans, or
+HVAC airflow near the sensor. Which sensor provides the better proxy for the
+temperature correction is an open question that the cross-calibration study
+(Priority 2 in the summer plan) is designed to answer.
+
+\textbf{June 2026 data shows} the Teslameter reads 0--\SI{2.7}{\degreeCelsius}
+higher than the Arduino at low temperatures, with the discrepancy shrinking to
+near zero at high temps. Possible explanations include probe self-heating,
+thermal lag in the magnet (the sample may genuinely be warmer than the air early
+in the day), or sensitivity of the Arduino to local air currents. Disentangling
+these effects is a key goal of the summer cross-calibration work.
+
+\textbf{Data file format:} Tab-separated \texttt{*\_helmholtzTemp.dat} files:
+
+\begin{lstlisting}
+date    time    dosimeter_id    rod_id    temp degC    humidity %
+2026-06-02  09:21:19  XA01080034Q  R-825  25.80 degC  42.30 %
+\end{lstlisting}
+
+Each helmholtzTemp file corresponds to one Helmholtz measurement of one sample.
+The Arduino reading is taken at the moment of the Helmholtz measurement, while
+the Teslameter reading may be taken minutes later (when the sample is moved to
+the Teslameter rig). There are 484 helmholtzTemp files from the June 2--3
+measurement campaign.
+
+
+%=============================================================================
+\section{Temperature Correction}
+\label{sec:tempcorr}
+%=============================================================================
+
+\subsection{Why Temperature Correction Matters}
+
+All permanent magnets get weaker when they warm up and stronger when they cool
+down. This is a reversible, well-understood thermodynamic effect described by the
+temperature coefficient of remanence, $\alpha(B_r)$, expressed in percent per
+degree Celsius.
+
+If we do not correct for temperature, a magnet measured at \SI{28}{\degreeCelsius}
+will appear to have lost about 0.8\% of its field compared to a baseline taken at
+\SI{20}{\degreeCelsius}, even if no radiation damage occurred. Since our signal is
+only ${\sim}0.2\%$, temperature correction is essential.
+
+\subsection{The Formula}
+
+All readings are corrected to a common reference temperature:
+
+\begin{equation*}
+H_{\mathrm{corrected}} = \frac{H_{\mathrm{raw}}}{1 + \alpha \,(T_{\mathrm{measured}} - T_{\mathrm{ref}})}
+\end{equation*}
+
+where:
+\begin{itemize}[nosep]
+  \item $H_{\mathrm{raw}}$ = the raw Helmholtz reading in mWC
+  \item $\alpha$ = temperature coefficient for this material (fractional, e.g.\ $-0.0010$)
+  \item $T_{\mathrm{measured}}$ = temperature at the time of measurement, in \si{\degreeCelsius}
+  \item $T_{\mathrm{ref}} = \SI{20.0}{\degreeCelsius}$ (our reference temperature)
+\end{itemize}
+
+\subsection{Temperature Coefficients ($\alpha$ values)}
+
+\begin{table}[htbp]
+\centering
+\caption{Temperature coefficients used for correction.}
+\label{tab:alpha}
+\begin{tabular}{@{}lccc@{}}
+\toprule
+Material & $\alpha$ (\%/\si{\degreeCelsius}) & $\alpha$ (fractional) & Source \\
+\midrule
+N42EH   & $-0.10$ & $-0.0010$ & Allstar Magnetics datasheet \\
+N52SH   & $-0.11$ & $-0.0011$ & Allstar Magnetics datasheet \\
+SmCo33H & $-0.04$ & $-0.0004$ & Allstar Magnetics datasheet \\
+SmCo35  & $-0.04$ & $-0.0004$ & Allstar Magnetics datasheet \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+Note: NdFeB magnets are about 2.5$\times$ more temperature-sensitive than SmCo
+magnets. This asymmetry has important consequences (see below).
+
+\subsection{Worked Example}
+
+Suppose you measure Y-17-1 (an N42EH magnet) in the Helmholtz coil and get:
+\begin{itemize}[nosep]
+  \item Raw reading: \SI{0.9234}{mWC}
+  \item Teslameter temperature: \SI{27.5}{\degreeCelsius}
+\end{itemize}
+
+Correction:
+\begin{align*}
+\alpha &= -0.0010 \quad \text{(for N42EH)} \\
+T_{\mathrm{measured}} &= 27.5 \\
+T_{\mathrm{ref}} &= 20.0 \\[6pt]
+H_{\mathrm{corrected}} &= \frac{0.9234}{1 + (-0.0010)(27.5 - 20.0)} \\
+  &= \frac{0.9234}{1 + (-0.0010)(7.5)} \\
+  &= \frac{0.9234}{1 - 0.0075} \\
+  &= \frac{0.9234}{0.9925} \\
+  &= \SI{0.93037}{mWC}
+\end{align*}
+
+The corrected value is higher than the raw value because the magnet was warm
+(above \SI{20}{\degreeCelsius}), so its raw reading was artificially low.
+
+\subsection{Why Temperature Matters for the Differential}
+
+Even though the differential compares NdFeB to SmCo on the same plate (same
+temperature), the temperature correction does NOT perfectly cancel because the
+$\alpha$ values are different:
+
+\begin{align*}
+\text{Differential temperature sensitivity}
+  &= \bar{\alpha}_{\mathrm{NdFeB}} - \alpha_{\mathrm{SmCo}} \\
+  &= \frac{(-0.10) + (-0.11)}{2} - (-0.04) \\
+  &= -0.105 - (-0.04) \\
+  &= -0.065\;\text{\%/\si{\degreeCelsius}}
+\end{align*}
+
+So for every \SI{1}{\degreeCelsius} error in our baseline temperature estimate,
+the differential shifts by 0.065\% (we round to 0.066\%/\si{\degreeCelsius}
+accounting for the exact weighted average). This is the single largest remaining
+systematic: a $\pm$\SI{0.5}{\degreeCelsius} temperature uncertainty produces
+$\pm 0.033\%$ uncertainty on the differential.
+
+\subsection{Where Temperature Data Comes From}
+
+\begin{table}[htbp]
+\centering
+\caption{Temperature data sources by era.}
+\label{tab:tempsources}
+\begin{tabular}{@{}llp{6.5cm}@{}}
+\toprule
+Era & Source & Notes \\
+\midrule
+Pre-deployment (2024) & Teslameter probe only & Reads ${\sim}$\SI{0.8}{\degreeCelsius} higher than estimated ambient \\
+Tunnel measurements (2025) & Teslameter probe & Tunnel temps 24--\SI{28}{\degreeCelsius} \\
+C2 April 2026 & Teslameter probe & Lab: 20.9--\SI{29.5}{\degreeCelsius} (\SI{8.6}{\degreeCelsius} swing) \\
+C2 June 2026 & Teslameter probe + Arduino AM2302 & First dual-sensor data \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+The Arduino was not available during Campaign~1, so all C1 temperature
+corrections rely on the Teslameter probe. The cross-calibration between sensors
+(see \texttt{temp\_sensor\_comparison.py}) is a priority for improving future
+measurements.
+
+
+%=============================================================================
+\section{The Intra-Plate Differential}
+\label{sec:differential}
+%=============================================================================
+
+\subsection{The Problem: Gain Drift}
+
+The Helmholtz coil + fluxmeter system drifts by 0.5--0.7\% between measurement
+sessions. This is a multiplicative effect: every reading in a given session is
+scaled by the same gain factor $G$.
+
+If the gain on the day you took the baseline was $G_{\mathrm{pre}} = 1.003$,
+and the gain on the day you took the post-deployment measurement was
+$G_{\mathrm{post}} = 0.997$, then every magnet appears to have changed by about
+$(0.997 - 1.003)/1.003 = -0.6\%$, even if nothing physical happened. This is
+much larger than our ${\sim}0.2\%$ signal.
+
+\subsection{The Solution: Measure 4 Materials Together}
+
+Each Y-plate carries one magnet of each of the 4 grades. All 4 are measured in
+the same session, typically within ${\sim}$2 minutes of each other. The
+percentage change for each magnet is:
+
+\begin{equation*}
+\Delta_i = \frac{G_{\mathrm{post}}\,H_{i,\mathrm{post}} - G_{\mathrm{pre}}\,H_{i,\mathrm{pre}}}
+                {G_{\mathrm{pre}}\,H_{i,\mathrm{pre}}} \times 100\%
+\end{equation*}
+
+When we take the difference between the NdFeB average and the SmCo average:
+
+\begin{equation*}
+\delta = \frac{\Delta_{\mathrm{N42EH}} + \Delta_{\mathrm{N52SH}}}{2}
+       - \frac{\Delta_{\mathrm{SmCo33H}} + \Delta_{\mathrm{SmCo35}}}{2}
+\end{equation*}
+
+The gain factors cancel to first order because:
+\begin{enumerate}[nosep]
+  \item All 4 magnets in the baseline share the same $G_{\mathrm{pre}}$
+  \item All 4 magnets in the post-deployment share the same $G_{\mathrm{post}}$
+  \item The gain affects all readings as a common multiplicative factor
+  \item The difference removes the common-mode shift
+\end{enumerate}
+
+This is why we call it the ``gain-immune'' or ``intra-plate'' differential. It
+removes the $\pm 0.124\%$ gain systematic entirely, improving precision by a
+factor of ${\sim}4.4$.
+
+\subsection{Worked Example}
+
+Suppose Y-17 has these readings (temperature-corrected to \SI{20}{\degreeCelsius}):
+
+\begin{table}[htbp]
+\centering
+\caption{Example baseline readings for Y-17 (Nov 2024).}
+\label{tab:diff-baseline}
+\begin{tabular}{@{}clc@{}}
+\toprule
+Slot & Material & Baseline (mWC) \\
+\midrule
+1 & N42EH   & 0.9235 \\
+2 & SmCo33H & 1.0345 \\
+3 & N52SH   & 0.9812 \\
+4 & SmCo35  & 1.0756 \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\begin{table}[htbp]
+\centering
+\caption{Example post-deployment readings for Y-17 (Jan 2026).}
+\label{tab:diff-post}
+\begin{tabular}{@{}clc@{}}
+\toprule
+Slot & Material & Latest (mWC) \\
+\midrule
+1 & N42EH   & 0.9212 \\
+2 & SmCo33H & 1.0346 \\
+3 & N52SH   & 0.9797 \\
+4 & SmCo35  & 1.0752 \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+Percentage changes:
+\begin{align*}
+\text{N42EH:}   &\quad (0.9212 - 0.9235)\,/\,0.9235 \times 100 = -0.249\% \\
+\text{SmCo33H:} &\quad (1.0346 - 1.0345)\,/\,1.0345 \times 100 = +0.010\% \\
+\text{N52SH:}   &\quad (0.9797 - 0.9812)\,/\,0.9812 \times 100 = -0.153\% \\
+\text{SmCo35:}  &\quad (1.0752 - 1.0756)\,/\,1.0756 \times 100 = -0.037\%
+\end{align*}
+
+Differential:
+\begin{align*}
+\text{NdFeB mean:}   &\quad (-0.249 + (-0.153))\,/\,2 = -0.201\% \\
+\text{SmCo mean:}    &\quad (+0.010 + (-0.037))\,/\,2 = -0.014\% \\
+\text{Differential:} &\quad -0.201 - (-0.014) = -0.187\%
+\end{align*}
+
+This plate shows NdFeB degraded ${\sim}0.19\%$ more than SmCo. We compute this
+for all 30 tunnel plates and take the fleet mean.
+
+\subsection{Why This Works Even With Gain Drift}
+
+Imagine the gain was 0.5\% high during the baseline and 0.3\% low during the
+post-deployment measurement. Both NdFeB and SmCo readings shift by the same
+${\sim}0.8\%$ (the difference in gains). When you subtract SmCo from NdFeB, the
+0.8\% cancels. The only thing that survives is the real physical difference
+between the materials.
+
+\textbf{Key requirement:} All 4 slots must be measured in the same session,
+which our protocol ensures. If you accidentally mix slots from different sessions
+on the same plate, the differential is corrupted.
+
+
+%=============================================================================
+\section{Gain Systematic Quantification}
+\label{sec:gain}
+%=============================================================================
+
+\subsection{How We Measured the Gain Drift}
+
+We had 5 lab measurement sessions (April--June 2025) where every lab plate was
+measured multiple times, compared against a pre-deployment baseline taken in
+November 2024. Since lab plates were never exposed to tunnel radiation, any
+variation between these sessions and the baseline is purely instrumental (gain
+drift + noise).
+
+\subsection{The Half-Range Method}
+
+For each magnet sample across the 5 sessions:
+\begin{enumerate}[nosep]
+  \item Compute the percent change between each session and the mean baseline
+  \item Find the maximum and minimum percent change across sessions
+  \item The half-range $= (\max - \min)\,/\,2$
+\end{enumerate}
+
+Then average over all samples to get the fleet-wide gain systematic.
+
+\subsection{Cleaned vs Uncleaned}
+
+Two known outlier samples (Y-34-4 and Y-40-4) showed $>3\%$ variations due to
+suspected baseline measurement errors. Including them inflates the systematic:
+
+\begin{table}[htbp]
+\centering
+\caption{Gain systematic: cleaned vs uncleaned.}
+\label{tab:gain-clean}
+\begin{tabular}{@{}lcc@{}}
+\toprule
+Version & Gain systematic & Outlier handling \\
+\midrule
+\textbf{Cleaned} & $\pm 0.124\%$ & Y-34-4 and Y-40-4 excluded \\
+Uncleaned        & $\pm 0.248\%$ & All samples included \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+We report the cleaned value ($\pm 0.124\%$) as the primary gain systematic, with
+the uncleaned value as a conservative alternative.
+
+\subsection{Impact on Results}
+
+\begin{table}[htbp]
+\centering
+\caption{Gain systematic impact by measurement type.}
+\label{tab:gain-impact}
+\begin{tabular}{@{}lcp{6cm}@{}}
+\toprule
+Measurement type & Gain systematic & Why \\
+\midrule
+Individual material       & $\pm 0.124\%$     & Full gain drift affects absolute readings \\
+Intra-plate differential  & 0 (cancels)       & Same gain for all 4 slots on one plate \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+This is why the differential is so powerful: it turns a $\pm 0.124\%$ systematic
+into exactly zero.
+
+
+%=============================================================================
+\section{Within-Session Drift}
+\label{sec:wsd}
+%=============================================================================
+
+\subsection{The Question}
+
+We established that session-to-session gain drift cancels in the intra-plate
+differential. But what about drift \emph{within} a session? If the Helmholtz
+coil gain drifts while you are measuring a single plate's 4 slots (over
+${\sim}$2 minutes), this could contaminate the differential.
+
+\subsection{Analysis 1: Slot Timing}
+
+From second-precision timestamps in each data file, we measured the time between
+the first and last slot measurement for every plate:
+
+\begin{itemize}[nosep]
+  \item \textbf{Median gap:} \SI{102}{\second} (\SI{1.70}{min})
+  \item \textbf{95th percentile:} \SI{161}{\second} (\SI{2.69}{min})
+  \item \textbf{Worst case:} Y-6 on January 8, \SI{6.6}{min} (only 3 valid slots)
+\end{itemize}
+
+At a hypothetical drift rate of 1\%/hour:
+
+\begin{equation*}
+\text{Drift in \SI{102}{\second}} = 1\%/\text{hr} \times (102/3600)\;\text{hr} = 0.028\%
+\end{equation*}
+
+But the drift would be common-mode across slots (same direction), so the
+residual on the NdFeB--SmCo differential would be even smaller (the drift is
+partially randomized by the slot order on each plate).
+
+\subsection{Analysis 2: Per-Session Spearman Correlation}
+
+For each of the 7 tunnel sessions with 8+ plates, we computed the Spearman rank
+correlation between each plate's measurement timestamp and its intra-plate
+differential:
+
+\begin{longtable}{@{}lccccl@{}}
+\caption{Per-session Spearman correlation of measurement order vs differential.}
+\label{tab:wsd-spearman} \\
+\toprule
+Session & $N$ plates & Session span & $\rho$ & $p$-value & Sign \\
+\midrule
+\endfirsthead
+\toprule
+Session & $N$ plates & Session span & $\rho$ & $p$-value & Sign \\
+\midrule
+\endhead
+Jul 17 2025 & 15 & \SI{200}{min} & $+0.189$ & 0.499 & $+$ \\
+Jul 30 2025 & 15 & \SI{202}{min} & $+0.496$ & 0.060 & $+$ \\
+Aug 27 2025 & 30 & \SI{396}{min} & $-0.111$ & 0.559 & $-$ \\
+Oct 21 2025 & 15 & \SI{178}{min} & $-0.018$ & 0.950 & $-$ \\
+Oct 23 2025 & 10 & \SI{159}{min} & $-0.418$ & 0.229 & $-$ \\
+Jan 08 2026 & 15 & \SI{208}{min} & $-0.086$ & 0.761 & $-$ \\
+Jan 12 2026 & 15 & \SI{184}{min} & $+0.475$ & 0.074 & $+$ \\
+\bottomrule
+\end{longtable}
+
+\textbf{Key observation:} No session reaches $p < 0.05$. The sign of the
+correlation flips between sessions (3 positive, 4 negative; binomial
+$p = 1.000$). If there were a real drift effect, the sign would be consistent.
+Figure~\ref{fig:wsd2} shows this visually for all 7 sessions.
+
+\begin{figure}[htbp]
+  \centering
+  \includegraphics[width=0.85\textwidth]{WSD2_differential_vs_time.png}
+  \caption{Intra-plate differential vs normalized session time for each of the
+    7 tunnel sessions. No consistent drift direction is visible.}
+  \label{fig:wsd2}
+\end{figure}
+
+\clearpage
+\subsection{Analysis 3: Pooled Across All Sessions}
+
+Combining all 115 plates with normalized session time:
+
+\begin{itemize}[nosep]
+  \item Spearman $\rho = 0.146$, $p = 0.119$
+  \item Linear slope $= 0.18\%$/session ($R^2 = 0.0015$, $p = 0.68$)
+  \item Early-vs-late third: 0.27\% difference, $t$-test $p = 0.42$
+\end{itemize}
+
+\textbf{None of these reach statistical significance.}
+
+Figure~\ref{fig:wsd3} shows the pooled result visually.
+
+\subsection{Analysis 4: Y-14 Calibration Plate}
+
+Y-14 was measured repeatedly across a 10-hour span (09:00 to 19:00) on
+April 20, 2026, with a \SI{7}{\degreeCelsius} temperature swing:
+
+\begin{itemize}[nosep]
+  \item Raw differential range: 0.14\% (very stable, consistent with gain cancellation)
+  \item Corrected differential range: 0.56\% (amplified by NdFeB--SmCo $\alpha$ mismatch)
+\end{itemize}
+
+The corrected range is larger because temperature correction uses different
+$\alpha$ values for NdFeB vs SmCo, so temperature fluctuations get
+``uncorrected'' differently. Over the extreme \SI{7}{\degreeCelsius} swing, this
+produces $0.066\%/\si{\degreeCelsius} \times 7 = 0.46\%$ variation. This is not
+a gain drift effect; it is an expected consequence of applying material-specific
+temperature corrections.
+
+\subsection{Confounding Factor}
+
+Measurement order correlates with physical position along the beamline (the
+operator walks from one location to the next). Position correlates with
+radiation dose. So a non-zero correlation could reflect real dose-dependent
+degradation, not drift. The sign inconsistency across sessions rules out drift
+(which would always have the same sign) and is consistent with this position
+confound.
+
+\subsection{Verdict}
+
+No evidence of within-session drift affecting the intra-plate differential.
+Pooled $|\rho| < 0.15$, $p > 0.1$, no sign consistency across sessions. The
+error budget entry for gain drift on the differential is zero.
+
+\textbf{Script:} \texttt{Cleanup\_Claude/within\_session\_drift.py} \\
+\textbf{Output:} \texttt{Cleanup\_Claude/Within\_Session\_Drift/WSD1--WSD4} plots
+
+\begin{figure}[htbp]
+  \centering
+  \includegraphics[width=0.85\textwidth]{WSD3_pooled.png}
+  \caption{Pooled within-session drift analysis across all 115 plates.
+    Spearman $\rho = 0.146$, $p = 0.119$; no significant drift detected.}
+  \label{fig:wsd3}
+\end{figure}
+
+
+%=============================================================================
+\section{Calibration Plates}
+\label{sec:calplates}
+%=============================================================================
+
+\subsection{Purpose}
+
+Calibration plates are lab Y-plates measured multiple times per session to track
+instrument stability and provide a real-time benchmark.
+
+\subsection{Y-2: Campaign 1 Calibration Plate}
+
+Y-2 was designated as the C1 calibration plate. It was NOT measured for
+dosimetry (no dosimeter was attached). It was measured alongside tunnel plates to
+track session-to-session instrument behavior.
+
+\subsection{Y-14: Campaign 2 Calibration Plate}
+
+Y-14 is a lab plate used as the C2 calibration plate. It is measured at the
+start and end of each C2 session, and sometimes multiple times during a session.
+
+\textbf{April 20, 2026 data (3 readings):}
+\begin{itemize}[nosep]
+  \item Corrected std per slot: 0.06--0.27\%
+  \item Demonstrates same-day repeatability
+\end{itemize}
+
+\textbf{June 2--3, 2026 data (5 readings per slot):}
+\begin{itemize}[nosep]
+  \item Corrected std per slot: 0.10--0.15\%
+  \item 8 total readings per slot (3 April + 5 June)
+  \item Demonstrates multi-session repeatability at the 0.1--0.15\% level
+\end{itemize}
+
+\subsection{How to Use Calibration Data}
+
+If Y-14's differential shifts systematically across the day, it indicates
+instrument drift. If it stays flat (as observed: 0.14\% raw range over 10
+hours), the instrument is stable enough for the differential measurement.
+
+The calibration plate's variability (0.10--0.15\% corrected std) sets a floor on
+how precisely we can measure any single sample's differential in a single
+session.
+
+
+%=============================================================================
+\section{Baseline Temperature}
+\label{sec:baseline-temp}
+%=============================================================================
+
+\subsection{The Problem}
+
+Before the Teslameter was consistently co-located with the Helmholtz
+measurements, baseline temperatures were uncertain. The pre-deployment
+measurements (September--November 2024) used the Teslameter probe, which reads
+about \SI{0.8}{\degreeCelsius} higher than the estimated ambient temperature.
+This offset could reflect probe self-heating, or it could indicate that the
+sample surface was genuinely warmer than the room air (the probe is in thermal
+contact with the magnet).
+
+\subsection{The v1/v2/v3 Progression}
+
+Our temperature correction evolved through three versions as we understood the
+temperature data better:
+
+\textbf{Version 1 (v1): Raw probe temperatures}
+\begin{itemize}[nosep]
+  \item Used Teslameter temperatures as-is (24.6--\SI{26.7}{\degreeCelsius})
+  \item Result: differential $= -0.266\% \pm 0.028\%$ ($9.6\sigma$)
+  \item Problem: Probe biased ${\sim}$\SI{0.8}{\degreeCelsius} high, overcorrects NdFeB more than SmCo
+\end{itemize}
+
+\textbf{Version 2 (v2): Blanket \SI{23}{\degreeCelsius} correction}
+\begin{itemize}[nosep]
+  \item Assumed all baselines were at \SI{23}{\degreeCelsius}
+  \item Result: differential $= -0.134\% \pm 0.028\%$ ($4.9\sigma$)
+  \item Problem: SmCo33H anomalously positive ($+0.083\%$, $2.7\sigma$)
+\end{itemize}
+
+\textbf{Version 3 (v3, current): Per-date calibrated estimates}
+\begin{itemize}[nosep]
+  \item Used same-day Teslameter H-plate readings to calibrate Y-plate probe bias
+  \item Baseline temperatures per session estimated at 23.8--\SI{25.8}{\degreeCelsius}
+  \item Result: differential $= -0.208\% \pm 0.028\%$ ($7.6\sigma$)
+  \item SmCo anomaly resolved; SmCo33H now $+0.037\%$ ($1.2\sigma$, consistent with zero)
+\end{itemize}
+
+\subsection{The $\pm$\SI{0.5}{\degreeCelsius} Uncertainty}
+
+Our best estimate of the baseline temperature uncertainty is
+$\pm$\SI{0.5}{\degreeCelsius}, based on:
+
+\begin{enumerate}[nosep]
+  \item Two same-day Y--H measurement cross-checks showing $+0.77$ and
+    $+$\SI{0.87}{\degreeCelsius} probe bias (mean $+$\SI{0.82}{\degreeCelsius},
+    spread ${\sim}$\SI{0.1}{\degreeCelsius})
+  \item Day-to-day lab temperature variation of ${\sim}$\SI{3}{\degreeCelsius}
+    across November 2024
+  \item Per-date corrections where direct H-plate readings exist
+\end{enumerate}
+
+Impact on the differential:
+\begin{equation*}
+0.066\%/\si{\degreeCelsius} \times \SI{0.5}{\degreeCelsius} = 0.033\%
+\end{equation*}
+
+This $\pm 0.033\%$ is the single largest systematic in the error budget.
+
+\subsection{Robustness: Temperature Scan}
+
+Even scanning the assumed baseline temperature over its full plausible range
+(23--\SI{25}{\degreeCelsius}), the differential signal never drops below
+$4.9\sigma$ (see also Figure~\ref{fig:temp-sensitivity}):
+
+\begin{table}[htbp]
+\centering
+\caption{Sensitivity of differential to assumed baseline temperature.}
+\label{tab:tempscan}
+\begin{tabular}{@{}lcc@{}}
+\toprule
+Assumed baseline $T$ & Differential & Significance \\
+\midrule
+\SI{23.0}{\degreeCelsius} (v2 blanket) & $-0.134\%$ & $4.9\sigma$ \\
+\SI{24.0}{\degreeCelsius}              & $-0.199\%$ & $7.2\sigma$ \\
+${\sim}$\SI{24.1}{\degreeCelsius} (v3 effective) & $-0.208\%$ & $7.6\sigma$ \\
+\SI{25.0}{\degreeCelsius}              & $-0.264\%$ & $9.6\sigma$ \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+Note: v1 used raw per-reading probe temperatures (24.6--\SI{26.7}{\degreeCelsius}
+across sessions), not a single blanket value. Its result ($-0.266\%$, $9.6\sigma$)
+is close to but not identical to the \SI{25.0}{\degreeCelsius} scan row because
+the per-reading approach weights sessions differently than a blanket temperature.
+
+The signal is robust against any reasonable temperature assumption.
+
+\begin{figure}[htbp]
+  \centering
+  \includegraphics[width=0.85\textwidth]{S1_temp_sensitivity.png}
+  \caption{Sensitivity of the differential to the assumed baseline temperature.
+    The signal remains significant ($>4.9\sigma$) across the full plausible
+    range of baseline temperatures.}
+  \label{fig:temp-sensitivity}
+\end{figure}
+
+\subsection{What the New Arduino Sensor Changes}
+
+The AM2302 provides an independent ambient air temperature measurement at the
+time of each Helmholtz reading. Having two independent temperature data streams
+(Arduino ambient + Teslameter probe) is strictly better than having one, because:
+
+\begin{enumerate}[nosep]
+  \item If both sensors agree, confidence in the temperature is high.
+  \item If they disagree, the disagreement itself is diagnostic (e.g., the sample
+    may not have equilibrated to room temperature).
+\end{enumerate}
+
+\textbf{Open question:} The temperature correction formula needs the sample
+temperature, not the air temperature. The Teslameter probe, being in contact
+with the sample, may be closer to the truth when the sample and air temperatures
+differ (e.g., early morning when samples are still cool from overnight). The
+Arduino, being an ambient air sensor, could be biased by drafts, laptop fans,
+HVAC flow, or other local air currents. Conversely, the Teslameter probe may
+have a self-heating bias. Determining which sensor (or what combination) gives
+the most accurate temperature for the correction is a primary goal of the summer
+cross-calibration campaign. Do not assume either sensor is ``better'' until this
+work is complete.
+
+
+%=============================================================================
+\section{Teslameter Positioning Noise}
+\label{sec:positioning}
+%=============================================================================
+
+\subsection{The Problem}
+
+The Teslameter measures the magnetic field at a single point on the magnet
+surface. If the magnet sits slightly differently in the 3D-printed rig each time
+you insert it, the probe location relative to the magnet changes, and the field
+reading changes. This is ``positioning noise.''
+
+\subsection{Per-Face Precision}
+
+From Campaign~1 data (repeated measurements of the same samples):
+
+\begin{table}[htbp]
+\centering
+\caption{Teslameter per-face standard deviation.}
+\label{tab:positioning}
+\begin{tabular}{@{}lcp{7cm}@{}}
+\toprule
+Face & Std & Notes \\
+\midrule
+\textbf{Top}   & 0.14--0.29\% & Best precision; least sensitive to alignment \\
+\textbf{Front} & 0.57--0.91\% & Moderate; field gradient steeper \\
+\textbf{Side}  & 0.90--1.90\% & Worst; highest field gradient \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\textbf{Why top is best:} The top face has the flattest field gradient (the
+field changes slowly with position), so a \SI{0.1}{\milli\meter} shift produces
+less change in the reading.
+
+\subsection{H-Plate First-Tunnel Bias}
+
+The first time H-plates were measured in the tunnel (July 17, 2025), a
+systematic bias appeared:
+
+\begin{itemize}[nosep]
+  \item 62\% of front-face readings were $>$2\% low compared to subsequent measurements
+  \item 61\% of side-face readings were $>$2\% low
+  \item Top face was unaffected
+\end{itemize}
+
+This is consistent with a different rig setup or calibration on the first tunnel
+trip. It does not affect the Helmholtz results (which do not use the Teslameter
+for demagnetization measurement).
+
+\subsection{Impact on Helmholtz Results}
+
+The positioning noise does NOT affect Helmholtz readings (the Helmholtz
+measurement integrates over the full sample volume and is position-independent).
+The Teslameter is used only for temperature in the Helmholtz analysis pipeline.
+
+\subsection{Impact on the Teslameter as an Independent Science Measurement}
+
+This is where positioning noise matters enormously. If the Teslameter noise can
+be controlled (especially on the top face, where it is already 0.14--0.29\%),
+then Teslameter data becomes a primary science measurement in its own right, not
+just a cross-check. The scientific value of showing both:
+
+\begin{itemize}[nosep]
+  \item \textbf{Integrated moment loss} (Helmholtz, volume-averaged) AND
+  \item \textbf{Spatially-resolved point-field loss} (Teslameter, per-face, per-axis)
+\end{itemize}
+
+\noindent is much greater than either alone. A paper that demonstrates consistent
+demagnetization signatures across two independent measurement techniques, on
+multiple sample geometries (Y-plates, H-plates, A-samples), is qualitatively
+stronger than Helmholtz-only results.
+
+For H-plates in particular, the Teslameter measures field in a Halbach-like
+configuration, which is the actual geometry relevant to FFA magnets. Showing
+point-field degradation in Halbach geometry directly addresses the design
+question.
+
+\subsection{Improvement Opportunity}
+
+The 3D-printed rigs have inherent backlash and positioning tolerance. A machined
+metal jig for top-face measurements could potentially reduce the 0.14--0.29\%
+noise floor. This is a high-priority target: getting top-face noise below
+${\sim}0.15\%$ would make the Teslameter precise enough to independently detect
+the ${\sim}0.2\%$ demagnetization signal, transforming it from a noisy
+cross-check into a publishable primary measurement.
+
+
+%=============================================================================
+\section{Statistical Methods}
+\label{sec:stats}
+%=============================================================================
+
+\subsection{Basic Statistics}
+
+\textbf{Mean:} The average of $N$ values.
+\begin{equation*}
+\bar{x} = \frac{1}{N} \sum_{i=1}^{N} x_i
+\end{equation*}
+
+\textbf{Standard deviation (sample):} A measure of spread. We use
+\texttt{ddof=1} (Bessel's correction) because we are estimating from a sample:
+\begin{equation*}
+s = \sqrt{\frac{1}{N-1} \sum_{i=1}^{N} (x_i - \bar{x})^2}
+\end{equation*}
+
+In Python: \texttt{np.std(data, ddof=1)}
+
+\textbf{Standard error of the mean (SEM):} How precisely we know the mean:
+\begin{equation*}
+\mathrm{SEM} = \frac{s}{\sqrt{N}}
+\end{equation*}
+
+With 30 tunnel plates and $\mathrm{std} \approx 0.15\%$, the SEM is
+$0.15/\sqrt{30} = 0.028\%$.
+
+\subsection{Percentage Change Formula}
+
+For each sample:
+\begin{equation*}
+\text{pct\_change} = \frac{\text{latest\_corrected} - \text{baseline\_mean\_corrected}}
+                          {\text{baseline\_mean\_corrected}} \times 100
+\end{equation*}
+
+where ``corrected'' means temperature-corrected to \SI{20}{\degreeCelsius}.
+
+\subsection{Per-Plate Differential}
+
+For each Y-plate with slots assigned to materials:
+\begin{equation*}
+\delta = \overline{\Delta}_{\mathrm{NdFeB}} - \overline{\Delta}_{\mathrm{SmCo}}
+\end{equation*}
+
+The fleet differential is the mean of $\delta$ across all tunnel plates.
+
+\subsection{Sigma Significance}
+
+How many standard errors the result is from zero:
+\begin{equation*}
+\sigma = \frac{|\text{result}|}{\text{uncertainty}}
+\end{equation*}
+
+For example:
+\begin{align*}
+\text{differential} &= -0.208\% \\
+\mathrm{SEM} &= 0.028\% \\
+\sigma &= 0.208\,/\,0.028 = 7.4 \quad \text{(approximately 7.6 with exact numbers)}
+\end{align*}
+
+Rough guide:
+\begin{itemize}[nosep]
+  \item $1\sigma$: 68\% confidence, not significant
+  \item $2\sigma$: 95\% confidence, suggestive
+  \item $3\sigma$: 99.7\% confidence, evidence
+  \item $5\sigma$: 1 in 3.5 million chance of noise, discovery-level
+\end{itemize}
+
+Our $7.6\sigma$ is extremely significant statistically.
+
+\subsection{Combined Significance (Quadrature)}
+
+When multiple independent uncertainties contribute, combine them in quadrature:
+\begin{equation*}
+\sigma_{\mathrm{combined}} = \sqrt{\sigma_{\mathrm{stat}}^2 + \sigma_{\mathrm{syst,1}}^2 + \sigma_{\mathrm{syst,2}}^2 + \cdots}
+\end{equation*}
+
+For our differential:
+\begin{align*}
+\sigma_{\mathrm{combined}} &= \sqrt{0.028^2 + 0.033^2 + 0.014^2} = 0.045\% \\
+\text{combined significance} &= 0.208\,/\,0.045 = 4.6\sigma
+\end{align*}
+
+\subsection{When to Use Paired vs Absolute Tests}
+
+\textbf{Paired (preferred for Y-plates):} Each plate has its own NdFeB--SmCo
+differential. Compare the distribution of these differentials to zero. This is
+what we do for the headline result.
+
+\textbf{Absolute (for individual materials):} Compare the mean percent change
+for all N42EH samples to zero. This carries the full gain systematic.
+
+\textbf{Unpaired (for tunnel vs lab):} Compare the mean differential from 30
+tunnel plates to the mean from 9 lab plates. Different plates, so unpaired.
+Combined SEM $= \sqrt{\mathrm{SEM}_{\mathrm{tunnel}}^2 + \mathrm{SEM}_{\mathrm{lab}}^2}$.
+
+
+%=============================================================================
+\section{Outlier Handling}
+\label{sec:outliers}
+%=============================================================================
+
+\subsection{Flagged Samples}
+
+Two Y-plate samples are excluded from all fleet calculations:
+
+\begin{table}[htbp]
+\centering
+\caption{Excluded outlier samples.}
+\label{tab:outliers}
+\begin{tabular}{@{}llp{8cm}@{}}
+\toprule
+Sample & Material & Issue \\
+\midrule
+Y-34-4 & N52SH   & Shows $+11.3\%$ change as of June 2026 (physically implausible) \\
+Y-40-4 & SmCo33H & Shows $-6.1\%$ change as of June 2026 (physically implausible) \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+These are suspected baseline measurement errors (e.g., wrong magnet measured,
+data entry mistake, or rig malfunction during baseline). The specific percentages
+vary by campaign but are always far outside the physical range; their changes are
+10--50$\times$ larger than anything else in the dataset.
+
+\subsection{Threshold Exclusion}
+
+The gain systematic analysis uses a 3.0\% threshold: any sample showing $>3\%$
+change in the pre-deployment sessions is excluded from the gain calculation. Only
+Y-34-4 and Y-40-4 exceed this threshold.
+
+\subsection{SmCo ``Positive'' Changes}
+
+Some SmCo samples show small positive changes ($+0.2$ to $+0.4\%$). These are
+within the noise floor and are NOT treated as outliers:
+
+\begin{itemize}[nosep]
+  \item The SmCo distribution has mean near zero and std ${\sim}0.17\%$
+  \item Positive tails up to ${\sim}0.4\%$ are expected from Gaussian statistics
+  \item On an absolute mWC scale, the largest excursion ($+0.0043$\,mWC) is only
+    1.5--2$\times$ the single-reading noise (${\sim}0.002$--$0.003$\,mWC)
+\end{itemize}
+
+\subsection{How Outlier Exclusion Affects Results}
+
+\begin{table}[htbp]
+\centering
+\caption{Effect of outlier exclusion on key metrics.}
+\label{tab:outlier-effect}
+\begin{tabular}{@{}lcc@{}}
+\toprule
+Metric & With outliers & Without outliers \\
+\midrule
+Fleet differential  & $-0.204\%$    & $-0.208\%$    \\
+Gain systematic     & $\pm 0.248\%$ & $\pm 0.124\%$ \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+The differential changes by only 0.004\% when outliers are removed, showing the
+result is not driven by a few extreme points.
+
+
+%=============================================================================
+\section{Error Budget Table}
+\label{sec:errorbudget}
+%=============================================================================
+
+\subsection{For the Gain-Immune Intra-Plate Differential}
+
+This is our primary measurement, and its error budget is what matters most.
+
+\begin{table}[htbp]
+\centering
+\caption{Error budget for the intra-plate differential.}
+\label{tab:errbudget-diff}
+\begin{tabular}{@{}lcp{6.5cm}@{}}
+\toprule
+Source & Magnitude & How estimated \\
+\midrule
+Statistical (SEM, 30 plates)              & $\pm 0.028\%$ & $\mathrm{std}/\sqrt{N}$ from data \\
+Baseline temperature ($\pm$\SI{0.5}{\degreeCelsius}) & $\pm 0.033\%$ & $0.066\%/\si{\degreeCelsius} \times \SI{0.5}{\degreeCelsius}$ \\
+Alpha uncertainty ($\pm 10\%$)            & $\pm 0.014\%$ & Propagated from manufacturer tolerance \\
+Gain systematic                           & \textbf{0}    & Cancels by construction (intra-plate) \\
+\midrule
+\textbf{Combined (quadrature)}            & $\boldsymbol{\pm 0.045\%}$ & $\sqrt{0.028^2 + 0.033^2 + 0.014^2}$ \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\textbf{Final result:}
+$-0.208\% \pm 0.028\%\;\text{(stat)} \pm 0.036\%\;\text{(syst)} = -0.208\% \pm 0.045\%\;\text{(combined)}$
+
+\textbf{Significance:} $7.6\sigma$ (stat only), $4.6\sigma$ (combined)
+
+See also Figure~\ref{fig:uncertainty-budget} for a graphical view of the
+uncertainty budget.
+
+\subsection{For Individual Materials}
+
+When quoting a single material's mean change, the gain systematic does not
+cancel:
+
+\begin{table}[htbp]
+\centering
+\caption{Error budget comparison: differential vs individual material.}
+\label{tab:errbudget-indiv}
+\begin{tabular}{@{}lcc@{}}
+\toprule
+Source & Differential & Individual material \\
+\midrule
+Statistical (SEM)         & $\pm 0.028\%$ & $\pm 0.036\%$ \\
+Baseline temperature      & $\pm 0.033\%$ & $\pm 0.050\%$ \\
+Alpha uncertainty         & $\pm 0.014\%$ & $\pm 0.021\%$ \\
+Gain systematic           & 0             & $\pm 0.124\%$ \\
+\midrule
+\textbf{Combined}         & $\boldsymbol{\pm 0.045\%}$ & $\boldsymbol{\pm 0.140\%}$ \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+For individual materials, the gain systematic ($\pm 0.124\%$) dominates the
+error budget, making the combined uncertainty ${\sim}3\times$ worse than for the
+differential.
+
+\subsection{Visual Summary}
+
+The bar chart below shows the relative contribution of each error source.
+Magnitudes are in percent; longer bars indicate larger uncertainties.
+
+\begin{table}[htbp]
+\centering
+\caption{Error budget visual comparison. Bar length is proportional to magnitude.}
+\label{tab:errbudget-visual}
+\small
+\begin{tabular}{@{}lrl@{}}
+\toprule
+\multicolumn{3}{@{}l}{\textbf{Differential error budget}} \\
+\midrule
+Statistical  & 0.028\% & \rule{28mm}{6pt} \\
+Temperature  & 0.033\% & \rule{33mm}{6pt} \\
+Alpha        & 0.014\% & \rule{14mm}{6pt} \\
+Gain         & (cancels) & \\
+\textbf{Combined} & \textbf{0.045\%} & \rule{45mm}{6pt} \\
+\midrule
+\multicolumn{3}{@{}l}{\textbf{Individual material error budget}} \\
+\midrule
+Statistical  & 0.036\% & \rule{10.8mm}{6pt} \\
+Temperature  & 0.050\% & \rule{15.0mm}{6pt} \\
+Alpha        & 0.021\% & \rule{6.3mm}{6pt} \\
+Gain         & 0.124\% & \rule{37.2mm}{6pt} \\
+\textbf{Combined} & \textbf{0.140\%} & \rule{42.0mm}{6pt} \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+Note: In the individual material section, bars are scaled so that the combined
+uncertainty (0.140\%) fits the same visual width as the differential combined
+(0.045\%), to facilitate comparison of the relative contributions within each
+budget. The absolute magnitudes are given in the numeric column.
+
+\begin{figure}[htbp]
+  \centering
+  \includegraphics[width=0.85\textwidth]{P5_uncertainty_budget.png}
+  \caption{Uncertainty budget for the intra-plate differential. The baseline
+    temperature uncertainty is the largest systematic; gain cancels entirely.}
+  \label{fig:uncertainty-budget}
+\end{figure}
+
+
+%=============================================================================
+\section{Lab Controls Validation}
+\label{sec:labcontrols}
+%=============================================================================
+
+\subsection{The Logic}
+
+If our measurement system introduces a material-dependent bias (e.g., if the
+temperature correction formula is wrong, or if NdFeB and SmCo respond
+differently to some instrumental effect), then the lab control plates should show
+the same bias as the tunnel plates. They do not.
+
+\subsection{Lab Results}
+
+9 lab Y-plates, never exposed to tunnel radiation:
+
+\begin{table}[htbp]
+\centering
+\caption{Lab control plate results.}
+\label{tab:lab-results}
+\begin{tabular}{@{}lcccc@{}}
+\toprule
+Group & NdFeB mean & SmCo mean & Differential & Significance \\
+\midrule
+Lab & $+0.014\% \pm 0.025\%$ & $+0.020\% \pm 0.018\%$ & $-0.007\% \pm 0.038\%$ & $0.2\sigma$ \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+The lab differential is $-0.007\%$, consistent with zero. This means our entire
+analysis pipeline (temperature correction, percentage change calculation,
+differential computation) does NOT produce a spurious NdFeB--SmCo difference
+(see Figure~\ref{fig:lab-controls}).
+
+\subsection{Tunnel vs Lab Comparison}
+
+\begin{table}[htbp]
+\centering
+\caption{Tunnel vs lab comparison.}
+\label{tab:tunnel-lab}
+\begin{tabular}{@{}lcccc@{}}
+\toprule
+& NdFeB (\%) & SmCo (\%) & Differential (\%) & Significance \\
+\midrule
+Tunnel (30 plates) & $-0.212 \pm 0.026$ & $-0.004 \pm 0.022$ & $-0.208 \pm 0.028$ & $7.6\sigma$ \\
+Lab (9 plates)     & $+0.014 \pm 0.025$ & $+0.020 \pm 0.018$ & $-0.007 \pm 0.038$ & $0.2\sigma$ \\
+\textbf{Tunnel $-$ Lab} & $\boldsymbol{-0.226 \pm 0.036}$ & $\boldsymbol{-0.024 \pm 0.029}$ & $\boldsymbol{-0.202 \pm 0.047}$ & $\boldsymbol{4.3\sigma}$ \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+The tunnel-minus-lab excess of $-0.202\% \pm 0.047\%$ is independently
+significant at $4.3\sigma$. This tells us:
+
+\begin{enumerate}[nosep]
+  \item The signal exists only in tunnel plates (exposed to radiation)
+  \item Lab plates (same materials, same pipeline, no radiation) show null
+  \item The measurement system is unbiased at the 0.04\% level
+  \item Any artifact that affected all plates equally (gain, temperature, etc.)
+    would appear in both tunnel and lab, and cancel in the difference
+\end{enumerate}
+
+\subsection{Why 9 Lab Plates Is Enough}
+
+With 9 plates and a per-plate differential std of ${\sim}0.11\%$, the lab SEM is
+$0.11/\sqrt{9} = 0.037\%$, giving us ${\sim}3\times$ resolution on any
+systematic bias at the 0.1\% level. A null result at 0.038\% SEM means any real
+lab effect is smaller than ${\sim}0.08\%$ ($2\sigma$ upper bound).
+
+\subsection{What This Rules Out}
+
+The lab null result rules out:
+\begin{itemize}[nosep]
+  \item Systematic bias in the temperature correction
+  \item Material-dependent aging in the absence of radiation (at least at our
+    measurement precision, over this timeframe)
+  \item Helmholtz coil response depending on material type
+  \item Any analysis pipeline bug that produces a NdFeB--SmCo difference
+\end{itemize}
+
+\begin{figure}[htbp]
+  \centering
+  \includegraphics[width=0.85\textwidth]{P4_lab_controls.png}
+  \caption{Lab control plate results. The lab differential is consistent with
+    zero ($0.2\sigma$), confirming no measurement bias.}
+  \label{fig:lab-controls}
+\end{figure}
+
+
+%=============================================================================
+\appendix
+\section{Key Scripts Reference}
+\label{app:scripts}
+%=============================================================================
+
+\begin{longtable}{@{}lp{3.5cm}p{7cm}@{}}
+\caption{Key analysis scripts.} \label{tab:scripts} \\
+\toprule
+Script & Location & Purpose \\
+\midrule
+\endfirsthead
+\toprule
+Script & Location & Purpose \\
+\midrule
+\endhead
+\texttt{temperature\_corrected\_analysis.py} & \texttt{Cleanup\_Claude/} & Core temperature correction and differential calculation \\
+\texttt{gain\_systematic\_analysis.py} & \texttt{Cleanup\_Claude/} & Gain systematic deep-dive \\
+\texttt{within\_session\_drift.py} & \texttt{Cleanup\_Claude/} & Within-session drift validation \\
+\texttt{manager\_summary\_v3.py} & \texttt{Cleanup\_Claude/} & Fleet statistical summaries \\
+\texttt{campaign2\_quality\_check.py} & \texttt{2026\_Data\_Run/} & C2 data quality and parsing \\
+\texttt{c2\_june\_analysis.py} & \texttt{2026\_Data\_Run/} & June 2--3 analysis with temp data \\
+\texttt{temp\_sensor\_comparison.py} & \texttt{Measurement\_Improvement/} & Arduino vs Teslameter cross-calibration \\
+\texttt{verify\_results.py} & \texttt{Data\_Package/} & 21-check standalone verification \\
+\bottomrule
+\end{longtable}
+
+
+%=============================================================================
+\section{Glossary}
+\label{app:glossary}
+%=============================================================================
+
+\begin{longtable}{@{}lp{10cm}@{}}
+\caption{Glossary of key terms.} \label{tab:glossary} \\
+\toprule
+Term & Definition \\
+\midrule
+\endfirsthead
+\toprule
+Term & Definition \\
+\midrule
+\endhead
+\textbf{Baseline}             & Pre-deployment measurement(s) of a sample's magnetic moment \\
+\textbf{Campaign 1 (C1)}      & Initial deployment, Jan 2025 to Jan 2026 \\
+\textbf{Campaign 2 (C2)}      & Ongoing deployment, started Apr 2026 \\
+\textbf{Differential}          & NdFeB mean \% change minus SmCo mean \% change (per plate) \\
+\textbf{Fleet}                 & All 30 tunnel Y-plates collectively \\
+\textbf{Gain}                  & Multiplicative calibration factor of the Helmholtz system \\
+\textbf{mWC}                   & milliWeber-centimeter, unit of magnetic moment \\
+\textbf{mT}                    & milliTesla, unit of magnetic field strength \\
+\textbf{SEM}                   & Standard Error of the Mean $= \mathrm{std}/\sqrt{N}$ \\
+\textbf{Sentinel (1337)}       & Missing data marker \\
+$T_{\mathrm{ref}}$            & Reference temperature, \SI{20.0}{\degreeCelsius} \\
+\textbf{Y-plate}              & Primary sample holder with 4 randomized material slots \\
+\bottomrule
+\end{longtable}
+
+
+\end{document}

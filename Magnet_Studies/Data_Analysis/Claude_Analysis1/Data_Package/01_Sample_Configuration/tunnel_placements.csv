@@ -1,0 +1,31 @@
+plate_number,y_plate,h_plate,region,sub_location,line_position
+15,Y15,N10,SE Arc,upstream Girder 27,1
+3,Y3,N16,SE Arc,upstream Girder 27,2
+23,Y23,N9,SE Arc,upstream Girder 27,3
+26,Y26,N37,SE Arc,upstream Girder 27,4
+40,Y40,N8,SE Arc,upstream Girder 27,5
+39,Y39,S12,NE Arc,above JD3A06,1
+7,Y7,S16,NE Arc,above JD3A06,2
+18,Y18,S20,NE Arc,above JD3A06,3
+21,Y21,S6,NE Arc,above JD3A06,4
+9,Y9,S14,NE Arc,above JD3A06,5
+38,Y38,N12,NW Arc,above MJC4A24,1
+6,Y6,N39,NW Arc,above MJC4A24,2
+36,Y36,N17,NW Arc,above MJC4A24,3
+25,Y25,N11,NW Arc,above MJC4A24,4
+34,Y34,N18,NW Arc,above MJC4A24,5
+13,Y13,S1,SW Arc,above MJC4A14,1
+32,Y32,S2,SW Arc,above MJC4A14,2
+19,Y19,S17,SW Arc,above MJC4A14,3
+10,Y10,S10,SW Arc,above MJC4A14,4
+11,Y11,S3,SW Arc,above MJC4A14,5
+12,Y12,S4,Labyrinth,North Access Labyrinth,0
+17,Y17,N20,North Linac,NL NDX @ Girder 5,0
+4,Y4,S7,North Linac,NL Inj/Ret Crossover (0L05 NDX),0
+16,Y16,S15,North Linac,NL NDX @ Girder 23,0
+22,Y22,N15,North Linac,NL NDX @ Girder 26,0
+20,Y20,S5,Labyrinth,South Access Labyrinth,0
+24,Y24,S13,South Linac,SL NDX @ Girder 4,0
+5,Y5,N19,South Linac,SL NDX @ Girder 6,0
+1,Y1,N6,South Linac,SL NDX @ Girder 23,0
+30,Y30,S18,South Linac,SL NDX @ Girder 25,0

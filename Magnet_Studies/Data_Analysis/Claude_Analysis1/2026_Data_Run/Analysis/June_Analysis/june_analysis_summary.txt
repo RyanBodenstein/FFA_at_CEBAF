@@ -1,0 +1,121 @@
+======================================================================
+C2 JUNE ANALYSIS SUMMARY
+Generated: 2026-06-04 09:36:29
+======================================================================
+
+DATA INVENTORY
+  Tunnel samples in C1 reference: 120
+  With June data:  120
+  With April data: 118
+  With both Apr + Jun: 118
+
+  Missing April: Y-6-2, Y-23-1
+  June-only (no April): Y-6-2, Y-23-1
+
+----------------------------------------------------------------------
+PER-MATERIAL STATISTICS (% change from C1 baseline)
+  Outlier-excluded (clean). Known outliers: Y-34-4, Y-40-4.
+----------------------------------------------------------------------
+
+  Excluded outliers: Y-34-4 (N52SH, C1=11.3%), Y-40-4 (SmCo33H, C1=-6.1%)
+
+  N42EH (NdFeB N42EH):
+    C1 endpoint vs baseline         mean=-0.252%  std=0.195%  N=30
+    C2 Apr vs baseline              mean=-0.436%  std=0.128%  N=28
+    C2 Jun vs baseline              mean=-0.272%  std=0.173%  N=30
+    C2 Jun vs Apr (internal)        mean=+0.161%  std=0.140%  N=28
+    C2 Jun vs C1 endpoint           mean=-0.019%  std=0.192%  N=30
+
+  N52SH (NdFeB N52SH):
+    C1 endpoint vs baseline         mean=-0.170%  std=0.195%  N=29
+    C2 Apr vs baseline              mean=-0.332%  std=0.122%  N=29
+    C2 Jun vs baseline              mean=-0.180%  std=0.176%  N=29
+    C2 Jun vs Apr (internal)        mean=+0.152%  std=0.153%  N=29
+    C2 Jun vs C1 endpoint           mean=-0.009%  std=0.205%  N=29
+
+  SmCo33H (SmCo 33H):
+    C1 endpoint vs baseline         mean=+0.037%  std=0.166%  N=29
+    C2 Apr vs baseline              mean=-0.118%  std=0.178%  N=29
+    C2 Jun vs baseline              mean=+0.043%  std=0.194%  N=29
+    C2 Jun vs Apr (internal)        mean=+0.162%  std=0.175%  N=29
+    C2 Jun vs C1 endpoint           mean=+0.007%  std=0.181%  N=29
+
+  SmCo35 (SmCo 35):
+    C1 endpoint vs baseline         mean=-0.044%  std=0.170%  N=30
+    C2 Apr vs baseline              mean=-0.161%  std=0.094%  N=30
+    C2 Jun vs baseline              mean=-0.013%  std=0.142%  N=30
+    C2 Jun vs Apr (internal)        mean=+0.148%  std=0.105%  N=30
+    C2 Jun vs C1 endpoint           mean=+0.033%  std=0.142%  N=30
+
+----------------------------------------------------------------------
+NdFeB-SmCo DIFFERENTIAL (gain-immune headline metric)
+----------------------------------------------------------------------
+
+Differential = mean(NdFeB pct) - mean(SmCo pct) per plate,
+then fleet mean +/- SEM across plates.
+
+  C1 endpoint                diff=-0.212% +/- 0.029% (7.2 sigma, N=28 plates)
+  C2 Apr vs baseline         diff=-0.235% +/- 0.026% (9.2 sigma, N=28 plates)
+  C2 Jun vs baseline         diff=-0.242% +/- 0.033% (7.4 sigma, N=28 plates)
+
+  C2-internal (Jun vs Apr):
+    diff=-0.004% +/- 0.024% (0.2 sigma, N=28 plates)
+
+----------------------------------------------------------------------
+Y-14 CALIBRATION PLATE
+----------------------------------------------------------------------
+
+  Y-14-1 (SmCo35):
+    2026-04-20 09:00:04  raw=1.0778  T=21.1C  corr=1.0783 mWC
+    2026-04-20 14:09:34  raw=1.0757  T=26.9C  corr=1.0787 mWC
+    2026-04-20 18:59:15  raw=1.0764  T=27.8C  corr=1.0797 mWC
+    2026-06-01 10:43:22  raw=1.0770  T=23.0C  corr=1.0783 mWC
+    2026-06-02 09:04:08  raw=1.0772  T=22.8C  corr=1.0784 mWC
+    2026-06-03 07:26:55  raw=1.0781  T=24.0C  corr=1.0798 mWC
+    2026-06-03 08:32:26  raw=1.0782  T=27.7C  corr=1.0815 mWC
+    2026-06-03 09:24:49  raw=1.0781  T=28.4C  corr=1.0817 mWC
+    Corrected range: 0.0035  spread: 0.322%
+
+  Y-14-2 (N42EH):
+    2026-04-20 09:00:34  raw=1.1698  T=21.6C  corr=1.1716 mWC
+    2026-04-20 14:10:00  raw=1.1648  T=27.0C  corr=1.1730 mWC
+    2026-04-20 18:58:47  raw=1.1659  T=27.5C  corr=1.1747 mWC
+    2026-06-01 10:45:32  raw=1.1706  T=23.4C  corr=1.1746 mWC
+    2026-06-02 09:05:23  raw=1.1704  T=23.3C  corr=1.1743 mWC
+    2026-06-03 07:27:23  raw=1.1701  T=24.1C  corr=1.1749 mWC
+    2026-06-03 08:32:49  raw=1.1676  T=27.4C  corr=1.1763 mWC
+    2026-06-03 09:25:18  raw=1.1675  T=28.3C  corr=1.1773 mWC
+    Corrected range: 0.0057  spread: 0.484%
+
+  Y-14-3 (SmCo33H):
+    2026-04-20 09:00:58  raw=1.0394  T=22.1C  corr=1.0403 mWC
+    2026-04-20 14:10:32  raw=1.0373  T=27.4C  corr=1.0404 mWC
+    2026-04-20 18:58:18  raw=1.0376  T=27.8C  corr=1.0408 mWC
+    2026-06-01 10:52:01  raw=1.0391  T=24.1C  corr=1.0408 mWC
+    2026-06-02 09:04:35  raw=1.0412  T=24.1C  corr=1.0429 mWC
+    2026-06-03 07:27:57  raw=1.0400  T=24.8C  corr=1.0420 mWC
+    2026-06-03 08:33:29  raw=1.0396  T=27.6C  corr=1.0428 mWC
+    2026-06-03 09:25:45  raw=1.0393  T=28.6C  corr=1.0429 mWC
+    Corrected range: 0.0026  spread: 0.252%
+
+  Y-14-4 (N52SH):
+    2026-04-20 09:01:39  raw=1.3037  T=22.3C  corr=1.3070 mWC
+    2026-04-20 14:11:04  raw=1.2951  T=27.5C  corr=1.3059 mWC
+    2026-04-20 18:57:46  raw=1.2973  T=27.7C  corr=1.3084 mWC
+    2026-06-02 09:04:57  raw=1.3023  T=24.1C  corr=1.3082 mWC
+    2026-06-03 07:28:31  raw=1.3027  T=24.9C  corr=1.3097 mWC
+    2026-06-03 08:33:58  raw=1.3005  T=27.8C  corr=1.3117 mWC
+    2026-06-03 09:26:11  raw=1.2992  T=28.3C  corr=1.3112 mWC
+    Corrected range: 0.0059  spread: 0.448%
+
+----------------------------------------------------------------------
+JUNE TEMPERATURE SUMMARY
+----------------------------------------------------------------------
+
+  Fleet (tunnel):  min=26.5C  max=30.1C  mean=28.6C  range=3.6C
+
+----------------------------------------------------------------------
+ANOMALIES
+----------------------------------------------------------------------
+  Y-3-2: 2 June readings (values: 1.2963, 1.0333); using last (1.0333)
+

@@ -1,0 +1,312 @@
+============================================================================================================================================
+TESLAMETER PROBE TEMPERATURE ANALYSIS — SINGLE INSTRUMENT, PROBE REPLACEMENT
+============================================================================================================================================
+
+CRITICAL CONTEXT (from user):
+  - There is only ONE Teslameter with ONE Hall probe at any given time.
+  - The Hall probe broke at some point and was REPLACED.
+  - All sample types (Y, H, A) were measured with the SAME device.
+  - Therefore, Y vs H vs A temperature differences on the same date reflect
+    real environmental factors (time-of-day, room differences, thermal
+    equilibration), NOT different probes.
+  - The question is: WHEN was the probe replaced, and does the data show
+    a systematic shift in temperature readings before vs after replacement?
+
+EXISTING ASSUMPTION (from systematic_error_investigation.md and v3 code):
+  - The Y-plate probe read ~2C too high during Nov 2024 pre-deployment baselines
+  - Probe showed ~24.5-25.4C; assumed actual lab temp ~22-23C
+  - The code applies a correction: Y_BASELINE_TEMP_LOOKUP overrides
+    pre-deployment temps to 22.5-23.0C
+
+DATA SOURCES:
+  Y-plates:   /Users/ryanmb/Documents/LDRD/Claude_Analysis1/Cleanup_Claude/Y_Plates/Teslameter/
+  A-samples:  /Users/ryanmb/Documents/LDRD/Claude_Analysis1/Cleanup_Claude/Pair_Assemblies/Teslameter/
+  H-plates:   /Users/ryanmb/Documents/LDRD/Claude_Analysis1/July17_2025_merge/ + Compare_Lab_Tunnel/
+  Total unique valid readings: 7680 (excluding 1337 sentinels)
+
+--------------------------------------------------------------------------------------------------------------------------------------------
+SECTION 1: CHRONOLOGICAL TEMPERATURE READINGS — ALL SAMPLE TYPES (SAME PROBE)
+--------------------------------------------------------------------------------------------------------------------------------------------
+
+Since all sample types use the SAME Teslameter, we can pool all readings on each
+date to get the most accurate picture of ambient temperature. Differences between
+sample types on the same date reflect measurement timing, room, and thermal lag.
+
+Date           ALL mean ALL std  N_all   Y mean   N_Y   Y hr   H mean   N_H   H hr   A mean   N_A   A hr     Y-H    Y-A    H-A
+--------------------------------------------------------------------------------------------------------------------------------------------
+2024-04-24        22.44    0.74     14    22.28    11   10.3      ---     0    ---    23.00     3   16.1     ---  -0.72    ---
+2024-04-26        24.56    0.10      5    24.56     5   11.7      ---     0    ---      ---     0    ---     ---    ---    ---
+2024-05-06        25.31    0.21      4    25.31     4   10.3      ---     0    ---      ---     0    ---     ---    ---    ---
+2024-06-24        26.30    0.09      2    26.30     2   12.3      ---     0    ---      ---     0    ---     ---    ---    ---
+2024-07-23        22.97    0.52     43    22.97    43   14.2      ---     0    ---      ---     0    ---     ---    ---    ---
+2024-09-30        25.99    0.66     53    26.66    12   16.6    25.80    17   15.3    25.80    24   16.0   +0.87  +0.87  +0.00
+2024-11-05        25.12    0.90    285    25.12   285   14.6      ---     0    ---      ---     0    ---     ---    ---    ---
+2024-11-07        24.62    0.65    180    24.62   180   14.9      ---     0    ---      ---     0    ---     ---    ---    ---
+2024-11-11        23.04    0.92     36      ---     0    ---    23.04    36   15.7      ---     0    ---     ---    ---    ---
+2024-11-12        23.55    0.79     12      ---     0    ---    23.55    12   16.5      ---     0    ---     ---    ---    ---
+2024-11-14        24.49    1.33     36      ---     0    ---    23.64    12   13.6    24.92    24   14.5     ---    ---  -1.27
+2024-11-18        26.25    0.72     84      ---     0    ---    26.34    12   13.6    26.23    72   14.7     ---    ---  +0.11
+2024-11-19        24.13    0.66     84      ---     0    ---    24.08    12   16.8    24.14    72   12.8     ---    ---  -0.06
+2024-11-20        25.69    1.63    255    25.38    15   15.2    24.62    72   14.3    26.17   168   14.1   +0.77  -0.79  -1.56
+2024-11-21        23.98    0.78    357      ---     0    ---    23.40   117   13.9    24.27   240   14.3     ---    ---  -0.87
+2024-11-22        25.38    1.19    144      ---     0    ---    24.28    48   15.1    25.93    96   15.2     ---    ---  -1.65
+2024-12-04        23.22    0.81    135      ---     0    ---    22.79    63   15.9    23.59    72   14.9     ---    ---  -0.80
+2025-02-05        23.01    0.36      8      ---     0    ---    23.01     8   11.1      ---     0    ---     ---    ---    ---
+2025-02-14        22.04    0.35      3      ---     0    ---      ---     0    ---    22.04     3   11.8     ---    ---    ---
+2025-07-15        24.17    0.95     66    24.22    63   11.2    23.25     3   12.0      ---     0    ---   +0.96    ---    ---
+2025-07-16        23.87    0.46     15    23.87    15   11.3      ---     0    ---      ---     0    ---     ---    ---    ---
+2025-07-17        32.62    0.80    722    32.34   180   11.0    32.43   176   11.1    32.85   366   11.1   -0.09  -0.51  -0.42
+2025-07-30        31.69    0.58    723    31.50   180   11.7    31.50   180   11.8    31.88   363   11.9   -0.00  -0.37  -0.37
+2025-08-26        23.86    0.76     48    23.34    12   12.9    23.74    12   13.1    24.18    24   13.2   -0.41  -0.84  -0.44
+2025-08-27        31.47    0.75   1397    31.39   372   10.9    31.37   371   10.9    31.58   654   11.0   +0.02  -0.19  -0.21
+2025-10-20        22.24    0.73     45    21.61    12   11.3    21.75    12   11.5    22.88    21   11.7   -0.13  -1.26  -1.13
+2025-10-21        24.96    1.93    720    24.68   180   10.5    24.94   180   10.5    25.11   360   10.6   -0.26  -0.43  -0.17
+2025-10-23        28.71    0.57    480    28.48   120   10.4    28.63   120   10.5    28.87   240   10.6   -0.16  -0.39  -0.24
+2025-10-29        28.08    0.38    240    27.69    60   11.0    27.99    60   11.1    28.32   120   11.2   -0.30  -0.63  -0.33
+2026-01-08        28.04    0.59    733    27.69   181   11.0    27.92   180   11.0    28.26   372   11.1   -0.23  -0.57  -0.34
+2026-01-12        27.58    1.11    720    27.22   180   10.8    27.21   180   10.8    27.95   360   10.9   +0.01  -0.72  -0.74
+--------------------------------------------------------------------------------------------------------------------------------------------
+
+--------------------------------------------------------------------------------------------------------------------------------------------
+SECTION 2: TIME-OF-DAY EFFECT (Y vs H vs A measurement order)
+--------------------------------------------------------------------------------------------------------------------------------------------
+
+On dates with multiple sample types, the difference between Y and H/A may
+simply reflect when each was measured. If Y is measured first (morning) and
+H/A later (afternoon), the building warms up and H/A reads higher.
+
+Date             Y_hr   H_hr   A_hr   Y-H temp  Y-H time   Y-A temp  Y-A time   H-A temp  H-A time
+--------------------------------------------------------------------------------------------------------------------------------------------
+2024-04-24       10.3    ---   16.1        ---       ---      -0.72      -5.8h        ---       ---
+2024-09-30       16.6   15.3   16.0      +0.87      +1.3h      +0.87      +0.5h      +0.00      -0.8h
+2024-11-20       15.2   14.3   14.1      +0.77      +0.9h      -0.79      +1.1h      -1.56      +0.2h
+2025-07-15       11.2   12.0    ---      +0.96      -0.8h        ---       ---        ---       ---
+2025-07-17       11.0   11.1   11.1      -0.09      -0.1h      -0.51      -0.1h      -0.42      -0.1h
+2025-07-30       11.7   11.8   11.9      -0.00      -0.1h      -0.37      -0.1h      -0.37      -0.1h
+2025-08-26       12.9   13.1   13.2      -0.41      -0.1h      -0.84      -0.3h      -0.44      -0.2h
+2025-08-27       10.9   10.9   11.0      +0.02      +0.0h      -0.19      -0.1h      -0.21      -0.1h
+2025-10-20       11.3   11.5   11.7      -0.13      -0.2h      -1.26      -0.4h      -1.13      -0.2h
+2025-10-21       10.5   10.5   10.6      -0.26      -0.1h      -0.43      -0.1h      -0.17      -0.1h
+2025-10-23       10.4   10.5   10.6      -0.16      -0.1h      -0.39      -0.2h      -0.24      -0.1h
+2025-10-29       11.0   11.1   11.2      -0.30      -0.1h      -0.63      -0.1h      -0.33      -0.1h
+2026-01-08       11.0   11.0   11.1      -0.23      -0.1h      -0.57      -0.1h      -0.34      -0.0h
+2026-01-12       10.8   10.8   10.9      +0.01      -0.1h      -0.72      -0.1h      -0.74      -0.1h
+--------------------------------------------------------------------------------------------------------------------------------------------
+
+--------------------------------------------------------------------------------------------------------------------------------------------
+SECTION 3: CRITICAL ANALYSIS — Nov 2024 PRE-DEPLOYMENT BASELINES
+--------------------------------------------------------------------------------------------------------------------------------------------
+
+The existing temperature correction assumes the probe read ~2C high during
+Nov 2024 Y-plate baselines. Let's examine the evidence:
+
+Nov 2024 measurement dates and what was measured:
+  2024-11-05  Y: 25.1C (n=285)                H: ---                          A: ---
+  2024-11-07  Y: 24.6C (n=180)                H: ---                          A: ---
+  2024-11-11  Y: ---                          H: 23.0C (n=36)                 A: ---
+  2024-11-12  Y: ---                          H: 23.5C (n=12)                 A: ---
+  2024-11-14  Y: ---                          H: 23.6C (n=12)                 A: 24.9C (n=24)
+  2024-11-18  Y: ---                          H: 26.3C (n=12)                 A: 26.2C (n=72)
+  2024-11-19  Y: ---                          H: 24.1C (n=12)                 A: 24.1C (n=72)
+  2024-11-20  Y: 25.4C (n=15)                 H: 24.6C (n=72)                 A: 26.2C (n=168)
+  2024-11-21  Y: ---                          H: 23.4C (n=117)                A: 24.3C (n=240)
+  2024-11-22  Y: ---                          H: 24.3C (n=48)                 A: 25.9C (n=96)
+
+KEY OBSERVATIONS:
+  - Nov 5 and Nov 7: ONLY Y-plates measured (25.1C, 24.6C). No H/A for comparison.
+  - Nov 11-19: ONLY H/A measured (23.0-26.2C range). No Y-plates.
+  - Nov 20: BOTH Y AND H measured! Y=25.4C, H=24.6C
+
+  DETAILED Nov 20, 2024 breakdown:
+    Y-plates:  n=15, mean=25.38C, range=[23.57, 26.27]
+               mean hour=15.2 (15:11)
+    H-plates:  n=72, mean=24.62C, range=[22.42, 26.74]
+               mean hour=14.3 (14:20)
+    A-samples: n=168, mean=26.17C, range=[22.51, 29.52]
+               mean hour=14.1 (14:06)
+    Y minus H: +0.77C
+    Y minus A: -0.79C
+    H minus A: -1.56C
+
+    Since Y, H, and A used the SAME probe, the Y-H=+0.77C and H-A=-1.56C
+    differences must be due to measurement timing and/or different rooms/conditions.
+
+--------------------------------------------------------------------------------------------------------------------------------------------
+SECTION 4: PROBE REPLACEMENT TIMELINE
+--------------------------------------------------------------------------------------------------------------------------------------------
+
+The DEGRADATION_SUMMARY.md states:
+  "Hall probe was changed before tunnel deployment"
+  "Baseline = first tunnel measurement (Jul 2025), not pre-deployment,
+   because the Hall probe was changed before deployment."
+
+This means the probe was changed sometime between the last pre-deployment
+measurement and the first tunnel measurement (Jul 2, 2025).
+
+  Last pre-deployment measurement date: 2025-02-14
+  First tunnel-era measurement date:    2025-07-15
+
+  Pre-deployment temperatures (ALL sample types pooled):
+    2024-11-18:  26.2C +/- 0.7C  (n=84, types: An, As, Hs)
+    2024-11-19:  24.1C +/- 0.7C  (n=84, types: An, Hn)
+    2024-11-20:  25.7C +/- 1.6C  (n=255, types: An, As, Hn, Hs, Y)
+    2024-11-21:  24.0C +/- 0.8C  (n=357, types: An, As, Hn, Hs)
+    2024-11-22:  25.4C +/- 1.2C  (n=144, types: An, As, Hn, Hs)
+    2024-12-04:  23.2C +/- 0.8C  (n=135, types: An, Hn)
+    2025-02-05:  23.0C +/- 0.4C  (n=8, types: Hn)
+    2025-02-14:  22.0C +/- 0.3C  (n=3, types: As)
+
+  Tunnel-era temperatures (ALL sample types pooled):
+    2025-07-15:  24.2C +/- 0.9C  (n=66, types: Hs, Y)
+    2025-07-16:  23.9C +/- 0.5C  (n=15, types: Y)
+    2025-07-17:  32.6C +/- 0.8C  (n=722, types: An, As, Hn, Hs, Y)
+    2025-07-30:  31.7C +/- 0.6C  (n=723, types: An, As, Hn, Hs, Y)
+    2025-08-26:  23.9C +/- 0.8C  (n=48, types: As, Hs, Y)
+    2025-08-27:  31.5C +/- 0.8C  (n=1397, types: An, As, Hn, Hs, Y)
+    2025-10-20:  22.2C +/- 0.7C  (n=45, types: As, Hs, Y)
+    2025-10-21:  25.0C +/- 1.9C  (n=720, types: An, As, Hn, Hs, Y)
+
+  NOTE: Temperature differences between pre-deployment and tunnel era largely
+  reflect ACTUAL ambient conditions (lab ~22-25C vs tunnel ~24-32C with beam
+  heating), not probe calibration changes.
+
+--------------------------------------------------------------------------------------------------------------------------------------------
+SECTION 5: WITHIN-DATE Y vs H DIFFERENCES (SAME PROBE)
+--------------------------------------------------------------------------------------------------------------------------------------------
+
+Since Y and H use the SAME probe, differences on the same date tell us about
+measurement conditions, NOT probe bias. The question is whether these differences
+are consistent with normal environmental variation.
+
+Date            Y mean  H mean     Y-H   Y hr   H hr  dt(hr)   N_Y   N_H  interpretation
+--------------------------------------------------------------------------------------------------------------------------------------------
+2024-09-30       26.66   25.80   +0.87   16.6   15.3    +1.3    12    17  Y measured LATER (warmer?) -- time gap explains temp diff
+2024-11-20       25.38   24.62   +0.77   15.2   14.3    +0.9    15    72  Y measured LATER (warmer?)
+2025-07-15       24.22   23.25   +0.96   11.2   12.0    -0.8    63     3  Y measured EARLIER (cooler?)
+2025-07-17       32.34   32.43   -0.09   11.0   11.1    -0.1   180   176  near-simultaneous
+2025-07-30       31.50   31.50   -0.00   11.7   11.8    -0.1   180   180  near-simultaneous
+2025-08-26       23.34   23.74   -0.41   12.9   13.1    -0.1    12    12  near-simultaneous
+2025-08-27       31.39   31.37   +0.02   10.9   10.9    +0.0   372   371  near-simultaneous
+2025-10-20       21.61   21.75   -0.13   11.3   11.5    -0.2    12    12  near-simultaneous
+2025-10-21       24.68   24.94   -0.26   10.5   10.5    -0.1   180   180  near-simultaneous
+2025-10-23       28.48   28.63   -0.16   10.4   10.5    -0.1   120   120  near-simultaneous
+2025-10-29       27.69   27.99   -0.30   11.0   11.1    -0.1    60    60  near-simultaneous
+2026-01-08       27.69   27.92   -0.23   11.0   11.0    -0.1   181   180  near-simultaneous
+2026-01-12       27.22   27.21   +0.01   10.8   10.8    -0.1   180   180  near-simultaneous
+--------------------------------------------------------------------------------------------------------------------------------------------
+
+Summary Y-H (all 13 dates): mean=+0.081C, median=-0.091C, std=0.467C
+Near-simultaneous (<0.5h gap, 10 dates): mean=-0.155C, median=-0.144C, std=0.145C
+  Dates: 2025-07-17, 2025-07-30, 2025-08-26, 2025-08-27, 2025-10-20, 2025-10-21, 2025-10-23, 2025-10-29, 2026-01-08, 2026-01-12
+
+--------------------------------------------------------------------------------------------------------------------------------------------
+SECTION 6: EVIDENCE FOR/AGAINST THE +2C PROBE BIAS HYPOTHESIS
+--------------------------------------------------------------------------------------------------------------------------------------------
+
+The existing code assumes pre-deployment Y readings (24.5-25.4C) were ~2C
+too high, and overrides them with 22.5-23.0C. What does the data say?
+
+EVIDENCE SUPPORTING probe reading high:
+  1. Nov 5 Y=25.1C and Nov 7 Y=24.6C are higher than typical H readings
+     on nearby dates (Nov 11 H=23.0C, Nov 12 H=23.5C).
+     BUT: these are DIFFERENT DAYS. Building temperature can vary 2C day-to-day.
+  2. The probe was replaced before tunnel deployment, suggesting it was known
+     to be unreliable.
+
+EVIDENCE AGAINST a simple +2C bias:
+  1. Nov 20 (ONLY same-day Y+H): Y=25.4C, H=24.6C, diff=+0.8C.
+     This is only +0.8C, not +2C. And Y was measured ~1hr later (warmer room).
+  2. Sep 30 (other same-day Y+H): Y=26.7C, H=25.8C, diff=+0.9C.
+     Only +0.9C, and Y was measured 1.3h later in the afternoon.
+  3. In the tunnel era (Jul 2025 onward, NEW probe), Y reads LOWER than H/A
+     on most dates. The mean Y-H is approximately -0.1C for high-stats dates.
+     This suggests the new probe has NO systematic Y-vs-H bias,
+     and any tunnel-era Y-H offsets are measurement-order effects.
+
+  4. The H-A offset (-0.58C mean) persists even in the tunnel era,
+     proving that same-date, same-probe differences of ~0.5C are NORMAL
+     and caused by measurement timing, not probe errors.
+
+--------------------------------------------------------------------------------------------------------------------------------------------
+SECTION 7: REVISED PRE-DEPLOYMENT TEMPERATURE ESTIMATES
+--------------------------------------------------------------------------------------------------------------------------------------------
+
+Given that all readings used the SAME probe, the pre-deployment Y-plate
+temperatures should be compared to H/A readings on the SAME or nearby dates
+to assess the magnitude of the 'old probe' bias.
+
+APPROACH: On each date, pool ALL available readings to estimate room temp.
+Where only Y exists, note the Y-only temp for reference.
+
+Date            Y temp  H temp  A temp All temp     N  Notes
+----------------------------------------------------------------------------------------------------
+2024-04-24        22.3     ---    23.0     22.4    14  
+2024-04-26        24.6     ---     ---     24.6     5  Y-ONLY (no cross-check)
+2024-05-06        25.3     ---     ---     25.3     4  Y-ONLY (no cross-check)
+2024-06-24        26.3     ---     ---     26.3     2  Y-ONLY (no cross-check)
+2024-07-23        23.0     ---     ---     23.0    43  Y-ONLY (no cross-check)
+2024-09-30        26.7    25.8    25.8     26.0    53  Y-H=+0.9C
+2024-11-05        25.1     ---     ---     25.1   285  Y-ONLY (no cross-check)
+2024-11-07        24.6     ---     ---     24.6   180  Y-ONLY (no cross-check)
+2024-11-20        25.4    24.6    26.2     25.7   255  Y-H=+0.8C
+----------------------------------------------------------------------------------------------------
+
+NEARBY H/A REFERENCE DATES (for Y-only dates):
+
+  2024-12-04: H=22.8C (n=63) -- nearest H to Nov 5/7 Y baselines
+  2024-11-11: H=23.0C (n=36)
+  2024-11-12: H=23.5C (n=12)
+  2024-11-14: H=23.6C (n=12)
+  2024-11-18: H=26.3C (n=12)
+  2024-11-19: H=24.1C (n=12)
+  2024-11-21: H=23.4C (n=117)
+  2024-11-22: H=24.3C (n=48)
+
+  Nov H-plate range: 23.0-26.3C (mean across all Nov H dates)
+  Pooled Nov H:    mean=23.9C, std=1.2C, n=321
+  Pooled Nov Y:    mean=24.9C, std=0.9C, n=480
+  Nov Y minus Nov H (pooled): +1.0C
+  BUT: Y and H were measured on DIFFERENT days (mostly), so this comparison
+  includes day-to-day temperature variation, not just any probe offset.
+
+--------------------------------------------------------------------------------------------------------------------------------------------
+SECTION 8: CONCLUSIONS AND RECOMMENDATIONS
+--------------------------------------------------------------------------------------------------------------------------------------------
+
+1. ALL sample types (Y, H, A) used the SAME Teslameter probe at any given time.
+   Within-date Y-H differences of +/-0.9C are NORMAL measurement-order effects.
+
+2. The probe was replaced before tunnel deployment (sometime between Dec 2024
+   and Jul 2025). The old probe may have read high, but the evidence from the
+   ONLY two same-day Y+H measurements (Sep 30 and Nov 20) shows:
+     - Sep 30: Y-H = +0.87C (Y measured 1.3h later)
+     - Nov 20: Y-H = +0.77C (Y measured ~1h later)
+   These are consistent with time-of-day warming, not a +2C probe bias.
+
+3. The comparison of Nov Y (25.0C mean) to Nov H (24.0C mean) on DIFFERENT days
+   shows ~1.0C offset, but this includes natural day-to-day variation.
+
+4. The tunnel-era data (NEW probe) shows Y reads 0.0-0.3C LOWER than H,
+   consistent with Y being measured first (cooler lab in morning).
+
+5. CRITICAL QUESTION: What external evidence exists that the old probe read
+   ~2C high? If this came from comparing Nov 5 Y=25.1C to an independent
+   room thermometer reading 22-23C, that would be strong evidence. But if it
+   only comes from comparing Y to H/A on different dates, the 2C estimate
+   may be an overestimate.
+
+6. IMPACT ON RESULTS:
+   - Current correction: subtracts ~2C from pre-deployment Y temps
+   - If actual bias was ~1C (consistent with same-day evidence), the
+     temperature correction is OVER-applied by ~1C, which would shift
+     the differential by ~+0.06% (less correction = more negative result).
+   - This is within the stated +/-0.06% temp uncertainty already in the
+     error budget, so the overall conclusion is robust.
+
+7. RECOMMENDATION: Investigate whether there is an independent room
+   thermometer record for Nov 2024 and the pre-deployment period. This
+   would definitively resolve the probe bias magnitude.
+
+============================================================================================================================================
+END OF REPORT
+============================================================================================================================================

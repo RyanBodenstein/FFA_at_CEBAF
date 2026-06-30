@@ -1,0 +1,118 @@
+Loading assembly configurations...
+  Found configs for 78 plates
+
+Collecting all lab H/A data...
+  192 H-plate samples, 384 A-samples
+  Dates range: 2024-12-04, 2025-02-05, 2025-02-06, 2025-02-14, 2025-02-26, 2025-08-26, 2025-08-27, 2025-12-17, 2026-01-30, 2026-02-06, 2026-02-13, 2026-02-20, 2026-03-02, 2026-03-09, 2026-03-20
+  150 with >=2 readings (can compute % change)
+  426 with only 1 reading (baseline only)
+
+Analyzing lab samples (RAW, no temp correction)...
+  122 samples with valid % change
+
+================================================================================
+LAB CONTROL H-PLATE AND A-SAMPLE ANALYSIS
+================================================================================
+
+IMPORTANT: All values are RAW (no temperature correction).
+Lab temp estimated 20-25°C. A 1°C error biases NdFeB by ~0.10%,
+SmCo by ~0.04%, and the NdFeB-SmCo differential by ~0.06%.
+
+----------------------------------------------------------------------
+H-PLATE (assembled): 40 samples
+----------------------------------------------------------------------
+  NdFeB (N=15):
+    Mean:   +0.426% +/- 0.152% (SEM)
+    StdDev: 0.587%
+    Median: +0.177%
+    Range:  [-0.258%, +1.417%]
+    Span:   0-470 days
+    Sign:   6 negative, 9 positive
+
+  SmCo (N=12):
+    Mean:   +0.240% +/- 0.131% (SEM)
+    StdDev: 0.454%
+    Median: +0.053%
+    Range:  [-0.280%, +1.072%]
+    Span:   195-408 days
+    Sign:   5 negative, 7 positive
+
+  NdFeB-SmCo differential (excl. Beta, anomalous):
+    NdFeB mean: +0.426% +/- 0.152% (N=15)
+    SmCo mean:  +0.240% +/- 0.131% (N=12)
+    Differential: +0.186% +/- 0.200% (0.9 sigma)
+
+  By assembly config:
+    Alpha  (N= 14): +0.331% +/- 0.130%
+    Delta  (N= 13): +0.350% +/- 0.149%
+    Gamma  (N= 13): +0.357% +/- 0.165%
+
+----------------------------------------------------------------------
+A-SAMPLE (individual): 82 samples
+----------------------------------------------------------------------
+  NdFeB (N=41):
+    Mean:   +0.398% +/- 0.099% (SEM)
+    StdDev: 0.632%
+    Median: +0.704%
+    Range:  [-1.055%, +1.135%]
+    Span:   369-436 days
+    Sign:   20 negative, 21 positive
+
+  SmCo (N=41):
+    Mean:   +0.125% +/- 0.081% (SEM)
+    StdDev: 0.520%
+    Median: -0.029%
+    Range:  [-1.355%, +1.966%]
+    Span:   195-408 days
+    Sign:   27 negative, 12 positive
+
+  NdFeB-SmCo differential (excl. Beta, anomalous):
+    NdFeB mean: +0.406% +/- 0.111% (N=30)
+    SmCo mean:  +0.142% +/- 0.072% (N=29)
+    Differential: +0.264% +/- 0.132% (2.0 sigma)
+
+  By assembly config:
+    Alpha  (N= 24): +0.253% +/- 0.108%
+    Beta   (N= 23): +0.225% +/- 0.157%
+    Delta  (N= 11): +0.307% +/- 0.165%
+    Gamma  (N= 24): +0.285% +/- 0.108%
+
+
+================================================================================
+PER-PLATE NdFeB-SmCo MATCHED DIFFERENTIAL (lab controls)
+================================================================================
+
+For each NdFeB plate, find the corresponding SmCo plate measured
+on the same dates. This is the closest analog to the Y-plate
+intra-plate differential (which was 9.7 sigma in the tunnel).
+
+NOTE: H-plates are SINGLE-MATERIAL, so NdFeB-SmCo pairing requires
+matching across separate plates, unlike Y-plates which have all 4
+materials on one plate. This introduces cross-plate variability.
+
+NdFeB plates with A-sample data: 6
+SmCo plates with A-sample data: 7
+
+NdFeB plate mean: +0.406% +/- 0.266% (N=6 plates)
+SmCo plate mean:  +0.096% +/- 0.145% (N=7 plates)
+Differential:     +0.310% +/- 0.303% (1.0 sigma)
+
+For comparison:
+  Tunnel Y-plate NdFeB-SmCo: -0.266% +/- 0.027% (9.7 sigma)
+  Lab Y-plate NdFeB-SmCo:    -0.006% +/- 0.019% (0.3 sigma)
+
+   Plate Material N_samples    Mean%   StdDev
+--------------------------------------------------
+  N- 1      NdFeB         5   +0.966    0.020
+  N- 7      NdFeB         5   -0.207    0.036
+  N-26      NdFeB         5   -0.174    0.049
+  N-30      NdFeB         5   +0.933    0.057
+  N-35      NdFeB         5   -0.176    0.059
+  N-38      NdFeB         5   +1.094    0.029
+  S- 9       SmCo         4   -0.066    0.013
+  S-11       SmCo         5   +0.004    0.028
+  S-22       SmCo         5   -0.004    0.123
+  S-23       SmCo         1   -0.162    0.000
+  S-29       SmCo         5   -0.015    0.109
+  S-36       SmCo         4   -0.044    0.047
+  S-40       SmCo         5   +0.959    0.021

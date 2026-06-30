@@ -1,0 +1,84 @@
+# Probe Bias Assessment — What Is the Correct Pre-Deployment Temperature?
+# Date: 2026-03-31 (Task 21f)
+
+## The Original Assumption Was Wrong
+
+We assumed the Y-plate Teslameter probe was reading ~2°C high, based on comparing
+Y-plate temps (~24.5-25.4°C) to an H/A Teslameter reading of 23.08°C on Dec 4.
+
+BUT: There is only ONE Teslameter. Y, H, and A samples all use the SAME device
+with the SAME probe. The "H/A Teslameter" and "Y-plate Teslameter" are the same
+instrument. The probe was replaced between Dec 2024 and Jul 2025.
+
+## What The Same-Day Data Shows
+
+Only 2 pre-deployment dates have both Y and H/A readings:
+  - Sep 30, 2024: Y=26.66°C, H=25.80°C → Y-H = +0.87°C (Y measured 1.3h later)
+  - Nov 20, 2024: Y=25.38°C, H=24.62°C → Y-H = +0.77°C (Y measured ~1h later)
+
+The Y-H difference is only ~0.8°C, and it's largely explainable by measurement
+timing (Y measured later → room warmer).
+
+In the tunnel era (new probe), near-simultaneous Y-H is -0.15°C ± 0.14°C,
+confirming that same-probe, same-date differences are small when measured
+at the same time.
+
+## The Day-to-Day Lab Temperature Variation Is LARGE
+
+November H-plate readings span 23.0-26.3°C across different days.
+The lab temperature varies by 3+ degrees day to day.
+Comparing Y on Nov 5 to H on Nov 11 (different days) does NOT measure probe bias.
+
+## Best Estimate of True Lab Temperature During Nov 5/7 Y-Plate Baselines
+
+The only fair comparison for Nov 5/7 Y-plate readings is:
+1. Nov 20 same-day: Y=25.4°C, H=24.6°C → Y-H = +0.8°C (includes time-of-day)
+2. Pooled Nov Y mean: 24.9°C
+3. Pooled Nov H mean (all Nov H dates): 24.0°C → Y-H = +1.0°C (different days)
+4. Tunnel-era same-date same-time Y-H: ~-0.15°C (probe reads same, new probe)
+
+If the old probe had NO bias, Nov 5/7 Y temps of 25.1/24.6°C would just be the
+actual lab temperature on those days. This is plausible given H=26.3°C on Nov 18.
+
+If the old probe had +0.8°C bias (consistent with same-day Nov 20 data), then:
+  Nov 5 actual temp: 25.1 - 0.8 = 24.3°C
+  Nov 7 actual temp: 24.6 - 0.8 = 23.8°C
+
+If the old probe had +1.0°C bias (consistent with pooled Nov Y vs H):
+  Nov 5 actual temp: 25.1 - 1.0 = 24.1°C
+  Nov 7 actual temp: 24.6 - 1.0 = 23.6°C
+
+## Impact on Results
+
+| Scenario | Assumed T | Y-H bias | Differential | Significance |
+|----------|-----------|----------|-------------|-------------|
+| No correction (original) | ~24.9°C | 0°C | -0.266% | 9.6σ |
+| Minimal bias (same-day) | ~24.1°C | +0.8°C | -0.207% | 7.5σ |
+| Moderate bias (pooled) | ~23.9°C | +1.0°C | -0.193% | 7.0σ |
+| Current code (overcorrected?) | 23.0°C | +2.0°C | -0.134% | 4.9σ |
+| Aggressive correction | 22.5°C | +2.5°C | -0.101% | 3.7σ |
+
+## Recommendation
+
+The current 23.0°C correction appears to OVERCORRECT by ~1°C.
+
+Best estimate: the true pre-deployment lab temperature was ~24.0 ± 0.5°C
+(based on pooled Nov H mean of 24.0°C and same-day Y-H of +0.8°C).
+
+This gives a differential of approximately:
+  -0.20% ± 0.03%(stat) ± 0.03%(temp) = -0.20% ± 0.04% (~5-8σ range)
+
+The 23.0°C estimate was based on comparing to Dec 4 H=22.8°C, which was simply
+a cold day in the lab — not representative of November conditions.
+
+## Action Items
+
+1. [DONE] Updated Y_BASELINE_TEMP_LOOKUP to per-date estimates (2026-03-31):
+   - Nov 5: 24.3°C (Y=25.1 minus 0.8°C bias)
+   - Nov 7: 23.8°C (Y=24.6 minus 0.8°C bias)
+   - Nov 20: 24.6°C (same-day H reading)
+   - Sep 30: 25.8°C (same-day H reading)
+   - Result: NdFeB-SmCo diff = -0.208% ± 0.028% (7.6σ)
+2. Present results with temperature uncertainty band (±0.03% from ±0.5°C)
+3. The signal is REAL regardless (even at 23°C it's 5σ), but the magnitude matters
+4. Seek independent room temperature data (Honeywell sensors) to resolve definitively

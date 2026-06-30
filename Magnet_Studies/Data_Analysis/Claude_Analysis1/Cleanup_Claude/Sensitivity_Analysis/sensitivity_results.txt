@@ -1,0 +1,48 @@
+# Temperature Sensitivity Analysis Results — 2026-03-31
+# Task 21a: How do results depend on assumed baseline temperature?
+
+## Key Finding: The results are STRONGLY linear in assumed temperature
+
+Every 1°C change in assumed lab temperature shifts the differential by ~0.066%.
+This means:
+  - At 23.0°C (current): diff = -0.134% (5.0σ)
+  - At 23.5°C:           diff = -0.166% (6.1σ)
+  - At 24.0°C:           diff = -0.199% (7.2σ)
+  - At 24.5°C:           diff = -0.231% (8.4σ)
+  - At 25.0°C (≈probe):  diff = -0.264% (9.6σ)  ← matches original
+
+## Physical Constraints on Temperature
+
+SmCo should NOT show positive degradation (it's radiation-hard, expected ≈0 or slightly negative):
+  - SmCo33H crosses zero at T_lab ≈ 25.1°C
+  - SmCo35 crosses zero at T_lab ≈ 23.0°C
+
+This means:
+  - If lab was truly 23°C: SmCo35 is exactly zero (OK), SmCo33H is +0.083% (suspicious)
+  - If lab was 24°C: SmCo35 = -0.039% (slight degradation, OK), SmCo33H = +0.043% (still positive)
+  - If lab was 25°C: SmCo35 = -0.079% (2.5σ), SmCo33H = +0.003% (zero) ← original values
+
+## The Dilemma
+
+The probe read ~24.5-25.4°C. The H/A Teslameter (different probe) read 23.08°C on Dec 4, 2024.
+The difference could be:
+  1. Y-probe was ~2°C high (our current assumption) → lab was ~23°C
+  2. Y-probe was only ~1°C high → lab was ~24°C → diff = -0.199% (7.2σ)
+  3. Y-probe was correct, H/A probe was low → diff = -0.264% (original)
+
+## What Would Help Resolve This
+
+1. Any independent lab temperature record (HVAC logs, other instruments)
+2. The Honeywell room temperature data (mentioned in task 6)
+3. Recalibration of either Teslameter probe
+4. Comparing multiple H/A Teslameter readings from the same period
+
+## Recommendation
+
+The TRUE lab temperature was probably between 23°C and 24°C:
+  - 23.0°C → diff = -0.134% (5.0σ)
+  - 24.0°C → diff = -0.199% (7.2σ)
+
+Best estimate: -0.17% ± 0.03%(temp) ± 0.03%(stat) ≈ -0.17% ± 0.04% (6σ range: 4-8σ)
+
+The signal IS real regardless of exact temperature. The question is magnitude.
